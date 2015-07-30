@@ -1,0 +1,30 @@
+<ion-modal-view>
+
+    <ion-header-bar class="bar bar-positive bar-header item-input-inset">
+        <label class="item-input-wrapper"> <i class="icon ion-ios-search placeholder-icon"></i> <input type="search"
+                                                                                                       ng-model="busca"
+                                                                                                       placeholder="Busca">
+        </label>
+        <button class="button button-clear"
+                ng-click="busca=''; closeModal()">
+            <i class="icon ion-ios-close-empty"></i>
+        </button>
+    </ion-header-bar>
+    <ion-content class="bg-content">
+
+        <ion-list>
+            <ion-item class="item-thumbnail-left "
+                      collection-repeat="item in data | filter:busca">
+                <img ng-src="{{ 'img/alimento/' + item.img.url }}"
+                     ng-show="item.img.url"/>
+
+                <h2>{{ item.nome }}</h2>
+
+                <p>{{item.kcal}} Kcal/uni.</p>
+
+                <p>{{item.medida}}</p>
+                <span class="badge badge-positive">0</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

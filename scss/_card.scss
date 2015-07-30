@@ -1,0 +1,26 @@
+
+ion-list.card {
+  margin-bottom : 10px !important;
+  display       : block;
+  }
+
+.card-list {
+
+  .card {
+    margin     : 5px;
+    width      : 30.5%;
+    display    : inline-block;
+    font-size  : 13px;
+    min-height : 110px;
+
+    i {
+      color : #40A4C4;
+      }
+
+    h2 {
+      font-size : 14px;
+      color     : #666;
+      }
+    }
+
+  }

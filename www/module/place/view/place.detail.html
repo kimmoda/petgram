@@ -1,0 +1,21 @@
+<ion-view view-title="{{ Place.data.title }}"
+          cache-view="false">
+    <ion-content class="bg-content">
+        <ion-slide-box class="Place-slider"
+                       style="display: block; max-height: 250px;"
+                       show-pager="true">
+            <ion-slide ng-repeat="item in Place.data.photos">
+                <div class="box blue foto_Place"><img ng-src="{{item.img}}"/></div>
+            </ion-slide>
+        </ion-slide-box>
+
+        <ion-list class="card">
+            <ion-item class="item-divider">Descrição</ion-item>
+            <ion-item>{{ Place.data.desc }}</ion-item>
+            <ion-item class="item-divider">Endereço</ion-item>
+            <ion-item>{{Place.data.address}}</ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
+

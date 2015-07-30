@@ -1,0 +1,20 @@
+<ion-view view-title="{{'Feedback' | translate}}">
+    <ion-content>
+
+        <formly-form model="Feedback.form"
+                     fields="Feedback.formFields"
+                     form="rForm">
+
+            <div class="padding">
+                <button class="button button-block button-positive"
+                        type="button"
+                        ng-disabled="rForm.$invalid"
+                        ng-click="Feedback.submitFeedback(rForm, Feedback.form)"
+                        translate>Enviar
+                </button>
+            </div>
+
+        </formly-form>
+
+    </ion-content>
+</ion-view>

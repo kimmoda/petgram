@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-nav-title>
+        {{Alimentos.title}}
+    </ion-nav-title>
+    <ion-content class="bg-content">
+        <div class="bar bar-dark bar-header item-input-inset">
+            <label class="item-input-wrapper"> <i class="icon ion-ios-search placeholder-icon"></i> <input type="search"
+                                                                                                           ng-model="busca"
+                                                                                                           placeholder="Busca">
+            </label>
+            <button class="button button-clear"
+                    ng-click="busca=''">
+                <i class="icon ion-ios-close-empty"></i>
+            </button>
+        </div>
+
+        <ion-list>
+            <ion-item class="item-thumbnail-left "
+                      collection-repeat="item in Alimentos.data | filter:busca">
+                <img ng-src="{{ 'img/alimento/' + item.img.url }}"
+                     ng-show="item.img.url"/>
+
+                <h2>{{ item.nome }}</h2>
+
+                <p>{{item.kcal}} Kcal/uni.</p>
+
+                <p>{{item.medida}}</p>
+                <span class="badge badge-assertive">0</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

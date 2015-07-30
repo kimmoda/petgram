@@ -1,0 +1,32 @@
+<ion-view title="{{ 'Card' | translate }}"
+          class="tabs-noborder"
+          ng-init="noborder=true">
+
+    <ion-tabs class="tabs-striped tabs-positive">
+
+        <ion-tab title="Vote"
+                 class="waves-effect waves-light"
+                 icon="ion-ios-browsers"
+                 ui-sref="app.card.home">
+            <ion-nav-view name="tabHome"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Raking"
+                 badge-style="badge-positive"
+                 icon="ion-stats-bars"
+                 class="waves-effect waves-light"
+                 ui-sref="app.card.ranking">
+            <ion-nav-view name="tabRanking"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Graph"
+                 badge-style="badge-positive"
+                 icon="ion-pie-graph"
+                 class="waves-effect waves-light"
+                 ui-sref="app.card.graph">
+            <ion-nav-view name="tabGraph"></ion-nav-view>
+        </ion-tab>
+
+    </ion-tabs>
+
+</ion-view>

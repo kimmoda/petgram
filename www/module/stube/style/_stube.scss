@@ -1,0 +1,431 @@
+/* Popup*/
+
+.popup-container .popup {
+  background    : #fff;
+  border-radius : 5px;
+  box-shadow    : 4px 4px 10px rgba(0, 0, 0, .3);
+  }
+
+.popup-container .popup * {
+  border     : none;
+  text-align : center;
+  }
+
+#loading-bar .bar {
+  background    : none !important;
+  border-bottom : none !important;
+  border-top    : 1px solid #AA0000 !important;
+  bottom        : 1px !important;
+  height        : 1px !important;
+  }
+
+#loading-bar .bar * {
+  display : none !important;
+  }
+
+.stube {
+
+  .top-search {
+    padding-top : 2px;
+    }
+
+  .top-search label.item-input-wrapper {
+    background : #FFFFFF;
+    }
+
+  .top-search input#searchText {
+    width : 100%;
+    }
+  .material-list .item {
+    margin  : 3px;
+    padding : 0;
+    }
+
+  @media screen and (min-width : 600px) {
+    .material-list .item {
+      width   : 50%;
+      display : inline-block;
+      }
+    }
+
+  @media screen and (min-width : 800px) {
+    .material-list .item {
+      width : 24.4%;
+      }
+    }
+
+  .card {
+    border : 1px solid #CCCCCC;
+    margin : 0px;
+    }
+
+  .card .item-content {
+    padding : 0;
+    }
+
+  .card .item-body {
+    margin     : 0;
+    min-height : 150px;
+    padding    : 0;
+    position   : relative;
+    width      : 100%;
+    }
+
+  .card .item-body .duration {
+    color     : #FFFFFF;
+    font-size : 11px;
+    position  : absolute;
+    right     : 10px;
+    top       : 5px;
+    }
+
+  .card .item-body img {
+    width : 100%;
+    }
+
+  .card .footer {
+    margin-top : -10px;
+    padding    : 10px;
+    }
+
+  .card.stars {
+    min-height : 250px;
+    }
+
+  /* View Video*/
+  .view-video .slider-slides {
+    background : #000000;
+    min-height : 200px;
+    }
+
+  .view-video ion-item.item-slide.item-dark.item {
+    background : #000000;
+    margin     : 0;
+    padding    : 0;
+    position   : relative;
+    }
+
+  .item-slide i.play {
+    color       : rgba(255, 255, 255, 0.4);
+    display     : block;
+    font-size   : 120pt;
+    left        : 40%;
+    line-height : 120pt;
+    position    : absolute;
+    top         : 25%;
+    z-index     : 2;
+    }
+
+  .view-video ion-item.item-slide img {
+    width : 100%;
+    }
+
+  .view-video button.button.button-dark-primary.waves-effect.waves-circle.waves-light {
+    background    : #000000;
+    border        : none;
+    border-radius : 50%;
+    bottom        : 50%;
+    color         : #FFFFFF;
+    left          : 50%;
+    position      : absolute;
+    z-index       : 999;
+    }
+
+  .action-buttons .action-buttons {
+    bottom   : -20px;
+    position : absolute;
+    right    : 10px;
+    }
+
+  .view-video .video {
+    background : #000000;
+    padding    : 0;
+
+    }
+
+  .view-video .video video {
+    width : 100%;
+    }
+
+  /* History*/
+
+  .view-history {
+
+    }
+
+  .view-history .item {
+    display : block;
+    width   : 100%;
+    }
+
+  /* Animate */
+  .repeat-animation.ng-enter-stagger,
+  .repeat-animation.ng-leave-stagger,
+  .repeat-animation.ng-move-stagger {
+    /* notice how we're using animation instead of transition here */
+    animation-delay            : 0.2s;
+    -webkit-animation-delay    : 0.2s;
+
+    /* yes we still need to do this too */
+    animation-duration         : 0;
+    -webkit-animation-duration : 0;
+    }
+
+  .repeat-animation.ng-move,
+  .repeat-animation.ng-enter {
+    animation         : enter_animation 0.5s;
+    -webkit-animation : enter_animation 0.5s;
+    opacity           : 0;
+    }
+
+  .repeat-animation.ng-leave {
+    animation         : leave_animation 0.3s;
+    -webkit-animation : leave_animation 0.3s;
+    }
+
+  @-webkit-keyframes enter_animation {
+    from {
+      -webkit-transform : scale(2.5, 2.5);
+      transform         : scale(2.5, 2.5);
+      opacity           : 0;
+      }
+    to {
+      -webkit-transform : scale(1, 1);
+      transform         : scale(1, 1);
+      opacity           : 1;
+      }
+    }
+
+  @keyframes enter_animation {
+    from {
+      -webkit-transform : scale(2.5, 2.5);
+      transform         : scale(2.5, 2.5);
+      opacity           : 0;
+      }
+    to {
+      -webkit-transform : scale(1, 1);
+      transform         : scale(1, 1);
+      opacity           : 1;
+      }
+    }
+
+  @-webkit-keyframes leave_animation {
+    to {
+      -webkit-transform : scale(2.5, 2.5);
+      transform         : scale(2.5, 2.5);
+      opacity           : 0;
+      }
+    from {
+      -webkit-transform : scale(1, 1);
+      transform         : scale(1, 1);
+      opacity           : 1;
+      }
+    }
+
+  @keyframes leave_animation {
+    to {
+      -webkit-transform : scale(2.5, 2.5);
+      transform         : scale(2.5, 2.5);
+      opacity           : 0;
+      }
+    from {
+      /* Safari IOS*/
+      -webkit-transform : scale(1, 1);
+      transform         : scale(1, 1);
+      opacity           : 1;
+      }
+    }
+
+  /* Animate List */
+  .list-animation.ng-enter-stagger,
+  .list-animation.ng-leave-stagger,
+  .list-animation.ng-move-stagger {
+    /* notice how we're using animation instead of transition here */
+    animation-delay            : 0.2s;
+    -webkit-animation-delay    : 0.2s;
+
+    /* yes we still need to do this too */
+    animation-duration         : 0;
+    -webkit-animation-duration : 0;
+    }
+
+  .list-animation.ng-move,
+  .list-animation.ng-enter {
+    animation         : enter_animation 0.5s;
+    -webkit-animation : enter_animation 0.5s;
+    opacity           : 0;
+    }
+
+  .list-animation.ng-leave {
+    animation         : leave_animation 0s;
+    -webkit-animation : leave_animation 0s;
+    }
+
+  /* Android*/
+
+  .platform-android {
+
+    .modal-video {
+
+      ion-modal-view .has-header {
+        padding : 0;
+        top     : 0px;
+        }
+
+      .bar-header, .button {
+        text-shadow : 1px 2px 4px rgba(0, 0, 0, .5);
+        }
+
+      }
+
+    }
+
+  .loading-container .loading {
+    background-color : #fff !important;
+    padding          : 30px;
+    }
+
+  .spinner svg {
+    height : 28px;
+    width  : 28px;
+    stroke : #AA0000;
+    fill   : #AA0000;
+    }
+
+  .tabs-striped a {
+    border-color : #AA0000 !important;
+    }
+
+  /* IOS */
+
+  .platform-ios ion-modal-view .has-header {
+    top : 0px !important;
+    }
+
+  .has-header {
+    top : 42px;
+    }
+
+  ion-content.scroll-content.ionic-scroll.has-header.has-tabs-top {
+    /*top: 90px !important;*/
+    }
+
+  .scroll-content {
+    background : #F4F4F4;
+    }
+
+  ion-header-bar.bar-dark.bar.bar-header.disable-user-behavior {
+    border : none;
+    }
+
+  .platform-android5.app-header-bar {
+    padding-top : 25px;
+    }
+
+  .video-frame {
+    border : 0;
+    height : 100%;
+    width  : 100%;
+    }
+
+  /* Locker */
+  .center {
+    display                 : -webkit-box;
+    display                 : -moz-box;
+    display                 : -ms-flexbox;
+    display                 : -webkit-flex;
+    display                 : flex;
+    -ms-flex-align          : center;
+    flex-direction          : row;
+    -ms-flex-direction      : row;
+    -webkit-flex-direction  : row;
+    -ms-flex-pack           : center;
+    -webkit-box-direction   : normal;
+    -moz-box-direction      : normal;
+    -webkit-box-orient      : horizontal;
+    -moz-box-orient         : horizontal;
+    -webkit-flex-wrap       : nowrap;
+    -ms-flex-wrap           : nowrap;
+    flex-wrap               : nowrap;
+    -webkit-box-pack        : center;
+    -moz-box-pack           : center;
+    -webkit-justify-content : center;
+    justify-content         : center;
+    -webkit-align-content   : stretch;
+    -ms-flex-line-pack      : stretch;
+    align-content           : stretch;
+    -webkit-box-align       : center;
+    -moz-box-align          : center;
+    -webkit-align-items     : center;
+    align-items             : center;
+    }
+
+  //
+  .item-slide {
+    padding : 0 !important;
+    }
+
+  .modal-video {
+    .bar {
+      background : transparent !important;
+      border     : none !important;
+      }
+    .view-video {
+      top : 0;
+      }
+    }
+
+  // Senha
+
+  .text-center {
+    text-align : center !important;
+    }
+
+  $cinza : #5F5F5F;
+  .locker {
+
+    .ionic-scroll {
+      background-color : $dark !important;
+      color            : #fff !important;
+
+      .line {
+        border-bottom : 1px solid $cinza;
+        }
+
+      .button {
+        background : none !important;
+        border     : 1px solid $cinza !important;
+        color      : #ccc !important;
+        }
+
+      }
+
+    }
+
+  .top-search {
+
+    form {
+      display     : block;
+      padding-top : 5px;
+      }
+
+    label {
+      border-radius : 0;
+      height        : 35px;
+      }
+
+    input {
+      background : none;
+      }
+
+    i {
+      text-shadow : none;
+      }
+
+    .button-icon {
+      position : absolute;
+      right    : 10px;
+      top      : 10px;
+      }
+    }
+  }

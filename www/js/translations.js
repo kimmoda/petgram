@@ -1,0 +1,1 @@
+"use strict";angular.module("translate",[]).run(["gettextCatalog",function(a){a.setStrings("pt_BR",{Card:"Cartão",Categories:"Categorias","Change Password":"Mudar Senha"})}]);

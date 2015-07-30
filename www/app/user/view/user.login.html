@@ -1,0 +1,42 @@
+<ion-view view-title="{{ 'Entrar' | translate }}">
+
+    <ion-content padding="true">
+
+        <div class="logo padding text-center animated bounceInDown">
+            <img src="img/ionic.png"/>
+        </div>
+
+        <formly-form model="Login.form"
+                     fields="Login.formFields"
+                     form="rForm">
+
+            <button class="button button-right button-block button-clear"
+                    ng-click="Login.forgotPass()">Esqueceu a sua senha?
+            </button>
+
+
+            <button class="button button-block button-positive"
+                    type="button"
+                    ng-disabled="rForm.$invalid"
+                    ng-click="Login.submitLogin(rForm, Login.form)"
+                    translate>Entrar
+            </button>
+
+        </formly-form>
+        <div class="line">
+            <div class="left"></div>
+            <span>ou</span>
+
+            <div class="right"></div>
+        </div>
+
+
+        <button-facebook></button-facebook>
+
+        <button class="button button-block button-clear"
+                user-register
+                >Ainda não está cadastrado? <b>Cadastrar</b></button>
+        </form>
+
+    </ion-content>
+</ion-view>

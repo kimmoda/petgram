@@ -1,0 +1,44 @@
+<ion-view title="Jogos">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-icon-right"
+                      ng-repeat="item in FutebolEquipeJogos.data | orderBy: 'nome'">
+
+                <div class="row">
+                    <div class="col"><img ng-src="{{ item.escudo_equipe_mandante }}"
+                                          style="display: block; width: 100%"/></div>
+                    <div class="col-10">VS</div>
+                    <div class="col"><img ng-src="{{ item.escudo_equipe_visitante }}"
+                                          style="display: block; width: 100%"/></div>
+                </div>
+                <div class="row">
+                    <div class="col">{{ item.nome_equipe_mandante }}</div>
+                    <div class="col-10"></div>
+                    <div class="col">{{ item.nome_equipe_visitante }}</div>
+                </div>
+
+
+                <h2>{{ item.grupo }}</h2>
+
+                <p>{{ item.compeonato }}</p>
+
+                <p>{{ item.data }}</p>
+
+                <p>{{ item.divisao }}</p>
+
+                <p>{{ item.edicao }}</p>
+
+                <p>{{ item.estadio }}</p>
+
+                <p>{{ item.fase }}</p>
+
+                <p>{{ item.estado }}</p>
+
+                <p>{{ item.hora }}</p>
+
+                <p>{{ item.rodada }}</p>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,11 @@
+require ('./dev/dev');
+require ('./dev/bower');
+require ('./dev/inject');
+require ('./dev/lint');
+require ('./dev/docs');
+require ('./dev/sass');
+require ('./dev/translate');
+require ('./dev/server');
+require ('./dev/watch');
+require ('./dev/test');
+require ('./dev/install');

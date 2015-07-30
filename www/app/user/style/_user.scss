@@ -1,0 +1,62 @@
+$color-white : #fff;
+
+.logo {
+  margin-bottom : 10px;
+}
+
+.button-facebook {
+  background : none repeat scroll 0 0 #3f569b !important;
+  border     : 1px solid darken(#3f569b, 20);
+  color      : #fff !important;
+  position   : relative;
+  width      : 100%;
+  //border-radius : 50px;
+  i {
+    border-right  : 1px solid rgba(255, 255, 255, 0.3);
+    left          : 20px;
+    padding-right : 10px;
+    position      : absolute;
+  }
+}
+
+.line {
+  display    : block;
+  margin     : 10px auto;
+  position   : relative;
+  text-align : center;
+  width      : 85%;
+
+  span {
+    font-size : 20px;
+    color     : #666;
+  }
+
+  .left {
+    background : #eee;
+    display    : block;
+    height     : 1px;
+    position   : absolute;
+    top        : 50%;
+    width      : 40%;
+  }
+
+  .right {
+    background : #eee;
+    display    : block;
+    height     : 1px;
+    position   : absolute;
+    right      : 0;
+    top        : 50%;
+    width      : 40%;
+  }
+
+}
+
+.button-clear.button-right {
+  border-color : transparent;
+  background   : none;
+  box-shadow   : none;
+  margin-top   : 0;
+  color        : #b2b2b2;
+  text-align   : right;
+}

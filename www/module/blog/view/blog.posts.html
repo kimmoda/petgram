@@ -1,0 +1,42 @@
+<ion-view title="{{ 'Wordpress' | translate }}">
+
+    <ion-content class="bg-content">
+
+        <ion-list class="card"
+                  ui-sref="app.blogPost({id: post.id})"
+                  ng-repeat="post in BlogPosts.data.posts">
+
+            <ion-item>
+                <h2>{{post.title}}</h2>
+
+                <p class="post-author">
+                    By <span>{{post.author.nickname}}</span> <span am-time-ago="post.date"></span>
+                </p>
+            </ion-item>
+            <ion-item class="item-image"
+                      ng-click="blog.open(post.slug)">
+                <img ng-src="{{post.thumbnail}}"
+                     class="full-image">
+            </ion-item>
+
+
+            <ion-item class="tabs tabs-dark tabs-secondary tabs-icon-left">
+                <a class="tab-item"> <i class="icon ion-thumbsup"></i> Curtir </a> <a class="tab-item">
+                <i class="icon ion-chatbox"></i> Comentar </a> <a class="tab-item"> <i class="icon ion-share"></i>
+                compartilhar </a>
+            </ion-item>
+
+        </ion-list>
+
+
+        <ion-item class="padding text-center"
+                  ng-if="!BlogPosts.data.posts && error">
+            <h3>Request Failed</h3>
+            <small>Check that you are online. If you are, the server may be offline.</small>
+        </ion-item>
+
+        <!-- Infinit scroll --><!--<ion-infinite-scroll ng-if="moreDataCanBeLoaded()"-->
+        <!--on-infinite="loadMoreData()"--><!--distance="1%"--><!--icon="ion-loading-c">--><!--</ion-infinite-scroll>-->
+    </ion-content>
+
+</ion-view>

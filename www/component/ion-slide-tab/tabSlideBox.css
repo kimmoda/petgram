@@ -1,0 +1,95 @@
+.tabbed-slidebox .slider {
+    height : 100%;
+}
+
+.tabbed-slidebox.btm .slider {
+    margin-bottom : -50px;
+}
+
+.tabbed-slidebox .slider-slides {
+    width : 100%;
+}
+
+.tabbed-slidebox .slider-slide {
+    background-color : #fff;
+    background-color : #0398dc;
+    color            : #000;
+    font-weight      : 300;
+    padding-top      : 0px;
+    text-align       : center;
+}
+
+.tabbed-slidebox .tsb-icons {
+    background-color : #fff;
+    margin           : 10px 0;
+    position         : relative;
+    text-align       : center;
+}
+
+.tabbed-slidebox .tsb-ic-wrp {
+    display            : flex;
+    position           : relative;
+    -webkit-transform  : translate3d(0, 0, 0); /* For Safari 3.1 to 6.0 */
+    -webkit-transition : -webkit-transform 0.3s;
+}
+
+.tabbed-slidebox .tsb-icons a {
+    color             : rgba(0, 0, 0, 0.3);
+    display           : inline-block;
+    font-size         : 2.5em;
+    -webkit-transform : translate3d(0, 8px, 0);
+    width             : 54px;
+}
+
+.tabbed-slidebox .tsb-icons a.active {
+    color             : rgba(0, 0, 0, 1);
+    font-size         : 3.5em;
+    -webkit-transform : translate3d(0, 0, 0);
+}
+
+.tabbed-slidebox .tabbed-slidebox {
+    height   : 100%;
+    overflow : hidden;
+    position : relative;
+}
+
+.tabbed-slidebox .tsb-icons:after {
+    border-color : transparent transparent #0398dc transparent;
+    border-style : solid;
+    border-width : 0 1.4em 1.4em 1.4em;
+    bottom       : -12px;
+    content      : "";
+    display      : block;
+    height       : 0;
+    left         : 50%;
+    margin-left  : -14px;
+    position     : absolute;
+    width        : 0;
+}
+
+.tsb-hscroll.scroll-view {
+    margin      : 0 auto;
+    white-space : nowrap;
+}
+
+.tsb-hscroll.scroll-view .scroll-bar {
+    visibility : hidden;
+}
+
+.tsb-hscroll.scroll-view .scroll.onscroll {
+    -webkit-transition : -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+}
+
+.tabbed-slidebox .tsb-icons .scroll a {
+    border-bottom   : 3px solid transparent;
+    font-size       : 1.5em;
+    line-height     : 1.5em;
+    margin          : 0 15px;
+    text-decoration : none;
+    width           : auto;
+}
+
+.tabbed-slidebox .tsb-icons .scroll a.active {
+    border-bottom : 3px solid #ccc;
+    font-size     : 1.8em;
+}

@@ -1,0 +1,24 @@
+<ion-view title="{{ 'Contact' | translate }}">
+    <ion-content>
+
+        <!--<ion-alpha-scroll class="item-avatar item-icon-right"  ng-model="ContactHome.data"-->
+        <!--key="item.name.formatted">--><!--<img ng-src="{{ item.photos[0].value }}"/>-->
+        <!--<h2>{{ item.name.formatted }}</h2>--><!--<i class="icon ion-ios-arrow-right"></i>-->
+        <!--</ion-alpha-scroll>-->
+
+
+        <ion-list>
+
+            <ion-item class="item-avatar item-icon-right"
+                      collection-repeat="item in ContactHome.data"
+                      ui-sref="app.contactView({id: item.id})">
+
+                <img ng-src="{{ item.photos[0].value }}"/>
+
+                <h2>{{ item.name.formatted }}</h2>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

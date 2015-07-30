@@ -1,0 +1,30 @@
+<ion-view view-title="Ionic Parse"
+          class="bg-content">
+    <ion-nav-title>
+        <img src='img/logo.png'/>
+    </ion-nav-title>
+    <ion-content padding="false">
+
+        <ion-slide-box style="display: block; height: 250px;"
+                       ng-if="Home.slideshow"
+                       show-pager="true">
+            <ion-slide ng-repeat="item in Home.slideshow">
+                <img ng-src="{{item.image._url}}"
+                     style="width:100%;"/>
+            </ion-slide>
+        </ion-slide-box>
+
+        <div class="card-list">
+            <div ng-repeat="item in Home.menu"
+                 class="card col home">
+                <ion-item class="item-text-wrap text-center">
+                    <h1><i class="icon {{item.icon}}"></i></h1>
+
+                    <h2>{{item.title}}</h2>
+                </ion-item>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

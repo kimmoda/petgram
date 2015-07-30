@@ -1,0 +1,396 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: alimento/config/alimentacao.config.js:10
+msgid "Alimentos"
+msgstr ""
+
+#: card/views/card.tab.html:1
+msgid "Card"
+msgstr ""
+
+#: stube/views/stube.categories.html:1
+#: stube/views/stube.categories.html:5
+msgid "Categories"
+msgstr ""
+
+#: stube/views/stube.settings.html:20
+msgid "Change Password"
+msgstr ""
+
+#: stube/views/stube.settings.html:9
+msgid "Change language"
+msgstr ""
+
+#: chat/config/chat.config.js:9
+#: chat/views/chat.list.html:1
+msgid "Chat"
+msgstr ""
+
+#: facebook/views/facebook.feed.html:44
+msgid "Comentar"
+msgstr ""
+
+#: facebook/views/facebook.feed.html:32
+msgid "Comentários"
+msgstr ""
+
+#: facebook/views/facebook.feed.html:49
+msgid "Compartilhar"
+msgstr ""
+
+#: contact/config/contact.config.js:9
+#: contact/views/contact.home.html:1
+msgid "Contact"
+msgstr ""
+
+#: facebook/views/facebook.feed.html:30
+msgid "Curtidas"
+msgstr ""
+
+#: facebook/views/facebook.feed.html:39
+msgid "Curtir"
+msgstr ""
+
+#: stube/views/partials/stube.list.html:26
+msgid "Delete"
+msgstr ""
+
+#: feedback/views/feedback.form.html:19
+msgid "E não se preocupe, qualquer feedback é um bom feedback!"
+msgstr ""
+
+#: stube/views/modal/stube.suggestion.modal.html:25
+msgid "Email"
+msgstr ""
+
+#: app.js:87
+msgid "English"
+msgstr ""
+
+#: feedback/views/feedback.form.html:26
+msgid "Enviar"
+msgstr ""
+
+#: facebook/config/facebook.config.js:9
+msgid "Facebook"
+msgstr ""
+
+#: stube/views/stube.favorites.html:1
+#: stube/views/stube.tabs.html:11
+msgid "Favorites"
+msgstr ""
+
+#: feedback/views/feedback.form.html:1
+msgid "Feedback"
+msgstr ""
+
+#: place/views/place.list.html:24
+msgid "Filter"
+msgstr ""
+
+#: fitness/config/fitness.config.js:9
+msgid "Fitness"
+msgstr ""
+
+#: gallery/config/gallery.config.js:10
+#: gallery/views/gallery.list.html:1
+msgid "Galleries"
+msgstr ""
+
+#: gallery/views/gallery.view.html:1
+msgid "Gallery preview"
+msgstr ""
+
+#: card/views/card.graph.html:1
+msgid "Graph"
+msgstr ""
+
+#: stube/views/stube.history.html:1
+#: stube/views/stube.tabs.html:20
+msgid "History"
+msgstr ""
+
+#: stube/views/stube.settings.html:4
+msgid "Languages"
+msgstr ""
+
+#: card/views/card.ranking.html:9
+msgid "Like"
+msgstr ""
+
+#: stube/views/modal/stube.suggestion.modal.html:31
+msgid "Message"
+msgstr ""
+
+#: stube/views/stube.settings.html:48
+msgid "More Information"
+msgstr ""
+
+#: card/views/card.ranking.html:7
+#: stube/views/modal/stube.suggestion.modal.html:18
+msgid "Name"
+msgstr ""
+
+#: place/views/place.list.html:25
+msgid "Nearby"
+msgstr ""
+
+#: card/views/card.home.html:18
+msgid "Nope"
+msgstr ""
+
+#: card/views/card.ranking.html:11
+msgid "Not"
+msgstr ""
+
+#: stube/views/stube.locker.html:1
+#: stube/views/stube.settings.html:16
+msgid "Password"
+msgstr ""
+
+#: place/views/place.tab.html:1
+msgid "Place"
+msgstr ""
+
+#: place/config/places.config.js:10
+#: place/views/place.list.html:1
+msgid "Places"
+msgstr ""
+
+#: player/config/player.config.js:10
+msgid "Player"
+msgstr ""
+
+#: app.js:86
+msgid "Portuguese Brazil"
+msgstr ""
+
+#: gallery/views/gallery.list.html:4
+msgid "Pull to refresh..."
+msgstr ""
+
+#: feedback/views/feedback.form.html:9
+msgid "Que tipo de feedback você deseja fazer?"
+msgstr ""
+
+#: card/views/card.ranking.html:1
+msgid "Ranking"
+msgstr ""
+
+#: stube/views/stube.search.html:1
+msgid "STUBE Sex Player"
+msgstr ""
+
+#: stube/views/stube.search.html:10
+#: stube/views/stube.tabs.html:3
+msgid "Search"
+msgstr ""
+
+#: chat/views/chat.messages.html:75
+#: stube/views/modal/stube.suggestion.modal.html:34
+msgid "Send"
+msgstr ""
+
+#: stube/views/stube.settings.html:1
+#: stube/views/stube.tabs.html:29
+msgid "Settings"
+msgstr ""
+
+#: stube/views/stube.settings.html:25
+msgid "Share"
+msgstr ""
+
+#: stube/views/modal/stube.modal.video.html:33
+msgid "Show Pager"
+msgstr ""
+
+#: stube/views/modal/stube.modal.video.html:40
+msgid "Slide Show Repeat"
+msgstr ""
+
+#: futebol/config/futebol.config.js:10
+msgid "Soccer"
+msgstr ""
+
+#: stube/config/stube.config.js:9
+msgid "Stube"
+msgstr ""
+
+#: stube/views/modal/stube.suggestion.modal.html:5
+#: stube/views/stube.settings.html:51
+msgid "Suggestion"
+msgstr ""
+
+#: stube/views/stube.categories.html:12
+msgid "Tags"
+msgstr ""
+
+#: stube/views/stube.terms.html:4
+msgid "Termos do BeNear"
+msgstr ""
+
+#: card/config/card.config.js:10
+#: card/views/card.home.html:3
+msgid "Tinder Cards"
+msgstr ""
+
+#: todo/config/todo.config.js:9
+msgid "Todo"
+msgstr ""
+
+#: stube/views/modal/stube.modal.video.html:27
+msgid "Video Details"
+msgstr ""
+
+#: blog/config/blog.config.js:10
+#: blog/views/blog.posts.html:1
+msgid "Wordpress"
+msgstr ""
+
+#: card/views/card.home.html:25
+msgid "Yes"
+msgstr ""
+
+#: chat/views/chat.messages.html:75
+msgid "a message..."
+msgstr ""
+
+#: stube/services/stube.model.js:377
+msgid "amateur"
+msgstr ""
+
+#: stube/services/stube.model.js:380
+msgid "anal"
+msgstr ""
+
+#: stube/services/stube.model.js:383
+msgid "asian"
+msgstr ""
+
+#: stube/services/stube.model.js:386
+msgid "bigtits"
+msgstr ""
+
+#: stube/services/stube.model.js:389
+msgid "blonde"
+msgstr ""
+
+#: stube/services/stube.model.js:392
+msgid "blowjob"
+msgstr ""
+
+#: stube/services/stube.model.js:395
+msgid "creampie"
+msgstr ""
+
+#: stube/services/stube.model.js:398
+msgid "cumshot"
+msgstr ""
+
+#: stube/services/stube.model.js:401
+msgid "doublepenetration"
+msgstr ""
+
+#: stube/services/stube.model.js:404
+msgid "ebony"
+msgstr ""
+
+#: stube/services/stube.model.js:407
+msgid "facials"
+msgstr ""
+
+#: stube/services/stube.model.js:410
+msgid "fetish"
+msgstr ""
+
+#: stube/services/stube.model.js:413
+msgid "gangbang"
+msgstr ""
+
+#: stube/services/stube.model.js:416
+msgid "gay"
+msgstr ""
+
+#: stube/services/stube.model.js:419
+msgid "group"
+msgstr ""
+
+#: stube/services/stube.model.js:422
+msgid "hd"
+msgstr ""
+
+#: stube/services/stube.model.js:425
+msgid "hentai"
+msgstr ""
+
+#: stube/services/stube.model.js:428
+msgid "interracial"
+msgstr ""
+
+#: stube/services/stube.model.js:431
+msgid "japanese"
+msgstr ""
+
+#: stube/services/stube.model.js:434
+msgid "japanesecensored"
+msgstr ""
+
+#: stube/services/stube.model.js:437
+msgid "latina"
+msgstr ""
+
+#: stube/services/stube.model.js:440
+msgid "lesbian"
+msgstr ""
+
+#: stube/services/stube.model.js:443
+msgid "lingerie"
+msgstr ""
+
+#: stube/services/stube.model.js:446
+msgid "masturbation"
+msgstr ""
+
+#: stube/services/stube.model.js:449
+msgid "mature"
+msgstr ""
+
+#: stube/services/stube.model.js:452
+msgid "milf"
+msgstr ""
+
+#: stube/services/stube.model.js:455
+msgid "pov"
+msgstr ""
+
+#: stube/services/stube.model.js:458
+msgid "public"
+msgstr ""
+
+#: stube/services/stube.model.js:461
+msgid "redhead"
+msgstr ""
+
+#: stube/services/stube.model.js:464
+msgid "shemale"
+msgstr ""
+
+#: stube/services/stube.model.js:467
+msgid "squirting"
+msgstr ""
+
+#: stube/services/stube.model.js:470
+msgid "teens"
+msgstr ""
+
+#: stube/services/stube.model.js:473
+msgid "vintage"
+msgstr ""
+
+#: stube/services/stube.model.js:476
+msgid "wildcrazy"
+msgstr ""

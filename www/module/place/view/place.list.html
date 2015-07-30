@@ -1,0 +1,43 @@
+<ion-view title="{{ 'Places' | translate }}">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear icon ion-pinpoint"
+                ng-click="PlaceList.mylocation()"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="bg-content">
+        <ui-gmap-google-map class="map-container"
+                            center="PlaceList.map.center"
+                            zoom="PlaceList.map.zoom"
+                            options="PlaceList.map.options">
+
+            <ui-gmap-marker ng-repeat="mapa in PlaceList.data "
+                            coords="mapa.coords"
+                            icon="mapa.icon"
+                            events="mapa.events"
+                            idkey="mapa.id"></ui-gmap-marker>
+
+        </ui-gmap-google-map>
+
+        <div class="map-scroll">
+            <div class="row row-detail">
+                <div class="col"><i class="icon ion-funnel"></i> <b> {{ 'Filter' | translate }}</b></div>
+                <div class="col"
+                     translate="">Nearby
+                </div>
+            </div>
+            <ion-list class="card"
+                      ng-repeat="item in PlaceList.data">
+                <ion-item class="item-avatar"
+                          ui-sref="app.place({id: item.id})">
+                    <img ng-src="{{ item.img }}"/>
+
+                    <h2>{{ item.title }}</h2>
+                    <rating ng-model="item.rating"
+                            max="5"></rating>
+                    <p>{{ item.desc }}</p>
+                </ion-item>
+            </ion-list>
+        </div>
+
+    </ion-content>
+</ion-view>

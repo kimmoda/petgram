@@ -1,0 +1,25 @@
+<ion-view title="{{ 'Place' | translate }}"
+          class="tabs-noborder"
+          ng-init="noborder=true">
+
+    <ion-tabs class="tabs-striped tabs-positive">
+
+        <ion-tab title="Home"
+                 class="waves-effect waves-light"
+                 icon="ion-map"
+                 ui-sref="app.place.list">
+            <ion-nav-view name="tabHome"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Mapa"
+                 badge-style="badge-positive"
+                 icon="ion-ios-location"
+                 class="waves-effect waves-light"
+                 ui-sref="app.place.map">
+            <ion-nav-view name="tabMap"></ion-nav-view>
+        </ion-tab>
+
+
+    </ion-tabs>
+
+</ion-view>

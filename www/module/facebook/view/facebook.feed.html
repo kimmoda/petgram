@@ -1,0 +1,49 @@
+<ion-view title="Facebook"
+          cache-view="false">
+    <ion-content class="bg-content">
+
+        <ion-refresher pulling-text="Pull to refresh..."
+                       on-refresh="FacebookFeed.refreshFeed()"></ion-refresher>
+
+        <ion-spinner ng-hide="FacebookFeed.data"></ion-spinner>
+
+        <div class="fx-zoom-normal fx-easing-bounce fx-speed-800 fx-trigger"
+             ng-repeat="item in FacebookFeed.data">
+            <div class="list card">
+                <div class="item item-avatar">
+                    <facebook-photo user="item.from.id"
+                                    height="200"
+                                    width="200"></facebook-photo>
+                    <h2>{{item.from.name}}</h2>
+
+                    <p>{{item.created_time | date:'dd/MM/yyyy h:mma'}}</p>
+                </div>
+                <div class="item item-body">
+                    <img ng-if="item.picture"
+                         ng-src="{{ item.picture }}"
+                         style="width: 100%; display: block;"/>
+
+                    <p>
+                        {{item.message}} </p>
+
+                    <p>
+                        <a href="#"
+                           class="subdued">{{item.likes.data.length}} {{'Curtidas' | translate}}</a> <a href="#"
+                                                                                                        class="subdued">{{item.comments.data.length}}
+                                                                                                                        {{'Comentários'
+                                                                                                                        |
+                                                                                                                        translate}}</a>
+                    </p>
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item"
+                       href="#"> <i class="icon ion-thumbsup"></i> {{ 'Curtir' | translate }} </a> <a class="tab-item"
+                                                                                                      href="#">
+                    <i class="icon ion-chatbox"></i> {{'Comentar' | translate}} </a> <a class="tab-item"
+                                                                                        href="#">
+                    <i class="icon ion-share"></i> {{ 'Compartilhar' | translate }} </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

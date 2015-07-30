@@ -1,0 +1,63 @@
+<ion-view title="{{'Settings' | translate}}">
+    <ion-content>
+
+        <ion-item class="item-divider"
+                  translate>Languages
+        </ion-item>
+        <label class="item item-input item-select">
+            <div class="input-label"
+                 style="z-index: 2;">
+                <h2>{{'Change language' | translate}}</h2>
+            </div>
+            <select ng-model="Settings.language"
+                    ng-change="Settings.changeLanguage(Settings.language)"
+                    ng-options="language.value as language.name for language in Settings.languages"> </select> </label>
+
+        <ion-item class="item-divider"
+                  translate>Password
+        </ion-item>
+        <div class="item item-icon-right"
+             ng-click="Settings.changePassword()">
+            {{ 'Change Password' | translate }} <i class="icon ion-lock-combination"></i>
+        </div>
+
+
+        <!-- Social -->
+        <ion-item class="item-divider"
+                  translate>Share
+        </ion-item>
+        <div class="item item-icon-right"
+             ng-click="Settings.shareViaTwitter()">
+            Twitter <i class="icon ion-social-twitter-outline positive"></i>
+        </div>
+        <div class="item item-icon-right"
+             ng-click="Settings.shareViaFacebook()">
+            Facebook <i class="icon ion-social-facebook-outline positive"></i>
+        </div>
+        <div class="item item-icon-right"
+             ng-click="Settings.shareViaWhatsApp()">
+            Whatsapp <i class="icon ion-social-whatsapp-outline positive"></i>
+        </div>
+        <div class="item item-icon-right"
+             ng-click="Settings.shareViaSMS()">
+            SMS <i class="icon ion-ios-chatbubble-outline positive"></i>
+        </div>
+        <div class="item item-icon-right"
+             ng-click="Settings.shareViaEmail()">
+            Email <i class="icon ion-ios-email-outline positive"></i>
+        </div>
+        <!-- More Stuff -->
+        <ion-item class="item-divider"
+                  translate>More Information
+        </ion-item>
+        <ion-item class="item-icon-right"
+                  stube-suggestion>{{ 'Suggestion' | translate }}<i class="icon ion-speakerphone positive"></i>
+        </ion-item>
+
+        <ion-item class="item-icon-right"
+                  ng-click="Settings.openSite()">
+            WebSite <i class="icon ion-earth positive"></i>
+        </ion-item>
+    </ion-content>
+</ion-view>
+

@@ -1,0 +1,42 @@
+<ion-view class="post-view"
+          title="{{BlogPost.data.title}}">
+
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-share-alt"
+                ng-click="BlogPost.sharePost(BlogPost.data.url)"></button>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <div class="post-heading item item-text-wrap">
+            <h1 class="post-title">{{BlogPost.data.title}}</h1>
+
+            <p class="post-author">
+                By <span>{{BlogPost.data.author.nickname}}</span> <span am-time-ago="BlogPost.data.date"></span>
+            </p>
+        </div>
+        <div class="post-content item item-text-wrap">
+            <p class="post-text"
+               ng-bind-html="BlogPost.data.content | rawHtml"></p>
+        </div>
+        <div class="post-tags item item-text-wrap">
+      <span class="post-tag button button-small button-outline button-stable"
+            ng-repeat="category in BlogPost.data.categories">{{category.title}}</span>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="post-footer bar bar-footer bar-dark">
+        <div class="row">
+            <div class="col col-20 col-center">
+                <a class="button button-icon icon icon-right ion-plus"
+                   bigger-text=".data-view .data-text">A</a>
+            </div>
+            <div class="col col-20 col-center">
+                <a class="button button-icon icon icon-right ion-minus"
+                   smaller-text=".data-view .data-text">A</a>
+            </div>
+            <div class="col col-20"></div>
+            <div class="col col-20 col-offset-20 col-center">
+                <a class="button button-icon icon ion-heart"></a>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

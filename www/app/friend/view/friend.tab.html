@@ -1,0 +1,21 @@
+<ion-view title="{{ 'Friends' | translate }}"
+          class="tabs-noborder"
+          ng-init="noborder=true">
+
+    <ion-tabs class="tabs-striped tabs-positive">
+
+        <ion-tab title="User List"
+                 class="waves-effect waves-light"
+                 ui-sref="app.friend.home">
+            <ion-nav-view name="tabHome"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Friends"
+                 class="waves-effect waves-light"
+                 ui-sref="app.friend.list">
+            <ion-nav-view name="tabList"></ion-nav-view>
+        </ion-tab>
+
+    </ion-tabs>
+
+</ion-view>

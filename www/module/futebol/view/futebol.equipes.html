@@ -1,0 +1,12 @@
+<ion-view title="Times de Futebol">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-icon-right"
+                      ng-repeat="item in FutebolEquipes.data"
+                      ui-sref="app.futebol.jogos({id: $index})">
+                <h2>{{ item.nome }}</h2>
+                <span>{{ item.cidade }} - {{ item.estado }}</span> <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

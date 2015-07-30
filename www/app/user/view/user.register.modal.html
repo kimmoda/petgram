@@ -1,0 +1,33 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-top bar-positive">
+        <button class="button button-clear button-icon ion-android-arrow-back"
+                ng-click="modal.hide()"></button>
+        <div class="title"
+             translate="">Cadastro
+        </div>
+    </ion-header-bar>
+    <ion-content class="view-video">
+
+
+        <formly-form model="form"
+                     fields="formFields"
+                     form="registerForm">
+
+            <div class="padding">
+                <button class="button button-block button-positive"
+                        type="button"
+                        ng-click="submitRegister(registerForm, form)"
+                        translate>Salvar
+                </button>
+            </div>
+
+        </formly-form>
+
+        <div class="padding">
+            <p class="text-center"
+               translate>Ao criar sua conta, você está concordando com nossos <b>Termos e Condições</b>.</p>
+        </div>
+        </form>
+
+    </ion-content>
+</ion-modal-view>

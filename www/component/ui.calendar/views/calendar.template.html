@@ -1,0 +1,49 @@
+<div>
+    <style>
+        .day {
+            width       : 50px;
+            border      : thin solid #ccc;
+            height      : 30px;
+            float       : left;
+            text-align  : center;
+            padding-top : 5px
+        }
+
+        .week .day {
+            background-color : #ccc
+        }
+
+        .days .day {
+            background-color : #fff
+        }
+
+        .days .day.selected {
+            background-color : rgba(157, 255, 255, 0.2);
+        }
+
+        .days {
+            width : 350px;
+        }
+    </style>
+
+    <div detect-gestures>
+        <div class="month">
+            {{months[month]}} - {{year}}
+        </div>
+
+        <div class="week">
+            <div class="day"
+                 ng-repeat="day in daysInWeek">{{day}}
+            </div>
+        </div>
+
+        <div class="days">
+            <div class="day {{day == selectedDay ? 'selected' : '' }}"
+                 ng-click="selectDay(day)"
+                 ng-repeat="day in days track by $index">{{day}}
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+    </div>
+</div>

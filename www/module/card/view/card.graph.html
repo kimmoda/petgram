@@ -1,0 +1,20 @@
+<ion-view title="{{ 'Graph' | translate }}">
+    <ion-content class="bg-content">
+
+        <ion-item class="item-divider">Like Ranking</ion-item>
+
+        <canvas id="pieLike"
+                class="chart chart-pie"
+                legend="true"
+                data="CardGraph.like"
+                labels="CardGraph.labels"></canvas>
+
+        <ion-item class="item-divider">Not Ranking</ion-item>
+        <canvas id="pieNot"
+                class="chart chart-pie"
+                legend="true"
+                data="CardGraph.not"
+                labels="CardGraph.labels"></canvas>
+
+    </ion-content>
+</ion-view>

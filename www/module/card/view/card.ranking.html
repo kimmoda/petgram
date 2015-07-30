@@ -1,0 +1,30 @@
+<ion-view title="{{ 'Ranking' | translate }}">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-divider">
+                <div class="row">
+                    <div class="col">Image</div>
+                    <div class="col"
+                         translate="">Name
+                    </div>
+                    <div class="col"
+                         translate="">Like
+                    </div>
+                    <div class="col"
+                         translate="">Not
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item ng-repeat="item in CardRanking.data">
+                <div class="row">
+                    <div class="col"><img ng-src="{{ item.image }}"
+                                          style="height: 50px"/></div>
+                    <div class="col">{{ item.name }}</div>
+                    <div class="col">{{ item.like }}</div>
+                    <div class="col">{{ item.not }}</div>
+                </div>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

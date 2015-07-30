@@ -1,0 +1,36 @@
+<ion-view title="Perfil"
+          class="profile">
+    <ion-content>
+        <div class="banner text-center">
+            <div class="body">
+                <div capture-photo
+                     avatar="Profile.form.avatar"
+                     class="avatar">
+
+                    <img ng-src="{{ user.img }}"/> <i class="icon ion-ios-plus-empty"></i>
+                </div>
+
+                <h3><a class="light">{{ user.first_name }}</a></h3>
+                <h4>{{ user.email }}</h4>
+            </div>
+            <div class="background"
+                 ng-if="user"
+                 style="background-image: url('{{ user.background }}');"></div>
+        </div>
+
+        <formly-form model="Profile.form"
+                     fields="Profile.formFields"
+                     form="rForm">
+
+            <div class="padding">
+                <button class="button button-block button-positive"
+                        type="button"
+                        ng-click="Profile.submitProfile(rForm, Profile.form)"
+                        translate>Criar Conta
+                </button>
+            </div>
+
+        </formly-form>
+
+    </ion-content>
+</ion-view>

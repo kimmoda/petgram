@@ -1,0 +1,58 @@
+<ion-view class="app-intro">
+    <div class="intro-slider">
+
+        <button class="button-skip"
+                ui-sref="login">Pular
+        </button>
+
+        <div on-swipe-right="previousSlide()"
+             on-swipe-left="nextSlide()"
+             class="device-wrapper row">
+            <div class="col device-wrapper-body">
+                <div class="row device-wrapper-container">
+                    <div class="col-20 left-dissapearing-effect"></div>
+                    <div class="col center-dissapearing-effect">
+                        <div class="top-dissapearing-effect"></div>
+                        <div class="device-background {{ device }}"></div>
+                    </div>
+                    <div class="col-20 right-dissapearing-effect"></div>
+                </div>
+            </div>
+        </div>
+
+        <ion-slide-box active-slide="slideIndex"
+                       show-pager="true"
+                       on-slide-changed="slideChanged($index)">
+            <ion-slide ng-repeat="item in slides">
+
+                <div class="row slide-head">
+                    <div class="col col-center">
+                        <h3>{{ item.title }}</h3>
+                    </div>
+                </div>
+                <div class="row slide-body">
+                    <div class="col slide-body-wrapper">
+                        <img class="full-width-image"
+                             ng-src="{{ item.img }}">
+                    </div>
+                </div>
+                <button class="button button-start"
+                        ng-show="$index === slide.length"
+                        ui-sref="login"
+                        translate="">Começar
+                </button>
+                <div class="background {{ item.class }}"></div>
+            </ion-slide>
+
+        </ion-slide-box>
+    </div>
+
+
+    <!--<div class="intro-buttons">-->        <!--<div class="row">--><!--<div class="col col-center">-->
+    <!--<button class="button button-block button-positive button-facebook icon-left ion-social-facebook ng-binding"-->
+    <!--ng-click="Intro.loginFacebook()"--><!--translate>Entrar com Facebook</button>-->        <!--</div>-->
+    <!--</div>--><!--<div class="row">--><!--<div class="col"><button class="button button-block button-positive"-->
+    <!--ui-sref="register">Cadastre-se</button></div>-->
+    <!--<div class="col"><button class="button button-block button-positive"-->
+    <!--ui-sref="login">Login</button></div>--><!--</div>-->    <!--</div>-->
+</ion-view>
