@@ -1,12 +1,16 @@
-<ion-view view-title="{{ 'Entrar' | translate }}">
+<ion-view
+class="form-login"
+ view-title="{{ 'Entrar' | translate }}">
 
     <ion-content padding="true">
 
-        <div class="logo padding text-center animated bounceInDown">
+        <div class="logo padding text-center step1">
             <img src="img/ionic.png"/>
         </div>
 
-        <formly-form model="Login.form"
+        <div class="step2">
+            <formly-form
+            model="Login.form"
                      fields="Login.formFields"
                      form="rForm">
 
@@ -23,7 +27,10 @@
             </button>
 
         </formly-form>
-        <div class="line">
+        </div>
+
+<div class="step3">
+            <div class="line">
             <div class="left"></div>
             <span>ou</span>
 
@@ -37,6 +44,7 @@
                 user-register
                 >Ainda não está cadastrado? <b>Cadastrar</b></button>
         </form>
+</div>
 
     </ion-content>
 </ion-view>

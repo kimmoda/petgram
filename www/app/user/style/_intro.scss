@@ -19,27 +19,27 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
 
 .background-positive {
   background-color : $positive;
-  }
+}
 
 .background-calm {
   background-color : $calm;
-  }
+}
 
 .background-balanced {
   background-color : $balanced;
-  }
+}
 
 .background-energized {
   background-color : $energized;
-  }
+}
 
 .background-assertive {
   background-color : $assertive;
-  }
+}
 
 .background-royal {
   background-color : $royal;
-  }
+}
 
 .app-intro {
   background-color : $seashell;
@@ -55,14 +55,15 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
       font-weight : bold;
       position    : absolute;
       right       : 15px;
-      top         : 5px;
+      top         : 40px;
       z-index     : 1;
-      }
+    }
     
     .device-wrapper {
       height   : inherit;
       padding  : 0;
       position : absolute;
+      top      : 32px;
       .device-wrapper-body {
         height      : 100%;
         padding     : 0;
@@ -76,29 +77,29 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
             height   : 75px;
             position : absolute;
             width    : inherit;
-            }
+          }
           .left-dissapearing-effect {
             height  : inherit;
             padding : 0;
             width   : 100%;
             z-index : 6;
-            }
+          }
           .center-dissapearing-effect {
             height   : inherit;
             padding  : 0;
             position : relative;
             width    : 100%;
-            }
+          }
           .right-dissapearing-effect {
             height  : inherit;
             padding : 0;
             width   : 100%;
             z-index : 6;
-            }
           }
         }
       }
     }
+  }
   .slider {
     height     : 100%;
     overflow   : inherit !important;
@@ -106,24 +107,24 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
     .slider-pager {
       height      : initial;
       line-height : 10px;
-      top         : 10px;
+      top         : 40px;
       z-index     : 0;
       .slider-pager-page {
         color     : #fff;
         font-size : 10px;
-        }
       }
     }
+  }
   .intro-buttons {
     background-color : $white;
     height           : 22%;
     padding-top      : 14px;
     .row {
       padding-bottom : 0px;
-      }
+    }
     .col {
       padding : 2px;
-      }
+    }
     .button {
       height      : 40px;
       line-height : 40px;
@@ -131,14 +132,14 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
       margin      : 5px auto;
       min-height  : 20px;
       width       : 100%;
-      }
+    }
     .button-info {
       color      : $color_mine_shaft_approx;
       font-size  : 12px;
       margin     : 0;
       text-align : center;
-      }
     }
+  }
   .slider-slide {
     padding-top : 30px;
     text-align  : center;
@@ -148,8 +149,8 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
       * {
         color  : $seashell;
         margin : 0;
-        }
       }
+    }
     .slide-body {
       height     : calc(100% - 89px);
       margin-top : 0;
@@ -159,11 +160,11 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
         height     : 81%;
         margin-top : 25%;
         padding    : 0 20%;
-        }
+      }
       .full-width-image {
         width : 100%;
-        }
       }
+    }
     
     .background {
       bottom   : 0;
@@ -173,19 +174,19 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
       right    : 0;
       top      : 0;
       z-index  : -1;
-      }
     }
+  }
   .device-html-example {
     background-color : $seashell;
     height           : 100%;
-    }
+  }
   #icon {
     margin : 10px 0;
     img {
       width : 70%;
-      }
     }
   }
+}
 
 .device-background {
   background-color  : initial;
@@ -204,14 +205,14 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
     z-index               : 7;
     &.black {
       background-image : $url_1;
-      }
+    }
     &.white {
       background-image : $url_2;
-      }
+    }
     &.gold {
       background-image : $url_3;
-      }
     }
+  }
   &.iphone6 {
     background-image      : $url_4;
     background-position-x : center;
@@ -224,14 +225,14 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
     z-index               : 7;
     &.black {
       background-image : $url_4;
-      }
+    }
     &.white {
       background-image : $url_5;
-      }
+    }
     &.gold {
       background-image : $url_6;
-      }
     }
+  }
   &.iphone5 {
     background-image      : $url_0;
     background-position-x : center;
@@ -244,11 +245,11 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
     z-index               : 7;
     &.black {
       background-image : $url_0;
-      }
+    }
     &.white {
       background-image : $url_7;
-      }
     }
+  }
   &.nexus6 {
     background-image      : $url_8;
     background-position-x : center;
@@ -259,7 +260,7 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
     position              : absolute;
     width                 : 109%;
     z-index               : 7;
-    }
+  }
   &.galaxyS5 {
     background-image      : $url_9;
     background-position-x : center;
@@ -272,12 +273,12 @@ $url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
     z-index               : 7;
     &.black {
       background-image : $url_9;
-      }
+    }
     &.white {
       background-image : $url_10;
-      }
+    }
     &.gold {
       background-image : $url_11;
-      }
     }
   }
+}

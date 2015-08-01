@@ -27,10 +27,12 @@
 
                 <div class="row slide-head">
                     <div class="col col-center">
-                        <h3>{{ item.title }}</h3>
+                        <h3 class="zoom">{{ item.title }}</h3>
                     </div>
                 </div>
-                <div class="row slide-body">
+                <div class="row slide-body zoomIn "
+                        ng-if="$index == slideIndex"
+                    >
                     <div class="col slide-body-wrapper">
                         <img class="full-width-image"
                              ng-src="{{ item.img }}">

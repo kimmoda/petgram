@@ -1,9 +1,11 @@
 <ion-view title="Perfil"
           class="profile">
     <ion-content>
-        <div class="banner text-center">
-            <div class="body">
+        <div class="banner text-center step1">
+            <div class="body step2">
                 <div capture-photo
+                        ion-capture-options="{ width: 150, height: 150, name: 'avatar' }"
+                        ion-capture-save="saveProfile()"
                      avatar="Profile.form.avatar"
                      class="avatar">
 
@@ -18,7 +20,8 @@
                  style="background-image: url('{{ user.background }}');"></div>
         </div>
 
-        <formly-form model="Profile.form"
+        <div class="step2">
+          <formly-form model="Profile.form"
                      fields="Profile.formFields"
                      form="rForm">
 
@@ -31,6 +34,7 @@
             </div>
 
         </formly-form>
+        </div>
 
     </ion-content>
 </ion-view>

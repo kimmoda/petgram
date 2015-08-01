@@ -12,6 +12,8 @@ angular
         {title: 'Twitter screenshot', class: 'background-royal', img: 'img/device-twitter.png'}
     ];
 
+    $scope.slideIndex = 0;
+
     $scope.nextSlide     = function () {
         $ionicSlideBoxDelegate.next ();
     };

@@ -4,9 +4,12 @@ in ionic's _variables.scss file.
 
 For example, you might change some of the default colors:
 */
+@import "material/material";
+
 $light : #fff !default;
 $stable : #f8f8f8 !default;
-$positive : #4B84FA !default;
+$positive : $primaryColor !default;
+// $positive : #4B84FA !default;
 //$positive : #40a4c4 !default;
 //$positive : #387ef5 !default;
 $calm : darken($positive, 20) !default;
@@ -35,6 +38,7 @@ $ionicons-font-path : "../lib/ionic/fonts" !default;
 @import "www/module/stube/style/stube";
 @import "www/module/stube/style/locker";
 @import "www/component/ion-slide-box-tabs/slidingTabs";
+@import "www/component/ion-capture/style/jrcrop";
 //@import "rating";
 
 .bar .title img {

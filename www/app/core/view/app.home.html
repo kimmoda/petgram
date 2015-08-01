@@ -17,10 +17,11 @@
         <div class="card-list">
             <div ng-repeat="item in Home.menu"
                  class="card col home">
-                <ion-item class="item-text-wrap text-center">
+                <ion-item 
+                ui-sref="{{item.route}}"
+                class="item-text-wrap text-center">
                     <h1><i class="icon {{item.icon}}"></i></h1>
-
-                    <h2>{{item.title}}</h2>
+                    <h2>{{item.name}}</h2>
                 </ion-item>
             </div>
         </div>

@@ -1,0 +1,52 @@
+
+.zoom.ng-enter {
+ transition: 1s linear all;
+ position: relative;
+ left: -200px;
+ opacity: 0;
+}
+
+.zoom.ng-leave {
+ transition: 1s linear all;
+ position: relative;
+ right: -200px;
+ opacity: 0;
+}
+
+.step1{
+  animation-name: fadeInDown;
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-timing-function : ease;
+  animation-fill-mode       : both;
+  //Instead of the line below you could use @includebackface-visibility($visibility)
+  backface-visibility       : hidden;
+}
+
+.step2{
+  animation-name: fadeInUp;
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-timing-function : ease;
+  animation-fill-mode       : both;
+  //Instead of the line below you could use @includebackface-visibility($visibility)
+  backface-visibility       : hidden;
+}
+
+.step3{
+  animation-name: fadeInUp;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-timing-function : ease;
+  animation-fill-mode       : both;
+  //Instead of the line below you could use @includebackface-visibility($visibility)
+  backface-visibility       : hidden;
+}
+
+// This is the state that it will be in when it is 'visible' - (eg: ng-if
+// evaluates to true)
+//
+.zoom.ng-enter-active {
+ left: 0;
+ opacity: 1;
+}

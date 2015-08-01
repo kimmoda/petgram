@@ -1,4 +1,5 @@
-<ion-side-menus enable-menu-with-back-views="false"
+<ion-side-menus
+            enable-menu-with-back-views="false"
                 expose-aside-when="large">
     <ion-side-menu-content>
         <ion-nav-bar class="bar bar-positive"
@@ -15,14 +16,17 @@
 
     </ion-side-menu-content>
 
-    <ion-side-menu side="left">
+    <ion-side-menu 
+    class="menu-left"
+    zoom-in
+     side="left">
 
         <ion-header-bar class="positive-bg expanded"
                         ui-sref="app.profile"
                         menu-close>
 
             <img ng-src="{{ user.img }}"
-                 class="avatar">
+                 class="avatar zoom">
 
             <h1>{{user.first_name}}</h1>
             <i class="icon icon-settings"></i>
@@ -36,7 +40,7 @@
                      style="top : 150px !important;">
             <ion-list>
                 <ion-item class="item-icon-left item-icon-right"
-                          ng-repeat="tab in SideMenu.tabs "
+                          ng-repeat="tab in menu "
                           ui-sref-active="active"
                           nav-clear
                           menu-close

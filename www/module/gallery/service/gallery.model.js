@@ -108,25 +108,27 @@ angular
 
 
     function upload (name, imageData) {
-        var defer   = $q.defer ();
-        var gallery = new Parse.Object ('Gallery');
+        var defer = $q.defer ();
 
-        //var type = file.type;
-        //if ((type !== 'image/png') && (type !== 'image/jpeg')) {
-        //    Notify.alert ('erro', 'Tipo e Arquivo invalido ' + type);
-        //    return false;
-        //}
 
-        gallery.set ('title', 'teste');
-        gallery.set ('body', 'descricao');
-        gallery.set ('img2', imageData);
-        gallery.set ('img3', 'data:image/jpeg;base64' + imageData);
-        //gallery.set ('img1', foto);
-        //gallery.set ('img2', file);
-        gallery.save (function (resp) {
-            console.log (resp);
-            defer.resolve (resp);
-        });
+        var parseFile = new Parse.File ('photo.jpg', {base64: imageData} );
+
+        parseFile
+            .save (function () {
+            console.log (parseFile);
+
+            var gallery = new Parse.Object ('Gallery');
+            gallery.set ('title', 'teste');
+            gallery.set ('body', 'descricao');
+            gallery.set ('img', parseFile);
+            //gallery.set ('img3', 'data:image/jpeg;base64' + imageData);
+            //gallery.set ('img1', foto);
+            //gallery.set ('img2', file);
+            gallery.save (function (resp) {
+                console.log (resp);
+                defer.resolve (resp);
+            });
+        })
 
 
         return defer.promise;

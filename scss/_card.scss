@@ -12,15 +12,22 @@ ion-list.card {
     display    : inline-block;
     font-size  : 13px;
     min-height : 110px;
+    height: 100px;
+     
+     a.item-content {
+        padding: 17px 0px;
+        text-align: center;
 
-    i {
-      color : #40A4C4;
+        i {
+        color : $positive;
+        }
+
+      h2 {
+        font-size : 14px;
+        color     : darken($positive, 30);
+        }
       }
 
-    h2 {
-      font-size : 14px;
-      color     : #666;
-      }
     }
 
   }
