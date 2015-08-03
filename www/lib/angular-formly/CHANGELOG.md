@@ -1,3 +1,28 @@
+# 6.21.1
+
+## Bug Fixes
+
+- Remove the shrinkwrap because it didn't really work out the way I wanted it to... [#408](/../../issues/408)
+
+# 6.21.0
+
+## New Features
+
+- Adding the ability to pass a `class` to be used on the `ng-transclude` `div` in the `formly-form`. Thanks
+	[@DevanB](https://github.com/DevanB) for your first open source contribution! [#398](/../../issues/398)
+
+# 6.21.0-beta.1
+
+## New Features
+
+- Adding support for `formatters` [#368](/../../issues/368)
+
+# 6.21.0-beta.0
+
+## New Features
+
+- Adding support for `parsers` [#368](/../../issues/368)
+
 # 6.20.1
 
 ## Bug Fixes

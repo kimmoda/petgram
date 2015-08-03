@@ -40,14 +40,14 @@
     "api-check": "^7.0.0"
   },
   "homepage": "https://github.com/formly-js/angular-formly",
-  "version": "6.20.1",
-  "_release": "6.20.1",
+  "version": "6.21.1",
+  "_release": "6.21.1",
   "_resolution": {
     "type": "version",
-    "tag": "6.20.1",
-    "commit": "1f1bd1e6484f9881bab73b63f38036ddfaac57e6"
+    "tag": "6.21.1",
+    "commit": "05a0ffff47522d566490c057488c3701963ad85a"
   },
   "_source": "git://github.com/formly-js/angular-formly.git",
-  "_target": "~6.20.1",
+  "_target": "~6.21.1",
   "_originalSource": "angular-formly"
 }

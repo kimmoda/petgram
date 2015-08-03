@@ -1,4 +1,3 @@
-
 .zoom.ng-enter {
  transition: 1s linear all;
  position: relative;
@@ -43,9 +42,6 @@
   backface-visibility       : hidden;
 }
 
-// This is the state that it will be in when it is 'visible' - (eg: ng-if
-// evaluates to true)
-//
 .zoom.ng-enter-active {
  left: 0;
  opacity: 1;

@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<ion-view view-title="Capture" cache-view="false">
 
-</body>
-</html>
+    <ion-content class="bg-content"
+                 padding="true">
+
+       <div class="item">
+         <img ng-src="{{GalleryCapture.data}}" alt="">
+       </div>
+
+
+     <formly-form
+             model="GalleryCapture.form"
+              fields="GalleryCapture.formFields"
+              form="rForm">
+
+     <button class="button button-block button-positive"
+             type="button"
+             ng-disabled="rForm.$invalid"
+             ng-click="GalleryCapture.submitLogin(rForm, GalleryCapture.form)"
+             translate>Entrar
+     </button>
+
+     </formly-form>
+
+    </ion-content>
+</ion-view>

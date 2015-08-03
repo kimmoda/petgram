@@ -16,7 +16,6 @@ var gulp          = require ('gulp'),
     rename        = require ('gulp-rename'),
     jshint        = require ('gulp-jshint'),
     stylish       = require ('jshint-stylish'),
-    paths         = require ('./gulp/config'),
     minifyHTML    = require ('gulp-minify-html'),
     minifyCSS     = require ('gulp-minify-css'),
     templateCache = require ('gulp-angular-templatecache'),
@@ -27,8 +26,10 @@ var gulp          = require ('gulp'),
     stripDebug    = require ('gulp-strip-debug'),
     rev           = require ('gulp-rev'),
     karma         = require ('gulp-karma'),
+    iife          = require ("gulp-iife"),
     runSequence   = require ('run-sequence'),
     rev           = require ('gulp-rev'),
+    paths         = require ('./config'),
     replaceFiles  = ['./www/js/app.js'];
 
 
@@ -262,7 +263,8 @@ var getCopyright = function () {
 
 
 gulp.task ('usemin', function () {
-    return gulp.src (paths.source + '/index.html')
+    return gulp
+        .src (paths.source + '/index.html')
         .pipe (usemin ({
         css      : [
             minifyCSS ()
@@ -284,6 +286,11 @@ gulp.task ('usemin', function () {
             jshint.reporter ('default'),
             ngAnnotate ({
                 add: true
+            }),
+            iife ({
+                //useStrict       : false,
+                //trimCode        : false,
+                //prependSemicolon: false
             }),
             uglify (),
             header (getCopyright (), {

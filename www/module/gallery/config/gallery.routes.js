@@ -22,12 +22,12 @@ angular
         }
     })
 
-        .state ('app.gallery.feature', {
-        url  : '/feature',
+        .state ('app.gallery.search', {
+        url  : '/search',
         views: {
-            tabFeature: {
-                controller : 'GalleryFeatureCtrl as GalleryFeature',
-                templateUrl: 'module/gallery/view/gallery.feature.html'
+            tabSearch: {
+                controller : 'GallerySearchCtrl as GallerySearch',
+                templateUrl: 'module/gallery/view/gallery.search.html'
             }
         }
     })
@@ -55,8 +55,8 @@ angular
         .state ('app.gallery.profile', {
         url  : '/profile',
         views: {
-            tabProfil: {
-                controller : 'GalleryProfilCtrl as GalleryProfil',
+            tabProfile: {
+                controller : 'GalleryProfileCtrl as GalleryProfile',
                 templateUrl: 'module/gallery/view/gallery.profile.html'
             }
         }

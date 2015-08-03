@@ -5,22 +5,22 @@ in ionic's _variables.scss file.
 For example, you might change some of the default colors:
 */
 @import "material/material";
+$light: #fff !default;
+$stable: #f8f8f8 !default;
+$positive: $primaryColor !default;
 
-$light : #fff !default;
-$stable : #f8f8f8 !default;
-$positive : $primaryColor !default;
 // $positive : #4B84FA !default;
 //$positive : #40a4c4 !default;
 //$positive : #387ef5 !default;
-$calm : darken($positive, 20) !default;
-$balanced : #33cd5f !default;
-$energized : #ffc900 !default;
-$assertive : #ef473a !default;
-$royal : #886aea !default;
-$dark : #444 !default;
+$calm: darken($positive, 20) !default;
+$balanced: #33cd5f !default;
+$energized: #ffc900 !default;
+$assertive: #ef473a !default;
+$royal: #886aea !default;
+$dark: #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
-$ionicons-font-path : "../lib/ionic/fonts" !default;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 //@import "www/lib/ionic-material/src/scss/index";
@@ -35,47 +35,52 @@ $ionicons-font-path : "../lib/ionic/fonts" !default;
 @import "www/app/user/style/user";
 @import "www/app/user/style/profile";
 @import "www/module/card/style/tdcards";
-@import "www/module/stube/style/stube";
-@import "www/module/stube/style/locker";
 @import "www/component/ion-slide-box-tabs/slidingTabs";
 @import "www/component/ion-capture/style/jrcrop";
+
+
+.action-sheet .button {
+	color: $positive;
+}
+
 //@import "rating";
-
+.tab-btn-feature {
+	color: #fff;
+	background: darken($positive, 10);
+}
+.no-padding {
+	padding: 0;
+}
+.item.item-avatar {
+	background-color: rgba(255,255,255,0.9);
+}
 .bar .title img {
-  max-height : 40px;
-  margin-top : -2px;
+	max-height: 40px;
+	margin-top: -2px;
 }
-
 .separator {
-  display     : block;
-  border-top  : solid 1px rgba(0, 0, 0, 0.12);
-  min-height  : 0px;
-  line-height : 0px;
-  margin      : 0;
-  padding     : 0;
+	display: block;
+	border-top: solid 1px rgba(0, 0, 0, 0.12);
+	min-height: 0;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
 }
-
 .button-assertive {
-
-  background : none repeat scroll 0 0 #fff;
-  border     : 1px solid #ccc !important;
-  box-shadow : 2px 2px 2px #ccc;
-  width      : 100%;
+	background: none repeat scroll 0 0 #fff;
+	border: 1px solid #ccc !important;
+	box-shadow: 2px 2px 2px #ccc;
+	width: 100%;
 }
-
 .bg-content {
-  background-color : whitesmoke !important;
+	background-color: whitesmoke !important;
 }
-
 .noborder {
-
-  ion-header-bar {
-    border     : none !important;
-    box-shadow : none !important;
-  }
-
+	ion-header-bar {
+		border: none !important;
+		box-shadow: none !important;
+	}
 }
-
 .hidden {
-  visibility : hidden;
+	visibility: hidden;
 }

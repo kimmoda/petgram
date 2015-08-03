@@ -1,10 +1,9 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .factory ('Gallery', function ($http, $q, CacheFactory, Notify, Loading) {
+    .factory ('Gallery', function ($http, $q, gettextCatalog,  CacheFactory, Notify, Loading) {
 
-    var cacheGallery,
-        data = [];
+    var cacheGallery;
 
     if (!CacheFactory.get ('Gallery')) {
         cacheGallery = CacheFactory.createCache ('Gallery', {
@@ -26,42 +25,56 @@ angular
     var galleryCache      = CacheFactory.get ('Gallery');
     var galleryPhotoCache = CacheFactory.get ('GalleryPhoto');
 
+    var form = [
+        {
+            key            : 'title',
+            type           : 'input',
+            templateOptions: {
+                type: 'text',
+                placeholder    : gettextCatalog.getString ('Title'),
+                icon           : 'icon-envelope',
+                required       : true,
+                iconPlaceholder: true
+            }
+        },
+        {
+          key: 'geo',
+          type: 'toggle',
+          templateOptions: {
+            label: gettextCatalog.getString ('Geolocalization'),
+            toggleClass: 'positive'
+          }
+        }
+    ];
 
-    function all (force) {
+    function all () {
         var defer = $q.defer ();
-        var cache = galleryCache.keys ();
         Loading.show ();
 
-        if (cache.length > 0 && !force === true && force !== undefined) {
-            console.log ('Request Cache');
-            Loading.hide ();
-            defer.resolve (galleryCache.keys ());
-        } else {
-            new Parse
-                .Query ('Gallery')
-                .include ('GalleryPhoto')
-                .find ()
-                .then (function (resp) {
-                var objs = [];
-                angular.forEach (resp, function (item) {
-                    var obj = item.attributes;
-                    obj.id  = item.id;
+        new Parse
+            .Query ('Gallery')
+            .include ('user')
+            .find ()
+            .then (function (resp) {
+            var objs = [];
+            angular.forEach (resp, function (item) {
+                var obj = item;
+                obj.user = obj.get('user');
+                console.log(obj);
 
-                    getPhotos (item)
-                        .then (function (photos) {
-                        obj.images = photos;
-                        console.warn (obj);
-                        galleryCache.put (obj.id, obj);
-                        objs.push (obj);
-                    });
-
+                objs.push({
+                  data: obj.attributes,
+                  src: obj.attributes.img._url,
+                  created: obj.createdAt,
+                  user: obj.user.attributes
                 });
-                Loading.hide ();
-                defer.resolve (objs);
-            });
 
-            return defer.promise;
-        }
+            });
+            Loading.hide ();
+            defer.resolve (objs);
+        });
+
+        return defer.promise;
     }
 
     function getPhotos (item) {
@@ -111,7 +124,7 @@ angular
         var defer = $q.defer ();
 
 
-        var parseFile = new Parse.File ('photo.jpg', {base64: imageData} );
+        var parseFile = new Parse.File ('photo.jpg', {base64: imageData});
 
         parseFile
             .save (function () {
@@ -121,14 +134,11 @@ angular
             gallery.set ('title', 'teste');
             gallery.set ('body', 'descricao');
             gallery.set ('img', parseFile);
-            //gallery.set ('img3', 'data:image/jpeg;base64' + imageData);
-            //gallery.set ('img1', foto);
-            //gallery.set ('img2', file);
             gallery.save (function (resp) {
                 console.log (resp);
                 defer.resolve (resp);
             });
-        })
+        });
 
 
         return defer.promise;
@@ -136,6 +146,7 @@ angular
 
     return {
         all     : all,
+        form: form,
         getPhoto: getPhoto,
         get     : get,
         upload  : upload

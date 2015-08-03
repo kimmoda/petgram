@@ -1,4 +1,4 @@
-//! angular-formly version 6.20.1 built with ♥ by Astrism <astrisms@gmail.com>, Kent C. Dodds <kent@doddsfamily.us> (ó ì_í)=óò=(ì_í ò)
+//! angular-formly version 6.21.1 built with ♥ by Astrism <astrisms@gmail.com>, Kent C. Dodds <kent@doddsfamily.us> (ó ì_í)=óò=(ì_í ò)
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -147,7 +147,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	ngModule.constant('formlyApiCheck', _providersFormlyApiCheck2['default']);
 	ngModule.constant('formlyErrorAndWarningsUrlPrefix', _otherDocsBaseUrl2['default']);
-	ngModule.constant('formlyVersion', ("6.20.1")); // <-- webpack variable
+	ngModule.constant('formlyVersion', ("6.21.1")); // <-- webpack variable
 
 	ngModule.provider('formlyUsability', _providersFormlyUsability2['default']);
 	ngModule.provider('formlyConfig', _providersFormlyConfig2['default']);
@@ -344,6 +344,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  })).optional,
 	  validators: validatorChecker.optional,
 	  asyncValidators: validatorChecker.optional,
+	  parsers: apiCheck.arrayOf(formlyExpression).optional,
+	  formatters: apiCheck.arrayOf(formlyExpression).optional,
 	  noFormControl: apiCheck.bool.optional,
 	  hide: apiCheck.bool.optional,
 	  hideExpression: formlyExpression.optional,
@@ -443,7 +445,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports["default"] = "https://github.com/formly-js/angular-formly/blob/" + ("6.20.1") + "/other/ERRORS_AND_WARNINGS.md#";
+	exports["default"] = "https://github.com/formly-js/angular-formly/blob/" + ("6.21.1") + "/other/ERRORS_AND_WARNINGS.md#";
 	module.exports = exports["default"];
 
 /***/ },
@@ -739,7 +741,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function getTypeHeritage(parent) {
 	    var heritage = [];
-	    var type = getType(parent);
+	    var type = parent;
+	    if (_angularFix2['default'].isString(type)) {
+	      type = getType(parent);
+	    }
 	    parent = type['extends'];
 	    while (parent) {
 	      type = getType(parent);
@@ -895,7 +900,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _angularFix2 = _interopRequireDefault(_angularFix);
 
-	exports['default'] = { formlyEval: formlyEval, getFieldId: getFieldId, reverseDeepMerge: reverseDeepMerge, findByNodeName: findByNodeName, arrayify: arrayify, extendFunction: extendFunction };
+	exports['default'] = { formlyEval: formlyEval, getFieldId: getFieldId, reverseDeepMerge: reverseDeepMerge, findByNodeName: findByNodeName, arrayify: arrayify, extendFunction: extendFunction, extendArray: extendArray };
 
 	function formlyEval(scope, expression, $modelValue, $viewValue, extraLocals) {
 	  if (_angularFix2['default'].isFunction(expression)) {
@@ -979,6 +984,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return fn.apply(null, args);
 	    });
 	  };
+	}
+
+	function extendArray(primary, secondary, property) {
+	  if (property) {
+	    primary = primary[property];
+	    secondary = secondary[property];
+	  }
+	  if (secondary && primary) {
+	    _angularFix2['default'].forEach(secondary, function (item) {
+	      if (primary.indexOf(item) === -1) {
+	        primary.push(item);
+	      }
+	    });
+	    return primary;
+	  } else if (secondary) {
+	    return secondary;
+	  } else {
+	    return primary;
+	  }
 	}
 	module.exports = exports['default'];
 
@@ -1155,7 +1179,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                ctrl.$setValidity(name, false);
 	              }
 	            })['finally'](function () {
-	              if (Object.keys(ctrl.$pending).length === 1) {
+	              var $pending = ctrl.$pending || {};
+	              if (Object.keys($pending).length === 1) {
 	                delete ctrl.$pending;
 	              } else {
 	                delete ctrl.$pending[name];
@@ -1197,6 +1222,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
 
 	var _angularFix = __webpack_require__(3);
 
@@ -1512,6 +1539,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            scope.fc = scope.options.formControl; // shortcut for template authors
 	            stopWatchingShowError();
 	            addShowMessagesWatcher();
+	            addParsers();
+	            addFormatters();
 	          }
 	        });
 	      }
@@ -1536,6 +1565,89 @@ return /******/ (function(modules) { // webpackBootstrap
 	          scope.options.validation.errorExistsAndShouldBeVisible = show;
 	          scope.showError = show; // shortcut for template authors
 	        });
+	      }
+
+	      function addParsers() {
+	        setParsersOrFormatters('parsers');
+	      }
+
+	      function addFormatters() {
+	        setParsersOrFormatters('formatters');
+	      }
+
+	      function setParsersOrFormatters(which) {
+	        var originalThingProp = 'originalParser';
+	        if (which === 'formatters') {
+	          originalThingProp = 'originalFormatter';
+	        }
+
+	        // init with type's parsers
+	        var things = getThingsFromType(type);
+
+	        // get optionsTypes things
+	        things = formlyUtil.extendArray(things, getThingsFromOptionsTypes(scope.options.optionsTypes));
+
+	        // get field's things
+	        things = formlyUtil.extendArray(things, scope.options[which]);
+
+	        // convert things into formlyExpression things
+	        _angularFix2['default'].forEach(things, function (thing, index) {
+	          things[index] = getFormlyExpressionThing(thing);
+	        });
+
+	        var ngModelCtrls = scope.fc;
+	        if (!_angularFix2['default'].isArray(ngModelCtrls)) {
+	          ngModelCtrls = [ngModelCtrls];
+	        }
+
+	        _angularFix2['default'].forEach(ngModelCtrls, function (ngModelCtrl) {
+	          var _ngModelCtrl;
+
+	          ngModelCtrl['$' + which] = (_ngModelCtrl = ngModelCtrl['$' + which]).concat.apply(_ngModelCtrl, _toConsumableArray(things));
+	        });
+
+	        function getThingsFromType(theType) {
+	          if (!theType) {
+	            return [];
+	          }
+	          if (_angularFix2['default'].isString(theType)) {
+	            theType = formlyConfig.getType(theType, true, scope.options);
+	          }
+	          var typeThings = [];
+
+	          // get things from parent
+	          if (theType['extends']) {
+	            typeThings = formlyUtil.extendArray(typeThings, getThingsFromType(theType['extends']));
+	          }
+
+	          // get own type's things
+	          typeThings = formlyUtil.extendArray(typeThings, getDefaultOptionsProperty(theType, which, []));
+
+	          // get things from optionsTypes
+	          typeThings = formlyUtil.extendArray(typeThings, getThingsFromOptionsTypes(getDefaultOptionsOptionsTypes(theType)));
+
+	          return typeThings;
+	        }
+
+	        function getThingsFromOptionsTypes() {
+	          var optionsTypes = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+
+	          var optionsTypesThings = [];
+	          _angularFix2['default'].forEach(_angularFix2['default'].copy(arrayify(optionsTypes)).reverse(), function (optionsTypeName) {
+	            optionsTypesThings = formlyUtil.extendArray(optionsTypesThings, getThingsFromType(optionsTypeName));
+	          });
+	          return optionsTypesThings;
+	        }
+
+	        function getFormlyExpressionThing(thing) {
+	          formlyExpressionParserOrFormatterFunction[originalThingProp] = thing;
+	          return formlyExpressionParserOrFormatterFunction;
+
+	          function formlyExpressionParserOrFormatterFunction($viewValue) {
+	            var $modelValue = scope.options.value();
+	            return formlyUtil.formlyEval(scope, thing, $modelValue, $viewValue);
+	          }
+	        }
 	      }
 	    }
 
@@ -1795,6 +1907,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 	formlyField.$inject = ["$http", "$q", "$compile", "$templateCache", "$interpolate", "formlyConfig", "formlyValidationMessages", "formlyApiCheck", "formlyUtil", "formlyUsability", "formlyWarn"];
+
+	// Stateless util functions
+	function getDefaultOptionsOptionsTypes(type) {
+	  return getDefaultOptionsProperty(type, 'optionsTypes', []);
+	}
+
+	function getDefaultOptionsProperty(type, prop, defaultValue) {
+	  return type.defaultOptions && type.defaultOptions[prop] || defaultValue;
+	}
 	module.exports = exports['default'];
 
 /***/ },
@@ -1891,7 +2012,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    if (attrs.hasOwnProperty('isFieldGroup') && el.parent().parent().hasClass('formly')) {
 	      parentFormAttributes = copyAttributes(el.parent().parent()[0].attributes);
 	    }
-	    return '\n        <' + rootEl + ' class="formly"\n                 name="' + getFormName() + '"\n                 role="form" ' + parentFormAttributes + '>\n          <' + fieldRootEl + ' formly-field\n               ng-repeat="field in fields ' + getTrackBy() + '"\n               ' + getHideDirective() + '="!field.hide"\n               class="formly-field"\n               options="field"\n               model="field.model || model"\n               fields="fields"\n               form="theFormlyForm"\n               form-id="' + getFormName() + '"\n               form-state="options.formState"\n               form-options="options"\n               index="$index">\n          </' + fieldRootEl + '>\n          <div ng-transclude></div>\n        </' + rootEl + '>\n      ';
+	    return '\n        <' + rootEl + ' class="formly"\n                 name="' + getFormName() + '"\n                 role="form" ' + parentFormAttributes + '>\n          <' + fieldRootEl + ' formly-field\n               ng-repeat="field in fields ' + getTrackBy() + '"\n               ' + getHideDirective() + '="!field.hide"\n               class="formly-field"\n               options="field"\n               model="field.model || model"\n               fields="fields"\n               form="theFormlyForm"\n               form-id="' + getFormName() + '"\n               form-state="options.formState"\n               form-options="options"\n               index="$index">\n          </' + fieldRootEl + '>\n          <div ng-transclude class="' + getTranscludeClass() + '"></div>\n        </' + rootEl + '>\n      ';
 
 	    function getRootEl() {
 	      return attrs.rootEl || 'ng-form';
@@ -1924,6 +2045,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        formName = $interpolate.startSymbol() + '::\'formly_\' + ' + bindName + $interpolate.endSymbol();
 	      }
 	      return formName;
+	    }
+
+	    function getTranscludeClass() {
+	      return attrs.transcludeClass || '';
 	    }
 
 	    function copyAttributes(attributes) {

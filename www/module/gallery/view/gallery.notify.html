@@ -1,0 +1,17 @@
+<ion-view view-title="Notify">
+
+    <ion-content class="bg-content"
+                 padding="true">
+        <img ng-src="{{GalleryPreview.data.img._url}}"
+             alt=""
+             style="display: block; width: 100%">
+        <ion-slide-box active-slide="GalleryView.pictureIndex"
+                       show-pager="false">
+            <ion-slide ng-repeat="picture in GalleryView.data.img">
+                <div class="box blue">
+                    <img ng-src="{{picture.path}}"/>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

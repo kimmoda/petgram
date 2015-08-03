@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.user')
-    .factory ('User', function ($q, $filter, $rootScope, $cordovaGeolocation, $cordovaDevice, $window, $facebook, CacheFactory, $cordovaFacebook, $state, CONST, Notify) {
+    .factory ('User', function ($q, $filter, $rootScope, $cordovaGeolocation, $cordovaDevice, $window, $facebook, CacheFactory, $cordovaFacebook, $state, ParseConfig, Notify) {
 
     var userCache,
         userListCache;
@@ -26,7 +26,7 @@ angular
 
     function init () {
         // Parse Start
-        Parse.initialize (CONST.PARSE.id, CONST.PARSE.key);
+        Parse.initialize (ParseConfig.applicationId, ParseConfig.javascriptKey);
         var current = Parse.User.current ();
 
         if (current) {

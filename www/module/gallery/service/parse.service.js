@@ -1,14 +1,14 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .service ('ParseService', function ($q, $window, ParseConfiguration) {
+    .service ('ParseService', function ($q, $window, ParseConfig) {
 
     function initialize () {
-        console.log ("Missing Parse Plugin " + JSON.stringify ($window.parsePlugin));
+        console.log ('Missing Parse Plugin ' + JSON.stringify ($window.parsePlugin));
 
         var deferred = $q.defer ();
-        $window.parsePlugin.initialize (ParseConfiguration.applicationId, ParseConfiguration.clientKey, function () {
-            console.log ("Initialized Parse Plugin");
+        $window.parsePlugin.initialize (ParseConfig.applicationId, ParseConfig.clientKey, function () {
+            console.log ('Initialized Parse Plugin');
             deferred.resolve ('success');
         }, function (e) {
             deferred.reject (e);

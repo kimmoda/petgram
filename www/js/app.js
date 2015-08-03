@@ -19,7 +19,7 @@ angular
     'module.card',
     'module.feedback',
 ])
-    .run (function ($ionicPlatform, $rootScope,CONST, $cordovaStatusbar, ParseService, User) {
+    .run (function ($ionicPlatform, $rootScope, AppConfig, $cordovaStatusbar, ParseService, User) {
 
     //ParseService
     //    .start ()
@@ -44,7 +44,7 @@ angular
         if (window.cordova) {
             // org.apache.cordova.statusbar required
             $cordovaStatusbar.style (1);
-            $cordovaStatusbar.styleHex(CONST.STATUSBAR);
+            $cordovaStatusbar.styleHex(AppConfig.STATUSBAR);
             $cordovaStatusbar.overlaysWebView(true);
 
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -65,8 +65,10 @@ angular
     // $ionicConfigProvider.views.swipeBackEnabled (true);
     $ionicConfigProvider.backButton.text ('Voltar').icon ('ion-ios-arrow-left');
     $ionicConfigProvider.backButton.previousTitleText (false).text ('Voltar').icon ('ion-ios-arrow-left');
-    // $ionicConfigProvider.views.transition ('platform');
-    // $ionicConfigProvider.navBar.alignTitle ('platform');
+    $ionicConfigProvider.views.transition ('platform');
+    $ionicConfigProvider.navBar.alignTitle ('platform');
+    $ionicConfigProvider.tabs.position('bottom');
+    $ionicConfigProvider.tabs.style('standard');
     $ionicConfigProvider.views.maxCache (1);
 
 })

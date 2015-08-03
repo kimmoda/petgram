@@ -9136,25 +9136,40 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-ion-list.card {
-  margin-bottom: 10px !important;
-  display: block; }
-
-.card-list .card {
-  margin: 5px;
-  width: 30.5%;
-  display: inline-block;
-  font-size: 13px;
-  min-height: 110px;
-  height: 100px; }
-  .card-list .card a.item-content {
-    padding: 17px 0px;
-    text-align: center; }
-    .card-list .card a.item-content i {
-      color: #009688; }
-    .card-list .card a.item-content h2 {
-      font-size: 14px;
-      color: black; }
+.instagram {
+  font-family: -apple-system, "Helvetica Neue", "Segoe WP", sans-serif !important;
+  color: #333; }
+  .instagram h1, .instagram h2, .instagram h3, .instagram h4, .instagram h5, .instagram h6, .instagram .h1, .instagram .h2, .instagram .h3, .instagram .h4, .instagram .h5, .instagram .h6 {
+    color: #333; }
+  .instagram .item-body {
+    padding: 0;
+    border: none; }
+  .instagram .tab-item.middle {
+    background-color: #00302c;
+    border-radius: 7px;
+    color: #fff;
+    opacity: 1; }
+  .instagram .tabs-striped .tabs .tab-item.middle {
+    border-radius: 0; }
+  .instagram .item.item-avatar h2 {
+    font-size: 16px;
+    line-height: 32px;
+    color: #009688;
+    text-align: left; }
+  .instagram .item.item-avatar span.ng-binding {
+    top: 10px;
+    right: 10px;
+    display: block;
+    position: absolute;
+    color: #ccc;
+    line-height: 38px;
+    font-size: 14px; }
+  .instagram .card {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-bottom: 1px solid #ccc; }
 
 .row-detail {
   background-color: #fff;
@@ -9325,7 +9340,7 @@ form .item:first-child, .formly .item:first-child {
   box-shadow: none; }
 .platform-android .nav-bar-tabs-top .scroll-content, .platform-android .tabs-bottom .scroll-content {
   bottom: 0;
-  top: 110px; }
+  top: 95px; }
 .platform-android .bar.bar-header {
   height: 56px; }
 .platform-android .bar.bar-header .title {
@@ -9338,6 +9353,8 @@ form .item:first-child, .formly .item:first-child {
     display: block;
     height: 56px;
     padding: 0px; }
+    .platform-android .bar.bar-header .title .nav-bar-title img {
+      margin-top: 6px; }
 .platform-android .bar.bar-header .button:last-child {
   top: 3px;
   right: 0px;
@@ -9876,380 +9893,6 @@ ion-nav-bar.bar.nav-bar-container.nav-bar-tabs-top {
   transition: 0.2s opacity linear;
   -webkit-transition: 0.2s opacity linear; }
 
-/* Popup*/
-.popup-container .popup {
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); }
-
-.popup-container .popup * {
-  border: none;
-  text-align: center; }
-
-#loading-bar .bar {
-  background: none !important;
-  border-bottom: none !important;
-  border-top: 1px solid #AA0000 !important;
-  bottom: 1px !important;
-  height: 1px !important; }
-
-#loading-bar .bar * {
-  display: none !important; }
-
-.stube {
-  /* View Video*/
-  /* History*/
-  /* Animate */
-  @-webkit-keyframes enter_animation {
-    from {
-      -webkit-transform: scale(2.5, 2.5);
-      transform: scale(2.5, 2.5);
-      opacity: 0; }
-
-    to {
-      -webkit-transform: scale(1, 1);
-      transform: scale(1, 1);
-      opacity: 1; } }
-
-  @keyframes enter_animation {
-    from {
-      -webkit-transform: scale(2.5, 2.5);
-      transform: scale(2.5, 2.5);
-      opacity: 0; }
-
-    to {
-      -webkit-transform: scale(1, 1);
-      transform: scale(1, 1);
-      opacity: 1; } }
-
-  @-webkit-keyframes leave_animation {
-    to {
-      -webkit-transform: scale(2.5, 2.5);
-      transform: scale(2.5, 2.5);
-      opacity: 0; }
-
-    from {
-      -webkit-transform: scale(1, 1);
-      transform: scale(1, 1);
-      opacity: 1; } }
-
-  @keyframes leave_animation {
-    to {
-      -webkit-transform: scale(2.5, 2.5);
-      transform: scale(2.5, 2.5);
-      opacity: 0; }
-
-    from {
-      /* Safari IOS*/
-      -webkit-transform: scale(1, 1);
-      transform: scale(1, 1);
-      opacity: 1; } }
-
-  /* Animate List */
-  /* Android*/
-  /* IOS */
-  /* Locker */ }
-  .stube .top-search {
-    padding-top: 2px; }
-  .stube .top-search label.item-input-wrapper {
-    background: #FFFFFF; }
-  .stube .top-search input#searchText {
-    width: 100%; }
-  .stube .material-list .item {
-    margin: 3px;
-    padding: 0; }
-  @media screen and (min-width: 600px) {
-    .stube .material-list .item {
-      width: 50%;
-      display: inline-block; } }
-  @media screen and (min-width: 800px) {
-    .stube .material-list .item {
-      width: 24.4%; } }
-  .stube .card {
-    border: 1px solid #CCCCCC;
-    margin: 0px; }
-  .stube .card .item-content {
-    padding: 0; }
-  .stube .card .item-body {
-    margin: 0;
-    min-height: 150px;
-    padding: 0;
-    position: relative;
-    width: 100%; }
-  .stube .card .item-body .duration {
-    color: #FFFFFF;
-    font-size: 11px;
-    position: absolute;
-    right: 10px;
-    top: 5px; }
-  .stube .card .item-body img {
-    width: 100%; }
-  .stube .card .footer {
-    margin-top: -10px;
-    padding: 10px; }
-  .stube .card.stars {
-    min-height: 250px; }
-  .stube .view-video .slider-slides {
-    background: #000000;
-    min-height: 200px; }
-  .stube .view-video ion-item.item-slide.item-dark.item {
-    background: #000000;
-    margin: 0;
-    padding: 0;
-    position: relative; }
-  .stube .item-slide i.play {
-    color: rgba(255, 255, 255, 0.4);
-    display: block;
-    font-size: 120pt;
-    left: 40%;
-    line-height: 120pt;
-    position: absolute;
-    top: 25%;
-    z-index: 2; }
-  .stube .view-video ion-item.item-slide img {
-    width: 100%; }
-  .stube .view-video button.button.button-dark-primary.waves-effect.waves-circle.waves-light {
-    background: #000000;
-    border: none;
-    border-radius: 50%;
-    bottom: 50%;
-    color: #FFFFFF;
-    left: 50%;
-    position: absolute;
-    z-index: 999; }
-  .stube .action-buttons .action-buttons {
-    bottom: -20px;
-    position: absolute;
-    right: 10px; }
-  .stube .view-video .video {
-    background: #000000;
-    padding: 0; }
-  .stube .view-video .video video {
-    width: 100%; }
-  .stube .view-history .item {
-    display: block;
-    width: 100%; }
-  .stube .repeat-animation.ng-enter-stagger, .stube .repeat-animation.ng-leave-stagger, .stube .repeat-animation.ng-move-stagger {
-    /* notice how we're using animation instead of transition here */
-    animation-delay: 0.2s;
-    -webkit-animation-delay: 0.2s;
-    /* yes we still need to do this too */
-    animation-duration: 0;
-    -webkit-animation-duration: 0; }
-  .stube .repeat-animation.ng-move, .stube .repeat-animation.ng-enter {
-    animation: enter_animation 0.5s;
-    -webkit-animation: enter_animation 0.5s;
-    opacity: 0; }
-  .stube .repeat-animation.ng-leave {
-    animation: leave_animation 0.3s;
-    -webkit-animation: leave_animation 0.3s; }
-  .stube .list-animation.ng-enter-stagger, .stube .list-animation.ng-leave-stagger, .stube .list-animation.ng-move-stagger {
-    /* notice how we're using animation instead of transition here */
-    animation-delay: 0.2s;
-    -webkit-animation-delay: 0.2s;
-    /* yes we still need to do this too */
-    animation-duration: 0;
-    -webkit-animation-duration: 0; }
-  .stube .list-animation.ng-move, .stube .list-animation.ng-enter {
-    animation: enter_animation 0.5s;
-    -webkit-animation: enter_animation 0.5s;
-    opacity: 0; }
-  .stube .list-animation.ng-leave {
-    animation: leave_animation 0s;
-    -webkit-animation: leave_animation 0s; }
-  .stube .platform-android .modal-video ion-modal-view .has-header {
-    padding: 0;
-    top: 0px; }
-  .stube .platform-android .modal-video .bar-header, .stube .platform-android .modal-video .button {
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5); }
-  .stube .loading-container .loading {
-    background-color: #fff !important;
-    padding: 30px; }
-  .stube .spinner svg {
-    height: 28px;
-    width: 28px;
-    stroke: #AA0000;
-    fill: #AA0000; }
-  .stube .tabs-striped a {
-    border-color: #AA0000 !important; }
-  .stube .platform-ios ion-modal-view .has-header {
-    top: 0px !important; }
-  .stube .has-header {
-    top: 42px; }
-  .stube ion-content.scroll-content.ionic-scroll.has-header.has-tabs-top {
-    /*top: 90px !important;*/ }
-  .stube .scroll-content {
-    background: #F4F4F4; }
-  .stube ion-header-bar.bar-dark.bar.bar-header.disable-user-behavior {
-    border: none; }
-  .stube .platform-android5.app-header-bar {
-    padding-top: 25px; }
-  .stube .video-frame {
-    border: 0;
-    height: 100%;
-    width: 100%; }
-  .stube .center {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -ms-flex-align: center;
-    flex-direction: row;
-    -ms-flex-direction: row;
-    -webkit-flex-direction: row;
-    -ms-flex-pack: center;
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -moz-box-orient: horizontal;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-content: stretch;
-    -ms-flex-line-pack: stretch;
-    align-content: stretch;
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    -webkit-align-items: center;
-    align-items: center; }
-  .stube .item-slide {
-    padding: 0 !important; }
-  .stube .modal-video .bar {
-    background: transparent !important;
-    border: none !important; }
-  .stube .modal-video .view-video {
-    top: 0; }
-  .stube .text-center {
-    text-align: center !important; }
-  .stube .locker .ionic-scroll {
-    background-color: #444 !important;
-    color: #fff !important; }
-    .stube .locker .ionic-scroll .line {
-      border-bottom: 1px solid #5F5F5F; }
-    .stube .locker .ionic-scroll .button {
-      background: none !important;
-      border: 1px solid #5F5F5F !important;
-      color: #ccc !important; }
-  .stube .top-search form {
-    display: block;
-    padding-top: 5px; }
-  .stube .top-search label {
-    border-radius: 0;
-    height: 35px; }
-  .stube .top-search input {
-    background: none; }
-  .stube .top-search i {
-    text-shadow: none; }
-  .stube .top-search .button-icon {
-    position: absolute;
-    right: 10px;
-    top: 10px; }
-
-.locker .patt-wrap ul, .locker .patt-wrap li {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-
-.locker .center-vertical {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-align: center;
-  flex-direction: row;
-  -ms-flex-direction: row;
-  -webkit-flex-direction: row;
-  -ms-flex-pack: center;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-content: stretch;
-  -ms-flex-line-pack: stretch;
-  align-content: stretch;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -webkit-align-items: center;
-  align-items: center; }
-.locker .center-vertical > * {
-  -ms-flex-order: 0;
-  -webkit-box-ordinal-group: 1;
-  -moz-box-ordinal-group: 1;
-  -webkit-order: 0;
-  order: 0;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  -webkit-align-self: auto;
-  -ms-flex-item-align: auto;
-  align-self: auto; }
-.locker .button-stretch {
-  width: 100%; }
-.locker .col-offset-15 {
-  margin-left: 15%; }
-.locker .locker .title {
-  color: #cccccc;
-  font-size: 24px;
-  position: absolute;
-  text-align: center;
-  top: -80px;
-  width: 100%; }
-.locker h2 {
-  top: 15%; }
-.locker .card {
-  border: none; }
-.locker .item {
-  background: none; }
-.locker .patt-holder {
-  background: none;
-  top: 15%; }
-.locker .patt-wrap {
-  cursor: pointer;
-  position: relative; }
-.locker .patt-circ {
-  box-sizing: border-box;
-  float: left;
-  position: relative; }
-  .locker .patt-circ.hovered {
-    border: 3px solid #009900; }
-.locker .patt-hidden .patt-lines {
-  display: none; }
-.locker .patt-hidden .patt-circ.hovered {
-  border: 0; }
-.locker .patt-dots {
-  background: #ffffff;
-  border-radius: 5px;
-  height: 10px;
-  left: 50%;
-  margin-left: -5px;
-  margin-top: -5px;
-  position: absolute;
-  top: 50%;
-  width: 10px; }
-.locker .patt-lines {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
-  height: 10px;
-  position: absolute;
-  transform-origin: 5px 5px; }
-.locker .patt-error .patt-circ.hovered {
-  border: 3px solid #a00; }
-
 ion-slide {
   background-color: #f0f0f0; }
   ion-slide:nth-child(2n) {
@@ -10345,6 +9988,19 @@ ion-slide {
   background: none !important;
   color: #fff !important; }
 
+.action-sheet .button {
+  color: #009688; }
+
+.tab-btn-feature {
+  color: #fff;
+  background: #00635a; }
+
+.no-padding {
+  padding: 0; }
+
+.item.item-avatar {
+  background-color: rgba(255, 255, 255, 0.9); }
+
 .bar .title img {
   max-height: 40px;
   margin-top: -2px; }
@@ -10352,8 +10008,8 @@ ion-slide {
 .separator {
   display: block;
   border-top: solid 1px rgba(0, 0, 0, 0.12);
-  min-height: 0px;
-  line-height: 0px;
+  min-height: 0;
+  line-height: 0;
   margin: 0;
   padding: 0; }
 

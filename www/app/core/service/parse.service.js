@@ -18,12 +18,12 @@
 
 'use strict';
 angular
-    .module ('module.core')
-    .factory ('ParseService', function ($http, $q, CONST) {
+    .module ('module.gallery')
+    .factory ('ParseService', function ($http, $q, ParseConfig) {
 
         function init () {
             var defer = $q.defer ();
-            parsePlugin.initialize (CONST.PARSE.api, CONST.PARSE.key, function () {
+            parsePlugin.initialize (ParseConfig.applicationId, ParseConfig.javascriptKey, function () {
                 defer.resolve (true);
             }, function (e) {
                 alert ('error');

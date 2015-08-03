@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.core')
-    .controller ('HomeCtrl', function ($rootScope, $state, DashboardSlide, Place) {
+    .controller ('HomeCtrl', function ($rootScope, $state, DashboardSlide) {
     var self = this;
     if (!$rootScope.isLoggedIn) {
         $state.go ('app.home');

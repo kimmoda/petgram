@@ -6,8 +6,8 @@ angular
     // Add Menu
     $rootScope.addMenu ({
         route: 'app.gallery.home',
-        icon : 'ion-images',
-        name : gettextCatalog.getString ('Photogram')
+        icon : 'ion-camera',
+        name : gettextCatalog.getString ('Ionictagram')
     });
 
 });
