@@ -17,36 +17,27 @@ angular
         var slideCache = CacheFactory.get ('DashboardSlide');
 
         function all (force) {
+            var defer = $q.defer();
+            var objs = [];
 
             Loading.show ();
+            new Parse
+                .Query ('DashboardSlide')
+                .find ()
+                .then (function (resp) {
+                var results = []
+                angular.forEach (resp, function (item) {
+                    var obj = {
+                        id   : item.id,
+                        name : item.attributes.name,
+                        image: item.attributes.image
+                    };
 
-            var defer = $q.defer ();
-            var cache = slideCache.keys ();
-
-            if (cache.length > 0 && !force === true && force !== undefined) {
-                console.log ('Request Cache');
-                Loading.hide ();
-                defer.resolve (slideCache.keys ());
-            } else {
-
-                new Parse
-                    .Query ('DashboardSlide')
-                    .find ()
-                    .then (function (resp) {
-                    var results = []
-                    angular.forEach (resp, function (item) {
-                        var obj = {
-                            id   : item.id,
-                            name : item.attributes.name,
-                            image: item.attributes.image
-                        };
-
-                        slideCache.put (item.id, obj);
-                        results.push (obj);
-                    });
-                    defer.resolve (results);
+                    objs.push (obj);
                 });
-            }
+                Loading.hide ();
+                defer.resolve (objs);
+            });
 
             return defer.promise;
         }
@@ -56,4 +47,4 @@ angular
         }
 
     }
-);  
+);

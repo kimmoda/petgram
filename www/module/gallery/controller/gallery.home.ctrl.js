@@ -14,7 +14,6 @@ angular
     };
 
     self.upload = function () {
-        //var options = CONST.CAMERA;
         PhotoService
             .open()
             .then(function (resp) {

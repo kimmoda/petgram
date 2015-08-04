@@ -12,8 +12,8 @@ angular
     'ngCordova',
     'gettext',
     'module.core',
-    'module.gallery',
     'module.user',
+    'module.gallery',
     'module.miscellaneous',
     'module.facebook',
     'module.card',
@@ -67,8 +67,8 @@ angular
     $ionicConfigProvider.backButton.previousTitleText (false).text ('Voltar').icon ('ion-ios-arrow-left');
     $ionicConfigProvider.views.transition ('platform');
     $ionicConfigProvider.navBar.alignTitle ('platform');
-    $ionicConfigProvider.tabs.position('bottom');
-    $ionicConfigProvider.tabs.style('standard');
+    $ionicConfigProvider.platform.android.tabs.position('bottom');
+    $ionicConfigProvider.platform.android.tabs.style('standard');
     $ionicConfigProvider.views.maxCache (1);
 
 })

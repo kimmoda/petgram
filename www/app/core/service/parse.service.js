@@ -18,7 +18,7 @@
 
 'use strict';
 angular
-    .module ('module.gallery')
+    .module ('module.core')
     .factory ('ParseService', function ($http, $q, ParseConfig) {
 
         function init () {

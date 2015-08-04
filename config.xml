@@ -18,7 +18,7 @@
   <preference name="orientation" value="portrait"/>
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="1000"/>
-  <preference name="StatusBarBackgroundColor" value="#235A6B"/>
+  <preference name="StatusBarBackgroundColor" value="#00695C"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>

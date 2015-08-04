@@ -1,6 +1,6 @@
 'use strict';
 angular
-    .module ('module.core')
+    .module ('module.gallery')
     .factory ('PhotoService', function ($ionicActionSheet, $ionicPopup, $timeout, ImageService, ParseImageService, $window, $cordovaCamera, $cordovaImagePicker, ParseConfig, gettextCatalog, $http, $q) {
 
 

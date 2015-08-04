@@ -43,7 +43,7 @@ msgid "Compartilhar"
 msgstr ""
 
 #: contact/config/contact.config.js:9
-#: contact/views/contact.home.html:1
+#: contact/views/contact.html:1
 msgid "Contact"
 msgstr ""
 
@@ -139,7 +139,7 @@ msgstr ""
 msgid "Nearby"
 msgstr ""
 
-#: card/views/card.home.html:18
+#: card/views/card.html:18
 msgid "Nope"
 msgstr ""
 
@@ -234,7 +234,7 @@ msgid "Termos do BeNear"
 msgstr ""
 
 #: card/config/card.config.js:10
-#: card/views/card.home.html:3
+#: card/views/card.html:3
 msgid "Tinder Cards"
 msgstr ""
 
@@ -251,7 +251,7 @@ msgstr ""
 msgid "Wordpress"
 msgstr ""
 
-#: card/views/card.home.html:25
+#: card/views/card.html:25
 msgid "Yes"
 msgstr ""
 

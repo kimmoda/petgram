@@ -13,14 +13,28 @@
               fields="GalleryCapture.formFields"
               form="rForm">
 
+          <div class="no-padding" ng-show="GalleryCapture.form.geo">
+            <ui-gmap-google-map class="map-container"
+                                 center="GalleryCapture.map.center"
+                                 zoom="GalleryCapture.map.zoom"
+                                 options="GalleryCapture.map.options">
+
+                 <ui-gmap-marker coords="GalleryCapture.here.coords"
+                                 icon="GalleryCapture.here.icon"
+                                 idkey="1"></ui-gmap-marker>
+
+             </ui-gmap-google-map>
+          </div>
+
      <button class="button button-block button-positive"
              type="button"
              ng-disabled="rForm.$invalid"
              ng-click="GalleryCapture.submitLogin(rForm, GalleryCapture.form)"
              translate>Entrar
      </button>
-
      </formly-form>
+
+
 
     </ion-content>
 </ion-view>

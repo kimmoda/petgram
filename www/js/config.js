@@ -2,7 +2,7 @@
 angular
     .module ('starter')
     .value ('AppConfig', {
-        STATUSBAR: '#0099CC'
+        STATUSBAR: '#00796B'
     })
     .value ('ParseConfig', {
     applicationId: '7lWT9DJntSvMKTetpoT0wL79pTG9dk4ob5pztktX',

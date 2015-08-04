@@ -17,7 +17,8 @@ $balanced: #33cd5f !default;
 $energized: #ffc900 !default;
 $assertive: #ef473a !default;
 $royal: #886aea !default;
-$dark: #444 !default;
+//$dark: #444 !default;
+$dark: darken($positive, 28) !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -43,11 +44,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	color: $positive;
 }
 
-//@import "rating";
-.tab-btn-feature {
-	color: #fff;
-	background: darken($positive, 10);
-}
+
 .no-padding {
 	padding: 0;
 }

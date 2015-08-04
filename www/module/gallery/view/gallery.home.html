@@ -7,7 +7,8 @@
 		<ion-refresher on-refresh="GalleryHome.load(true)" pulling-text="{{ 'Atualizar...' | translate }}"></ion-refresher>
 
 		<div
-    class="list card"
+    class="list card step1"
+		ng-show="GalleryHome.data.length"
     ng-repeat="gallery in GalleryHome.data" ui-sref="app.gallery({id: gallery.id })">
 
 			<div

@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('ion-capture')
-    .directive ('capturePhoto', function ($ionicActionSheet, gettextCatalog, $jrCrop, CONST, $cordovaCamera, $cordovaImagePicker) {
+    .directive ('capturePhoto', function ($ionicActionSheet, gettextCatalog, $jrCrop, $cordovaCamera, $cordovaImagePicker) {
 
      function base64ToBlob (base64Data, contentType) {
             contentType = contentType || '';
@@ -85,7 +85,7 @@ angular
             function crop(image){
 
                 console.log(image);
-                
+
                  $jrCrop
                     .crop ({
                     url: image,
@@ -128,7 +128,7 @@ angular
                         switch (index) {
                             case 0:
                                 getPhotoCamera ();
-    
+
                                 return true;
                             case 1:
                                 getPhotoGallery ();
