@@ -12,7 +12,7 @@ angular
             angular.forEach (form, function (value, key) {
                 sugestao.set (key, value);
             });
-            
+
             sugestao.save (null, {});
 
             $timeout (function () {

@@ -63,11 +63,10 @@
     "cordova-plugin-camera",
     "org.apache.cordova.file",
     "cordova-plugin-geolocation",
-    "cordova-plugin-statusbar",
-    "com.parse.cordova.core.pushplugin"
+    "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    "android",
+    "ios"
   ]
 }

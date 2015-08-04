@@ -40,6 +40,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/component/ion-capture/style/jrcrop";
 
 
+.spinner svg {
+  stroke: $positive;
+  fill: $positive;
+}
+
 .action-sheet .button {
 	color: $positive;
 }

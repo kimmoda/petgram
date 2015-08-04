@@ -5,11 +5,29 @@ angular
     var self = this;
 
     $scope.slides = [
-        {title: 'App screenshot', class: 'background-positive', img: 'img/device-airbnb.png'},
-        {title: 'Facebook paper screenshot', class: 'background-calm', img: 'img/device-facebook-paper.png'},
-        {title: 'Foursquare screenshot', class: 'background-balanced', img: 'img/device-foursquare.png'},
-        {title: 'Instagram screenshot', class: 'background-energized', img: 'img/device-instagram.png'},
-        {title: 'Twitter screenshot', class: 'background-royal', img: 'img/device-twitter.png'}
+        {
+            title   : 'App screenshot',
+            class: 'background-positive',
+            img  : 'img/device-airbnb.png'
+        },
+
+        {title   : 'Facebook paper screenshot',
+            class: 'background-calm',
+            img  : 'img/device-facebook-paper.png'
+        },
+
+        {title   : 'Foursquare screenshot',
+            class: 'background-balanced',
+            img  : 'img/device-foursquare.png'
+        },
+        {title   : 'Instagram screenshot',
+            class: 'background-energized',
+            img  : 'img/device-instagram.png'
+        },
+        {title   : 'Twitter screenshot',
+            class: 'background-royal',
+            img  : 'img/device-twitter.png'
+        }
     ];
 
     $scope.slideIndex = 0;

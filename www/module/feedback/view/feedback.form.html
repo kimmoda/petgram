@@ -3,19 +3,19 @@
 
         <div class="step1">
             <formly-form model="Feedback.form"
-                     fields="Feedback.formFields"
-                     form="rForm">
+                         fields="Feedback.formFields"
+                         form="rForm">
 
-            <div class="padding">
-                <button class="button button-block button-positive"
-                        type="button"
-                        ng-disabled="rForm.$invalid"
-                        ng-click="Feedback.submitFeedback(rForm, Feedback.form)"
-                        translate>Enviar
-                </button>
-            </div>
+                <div class="padding">
+                    <button class="button button-block button-positive"
+                            type="button"
+                            ng-disabled="rForm.$invalid"
+                            ng-click="Feedback.submitFeedback(rForm, Feedback.form)"
+                            translate>Enviar
+                    </button>
+                </div>
 
-        </formly-form>
+            </formly-form>
         </div>
 
     </ion-content>

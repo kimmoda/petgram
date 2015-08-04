@@ -4,8 +4,8 @@
         <div class="banner text-center step1">
             <div class="body step2">
                 <div capture-photo
-                        ion-capture-options="{ width: 150, height: 150, name: 'avatar' }"
-                        ion-capture-save="saveProfile()"
+                     ion-capture-options="{ width: 150, height: 150, name: 'avatar' }"
+                     ion-capture-save="saveProfile()"
                      avatar="Profile.form.avatar"
                      class="avatar">
 
@@ -21,19 +21,19 @@
         </div>
 
         <div class="step2">
-          <formly-form model="GalleryProfile.form"
-                     fields="GalleryProfile.formFields"
-                     form="rForm">
+            <formly-form model="GalleryProfile.form"
+                         fields="GalleryProfile.formFields"
+                         form="rForm">
 
-            <div class="padding">
-                <button class="button button-block button-positive"
-                        type="button"
-                        ng-click="GalleryProfile.submitProfile(rForm, Profile.form)"
-                        translate>Criar Conta
-                </button>
-            </div>
+                <div class="padding">
+                    <button class="button button-block button-positive"
+                            type="button"
+                            ng-click="GalleryProfile.submitProfile(rForm, Profile.form)"
+                            translate>Criar Conta
+                    </button>
+                </div>
 
-        </formly-form>
+            </formly-form>
         </div>
 
     </ion-content>

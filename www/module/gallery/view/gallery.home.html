@@ -1,34 +1,38 @@
 <ion-view view-title="{{ 'Ionictagram' | translate }}">
-	<ion-nav-buttons side="right">
-		<button
-		class="button button-icon icon ion-android-more-vertical"></button>
-	</ion-nav-buttons>
-	<ion-content>
-		<ion-refresher on-refresh="GalleryHome.load(true)" pulling-text="{{ 'Atualizar...' | translate }}"></ion-refresher>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-more-vertical"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher on-refresh="GalleryHome.load(true)"></ion-refresher>
 
-		<div
-    class="list card step1"
-		ng-show="GalleryHome.data.length"
-    ng-repeat="gallery in GalleryHome.data" ui-sref="app.gallery({id: gallery.id })">
+        <div class="list card step1"
+             ng-show="GalleryHome.data.length"
+             ng-repeat="gallery in GalleryHome.data"
+             ui-sref="app.gallery.photo({id: gallery.id })">
 
-			<div
-      class="item item-avatar" data-affix-within-parent-with-class="card"
-      ion-affix>
-				<img ng-src="{{gallery.user.img}}">
-				<h2>{{gallery.user.first_name}}</h2>
-				<span>{{gallery.created | date}}</span>
-			</div>
+            <div class="item item-avatar"
+                 data-affix-within-parent-with-class="card"
+                 ion-affix>
+                <img ng-src="{{gallery.user.img}}">
 
-			<div class="item item-body">
-				<img ng-src="{{gallery.src}}" style="width: 100%">
+                <h2>{{gallery.user.first_name}}</h2>
+                <span>{{gallery.created | amTimeAgo}}</span>
+            </div>
 
-				<p ng-bind="user.data.title"></p>
-			</div>
-      <p>
-        <a class="subdued" href="#">1 {{ 'Like' | translate}}</a>
-        <a class="subdued" href="#">5 {{'Comments' | translate}}</a>
-      </p>
-		</div>
+            <div class="item item-body">
+                <img ng-src="{{gallery.src}}"
+                     style="width: 100%">
+            </div>
+            <div class="padding">
+                <p>{{ gallery.data.title }}</p>
 
-	</ion-content>
+                <p>
+                    <a class="subdued"
+                       href="#">1 {{ 'Like' | translate}}</a> <a class="subdued"
+                                                                 href="#">5 {{'Comments' | translate}}</a>
+                </p>
+            </div>
+        </div>
+
+    </ion-content>
 </ion-view>

@@ -5,7 +5,7 @@ angular
     var self = this;
 
     self.form = {
-        user   : Parse.User.current ()
+        user: Parse.User.current ()
     };
 
     self.formFields = FeedbackForm.form;

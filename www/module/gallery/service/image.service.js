@@ -31,7 +31,7 @@ angular
             var _data = {};
 
             /**
-             * 
+             *
              * @param _params
              * @private
              */

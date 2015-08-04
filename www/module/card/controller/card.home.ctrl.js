@@ -7,7 +7,10 @@ angular
 
 
     $scope.addCard = function (img, name) {
-        var newCard = {image: img, name: name};
+        var newCard = {
+            image: img,
+            name : name
+        };
         newCard.id  = Math.random ();
         $scope.cards.unshift (angular.extend ({}, newCard));
     };

@@ -1,6 +1,5 @@
-<ion-view
-class="form-login"
- view-title="{{ 'Entrar' | translate }}">
+<ion-view class="form-login"
+          view-title="{{ 'Entrar' | translate }}">
 
     <ion-content padding="true">
 
@@ -9,42 +8,40 @@ class="form-login"
         </div>
 
         <div class="step2">
-            <formly-form
-            model="Login.form"
-                     fields="Login.formFields"
-                     form="rForm">
+            <formly-form model="Login.form"
+                         fields="Login.formFields"
+                         form="rForm">
 
-            <button class="button button-right button-block button-clear"
-                    ng-click="Login.forgotPass()">Esqueceu a sua senha?
-            </button>
+                <button class="button button-right button-block button-clear"
+                        ng-click="Login.forgotPass()">Esqueceu a sua senha?
+                </button>
 
 
-            <button class="button button-block button-positive"
-                    type="button"
-                    ng-disabled="rForm.$invalid"
-                    ng-click="Login.submitLogin(rForm, Login.form)"
-                    translate>Entrar
-            </button>
+                <button class="button button-block button-positive step3"
+                        type="button"
+                        ng-disabled="rForm.$invalid"
+                        ng-click="Login.submitLogin(rForm, Login.form)"
+                        translate>Entrar
+                </button>
 
-        </formly-form>
+            </formly-form>
         </div>
 
-<div class="step3">
+        <div class="step3">
             <div class="line">
-            <div class="left"></div>
-            <span>ou</span>
+                <div class="left"></div>
+                <span>ou</span>
 
-            <div class="right"></div>
+                <div class="right"></div>
+            </div>
+
+
+            <button-facebook sref="app.gallery.home"></button-facebook>
+
+            <button class="button button-block button-clear"
+                    user-register>Ainda não está cadastrado? <b>Cadastrar</b></button>
+            </form>
         </div>
-
-
-        <button-facebook></button-facebook>
-
-        <button class="button button-block button-clear"
-                user-register
-                >Ainda não está cadastrado? <b>Cadastrar</b></button>
-        </form>
-</div>
 
     </ion-content>
 </ion-view>

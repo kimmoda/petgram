@@ -1,23 +1,31 @@
 <ion-view view-title="{{ 'Search' | translate }}">
 
-	<ion-content>
+    <ion-content>
 
-		<div class="row"
-		ng-if="$index % 4 === 0"
-		ng-repeat="image in GallerySearch.data">
-			<div class="col col-25" ng-if="$index < GallerySearch.data.length">
-				<img  ng-src="{{GallerySearch.data[$index].src}}" width="100%"/>
-			</div>
-			<div class="col col-25" ng-if="$index + 1 < GallerySearch.data.length">
-				<img  ng-src="{{GallerySearch.data[$index + 1].src}}" width="100%"/>
-			</div>
-			<div class="col col-25" ng-if="$index + 2 < GallerySearch.data.length">
-				<img  ng-src="{{GallerySearch.data[$index + 2].src}}" width="100%"/>
-			</div>
-			<div class="col col-25" ng-if="$index + 3 < GallerySearch.data.length">
-				<img  ng-src="{{GallerySearch.data[$index + 3].src}}" width="100%"/>
-			</div>
-		</div>
+        <div class="row"
+             ng-if="$index % 4 === 0"
+             ng-repeat="image in GallerySearch.data">
+            <div class="col col-25"
+                 ng-if="$index < GallerySearch.data.length">
+                <img ng-src="{{GallerySearch.data[$index].src}}"
+                     width="100%"/>
+            </div>
+            <div class="col col-25"
+                 ng-if="$index + 1 < GallerySearch.data.length">
+                <img ng-src="{{GallerySearch.data[$index + 1].src}}"
+                     width="100%"/>
+            </div>
+            <div class="col col-25"
+                 ng-if="$index + 2 < GallerySearch.data.length">
+                <img ng-src="{{GallerySearch.data[$index + 2].src}}"
+                     width="100%"/>
+            </div>
+            <div class="col col-25"
+                 ng-if="$index + 3 < GallerySearch.data.length">
+                <img ng-src="{{GallerySearch.data[$index + 3].src}}"
+                     width="100%"/>
+            </div>
+        </div>
 
-	</ion-content>
+    </ion-content>
 </ion-view>

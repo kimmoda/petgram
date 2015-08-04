@@ -1,11 +1,11 @@
 .tinder-cards-view {
-  background : #EAEAEA;
+  background : #eaeaea;
   /* Overlay styling*/
-  }
+}
 
 .tinder-cards-view td-cards {
   display : block;
-  }
+}
 
 .tinder-cards-view td-card {
   background    : white;
@@ -18,24 +18,24 @@
   margin-top    : 80px;
   position      : absolute;
   width         : 300px;
-  }
+}
 
 .tinder-cards-view td-card .image {
   position : relative;
-  }
+}
 
 .tinder-cards-view td-card img {
   max-width : 100%;
   min-width : 100%;
-  }
+}
 
 .tinder-cards-view td-card .title {
-  background     : #FFF;
+  background     : #fff;
   font-size      : 16px;
   padding        : 15px;
   text-align     : center;
   text-transform : capitalize;
-  }
+}
 
 .tinder-cards-view .overlayBox {
   height   : 98%;
@@ -45,7 +45,7 @@
   position : absolute;
   top      : -80px;
   width    : 100%;
-  }
+}
 
 .tinder-cards-view .boxed {
   border-radius : 6px;
@@ -53,32 +53,32 @@
   height        : 50px;
   padding       : 10px;
   width         : 100px;
-  }
+}
 
 .tinder-cards-view .yes-text {
   text-align : center;
-  }
+}
 
 .tinder-cards-view .yesBox {
   border            : 2px solid #33cd5f;
   color             : #33cd5f;
   margin            : 10% 60% 0% 10%;
   -webkit-transform : rotate(-25deg);
-  }
+}
 
 .tinder-cards-view .no-text {
   text-align : center;
-  }
+}
 
 .tinder-cards-view .noBox {
   border            : 2px solid #ef473a;
   color             : #ef473a;
   margin            : 10% 10% 0% 60%;
   -webkit-transform : rotate(25deg);
-  }
+}
 
 .tinder-cards-view .fade {
   opacity            : 0;
   transition         : 0.2s opacity linear;
   -webkit-transition : 0.2s opacity linear;
-  }
+}

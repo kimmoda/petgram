@@ -19,8 +19,9 @@ angular
                 .login (form)
                 .then (function (data) {
                 console.log (data);
-                $state.go ('app.home');
-            }).catch (function (resp) {
+                $state.go ('app.gallery.home');
+            })
+                .catch (function (resp) {
                 Notify.alert ('Ops', resp);
             });
         } else {
@@ -29,27 +30,30 @@ angular
     };
 
     self.forgotPass = function () {
-        $scope.form = {recuperar: ''};
+        $scope.form = {
+            recovery: ''
+        };
+        
         $scope.erro = '';
         $ionicPopup.show ({
             scope   : $scope,
-            template: '<div class="popup-recuperar"><form name="form.recuperar" form-manager><label class="item item-input ion-email"><input type="email" ng-model="email" id="email" name="email" placeholder="{{ \'Digite seu email\' | translate }}" required ng-maxlength="80"></label><span class="error-msg">{{erro}}</span></form></div>',
+            template: '<div class="popup-recovery"><form name="form.recovery" form-manager><label class="item item-input ion-email"><input type="email" ng-model="email" id="email" name="email" placeholder="{{ \'Digite seu email\' | translate }}" required ng-maxlength="80"></label><span class="error-msg">{{erro}}</span></form></div>',
             title   : gettextCatalog.getString ('Uma nova senha ser\xE1 enviada para o seu endere\xE7o de email:'),
             buttons : [
                 {
-                    text: gettextCatalog.getString ('Cancelar'),
+                    text: gettextCatalog.getString ('Cancel'),
                     type: 'button-calm'
                 },
                 {
-                    text : gettextCatalog.getString ('Enviar'),
+                    text : gettextCatalog.getString ('Send'),
                     type : 'button-positive',
                     onTap: function (e) {
-                        if ($scope.form.recuperar.$valid) {
-                            return $scope.form.recuperar.email.$viewValue;
+                        if ($scope.form.recovery.$valid) {
+                            return $scope.form.recovery.email.$viewValue;
                         } else {
                             //não permite o usuário fechar até ele digitar o email
                             e.preventDefault ();
-                            $scope.erro = gettextCatalog.getString ('Email Inválido');
+                            $scope.erro = gettextCatalog.getString ('Invalid Email');
                         }
                     }
                 }

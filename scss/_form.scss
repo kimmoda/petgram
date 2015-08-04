@@ -133,3 +133,8 @@ form, .formly {
   color : green;
 }
 
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #aaa;
+  text-indent: 0;
+}
+

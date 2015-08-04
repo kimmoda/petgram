@@ -4,6 +4,7 @@ angular
     'ionic',
     //'cacheviews'
     'formlyIonic',
+    'angularMoment',
     'ionic.components',
     'monospaced.elastic',
     'ngFacebook',
@@ -19,17 +20,10 @@ angular
     'module.card',
     'module.feedback',
 ])
-    .run (function ($ionicPlatform, $rootScope, AppConfig, $cordovaStatusbar, ParseService, User) {
-
-    //ParseService
-    //    .start ()
-    //    .then (function (resp) {
-    //    console.log (resp);
-    //});
+    .run (function ($ionicPlatform, $rootScope, AppConfig, $cordovaStatusbar, User) {
 
     User.init ();
     $ionicPlatform.ready (function () {
-
 
         //$ionicAnalytics.register ();
 
@@ -50,29 +44,23 @@ angular
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar (false);
             }
-
-            if (window.device.platform == 'iOS') {
-                navigator.splashscreen.hide ();
-            }
         }
 
     });
 
 })
     .config (function ($ionicConfigProvider) {
-    //     $ionicConfigProvider.platform.ios.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
-    //     $ionicConfigProvider.platform.android.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
-    // $ionicConfigProvider.views.swipeBackEnabled (true);
-    $ionicConfigProvider.backButton.text ('Voltar').icon ('ion-ios-arrow-left');
-    $ionicConfigProvider.backButton.previousTitleText (false).text ('Voltar').icon ('ion-ios-arrow-left');
-    $ionicConfigProvider.views.transition ('platform');
-    $ionicConfigProvider.navBar.alignTitle ('platform');
-    $ionicConfigProvider.platform.android.tabs.position('bottom');
-    $ionicConfigProvider.platform.android.tabs.style('standard');
-    $ionicConfigProvider.views.maxCache (1);
+        $ionicConfigProvider.platform.ios.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
+        $ionicConfigProvider.platform.android.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
+        $ionicConfigProvider.views.swipeBackEnabled (true);
+        $ionicConfigProvider.backButton.text ('Voltar').icon ('ion-ios-arrow-left');
+        $ionicConfigProvider.backButton.previousTitleText (false).text ('Voltar').icon ('ion-ios-arrow-left');
+        $ionicConfigProvider.views.transition ('platform');
+        $ionicConfigProvider.navBar.alignTitle ('platform');
+        $ionicConfigProvider.views.maxCache (1);
 
 })
-    .run (function ($rootScope, gettextCatalog) {
+    .run (function ($rootScope, gettextCatalog, amMoment) {
     // Language
     $rootScope.langs = {
         'pt_BR': gettextCatalog.getString ('Portuguese Brazil'),
@@ -82,6 +70,7 @@ angular
     var LangVar     = navigator.language || navigator.userLanguage;
     var userLangVar = LangVar.substring (0, 2) + '_' + LangVar.substring (3, 5).toUpperCase ();
     $rootScope.lang = userLangVar;
+    amMoment.changeLocale(userLangVar);
     gettextCatalog.setCurrentLanguage (userLangVar);
 })
 ;

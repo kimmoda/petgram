@@ -46,11 +46,11 @@ angular
                 var imageObject = new ImageObject ();
 
                 // set object properties
-                imageObject.set ('title', _params.caption);
+                imageObject.set ('title', _params.title);
                 imageObject.set ('img', imageFile);
                 imageObject.set ('user', Parse.User.current ());
                 imageObject.set ('thumbBase64', _params.thumbBase64);
-                // imageObject.set ('location', new Parse.GeoPoint (_params.coords.latitude, _params.coords.longitude));
+                imageObject.set ('location', new Parse.GeoPoint (_params.coords.latitude, _params.coords.longitude));
 
                 // save object to parse backend
                 return imageObject.save ();

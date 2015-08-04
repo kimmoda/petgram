@@ -13,11 +13,20 @@ angular
         }
     })
         .state ('app.gallery.home', {
-        url  : '/home',
+        url  : '/home/:reload',
         views: {
             tabHome: {
                 controller : 'GalleryHomeCtrl as GalleryHome',
                 templateUrl: 'module/gallery/view/gallery.home.html'
+            }
+        }
+    })
+        .state ('app.gallery.photo', {
+        url  : '/home/:id',
+        views: {
+            tabHome: {
+                controller : 'GalleryPhotoCtrl as GalleryPhoto',
+                templateUrl: 'module/gallery/view/gallery.photo.html'
             }
         }
     })
