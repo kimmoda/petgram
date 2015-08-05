@@ -4,14 +4,20 @@
                 ng-click="closeModal()"></button>
         <div class="title">{{ 'Comments' | translate }} ({{ comments.length }})
         </div>
-
     </ion-header-bar>
     <ion-content>
-        <div class="list step1">
+
+        <gallery-loading loading="loading"
+                         icon="android"></gallery-loading>
+
+        <div class="list step1"
+             ng-show="comments.length">
             <div ng-repeat="item in comments"
                  class="item item-avatar">
                 <img ng-src="{{ item.user.img }}"/>
+
                 <h2>{{ item.user.first_name }}</h2>
+
                 <div>{{ item.text }}</div>
                 <p>{{ item.created | amTimeAgo }}</p>
             </div>

@@ -9383,14 +9383,25 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #aaa;
   text-indent: 0; }
 
+.ionic-contrib-blur {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-filter: blur(20px);
+  opacity: .25;
+  z-index: 1; }
+
+.bar-frosted {
+  background-color: #f7f7f7; }
+
 .platform-android .has-header {
   top: 56px; }
 .platform-android .has-tab ion-header-bar, .platform-android .has-tab .bar {
   border: none;
   box-shadow: none; }
-.platform-android .tab-nav.tabs {
-  top: 56px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2); }
 .platform-android .nav-bar-tabs-top .bar.bar-header, .platform-android .tabs-bottom .bar.bar-header {
   border: none;
   -webkit-box-shadow: none;
@@ -9398,7 +9409,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   box-shadow: none; }
 .platform-android .nav-bar-tabs-top .scroll-content, .platform-android .tabs-bottom .scroll-content {
   bottom: 0;
-  top: 95px; }
+  top: 46px; }
 .platform-android .bar.bar-header {
   height: 56px; }
 .platform-android .bar.bar-header .title {
@@ -9879,78 +9890,6 @@ ion-nav-bar.bar.nav-bar-container.nav-bar-tabs-top {
     width: 100%;
     -webkit-filter: blur(3px); }
 
-.tinder-cards-view {
-  background: #eaeaea;
-  /* Overlay styling*/ }
-
-.tinder-cards-view td-cards {
-  display: block; }
-
-.tinder-cards-view td-card {
-  background: white;
-  border: 1px solid #999;
-  border-radius: 6px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-  left: 50%;
-  margin-bottom: 40px;
-  margin-left: -150px;
-  margin-top: 80px;
-  position: absolute;
-  width: 300px; }
-
-.tinder-cards-view td-card .image {
-  position: relative; }
-
-.tinder-cards-view td-card img {
-  max-width: 100%;
-  min-width: 100%; }
-
-.tinder-cards-view td-card .title {
-  background: #fff;
-  font-size: 16px;
-  padding: 15px;
-  text-align: center;
-  text-transform: capitalize; }
-
-.tinder-cards-view .overlayBox {
-  height: 98%;
-  left: 50%;
-  margin: 80px 0 0 -149px;
-  opacity: 0;
-  position: absolute;
-  top: -80px;
-  width: 100%; }
-
-.tinder-cards-view .boxed {
-  border-radius: 6px;
-  font-size: 30px;
-  height: 50px;
-  padding: 10px;
-  width: 100px; }
-
-.tinder-cards-view .yes-text {
-  text-align: center; }
-
-.tinder-cards-view .yesBox {
-  border: 2px solid #33cd5f;
-  color: #33cd5f;
-  margin: 10% 60% 0% 10%;
-  -webkit-transform: rotate(-25deg); }
-
-.tinder-cards-view .no-text {
-  text-align: center; }
-
-.tinder-cards-view .noBox {
-  border: 2px solid #ef473a;
-  color: #ef473a;
-  margin: 10% 10% 0% 60%;
-  -webkit-transform: rotate(25deg); }
-
-.tinder-cards-view .fade {
-  opacity: 0;
-  transition: 0.2s opacity linear;
-  -webkit-transition: 0.2s opacity linear; }
-
 ion-slide {
   background-color: #f0f0f0; }
   ion-slide:nth-child(2n) {
@@ -10009,42 +9948,6 @@ ion-slide {
   100% {
     opacity: 0;
     transform: scale(2.5); } }
-
-.jr-crop {
-  background-color: #000;
-  overflow: hidden; }
-
-.jr-crop-center-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  align-items: center;
-  position: absolute;
-  width: 100%;
-  height: 100%; }
-
-.jr-crop-img {
-  opacity: 0.6; }
-
-.bar.jr-crop-footer {
-  border: none;
-  background: none; }
-
-.jr-crop-footer button {
-  background: none !important;
-  color: #fff !important; }
 
 .spinner svg {
   stroke: #009688;

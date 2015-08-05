@@ -9,20 +9,26 @@ angular
         },
         template: '',
         link    : function ($scope, elem, attr) {
-            elem.bind ('click', function () {
-                console.log ($scope.gallery);
 
+            function init () {
+                $scope.loading = true;
                 Gallery
                     .getComments ($scope.gallery)
                     .then (function (resp) {
                     $scope.comments = resp;
+                    $scope.loading = false;
                 });
 
                 $scope.form = {
                     galleryId: $scope.gallery,
                     text     : ''
                 };
+            }
 
+            elem.bind ('click', function () {
+                console.log ($scope.gallery);
+
+                init ();
 
                 $ionicModal.fromTemplateUrl ('module/gallery/view/gallery.comment.directive.html', {
                     scope: $scope
@@ -36,12 +42,13 @@ angular
             $scope.formFields    = Gallery.formComment;
             $scope.submitComment = function (rForm, form) {
                 if (rForm.$valid) {
-                    var dataForm = angular.copy (form);
+                    var dataForm   = angular.copy (form);
+                    $scope.loading = true;
                     Gallery
                         .addComment (dataForm)
                         .then (function (resp) {
                         console.log (resp);
-                        $scope.closeModal ();
+                        init ();
                     });
                 }
             };

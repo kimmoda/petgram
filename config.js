@@ -56,7 +56,7 @@ module.exports = {
     ],
     sass   : 'scss/ionic.app.scss',
     source : 'www',
-    dist   : 'beta',
+    dist   : 'dist',
     docs   : 'docs',
     bower  : [
         'bower.json',

@@ -4,37 +4,41 @@
     <ion-content class="bg-content"
                  padding="true">
 
-        <div class="item">
-            <img ng-src="{{GalleryCapture.data}}"
-                 alt="">
-        </div>
+        <gallery-loading loading="GalleryCapture.loading"
+                         icon="android"></gallery-loading>
 
-
-        <formly-form model="GalleryCapture.form"
-                     fields="GalleryCapture.formFields"
-                     form="rForm">
-
-            <div class="no-padding"
-                 ng-show="GalleryCapture.form.geo">
-                <ui-gmap-google-map class="map-container"
-                                    center="GalleryCapture.map.center"
-                                    zoom="GalleryCapture.map.zoom"
-                                    options="GalleryCapture.map.options">
-
-                    <ui-gmap-marker coords="GalleryCapture.here.coords"
-                                    icon="GalleryCapture.here.icon"
-                                    idkey="1"></ui-gmap-marker>
-
-                </ui-gmap-google-map>
+        <div ng-if="GalleryCapture.data.length">
+            <div class="item">
+                <img ng-src="{{GalleryCapture.data}}" style="width: 100%; display: block">
             </div>
 
-            <button class="button button-block button-positive"
-                    type="button"
-                    ng-disabled="rForm.$invalid"
-                    ng-click="GalleryCapture.submitCapture(rForm, GalleryCapture.form)"
-                    translate>Entrar
-            </button>
-        </formly-form>
+
+            <formly-form model="GalleryCapture.form"
+                         fields="GalleryCapture.formFields"
+                         form="rForm">
+
+                <div class="no-padding"
+                     ng-show="GalleryCapture.form.geo">
+                    <ui-gmap-google-map class="map-container"
+                                        center="GalleryCapture.map.center"
+                                        zoom="GalleryCapture.map.zoom"
+                                        options="GalleryCapture.map.options">
+
+                        <ui-gmap-marker coords="GalleryCapture.here.coords"
+                                        icon="GalleryCapture.here.icon"
+                                        idkey="1"></ui-gmap-marker>
+
+                    </ui-gmap-google-map>
+                </div>
+
+                <button class="button button-block button-positive"
+                        type="button"
+                        ng-disabled="rForm.$invalid"
+                        ng-click="GalleryCapture.submitCapture(rForm, GalleryCapture.form)"
+                        translate>Entrar
+                </button>
+            </formly-form>
+        </div>
 
 
     </ion-content>

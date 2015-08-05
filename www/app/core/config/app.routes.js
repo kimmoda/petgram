@@ -10,7 +10,7 @@ angular
         template  : '',
         controller: function ($state) {
             if (Parse.User.current ()) {
-                $state.go ('app.gallery.home');
+                $state.go ('gallery.home');
             } else {
                 $state.go ('intro');
             }

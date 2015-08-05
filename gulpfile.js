@@ -6,6 +6,7 @@ var gulp          = require ('gulp'),
     sass          = require ('gulp-sass'),
     rename        = require ('gulp-rename'),
     sh            = require ('shelljs'),
+    clean         = require ('gulp-clean'),
     inject        = require ('gulp-inject'),
     bowerFiles    = require ('main-bower-files'),
     gettext       = require ('gulp-angular-gettext'),
@@ -30,7 +31,9 @@ var gulp          = require ('gulp'),
     runSequence   = require ('run-sequence'),
     rev           = require ('gulp-rev'),
     paths         = require ('./config'),
-    replaceFiles  = ['./www/js/app.js'];
+    replaceFiles  = ['./www/js/app.js'],
+    config        = ['./www/js/config.js'],
+    facebook      = ['./www/module/user/config/user.facebook.js'];
 
 
 // Master Tasks
@@ -62,14 +65,17 @@ gulp.task ('prod', function (cb) {
     );
 });
 
+gulp.task ('clean', function () {
+    return gulp.src (paths.dist, {read: false})
+        .pipe (clean ());
+});
+
 gulp.task ('server:prod', ['cache:prod',
                            'blog:prod',
-                           'facebook:prod'
 ]);
 
 gulp.task ('server:dev', ['cache:dev',
-                          'blog:dev',
-                          'facebook:dev'
+                          'blog:dev'
 ]);
 
 // Inject Files
@@ -255,7 +261,7 @@ gulp.task ('img_x2', function () {
         .pipe (gulp.dest (paths.dist + '/img_x2'));
 });
 
-// Minify 
+// Minify
 // Get copyright using NodeJs file system
 var getCopyright = function () {
     return fs.readFileSync ('./LICENSE.md');
@@ -345,26 +351,6 @@ gulp.task ('blog:dev', function () {
     });
 });
 
-// Blog
-gulp.task ('facebook:prod', function () {
-    return replace ({
-        regex      : paths.const.facebook.dev,
-        replacement: paths.const.facebook.prod,
-        paths      : facebook,
-        recursive  : false,
-        silent     : false
-    });
-});
-
-gulp.task ('facebook:dev', function () {
-    return replace ({
-        regex      : paths.const.facebook.prod,
-        replacement: paths.const.facebook.dev,
-        paths      : facebook,
-        recursive  : false,
-        silent     : false
-    });
-});
 
 // Karma Test
 gulp.task ('test', function () {

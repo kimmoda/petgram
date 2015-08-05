@@ -4,5 +4,6 @@ angular.module ('ionic.components', [
     'ion-capture',
     'ionic.loading',
     'ion-tinga',
-    'ion-affix'
+    'ion-affix',
+    'ionic.header.glass'
 ]);

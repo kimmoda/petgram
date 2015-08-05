@@ -4,6 +4,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: gallery/view/gallery.popover.home.html:10
+msgid "About"
+msgstr ""
+
+#: gallery/view/gallery.home.html:66
+msgid "Add comment"
+msgstr ""
+
+#: gallery/service/gallery.model.js:34
+msgid "Add your comment"
+msgstr ""
+
 #: feedback/service/feedback.form.js:22
 msgid "Assunto"
 msgstr ""
@@ -14,10 +26,6 @@ msgstr ""
 
 #: gallery/service/photo.service.js:58
 msgid "Cancel"
-msgstr ""
-
-#: card/view/card.tab.html:1
-msgid "Card"
 msgstr ""
 
 #: facebook/view/facebook.feed.html:42
@@ -32,7 +40,7 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
-#: gallery/view/gallery.home.html:32
+#: gallery/view/gallery.comment.directive.html:5
 msgid "Comments"
 msgstr ""
 
@@ -52,11 +60,7 @@ msgstr ""
 msgid "Curtir"
 msgstr ""
 
-#: app.js:67
-msgid "English"
-msgstr ""
-
-#: gallery/view/gallery.capture.html:31
+#: gallery/view/gallery.capture.html:34
 msgid "Entrar"
 msgstr ""
 
@@ -88,48 +92,22 @@ msgstr ""
 msgid "Geolocalization"
 msgstr ""
 
-#: card/view/card.graph.html:1
-msgid "Graph"
-msgstr ""
-
 #: gallery/config/gallery.config.js:10
 #: gallery/view/gallery.home.html:1
 #: gallery/view/gallery.tabs.html:1
 msgid "Ionictagram"
 msgstr ""
 
-#: card/view/card.ranking.html:10
-#: gallery/view/gallery.home.html:31
 #: gallery/view/gallery.photo.html:23
 msgid "Like"
 msgstr ""
 
-#: miscellaneous/config/miscellaneous.config.js:9
-msgid "Miscellaneous"
-msgstr ""
-
-#: card/view/card.ranking.html:7
-msgid "Name"
-msgstr ""
-
-#: card/view/card.home.html:18
-msgid "Nope"
-msgstr ""
-
-#: card/view/card.ranking.html:13
-msgid "Not"
-msgstr ""
-
-#: app.js:66
-msgid "Portuguese Brazil"
+#: gallery/view/gallery.like.directive.html:5
+msgid "Likes"
 msgstr ""
 
 #: gallery/view/gallery.profile.html:1
 msgid "Profile"
-msgstr ""
-
-#: card/view/card.ranking.html:1
-msgid "Ranking"
 msgstr ""
 
 #: feedback/service/feedback.form.js:29
@@ -144,17 +122,12 @@ msgstr ""
 msgid "Send Photo"
 msgstr ""
 
+#: gallery/view/gallery.popover.home.html:5
+msgid "Settings"
+msgstr ""
+
 #: feedback/service/feedback.form.js:25
 msgid "Sugestão"
-msgstr ""
-
-#: gallery/service/gallery.model.js:34
-msgid "Text"
-msgstr ""
-
-#: card/config/card.config.js:10
-#: card/view/card.home.html:3
-msgid "Tinder Cards"
 msgstr ""
 
 #: gallery/service/gallery.model.js:13
@@ -163,8 +136,4 @@ msgstr ""
 
 #: feedback/service/feedback.form.js:12
 msgid "Titulo"
-msgstr ""
-
-#: card/view/card.home.html:26
-msgid "Yes"
 msgstr ""

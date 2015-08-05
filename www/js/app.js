@@ -2,7 +2,7 @@
 angular
     .module ('starter', [
     'ionic',
-    //'cacheviews'
+    'cacheviews'
     'formlyIonic',
     'angularMoment',
     'ionic.components',
@@ -15,9 +15,7 @@ angular
     'module.core',
     'module.user',
     'module.gallery',
-    'module.miscellaneous',
     'module.facebook',
-    'module.card',
     'module.feedback',
 ])
     .run (function ($ionicPlatform, $rootScope, AppConfig, $cordovaStatusbar, User) {
@@ -38,8 +36,8 @@ angular
         if (window.cordova) {
             // org.apache.cordova.statusbar required
             $cordovaStatusbar.style (1);
-            $cordovaStatusbar.styleHex(AppConfig.STATUSBAR);
-            $cordovaStatusbar.overlaysWebView(true);
+            $cordovaStatusbar.styleHex (AppConfig.STATUSBAR);
+            $cordovaStatusbar.overlaysWebView (true);
 
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar (false);
@@ -50,15 +48,21 @@ angular
 
 })
     .config (function ($ionicConfigProvider) {
-        //$ionicConfigProvider.platform.ios.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
-        //$ionicConfigProvider.platform.android.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
-        //$ionicConfigProvider.views.swipeBackEnabled (true);
-        //$ionicConfigProvider.backButton.text ('Voltar').icon ('ion-ios-arrow-left');
-        //$ionicConfigProvider.backButton.previousTitleText (false).text ('Voltar').icon ('ion-ios-arrow-left');
-        $ionicConfigProvider.views.transition ('platform');
-        $ionicConfigProvider.navBar.alignTitle ('platform');
-        $ionicConfigProvider.views.maxCache (1);
+    //$ionicConfigProvider.platform.ios.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
+    //$ionicConfigProvider.platform.android.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
+    //$ionicConfigProvider.views.swipeBackEnabled (true);
+    //$ionicConfigProvider.backButton.text ('Voltar').icon ('ion-ios-arrow-left');
+    //$ionicConfigProvider.backButton.previousTitleText (false).text ('Voltar').icon ('ion-ios-arrow-left');
+    //$ionicConfigProvider.views.transition ('platform');
+    //$ionicConfigProvider.navBar.alignTitle ('platform');
+    //$ionicConfigProvider.tabs.position('bottom');
+    $ionicConfigProvider.platform.android.tabs.position ('bottom');
+    $ionicConfigProvider.platform.android.tabs.style ('standard');
 
+    // Android Native Scroll
+    //var jsScrolling = (ionic.Platform.isAndroid () ) ? false : true;
+    //$ionicConfigProvider.scrolling.jsScrolling (jsScrolling);
+    $ionicConfigProvider.views.maxCache (1);
 })
     .run (function ($rootScope, gettextCatalog, amMoment) {
     // Language
@@ -70,7 +74,7 @@ angular
     var LangVar     = navigator.language || navigator.userLanguage;
     var userLangVar = LangVar.substring (0, 2) + '_' + LangVar.substring (3, 5).toUpperCase ();
     $rootScope.lang = userLangVar;
-    amMoment.changeLocale(userLangVar);
+    amMoment.changeLocale (userLangVar);
     gettextCatalog.setCurrentLanguage (userLangVar);
 })
 ;

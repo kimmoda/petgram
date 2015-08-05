@@ -3,16 +3,12 @@ angular
     .module ('module.gallery')
     .config (function ($stateProvider) {
     $stateProvider
-        .state ('app.gallery', {
+        .state ('gallery', {
         url     : '/gallery',
         abstract: true,
-        views   : {
-            menuContent: {
-                templateUrl: 'module/gallery/view/gallery.tabs.html'
-            }
-        }
+        templateUrl: 'module/gallery/view/gallery.tabs.html'
     })
-        .state ('app.gallery.home', {
+        .state ('gallery.home', {
         url  : '/home/:reload',
         views: {
             tabHome: {
@@ -21,7 +17,7 @@ angular
             }
         }
     })
-        .state ('app.gallery.photo', {
+        .state ('gallery.photo', {
         url  : '/home/:id',
         views: {
             tabHome: {
@@ -31,7 +27,7 @@ angular
         }
     })
 
-        .state ('app.gallery.search', {
+        .state ('gallery.search', {
         url  : '/search',
         views: {
             tabSearch: {
@@ -41,7 +37,7 @@ angular
         }
     })
 
-        .state ('app.gallery.capture', {
+        .state ('gallery.capture', {
         url  : '/capture',
         views: {
             tabCapture: {
@@ -51,7 +47,7 @@ angular
         }
     })
 
-        .state ('app.gallery.notify', {
+        .state ('gallery.notify', {
         url  : '/notify',
         views: {
             tabNotify: {
@@ -61,7 +57,7 @@ angular
         }
     })
 
-        .state ('app.gallery.profile', {
+        .state ('gallery.profile', {
         url  : '/profile',
         views: {
             tabProfile: {

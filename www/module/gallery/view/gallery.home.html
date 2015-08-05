@@ -1,12 +1,17 @@
 <ion-view view-title="{{ 'Ionictagram' | translate }}">
     <ion-nav-buttons side="right">
-        <button class="button button-icon icon ion-android-more-vertical"></button>
+        <button ng-click="popover.show($event)"
+                class="button button-icon icon ion-android-more-vertical"></button>
     </ion-nav-buttons>
     <ion-content>
-        <ion-refresher on-refresh="loadMore(true)"></ion-refresher>
+        <ion-refresher ng-if="!GalleryHome.loading"
+                       on-refresh="loadMore(true)"></ion-refresher>
 
-        <div class="list card"
-             ng-show="GalleryHome.data.length"
+        <gallery-loading loading="GalleryHome.loading"
+                         icon="android"></gallery-loading>
+
+        <div class="list card step1"
+             ng-if="!GalleryHome.loading"
              ng-repeat="gallery in GalleryHome.data">
 
             <div class="item item-avatar"
@@ -18,9 +23,10 @@
                 <span>{{gallery.created | amTimeAgo}}</span>
             </div>
 
-            <div class="item item-body">
-                <img ng-src="{{gallery.item.img._url}}"
-                     style="width: 100%">
+            <div class="item item-body"
+                 ng-click="like = !like">
+                <i class="icon ion-heart"
+                   ng-if="like"></i> <img ng-src="{{gallery.item.img._url}}">
             </div>
             <div class="item item-buttons">
                 <div class="row">
