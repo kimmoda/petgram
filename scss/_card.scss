@@ -1,70 +1,146 @@
 
 .card-home {
-	.list {
-
-			.item {
-					float:left;
-					width: 33%;
-			}
-	}
-
+  .list {
+    
+    .item {
+      float : left;
+      width : 33%;
+    }
+  }
+  
 }
 
-
 .instagram {
+  
+  //General Resets
+  font-family : -apple-system, "Helvetica Neue", "Segoe WP", sans-serif !important;
+  color       : #333;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color : #333;
+  }
 
-	//General Resets
-	font-family: -apple-system, "Helvetica Neue", "Segoe WP", sans-serif !important;
-	color: #333;
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	.h1,
-	.h2,
-	.h3,
-	.h4,
-	.h5,
-	.h6 {
-		color: #333;
-	}
-	.item-body {
-		padding: 0;
-		border: none;
-	}
-	.tab-item.middle {
-		background-color: darken($positive, 20);
-		border-radius: 7px;
-		color: #fff;
-		opacity: 1;
-	}
-	.tabs-striped .tabs .tab-item.middle {
-		border-radius: 0;
-	}
-	.item.item-avatar {
-		h2 {
-			font-size: 16px;
-			line-height: 32px;
-			color: $positive;
-			text-align: left;
-		}
-		span.ng-binding {
-			top: 10px;
-			right: 10px;
-			display: block;
-			position: absolute;
-			color: #ccc;
-			line-height: 38px;
-			font-size: 14px;
-		}
-	}
-	.card {
-		margin: 0;
-		border: none;
-		box-shadow: none;
-		padding: 0;
-		border-bottom: 1px solid #ccc;
-	}
+  .card {
+    margin     : 0;
+    border     : none;
+    box-shadow : none;
+    padding    : 0
+  }
+
+  .list {
+    padding : 0;
+    margin  : 0;
+  }
+  
+  .item-body {
+    padding    : 0;
+    border     : none;
+    min-height : 200px;
+    background : #ccc;
+  }
+
+  button.button-comment {
+    padding     : 0;
+    margin      : 0;
+    text-align  : left;
+    font-size   : 14px;
+    line-height : 14px;
+  }
+  
+  .item-buttons {
+    padding    : 0;
+    border-top : none;
+    button {
+      font-size : 30px;
+    }
+    
+  }
+  
+  .tab-item.middle {
+    background-color : darken($positive, 20);
+    border-radius    : 7px;
+    color            : #fff;
+    opacity          : 1;
+  }
+  .tabs-striped .tabs .tab-item.middle {
+    border-radius : 0;
+  }
+  .item.item-avatar {
+    h2 {
+      color        : $positive;
+      font-size    : 14px;
+      line-height  : 20px;
+      text-align   : left;
+      display      : block;
+      float        : left;
+      font-weight  : bold;
+      margin-right : 5px;
+    }
+    span.ng-binding {
+      top         : 10px;
+      right       : 10px;
+      display     : block;
+      position    : absolute;
+      color       : #ccc;
+      line-height : 38px;
+      font-size   : 14px;
+    }
+    div {
+      font-size   : 14px;
+      line-height : 20px;
+    }
+    
+    p {
+      font-size  : 12px;
+      text-align : left;
+      display    : block;
+      width      : 100%;
+    }
+  }
+  
+  .modal-comment {
+    
+    .scroll {
+      height : 100%;
+    }
+    
+    .form {
+      border   : 1px solid #ccc;
+      padding  : 1px;
+      display  : inline-block;
+      width    : 100%;
+      position : absolute;
+      bottom   : 0px;
+      
+      label.item.item-input {
+        display : block;
+        float   : left;
+        width   : 89%;
+        border  : none;
+      }
+      button {
+        float    : right;
+        padding  : 0;
+        height   : 101% !important;
+        top      : -1px;
+        position : absolute;
+        right    : -1px;
+      }
+      form .item, .formly .item {
+        border-bottom : none;
+      }
+    }
+    
+  }
+
 }

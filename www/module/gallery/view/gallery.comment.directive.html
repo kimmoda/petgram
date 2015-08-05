@@ -1,0 +1,34 @@
+<ion-modal-view class="modal-comment">
+    <ion-header-bar class="bar-positive">
+        <button class="button button-clear button-icon ion-ios-arrow-thin-left"
+                ng-click="closeModal()"></button>
+        <div class="title">{{ 'Comments' | translate }} ({{ comments.length }})
+        </div>
+
+    </ion-header-bar>
+    <ion-content>
+        <div class="list step1">
+            <div ng-repeat="item in comments"
+                 class="item item-avatar">
+                <img ng-src="{{ item.user.img }}"/>
+                <h2>{{ item.user.first_name }}</h2>
+                <div>{{ item.text }}</div>
+                <p>{{ item.created | amTimeAgo }}</p>
+            </div>
+        </div>
+
+        <div class="step2 form">
+            <formly-form model="form"
+                         fields="formFields"
+                         form="rForm">
+
+                <button class="button button-positive"
+                        type="button"
+                        ng-click="submitComment(rForm, form)">
+                    <i class="icon ion-arrow-right-b"></i>
+                </button>
+
+            </formly-form>
+        </div>
+    </ion-content>
+</ion-modal-view>

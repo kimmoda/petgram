@@ -28,6 +28,10 @@ msgstr ""
 msgid "Comentários"
 msgstr ""
 
+#: gallery/view/gallery.photo.html:43
+msgid "Comment"
+msgstr ""
+
 #: gallery/view/gallery.home.html:32
 msgid "Comments"
 msgstr ""
@@ -80,7 +84,7 @@ msgstr ""
 msgid "Gallery preview"
 msgstr ""
 
-#: gallery/service/gallery.model.js:44
+#: gallery/service/gallery.model.js:23
 msgid "Geolocalization"
 msgstr ""
 
@@ -96,6 +100,7 @@ msgstr ""
 
 #: card/view/card.ranking.html:10
 #: gallery/view/gallery.home.html:31
+#: gallery/view/gallery.photo.html:23
 msgid "Like"
 msgstr ""
 
@@ -143,12 +148,16 @@ msgstr ""
 msgid "Sugestão"
 msgstr ""
 
+#: gallery/service/gallery.model.js:34
+msgid "Text"
+msgstr ""
+
 #: card/config/card.config.js:10
 #: card/view/card.home.html:3
 msgid "Tinder Cards"
 msgstr ""
 
-#: gallery/service/gallery.model.js:34
+#: gallery/service/gallery.model.js:13
 msgid "Title"
 msgstr ""
 

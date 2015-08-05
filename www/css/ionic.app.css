@@ -9145,9 +9145,30 @@ a.button {
   color: #333; }
   .instagram h1, .instagram h2, .instagram h3, .instagram h4, .instagram h5, .instagram h6, .instagram .h1, .instagram .h2, .instagram .h3, .instagram .h4, .instagram .h5, .instagram .h6 {
     color: #333; }
+  .instagram .card {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    padding: 0; }
+  .instagram .list {
+    padding: 0;
+    margin: 0; }
   .instagram .item-body {
     padding: 0;
-    border: none; }
+    border: none;
+    min-height: 200px;
+    background: #ccc; }
+  .instagram button.button-comment {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+    line-height: 14px; }
+  .instagram .item-buttons {
+    padding: 0;
+    border-top: none; }
+    .instagram .item-buttons button {
+      font-size: 30px; }
   .instagram .tab-item.middle {
     background-color: #00302c;
     border-radius: 7px;
@@ -9156,10 +9177,14 @@ a.button {
   .instagram .tabs-striped .tabs .tab-item.middle {
     border-radius: 0; }
   .instagram .item.item-avatar h2 {
-    font-size: 16px;
-    line-height: 32px;
     color: #009688;
-    text-align: left; }
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin-right: 5px; }
   .instagram .item.item-avatar span.ng-binding {
     top: 10px;
     right: 10px;
@@ -9168,12 +9193,37 @@ a.button {
     color: #ccc;
     line-height: 38px;
     font-size: 14px; }
-  .instagram .card {
-    margin: 0;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    border-bottom: 1px solid #ccc; }
+  .instagram .item.item-avatar div {
+    font-size: 14px;
+    line-height: 20px; }
+  .instagram .item.item-avatar p {
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    width: 100%; }
+  .instagram .modal-comment .scroll {
+    height: 100%; }
+  .instagram .modal-comment .form {
+    border: 1px solid #ccc;
+    padding: 1px;
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    bottom: 0px; }
+    .instagram .modal-comment .form label.item.item-input {
+      display: block;
+      float: left;
+      width: 89%;
+      border: none; }
+    .instagram .modal-comment .form button {
+      float: right;
+      padding: 0;
+      height: 101% !important;
+      top: -1px;
+      position: absolute;
+      right: -1px; }
+    .instagram .modal-comment .form form .item, .instagram .modal-comment .form .formly .item {
+      border-bottom: none; }
 
 .row-detail {
   background-color: #fff;

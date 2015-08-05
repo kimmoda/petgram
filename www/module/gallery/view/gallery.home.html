@@ -3,12 +3,11 @@
         <button class="button button-icon icon ion-android-more-vertical"></button>
     </ion-nav-buttons>
     <ion-content>
-        <ion-refresher on-refresh="GalleryHome.load(true)"></ion-refresher>
+        <ion-refresher on-refresh="loadMore(true)"></ion-refresher>
 
-        <div class="list card step1"
+        <div class="list card"
              ng-show="GalleryHome.data.length"
-             ng-repeat="gallery in GalleryHome.data"
-             ui-sref="app.gallery.photo({id: gallery.id })">
+             ng-repeat="gallery in GalleryHome.data">
 
             <div class="item item-avatar"
                  data-affix-within-parent-with-class="card"
@@ -20,17 +19,49 @@
             </div>
 
             <div class="item item-body">
-                <img ng-src="{{gallery.src}}"
+                <img ng-src="{{gallery.item.img._url}}"
                      style="width: 100%">
             </div>
+            <div class="item item-buttons">
+                <div class="row">
+                    <div class="col col-75">
+                        <button gallery-toggle-like
+                                gallery="{{ gallery.id }}"
+                                class="button-clear button-icon ion-ios-heart-outline"></button>
+                        <button gallery-comment
+                                gallery="{{ gallery.id }}"
+                                class="button-clear button-icon ion-ios-chatbubble-outline"></button>
+                    </div>
+                    <div class="col text-right">
+                        <button class="button-clear button-icon ion-android-more-vertical"></button>
+                    </div>
+                </div>
+            </div>
             <div class="padding">
-                <p>{{ gallery.data.title }}</p>
+                <p>{{ gallery.data.item.title }}</p>
 
                 <p>
                     <a class="subdued"
-                       href="#">1 {{ 'Like' | translate}}</a> <a class="subdued"
-                                                                 href="#">5 {{'Comments' | translate}}</a>
-                </p>
+                       gallery-like
+                       gallery="{{ gallery.id }}"><span class="icon ion-ios-heart"></span> {{ gallery.likes }} {{
+                                                                                           (gallery.likes>1) ? 'Likes' :
+                                                                                           'Like' | translate}}</a>
+
+                <div class="list">
+                    <div ng-repeat="item in gallery.comments"
+                         class="item ">
+                        <!--<img ng-src="{{ item.user.img }}"/>-->
+                        <h2>{{ item.user.first_name }}</h2>
+
+                        <p>{{ item.text }}</p>
+                    </div>
+                </div>
+
+                <button class="button button-block button-clear button-comment "
+                        gallery-comment
+                        gallery="{{ gallery.id }}"
+                        translate>Add comment
+                </button>
             </div>
         </div>
 

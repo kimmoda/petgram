@@ -29,71 +29,16 @@ angular
     var formComment = [
         {
             key            : 'text',
-            type           : 'textarea',
+            type           : 'input',
             templateOptions: {
-                placeholder    : gettextCatalog.getString ('Text'),
-                icon           : 'icon-envelope',
-                required       : true,
-                iconPlaceholder: true
+                placeholder: gettextCatalog.getString ('Add your comment'),
+                type       : 'text',
+                required   : true,
+                //icon           : 'icon-envelope',
+                //iconPlaceholder: true
             }
         }
     ];
-
-
-    function all () {
-        var defer = $q.defer ();
-        Loading.show ();
-
-        new Parse
-            .Query ('Gallery')
-            .descending ('createdAt')
-            .include ('user')
-            .find ()
-            .then (function (resp) {
-            var objs = [];
-            angular.forEach (resp, function (obj) {
-                obj.user = obj.get ('user');
-                console.log (obj);
-
-                objs.push ({
-                    id     : obj.id,
-                    data   : obj.attributes,
-                    src    : obj.attributes.img._url,
-                    created: obj.createdAt,
-                    user   : obj.user.attributes
-                });
-
-            });
-            Loading.hide ();
-            defer.resolve (objs);
-        });
-
-        return defer.promise;
-    }
-
-
-    function get (item) {
-        var defer = $q.defer ();
-
-        console.log (item);
-        Loading.show ();
-
-        new Parse
-            .Query ('Gallery')
-            .include ('user')
-            .get (item, function (resp) {
-            console.log (resp);
-            var obj     = resp.attributes;
-            obj.id      = resp.id;
-            obj.created = resp.createdAt;
-            obj.user    = resp.get ('user').attributes;
-            console.log (obj);
-            defer.resolve (obj);
-            Loading.hide ();
-        });
-
-        return defer.promise;
-    }
 
 
     function add (_params) {
@@ -155,18 +100,26 @@ angular
 
     function allComment (galleryId) {
         var defer = $q.defer ();
+
+        var gallery = new Parse
+            .Query ('Gallery')
+            .get (galleryId, function (resp) {
+            console.log (resp);
+            return resp;
+        });
+
         new Parse
             .Query ('GalleryComment')
-            .equalTo ('galleryId', galleryId)
-            .include ('commentBy')
+            .equalTo ('galery', gallery)
+            //.include ('commentBy')
             .descending ('createdAt')
-            .find()
+            .find ()
             .then (function (resp) {
             var objs = [];
             angular.forEach (resp, function (item) {
                 var obj  = item.attributes;
                 obj.id   = item.id;
-                obj.user = item.attributes.commentBy.attributes;
+                obj.user = item.attributes.commentBy;
                 objs.push (obj);
             });
             Loading.hide ();
@@ -175,20 +128,210 @@ angular
         return defer.promise;
     }
 
-    function addComment (form) {
-        var defer  = $q.defer ();
-        var Object = Parse.Object.extend ('GalleryComment');
-        var item   = new Object ();
+    function getComments (obj) {
+        var defer = $q.defer ();
 
-        angular.forEach (form, function (value, key) {
-            item.set (key, value);
-        });
-        item.set ('commentBy', Parse.User.current ());
-        item.save (null)
+        new Parse
+            .Query ('Gallery')
+            .get (obj)
+            .then (function (gallery) {
+            new Parse
+                .Query ('GalleryComment')
+                .equalTo ('gallery', gallery)
+                .include ('commentBy')
+                .ascending ('createdAt')
+                .find ()
+                .then (function (resp) {
+                var comments = [];
+                angular.forEach (resp, function (item) {
+                    console.warn (item);
+                    var comment = {
+                        id     : item.id,
+                        text   : item.attributes.text,
+                        user   : item.attributes.commentBy.attributes,
+                        created: item.createdAt
+                    }
+                    comments.push (comment);
+                });
+                defer.resolve (comments);
+            });
+        })
+
+        return defer.promise;
+    }
+
+    function getLikes (obj) {
+        var defer = $q.defer ();
+
+        new Parse
+            .Query ('Gallery')
+            .get (obj)
+            .then (function (gallery) {
+            new Parse
+                .Query ('GalleryLike')
+                .equalTo ('gallery', gallery)
+                .include ('user')
+                .ascending ('createdAt')
+                .find ()
+                .then (function (resp) {
+                var objs = [];
+                angular.forEach (resp, function (item) {
+                    console.warn (item);
+                    var obj = {
+                        id     : item.id,
+                        text   : item.attributes.text,
+                        user   : item.attributes.user.attributes,
+                        created: item.createdAt
+                    }
+                    objs.push (obj);
+                });
+                console.log (objs);
+                defer.resolve (objs);
+            });
+        })
+
+        return defer.promise;
+    }
+
+    function all (page) {
+        var defer        = $q.defer ();
+        var limit        = 10;
+        var limitComment = 3;
+        var data         = new Array ();
+        //Loading.show ();
+
+        new Parse
+            .Query ('Gallery')
+            .descending ('createdAt')
+            .include ('user')
+            .limit (limit)
+            .skip (page * limit)
+            .find ()
             .then (function (resp) {
-            console.log (resp);
+
+            var cb = _.after (resp.length, function () {
+                defer.resolve (data);
+                //return data;
+            });
+
+            _.each (resp, function (item) {
+                //grab relations
+
+                var likes    = item.relation ('likes');
+                var comments = item.relation ('comments');
+
+                likes
+                    .query ()
+                    .count ()
+                    .then (function (likes) {
+
+                    comments
+                        .query ()
+                        .include ('commentBy')
+                        .descending ('createdAt')
+                        .find ()
+                        .then (function (comments) {
+                        console.log (comments);
+
+                        var commentsData = [];
+
+                        angular.forEach (comments, function (item) {
+                            var comment = {
+                                id  : item.id,
+                                text: item.attributes.text,
+                                user: item.attributes.commentBy.attributes
+                            }
+                            commentsData.push (comment);
+                        });
+
+                        var obj = {
+                            id      : item.id,
+                            item    : item.attributes,
+                            created : item.createdAt,
+                            likes   : likes,
+                            user    : item.attributes.user.attributes,
+                            comments: commentsData
+                        };
+                        data.push (obj);
+                        cb ();
+                    });
+                })
+
+
+            });
+
+
+        });
+
+        return defer.promise;
+    }
+
+
+    function getGallery (id) {
+        var defer = $q.defer ();
+        new Parse
+            .Query ('Gallery')
+            .include ('user')
+            .get (id)
+            .then (function (resp) {
             defer.resolve (resp);
         });
+        return defer.promise;
+    }
+
+    function get (item) {
+        var defer = $q.defer ();
+
+        console.log (item);
+        Loading.show ();
+
+        getGallery (item)
+            .then (function (resp) {
+            console.log (resp);
+            var obj     = resp.attributes;
+            obj.id      = resp.id;
+            obj.created = resp.createdAt;
+            obj.user    = resp.get ('user').attributes;
+            console.log (obj);
+            defer.resolve (obj);
+            Loading.hide ();
+        });
+
+        return defer.promise;
+    }
+
+
+    function addComment (form) {
+        var defer = $q.defer ();
+
+        console.log (form);
+        getGallery (form.galleryId)
+            .then (function (gallery) {
+            var Object = Parse.Object.extend ('GalleryComment');
+            var item   = new Object ();
+
+            angular.forEach (form, function (value, key) {
+                item.set (key, value);
+            });
+            item.set ('commentBy', Parse.User.current ());
+            item.set ('gallery', gallery);
+
+            item.save (null)
+                .then (function (resp) {
+                console.log (resp);
+                gallery
+                    .relation ('comments')
+                    .add (resp);
+
+                gallery
+                    .save ()
+                    .then (function (resp) {
+                    console.log (resp);
+                    defer.resolve (resp);
+                })
+            });
+        })
+
 
         return defer.promise;
     }
@@ -199,6 +342,8 @@ angular
         get        : get,
         addComment : addComment,
         allComment : allComment,
+        getComments: getComments,
+        getLikes   : getLikes,
         form       : form,
         formComment: formComment
     };

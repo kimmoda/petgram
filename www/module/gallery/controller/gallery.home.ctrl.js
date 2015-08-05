@@ -1,28 +1,47 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .controller ('GalleryHomeCtrl', function ($scope, $stateParams, PhotoService, Gallery, Notify) {
-        var self = this;
+    .controller ('GalleryHomeCtrl', function ($scope, $stateParams, PhotoService, Gallery, $timeout) {
+    var self    = this;
+    self.page   = -1;
+    self.active = false;
+    self.data   = [];
 
-        self.load = function (force) {
-            Gallery
-                .all (force)
-                .then (function (resp) {
-                    self.data = resp;
-                })
-                .then (function () {
-                    $scope.$broadcast ('scroll.refreshComplete');
-                });
-        };
+    $scope.loadMore = function (force) {
+        console.log ('Load More');
+        self.load (force);
+    }
 
-        self.upload = function () {
-            PhotoService
-                .open ()
-                .then (function (resp) {
-                    console.log (resp);
-                });
-        };
+    self.load = function (force) {
+        console.log ('Load ');
+        if (force) {
+            self.data = [];
+            self.page = -1;
+        }
 
-        self.load ($stateParams.reload);
+        self.page = parseInt (self.page) + 1;
+        Gallery
+            .all (self.page)
+            .then (function (resp) {
+            console.log (resp);
+            angular.forEach (resp, function (value, key) {
+                self.data.push (value);
+            });
+        })
+            .then (function () {
+            $scope.$broadcast ('scroll.refreshComplete');
+            $scope.$broadcast ('scroll.infiniteScrollComplete');
+        });
+    };
 
-    });
+    self.upload = function () {
+        PhotoService
+            .open ()
+            .then (function (resp) {
+            console.log (resp);
+        });
+    };
+
+    self.load ($stateParams.reload);
+
+});
