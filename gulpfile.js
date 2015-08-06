@@ -217,20 +217,11 @@ gulp.task ('cacheviews:remove', function () {
 
 // Copy
 gulp.task ('copy', function () {
-
+    // Images
     gulp.src (paths.source + '/img/**').pipe (gulp.dest (paths.dist + '/img'));
 
     // Ionic
     gulp.src (paths.source + '/lib/ionic/fonts/**').pipe (gulp.dest (paths.dist + '/fonts'));
-
-    // Style
-    //gulp.src (paths.source + '/lib/select2/*.png').pipe (gulp.dest (paths.dist + '/styles'));
-
-    // jquery ui themes
-    //gulp.src (paths.source + '/lib/jquery-ui/themes/redmond/images/**').pipe (gulp.dest (paths.dist + '/styles/images'));
-
-    // forms validate
-    //gulp.src (paths.source + '/formsValidate.js').pipe (gulp.dest (paths.dist + '/'));
 
     // Deploy
     gulp.src (paths.source + '/fonts/**').pipe (gulp.dest (paths.dist + '/fonts'));
@@ -288,16 +279,16 @@ gulp.task ('usemin', function () {
             rev ()
         ],
         js       : [
-            stripDebug (),
+            //stripDebug (),
             jshint.reporter ('default'),
             ngAnnotate ({
                 add: true
             }),
-            iife ({
-                //useStrict       : false,
-                //trimCode        : false,
-                //prependSemicolon: false
-            }),
+            //iife ({
+            //    //useStrict       : false,
+            //    //trimCode        : false,
+            //    //prependSemicolon: false
+            //}),
             uglify (),
             header (getCopyright (), {
                 version: paths.version

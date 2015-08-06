@@ -13,23 +13,11 @@ angular
                 console.log ($scope.gallery);
 
                 Gallery
-                    .getLikes ($scope.gallery)
+                    .likeGallery ($scope.gallery)
                     .then (function (resp) {
                     $scope.likes = resp;
                 });
 
-                $scope.form = {
-                    galleryId: $scope.gallery,
-                    text     : ''
-                };
-
-
-                $ionicModal.fromTemplateUrl ('module/gallery/view/gallery.like.directive.html', {
-                    scope: $scope
-                }).then (function (modal) {
-                    $scope.modal = modal;
-                    $scope.modal.show ();
-                });
             });
 
 

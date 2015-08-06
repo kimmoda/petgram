@@ -40,6 +40,8 @@ angular
         }
     ];
 
+    var currentUser = Parse.User.current ();
+
 
     function add (_params) {
         var defer = $q.defer ();
@@ -193,6 +195,17 @@ angular
         return defer.promise;
     }
 
+    function galleryLiked (gallery) {
+        var defer = $q.defer ();
+
+        return defer.promise;
+    }
+
+    /*
+     * 1) Gallery, Limit
+     * 2) GalleryComment, Limi
+     * 3) Like, count, liked
+     * */
     function all (page) {
         var defer        = $q.defer ();
         var limit        = 10;
@@ -222,39 +235,49 @@ angular
 
                 likes
                     .query ()
+                    .equalTo ('gallery', item)
+                    .equalTo ('user', currentUser)
                     .count ()
-                    .then (function (likes) {
+                    .then (function (liked) {
 
-                    comments
+                    likes
                         .query ()
-                        .include ('commentBy')
-                        .descending ('createdAt')
-                        .find ()
-                        .then (function (comments) {
-                        console.log (comments);
+                        .count ()
+                        .then (function (likes) {
 
-                        var commentsData = [];
+                        comments
+                            .query ()
+                            .include ('commentBy')
+                            .descending ('createdAt')
+                            .limit (limitComment)
+                            .find ()
+                            .then (function (comments) {
+                            console.log (comments);
 
-                        angular.forEach (comments, function (item) {
-                            var comment = {
-                                id  : item.id,
-                                text: item.attributes.text,
-                                user: item.attributes.commentBy.attributes
-                            }
-                            commentsData.push (comment);
+                            var commentsData = [];
+
+                            angular.forEach (comments, function (item) {
+                                var comment = {
+                                    id  : item.id,
+                                    text: item.attributes.text,
+                                    user: item.attributes.commentBy.attributes
+                                }
+                                commentsData.push (comment);
+                            });
+
+                            var obj = {
+                                id      : item.id,
+                                item    : item.attributes,
+                                created : item.createdAt,
+                                likes   : likes,
+                                liked   : liked,
+                                user    : item.attributes.user.attributes,
+                                comments: commentsData
+                            };
+                            data.push (obj);
+                            cb ();
                         });
-
-                        var obj = {
-                            id      : item.id,
-                            item    : item.attributes,
-                            created : item.createdAt,
-                            likes   : likes,
-                            user    : item.attributes.user.attributes,
-                            comments: commentsData
-                        };
-                        data.push (obj);
-                        cb ();
-                    });
+                    })
                 })
 
 
@@ -336,11 +359,116 @@ angular
         return defer.promise;
     }
 
+    function isLiked (galleryId) {
+        var defer = $q.defer ();
+
+        getGallery (galleryId)
+            .then (function (gallery) {
+            new Parse
+                .Query ('GalleryLike')
+                .equalTo ('gallery', gallery)
+                .equalTo ('user', currentUser)
+                .first ()
+                .then (function (resp) {
+                console.log (resp);
+                if (resp === undefined) {
+                    defer.resolve (true);
+                } else {
+                    defer.reject (true);
+                }
+            });
+        })
+
+        return defer.promise;
+    }
+
+    function addLike (galleryId) {
+        var defer = $q.defer ();
+
+        getGallery (galleryId)
+            .then (function (gallery) {
+            var Object = Parse.Object.extend ('GalleryLike');
+            var item   = new Object ();
+
+            angular.forEach (form, function (value, key) {
+                item.set (key, value);
+            });
+
+            item.set ('user', Parse.User.current ());
+            item.set ('gallery', gallery);
+
+            item.save (null)
+                .then (function (resp) {
+                console.log (resp);
+                gallery
+                    .relation ('likes')
+                    .add (resp);
+
+                gallery
+                    .save ()
+                    .then (function (resp) {
+                    console.log (resp);
+                    defer.resolve (resp);
+                })
+            });
+        })
+        return defer.promise;
+    }
+
+    function likeGallery (gallery) {
+        var defer = $q.defer ();
+        isLiked (gallery)
+            .then (function (resp) {
+            console.log (resp);
+            addLike (gallery)
+                .then (function (resp) {
+                defer.resolve (resp);
+            });
+        })
+            .catch (function (err) {
+            defer.reject (err);
+        })
+        return defer.promise;
+    }
+
+    function removeLike (gallery) {
+        var defer = $q.defer ();
+        getGallery (gallery)
+            .then (function (gallery) {
+            var Object = Parse.Object.extend ('GalleryLike');
+            var item   = new Object ();
+
+            angular.forEach (form, function (value, key) {
+                item.set (key, value);
+            });
+
+            item.set ('user', Parse.User.current ());
+            item.set ('gallery', gallery);
+
+            item.save (null)
+                .then (function (resp) {
+                console.log (resp);
+                gallery
+                    .relation ('likes')
+                    .add (resp);
+
+                gallery
+                    .save ()
+                    .then (function (resp) {
+                    console.log (resp);
+                    defer.resolve (resp);
+                })
+            });
+        })
+        return defer.promise;
+    }
+
     return {
         all        : all,
         add        : add,
         get        : get,
         addComment : addComment,
+        likeGallery: likeGallery,
         allComment : allComment,
         getComments: getComments,
         getLikes   : getLikes,

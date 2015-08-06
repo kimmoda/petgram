@@ -1,17 +1,17 @@
 
 .card-home {
   .list {
-    
+
     .item {
       float : left;
       width : 33%;
     }
   }
-  
+
 }
 
 .instagram {
-  
+
   //General Resets
   font-family : -apple-system, "Helvetica Neue", "Segoe WP", sans-serif !important;
   color       : #333;
@@ -30,6 +30,15 @@
     color : #333;
   }
 
+  .popover-backdrop.active {
+    background-color : rgba(0, 0, 0, 0.4);
+  }
+
+  .likes {
+    font-weight : bold;
+    color       : $positive;
+  }
+
   .card {
     margin     : 0;
     border     : none;
@@ -41,12 +50,18 @@
     padding : 0;
     margin  : 0;
   }
-  
+
   .item-body {
     padding    : 0;
     border     : none;
     min-height : 200px;
     background : #ccc;
+    position   : relative;
+    overflow   : hidden;
+    img {
+      width   : 100%;
+      display : block;
+    }
   }
 
   button.button-comment {
@@ -56,16 +71,43 @@
     font-size   : 14px;
     line-height : 14px;
   }
-  
+
   .item-buttons {
     padding    : 0;
     border-top : none;
     button {
       font-size : 30px;
     }
-    
+    .button-heart.ion-ios-heart {
+      color : #a00;
+    }
+
   }
-  
+
+  .list-comments {
+
+    .comment-item {
+      display : block;
+      clear   : both;
+
+      .username {
+        display      : block;
+        float        : left;
+        font-weight  : bold;
+        color        : $positive;
+        margin-right : 5px;
+      }
+      .comment {
+        display     : block;
+        float       : left;
+        font-weight : normal;
+        color       : #777;
+      }
+
+    }
+
+  }
+
   .tab-item.middle {
     background-color : darken($positive, 20);
     border-radius    : 7px;
@@ -76,30 +118,34 @@
     border-radius : 0;
   }
   .item.item-avatar {
+    background-color : rgba(255, 255, 255, 0.99);
+    border           : none;
+
     h2 {
       color        : $positive;
       font-size    : 14px;
-      line-height  : 20px;
+      line-height  : 35px;
       text-align   : left;
       display      : block;
       float        : left;
       font-weight  : bold;
       margin-right : 5px;
     }
-    span.ng-binding {
-      top         : 10px;
+
+    span {
+      top         : 33px;
       right       : 10px;
       display     : block;
       position    : absolute;
       color       : #ccc;
-      line-height : 38px;
+      line-height : 0;
       font-size   : 14px;
     }
     div {
       font-size   : 14px;
       line-height : 20px;
     }
-    
+
     p {
       font-size  : 12px;
       text-align : left;
@@ -107,13 +153,13 @@
       width      : 100%;
     }
   }
-  
+
   .modal-comment {
-    
+
     .scroll {
       height : 100%;
     }
-    
+
     .form {
       border   : 1px solid #ccc;
       padding  : 1px;
@@ -121,7 +167,7 @@
       width    : 100%;
       position : absolute;
       bottom   : 0px;
-      
+
       label.item.item-input {
         display : block;
         float   : left;
@@ -140,7 +186,7 @@
         border-bottom : none;
       }
     }
-    
+
   }
 
 }

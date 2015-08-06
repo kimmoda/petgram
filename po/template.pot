@@ -8,7 +8,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: gallery/view/gallery.home.html:66
+#: gallery/view/gallery.home.html:70
 msgid "Add comment"
 msgstr ""
 
@@ -60,6 +60,10 @@ msgstr ""
 msgid "Curtir"
 msgstr ""
 
+#: app.js:71
+msgid "English"
+msgstr ""
+
 #: gallery/view/gallery.capture.html:34
 msgid "Entrar"
 msgstr ""
@@ -104,6 +108,10 @@ msgstr ""
 
 #: gallery/view/gallery.like.directive.html:5
 msgid "Likes"
+msgstr ""
+
+#: app.js:70
+msgid "Portuguese Brazil"
 msgstr ""
 
 #: gallery/view/gallery.profile.html:1

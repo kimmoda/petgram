@@ -1,40 +1,45 @@
 <ion-view title="{{'Profile' | translate}}"
           class="profile">
     <ion-content>
-        <div class="banner text-center step1">
-            <div class="body step2">
-                <div capture-photo
-                     ion-capture-options="{ width: 150, height: 150, name: 'avatar' }"
-                     ion-capture-save="saveProfile()"
-                     avatar="Profile.form.avatar"
-                     class="avatar">
-
-                    <img ng-src="{{ user.img }}"/> <i class="icon ion-ios-plus-empty"></i>
-                </div>
-
-                <h3><a class="light">{{ user.first_name }}</a></h3>
-                <h4>{{ user.email }}</h4>
+        <div class="row">
+            <div class="col-25">
+                <img class="avatar" ng-src="{{ user.img }}"/>
             </div>
-            <div class="background"
-                 ng-if="user"
-                 style="background-image: url('{{ user.background }}');"></div>
-        </div>
-
-        <div class="step2">
-            <formly-form model="GalleryProfile.form"
-                         fields="GalleryProfile.formFields"
-                         form="rForm">
-
-                <div class="padding">
-                    <button class="button button-block button-positive"
-                            type="button"
-                            ng-click="GalleryProfile.submitProfile(rForm, Profile.form)"
-                            translate>Criar Conta
-                    </button>
+            <div class="col">
+                <div class="row">
+                    <div class="col">Publicações</div>
+                    <div class="col">Seguidores</div>
+                    <div class="col">Seguindo</div>
                 </div>
-
-            </formly-form>
+                <div class="row">
+                    <div class="col">
+                        <button class="button button-block">EDITAR SEU PERFIL</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <span class="strong">{{ user.first_name }}</span>
+            </div>
+        </div>
+
+
+        <!--<div class="step2">-->
+            <!--<formly-form model="GalleryProfile.form"-->
+                         <!--fields="GalleryProfile.formFields"-->
+                         <!--form="rForm">-->
+
+                <!--<div class="padding">-->
+                    <!--<button class="button button-block button-positive"-->
+                            <!--type="button"-->
+                            <!--ng-click="GalleryProfile.submitProfile(rForm, Profile.form)"-->
+                            <!--translate>Criar Conta-->
+                    <!--</button>-->
+                <!--</div>-->
+
+            <!--</formly-form>-->
+        <!--</div>-->
 
     </ion-content>
 </ion-view>
