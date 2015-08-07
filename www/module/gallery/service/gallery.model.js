@@ -201,6 +201,30 @@ angular
         return defer.promise;
     }
 
+    function search () {
+      var defer = $q.defer ();
+      var data = [];
+
+      new Parse
+      .Query('Gallery')
+      .limit(20)
+      .find()
+      .then(function(resp){
+        angular.forEach(resp, function(value, key) {
+          var obj = {
+              id      : value.id,
+              item    : value.attributes,
+              src: value.attributes.img.url(),
+              created : value.createdAt
+          };
+          data.push(obj);
+        });
+        defer.resolve(data);
+      });
+
+      return defer.promise;
+    }
+
     /*
      * 1) Gallery, Limit
      * 2) GalleryComment, Limi
@@ -472,6 +496,7 @@ angular
         allComment : allComment,
         getComments: getComments,
         getLikes   : getLikes,
+        search: search,
         form       : form,
         formComment: formComment
     };

@@ -2,7 +2,7 @@
 angular
     .module ('starter', [
     'ionic',
-    'cacheviews',
+    //'cacheviews',
     'formlyIonic',
     'angularMoment',
     'ionic.components',

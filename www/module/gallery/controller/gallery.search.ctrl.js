@@ -3,14 +3,18 @@ angular
     .module ('module.gallery')
     .controller ('GallerySearchCtrl', function ($scope, Gallery) {
         var self = this;
-
+        self.loading = true;
         self.load = function (force) {
             Gallery
-                .all (force)
+                .search (force)
                 .then (function (resp) {
                 self.data = resp;
                 console.log (resp);
-                $scope.$broadcast ('scroll.infiniteScrollComplete');
+            })
+            .then (function () {
+              $scope.$broadcast ('scroll.refreshComplete');
+              $scope.$broadcast ('scroll.infiniteScrollComplete');
+              self.loading = false;
             });
         };
 

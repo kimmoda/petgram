@@ -48,10 +48,6 @@ msgstr ""
 msgid "Compartilhar"
 msgstr ""
 
-#: gallery/view/gallery.profile.html:29
-msgid "Criar Conta"
-msgstr ""
-
 #: facebook/view/facebook.feed.html:31
 msgid "Curtidas"
 msgstr ""

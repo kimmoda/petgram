@@ -109,8 +109,7 @@
   }
 
   .tab-item.middle {
-    background-color : darken($positive, 20);
-    border-radius    : 7px;
+    background-color : $positive;
     color            : #fff;
     opacity          : 1;
   }
@@ -187,6 +186,19 @@
       }
     }
 
+  }
+  .tab-item {
+    transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s;
+  }
+  .tabs-light {
+    background:#fff;
+  }
+  .tabs-dark {
+    .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+        background-color: #070808;
+        border-bottom: 5px solid $positive;
+    }
   }
 
 }
