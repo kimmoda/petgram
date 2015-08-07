@@ -5,54 +5,86 @@ angular
     var self = this;
 
     function init () {
-        self.form    = {
-            title : '',
-            coords: '',
-            photo : '',
-            geo   : true
+        self.active = false;
+        self.form = {
+            title   : '',
+            location: '',
+            photo   : '',
+            geo     : false
         };
-        self.loading = false;
+
+        self.map     = {
+            center     : {
+                latitude : -23.5333333,
+                longitude: -46.6166667
+            },
+            scrollwheel: false,
+            zoom       : 15
+        };
+        self.data    = '';
+        self.loading = true;
+
     }
 
-    init ();
+    function getLocation () {
+        var posOptions = {
+            timeout           : 10000,
+            enableHighAccuracy: false
+        };
 
-    var posOptions = {
-        timeout           : 10000,
-        enableHighAccuracy: false
+        if (self.form.location === '') {
+
+            self.loading = false;
+
+            $cordovaGeolocation
+                .getCurrentPosition (posOptions)
+                .then (function (position) {
+
+                self.here = {
+                    id    : 1,
+                    coords: {
+                        latitude : position.coords.latitude,
+                        longitude: position.coords.longitude,
+                    },
+                    icon  : 'img/pin.png'
+                };
+
+                self.form.location = {
+                    latitude : position.coords.latitude,
+                    longitude: position.coords.longitude,
+                };
+
+                self.map.center = self.here.coords;
+                self.loading    = false;
+
+                console.log (self.form);
+                console.log (self.here);
+                console.log (position);
+            }, function (err) {
+                // error
+            });
+        }
+
+
     };
 
-    $cordovaGeolocation
-        .getCurrentPosition (posOptions)
-        .then (function (position) {
-        self.here        = {
-            id    : 1,
-            coords: {
-                latitude : position.coords.latitude,
-                longitude: position.coords.longitude,
-            },
-            icon  : 'img/pin.png'
-        };
-        self.form.coords = {
-            latitude : position.coords.latitude,
-            longitude: position.coords.longitude,
-        };
-        console.log (self.form);
-        self.map.center  = self.here.coords;
-        console.log (position);
-    }, function (err) {
-        // error
-    });
 
+    self.getGeo = function (resp) {
+        if (resp) getLocation ();
+    };
 
     self.formFields = Gallery.form;
 
     self.open = function () {
+        init ();
         PhotoService
             .open ()
             .then (function (resp) {
+            self.loading=false;
+            self.active = true;
             self.form.photo = resp;
             self.data       = 'data:image/jpeg;base64,' + resp;
-            // angular.element('.title').focus();
+            // angular.element ('.title').focus ();
         })
             .catch (function () {
             $state.go ('gallery.home');
@@ -61,9 +93,8 @@ angular
 
     self.open ();
 
-    self.submitCapture = function (rForm, form) {
-        if (rForm.$valid) {
-            var dataForm = angular.copy (self.form);
+    self.submitCapture = function (form) {
+        var dataForm = angular.copy (self.form);
             self.loading = true;
             Gallery
                 .add (dataForm)
@@ -73,17 +104,7 @@ angular
                 });
                 init ();
             });
-        }
     };
 
-
-    self.map = {
-        center     : {
-            latitude : -23.5333333,
-            longitude: -46.6166667
-        },
-        scrollwheel: false,
-        zoom       : 15
-    };
 
 });

@@ -19,7 +19,7 @@ angular
                 .login (form)
                 .then (function (data) {
                 console.log (data);
-                $state.go ('app.gallery.home');
+                $state.go ('gallery.home');
             })
                 .catch (function (resp) {
                 Notify.alert ('Ops', resp);

@@ -9255,9 +9255,17 @@ a.button {
   .instagram .tab-item {
     transition: all ease 0.5s;
     -webkit-transition: all ease 0.5s; }
+  .instagram .tabs-light {
+    background: #fff; }
   .instagram .tabs-dark .tab-item.tab-item-active, .instagram .tabs-dark .tab-item.active, .instagram .tabs-dark .tab-item.activated {
     background-color: #070808;
     border-bottom: 5px solid #009688; }
+  .instagram .capture-legend {
+    padding: 0; }
+    .instagram .capture-legend .item-input {
+      border: none;
+      display: block;
+      top: 30px; }
 
 .row-detail {
   background-color: #fff;
@@ -9508,95 +9516,6 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   animation-timing-function: ease;
   animation-fill-mode: both;
   backface-visibility: hidden; }
-
-ion-nav-bar.bar.nav-bar-container.nav-bar-tabs-top {
-  border: none !important;
-  box-shadow: none !important; }
-
-.has-tab ion-header-bar {
-  border: none !important;
-  box-shadow: none !important; }
-
-.menu .bar.bar-header {
-  height: 150px !important;
-  position: relative;
-  overflow: hidden; }
-.menu .background {
-  background-color: #000;
-  background-size: cover;
-  display: block;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-  background-position: 0 50%;
-  opacity: 0.1; }
-.menu .avatar {
-  border: 2px solid white;
-  border-radius: 50%;
-  clear: both;
-  display: block;
-  height: 80px;
-  position: absolute;
-  margin-left: 27%;
-  width: 80px;
-  top: 15px; }
-.menu i {
-  display: block;
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  font-size: 20px;
-  color: #fff; }
-.menu h1 {
-  color: #fff;
-  font-size: 16px;
-  margin: 0px;
-  position: absolute;
-  top: 110px;
-  text-align: center;
-  left: 0;
-  width: 87%; }
-.menu h2 {
-  clear: both;
-  display: block;
-  font-size: 16px;
-  position: absolute;
-  text-align: center;
-  top: 89px;
-  width: 100%; }
-.menu .side-menu-header {
-  background: #009688 !important;
-  color: #fff;
-  padding: 15px;
-  padding-top: 25px; }
-  .menu .side-menu-header h3 {
-    color: #fff; }
-  .menu .side-menu-header .stat-title {
-    color: #feccd1; }
-  .menu .side-menu-header .stat-divider {
-    border-right: 1px solid #feccd1;
-    display: inline-block;
-    height: 34px;
-    margin-right: 12px;
-    width: 12px; }
-.menu .item {
-  border: none;
-  color: #333; }
-  .menu .item.active {
-    background: none;
-    color: #009688;
-    font-weight: bold; }
-    .menu .item.active .item-content {
-      border: none;
-      background-color: #eee; }
-  .menu .item i {
-    background: none;
-    color: #009688;
-    font-size: 25px;
-    left: 10px; }
 
 .background-positive {
   background-color: #009688; }

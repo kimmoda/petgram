@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.ionicgram" version="0.0.1" xmlns="http://www.w3.org/ns/widgets">
-    <name>Parse</name>
+    <name>Ionicgram</name>
     <description>
         An Ionic Framework and Cordova project.
     </description>

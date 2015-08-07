@@ -1,17 +1,17 @@
 
 .card-home {
   .list {
-
+    
     .item {
       float : left;
       width : 33%;
     }
   }
-
+  
 }
 
 .instagram {
-
+  
   //General Resets
   font-family : -apple-system, "Helvetica Neue", "Segoe WP", sans-serif !important;
   color       : #333;
@@ -29,28 +29,28 @@
   .h6 {
     color : #333;
   }
-
+  
   .popover-backdrop.active {
     background-color : rgba(0, 0, 0, 0.4);
   }
-
+  
   .likes {
     font-weight : bold;
     color       : $positive;
   }
-
+  
   .card {
     margin     : 0;
     border     : none;
     box-shadow : none;
     padding    : 0
   }
-
+  
   .list {
     padding : 0;
     margin  : 0;
   }
-
+  
   .item-body {
     padding    : 0;
     border     : none;
@@ -63,7 +63,7 @@
       display : block;
     }
   }
-
+  
   button.button-comment {
     padding     : 0;
     margin      : 0;
@@ -71,7 +71,7 @@
     font-size   : 14px;
     line-height : 14px;
   }
-
+  
   .item-buttons {
     padding    : 0;
     border-top : none;
@@ -81,15 +81,15 @@
     .button-heart.ion-ios-heart {
       color : #a00;
     }
-
+    
   }
-
+  
   .list-comments {
-
+    
     .comment-item {
       display : block;
       clear   : both;
-
+      
       .username {
         display      : block;
         float        : left;
@@ -103,11 +103,11 @@
         font-weight : normal;
         color       : #777;
       }
-
+      
     }
-
+    
   }
-
+  
   .tab-item.middle {
     background-color : $positive;
     color            : #fff;
@@ -119,7 +119,7 @@
   .item.item-avatar {
     background-color : rgba(255, 255, 255, 0.99);
     border           : none;
-
+    
     h2 {
       color        : $positive;
       font-size    : 14px;
@@ -130,7 +130,7 @@
       font-weight  : bold;
       margin-right : 5px;
     }
-
+    
     span {
       top         : 33px;
       right       : 10px;
@@ -144,7 +144,7 @@
       font-size   : 14px;
       line-height : 20px;
     }
-
+    
     p {
       font-size  : 12px;
       text-align : left;
@@ -152,13 +152,13 @@
       width      : 100%;
     }
   }
-
+  
   .modal-comment {
-
+    
     .scroll {
       height : 100%;
     }
-
+    
     .form {
       border   : 1px solid #ccc;
       padding  : 1px;
@@ -166,7 +166,7 @@
       width    : 100%;
       position : absolute;
       bottom   : 0px;
-
+      
       label.item.item-input {
         display : block;
         float   : left;
@@ -185,20 +185,31 @@
         border-bottom : none;
       }
     }
-
+    
   }
   .tab-item {
-    transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s;
+    transition         : all ease 0.5s;
+    -webkit-transition : all ease 0.5s;
   }
   .tabs-light {
-    background:#fff;
+    background : #fff;
   }
   .tabs-dark {
     .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
-        background-color: #070808;
-        border-bottom: 5px solid $positive;
+      background-color : #070808;
+      border-bottom    : 5px solid $positive;
     }
   }
-
+  
+  // Capture View
+  .capture-legend {
+    padding : 0;
+    
+    .item-input {
+      border  : none;
+      display : block;
+      top     : 30px;
+    }
+  }
+  
 }

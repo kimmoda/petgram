@@ -1,5 +1,7 @@
 exports.config = {
     specs: [
+        './www/app/**/*.spec.js'
+        './www/components/**/*.spec.js'
         './www/modules/**/*.spec.js'
     ],
 

@@ -1,21 +1,22 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .directive ('galleryLike', function ( Gallery) {
+    .directive ('galleryLikeModal', function ($ionicModal, Gallery) {
     return {
         restrict: 'A',
         scope   : {
-            gallery: '@'
+            gallery: '='
         },
         template: '',
         link    : function ($scope, elem, attr) {
             elem.bind ('click', function () {
                 console.log ($scope.gallery);
 
-                Gallery
-                    .likeGallery ($scope.gallery)
-                    .then (function (resp) {
-                    $scope.likes = resp;
+                $ionicModal.fromTemplateUrl('module/gallery/view/gallery.like.directive.html', {
+                    scope: $scope,
+                    animation: 'slide-in-up'
+                }).then(function(modal) {
+                    $scope.modal = modal;
                 });
 
             });
@@ -38,6 +39,7 @@ angular
                 $scope.modal.hide ();
                 $scope.modal.remove ();
             };
+
         }
     }
 });
