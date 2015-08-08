@@ -1,0 +1,58 @@
+<ion-view title="{{'Profile' | translate}}"
+          class="profile">
+
+    <ion-nav-buttons side="right">
+        <button ui-sref="gallery.settings"
+                class="button button-icon icon ion-android-more-vertical"></button>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <div class="profile-top">
+            <div class="row">
+                <div class="col-25">
+                    <img class="avatar"
+                         ng-src="{{ user.img }}"/>
+                </div>
+                <div class="col col-statics">
+                    <div class="row">
+                        <div class="col">
+                            <span class="text-center">322</span>
+                            <h3>Publicações</h3>
+                        </div>
+                        <div class="col">
+                            <span class="text-center">112</span>
+                            <h3>Seguidores</h3>
+                        </div>
+                        <div class="col">
+                            <span class="text-center">531</span>
+                            <h3>Seguindo</h3>
+                        </div>
+                    </div>
+                    <div class="row col-edit">
+                        <div class="col">
+                            <button gallery-profile-edit
+                                    class="button ">EDITAR SEU PERFIL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="padding">
+                <span class="strong">{{ user.first_name }}</span>
+                <p>{{ user.comment }}</p>
+            </div>
+
+            <ion-tabs class="tabs-light">
+                <ion-tab icon="ion-android-apps">
+                    <ion-nav-view name="tabPhotos"></ion-nav-view>
+                </ion-tab>
+                <ion-tab icon="ion-navicon-round"></ion-tab>
+                <ion-tab icon="ion-ios-location-outline"></ion-tab>
+            </ion-tabs>
+        </div>
+
+        <ion-nav-view class="step3"
+                      name="tabLogin"></ion-nav-view>
+
+    </ion-content>
+</ion-view>

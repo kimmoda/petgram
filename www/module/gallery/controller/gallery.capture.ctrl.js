@@ -6,7 +6,7 @@ angular
 
     function init () {
         self.active = false;
-        self.form = {
+        self.form   = {
             title   : '',
             location: '',
             photo   : '',
@@ -22,7 +22,7 @@ angular
             zoom       : 15
         };
         self.data    = '';
-        self.loading = true;
+        self.loading = false;
 
     }
 
@@ -80,8 +80,8 @@ angular
         PhotoService
             .open ()
             .then (function (resp) {
-            self.loading=false;
-            self.active = true;
+            self.loading    = false;
+            self.active     = true;
             self.form.photo = resp;
             self.data       = 'data:image/jpeg;base64,' + resp;
             // angular.element ('.title').focus ();
@@ -95,15 +95,15 @@ angular
 
     self.submitCapture = function (form) {
         var dataForm = angular.copy (self.form);
-            self.loading = true;
-            Gallery
-                .add (dataForm)
-                .then (function (resp) {
-                $state.go ('gallery.home', {
-                    reload: true
-                });
-                init ();
+
+        Gallery
+            .add (dataForm)
+            .then (function (resp) {
+            $state.go ('gallery.home', {
+                reload: true
             });
+            init ();
+        });
     };
 
 

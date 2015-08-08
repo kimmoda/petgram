@@ -9,16 +9,31 @@ angular
         templateUrl: 'app/user/view/user.intro.html',
         controller : 'IntroCtrl as Intro'
     })
-        .state ('login', {
-        url        : '/login',
-        templateUrl: 'app/user/view/user.login.html',
-        controller : 'LoginCtrl as Login'
+
+        .state ('user', {
+        url        : '/user',
+        abstract   : true,
+        templateUrl: 'app/user/view/user.tabs.html'
     })
 
-        .state ('register', {
-        url        : '/register',
-        templateUrl: 'app/user/view/user.register.html',
-        controller : 'RegisterCtrl as Register'
+        .state ('user.login', {
+        url  : '/login',
+        views: {
+            tabLogin: {
+                controller : 'LoginCtrl as Login',
+                templateUrl: 'app/user/view/user.login.html'
+            }
+        }
+    })
+
+        .state ('user.register', {
+        url  : '/register',
+        views: {
+            tabLogin: {
+                controller : 'RegisterCtrl as Register',
+                templateUrl: 'app/user/view/user.register.html'
+            }
+        }
     })
 
         .state ('logout', {
@@ -28,7 +43,7 @@ angular
             User
                 .logout ()
                 .then (function () {
-                $state.go ('login', {clear: true});
+                $state.go ('user.login', {clear: true});
             });
         }
     })

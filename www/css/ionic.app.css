@@ -9195,6 +9195,11 @@ a.button {
       float: left;
       font-weight: normal;
       color: #777; }
+  .instagram .nav-bar-title span.icon2-logo {
+    font-size: 34px;
+    display: block;
+    margin-top: 6px;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); }
   .instagram .tab-item.middle {
     background-color: #009688;
     color: #fff;
@@ -9204,10 +9209,19 @@ a.button {
   .instagram .item.item-avatar {
     background-color: rgba(255, 255, 255, 0.99);
     border: none; }
+    .instagram .item.item-avatar img {
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      max-width: 45px;
+      max-height: 45px;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%; }
     .instagram .item.item-avatar h2 {
       color: #009688;
       font-size: 14px;
-      line-height: 35px;
+      line-height: 18px;
       text-align: left;
       display: block;
       float: left;
@@ -9234,22 +9248,24 @@ a.button {
   .instagram .modal-comment .form {
     border: 1px solid #ccc;
     padding: 1px;
-    display: inline-block;
+    display: block;
     width: 100%;
-    position: absolute;
-    bottom: 0px; }
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px; }
     .instagram .modal-comment .form label.item.item-input {
       display: block;
       float: left;
-      width: 89%;
+      width: 86%;
       border: none; }
     .instagram .modal-comment .form button {
-      float: right;
-      padding: 0;
-      height: 101% !important;
+      padding: 7px;
+      height: 50px;
       top: -1px;
       position: absolute;
-      right: -1px; }
+      right: -1px;
+      border: none; }
     .instagram .modal-comment .form form .item, .instagram .modal-comment .form .formly .item {
       border-bottom: none; }
   .instagram .tab-item {
@@ -9257,7 +9273,7 @@ a.button {
     -webkit-transition: all ease 0.5s; }
   .instagram .tabs-light {
     background: #fff; }
-  .instagram .tabs-dark .tab-item.tab-item-active, .instagram .tabs-dark .tab-item.active, .instagram .tabs-dark .tab-item.activated {
+  .instagram .tabs-dark.tabs-bottom .tab-item.tab-item-active, .instagram .tabs-dark.tabs-bottom .tab-item.active, .instagram .tabs-dark.tabs-bottom .tab-item.activated {
     background-color: #070808;
     border-bottom: 5px solid #009688; }
   .instagram .capture-legend {
@@ -9265,7 +9281,47 @@ a.button {
     .instagram .capture-legend .item-input {
       border: none;
       display: block;
-      top: 30px; }
+      top: 20px; }
+  .instagram .profile-top {
+    display: block;
+    height: 230px;
+    position: relative; }
+    .instagram .profile-top .col-statics span {
+      font-weight: bold;
+      color: #000;
+      display: block;
+      text-align: center;
+      font-size: 20px; }
+    .instagram .profile-top .col-statics h3 {
+      font-size: 14px;
+      color: #888;
+      margin: 5px 0px;
+      display: block;
+      font-variant: small-caps;
+      text-align: center;
+      text-transform: lowercase; }
+    .instagram .profile-top .col-edit {
+      padding: 0; }
+      .instagram .profile-top .col-edit .button {
+        font-size: 14px;
+        padding: 0px;
+        background: #edeeee;
+        border: none;
+        color: #53575c;
+        text-transform: uppercase;
+        width: 97%;
+        min-height: 40px;
+        max-height: 10px;
+        font-weight: bold;
+        margin: 0 auto;
+        display: block; }
+    .instagram .profile-top .tabs-light {
+      background: #fff;
+      height: 50px;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      display: block;
+      position: relative; }
 
 .row-detail {
   background-color: #fff;
@@ -9425,6 +9481,31 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #aaa;
   text-indent: 0; }
 
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot?jmwoa9');
+  src: url('../fonts/icomoon.eot?#iefixjmwoa9') format('embedded-opentype'), url('../fonts/icomoon.ttf?jmwoa9') format('truetype'), url('../fonts/icomoon.woff?jmwoa9') format('woff'), url('../fonts/icomoon.svg?jmwoa9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon2-"], [class*=" icon2-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon2-logo:before {
+  content: "\e600"; }
+
+.icon2-camera:before {
+  content: "\e601"; }
+
 .ionic-contrib-blur {
   overflow: hidden;
   position: absolute;
@@ -9450,12 +9531,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   -moz-box-shadow: none;
   box-shadow: none; }
 .platform-android .nav-bar-tabs-top .scroll-content, .platform-android .tabs-bottom .scroll-content {
-  bottom: 0;
-  top: 46px; }
+  bottom: 50px;
+  top: 56px; }
 .platform-android .bar.bar-header {
   height: 56px; }
 .platform-android .bar.bar-header .title {
-  left: 45px;
+  left: 0;
   right: 45px;
   line-height: 56px;
   height: 56px;
@@ -9463,13 +9544,21 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   .platform-android .bar.bar-header .title .nav-bar-title {
     display: block;
     height: 56px;
-    padding: 0px; }
+    padding: 10px 0; }
     .platform-android .bar.bar-header .title .nav-bar-title img {
       margin-top: 6px; }
 .platform-android .bar.bar-header .button:last-child {
-  top: 3px;
-  right: 0px;
-  width: 46px;
+  top: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  color: white; }
+
+.platform-ios .bar.bar-header .button:last-child {
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
   color: white; }
 
 .bounceInLeft {
@@ -9728,11 +9817,75 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     .device-background.galaxyS5.gold {
       background-image: url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png); }
 
-.logo {
-  margin-bottom: 10px; }
+.button {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
 
-.form-login {
-  padding-top: 20px; }
+.form-login .scroll-content {
+  padding: 0; }
+.form-login .scroll {
+  height: 100%; }
+.form-login .logo {
+  background-color: #009688;
+  height: 200px;
+  position: relative;
+  padding-bottom: 39px;
+  background: url('../img/background.jpg');
+  background-size: cover;
+  /* Somente para Chrome e Safari */ }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .form-login .logo {
+      bottom: 63px; } }
+  .form-login .logo .tabs-top {
+    bottom: 0px;
+    position: absolute;
+    z-index: 2;
+    left: 0px;
+    display: block;
+    width: 100%;
+    height: 49px; }
+    .form-login .logo .tabs-top .tabs {
+      background: none;
+      border: none;
+      top: 0; }
+      .form-login .logo .tabs-top .tabs a.tab-item {
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease; }
+      .form-login .logo .tabs-top .tabs a.tab-item.tab-item-active {
+        font-weight: bold;
+        font-size: 18px;
+        border-bottom: 2px solid #fff; }
+  .form-login .logo img {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 80px; }
+  .form-login .logo span.icon2-logo {
+    font-size: 70px;
+    color: #fff;
+    display: block;
+    margin: 22px;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 15%;
+    left: 23%; }
+  .form-login .logo h2 {
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    width: 95%;
+    margin: 0 auto;
+    height: 48px;
+    text-shadow: -2px 1px 2px rgba(0, 0, 0, 0.8);
+    bottom: 30px; }
 
 .button-facebook {
   background: none repeat scroll 0 0 #3f569b !important;
@@ -9748,7 +9901,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 
 .line {
   display: block;
-  margin: 10px auto;
+  margin: 0 auto;
   position: relative;
   text-align: center;
   width: 85%; }

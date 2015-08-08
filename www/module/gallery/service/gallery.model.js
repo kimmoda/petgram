@@ -46,6 +46,7 @@ angular
     function add (_params) {
         var defer = $q.defer ();
 
+        Notify.showLoading ();
 
         var ImageObject = Parse.Object.extend ('Gallery');
 
@@ -75,11 +76,14 @@ angular
                 // save object to parse backend
                 imageObject
                     .save (function (resp) {
+                    Notify.hideLoading ();
                     defer.resolve (resp);
                 });
 
 
             }, function (error) {
+                defer.reject(error);
+                Notify.hideLoading ();
                 console.log ('Error');
                 console.log (error);
             });
@@ -147,12 +151,13 @@ angular
                 var comments = [];
                 angular.forEach (resp, function (item) {
                     console.warn (item);
-                    var comment = {
+                    var comment      = {
                         id     : item.id,
                         text   : item.attributes.text,
                         user   : item.attributes.commentBy.attributes,
                         created: item.createdAt
                     }
+                    comment.user.img = (comment.user.img) ? comment.user.img : 'img/user.png';
                     comments.push (comment);
                 });
                 defer.resolve (comments);
@@ -202,27 +207,27 @@ angular
     }
 
     function search () {
-      var defer = $q.defer ();
-      var data = [];
+        var defer = $q.defer ();
+        var data  = [];
 
-      new Parse
-      .Query('Gallery')
-      .limit(20)
-      .find()
-      .then(function(resp){
-        angular.forEach(resp, function(value, key) {
-          var obj = {
-              id      : value.id,
-              item    : value.attributes,
-              src: value.attributes.img.url(),
-              created : value.createdAt
-          };
-          data.push(obj);
+        new Parse
+            .Query ('Gallery')
+            .limit (20)
+            .find ()
+            .then (function (resp) {
+            angular.forEach (resp, function (value, key) {
+                var obj = {
+                    id     : value.id,
+                    item   : value.attributes,
+                    src    : value.attributes.img.url (),
+                    created: value.createdAt
+                };
+                data.push (obj);
+            });
+            defer.resolve (data);
         });
-        defer.resolve(data);
-      });
 
-      return defer.promise;
+        return defer.promise;
     }
 
     /*
@@ -289,7 +294,7 @@ angular
                                 commentsData.push (comment);
                             });
 
-                            var obj = {
+                            var obj      = {
                                 id      : item.id,
                                 item    : item.attributes,
                                 created : item.createdAt,
@@ -298,6 +303,8 @@ angular
                                 user    : item.attributes.user.attributes,
                                 comments: commentsData
                             };
+                            obj.user.img = (obj.user.img) ? obj.user.img : 'img/user.png';
+
                             data.push (obj);
                             cb ();
                         });
@@ -350,7 +357,7 @@ angular
 
     function addComment (form) {
         var defer = $q.defer ();
-
+        Notify.showLoading ();
         console.log (form);
         getGallery (form.galleryId)
             .then (function (gallery) {
@@ -373,6 +380,7 @@ angular
                 gallery
                     .save ()
                     .then (function (resp) {
+                    Notify.hideLoading ();
                     console.log (resp);
                     defer.resolve (resp);
                 })
@@ -496,7 +504,7 @@ angular
         allComment : allComment,
         getComments: getComments,
         getLikes   : getLikes,
-        search: search,
+        search     : search,
         form       : form,
         formComment: formComment
     };

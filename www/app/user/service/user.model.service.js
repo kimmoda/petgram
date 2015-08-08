@@ -27,14 +27,20 @@ angular
     function init () {
         // Parse Start
         Parse.initialize (ParseConfig.applicationId, ParseConfig.javascriptKey);
-        var current = Parse.User.current ();
+        var user = Parse.User.current ();
 
-        if (current) {
-            return loadProfile (current);
+        if (user) {
+            var obj = user.attributes;
+            obj.id  = user.id;
+            return loadProfile (obj);
         } else {
             logout ();
-            $state.go ('login');
+            $state.go ('user.login');
         }
+    }
+
+    function currentUser () {
+        return Parse.User.current ().attributes;
     }
 
     function cleanToken () {
@@ -45,24 +51,18 @@ angular
     function loadProfile (response) {
 
         if (response) {
-            var user = {
-                id          : response.id,
-                facebook    : response.attributes.facebook,
-                first_name  : response.attributes.first_name,
-                last_name   : response.attributes.last_name,
-                email       : response.attributes.email,
-                link        : response.attributes.link,
-                relation    : (response.attributes.significant_other) ? response.attributes.significant_other.id : '',
-                relationship: (response.attributes.relationship) ? response.attributes.relationship : '',
-                location    : (response.attributes.location) ? response.attributes.location : '',
-                img         : (response.attributes.idFacebook) ? 'https://graph.facebook.com/' + response.attributes.idFacebook + '/picture?width=200&height=200' : 'img/user.png',
-                background  : (response.attributes.idFacebook) ? 'https://graph.facebook.com/' + response.attributes.idFacebook + '/picture?width=500&height=500' : 'img/user.png',
-                birthday    : (response.attributes.birthday) ? Date (response.attributes.birthday) : '',
-                gender      : (response.attributes.gender) ? response.attributes.gender : ''
-            };
+
+            var user = response;
+            if (user.facebook) {
+                user.img = (response.img) ? response.img : response.facebookimg;
+            } else {
+                user.img = (response.img) ? response.img : 'img/user.png';
+            }
+            user.birthday = (response.birthday) ? Date (response.birthday) : '';
 
             $rootScope.user = user;
-            console.log (user);
+
+            console.log (response, user);
             return user;
         } else {
             logout ();
@@ -137,10 +137,8 @@ angular
     function register (form) {
         var defer = $q.defer ();
 
-        var formData        = form;
-        formData.first_name = form.name.split (' ', 1).toString ();
-        formData.last_name  = form.name.split (' ').slice (1, 4).join (' ');
-        formData.username   = form.email;
+        var formData      = form;
+        formData.username = form.email;
         delete formData.name;
         delete formData.confirmpassword;
 
@@ -217,6 +215,7 @@ angular
     function update (form) {
         var defer       = $q.defer ();
         var currentUser = Parse.User.current ();
+        Notify.showLoading ();
 
         angular.forEach (form, function (value, key) {
             currentUser.set (key, value);
@@ -241,9 +240,15 @@ angular
             currentUser.set ('version', cordovaDevice.version);
         }
 
-        var retorno = currentUser.save ();
-        console.log (retorno);
-        defer.resolve (retorno);
+        currentUser
+            .save ()
+            .then (function (resp) {
+            var user = init ();
+            console.log (resp, user);
+            Notify.hideLoading ();
+            defer.resolve (user);
+        });
+
 
         return defer.promise;
     }
@@ -254,16 +259,13 @@ angular
         var defer = $q.defer ();
         var user  = {
             facebook    : response.id,
-            first_name  : response.first_name,
-            last_name   : response.middle_name + response.last_name,
+            name        : response.first_name + ' ' + response.middle_name + ' ' + response.last_name,
             email       : response.email,
             relationship: (response.relationship) ? response.relationship : '',
             relation    : (response.significant_other) ? response.significant_other.id : '',
-            link        : response.link,
+            site        : response.link,
             location    : (response.location) ? response.location.name : '',
-            img         : 'https://graph.facebook.com/' + response.id + '/picture?width=200&height=200',
-            background  : 'https://graph.facebook.com/' + response.id + '/picture?width=500&height=500',
-            facebookurl : response.link.split ('/')[3],
+            facebookimg : 'https://graph.facebook.com/' + response.id + '/picture?width=250&height=250',
             idFacebook  : response.id,
             //birthday    : (response.birthday) ? converteDate (response.birthday, response.timezone) : '',
             gender      : response.gender
@@ -283,8 +285,6 @@ angular
 
     function loginParseFacebook () {
         var defer = $q.defer ();
-
-        Notify.showLoading ();
 
         facebookProfile ()
             .then (function (resp) {
@@ -354,6 +354,7 @@ angular
 
     function loginFacebook () {
         var defer = $q.defer ();
+        Notify.showLoading ();
 
         loginParseFacebook ()
             .then (function (response) {
@@ -362,6 +363,7 @@ angular
             facebookUpdateProfile (response)
                 .then (function (resp) {
                 console.log (resp);
+                Notify.hideLoading ();
                 defer.resolve (resp);
             });
 
@@ -514,6 +516,7 @@ angular
 
     return {
         init              : init,
+        currentUser       : currentUser,
         register          : register,
         login             : login,
         loginFacebook     : loginFacebook,

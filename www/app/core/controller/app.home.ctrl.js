@@ -5,7 +5,7 @@ angular
     var self = this;
 
     if (!$rootScope.isLoggedIn) {
-        $state.go ('app.home');
+        $state.go ('gallery.home');
     }
 
     DashboardSlide

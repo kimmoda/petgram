@@ -4,3 +4,9 @@ cordova plugin add https://github.com/benjie/phonegap-parse-plugin --variable AP
 Parse Upload
 https://github.com/mellowplace/cordova-parseuploader
 
+
+Font
+Billabong
+
+Sketch Camera
+http://www.sketchappsources.com/free-source/680-polaroid-land-camera-sketch-freebie-resource.html

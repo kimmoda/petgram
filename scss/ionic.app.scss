@@ -26,9 +26,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 //@import "www/lib/ionic-material/src/scss/index";
 @import "www/lib/ionic/scss/ionic";
-@import "ionicgram";
+@import "photogram";
 @import "map";
 @import "form";
+@import "font";
 @import "platform";
 @import "animate";
 //@import "www/app/core/style/sidemenu";

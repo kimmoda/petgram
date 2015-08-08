@@ -11,12 +11,13 @@ angular
         link    : function ($scope, elem, attr) {
 
             function init () {
-                $scope.loading = true;
+                $scope.loading  = true;
+                $scope.comments = [];
                 Gallery
                     .getComments ($scope.gallery)
                     .then (function (resp) {
                     $scope.comments = resp;
-                    $scope.loading = false;
+                    $scope.loading  = false;
                 });
 
                 $scope.form = {

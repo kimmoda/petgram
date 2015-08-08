@@ -4,8 +4,8 @@ angular
     .config (function ($stateProvider) {
     $stateProvider
         .state ('gallery', {
-        url     : '/gallery',
-        abstract: true,
+        url        : '/gallery',
+        abstract   : true,
         templateUrl: 'module/gallery/view/gallery.tabs.html'
     })
         .state ('gallery.home', {
@@ -58,11 +58,32 @@ angular
     })
 
         .state ('gallery.profile', {
-        url  : '/profile',
+        url     : '/profile',
+        abstract: true,
+        views   : {
+            tabProfile: {
+                //controller : 'GalleryProfileCtrl as GalleryProfile',
+                templateUrl: 'module/gallery/view/gallery.profile.tabs.html'
+            }
+        }
+    })
+        .state ('gallery.settings', {
+        url  : '/settings',
         views: {
             tabProfile: {
-                controller : 'GalleryProfileCtrl as GalleryProfile',
-                templateUrl: 'module/gallery/view/gallery.profile.html'
+                //controller : 'GalleryProfileCtrl as GalleryProfile',
+                templateUrl: 'module/gallery/view/gallery.profile.settings.html'
+            }
+        }
+    })
+
+
+        .state ('gallery.profile.photos', {
+        url  : '/photos',
+        views: {
+            tabPhotos: {
+                //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
+                templateUrl: 'module/gallery/view/gallery.profile.photos.html'
             }
         }
     })

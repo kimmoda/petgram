@@ -72,24 +72,13 @@ angular
                 required       : true,
                 iconPlaceholder: true
             }
-        },
-        {
-            type           : 'input',
-            key            : 'confirmpassword',
-            templateOptions: {
-                type           : 'password',
-                placeholder    : gettextCatalog.getString ('Confirmar Senha'),
-                icon           : 'icon-lock',
-                required       : true,
-                iconPlaceholder: true
-            }
         }
     ];
 
     var profile = [
         {
+            key            : 'name',
             type           : 'input',
-            key            : 'first_name',
             templateOptions: {
                 type           : 'text',
                 placeholder    : gettextCatalog.getString ('Nome'),
@@ -99,19 +88,8 @@ angular
             }
         },
         {
-            type           : 'input',
-            key            : 'last_name',
-            templateOptions: {
-                type           : 'text',
-                placeholder    : gettextCatalog.getString ('Sobrenome'),
-                icon           : 'icon-user',
-                required       : true,
-                iconPlaceholder: true
-            }
-        },
-        {
-            key            : 'gender',
             type           : 'select',
+            key            : 'gender',
             templateOptions: {
                 label          : gettextCatalog.getString ('Genêro'),
                 options        : [
@@ -132,8 +110,41 @@ angular
             }
         },
         {
+            key            : 'phone',
             type           : 'input',
+            templateOptions: {
+                type           : 'text',
+                placeholder    : gettextCatalog.getString ('Telefone'),
+                icon           : 'ion-iphone',
+                required       : true,
+                iconPlaceholder: true
+            }
+        },
+        {
+            key            : 'status',
+            type           : 'input',
+            templateOptions: {
+                type           : 'text',
+                placeholder    : gettextCatalog.getString ('Comentário'),
+                icon           : 'ion-quote',
+                required       : true,
+                iconPlaceholder: true
+            }
+        },
+        {
+            key            : 'site',
+            type           : 'input',
+            templateOptions: {
+                type           : 'text',
+                placeholder    : gettextCatalog.getString ('Site'),
+                icon           : 'ion-earth',
+                required       : true,
+                iconPlaceholder: true
+            }
+        },
+        {
             key            : 'location',
+            type           : 'input',
             templateOptions: {
                 type           : 'text',
                 placeholder    : gettextCatalog.getString ('Endereço'),
@@ -143,8 +154,8 @@ angular
             }
         },
         {
-            type           : 'input',
             key            : 'email',
+            type           : 'input',
             templateOptions: {
                 type           : 'email',
                 placeholder    : 'Email',

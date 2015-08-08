@@ -1,12 +1,13 @@
 <ion-view view-title="{{ 'Ionictagram' | translate }}">
     <ion-nav-title>
-        <img src="img/logo.png"/>
+        <span class="icon2-logo"></span>
     </ion-nav-title>
 
     <ion-nav-buttons side="right">
         <button ng-click="popover.show($event)"
                 class="button button-icon icon ion-android-more-vertical"></button>
     </ion-nav-buttons>
+
     <ion-content>
         <ion-refresher ng-if="!GalleryHome.loading"
                        on-refresh="loadMore(true)"></ion-refresher>

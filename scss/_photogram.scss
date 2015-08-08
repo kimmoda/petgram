@@ -108,6 +108,16 @@
     
   }
   
+  .nav-bar-title {
+    
+    span.icon2-logo {
+      font-size   : 34px;
+      display     : block;
+      margin-top  : 6px;
+      text-shadow : 1px 2px 3px rgba(0, 0, 0, 0.5);
+    }
+  }
+  
   .tab-item.middle {
     background-color : $positive;
     color            : #fff;
@@ -119,11 +129,22 @@
   .item.item-avatar {
     background-color : rgba(255, 255, 255, 0.99);
     border           : none;
-    
+
+    img {
+      position      : absolute;
+      top           : 17px;
+      left          : 16px;
+      max-width     : 45px;
+      max-height    : 45px;
+      width         : 100%;
+      height        : 100%;
+      border-radius : 50%;
+    }
+
     h2 {
       color        : $positive;
       font-size    : 14px;
-      line-height  : 35px;
+      line-height  : 18px;
       text-align   : left;
       display      : block;
       float        : left;
@@ -162,24 +183,26 @@
     .form {
       border   : 1px solid #ccc;
       padding  : 1px;
-      display  : inline-block;
+      display  : block;
       width    : 100%;
-      position : absolute;
-      bottom   : 0px;
+      position : fixed;
+      left     : 0;
+      bottom   : 0;
+      height   : 50px;
       
       label.item.item-input {
         display : block;
         float   : left;
-        width   : 89%;
+        width   : 86%;
         border  : none;
       }
       button {
-        float    : right;
-        padding  : 0;
-        height   : 101% !important;
+        padding  : 7px;
+        height   : 50px;
         top      : -1px;
         position : absolute;
         right    : -1px;
+        border   : none;
       }
       form .item, .formly .item {
         border-bottom : none;
@@ -194,7 +217,8 @@
   .tabs-light {
     background : #fff;
   }
-  .tabs-dark {
+  .tabs-dark.tabs-bottom {
+
     .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
       background-color : #070808;
       border-bottom    : 5px solid $positive;
@@ -208,8 +232,66 @@
     .item-input {
       border  : none;
       display : block;
-      top     : 30px;
+      top     : 20px;
     }
+  }
+  
+  .profile-top {
+    display  : block;
+    height   : 230px;
+    position : relative;
+    
+    .col-statics {
+      span {
+        font-weight : bold;
+        color       : #000;
+        display     : block;
+        text-align  : center;
+        font-size   : 20px;
+      }
+      h3 {
+        font-size      : 14px;
+        color          : #888;
+        margin         : 5px 0px;
+        display        : block;
+        font-variant   : small-caps;
+        text-align     : center;
+        text-transform : lowercase;
+      }
+    }
+    
+    .col-edit {
+      padding : 0;
+      .button {
+        font-size      : 14px;
+        padding        : 0px;
+        background     : #edeeee;
+        border         : none;
+        color          : #53575c;
+        text-transform : uppercase;
+        width          : 97%;
+        min-height     : 40px;
+        max-height     : 10px;
+        font-weight    : bold;
+        margin         : 0 auto;
+        display        : block;
+      }
+    }
+
+    .tabs-light {
+      background    : #fff;
+      height        : 50px;
+      border-top    : 1px solid #ccc;
+      border-bottom : 1px solid #ccc;
+      display       : block;
+      position      : relative;
+
+      .tab-nav.tabs {
+
+      }
+
+    }
+    
   }
   
 }

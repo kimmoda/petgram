@@ -1,12 +1,6 @@
 <ion-view view-title="{{ 'Criar Conta Grátis' | translate }}">
 
-    <ion-nav-bar class="bar-positive"
-                 align-title="center">
-        <ion-nav-back-button></ion-nav-back-button>
-    </ion-nav-bar>
-
-    <ion-content class="positive-bg user-form"
-                 padding="true">
+    <ion-content padding="true">
         <formly-form model="Register.form"
                      fields="Register.formFields"
                      form="rForm">
@@ -26,7 +20,6 @@
             <p class="text-center"
                translate>Ao criar sua conta, você está concordando com nossos <b>Termos e Condições</b>.</p>
         </div>
-        </form>
-        <div class="background"></div>
+
     </ion-content>
 </ion-view>
