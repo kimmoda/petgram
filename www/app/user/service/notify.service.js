@@ -17,10 +17,10 @@ angular
         $rootScope.$broadcast ('loading:hide');
     }
 
-    function alert (title, msg) {
+    function alert (params) {
         return $ionicPopup.alert ({
-            title   : title,
-            template: msg
+            title   : params.title,
+            template: params.text
         });
     }
 

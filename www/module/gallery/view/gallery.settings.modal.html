@@ -1,0 +1,29 @@
+<ion-modal-view class="modal-profile">
+    <ion-header-bar class="bar-dark">
+        <button class="button button-clear button-icon ion-ios-arrow-thin-left"
+                ng-click="closeModal()"></button>
+        <div class="title">{{ 'Settings' | translate }}</div>
+    </ion-header-bar>
+    <ion-content>
+
+        <div class="list">
+            <div class="item item-divider">SEGUIR PESSOAS</div>
+            <div class="item">Convidar amigos do Facebook</div>
+            <div class="item">Compartilhar</div>
+            <div class="item item-divider">CONTA</div>
+            <div class="item"
+                 ng-click="link('gallery.profile')">Editar perfil
+            </div>
+            <div class="item">Alterar senha</div>
+            <div class="item item-divider">SOBRE</div>
+            <div class="item">Política de Privacidade</div>
+            <div class="item">Termos de Serviço</div>
+            <div class="item item-divider"></div>
+        </div>
+        <div class="padding">
+            <button ng-click="link('logout')"
+                    class="button button-block button-positive">SAIR
+            </button>
+        </div>
+    </ion-content>
+</ion-modal-view>

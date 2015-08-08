@@ -46,8 +46,6 @@ angular
     function add (_params) {
         var defer = $q.defer ();
 
-        Notify.showLoading ();
-
         var ImageObject = Parse.Object.extend ('Gallery');
 
 
@@ -69,21 +67,18 @@ angular
                 // set object properties
                 imageObject.set ('title', _params.title);
                 imageObject.set ('img', imageFile);
-                imageObject.set ('like', 0);
                 imageObject.set ('user', Parse.User.current ());
                 // imageObject.set ('location', new Parse.GeoPoint (_params.coords.latitude, _params.coords.longitude));
 
                 // save object to parse backend
                 imageObject
                     .save (function (resp) {
-                    Notify.hideLoading ();
                     defer.resolve (resp);
                 });
 
 
             }, function (error) {
                 defer.reject(error);
-                Notify.hideLoading ();
                 console.log ('Error');
                 console.log (error);
             });
@@ -303,7 +298,12 @@ angular
                                 user    : item.attributes.user.attributes,
                                 comments: commentsData
                             };
-                            obj.user.img = (obj.user.img) ? obj.user.img : 'img/user.png';
+
+                            if(obj.user.facebook){
+                                obj.user.img = (obj.user.facebookimg) ? obj.user.facebookimg : 'img/user.png';
+                            } else {
+                                obj.user.img = (obj.user.img) ? obj.user.img : 'img/user.png';
+                            }
 
                             data.push (obj);
                             cb ();

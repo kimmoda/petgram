@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .factory ('PhotoService', function ($ionicActionSheet, $ionicPopup, Settings, $cordovaCamera, $cordovaImagePicker, gettextCatalog, $q) {
+    .factory ('PhotoService', function ($ionicActionSheet, $window, $ionicPopup, Settings, $cordovaCamera, $cordovaImagePicker, gettextCatalog, $q, Notify) {
 
     function capture (type) {
         var defer = $q.defer ();
@@ -62,15 +62,25 @@ angular
             buttonClicked: function (index) {
                 console.log (index);
 
-                capture (index)
-                    .then (function (resp) {
+                if ($window.cordova) {
+                    capture (index)
+                        .then (function (resp) {
+                        actionSheet ();
+                        defer.resolve (resp);
+                    })
+                        .catch (function (resp) {
+                        actionSheet ();
+                        defer.reject (resp);
+                    });
+                } else {
+                    Notify.alert ({
+                        title: 'Camera indisponivel',
+                        text : 'Habilite a camera no seu dispositivo'
+                    });
                     actionSheet ();
-                    defer.resolve (resp);
-                })
-                    .catch (function (resp) {
-                    actionSheet ();
-                    defer.reject (resp);
-                });
+                    defer.reject ('Camera not disponible');
+                }
+
 
             }
         });

@@ -6,7 +6,7 @@ angular
     'formlyIonic',
     'angularMoment',
     'ionic.components',
-    'monospaced.elastic',
+    'jett.ionic.scroll.sista',
     'ngFacebook',
     'angular-cache',
     'uiGmapgoogle-maps',

@@ -95,7 +95,7 @@ angular
 
     self.submitCapture = function (form) {
         var dataForm = angular.copy (self.form);
-
+        Notify.showLoading ();
         Gallery
             .add (dataForm)
             .then (function (resp) {
@@ -103,6 +103,7 @@ angular
                 reload: true
             });
             init ();
+            Notify.hideLoading ();
         });
     };
 

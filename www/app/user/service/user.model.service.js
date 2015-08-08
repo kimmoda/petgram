@@ -58,7 +58,7 @@ angular
             } else {
                 user.img = (response.img) ? response.img : 'img/user.png';
             }
-            user.birthday = (response.birthday) ? Date (response.birthday) : '';
+            user.birthday = (response.birthday) ? new Date (response.birthday) : '';
 
             $rootScope.user = user;
 
@@ -216,7 +216,7 @@ angular
         var defer       = $q.defer ();
         var currentUser = Parse.User.current ();
         Notify.showLoading ();
-
+        delete form.img;
         angular.forEach (form, function (value, key) {
             currentUser.set (key, value);
         });
@@ -245,9 +245,64 @@ angular
             .then (function (resp) {
             var user = init ();
             console.log (resp, user);
+            loadProfile (resp.attributes);
             Notify.hideLoading ();
             defer.resolve (user);
         });
+
+
+        return defer.promise;
+    }
+
+    function updateAvatar (_params) {
+        var defer = $q.defer ();
+
+        var ImageObject = Parse.Object.extend ('User');
+
+
+        if (_params.photo !== '') {
+
+            console.log ('_params.photo ' + _params.photo);
+
+            // create the parse file
+            var imageFile = new Parse.File ('mypic.jpg', {base64: _params.photo});
+
+            // save the parse file
+            return imageFile.save ().then (function () {
+
+                _params.photo = null;
+
+                // create object to hold caption and file reference
+                var imageObject = new ImageObject ();
+
+                // set object properties
+                imageObject.set ('img', imageFile);
+                // imageObject.set ('location', new Parse.GeoPoint (_params.coords.latitude, _params.coords.longitude));
+
+                // save object to parse backend
+                imageObject
+                    .save (function (resp) {
+                    defer.resolve (resp);
+                });
+
+
+            }, function (error) {
+                defer.reject (error);
+                console.log ('Error');
+                console.log (error);
+            });
+
+        } else {
+            // create object to hold caption and file reference
+            var imageObject = new ImageObject ();
+
+            // set object properties
+            imageObject.set ('caption', _params.caption);
+
+            // save object to parse backend
+            return imageObject.save ();
+
+        }
 
 
         return defer.promise;
@@ -522,6 +577,7 @@ angular
         loginFacebook     : loginFacebook,
         logout            : logout,
         update            : update,
+        updateAvatar      : updateAvatar,
         forgot            : forgot,
         list              : list,
         find              : find,

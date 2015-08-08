@@ -26,11 +26,6 @@ $time : 0.5s;
     background       : url('../img/background.jpg');
     background-size  : cover;
 
-    /* Somente para Chrome e Safari */
-    @media screen and (-webkit-min-device-pixel-ratio : 0) {
-      bottom : 63px;
-    }
-
     .tabs-top {
 
       bottom   : 0px;

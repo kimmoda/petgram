@@ -67,16 +67,6 @@ angular
             }
         }
     })
-        .state ('gallery.settings', {
-        url  : '/settings',
-        views: {
-            tabProfile: {
-                //controller : 'GalleryProfileCtrl as GalleryProfile',
-                templateUrl: 'module/gallery/view/gallery.profile.settings.html'
-            }
-        }
-    })
-
 
         .state ('gallery.profile.photos', {
         url  : '/photos',
