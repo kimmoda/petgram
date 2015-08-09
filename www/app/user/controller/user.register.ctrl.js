@@ -4,9 +4,11 @@ angular
     .controller ('RegisterCtrl', function ($state, UserForm, $filter, Notify, User) {
     var self = this;
 
-    self.form = {
+    function init () {
+        self.form = {};
+    }
 
-    };
+    init ();
 
     self.formFields = UserForm.register;
 
@@ -18,10 +20,15 @@ angular
                 .register (form)
                 .then (function (resp) {
                 console.log (resp);
-                $state.go ('app.home', {clear: true});
-            }).catch (function (resp) {
+                $state.go ('gallery.home', {clear: true});
+                init ();
+            })
+                .catch (function (resp) {
                 console.log (resp);
-                Notify.alert ('Ops', resp);
+                Notify.alert ({
+                    title: 'Ops',
+                    text : resp
+                });
             });
         }
     };

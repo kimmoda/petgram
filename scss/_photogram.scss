@@ -1,13 +1,11 @@
 
 .card-home {
   .list {
-    
     .item {
       float : left;
       width : 33%;
     }
   }
-  
 }
 
 .instagram {
@@ -28,6 +26,17 @@
   .h5,
   .h6 {
     color : #333;
+  }
+  
+  .user-username {
+    font-weight : bold;
+    color       : $positive;
+    font-size   : 16px;
+  }
+  .user-status {
+    font-weight : normal;
+    font-size   : 14px;
+    color       : #333;
   }
   
   .popover-backdrop.active {
@@ -129,7 +138,7 @@
   .item.item-avatar {
     background-color : rgba(255, 255, 255, 0.99);
     border           : none;
-
+    
     img {
       position      : absolute;
       top           : 17px;
@@ -140,16 +149,17 @@
       height        : 100%;
       border-radius : 50%;
     }
-
+    
     h2 {
       color        : $positive;
       font-size    : 14px;
-      line-height  : 18px;
+      line-height  : 17px;
       text-align   : left;
       display      : block;
       float        : left;
       font-weight  : bold;
       margin-right : 5px;
+      margin-top   : 4px;
     }
     
     span {
@@ -218,7 +228,7 @@
     background : #fff;
   }
   .tabs-dark.tabs-bottom {
-
+    
     .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
       background-color : #070808;
       border-bottom    : 5px solid $positive;
@@ -257,6 +267,7 @@
         font-variant   : small-caps;
         text-align     : center;
         text-transform : lowercase;
+        white-space    : nowrap;
       }
     }
     
@@ -270,28 +281,31 @@
         color          : #53575c;
         text-transform : uppercase;
         width          : 97%;
-        min-height     : 40px;
+        line-height    : 10px;
+        min-height     : 27px;
         max-height     : 10px;
         font-weight    : bold;
         margin         : 0 auto;
         display        : block;
       }
     }
-
+    
     .tabs-light {
       background    : #fff;
       height        : 50px;
       border-top    : 1px solid #ccc;
       border-bottom : 1px solid #ccc;
       display       : block;
-      position      : relative;
-
+      
       .tab-nav.tabs {
-
+        
       }
-
+      
     }
     
   }
   
+  ion-nav-bar.bar.bar-positive.bar-mop.nav-bar-container {
+    background : none;
+  }
 }

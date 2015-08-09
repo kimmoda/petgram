@@ -1,18 +1,18 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .factory ('PhotoService', function ($ionicActionSheet, $window, $ionicPopup, Settings, $cordovaCamera, $cordovaImagePicker, gettextCatalog, $q, Notify) {
+    .factory ('PhotoService', function ($ionicActionSheet, $window, $ionicPopup, GallerySetting, $cordovaCamera, $cordovaImagePicker, gettextCatalog, $q, Notify) {
 
     function capture (type) {
         var defer = $q.defer ();
 
         var options = {
-            quality           : Settings.settings ().quality,
-            allowEdit         : Settings.settings ().allowEdit,
-            correctOrientation: Settings.settings ().allowEdit,
-            targetWidth       : Settings.settings ().width,
-            targetHeight      : Settings.settings ().height,
-            saveToPhotoAlbum  : Settings.settings ().saveToAlbum,
+            quality           : GallerySetting.get ('imageQuality'),
+            allowEdit         : GallerySetting.get ('imageEdit'),
+            correctOrientation: GallerySetting.get ('imageEdit'),
+            targetWidth       : GallerySetting.get ('imageWidth'),
+            targetHeight      : GallerySetting.get ('imageHeight'),
+            saveToPhotoAlbum  : GallerySetting.get ('imageSaveAlbum'),
             destinationType   : Camera.DestinationType.DATA_URL,
             encodingType      : Camera.EncodingType.JPEG,
             popoverOptions    : CameraPopoverOptions,

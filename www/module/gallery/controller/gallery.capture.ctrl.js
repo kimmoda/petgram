@@ -1,28 +1,27 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .controller ('GalleryCaptureCtrl', function ($scope, $cordovaGeolocation, PhotoService, ParseImageService, $state, Gallery, Notify) {
-    var self = this;
+    .controller ('GalleryCaptureCtrl', function ($scope, $cordovaGeolocation, $ionicModal, PhotoService, ParseImageService, $state, Gallery, Notify) {
+
+    $scope.map = {
+        center     : {
+            latitude : -23.5333333,
+            longitude: -46.6166667
+        },
+        scrollwheel: false,
+        zoom       : 15
+    };
 
     function init () {
-        self.active = false;
-        self.form   = {
+        $scope.form = {
             title   : '',
             location: '',
             photo   : '',
             geo     : false
         };
 
-        self.map     = {
-            center     : {
-                latitude : -23.5333333,
-                longitude: -46.6166667
-            },
-            scrollwheel: false,
-            zoom       : 15
-        };
-        self.data    = '';
-        self.loading = false;
+        $scope.data    = '';
+        $scope.loading = false;
 
     }
 
@@ -32,15 +31,15 @@ angular
             enableHighAccuracy: false
         };
 
-        if (self.form.location === '') {
+        if ($scope.form.location === '') {
 
-            self.loading = false;
+            $scope.loading = false;
 
             $cordovaGeolocation
                 .getCurrentPosition (posOptions)
                 .then (function (position) {
 
-                self.here = {
+                $scope.here = {
                     id    : 1,
                     coords: {
                         latitude : position.coords.latitude,
@@ -49,16 +48,16 @@ angular
                     icon  : 'img/pin.png'
                 };
 
-                self.form.location = {
+                $scope.form.location = {
                     latitude : position.coords.latitude,
                     longitude: position.coords.longitude,
                 };
 
-                self.map.center = self.here.coords;
-                self.loading    = false;
+                $scope.map.center = $scope.here.coords;
+                $scope.loading    = false;
 
-                console.log (self.form);
-                console.log (self.here);
+                console.log ($scope.form);
+                console.log ($scope.here);
                 console.log (position);
             }, function (err) {
                 // error
@@ -69,32 +68,43 @@ angular
     };
 
 
-    self.getGeo = function (resp) {
+    $scope.getGeo = function (resp) {
         if (resp) getLocation ();
     };
 
-    self.formFields = Gallery.form;
+    $scope.formFields = Gallery.form;
 
-    self.open = function () {
+    $scope.open = function () {
         init ();
         PhotoService
             .open ()
             .then (function (resp) {
-            self.loading    = false;
-            self.active     = true;
-            self.form.photo = resp;
-            self.data       = 'data:image/jpeg;base64,' + resp;
+            $scope.loading    = false;
+            $scope.form.photo = resp;
+            $scope.data       = 'data:image/jpeg;base64,' + resp;
             // angular.element ('.title').focus ();
+
+            $ionicModal.fromTemplateUrl ('module/gallery/view/gallery.capture.modal.html', {
+                scope: $scope
+            }).then (function (modal) {
+                $scope.modal = modal;
+                $scope.modal.show ();
+            });
+
+            $scope.closeModal = function () {
+                $scope.modal.hide ();
+                $scope.modal.remove ();
+            };
         })
             .catch (function () {
             $state.go ('gallery.home');
         });
     };
 
-    self.open ();
+    $scope.open ();
 
-    self.submitCapture = function (form) {
-        var dataForm = angular.copy (self.form);
+    $scope.submitCapture = function (form) {
+        var dataForm = angular.copy ($scope.form);
         Notify.showLoading ();
         Gallery
             .add (dataForm)
@@ -102,6 +112,7 @@ angular
             $state.go ('gallery.home', {
                 reload: true
             });
+            $scope.closeModal ();
             init ();
             Notify.hideLoading ();
         });

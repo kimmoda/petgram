@@ -1,0 +1,75 @@
+<ion-modal-view class="modal-comment">
+    <ion-header-bar class="bar-dark">
+        <button class="button button-clear button-icon ion-ios-arrow-thin-left"
+                ng-click="closeModal()"></button>
+        <div class="title">{{ 'Capture' | translate }}</div>
+        <button class="button button-positive"
+                ng-click="submitCapture()">
+            <i class="icon ion-arrow-right-b"></i>
+        </button>
+    </ion-header-bar>
+    <ion-content>
+        <gallery-loading loading="loading"
+                         icon="android"></gallery-loading>
+        <div class="list">
+
+            <div class="item no-padding capture-legend">
+                <div class="row">
+                    <div class="col-25">
+                        <img ng-src="{{data}}"
+                             ng-click="open()"
+                             style="width: 100%; display: block">
+                    </div>
+                    <div class="col">
+                        <div class="list">
+                            <div class="item item-input">
+                                <input type="text"
+                                       name="title"
+                                       ng-model="form.title"
+                                       placeholder="{{ 'Escreva uma legenda'|translate }}">
+                                <!--<textarea placeholder="{{ 'Escreva uma legenda' | translate }}"></textarea>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-toggle">
+                Adicionar Localização <label class="toggle toggle-positive">
+                <input type="checkbox"
+                        ng-model="form.geo"
+                        ng-change="getGeo(form.geo)">
+
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+            </div>
+            <div class="item no-padding"
+                 ng-show="form.geo">
+                <ui-gmap-google-map class="map-container"
+                                    center="map.center"
+                                    zoom="map.zoom"
+                                    options="map.options">
+
+                    <ui-gmap-marker ng-repeat="mapa in here"
+                                    coords="mapa.coords"
+                                    icon="mapa.icon"
+                                    idkey="mapa.id"></ui-gmap-marker>
+
+                </ui-gmap-google-map>
+            </div>
+            <div class="item">
+                COMPARTILHAR NO
+            </div>
+            <div class="item">
+                <div class="row">
+                    <div class="col">Facebook</div>
+                    <div class="col">Twitter</div>
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+
+</ion-modal-view>

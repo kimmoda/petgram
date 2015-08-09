@@ -14,10 +14,9 @@ angular
 
                 PhotoService
                     .open ()
-                    .then (function (resp) {
-                    $scope.form.photo = resp;
+                    .then (function (imageData) {
                     User
-                        .updateAvatar ($scope.form)
+                        .updateAvatar (imageData)
                         .then (function (resp) {
                         console.log (resp);
                     });

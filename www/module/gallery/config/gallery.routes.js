@@ -58,22 +58,48 @@ angular
     })
 
         .state ('gallery.profile', {
-        url     : '/profile',
+        url     : '/profile/:id',
         abstract: true,
         views   : {
             tabProfile: {
-                //controller : 'GalleryProfileCtrl as GalleryProfile',
+                resolve    : {
+                    user: function ($stateParams) {
+                        console.log ($stateParams);
+                        return $stateParams.id;
+                    }
+                },
+                controller : 'GalleryProfileCtrl as GalleryProfile',
                 templateUrl: 'module/gallery/view/gallery.profile.tabs.html'
             }
         }
     })
 
-        .state ('gallery.profile.photos', {
-        url  : '/photos',
+        .state ('gallery.profile.photosgrid', {
+        url  : '/photosgrid',
         views: {
-            tabPhotos: {
+            tabProfile: {
                 //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
-                templateUrl: 'module/gallery/view/gallery.profile.photos.html'
+                templateUrl: 'module/gallery/view/gallery.profile.photos.grid.html'
+            }
+        }
+    })
+
+        .state ('gallery.profile.photosList', {
+        url  : '/photoslist',
+        views: {
+            tabProfile: {
+                //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
+                templateUrl: 'module/gallery/view/gallery.profile.photos.list.html'
+            }
+        }
+    })
+
+        .state ('gallery.profile.mpa', {
+        url  : '/map',
+        views: {
+            tabProfile: {
+                //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
+                template: ''
             }
         }
     })

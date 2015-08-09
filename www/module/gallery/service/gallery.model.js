@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .factory ('Gallery', function ($http, $q, gettextCatalog, CacheFactory, Notify, Loading) {
+    .factory ('Gallery', function ($http, $q, gettextCatalog, Parse, CacheFactory, Notify, Loading) {
 
 
     var form = [
@@ -78,7 +78,7 @@ angular
 
 
             }, function (error) {
-                defer.reject(error);
+                defer.reject (error);
                 console.log ('Error');
                 console.log (error);
             });
@@ -146,14 +146,14 @@ angular
                 var comments = [];
                 angular.forEach (resp, function (item) {
                     console.warn (item);
-                    var comment      = {
+                    var obj = {
                         id     : item.id,
                         text   : item.attributes.text,
                         user   : item.attributes.commentBy.attributes,
                         created: item.createdAt
                     }
-                    comment.user.img = (comment.user.img) ? comment.user.img : 'img/user.png';
-                    comments.push (comment);
+                    obj     = processImg (obj);
+                    comments.push (obj);
                 });
                 defer.resolve (comments);
             });
@@ -281,15 +281,16 @@ angular
                             var commentsData = [];
 
                             angular.forEach (comments, function (item) {
-                                var comment = {
+                                var comment     = {
                                     id  : item.id,
                                     text: item.attributes.text,
                                     user: item.attributes.commentBy.attributes
-                                }
+                                };
+                                comment.user.id = item.id;
                                 commentsData.push (comment);
                             });
 
-                            var obj      = {
+                            var obj = {
                                 id      : item.id,
                                 item    : item.attributes,
                                 created : item.createdAt,
@@ -299,27 +300,31 @@ angular
                                 comments: commentsData
                             };
 
-                            if(obj.user.facebook){
-                                obj.user.img = (obj.user.facebookimg) ? obj.user.facebookimg : 'img/user.png';
-                            } else {
-                                obj.user.img = (obj.user.img) ? obj.user.img : 'img/user.png';
-                            }
+                            obj.user.id = item.id;
+
+                            obj = processImg (obj);
 
                             data.push (obj);
                             cb ();
                         });
                     })
                 })
-
-
             });
-
-
         });
 
         return defer.promise;
     }
 
+    function processImg (obj) {
+        var random = '?' + Math.random ();
+
+        if (obj.user.facebook) {
+            obj.user.img = (obj.user.facebookimg) ? obj.user.facebookimg : 'img/user.png';
+        } else {
+            obj.user.img = (obj.user.img) ? obj.user.img.url () + random : 'img/user.png';
+        }
+        return obj;
+    }
 
     function getGallery (id) {
         var defer = $q.defer ();
@@ -499,9 +504,9 @@ angular
         all        : all,
         add        : add,
         get        : get,
-        addComment : addComment,
         likeGallery: likeGallery,
         allComment : allComment,
+        addComment : addComment,
         getComments: getComments,
         getLikes   : getLikes,
         search     : search,

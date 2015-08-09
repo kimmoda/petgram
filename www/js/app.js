@@ -6,7 +6,6 @@ angular
     'formlyIonic',
     'angularMoment',
     'ionic.components',
-    'jett.ionic.scroll.sista',
     'ngFacebook',
     'angular-cache',
     'uiGmapgoogle-maps',
@@ -18,9 +17,11 @@ angular
     'module.facebook',
     'module.feedback',
 ])
-    .run (function ($ionicPlatform, $rootScope, AppConfig, $cordovaStatusbar, User) {
+    .run (function ($ionicPlatform, $rootScope, AppConfig, $cordovaStatusbar, GallerySetting, User) {
 
     User.init ();
+    GallerySetting.init();
+
     $ionicPlatform.ready (function () {
 
         //$ionicAnalytics.register ();

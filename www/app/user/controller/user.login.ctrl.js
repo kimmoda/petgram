@@ -4,10 +4,14 @@ angular
     .controller ('LoginCtrl', function ($scope, $ionicPopup, UserForm, $state, gettextCatalog, Notify, User) {
     var self = this;
 
-    self.form = {
-        email   : '',
-        password: ''
-    };
+    function init () {
+        self.form = {
+            email   : '',
+            password: ''
+        };
+    }
+
+    init ();
 
     self.formFields = UserForm.login;
 
@@ -20,9 +24,14 @@ angular
                 .then (function (data) {
                 console.log (data);
                 $state.go ('gallery.home');
+                init ();
             })
                 .catch (function (resp) {
-                Notify.alert ('Ops', resp);
+                Notify.alert ({
+                    title: 'Ops',
+                    text : resp
+                });
+                init ();
             });
         } else {
             return false;
@@ -33,7 +42,7 @@ angular
         $scope.form = {
             recovery: ''
         };
-        
+
         $scope.erro = '';
         $ionicPopup.show ({
             scope   : $scope,
@@ -68,10 +77,14 @@ angular
                     .forgot (email)
                     .then (function (resp) {
                     console.log (resp);
+                    self.form.email = email;
                     Notify.hideLoading ();
                 })
                     .catch (function (resp) {
-                    Notify.alert ('Ops', resp);
+                    Notify.alert ({
+                        login: 'Ops',
+                        text : resp
+                    });
                     Notify.hideLoading ();
                 });
             }

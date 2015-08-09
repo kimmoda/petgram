@@ -1,5 +1,4 @@
-<ion-view title="{{'Profile' | translate}}"
-          class="profile">
+<ion-view title="{{'Profile' | translate}}"  class="profile">
 
     <ion-content>
         <div class="profile-top">
@@ -37,22 +36,22 @@
                 </div>
             </div>
             <div class="padding">
-                <span class="strong">{{ user.name }}</span>
+                <span class="user-username">{{ user.name }}</span>
 
-                <p>{{ user.status }}</p>
+                <p class="user-status">{{ user.status }}</p>
             </div>
 
             <ion-tabs class="tabs-light">
-                <ion-tab icon="ion-android-apps">
-                    <ion-nav-view name="tabPhotos"></ion-nav-view>
-                </ion-tab>
-                <ion-tab icon="ion-navicon-round"></ion-tab>
-                <ion-tab icon="ion-ios-location-outline"></ion-tab>
+                <ion-tab icon="ion-android-apps"
+                         ui-sref="ˆ.photosgrid"></ion-tab>
+                <ion-tab icon="ion-navicon-round"
+                         ui-sref="ˆ.photoslist"></ion-tab>
+                <ion-tab icon="ion-ios-location-outline"
+                         ui-sref="ˆ.map"></ion-tab>
             </ion-tabs>
         </div>
 
-        <ion-nav-view class="step3"
-                      name="tabLogin"></ion-nav-view>
+        <ion-nav-view name="tabProfile"></ion-nav-view>
 
     </ion-content>
 </ion-view>

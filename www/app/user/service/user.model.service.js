@@ -1,22 +1,8 @@
 'use strict';
 angular
     .module ('module.user')
-    .factory ('User', function ($q, $filter, $rootScope, $cordovaGeolocation, $cordovaDevice, $window, $facebook, CacheFactory, $cordovaFacebook, $state, ParseConfig, Notify) {
+    .factory ('User', function ($q, $filter, $rootScope, Parse, $cordovaGeolocation, $cordovaDevice, $window, $facebook, CacheFactory, $cordovaFacebook, $state, ParseConfig, Notify) {
 
-    var userCache,
-        userListCache;
-
-    if (!CacheFactory.get ('user')) {
-        userCache = CacheFactory.createCache ('user', {
-            storageMode: 'localStorage'
-        });
-    }
-
-    if (!CacheFactory.get ('userList')) {
-        userListCache = CacheFactory.createCache ('userList', {
-            storageMode: 'localStorage'
-        });
-    }
     var device   = $window.cordova ? true : false;
     var facebook = device ? $cordovaFacebook : $facebook;
     var data     = {
@@ -43,21 +29,13 @@ angular
         return Parse.User.current ().attributes;
     }
 
-    function cleanToken () {
-        CacheFactory.clearAll ();
-        userCache.removeAll ();
-    }
 
     function loadProfile (response) {
 
         if (response) {
+            $rootScope.user = {};
 
-            var user = response;
-            if (user.facebook) {
-                user.img = (response.img) ? response.img : response.facebookimg;
-            } else {
-                user.img = (response.img) ? response.img : 'img/user.png';
-            }
+            var user      = processImg (response);
             user.birthday = (response.birthday) ? new Date (response.birthday) : '';
 
             $rootScope.user = user;
@@ -68,6 +46,17 @@ angular
             logout ();
             return false;
         }
+    }
+
+    function processImg (obj) {
+        var random = '?' + Math.random ();
+
+        if (obj.facebookimg) {
+            obj.img = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
+        } else {
+            obj.img = (obj.img) ? obj.img.url () + random : 'img/user.png';
+        }
+        return obj;
     }
 
     function login (form) {
@@ -139,9 +128,6 @@ angular
 
         var formData      = form;
         formData.username = form.email;
-        delete formData.name;
-        delete formData.confirmpassword;
-
         Notify.showLoading ();
 
         console.log (formData);
@@ -149,7 +135,6 @@ angular
             .User (formData)
             .signUp (null, {
             success: function (resp) {
-                Notify.hideLoading ();
                 var user = loadProfile (resp.attributes);
                 Notify.hideLoading ();
                 defer.resolve (user);
@@ -190,7 +175,6 @@ angular
 
     function logout () {
         var defer = $q.defer ();
-        cleanToken ();
         Parse.User.logOut ();
         delete $rootScope.user;
         defer.resolve (true);
@@ -217,6 +201,7 @@ angular
         var currentUser = Parse.User.current ();
         Notify.showLoading ();
         delete form.img;
+        console.log (form);
         angular.forEach (form, function (value, key) {
             currentUser.set (key, value);
         });
@@ -243,9 +228,8 @@ angular
         currentUser
             .save ()
             .then (function (resp) {
-            var user = init ();
-            console.log (resp, user);
-            loadProfile (resp.attributes);
+
+            var user = loadProfile (resp.attributes);
             Notify.hideLoading ();
             defer.resolve (user);
         });
@@ -254,57 +238,46 @@ angular
         return defer.promise;
     }
 
-    function updateAvatar (_params) {
+    function updateAvatar (photo) {
         var defer = $q.defer ();
 
-        var ImageObject = Parse.Object.extend ('User');
+        Notify.showLoading ();
 
-
-        if (_params.photo !== '') {
-
-            console.log ('_params.photo ' + _params.photo);
+        if (photo !== '') {
 
             // create the parse file
-            var imageFile = new Parse.File ('mypic.jpg', {base64: _params.photo});
+            var imageFile = new Parse.File ('mypic.jpg', {base64: photo});
 
             // save the parse file
-            return imageFile.save ().then (function () {
+            return imageFile
+                .save ()
+                .then (function () {
 
-                _params.photo = null;
+                photo = null;
 
                 // create object to hold caption and file reference
-                var imageObject = new ImageObject ();
+                var currentUser = Parse.User.current ();
 
                 // set object properties
-                imageObject.set ('img', imageFile);
-                // imageObject.set ('location', new Parse.GeoPoint (_params.coords.latitude, _params.coords.longitude));
+                currentUser.set ('img', imageFile);
 
                 // save object to parse backend
-                imageObject
-                    .save (function (resp) {
-                    defer.resolve (resp);
+                currentUser
+                    .save ()
+                    .then (function (resp) {
+                    var user = loadProfile (resp.attributes);
+                    console.log (resp);
+                    Notify.hideLoading ();
+                    defer.resolve (user);
                 });
 
 
             }, function (error) {
-                defer.reject (error);
-                console.log ('Error');
+                Notify.hideLoading ();
                 console.log (error);
+                defer.reject (error);
             });
-
-        } else {
-            // create object to hold caption and file reference
-            var imageObject = new ImageObject ();
-
-            // set object properties
-            imageObject.set ('caption', _params.caption);
-
-            // save object to parse backend
-            return imageObject.save ();
-
         }
-
-
         return defer.promise;
     }
 

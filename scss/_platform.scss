@@ -79,17 +79,18 @@
   }
 }
 
-.platform-ios {
-
-  .modal {
-    .bar.bar-header {
-      .button:last-child {
-        top    : 0;
-        right  : 0;
-        width  : 44px;
-        height : 44px;
-        color  : white;
-      }
+.modal {
+  .bar.bar-header {
+    .button:last-child {
+      top    : 0;
+      right  : 0;
+      width  : 44px;
+      height : 44px;
+      color  : white;
     }
   }
 }
+
+//.platform-ios.platform-cordova:not(.fullscreen) .search-bar {
+//  margin-top : 20px;
+//}

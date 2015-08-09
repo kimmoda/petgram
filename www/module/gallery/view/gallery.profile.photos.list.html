@@ -1,23 +1,9 @@
-<ion-view view-title="{{ 'Ionictagram' | translate }}">
-    <ion-nav-title>
-        <span class="icon2-logo"></span>
-    </ion-nav-title>
-
-    <ion-nav-buttons side="right">
-        <button gallery-settings
-                class="button button-icon icon ion-android-more-vertical"></button>
-    </ion-nav-buttons>
-
+<ion-view view-title="Photo">
     <ion-content>
-        <ion-refresher ng-if="!GalleryHome.loading"
-                       on-refresh="loadMore(true)"></ion-refresher>
-
-        <gallery-loading loading="GalleryHome.loading"
-                         icon="android"></gallery-loading>
-
+        <h1>List</h1>
         <div class="list card step1"
-             ng-if="!GalleryHome.loading"
-             ng-repeat="gallery in GalleryHome.data | orderBy: 'createdAt'">
+             ng-if="!loading"
+             ng-repeat="gallery in data | orderBy: 'createdAt'">
 
             <div class="item item-avatar"
                  ui-sref="gallery.profile.photosgrid({id: gallery.user.id})"
@@ -25,7 +11,7 @@
                  ion-affix>
                 <img ng-src="{{gallery.user.img}}">
 
-                <h2>{{gallery.user.name}}</h2>
+                <h2>{{gallery.user.name}} {{ gallery.user.id }}</h2>
 
                 <p>{{ gallery.user.status }}</p>
                 <span>{{gallery.created | amTimeAgo}}</span>
@@ -78,6 +64,5 @@
                 </button>
             </div>
         </div>
-
     </ion-content>
 </ion-view>
