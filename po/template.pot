@@ -8,7 +8,8 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: gallery/view/gallery.home.html:70
+#: gallery/view/gallery.home.html:74
+#: gallery/view/gallery.profile.photos.list.html:60
 msgid "Add comment"
 msgstr ""
 
@@ -26,6 +27,10 @@ msgstr ""
 
 #: gallery/service/photo.service.js:58
 msgid "Cancel"
+msgstr ""
+
+#: gallery/view/gallery.capture.modal.html:5
+msgid "Capture"
 msgstr ""
 
 #: facebook/view/facebook.feed.html:42
@@ -56,12 +61,12 @@ msgstr ""
 msgid "Curtir"
 msgstr ""
 
-#: app.js:71
-msgid "English"
+#: gallery/view/gallery.profile.edit.modal.html:5
+msgid "Edit Profile"
 msgstr ""
 
-#: gallery/view/gallery.capture.html:34
-msgid "Entrar"
+#: app.js:72
+msgid "English"
 msgstr ""
 
 #: feedback/view/feedback.form.html:10
@@ -70,6 +75,11 @@ msgstr ""
 
 #: feedback/service/feedback.form.js:33
 msgid "Erro"
+msgstr ""
+
+#: gallery/view/gallery.capture.modal.html:29
+#: gallery/view/gallery.capture.modal.html:30
+msgid "Escreva uma legenda"
 msgstr ""
 
 #: facebook/config/facebook.config.js:9
@@ -106,11 +116,12 @@ msgstr ""
 msgid "Likes"
 msgstr ""
 
-#: app.js:70
+#: app.js:71
 msgid "Portuguese Brazil"
 msgstr ""
 
-#: gallery/view/gallery.profile.html:1
+#: gallery/view/gallery.profile.photos.html:1
+#: gallery/view/gallery.profile.tabs.html:1
 msgid "Profile"
 msgstr ""
 
@@ -118,16 +129,17 @@ msgstr ""
 msgid "Reclamação"
 msgstr ""
 
-#: gallery/view/gallery.search.html:1
-msgid "Search"
-msgstr ""
-
 #: gallery/service/photo.service.js:57
 msgid "Send Photo"
 msgstr ""
 
 #: gallery/view/gallery.popover.home.html:5
+#: gallery/view/gallery.settings.modal.html:5
 msgid "Settings"
+msgstr ""
+
+#: gallery/view/gallery.capture.html:1
+msgid "Share"
 msgstr ""
 
 #: feedback/service/feedback.form.js:25

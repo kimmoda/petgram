@@ -18,14 +18,14 @@
     "moment": "~2.10.6",
     "angular-moment": "~0.10.1",
     "ng-facebook": "~0.1.6",
-    "angular-animate": "~1.4.3",
     "ngmap": "~1.10.0",
     "api-check": "~7.5.0",
     "angular-formly": "~6.21.1",
     "angular-formly-templates-ionic": "~1.0.4",
     "simple-line-icons": "~1.0.0",
     "animate.css": "~3.3.1",
-    "parse": "~1.5.0"
+    "parse": "~1.5.0",
+    "angular-animate": "~1.4.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0",

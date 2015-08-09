@@ -17,7 +17,7 @@ angular
             title   : '',
             location: '',
             photo   : '',
-            geo     : false
+            geo     : false 
         };
 
         $scope.data    = '';

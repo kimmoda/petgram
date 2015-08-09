@@ -28,13 +28,17 @@ module.exports = {
         fonts: 'www/lib/ionic/fonts/**.*',
         imgs : 'www/img/**/**.*',
         path : 'www/',
+        lib: 'www/lib/*',
+        sass: [
+                'scss/*.scss',
+                'scss/**/*.scss'
+        ],
         css  : [
             'www/css/*.css',
             'www/css/**/*.css',
             'www/fonts/***.css',
             'www/module/**/*.css'
         ],
-        sass : ['scss/**/*.scss'],
         js   : [
             'www/app/*.js',
             'www/app/**/*.js',
