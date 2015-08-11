@@ -6,3 +6,5 @@ platforms/
 plugins/
 dist/
 www/lib/
+resources/android/
+resources/ios/
