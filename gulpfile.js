@@ -14,7 +14,6 @@ var gulp          = require ('gulp'),
     extend        = require ('gulp-extend'),
     ngAnnotate    = require ('gulp-ng-annotate'),
     uglify        = require ('gulp-uglify'),
-    rename        = require ('gulp-rename'),
     jshint        = require ('gulp-jshint'),
     stylish       = require ('jshint-stylish'),
     minifyHTML    = require ('gulp-minify-html'),
@@ -48,6 +47,7 @@ gulp.task ('dev', function (cb) {
         // 'bower',
         'sass',
         'translate',
+        'copy:font',
         'inject',
         cb);
 });
@@ -58,10 +58,12 @@ gulp.task ('prod', function (cb) {
         'dev',
         'clean',
         'copy',
-        'cacheviews:add',
+        'cacheapp:add',
+        'cachemodule:add',
         'server:prod',
         'usemin',
-        'cacheviews:remove',
+        'cacheapp:remove',
+        'cachemodule:remove',
         'server:dev',
         cb
     );
@@ -109,7 +111,9 @@ gulp.task ('sass', function (done) {
 gulp.task ('watch', function () {
     gulp.watch (paths.src.sass, ['sass']);
     gulp.watch (paths.libs, ['inject']);
-    gulp.watch (paths.src.js, ['inject','translate']);
+    gulp.watch (paths.src.js, ['inject',
+                               'translate'
+    ]);
 });
 
 
@@ -180,33 +184,68 @@ gulp.task ('jshint', function () {
 });
 
 // Templates
-gulp.task ('templates', function () {
-    gulp.src (['./www/module/**/*.html'])
+gulp.task ('template:app', function () {
+    gulp.src (['./www/app/**/*.html'])
         .pipe (minifyHTML ({quotes: true}))
         .pipe (templateCache ({
-        module    : 'cacheviews',
-        filename  : 'cacheviews.js',
-        root      : 'modules',
+        module    : 'cacheapp',
+        filename  : 'cacheapp.js',
+        root      : 'app',
         standalone: true
     }))
         .pipe (gulp.dest ('./www/js/'));
 });
 
+gulp.task ('template:module', function () {
+    gulp.src (['./www/module/**/*.html'])
+        .pipe (minifyHTML ({quotes: true}))
+        .pipe (templateCache ({
+        module    : 'cachemodule',
+        filename  : 'cachemodule.js',
+        root      : 'module',
+        standalone: true
+    }))
+        .pipe (gulp.dest ('./www/js/'));
+});
+
+gulp.task('templates',['template:app','template:module']);
+
 // Cache Modules
-gulp.task ('cacheviews:add', function () {
+// ADD
+gulp.task ('cacheapp:add', function () {
     return replace ({
-        regex      : "//'cacheviews'",
-        replacement: "'cacheviews'",
+        regex      : "//'cacheapp'",
+        replacement: "'cacheapp'",
         paths      : replaceFiles,
         recursive  : false,
         silent     : false
     });
 });
 
-gulp.task ('cacheviews:remove', function () {
+gulp.task ('cachemodule:add', function () {
     return replace ({
-        regex      : "'cacheviews'",
-        replacement: "//'cacheviews'",
+        regex      : "//'cachemodule'",
+        replacement: "'cachemodule'",
+        paths      : replaceFiles,
+        recursive  : false,
+        silent     : false
+    });
+});
+
+// REMOVE
+gulp.task ('cacheapp:remove', function () {
+    return replace ({
+        regex      : "'cacheapp'",
+        replacement: "//'cacheapp'",
+        paths      : replaceFiles,
+        recursive  : false,
+        silent     : false
+    });
+});
+gulp.task ('cachemodule:remove', function () {
+    return replace ({
+        regex      : "'cachemodule'",
+        replacement: "//'cachemodule'",
         paths      : replaceFiles,
         recursive  : false,
         silent     : false
@@ -218,11 +257,20 @@ gulp.task ('copy', function () {
     // Images
     gulp.src (paths.source + '/img/**').pipe (gulp.dest (paths.dist + '/img'));
 
-    // Ionic
-    gulp.src (paths.source + '/lib/ionic/fonts/**').pipe (gulp.dest (paths.dist + '/fonts'));
-
     // Deploy
     gulp.src (paths.source + '/fonts/**').pipe (gulp.dest (paths.dist + '/fonts'));
+
+});
+
+// Copy Fonts
+gulp.task ('copy:font', function () {
+    
+    // Ionic
+    gulp.src (paths.source + '/lib/ionic/fonts/**').pipe (gulp.dest (paths.source + '/fonts'));
+
+    // Ionic Icons
+    gulp.src (paths.source + '/lib/simple-line-icons/fonts/**').pipe (gulp.dest (paths.source + '/fonts'));    
+
 
 });
 
@@ -568,3 +616,15 @@ gulp.task ('lint', function () {
         .pipe (jshint.reporter (stylish));
 });
 
+gulp.task ('folder:prod', function (done) {
+    fs.rename ('www', 'temp', function (success) {
+        fs.rename ('dist', 'www')
+    })
+
+});
+
+gulp.task ('folder:dev', function (done) {
+    fs.rename ('www', 'dist', function (success) {
+        fs.rename ('temp', 'www')
+    })
+});

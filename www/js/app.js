@@ -2,7 +2,8 @@
 angular
     .module ('starter', [
     'ionic',
-    //'cacheviews',
+    //'cacheapp',
+    //'cachemodule',
     'formlyIonic',
     'angularMoment',
     'ionic.components',
