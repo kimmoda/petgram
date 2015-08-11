@@ -118,7 +118,15 @@
   }
   
   .nav-bar-title {
-    
+    .title {
+      left        : 0;
+      right       : 45px;
+      line-height : 56px;
+      height      : 56px;
+      display     : block;
+      margin-left : 0;
+    }
+
     span.icon2-logo {
       font-size   : 34px;
       display     : block;
@@ -126,19 +134,21 @@
       text-shadow : 1px 2px 3px rgba(0, 0, 0, 0.5);
     }
   }
-  
+
   .tab-item.middle {
     background-color : $positive;
     color            : #fff;
     opacity          : 1;
   }
+
   .tabs-striped .tabs .tab-item.middle {
     border-radius : 0;
   }
+
   .item.item-avatar {
     background-color : rgba(255, 255, 255, 0.99);
     border           : none;
-    
+
     img {
       position      : absolute;
       top           : 17px;
@@ -149,7 +159,7 @@
       height        : 100%;
       border-radius : 50%;
     }
-    
+
     h2 {
       color        : $positive;
       font-size    : 14px;
@@ -161,7 +171,7 @@
       margin-right : 5px;
       margin-top   : 4px;
     }
-    
+
     span {
       top         : 33px;
       right       : 10px;
@@ -175,7 +185,7 @@
       font-size   : 14px;
       line-height : 20px;
     }
-    
+
     p {
       font-size  : 12px;
       text-align : left;
@@ -183,13 +193,13 @@
       width      : 100%;
     }
   }
-  
+
   .modal-comment {
-    
+
     .scroll {
       height : 100%;
     }
-    
+
     .form {
       border   : 1px solid #ccc;
       padding  : 1px;
@@ -199,7 +209,7 @@
       left     : 0;
       bottom   : 0;
       height   : 50px;
-      
+
       label.item.item-input {
         display : block;
         float   : left;
@@ -218,94 +228,167 @@
         border-bottom : none;
       }
     }
-    
+
   }
+
   .tab-item {
     transition         : all ease 0.5s;
     -webkit-transition : all ease 0.5s;
   }
+
   .tabs-light {
     background : #fff;
   }
-  .tabs-dark.tabs-bottom {
-    
+
+  ion-tabs.tabs-dark.tabs-photogram {
+
     .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
       background-color : #070808;
       border-bottom    : 5px solid $positive;
     }
   }
-  
+
+  ion-tabs.tabs-light {
+
+    .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+      background-color : #fff;
+      //border-bottom    : 5px solid $positive;
+    }
+  }
+
   // Capture View
   .capture-legend {
     padding : 0;
-    
+
     .item-input {
       border  : none;
       display : block;
       top     : 20px;
     }
   }
-  
-  .profile-top {
-    display  : block;
-    height   : 230px;
-    position : relative;
-    
-    .col-statics {
-      span {
-        font-weight : bold;
-        color       : #000;
-        display     : block;
-        text-align  : center;
-        font-size   : 20px;
+
+  // Profile View
+  .gallery-profile {
+
+    .profile-top {
+      display  : block;
+      position : relative;
+
+      img {
+        display          : inline;
+        width            : 90%;
+        border-radius    : 50%;
+        margin           : 6px;
+        background-color : #ddd;
       }
-      h3 {
-        font-size      : 14px;
-        color          : #888;
-        margin         : 5px 0px;
-        display        : block;
-        font-variant   : small-caps;
-        text-align     : center;
-        text-transform : lowercase;
-        white-space    : nowrap;
+
+      .col-statics {
+        span {
+          font-weight : bold;
+          color       : #000;
+          display     : block;
+          text-align  : center;
+          font-size   : 20px;
+        }
+        h3 {
+          font-size      : 14px;
+          color          : #888;
+          margin         : 5px 0px;
+          display        : block;
+          font-variant   : small-caps;
+          text-align     : center;
+          text-transform : lowercase;
+          white-space    : nowrap;
+        }
+      }
+
+      .col-edit {
+        padding : 0;
+        .button {
+          font-size      : 14px;
+          padding        : 0px;
+          background     : #edeeee;
+          border         : none;
+          color          : #53575c;
+          text-transform : uppercase;
+          width          : 97%;
+          line-height    : 10px;
+          min-height     : 27px;
+          max-height     : 10px;
+          font-weight    : bold;
+          margin         : 0 auto;
+          display        : block;
+        }
+      }
+
+      .tabs-light {
+        background    : #fff;
+        height        : 50px;
+        border-top    : 1px solid #ccc;
+        border-bottom : 1px solid #ccc;
+        display       : block;
+        position      : inherit;
+
+        .tab-nav.tabs {
+          .tab-item {
+            -webkit-transform : all .5s ease;
+            -moz-transform    : all .5s ease;
+            -ms-transform     : all .5s ease;
+            -o-transform      : all .5s ease;
+            transform         : all .5s ease;
+          }
+
+          .tab-item.tab-item-active, .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
+            background-color : #fff;
+            border           : none;
+            color            : $positive;
+          }
+        }
+
+      }
+
+    }
+
+    .profile-view {
+      display  : block;
+      overflow : hidden;
+
+      .row {
+        padding : 0;
+        .col {
+          padding : 2px;
+          margin  : 0;
+        }
       }
     }
-    
-    .col-edit {
-      padding : 0;
-      .button {
-        font-size      : 14px;
-        padding        : 0px;
-        background     : #edeeee;
-        border         : none;
-        color          : #53575c;
-        text-transform : uppercase;
-        width          : 97%;
-        line-height    : 10px;
-        min-height     : 27px;
-        max-height     : 10px;
-        font-weight    : bold;
-        margin         : 0 auto;
-        display        : block;
-      }
-    }
-    
-    .tabs-light {
-      background    : #fff;
-      height        : 50px;
-      border-top    : 1px solid #ccc;
-      border-bottom : 1px solid #ccc;
-      display       : block;
-      
-      .tab-nav.tabs {
-        
-      }
-      
-    }
-    
   }
-  
-  ion-nav-bar.bar.bar-positive.bar-mop.nav-bar-container {
-    background : none;
+
+  // Search View
+  .gallery-search {
+
+    .row {
+      padding : 0;
+      .col {
+        padding : 1px;
+      }
+    }
+  }
+
+}
+
+.instagram {
+
+  .nav-bar-title {
+
+    .title {
+      left        : 0;
+      right       : 45px;
+      line-height : 45px;
+      height      : 45px;
+      display     : block;
+      margin-left : 0;
+      text-align  : left;
+      text-shadow : 1px 2px 3px rgba(0, 0, 0, 0.5);
+    }
   }
 }

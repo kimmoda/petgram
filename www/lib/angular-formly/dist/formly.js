@@ -1,4 +1,4 @@
-//! angular-formly version 6.21.1 built with ♥ by Astrism <astrisms@gmail.com>, Kent C. Dodds <kent@doddsfamily.us> (ó ì_í)=óò=(ì_í ò)
+//! angular-formly version 6.23.2 built with ♥ by Astrism <astrisms@gmail.com>, Kent C. Dodds <kent@doddsfamily.us> (ó ì_í)=óò=(ì_í ò)
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -147,7 +147,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	ngModule.constant('formlyApiCheck', _providersFormlyApiCheck2['default']);
 	ngModule.constant('formlyErrorAndWarningsUrlPrefix', _otherDocsBaseUrl2['default']);
-	ngModule.constant('formlyVersion', ("6.21.1")); // <-- webpack variable
+	ngModule.constant('formlyVersion', ("6.23.2")); // <-- webpack variable
 
 	ngModule.provider('formlyUsability', _providersFormlyUsability2['default']);
 	ngModule.provider('formlyConfig', _providersFormlyConfig2['default']);
@@ -328,6 +328,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  id: apiCheck.string.optional,
 	  name: apiCheck.string.optional,
 	  expressionProperties: expressionProperties.optional,
+	  extras: apiCheck.shape({
+	    validateOnModelChange: apiCheck.bool.optional,
+	    skipNgModelAttrsManipulator: apiCheck.oneOfType([apiCheck.string, apiCheck.bool]).optional
+	  }).strict.optional,
 	  data: apiCheck.object.optional,
 	  templateOptions: apiCheck.object.optional,
 	  wrapper: specifyWrapperType.optional,
@@ -445,7 +449,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports["default"] = "https://github.com/formly-js/angular-formly/blob/" + ("6.21.1") + "/other/ERRORS_AND_WARNINGS.md#";
+	exports["default"] = "https://github.com/formly-js/angular-formly/blob/" + ("6.23.2") + "/other/ERRORS_AND_WARNINGS.md#";
 	module.exports = exports["default"];
 
 /***/ },
@@ -1134,6 +1138,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var isPossiblyAsync = !_angularFix2['default'].isString(validator);
 	        var validatorCollection = isPossiblyAsync || isAsync ? '$asyncValidators' : '$validators';
 
+	        // UPDATE IN 7.0.0
 	        // this is temporary until we can have a breaking change. Allow people to get the wins of the explicitAsync api
 	        if (formlyConfig.extras.explicitAsync && !isAsync) {
 	          validatorCollection = '$validators';
@@ -1141,6 +1146,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        ctrl[validatorCollection][name] = function evalValidity(modelValue, viewValue) {
 	          var value = formlyUtil.formlyEval(scope, validator, modelValue, viewValue);
+	          // UPDATE IN 7.0.0
 	          // In the next breaking change, this code should simply return the value
 	          if (isAsync) {
 	            return value;
@@ -1161,6 +1167,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var inFlightValidator = undefined;
 	        ctrl.$parsers.unshift(function evalValidityOfParser(viewValue) {
 	          var isValid = formlyUtil.formlyEval(scope, validator, ctrl.$modelValue, viewValue);
+	          // UPDATE IN 7.0.0
 	          // In the next breaking change, rather than checking for isPromiseLike, it should just check for isAsync.
 
 	          if (isAsync || isPromiseLike(isValid)) {
@@ -1248,6 +1255,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return {
 	    restrict: 'AE',
 	    transclude: true,
+	    require: '?^formlyForm',
 	    scope: {
 	      options: '=',
 	      model: '=',
@@ -1282,7 +1290,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    setDefaultValue();
 	    setInitialValue();
 	    runExpressions();
-	    addModelWatcher($scope, $scope.options);
 	    addValidationMessages($scope.options);
 	    invokeControllers($scope, $scope.options, fieldType);
 
@@ -1315,6 +1322,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function simplifyLife(options) {
 	      // add a few empty objects (if they don't already exist) so you don't have to undefined check everywhere
 	      formlyUtil.reverseDeepMerge(options, {
+	        extras: {},
 	        data: {},
 	        templateOptions: {},
 	        validation: {}
@@ -1375,13 +1383,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        resetModel: resetModel,
 	        updateInitialValue: updateInitialValue
 	      });
-	    }
-
-	    // initialization functions
-	    function addModelWatcher(scope, options) {
-	      if (options.model) {
-	        scope.$watch('options.model', runExpressions, true);
-	      }
 	    }
 
 	    function resetModel() {
@@ -1445,10 +1446,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  // link function
-	  function fieldLink(scope, el) {
+	  function fieldLink(scope, el, attrs, formlyFormCtrl) {
 	    if (scope.options.fieldGroup) {
 	      setFieldGroupTemplate();
 	      return;
+	    }
+
+	    // watch the field model (if exists) if there is no parent formly-form directive (that would watch it instead)
+	    if (!formlyFormCtrl && scope.options.model) {
+	      scope.$watch('options.model', function () {
+	        return scope.options.runExpressions();
+	      }, true);
 	    }
 
 	    addAttributes();
@@ -1875,11 +1883,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  function runApiCheckForType(apiCheck, apiCheckInstance, apiCheckFunction, apiCheckOptions, options) {
-	    /* eslint complexity:[2, 8] */
+	    /* eslint complexity:[2, 9] */
 	    if (!apiCheck) {
 	      return;
 	    }
-	    var instance = apiCheckInstance || formlyApiCheck;
+	    var instance = apiCheckInstance || formlyConfig.extras.apiCheckInstance || formlyApiCheck;
 	    if (instance.config.disabled || _apiCheck2['default'].globalConfig.disabled) {
 	      return;
 	    }
@@ -2080,13 +2088,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    function onModelOrFormStateChange() {
 	      _angularFix2['default'].forEach($scope.fields, function runFieldExpressionProperties(field, index) {
-	        /*jshint -W030 */
 	        var model = field.model || $scope.model;
-	        field.runExpressions && field.runExpressions(model);
+	        field.runExpressions && field.runExpressions();
 	        if (field.hideExpression) {
 	          // can't use hide with expressionProperties reliably
 	          var val = model[field.key];
 	          field.hide = evalCloseToFormlyExpression(field.hideExpression, val, field, index);
+	        }
+	        if (field.extras && field.extras.validateOnModelChange && field.formControl) {
+	          field.formControl.$validate();
 	        }
 	      });
 	    }
@@ -2102,7 +2112,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 
-	      _angularFix2['default'].forEach($scope.fields, initModel); // initializes the model property if set to 'formState'
+	      setupModels();
+
 	      _angularFix2['default'].forEach($scope.fields, attachKey); // attaches a key based on the index if a key isn't specified
 	      _angularFix2['default'].forEach($scope.fields, setupWatchers); // setup watchers for all fields
 	    }
@@ -2134,6 +2145,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	          field.options.resetModel();
 	        } else if (field.resetModel) {
 	          field.resetModel();
+	        }
+	      });
+	    }
+
+	    function setupModels() {
+	      // a set of field models that are already watched (the $scope.model will have its own watcher)
+	      var watchedModels = [$scope.model];
+
+	      _angularFix2['default'].forEach($scope.fields, function (field) {
+	        initModel(field);
+
+	        if (field.model && watchedModels.indexOf(field.model) === -1) {
+	          $scope.$watch(function () {
+	            return field.model;
+	          }, onModelOrFormStateChange, true);
+	          watchedModels.push(field.model);
 	        }
 	      });
 	    }
@@ -2326,7 +2353,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = addFormlyNgModelAttrsManipulator;
 
 	// @ngInject
-	function addFormlyNgModelAttrsManipulator(formlyConfig, $interpolate) {
+	function addFormlyNgModelAttrsManipulator(formlyConfig, $interpolate, formlyWarn) {
 	  if (formlyConfig.extras.disableNgModelAttrsManipulator) {
 	    return;
 	  }
@@ -2334,14 +2361,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function ngModelAttrsManipulator(template, options, scope) {
 	    var node = document.createElement('div');
-	    var data = options.data;
-	    if (data.skipNgModelAttrsManipulator === true) {
+	    var skip = getSkip(options);
+	    if (skip === true) {
 	      return template;
 	    }
-
 	    node.innerHTML = template;
 
-	    var modelNodes = getNgModelNodes(node, data.skipNgModelAttrsManipulator);
+	    var modelNodes = getNgModelNodes(node, skip);
 	    if (!modelNodes || !modelNodes.length) {
 	      return template;
 	    }
@@ -2444,7 +2470,51 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var selectorNot = _angularFix2['default'].isString(skip) ? ':not(' + skip + ')' : '';
 	    var skipNot = ':not([formly-skip-ng-model-attrs-manipulator])';
 	    var query = '[ng-model]' + selectorNot + skipNot + ', [data-ng-model]' + selectorNot + skipNot;
-	    return node.querySelectorAll(query);
+	    try {
+	      return node.querySelectorAll(query);
+	    } catch (e) {
+	      //this code is needed for IE8, as it does not support the CSS3 ':not' selector
+	      //it should be removed when IE8 support is dropped
+	      return getNgModelNodesFallback(node, skip);
+	    }
+	  }
+
+	  function getNgModelNodesFallback(node, skip) {
+	    var allNgModelNodes = node.querySelectorAll('[ng-model], [data-ng-model]');
+	    var matchingNgModelNodes = [];
+
+	    //make sure this array is compatible with NodeList type by adding an 'item' function
+	    matchingNgModelNodes.item = function (i) {
+	      return this[i];
+	    };
+
+	    for (var i = 0; i < allNgModelNodes.length; i++) {
+	      var ngModelNode = allNgModelNodes[i];
+	      if (!ngModelNode.hasAttribute('formly-skip-ng-model-attrs-manipulator') && (_angularFix2['default'].isString(skip) || !nodeMatches(ngModelNode, skip))) {
+
+	        matchingNgModelNodes.push(ngModelNode);
+	      }
+	    }
+
+	    return matchingNgModelNodes;
+	  }
+
+	  function nodeMatches(node, selector) {
+	    var div = document.createElement('div');
+	    div.innerHTML = node.outerHTML;
+	    return div.querySelector(selector);
+	  }
+
+	  function getSkip(options) {
+	    // UPDATE IN 7.0.0
+	    var skip = options.extras && options.extras.skipNgModelAttrsManipulator;
+	    if (!_angularFix2['default'].isDefined(skip)) {
+	      skip = options.data && options.data.skipNgModelAttrsManipulator;
+	      if (_angularFix2['default'].isDefined(skip)) {
+	        formlyWarn('skipngmodelattrsmanipulator-moved', 'The skipNgModelAttrsManipulator property has been moved from the `data` property to the `extras` property', options);
+	      }
+	    }
+	    return skip;
 	  }
 
 	  function getBuiltInAttributes() {
@@ -2499,7 +2569,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    });
 	  }
 	}
-	addFormlyNgModelAttrsManipulator.$inject = ["formlyConfig", "$interpolate"];
+	addFormlyNgModelAttrsManipulator.$inject = ["formlyConfig", "$interpolate", "formlyWarn"];
 	module.exports = exports['default'];
 
 /***/ },

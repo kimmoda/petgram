@@ -8,16 +8,7 @@ angular
     self.data    = [];
     self.loading = false;
     $scope.like  = false;
-
-    $ionicPopover
-        .fromTemplateUrl ('module/gallery/view/gallery.popover.home.html', {
-        scope: $scope,
-    })
-        .then (function (popover) {
-        console.log (popover);
-        $scope.popover = popover;
-    });
-
+    
 
     $scope.loadMore = function (force) {
         console.log ('Load More');

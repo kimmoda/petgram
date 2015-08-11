@@ -12,7 +12,7 @@ angular
             if (Parse.User.current ()) {
                 $state.go ('gallery.home');
             } else {
-                $state.go ('intro');
+                $state.go ('user.login');
             }
         }
     })

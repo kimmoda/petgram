@@ -1,21 +1,23 @@
-<ion-view
-    overflow-scroll=”true”>
+<ion-view >
+    <ion-nav-title>
+        <ion-search class="search-wrapper-light"
+                    placeholder="{{ 'Search' | translate }}"
+                    min-length="1"
+                    model="GallerySearch.data"
+                    source="GallerySearch.search(str)"></ion-search>
+    </ion-nav-title>
+    <ion-content class="gallery-search">
 
-  <ion-nav-title>
-      <input type="text" name="name" value="">
-  </ion-nav-title>
-
-    <ion-content>
-
-      <gallery-loading loading="GallerySearch.loading"
-                       icon="android"></gallery-loading>
+        <gallery-loading loading="GallerySearch.loading"
+                         icon="android"></gallery-loading>
 
         <div class="row step1"
              ng-if="$index % 3 === 0"
              ng-repeat="image in GallerySearch.data">
             <div class="col col-33"
                  ng-if="$index < GallerySearch.data.length">
-                <img ng-src="{{GallerySearch.data[$index].src}}" width="100%"/>
+                <img ng-src="{{GallerySearch.data[$index].src}}"
+                     width="100%"/>
             </div>
             <div class="col col-33"
                  ng-if="$index + 1 < GallerySearch.data.length">

@@ -37,8 +37,10 @@ var gulp          = require ('gulp'),
 
 
 // Master Tasks
-gulp.task ('default', ['sass',
-                       'inject'
+gulp.task ('default', [
+    'sass',
+    'translate',
+    'inject'
 ]);
 
 gulp.task ('dev', function (cb) {
@@ -105,9 +107,9 @@ gulp.task ('sass', function (done) {
 
 // Watch
 gulp.task ('watch', function () {
-    gulp.watch (paths.src.scss, ['sass']);
+    gulp.watch (paths.src.sass, ['sass']);
     gulp.watch (paths.libs, ['inject']);
-    gulp.watch (paths.src.js, ['inject']);
+    gulp.watch (paths.src.js, ['inject','translate']);
 });
 
 
@@ -137,19 +139,15 @@ gulp.task ('git-check', function (done) {
 
 // Translate
 gulp.task ('gettext:po', function () {
-    return gulp.src ([
-        paths.source + '/js/*.js',
-        paths.source + '/module/**/*.js',
-        paths.source + '/module/**/*.html'
-    ])
+    return gulp.src (paths.src.translate)
         .pipe (gettext.extract ('template.pot', {
         // options to pass to angular-gettext-tools...
     }))
-        .pipe (gulp.dest ('./po/'));
+        .pipe (gulp.dest ('./translate/'));
 });
 
 gulp.task ('gettext:compile', function () {
-    return gulp.src ('po/*.po') // Stream PO translation files.
+    return gulp.src ('translate/*.po') // Stream PO translation files.
         .pipe (gettext.compile ({format: 'json'})) // Compile to json
         .pipe (extend ('.tmp.json')) // use .json extension for gulp-wrap to load json content
         .pipe (wrap ( // Build the translation module using gulp-wrap and lodash.template
@@ -369,75 +367,75 @@ gulp.task ('test', function () {
 
 // set the debuggable flag in the AndroidManifest.xml for release or debug
 // move the manifest file into the build path
-gulp.task('process-android-build-config', function() {
-    if(!argv.android) {
+gulp.task ('process-android-build-config', function () {
+    if (!argv.android) {
         return false;
     }
 
-    var srcManifestFile = ['./lib/AndroidManifest.xml'];
+    var srcManifestFile  = ['./lib/AndroidManifest.xml'];
     var destManifestFile = './platforms/android/';
-    return gulp.src(srcManifestFile)
-        .pipe(preprocess({context: {RELEASE: argv.release}}))
-        .pipe(gulp.dest(destManifestFile));
+    return gulp.src (srcManifestFile)
+        .pipe (preprocess ({context: {RELEASE: argv.release}}))
+        .pipe (gulp.dest (destManifestFile));
 });
 
 // build a debug native version after compiling
 // TODO: add 'compile' back as a dependency when sync/async issues fixed
-gulp.task('build-debug', ['process-android-build-config'], function() {
+gulp.task ('build-debug', ['process-android-build-config'], function () {
     // do the ionic ios build
-    if(argv.ios) {
-        if (exec('ionic build ios').code !== 0) {
-            echo('Error: iOS build failed');
-            exit(1);
+    if (argv.ios) {
+        if (exec ('ionic build ios').code !== 0) {
+            echo ('Error: iOS build failed');
+            exit (1);
         }
     }
     // do the ionic android build
-    if(argv.android) {
-        if (exec('ionic build android').code !== 0) {
-            echo('Error: Android build failed');
-            exit(1);
+    if (argv.android) {
+        if (exec ('ionic build android').code !== 0) {
+            echo ('Error: Android build failed');
+            exit (1);
         }
     }
 });
 
 // build a release native version after compiling
 // TODO: add 'compile' back as a dependency when sync/async issues fixed
-gulp.task('build-release', ['process-android-build-config'], function() {
+gulp.task ('build-release', ['process-android-build-config'], function () {
     // remove the console plugin
-    exec("cordova plugin rm org.apache.cordova.console");
+    exec ("cordova plugin rm org.apache.cordova.console");
 
     // do the ionic ios build
-    if(argv.ios) {
-        if (exec('cordova build --release ios').code !== 0) {
-            echo('Error: iOS build failed');
-            exit(1);
+    if (argv.ios) {
+        if (exec ('cordova build --release ios').code !== 0) {
+            echo ('Error: iOS build failed');
+            exit (1);
         }
     }
 
     // do the ionic android build
-    if(argv.android) {
+    if (argv.android) {
         // clean the android build folders:
-        gulp.src('./platforms/android/ant-build/', {read: false})
-            .pipe(clean({force: true}));
-        gulp.src('./platforms/android/ant-gen/', {read: false})
-            .pipe(clean({force: true}));
-        gulp.src('./platforms/android/out/', {read: false})
-            .pipe(clean({force: true}));
+        gulp.src ('./platforms/android/ant-build/', {read: false})
+            .pipe (clean ({force: true}));
+        gulp.src ('./platforms/android/ant-gen/', {read: false})
+            .pipe (clean ({force: true}));
+        gulp.src ('./platforms/android/out/', {read: false})
+            .pipe (clean ({force: true}));
 
-        if (exec('cordova build --release android').code !== 0) {
-            echo('Error: Android build failed');
-            exit(1);
+        if (exec ('cordova build --release android').code !== 0) {
+            echo ('Error: Android build failed');
+            exit (1);
         }
         else {
             // copy the release output to release-builds/
             // TODO: change the below to match your expected release filename
-            return gulp.src(['./platforms/android/ant-build/release.apk'])
-                .pipe(rename(function (path) {
-                    // see https://github.com/hparra/gulp-rename for info on rename fields
-                    path.basename += moment().format('MMDDYYYY-hhmmss');
-                }))
+            return gulp.src (['./platforms/android/ant-build/release.apk'])
+                .pipe (rename (function (path) {
+                // see https://github.com/hparra/gulp-rename for info on rename fields
+                path.basename += moment ().format ('MMDDYYYY-hhmmss');
+            }))
                 // do any other processing needed
-                .pipe(gulp.dest(dest_paths.release_builds));
+                .pipe (gulp.dest (dest_paths.release_builds));
         }
     }
 
@@ -446,36 +444,36 @@ gulp.task('build-release', ['process-android-build-config'], function() {
 });
 
 // fire up the emulator, depending on what flags passed
-gulp.task('run-emulator', function() {
+gulp.task ('run-emulator', function () {
     // should we trigger the emulator?
-    if(!argv.run) {
+    if (!argv.run) {
         return false;
     }
 
     // start the ios emulator
-    if(argv.ios) {
-        if (exec('ionic emulate ios').code !== 0) {
-            echo('Error: iOS run failed');
-            exit(1);
+    if (argv.ios) {
+        if (exec ('ionic emulate ios').code !== 0) {
+            echo ('Error: iOS run failed');
+            exit (1);
         }
     }
 
     // start the android emulator
-    if(argv.android) {
-        if (exec('ionic emulate android').code !== 0) {
-            echo('Error: Android run failed');
-            exit(1);
+    if (argv.android) {
+        if (exec ('ionic emulate android').code !== 0) {
+            echo ('Error: Android run failed');
+            exit (1);
         }
     }
 });
 
-gulp.task('build', function() {
+gulp.task ('build', function () {
     // are we building a debug or release version?
-    if(argv.release) {
-        runSequence('build-release', 'run-emulator');
+    if (argv.release) {
+        runSequence ('build-release', 'run-emulator');
     }
     else {
-        runSequence('build-debug', 'run-emulator');
+        runSequence ('build-debug', 'run-emulator');
     }
 });
 
@@ -485,9 +483,9 @@ gulp.task('build', function() {
 
 // used for bumping versions and getting the version info
 // `fs` is used instead of require to prevent caching in watch (require caches)
-var fs = require('fs');
+var fs             = require ('fs');
 var getPackageJson = function () {
-    return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+    return JSON.parse (fs.readFileSync ('./package.json', 'utf8'));
 };
 
 /**
@@ -512,75 +510,61 @@ var getPackageJson = function () {
  * To bump the version numbers accordingly after you did a patch,
  * introduced a feature or made a backwards-incompatible release.
  */
-function inc(importance) {
-    var deferred = Q.defer();
+function inc (importance) {
+    var deferred = Q.defer ();
     // reget package
-    var pkg = getPackageJson();
+    var pkg = getPackageJson ();
     // get existing version
     var oldVer = pkg.version;
     // increment version
-    var newVer = semver.inc(oldVer, importance);
+    var newVer = semver.inc (oldVer, importance);
     // json filter
-    var jsonFilter = filter('**/*.json');
+    var jsonFilter = filter ('**/*.json');
 
     // TODO: change /platforms/ios/project/ in the below to match your Cordova project name
 
     // bump the version number in the xml config files
-    replacement = 'sed -i \'\' -e \'s/version=\"'+ oldVer + '\"/version=\"' + newVer + '\"/\' ./config.xml'
-    exec(replacement);
-    replacement2 = 'sed -i \'\' -e \'s/version=\"'+ oldVer + '\"/version=\"' + newVer + '\"/\' ./platforms/ios/project/config.xml'
-    exec(replacement2);
-    replacement3 = 'sed -i \'\' -e \'s/android:versionName=\"'+ oldVer + '\"/android:versionName=\"' + newVer + '\"/\' ./lib/AndroidManifest.xml'
-    exec(replacement3);
+    replacement  = 'sed -i \'\' -e \'s/version=\"' + oldVer + '\"/version=\"' + newVer + '\"/\' ./config.xml'
+    exec (replacement);
+    replacement2 = 'sed -i \'\' -e \'s/version=\"' + oldVer + '\"/version=\"' + newVer + '\"/\' ./platforms/ios/project/config.xml'
+    exec (replacement2);
+    replacement3 = 'sed -i \'\' -e \'s/android:versionName=\"' + oldVer + '\"/android:versionName=\"' + newVer + '\"/\' ./lib/AndroidManifest.xml'
+    exec (replacement3);
 
     // get all the files to bump version in
-    gulp.src(['./package.json', './bower.json', './config.xml', './platforms/ios/project/config.xml', './lib/AndroidManifest.xml'])
+    gulp.src (['./package.json',
+               './bower.json',
+               './config.xml',
+               './platforms/ios/project/config.xml',
+               './lib/AndroidManifest.xml'
+    ])
         // filter only the json files
-        .pipe(jsonFilter)
+        .pipe (jsonFilter)
         // bump the version number in the json files
-        .pipe(bump({version: newVer}))
+        .pipe (bump ({version: newVer}))
         // save json files back to filesystem
-        .pipe(gulp.dest('./'))
+        .pipe (gulp.dest ('./'))
         // restore full stream
-        .pipe(jsonFilter.restore())
+        .pipe (jsonFilter.restore ())
         // commit the changed version number
-        .pipe(git.commit('bump app version to ' + newVer))
+        .pipe (git.commit ('bump app version to ' + newVer))
         // read only one file to get the version number
-        .pipe(filter('package.json'))
+        .pipe (filter ('package.json'))
         // **tag it in the repository**
-        .pipe(tag_version());
+        .pipe (tag_version ());
 
     return deferred.promise;
 }
 
-gulp.task('patch', function() { return inc('patch'); })
-gulp.task('feature', function() { return inc('minor'); })
-gulp.task('release', function() { return inc('major'); })
-gulp.task('prerelease', function() { return inc('prerelease'); })
+gulp.task ('patch', function () { return inc ('patch'); })
+gulp.task ('feature', function () { return inc ('minor'); })
+gulp.task ('release', function () { return inc ('major'); })
+gulp.task ('prerelease', function () { return inc ('prerelease'); })
 
 // run source scripts through JSHint
-gulp.task('lint', function() {
-    return gulp.src(paths.src.js)
-        .pipe(jshint())
-        .pipe(jshint.reporter(stylish));
+gulp.task ('lint', function () {
+    return gulp.src (paths.src.js)
+        .pipe (jshint ())
+        .pipe (jshint.reporter (stylish));
 });
 
-gulp.task('install', ['git-check'], function() {
-    return bower.commands.install()
-        .on('log', function(data) {
-            gutil.log('bower', gutil.colors.cyan(data.id), data.message);
-        });
-});
-
-gulp.task('git-check', function(done) {
-    if (!which('git')) {
-        console.log(
-            '  ' + gutil.colors.red('Git is not installed.'),
-            '\n  Git, the version control system, is required to download Ionic.',
-            '\n  Download git here:', gutil.colors.cyan('http://git-scm.com/downloads') + '.',
-            '\n  Once git is installed, run \'' + gutil.colors.cyan('gulp install') + '\' again.'
-        );
-        process.exit(1);
-    }
-    done();
-});

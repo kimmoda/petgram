@@ -1,4 +1,9 @@
-<ion-view title="{{'Profile' | translate}}"  class="profile">
+<ion-view cache-view="false"
+          class="profile">
+
+    <ion-nav-title>
+        <h1 class="title">{{ GalleryProfile.form.name }}</h1>
+    </ion-nav-title>
 
     <ion-content>
         <div class="profile-top">
@@ -6,22 +11,22 @@
                 <div class="col-25">
                     <img class="avatar"
                          user-avatar
-                         ng-src="{{ user.img }}"/>
+                         ng-src="{{ GalleryProfile.form.img }}"/>
                 </div>
                 <div class="col col-statics">
                     <div class="row">
                         <div class="col">
-                            <span class="text-center">322</span>
+                            <span class="text-center">{{ GalleryProfile.form.galleries }}</span>
 
                             <h3>Publicações</h3>
                         </div>
                         <div class="col">
-                            <span class="text-center">112</span>
+                            <span class="text-center">{{ GalleryProfile.form.follow }}</span>
 
                             <h3>Seguidores</h3>
                         </div>
                         <div class="col">
-                            <span class="text-center">531</span>
+                            <span class="text-center">{{ GalleryProfile.form.follow2 }}</span>
 
                             <h3>Seguindo</h3>
                         </div>
@@ -36,22 +41,19 @@
                 </div>
             </div>
             <div class="padding">
-                <span class="user-username">{{ user.name }}</span>
+                <span class="user-username">{{ GalleryProfile.form.name }}</span>
 
-                <p class="user-status">{{ user.status }}</p>
+                <p class="user-status">{{ GalleryProfile.form.status }}</p>
             </div>
 
             <ion-tabs class="tabs-light">
-                <ion-tab icon="ion-android-apps"
-                         ui-sref="ˆ.photosgrid"></ion-tab>
-                <ion-tab icon="ion-navicon-round"
-                         ui-sref="ˆ.photoslist"></ion-tab>
-                <ion-tab icon="ion-ios-location-outline"
-                         ui-sref="ˆ.map"></ion-tab>
+                <ion-tab icon="ion-android-apps"></ion-tab>
+                <ion-tab icon="ion-navicon-round"></ion-tab>
+                <ion-tab icon="ion-ios-location-outline"></ion-tab>
             </ion-tabs>
         </div>
 
-        <ion-nav-view name="tabProfile"></ion-nav-view>
+        <!--<ion-nav-view name="tabProfile"></ion-nav-view>-->
 
     </ion-content>
 </ion-view>

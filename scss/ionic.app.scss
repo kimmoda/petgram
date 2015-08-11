@@ -109,3 +109,19 @@ ion-nav-bar.bar.bar-positive.bar-none.nav-bar-container {
     }
   }
 }
+
+.search-wrapper-light {
+  border-bottom : 2px solid rgba(255, 255, 255, 0.5);
+  background    : none;
+  border-radius : 0;
+  margin-left   : 5px;
+  margin-right  : 5px;
+  height        : 90%;
+
+  input, input::-webkit-input-placeholder {
+    color       : #fff;
+    width       : 100%;
+    background  : none;
+    margin-left : 10px;
+  }
+}

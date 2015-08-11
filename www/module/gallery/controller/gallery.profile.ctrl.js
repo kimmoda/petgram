@@ -1,23 +1,16 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .controller ('GalleryProfileCtrl', function ($rootScope, $stateParams, UserForm, User) {
+    .controller ('GalleryProfileCtrl', function ($rootScope, $stateParams, Gallery, UserForm, User) {
 
     console.log ($stateParams);
 
-    var self        = this;
-    self.form       = $rootScope.user;
-    self.formFields = UserForm.profile;
+    var self = this;
 
-    // Set Motion
-    self.submitProfile = function (rForm, form) {
-        if (rForm.$valid) {
-            var formData = angular.copy (form);
-            User
-                .update (formData)
-                .then (function (resp) {
-                console.log (resp);
-            });
-        }
-    };
+    Gallery
+        .getUser ($stateParams.id)
+        .then (function (resp) {
+        self.form = resp;
+    });
+
 });

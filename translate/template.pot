@@ -1,0 +1,315 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: gallery/view/gallery.popover.home.html:10
+#: gallery/view/gallery.settings.modal.html:37
+msgid "About"
+msgstr ""
+
+#: gallery/view/gallery.settings.modal.html:28
+msgid "Account"
+msgstr ""
+
+#: gallery/view/gallery.home.html:74
+#: gallery/view/gallery.photos.list.html:57
+msgid "Add comment"
+msgstr ""
+
+#: gallery/service/gallery.model.js:34
+msgid "Add your comment"
+msgstr ""
+
+#: user/view/user.register.html:20
+#: user/view/user.register.modal.html:27
+msgid "Ao criar sua conta, você está concordando com nossos <b>Termos e Condições</b>."
+msgstr ""
+
+#: feedback/service/feedback.form.js:22
+msgid "Assunto"
+msgstr ""
+
+#: user/view/user.register.modal.html:5
+msgid "Cadastro"
+msgstr ""
+
+#: gallery/service/photo.service.js:50
+msgid "Camera"
+msgstr ""
+
+#: gallery/service/photo.service.js:58
+#: user/controller/user.login.ctrl.js:53
+msgid "Cancel"
+msgstr ""
+
+#: gallery/view/gallery.capture.modal.html:5
+msgid "Capture"
+msgstr ""
+
+#: core/view/app.setting.html:21
+msgid "Change Password"
+msgstr ""
+
+#: core/view/app.setting.html:10
+#: gallery/view/gallery.settings.modal.html:13
+msgid "Change language"
+msgstr ""
+
+#: facebook/view/facebook.feed.html:42
+msgid "Comentar"
+msgstr ""
+
+#: user/service/user.form.js:95
+msgid "Comentário"
+msgstr ""
+
+#: facebook/view/facebook.feed.html:33
+msgid "Comentários"
+msgstr ""
+
+#: user/view/user.intro.html:41
+msgid "Começar"
+msgstr ""
+
+#: gallery/view/gallery.photo.html:43
+msgid "Comment"
+msgstr ""
+
+#: gallery/view/gallery.comment.directive.html:5
+msgid "Comments"
+msgstr ""
+
+#: facebook/view/facebook.feed.html:44
+msgid "Compartilhar"
+msgstr ""
+
+#: core/view/side.menu.html:54
+msgid "Configurações"
+msgstr ""
+
+#: user/view/user.profile.html:29
+#: user/view/user.register.html:9
+msgid "Criar Conta"
+msgstr ""
+
+#: user/view/user.register.html:1
+msgid "Criar Conta Grátis"
+msgstr ""
+
+#: facebook/view/facebook.feed.html:31
+msgid "Curtidas"
+msgstr ""
+
+#: facebook/view/facebook.feed.html:40
+msgid "Curtir"
+msgstr ""
+
+#: user/service/user.form.js:172
+#: user/service/user.form.js:59
+msgid "Data de Nascimento"
+msgstr ""
+
+#: gallery/view/gallery.profile.edit.modal.html:5
+#: gallery/view/gallery.settings.modal.html:31
+msgid "Edit Profile"
+msgstr ""
+
+#: user/service/user.form.js:12
+#: user/service/user.form.js:48
+msgid "Email"
+msgstr ""
+
+#: user/service/user.form.js:150
+msgid "Endereço"
+msgstr ""
+
+#: user/view/user.login.html:1
+#: user/view/user.login.html:15
+#: user/view/user.tabs.html:2
+msgid "Entrar"
+msgstr ""
+
+#: feedback/view/feedback.form.html:10
+msgid "Enviar"
+msgstr ""
+
+#: feedback/service/feedback.form.js:33
+msgid "Erro"
+msgstr ""
+
+#: gallery/view/gallery.capture.modal.html:29
+#: gallery/view/gallery.capture.modal.html:30
+msgid "Escreva uma legenda"
+msgstr ""
+
+#: facebook/config/facebook.config.js:9
+msgid "Facebook"
+msgstr ""
+
+#: core/view/side.menu.html:60
+msgid "FeedBack"
+msgstr ""
+
+#: feedback/view/feedback.form.html:1
+msgid "Feedback"
+msgstr ""
+
+#: gallery/view/gallery.settings.modal.html:19
+msgid "Follow Friends"
+msgstr ""
+
+#: friend/config/friend.config.js:9
+#: friend/view/friend.tab.html:1
+msgid "Friends"
+msgstr ""
+
+#: friend/view/friend.home.html:1
+msgid "Friends Home"
+msgstr ""
+
+#: friend/view/friend.list.html:1
+#: user/view/user.list.html:1
+msgid "Friends List"
+msgstr ""
+
+#: gallery/service/photo.service.js:53
+msgid "Gallery"
+msgstr ""
+
+#: gallery/view/gallery.view.html:1
+msgid "Gallery preview"
+msgstr ""
+
+#: user/service/user.form.js:105
+msgid "Genêro"
+msgstr ""
+
+#: gallery/service/gallery.model.js:23
+msgid "Geolocalization"
+msgstr ""
+
+#: core/config/app.config.js:21
+msgid "Home"
+msgstr ""
+
+#: user/controller/user.login.ctrl.js:65
+msgid "Invalid Email"
+msgstr ""
+
+#: gallery/view/gallery.settings.modal.html:22
+msgid "Invite Facebook Friends"
+msgstr ""
+
+#: core/view/app.setting.html:4
+msgid "Languages"
+msgstr ""
+
+#: gallery/view/gallery.home.html:61
+#: gallery/view/gallery.photo.html:23
+#: gallery/view/gallery.photos.list.html:44
+msgid "Like"
+msgstr ""
+
+#: gallery/view/gallery.like.directive.html:5
+msgid "Likes"
+msgstr ""
+
+#: gallery/view/gallery.settings.modal.html:45
+msgid "Logout"
+msgstr ""
+
+#: core/view/app.setting.html:50
+msgid "More Information"
+msgstr ""
+
+#: user/service/user.form.js:37
+#: user/service/user.form.js:84
+msgid "Nome"
+msgstr ""
+
+#: core/view/app.setting.html:16
+msgid "Password"
+msgstr ""
+
+#: gallery/config/gallery.config.js:10
+msgid "Photogram"
+msgstr ""
+
+#: gallery/view/gallery.profile.photos.html:1
+msgid "Profile"
+msgstr ""
+
+#: feedback/service/feedback.form.js:29
+msgid "Reclamação"
+msgstr ""
+
+#: core/view/side.menu.html:72
+msgid "Sair"
+msgstr ""
+
+#: user/view/user.register.modal.html:17
+msgid "Salvar"
+msgstr ""
+
+#: gallery/view/gallery.search.html:4
+msgid "Search"
+msgstr ""
+
+#: user/controller/user.login.ctrl.js:57
+msgid "Send"
+msgstr ""
+
+#: gallery/service/photo.service.js:57
+msgid "Send Photo"
+msgstr ""
+
+#: user/service/user.form.js:23
+#: user/service/user.form.js:70
+msgid "Senha"
+msgstr ""
+
+#: core/view/app.setting.html:1
+#: gallery/view/gallery.popover.home.html:5
+#: gallery/view/gallery.settings.modal.html:5
+msgid "Settings"
+msgstr ""
+
+#: core/view/app.setting.html:26
+#: gallery/view/gallery.capture.html:1
+#: gallery/view/gallery.settings.modal.html:25
+msgid "Share"
+msgstr ""
+
+#: user/service/user.form.js:139
+msgid "Site"
+msgstr ""
+
+#: core/view/side.menu.html:66
+msgid "Sobre"
+msgstr ""
+
+#: feedback/service/feedback.form.js:25
+msgid "Sugestão"
+msgstr ""
+
+#: core/view/app.setting.html:54
+msgid "Suggestion"
+msgstr ""
+
+#: user/service/user.form.js:128
+msgid "Telefone"
+msgstr ""
+
+#: gallery/service/gallery.model.js:13
+msgid "Title"
+msgstr ""
+
+#: feedback/service/feedback.form.js:12
+msgid "Titulo"
+msgstr ""
+
+#: user/controller/user.login.ctrl.js:50
+msgid "Uma nova senha será enviada para o seu endereço de email:"
+msgstr ""

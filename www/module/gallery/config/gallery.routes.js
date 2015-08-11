@@ -27,6 +27,17 @@ angular
         }
     })
 
+        .state ('gallery.profile', {
+        url  : '/profile/:id',
+        //abstract: true,
+        views: {
+            tabHome: {
+                controller : 'GalleryProfileCtrl as GalleryProfile',
+                templateUrl: 'module/gallery/view/gallery.profile.tabs.html'
+            }
+        }
+    })
+
         .state ('gallery.search', {
         url  : '/search',
         views: {
@@ -57,52 +68,45 @@ angular
         }
     })
 
-        .state ('gallery.profile', {
-        url     : '/profile/:id',
-        abstract: true,
-        views   : {
+        .state ('gallery.account', {
+        url  : '/account',
+        views: {
             tabProfile: {
-                resolve    : {
-                    user: function ($stateParams) {
-                        console.log ($stateParams);
-                        return $stateParams.id;
-                    }
-                },
-                controller : 'GalleryProfileCtrl as GalleryProfile',
-                templateUrl: 'module/gallery/view/gallery.profile.tabs.html'
+                controller : 'GalleryAccountCtrl as GalleryProfile',
+                templateUrl: 'module/gallery/view/gallery.account.tabs.html'
             }
         }
     })
 
-        .state ('gallery.profile.photosgrid', {
-        url  : '/photosgrid',
-        views: {
-            tabProfile: {
-                //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
-                templateUrl: 'module/gallery/view/gallery.profile.photos.grid.html'
-            }
-        }
-    })
-
-        .state ('gallery.profile.photosList', {
-        url  : '/photoslist',
-        views: {
-            tabProfile: {
-                //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
-                templateUrl: 'module/gallery/view/gallery.profile.photos.list.html'
-            }
-        }
-    })
-
-        .state ('gallery.profile.mpa', {
-        url  : '/map',
-        views: {
-            tabProfile: {
-                //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
-                template: ''
-            }
-        }
-    })
+        //    .state ('gallery.profile.photosgrid', {
+        //    url  : '/photosgrid',
+        //    views: {
+        //        tabProfile: {
+        //            //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
+        //            templateUrl: 'module/gallery/view/gallery.profile.photos.grid.html'
+        //        }
+        //    }
+        //})
+        //
+        //    .state ('gallery.profile.photosList', {
+        //    url  : '/photoslist',
+        //    views: {
+        //        tabProfile: {
+        //            //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
+        //            templateUrl: 'module/gallery/view/gallery.profile.photos.list.html'
+        //        }
+        //    }
+        //})
+        //
+        //    .state ('gallery.profile.mpa', {
+        //    url  : '/map',
+        //    views: {
+        //        tabProfile: {
+        //            //controller : 'GalleryProfilePhotosCtrl as GalleryProfilePhotos',
+        //            template: ''
+        //        }
+        //    }
+        //})
 
     ;
 });

@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .factory ('Gallery', function ($http, $q, gettextCatalog, Parse, CacheFactory, Notify, Loading) {
+    .factory ('Gallery', function ($http, $q, gettextCatalog, Parse, User, CacheFactory, Notify, Loading) {
 
 
     var form = [
@@ -40,7 +40,22 @@ angular
         }
     ];
 
-    var currentUser = Parse.User.current ();
+    var currentUser  = Parse.User.current ();
+    var limitComment = 3;
+
+    function loadProfile (response) {
+
+        if (response) {
+            var user      = processImg (response);
+            user.birthday = (response.birthday) ? new Date (response.birthday) : '';
+
+            console.info (response, user);
+            return user;
+        } else {
+            logout ();
+            return false;
+        }
+    }
 
 
     function add (_params) {
@@ -146,13 +161,13 @@ angular
                 var comments = [];
                 angular.forEach (resp, function (item) {
                     console.warn (item);
-                    var obj = {
+                    var obj  = {
                         id     : item.id,
                         text   : item.attributes.text,
                         user   : item.attributes.commentBy.attributes,
                         created: item.createdAt
                     }
-                    obj     = processImg (obj);
+                    obj.user = processImg (obj.user);
                     comments.push (obj);
                 });
                 defer.resolve (comments);
@@ -207,7 +222,7 @@ angular
 
         new Parse
             .Query ('Gallery')
-            .limit (20)
+            .limit (15)
             .find ()
             .then (function (resp) {
             angular.forEach (resp, function (value, key) {
@@ -231,10 +246,9 @@ angular
      * 3) Like, count, liked
      * */
     function all (page) {
-        var defer        = $q.defer ();
-        var limit        = 10;
-        var limitComment = 3;
-        var data         = new Array ();
+        var defer = $q.defer ();
+        var limit = 10;
+        var data  = new Array ();
         //Loading.show ();
 
         new Parse
@@ -248,7 +262,6 @@ angular
 
             var cb = _.after (resp.length, function () {
                 defer.resolve (data);
-                //return data;
             });
 
             _.each (resp, function (item) {
@@ -290,7 +303,7 @@ angular
                                 commentsData.push (comment);
                             });
 
-                            var obj = {
+                            var obj     = {
                                 id      : item.id,
                                 item    : item.attributes,
                                 created : item.createdAt,
@@ -299,17 +312,85 @@ angular
                                 user    : item.attributes.user.attributes,
                                 comments: commentsData
                             };
-
-                            obj.user.id = item.id;
-
-                            obj = processImg (obj);
+                            obj.user.id = item.attributes.user.id;
+                            obj.user    = processImg (obj.user);
 
                             data.push (obj);
                             cb ();
                         });
-                    })
-                })
+                    });
+                });
+
             });
+        });
+
+        return defer.promise;
+    }
+
+    function get (item) {
+        var defer = $q.defer ();
+
+        console.log (item);
+        Loading.show ();
+
+        getGallery (item)
+            .then (function (resp) {
+            console.log (resp);
+
+            var likes    = resp.relation ('likes');
+            var comments = resp.relation ('comments');
+
+            likes
+                .query ()
+                .equalTo ('gallery', item)
+                .equalTo ('user', currentUser)
+                .count ()
+                .then (function (liked) {
+
+                likes
+                    .query ()
+                    .count ()
+                    .then (function (likes) {
+
+                    comments
+                        .query ()
+                        .include ('commentBy')
+                        .descending ('createdAt')
+                        .limit (limitComment)
+                        .find ()
+                        .then (function (comments) {
+                        console.log (comments);
+
+                        var commentsData = [];
+
+                        angular.forEach (comments, function (item) {
+                            var comment     = {
+                                id  : item.id,
+                                text: item.attributes.text,
+                                user: item.attributes.commentBy.attributes
+                            };
+                            comment.user.id = item.id;
+                            commentsData.push (comment);
+                        });
+
+                        var obj     = {
+                            id      : item.id,
+                            item    : item.attributes,
+                            created : item.createdAt,
+                            likes   : likes,
+                            liked   : liked,
+                            user    : item.attributes.user.attributes,
+                            comments: commentsData
+                        };
+                        obj.user.id = item.attributes.user.id;
+                        obj.user    = processImg (obj.user);
+
+                        defer.resolve (obj);
+                        Loading.hide ();
+                    });
+                });
+            });
+
         });
 
         return defer.promise;
@@ -318,10 +399,10 @@ angular
     function processImg (obj) {
         var random = '?' + Math.random ();
 
-        if (obj.user.facebook) {
-            obj.user.img = (obj.user.facebookimg) ? obj.user.facebookimg : 'img/user.png';
+        if (obj.facebook) {
+            obj.img = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
         } else {
-            obj.user.img = (obj.user.img) ? obj.user.img.url () + random : 'img/user.png';
+            obj.img = (obj.img) ? obj.img.url () + random : 'img/user.png';
         }
         return obj;
     }
@@ -335,27 +416,6 @@ angular
             .then (function (resp) {
             defer.resolve (resp);
         });
-        return defer.promise;
-    }
-
-    function get (item) {
-        var defer = $q.defer ();
-
-        console.log (item);
-        Loading.show ();
-
-        getGallery (item)
-            .then (function (resp) {
-            console.log (resp);
-            var obj     = resp.attributes;
-            obj.id      = resp.id;
-            obj.created = resp.createdAt;
-            obj.user    = resp.get ('user').attributes;
-            console.log (obj);
-            defer.resolve (obj);
-            Loading.hide ();
-        });
-
         return defer.promise;
     }
 
@@ -407,11 +467,11 @@ angular
                 .equalTo ('user', currentUser)
                 .first ()
                 .then (function (resp) {
-                console.log (resp);
+                console.warn (resp);
                 if (resp === undefined) {
-                    defer.resolve (true);
+                    defer.reject (resp);
                 } else {
-                    defer.reject (true);
+                    defer.resolve (resp);
                 }
             });
         })
@@ -454,15 +514,43 @@ angular
 
     function likeGallery (gallery) {
         var defer = $q.defer ();
+        Notify.showLoading ();
         isLiked (gallery)
             .then (function (resp) {
-            console.log (resp);
-            addLike (gallery)
+            console.warn (resp);
+            if (resp) {
+                console.log ('Remove Like');
+                var promise = removeLike (gallery);
+
+            } else {
+                console.log ('Add like');
+                var promise = addLike (gallery);
+            }
+
+            promise
                 .then (function (resp) {
-                defer.resolve (resp);
-            });
+                console.log (resp);
+                get (resp.id)
+                    .then (function (resp) {
+                    console.log (resp);
+                    Notify.hideLoading ();
+                    defer.resolve (resp);
+                });
+            })
         })
             .catch (function (err) {
+            console.log ('Add like', err);
+
+            addLike (gallery)
+                .then (function (resp) {
+                console.log (resp);
+                get (resp.id)
+                    .then (function (resp) {
+                    console.log (resp);
+                    Notify.hideLoading ();
+                    defer.resolve (resp);
+                });
+            })
             defer.reject (err);
         })
         return defer.promise;
@@ -487,31 +575,170 @@ angular
                 console.log (resp);
                 gallery
                     .relation ('likes')
-                    .add (resp);
+                    .remove (resp);
+                console.log (gallery);
+                defer.resolve (gallery);
 
-                gallery
-                    .save ()
-                    .then (function (resp) {
-                    console.log (resp);
-                    defer.resolve (resp);
-                })
+
             });
         })
         return defer.promise;
     }
 
+    function getUser (userId) {
+        var defer = $q.defer ();
+
+        //todo: get user
+        //todo: count user gallery
+        //todo: count user follow
+        //todo: count user following
+
+        Notify.showLoading ();
+
+        console.log (userId);
+        new Parse
+            .Query ('User')
+            .equalTo ('objectId', userId)
+            .first ()
+            .then (function (resp) {
+            console.log (resp);
+            var obj  = resp.attributes;
+            obj.id   = resp.id;
+            var user = loadProfile (obj);
+
+            new Parse
+                .Query ('Gallery')
+                .equalTo ('user', resp)
+                .count ()
+                .then (function (gallery) {
+                user.galleries = gallery;
+
+                new Parse
+                    .Query ('UserFollow')
+                    .equalTo ('user', resp)
+                    .count ()
+                    .then (function (foloow) {
+                    user.follow = foloow;
+
+                    new Parse
+                        .Query ('UserFollow')
+                        .equalTo ('follow', resp)
+                        .count ()
+                        .then (function (follow2) {
+                        user.follow2 = follow2;
+                        Notify.hideLoading ();
+                        defer.resolve (user);
+                    })
+
+                });
+            });
+        })
+        //.catch (function (resp) {
+        //    defer.reject (resp);
+        //})
+
+
+        return defer.promise;
+    }
+
+    function getUserGallery (userId) {
+        var defer = $q.defer ();
+        var data  = new Array ();
+        //Loading.show ();
+
+        User
+            .find (userId)
+            .then (function (user) {
+
+            new Parse
+                .Query ('Gallery')
+                .equalTo ('user', user)
+                .include ('user')
+                .find ()
+                .then (function (resp) {
+
+                var cb = _.after (resp.length, function () {
+                    defer.resolve (data);
+                });
+
+                _.each (resp, function (item) {
+                    //grab relations
+
+                    var likes    = item.relation ('likes');
+                    var comments = item.relation ('comments');
+
+                    likes
+                        .query ()
+                        .equalTo ('gallery', item)
+                        .equalTo ('user', currentUser)
+                        .count ()
+                        .then (function (liked) {
+
+                        likes
+                            .query ()
+                            .count ()
+                            .then (function (likes) {
+
+                            comments
+                                .query ()
+                                .include ('commentBy')
+                                .descending ('createdAt')
+                                .limit (limitComment)
+                                .find ()
+                                .then (function (comments) {
+                                console.log (comments);
+
+                                var commentsData = [];
+
+                                angular.forEach (comments, function (item) {
+                                    var comment     = {
+                                        id  : item.id,
+                                        text: item.attributes.text,
+                                        user: item.attributes.commentBy.attributes
+                                    };
+                                    comment.user.id = item.id;
+                                    commentsData.push (comment);
+                                });
+
+                                var obj     = {
+                                    id      : item.id,
+                                    item    : item.attributes,
+                                    created : item.createdAt,
+                                    likes   : likes,
+                                    liked   : liked,
+                                    user    : item.attributes.user.attributes,
+                                    comments: commentsData
+                                };
+                                obj.user.id = item.attributes.user.id;
+                                obj.user    = processImg (obj.user);
+
+                                data.push (obj);
+                                cb ();
+                            });
+                        });
+                    });
+
+                });
+            });
+        })
+
+        return defer.promise;
+    }
+
     return {
-        all        : all,
-        add        : add,
-        get        : get,
-        likeGallery: likeGallery,
-        allComment : allComment,
-        addComment : addComment,
-        getComments: getComments,
-        getLikes   : getLikes,
-        search     : search,
-        form       : form,
-        formComment: formComment
+        all           : all,
+        add           : add,
+        get           : get,
+        getUser       : getUser,
+        getUserGallery: getUserGallery,
+        likeGallery   : likeGallery,
+        allComment    : allComment,
+        addComment    : addComment,
+        getComments   : getComments,
+        getLikes      : getLikes,
+        search        : search,
+        form          : form,
+        formComment   : formComment
     };
 
 });

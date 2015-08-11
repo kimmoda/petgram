@@ -7,22 +7,44 @@
     <ion-content>
 
         <div class="list">
-            <div class="item item-divider">SEGUIR PESSOAS</div>
-            <div class="item">Convidar amigos do Facebook</div>
-            <div class="item">Compartilhar</div>
-            <div class="item item-divider">CONTA</div>
-            <div class="item"
-                 ng-click="link('gallery.profile')">Editar perfil
+            <label class="item item-input item-select">
+                <div class="input-label"
+                     style="z-index: 2;">
+                    <h2>{{'Change language' | translate}}</h2>
+                </div>
+                <select ng-model="language"
+                        ng-change="changeLanguage(language)"
+                        ng-options="language.value as language.name for language in languages"> </select> </label>
+
+            <div class="item item-divider"
+                 translate>Follow Friends
             </div>
-            <div class="item">Alterar senha</div>
-            <div class="item item-divider">SOBRE</div>
+            <div class="item"
+                 translate>Invite Facebook Friends
+            </div>
+            <div class="item"
+                 translate>Share
+            </div>
+            <div class="item item-divider"
+                 translate>Account
+            </div>
+            <div class="item"
+                 ng-click="link('gallery.profile')"
+                 translate>Edit Profile
+            </div>
+            <div class="item">Change Password</div>
+
+            <div class="item item-divider"
+                 translate>About
+            </div>
             <div class="item">Política de Privacidade</div>
             <div class="item">Termos de Serviço</div>
             <div class="item item-divider"></div>
         </div>
         <div class="padding">
             <button ng-click="link('logout')"
-                    class="button button-block button-positive">SAIR
+                    class="button button-block button-positive"
+                    translate>Logout
             </button>
         </div>
     </ion-content>

@@ -88,6 +88,17 @@ angular
             }
         },
         {
+            key            : 'status',
+            type           : 'input',
+            templateOptions: {
+                type           : 'text',
+                placeholder    : gettextCatalog.getString ('Comentário'),
+                icon           : 'ion-quote',
+                required       : true,
+                iconPlaceholder: true
+            }
+        },
+        {
             type           : 'select',
             key            : 'gender',
             templateOptions: {
@@ -116,17 +127,6 @@ angular
                 type           : 'text',
                 placeholder    : gettextCatalog.getString ('Telefone'),
                 icon           : 'ion-iphone',
-                required       : true,
-                iconPlaceholder: true
-            }
-        },
-        {
-            key            : 'status',
-            type           : 'input',
-            templateOptions: {
-                type           : 'text',
-                placeholder    : gettextCatalog.getString ('Comentário'),
-                icon           : 'ion-quote',
                 required       : true,
                 iconPlaceholder: true
             }

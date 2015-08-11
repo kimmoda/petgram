@@ -17,10 +17,22 @@ angular
     'module.facebook',
     'module.feedback',
 ])
-    .run (function ($ionicPlatform, $rootScope, AppConfig, $cordovaStatusbar, GallerySetting, User) {
+    .run (function ($ionicPlatform, $rootScope, AppConfig, gettextCatalog, amMoment, $cordovaStatusbar, GallerySetting, User) {
 
     User.init ();
-    GallerySetting.init();
+    GallerySetting.init ();
+
+    // Language
+    $rootScope.langs = [
+        {
+            name : gettextCatalog.getString ('English'),
+            value: 'en'
+        },
+        {
+            name : gettextCatalog.getString ('Portuguese Brazil'),
+            value: 'pt_BR'
+        }
+    ];
 
     $ionicPlatform.ready (function () {
 
@@ -45,6 +57,14 @@ angular
             }
         }
 
+
+        var LangVar     = navigator.language || navigator.userLanguage;
+        var userLangVar = LangVar.substring (0, 2) + '_' + LangVar.substring (3, 5).toUpperCase ();
+        $rootScope.lang = userLangVar;
+        gettextCatalog.setCurrentLanguage (userLangVar);
+        console.log (LangVar, userLangVar);
+        amMoment.changeLocale (userLangVar);
+
     });
 
 })
@@ -52,7 +72,7 @@ angular
     //$ionicConfigProvider.platform.ios.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
     //$ionicConfigProvider.platform.android.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
     //$ionicConfigProvider.views.swipeBackEnabled (true);
-    //$ionicConfigProvider.backButton.text ('Voltar').icon ('ion-ios-arrow-left');
+    $ionicConfigProvider.backButton.text (' ').icon ('ion-ios-arrow-left');
     //$ionicConfigProvider.backButton.previousTitleText (false).text ('Voltar').icon ('ion-ios-arrow-left');
     //$ionicConfigProvider.views.transition ('platform');
     //$ionicConfigProvider.navBar.alignTitle ('platform');
@@ -65,17 +85,5 @@ angular
     //$ionicConfigProvider.scrolling.jsScrolling (jsScrolling);
     $ionicConfigProvider.views.maxCache (1);
 })
-    .run (function ($rootScope, gettextCatalog, amMoment) {
-    // Language
-    $rootScope.langs = {
-        'pt_BR': gettextCatalog.getString ('Portuguese Brazil'),
-        'us'   : gettextCatalog.getString ('English')
-    };
 
-    var LangVar     = navigator.language || navigator.userLanguage;
-    var userLangVar = LangVar.substring (0, 2) + '_' + LangVar.substring (3, 5).toUpperCase ();
-    $rootScope.lang = userLangVar;
-    amMoment.changeLocale (userLangVar);
-    gettextCatalog.setCurrentLanguage (userLangVar);
-})
 ;

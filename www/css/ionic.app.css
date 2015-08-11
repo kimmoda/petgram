@@ -9203,6 +9203,13 @@ a.button {
       float: left;
       font-weight: normal;
       color: #777; }
+  .instagram .nav-bar-title .title {
+    left: 0;
+    right: 45px;
+    line-height: 56px;
+    height: 56px;
+    display: block;
+    margin-left: 0; }
   .instagram .nav-bar-title span.icon2-logo {
     font-size: 34px;
     display: block;
@@ -9282,26 +9289,33 @@ a.button {
     -webkit-transition: all ease 0.5s; }
   .instagram .tabs-light {
     background: #fff; }
-  .instagram .tabs-dark.tabs-bottom .tab-item.tab-item-active, .instagram .tabs-dark.tabs-bottom .tab-item.active, .instagram .tabs-dark.tabs-bottom .tab-item.activated {
+  .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.tab-item-active, .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
     background-color: #070808;
     border-bottom: 5px solid #009688; }
+  .instagram ion-tabs.tabs-light .tab-item.tab-item-active, .instagram ion-tabs.tabs-light .tab-item.active, .instagram ion-tabs.tabs-light .tab-item.activated {
+    background-color: #fff; }
   .instagram .capture-legend {
     padding: 0; }
     .instagram .capture-legend .item-input {
       border: none;
       display: block;
       top: 20px; }
-  .instagram .profile-top {
+  .instagram .gallery-profile .profile-top {
     display: block;
-    height: 230px;
     position: relative; }
-    .instagram .profile-top .col-statics span {
+    .instagram .gallery-profile .profile-top img {
+      display: inline;
+      width: 90%;
+      border-radius: 50%;
+      margin: 6px;
+      background-color: #ddd; }
+    .instagram .gallery-profile .profile-top .col-statics span {
       font-weight: bold;
       color: #000;
       display: block;
       text-align: center;
       font-size: 20px; }
-    .instagram .profile-top .col-statics h3 {
+    .instagram .gallery-profile .profile-top .col-statics h3 {
       font-size: 14px;
       color: #888;
       margin: 5px 0px;
@@ -9310,9 +9324,9 @@ a.button {
       text-align: center;
       text-transform: lowercase;
       white-space: nowrap; }
-    .instagram .profile-top .col-edit {
+    .instagram .gallery-profile .profile-top .col-edit {
       padding: 0; }
-      .instagram .profile-top .col-edit .button {
+      .instagram .gallery-profile .profile-top .col-edit .button {
         font-size: 14px;
         padding: 0px;
         background: #edeeee;
@@ -9326,14 +9340,45 @@ a.button {
         font-weight: bold;
         margin: 0 auto;
         display: block; }
-    .instagram .profile-top .tabs-light {
+    .instagram .gallery-profile .profile-top .tabs-light {
       background: #fff;
       height: 50px;
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
-      display: block; }
-  .instagram ion-nav-bar.bar.bar-positive.bar-mop.nav-bar-container {
-    background: none; }
+      display: block;
+      position: inherit; }
+      .instagram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item {
+        -webkit-transform: all .5s ease;
+        -moz-transform: all .5s ease;
+        -ms-transform: all .5s ease;
+        -o-transform: all .5s ease;
+        transform: all .5s ease; }
+      .instagram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item.tab-item-active, .instagram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .instagram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
+        background-color: #fff;
+        border: none;
+        color: #009688; }
+  .instagram .gallery-profile .profile-view {
+    display: block;
+    overflow: hidden; }
+    .instagram .gallery-profile .profile-view .row {
+      padding: 0; }
+      .instagram .gallery-profile .profile-view .row .col {
+        padding: 2px;
+        margin: 0; }
+  .instagram .gallery-search .row {
+    padding: 0; }
+    .instagram .gallery-search .row .col {
+      padding: 1px; }
+
+.instagram .nav-bar-title .title {
+  left: 0;
+  right: 45px;
+  line-height: 45px;
+  height: 45px;
+  display: block;
+  margin-left: 0;
+  text-align: left;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); }
 
 .row-detail {
   background-color: #fff;
@@ -10059,3 +10104,16 @@ ion-nav-bar.bar.bar-positive.bar-none.nav-bar-container {
 
 .platform-ios.platform-cordova:not(.fullscreen) .tabs-top .bar-subheader {
   top: 113px; }
+
+.search-wrapper-light {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  background: none;
+  border-radius: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 90%; }
+  .search-wrapper-light input, .search-wrapper-light input::-webkit-input-placeholder {
+    color: #fff;
+    width: 100%;
+    background: none;
+    margin-left: 10px; }
