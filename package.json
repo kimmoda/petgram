@@ -67,7 +67,7 @@
     "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
-    "android",
-    "ios"
+    "ios",
+    "android"
   ]
 }

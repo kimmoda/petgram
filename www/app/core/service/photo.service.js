@@ -1,6 +1,6 @@
 'use strict';
 angular
-    .module ('module.gallery')
+    .module ('module.core')
     .factory ('PhotoService', function ($ionicActionSheet, $window, $ionicPopup, GallerySetting, $cordovaCamera, $cordovaImagePicker, gettextCatalog, $q, Notify) {
 
     function capture (type) {
@@ -53,7 +53,6 @@ angular
                     text: '<i class="icon ion-images"></i>' + gettextCatalog.getString ('Gallery')
                 }
             ],
-            //destructiveText: 'Delete',
             titleText    : gettextCatalog.getString ('Send Photo'),
             cancelText   : gettextCatalog.getString ('Cancel'),
             cancel       : function () {
@@ -74,8 +73,8 @@ angular
                     });
                 } else {
                     Notify.alert ({
-                        title: 'Camera indisponivel',
-                        text : 'Habilite a camera no seu dispositivo'
+                        title: gettextCatalog.getString ('Error'),
+                        text : gettextCatalog.getString ('Enabled your camera')
                     });
                     actionSheet ();
                     defer.reject ('Camera not disponible');
@@ -89,7 +88,6 @@ angular
 
     return {
         open: open
-    }
-
+    };
 
 });

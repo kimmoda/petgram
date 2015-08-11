@@ -35,11 +35,11 @@ msgstr ""
 msgid "Cadastro"
 msgstr ""
 
-#: gallery/service/photo.service.js:50
+#: core/service/photo.service.js:50
 msgid "Camera"
 msgstr ""
 
-#: gallery/service/photo.service.js:58
+#: core/service/photo.service.js:57
 #: user/controller/user.login.ctrl.js:53
 msgid "Cancel"
 msgstr ""
@@ -57,16 +57,8 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
-#: facebook/view/facebook.feed.html:42
-msgid "Comentar"
-msgstr ""
-
 #: user/service/user.form.js:95
 msgid "Comentário"
-msgstr ""
-
-#: facebook/view/facebook.feed.html:33
-msgid "Comentários"
 msgstr ""
 
 #: user/view/user.intro.html:41
@@ -79,10 +71,6 @@ msgstr ""
 
 #: gallery/view/gallery.comment.directive.html:5
 msgid "Comments"
-msgstr ""
-
-#: facebook/view/facebook.feed.html:44
-msgid "Compartilhar"
 msgstr ""
 
 #: core/view/side.menu.html:54
@@ -98,14 +86,6 @@ msgstr ""
 msgid "Criar Conta Grátis"
 msgstr ""
 
-#: facebook/view/facebook.feed.html:31
-msgid "Curtidas"
-msgstr ""
-
-#: facebook/view/facebook.feed.html:40
-msgid "Curtir"
-msgstr ""
-
 #: user/service/user.form.js:172
 #: user/service/user.form.js:59
 msgid "Data de Nascimento"
@@ -119,6 +99,10 @@ msgstr ""
 #: user/service/user.form.js:12
 #: user/service/user.form.js:48
 msgid "Email"
+msgstr ""
+
+#: core/service/photo.service.js:77
+msgid "Enabled your camera"
 msgstr ""
 
 #: user/service/user.form.js:150
@@ -139,13 +123,13 @@ msgstr ""
 msgid "Erro"
 msgstr ""
 
+#: core/service/photo.service.js:76
+msgid "Error"
+msgstr ""
+
 #: gallery/view/gallery.capture.modal.html:29
 #: gallery/view/gallery.capture.modal.html:30
 msgid "Escreva uma legenda"
-msgstr ""
-
-#: facebook/config/facebook.config.js:9
-msgid "Facebook"
 msgstr ""
 
 #: core/view/side.menu.html:60
@@ -160,21 +144,11 @@ msgstr ""
 msgid "Follow Friends"
 msgstr ""
 
-#: friend/config/friend.config.js:9
-#: friend/view/friend.tab.html:1
-msgid "Friends"
-msgstr ""
-
-#: friend/view/friend.home.html:1
-msgid "Friends Home"
-msgstr ""
-
-#: friend/view/friend.list.html:1
 #: user/view/user.list.html:1
 msgid "Friends List"
 msgstr ""
 
-#: gallery/service/photo.service.js:53
+#: core/service/photo.service.js:53
 msgid "Gallery"
 msgstr ""
 
@@ -261,7 +235,7 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-#: gallery/service/photo.service.js:57
+#: core/service/photo.service.js:56
 msgid "Send Photo"
 msgstr ""
 

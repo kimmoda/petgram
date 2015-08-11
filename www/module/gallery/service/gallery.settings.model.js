@@ -3,8 +3,11 @@ angular
     .module ('module.gallery')
     .factory ('GallerySetting', function (Parse, Notify, $window, $http, $q) {
 
+    var data = [];
+
     function init () {
         Notify.showLoading ();
+        var defer = $q.defer ();
 
         new Parse
             .Query ('GallerySetting')
@@ -16,10 +19,14 @@ angular
                     value: item.attributes.value
                 }
                 $window.localStorage[obj.key] = obj.value;
-            });
+                data.push (obj);
 
+            });
+            defer.resolve (data);
             Notify.hideLoading ();
         });
+
+        return defer.promise;
 
     }
 
@@ -30,6 +37,6 @@ angular
     return {
         init: init,
         get : get
-    }
+    };
 
 });

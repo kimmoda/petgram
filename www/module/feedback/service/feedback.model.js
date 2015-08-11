@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.feedback')
-    .factory ('Feedback', function ($http, $q, $timeout, Notify) {
+    .factory ('Feedback', function ($http, $q, $timeout, Parse, Notify) {
 
         function submit (form) {
             Notify.showLoading ();

@@ -15,7 +15,6 @@ angular
     'module.core',
     'module.user',
     'module.gallery',
-    'module.facebook',
     'module.feedback',
 ])
     .run (function ($ionicPlatform, $rootScope, AppConfig, gettextCatalog, amMoment, $cordovaStatusbar, GallerySetting, User) {

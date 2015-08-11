@@ -3,7 +3,7 @@ angular
     .module ('module.user')
     .config (function ($facebookProvider) {
     // Dev
-    $facebookProvider.setAppId ('750930828289265');
+    $facebookProvider.setAppId ('1024016557617380');
     //Prod
     //$facebookProvider.setAppId ('750930828289265');
 })
@@ -20,8 +20,11 @@ angular
         var facebookJS = document.createElement ('script');
         facebookJS.id  = 'facebook-jssdk';
 
+        var LangVar     = navigator.language || navigator.userLanguage;
+        var userLangVar = LangVar.substring (0, 2) + '_' + LangVar.substring (3, 5).toUpperCase ();
+
         // Set the new script's source to the source of the Facebook JS SDK
-        facebookJS.src = 'http://connect.facebook.net/pt_BR/all.js';
+        facebookJS.src = 'http://connect.facebook.net/'+userLangVar+'/all.js';
 
         // Insert the Facebook JS SDK into the DOM
         firstScriptElement.parentNode.insertBefore (facebookJS, firstScriptElement);
