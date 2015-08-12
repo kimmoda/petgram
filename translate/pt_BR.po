@@ -21,6 +21,10 @@ msgstr "Sobre"
 msgid "Account"
 msgstr "Conta"
 
+#: gallery/view/gallery.activity.html:5
+msgid "Activities"
+msgstr "Atividades"
+
 #: gallery/view/gallery.photos.list.html:64
 msgid "Add comment"
 msgstr "Adicionar comentário"
@@ -49,7 +53,7 @@ msgstr "Comentário"
 msgid "Comments"
 msgstr "Comentários"
 
-#: user/directive/button.facebook.directive.js:12
+#: user/directive/button.facebook.directive.js:13
 msgid "Conect your Facebook"
 msgstr "Conectar com o seu Facebook"
 
@@ -66,8 +70,8 @@ msgstr "Editar perfil"
 msgid "Enabled your camera"
 msgstr "Ative sua câmera"
 
-#: user/view/user.intro.html:41 user/view/user.login.html:1
-#: user/view/user.login.html:15 user/view/user.tabs.html:16
+#: user/view/user.intro.html:41 user/view/user.login.html:17
+#: user/view/user.login.html:2 user/view/user.tabs.html:16
 #: user/view/user.tabs.html:2
 msgid "Enter"
 msgstr "Entrar"
@@ -88,7 +92,11 @@ msgstr "Feedback"
 msgid "Follow Friends"
 msgstr "Seguir amigo"
 
-#: user/view/user.login.html:10
+#: gallery/view/gallery.user.list.html:5
+msgid "Follow Users"
+msgstr "Seguir Amigos"
+
+#: user/view/user.login.html:11
 msgid "Forgot your password?"
 msgstr "Esqueceu sua senha?"
 
@@ -113,6 +121,7 @@ msgid "Like"
 msgstr "Curtir"
 
 #: gallery/view/gallery.like.directive.html:5
+#: gallery/view/gallery.photos.list.html:48
 msgid "Likes"
 msgstr "Curtidas"
 
@@ -127,6 +136,10 @@ msgstr ""
 #: gallery/view/gallery.profile.photos.html:1
 msgid "Profile"
 msgstr "Perfil"
+
+#: gallery/view/gallery.activity.html:15
+msgid "Recent"
+msgstr "Recente"
 
 #: user/view/user.register.html:1 user/view/user.register.html:9
 #: user/view/user.tabs.html:18
@@ -165,11 +178,19 @@ msgstr "Pular"
 
 #: gallery/view/gallery.settings.modal.html:37
 msgid "Terms"
-msgstr ""
+msgstr "Termos"
 
 #: gallery/view/gallery.settings.modal.html:46
 msgid "Terms of User"
 msgstr ""
+
+#: gallery/service/gallery.feedback.model.js:34
+msgid "Thanks"
+msgstr "Obrigado"
+
+#: gallery/service/gallery.feedback.model.js:35
+msgid "Thanks for your Feedback"
+msgstr "Obrigado por enviar seu Feedback"
 
 #: user/controller/user.login.ctrl.js:50
 msgid "Uma nova senha será enviada para o seu endereço de email:"
@@ -183,17 +204,37 @@ msgstr ""
 msgid "Write a Caption"
 msgstr ""
 
+#: gallery/service/gallery.model.js:777
+msgid "add comment"
+msgstr "adicionou um comentário"
+
+#: gallery/service/gallery.model.js:776
+msgid "add photo"
+msgstr "adicionou uma foto"
+
 #: gallery/view/gallery.profile.tabs.html:26
 msgid "followers"
 msgstr "seguidores"
 
-#: user/view/user.login.html:26
+#: gallery/service/gallery.model.js:778
+msgid "like photo"
+msgstr "curtiu a foto"
+
+#: user/view/user.login.html:28
 msgid "or"
 msgstr "ou"
 
 #: gallery/view/gallery.profile.tabs.html:21
 msgid "posts"
 msgstr "publicações"
+
+#: gallery/service/gallery.model.js:780
+msgid "register"
+msgstr "se cadastrou"
+
+#: gallery/service/gallery.model.js:779
+msgid "unlike photo"
+msgstr "tirou o curtir da foto"
 
 #~ msgid "Add your comment"
 #~ msgstr "Digite seu comentário"

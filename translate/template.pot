@@ -200,8 +200,20 @@ msgstr ""
 msgid "Write a Caption"
 msgstr ""
 
+#: gallery/service/gallery.model.js:777
+msgid "add comment"
+msgstr ""
+
+#: gallery/service/gallery.model.js:776
+msgid "add photo"
+msgstr ""
+
 #: gallery/view/gallery.profile.tabs.html:26
 msgid "followers"
+msgstr ""
+
+#: gallery/service/gallery.model.js:778
+msgid "like photo"
 msgstr ""
 
 #: user/view/user.login.html:28
@@ -210,4 +222,12 @@ msgstr ""
 
 #: gallery/view/gallery.profile.tabs.html:21
 msgid "posts"
+msgstr ""
+
+#: gallery/service/gallery.model.js:780
+msgid "register"
+msgstr ""
+
+#: gallery/service/gallery.model.js:779
+msgid "unlike photo"
 msgstr ""

@@ -4,6 +4,7 @@ angular.module('translate.app',['ionic'])
   gettextCatalog.setStrings('pt_BR', {
   "About": "Sobre",
   "Account": "Conta",
+  "Activities": "Atividades",
   "Add comment": "Adicionar comentário",
   "Camera": "Tirar foto",
   "Cancel": "Cancelar",
@@ -19,6 +20,7 @@ angular.module('translate.app',['ionic'])
   "Error": "Erro",
   "Feedback": "Feedback",
   "Follow Friends": "Seguir amigo",
+  "Follow Users": "Seguir Amigos",
   "Forgot your password?": "Esqueceu sua senha?",
   "Gallery": "Galeria de Fotos",
   "Invalid Email": "Email inválido",
@@ -27,6 +29,7 @@ angular.module('translate.app',['ionic'])
   "Likes": "Curtidas",
   "Logout": "Sair",
   "Profile": "Perfil",
+  "Recent": "Recente",
   "Register": "Cadastro",
   "Search": "Busca",
   "Send": "Enviar",
@@ -35,9 +38,17 @@ angular.module('translate.app',['ionic'])
   "Share": "Compartilhar",
   "Share your most amazing moments": "Compartilhe seus melhores momentos",
   "Skip": "Pular",
+  "Terms": "Termos",
+  "Thanks": "Obrigado",
+  "Thanks for your Feedback": "Obrigado por enviar seu Feedback",
+  "add comment": "adicionou um comentário",
+  "add photo": "adicionou uma foto",
   "followers": "seguidores",
+  "like photo": "curtiu a foto",
   "or": "ou",
-  "posts": "publicações"
+  "posts": "publicações",
+  "register": "se cadastrou",
+  "unlike photo": "tirou o curtir da foto"
 });
   gettextCatalog.setStrings('en', {});
 });

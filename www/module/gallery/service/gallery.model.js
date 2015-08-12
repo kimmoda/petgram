@@ -751,7 +751,7 @@ angular
             .include ('user')
             .include ('gallery')
             .descending ('createdAt')
-            .limit (limitComment)
+            .limit (50)
             .find ()
             .then (function (resp) {
             console.log (resp);
@@ -773,7 +773,6 @@ angular
     }
 
     function addActivity (data) {
-
         /*
          * ACTIONS
          * add photo
@@ -782,6 +781,11 @@ angular
          * unlike photo
          * register
          * */
+        gettextCatalog.getString ('add photo');
+        gettextCatalog.getString ('add comment');
+        gettextCatalog.getString ('like photo');
+        gettextCatalog.getString ('unlike photo');
+        gettextCatalog.getString ('register');
 
         console.info (data);
 
