@@ -1,4 +1,4 @@
-<ion-view >
+<ion-view>
     <ion-nav-title>
         <ion-search class="search-wrapper-light"
                     placeholder="{{ 'Search' | translate }}"
@@ -8,28 +8,7 @@
     </ion-nav-title>
     <ion-content class="gallery-search">
 
-        <gallery-loading loading="GallerySearch.loading"
-                         icon="android"></gallery-loading>
-
-        <div class="row step1"
-             ng-if="$index % 3 === 0"
-             ng-repeat="image in GallerySearch.data">
-            <div class="col col-33"
-                 ng-if="$index < GallerySearch.data.length">
-                <img ng-src="{{GallerySearch.data[$index].src}}"
-                     width="100%"/>
-            </div>
-            <div class="col col-33"
-                 ng-if="$index + 1 < GallerySearch.data.length">
-                <img ng-src="{{GallerySearch.data[$index + 1].src}}"
-                     width="100%"/>
-            </div>
-            <div class="col col-33"
-                 ng-if="$index + 2 < GallerySearch.data.length">
-                <img ng-src="{{GallerySearch.data[$index + 2].src}}"
-                     width="100%"/>
-            </div>
-
-        </div>
+        <gallery-photo-grid gallery="GallerySearch.data"
+                            loading="GallerySearch.loading"></gallery-photo-grid>
     </ion-content>
 </ion-view>

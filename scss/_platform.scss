@@ -79,9 +79,10 @@
   }
 }
 
-.modal {
-  .bar.bar-header {
-    .button:last-child {
+.bar-dark {
+
+  &.bar.bar-header {
+    .buttons, .button:last-child {
       top    : 0;
       right  : 0;
       width  : 44px;

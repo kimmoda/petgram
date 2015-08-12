@@ -3,11 +3,20 @@ angular
     .module ('module.gallery')
     .config (function ($stateProvider) {
     $stateProvider
+
+        .state ('userlist', {
+        url        : '/users',
+        controller : 'GalleryUserListCtrl as GalleryUserList',
+        templateUrl: 'module/gallery/view/gallery.user.list.html'
+    })
+
+
         .state ('gallery', {
         url        : '/gallery',
         abstract   : true,
         templateUrl: 'module/gallery/view/gallery.tabs.html'
     })
+
         .state ('gallery.home', {
         url  : '/home/:reload',
         views: {
@@ -58,12 +67,12 @@ angular
         }
     })
 
-        .state ('gallery.notify', {
-        url  : '/notify',
+        .state ('gallery.activity', {
+        url  : '/activity',
         views: {
-            tabNotify: {
-                controller : 'GalleryNotifyCtrl as GalleryNotify',
-                templateUrl: 'module/gallery/view/gallery.notify.html'
+            tabActivity: {
+                controller : 'GalleryActivityCtrl as GalleryActivity',
+                templateUrl: 'module/gallery/view/gallery.activity.html'
             }
         }
     })

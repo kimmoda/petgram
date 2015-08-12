@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .factory ('Gallery', function ($http, $q, gettextCatalog, Parse, User, CacheFactory, Notify, Loading) {
+    .factory ('Gallery', function ($http, $q, gettextCatalog, $translate, Parse, User, CacheFactory, Notify, Loading) {
 
 
     var form = [
@@ -10,7 +10,7 @@ angular
             type           : 'input',
             templateOptions: {
                 type           : 'text',
-                placeholder    : gettextCatalog.getString ('Title'),
+                placeholder    : $translate.instant ('TITLE'),
                 icon           : 'icon-envelope',
                 required       : true,
                 iconPlaceholder: true
@@ -20,7 +20,7 @@ angular
             key            : 'geo',
             type           : 'toggle',
             templateOptions: {
-                label      : gettextCatalog.getString ('Geolocalization'),
+                label      : $translate.instant ('GEOLOCATION'),
                 toggleClass: 'positive'
             }
         }
@@ -31,7 +31,7 @@ angular
             key            : 'text',
             type           : 'input',
             templateOptions: {
-                placeholder: gettextCatalog.getString ('Add your comment'),
+                placeholder: $translate.instant ('ADDCOMMENT'),
                 type       : 'text',
                 required   : true,
                 //icon           : 'icon-envelope',
@@ -285,7 +285,7 @@ angular
                         comments
                             .query ()
                             .include ('commentBy')
-                            .descending ('createdAt')
+                            .ascending ('createdAt')
                             .limit (limitComment)
                             .find ()
                             .then (function (comments) {
@@ -294,12 +294,14 @@ angular
                             var commentsData = [];
 
                             angular.forEach (comments, function (item) {
+                                var user        = item.attributes.commentBy;
                                 var comment     = {
                                     id  : item.id,
                                     text: item.attributes.text,
-                                    user: item.attributes.commentBy.attributes
+                                    user: user.attributes
                                 };
-                                comment.user.id = item.id;
+                                comment.user.id = user.id;
+                                comment.user    = processImg (comment.user);
                                 commentsData.push (comment);
                             });
 
@@ -309,6 +311,7 @@ angular
                                 created : item.createdAt,
                                 likes   : likes,
                                 liked   : liked,
+                                src     : item.attributes.img.url (),
                                 user    : item.attributes.user.attributes,
                                 comments: commentsData
                             };
@@ -333,7 +336,7 @@ angular
         console.log (item);
         Loading.show ();
 
-        getGallery (item)
+        find (item)
             .then (function (resp) {
             console.log (resp);
 
@@ -400,14 +403,14 @@ angular
         var random = '?' + Math.random ();
 
         if (obj.facebook) {
-            obj.img = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
+            obj.src = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
         } else {
-            obj.img = (obj.img) ? obj.img.url () + random : 'img/user.png';
+            obj.src = (obj.img) ? obj.img.url () : 'img/user.png';
         }
         return obj;
     }
 
-    function getGallery (id) {
+    function find (id) {
         var defer = $q.defer ();
         new Parse
             .Query ('Gallery')
@@ -424,7 +427,7 @@ angular
         var defer = $q.defer ();
         Notify.showLoading ();
         console.log (form);
-        getGallery (form.galleryId)
+        find (form.galleryId)
             .then (function (gallery) {
             var Object = Parse.Object.extend ('GalleryComment');
             var item   = new Object ();
@@ -438,6 +441,12 @@ angular
             item.save (null)
                 .then (function (resp) {
                 console.log (resp);
+
+                addActivity ({
+                    galeryId: form.galleryId,
+                    action  : 'add comment'
+                });
+
                 gallery
                     .relation ('comments')
                     .add (resp);
@@ -450,7 +459,7 @@ angular
                     defer.resolve (resp);
                 })
             });
-        })
+        });
 
 
         return defer.promise;
@@ -459,7 +468,7 @@ angular
     function isLiked (galleryId) {
         var defer = $q.defer ();
 
-        getGallery (galleryId)
+        find (galleryId)
             .then (function (gallery) {
             new Parse
                 .Query ('GalleryLike')
@@ -482,16 +491,12 @@ angular
     function addLike (galleryId) {
         var defer = $q.defer ();
 
-        getGallery (galleryId)
+        find (galleryId)
             .then (function (gallery) {
-            var Object = Parse.Object.extend ('GalleryLike');
+            var Object = new Parse.Object.extend ('GalleryLike');
             var item   = new Object ();
 
-            angular.forEach (form, function (value, key) {
-                item.set (key, value);
-            });
-
-            item.set ('user', Parse.User.current ());
+            item.set ('user', currentUser);
             item.set ('gallery', gallery);
 
             item.save (null)
@@ -512,78 +517,82 @@ angular
         return defer.promise;
     }
 
+    //todo: removelike
+    function removeLike (galleryId) {
+        var defer = $q.defer ();
+        find (galleryId)
+            .then (function (gallery) {
+
+            new Parse
+                .Query ('GalleryLike')
+                .equalTo ('gallery', gallery)
+                .equalTo ('user', currentUser)
+                .first ()
+                .then (function (like) {
+                console.log (like);
+
+                gallery
+                    .relation ('likes')
+                    .remove (like);
+
+                like
+                    .destroy (function (resp) {
+                    console.log (resp);
+                    defer.resolve (resp);
+                })
+            });
+
+        })
+        return defer.promise;
+    }
+
     function likeGallery (gallery) {
         var defer = $q.defer ();
-        Notify.showLoading ();
+
         isLiked (gallery)
             .then (function (resp) {
             console.warn (resp);
             if (resp) {
                 console.log ('Remove Like');
                 var promise = removeLike (gallery);
+                addActivity ({
+                    galeryId: gallery,
+                    action  : 'unlike like'
+                });
 
             } else {
                 console.log ('Add like');
                 var promise = addLike (gallery);
+                addActivity ({
+                    galeryId: gallery,
+                    action  : 'add like'
+                });
             }
 
             promise
                 .then (function (resp) {
                 console.log (resp);
-                get (resp.id)
-                    .then (function (resp) {
-                    console.log (resp);
-                    Notify.hideLoading ();
-                    defer.resolve (resp);
-                });
-            })
+                defer.resolve (resp);
+            });
+
         })
             .catch (function (err) {
             console.log ('Add like', err);
 
+            addActivity ({
+                galeryId: gallery,
+                action  : 'add like'
+            });
+
             addLike (gallery)
                 .then (function (resp) {
                 console.log (resp);
-                get (resp.id)
-                    .then (function (resp) {
-                    console.log (resp);
-                    Notify.hideLoading ();
-                    defer.resolve (resp);
-                });
+                defer.resolve (resp);
             })
-            defer.reject (err);
         })
         return defer.promise;
     }
 
-    function removeLike (gallery) {
-        var defer = $q.defer ();
-        getGallery (gallery)
-            .then (function (gallery) {
-            var Object = Parse.Object.extend ('GalleryLike');
-            var item   = new Object ();
-
-            angular.forEach (form, function (value, key) {
-                item.set (key, value);
-            });
-
-            item.set ('user', Parse.User.current ());
-            item.set ('gallery', gallery);
-
-            item.save (null)
-                .then (function (resp) {
-                console.log (resp);
-                gallery
-                    .relation ('likes')
-                    .remove (resp);
-                console.log (gallery);
-                defer.resolve (gallery);
-
-
-            });
-        })
-        return defer.promise;
-    }
 
     function getUser (userId) {
         var defer = $q.defer ();
@@ -594,6 +603,10 @@ angular
         //todo: count user following
 
         Notify.showLoading ();
+
+        if (userId === undefined) {
+            userId = currentUser.id;
+        }
 
         console.log (userId);
         new Parse
@@ -645,6 +658,10 @@ angular
         var defer = $q.defer ();
         var data  = new Array ();
         //Loading.show ();
+
+        if (userId === undefined) {
+            userId = currentUser.id;
+        }
 
         User
             .find (userId)
@@ -703,6 +720,7 @@ angular
                                 var obj     = {
                                     id      : item.id,
                                     item    : item.attributes,
+                                    src     : item.attributes.img.url (),
                                     created : item.createdAt,
                                     likes   : likes,
                                     liked   : liked,
@@ -725,10 +743,71 @@ angular
         return defer.promise;
     }
 
+    function listActivity () {
+        var defer = $q.defer ();
+
+        new Parse
+            .Query ('GalleryActivity')
+            .include ('user')
+            .include ('gallery')
+            .descending ('createdAt')
+            .limit (limitComment)
+            .find ()
+            .then (function (resp) {
+            console.log (resp);
+            var data = [];
+            angular.forEach (resp, function (value, key) {
+                var obj     = value.attributes;
+                obj.id      = value.id;
+                obj.user    = value.attributes.user.attributes;
+                obj.user    = processImg (obj.user);
+                obj.created = value.createdAt;
+                obj.img     = value.attributes.gallery.attributes.img.url ();
+                console.log (obj);
+                data.push (obj);
+            });
+            defer.resolve (data);
+        });
+
+        return defer.promise;
+    }
+
+    function addActivity (data) {
+
+        /*
+         * ACTIONS
+         * add photo
+         * add comment
+         * like photo
+         * unlike photo
+         * register
+         * */
+
+        console.info (data);
+
+        find (data.galeryId)
+            .then (function (gallery) {
+            console.log ('parte2', gallery);
+            var Object = Parse.Object.extend ('GalleryActivity');
+            var item   = new Object ();
+
+            item.set ('user', Parse.User.current ());
+            item.set ('gallery', gallery);
+            item.set ('action', data.action);
+
+            item.save ()
+                .then (function (resp) {
+                console.warn (resp);
+            });
+        });
+    }
+
     return {
+        listActivity  : listActivity,
         all           : all,
         add           : add,
         get           : get,
+        find          : find,
         getUser       : getUser,
         getUserGallery: getUserGallery,
         likeGallery   : likeGallery,

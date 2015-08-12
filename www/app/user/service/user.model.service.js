@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.user')
-    .factory ('User', function ($q, $filter, $rootScope, Parse, $cordovaGeolocation, $cordovaDevice, $window, $facebook, CacheFactory, $cordovaFacebook, $state, ParseConfig, Notify) {
+    .factory ('User', function ($q, $filter, $rootScope, Parse, $cordovaGeolocation, $cordovaDevice, $window, $facebook, $cordovaFacebook, $state, ParseConfig, Notify) {
 
     var device   = $window.cordova ? true : false;
     var facebook = device ? $cordovaFacebook : $facebook;
@@ -52,9 +52,9 @@ angular
         var random = '?' + Math.random ();
 
         if (obj.facebookimg) {
-            obj.img = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
+            obj.src = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
         } else {
-            obj.img = (obj.img) ? obj.img.url () + random : 'img/user.png';
+            obj.src = (obj.img) ? obj.img.url () + random : 'img/user.png';
         }
         return obj;
     }
@@ -175,25 +175,11 @@ angular
 
     function logout () {
         var defer = $q.defer ();
-        Parse.User.logOut ();
+        new Parse.User.logOut ();
         delete $rootScope.user;
         defer.resolve (true);
 
         return defer.promise;
-    }
-
-    function converteDate (from, timezone) {
-        //var o = dateSTR.replace (/-/g, '/');
-        //return Date (o + ' -0000');
-        if (timezone === -3) {
-            var numbers = from.split ('/');
-            var date    = new Date (numbers[2], numbers[0], numbers[1], 0, 0, 0);
-        } else {
-            var numbers = from.split ('-');
-            var date    = new Date (numbers[2], numbers[0], numbers[1]);
-        }
-
-        return date;
     }
 
     function update (form) {
@@ -355,7 +341,6 @@ angular
         fbLogged
             .then (function (resp) {
             var authData = resp[0];
-            var profile  = resp[1];
             var user     = Parse.User.current ();
 
             console.log (authData, user);
@@ -453,37 +438,24 @@ angular
     }
 
     function list (force) {
-        var defer = $q.defer (),
-            objs  = [],
-            cache = userListCache.keys ();
+        var defer = $q.defer ();
 
-        if (cache.length > 0 && !force === true && force !== undefined) {
-            console.log ('Load Cache');
-            angular.forEach (cache, function (item) {
-                objs.push (userListCache.get (item));
+        new Parse
+            .Query ('User')
+            .find ()
+            .then (function (resp) {
+            var users = [];
+            angular.forEach (resp, function (item) {
+                var user = item.attributes;
+                user.id  = item.id;
+                user     = processImg (user);
+                if (user.id != Parse.User.current ().id) {
+                    users.push (user);
+                }
+
             });
-            defer.resolve (objs);
-        } else {
-            console.log ('Load Parse');
-
-            new Parse
-                .Query ('User')
-                .find ()
-                .then (function (resp) {
-                userListCache.removeAll ();
-                var users = [];
-                angular.forEach (resp, function (item) {
-                    var obj = item.attributes;
-                    obj.id  = item.id;
-                    if (obj.id != Parse.User.current ().id) {
-                        userListCache.put (obj.id, obj);
-                        users.push (obj);
-                    }
-
-                });
-                defer.resolve (users);
-            });
-        }
+            defer.resolve (users);
+        });
 
         return defer.promise;
     }
@@ -541,9 +513,38 @@ angular
         return defer.promise;
     }
 
+    function addFollow (user) {
+        var defer = $q.defer ();
+
+        find (user.id)
+            .then (function (follow) {
+            var Object = Parse.Object.extend ('UserFollow');
+            var item   = new Object ();
+
+            item.set ('user', Parse.User.current ());
+            item.set ('follow', follow);
+            item.save ()
+                .then (function (resp) {
+                defer.resolve (resp);
+            });
+        })
+
+        return defer.promise;
+    }
+
+    function addFollows (users) {
+        var promises = [];
+        angular.forEach (users, function (user) {
+            promises.push (addFollow (user));
+        });
+        return $q.all (promises);
+    }
+
 
     return {
         init              : init,
+        addFollows        : addFollows,
+        addFollow         : addFollow,
         currentUser       : currentUser,
         register          : register,
         login             : login,

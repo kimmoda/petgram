@@ -1,4 +1,5 @@
-<ion-view class="form-login" view-title="{{ 'Entrar' | translate }}">
+<ion-view class="form-login"
+          view-title="{{ 'Enter' | translate }}">
 
     <ion-content padding="false">
         <div class="padding">
@@ -8,7 +9,8 @@
                          form="rForm">
 
                 <button class="button button-right button-block button-clear"
-                        ng-click="Login.forgotPass()">Esqueceu a sua senha?
+                        ng-click="Login.forgotPass()"
+                        translate>Forgot your password?
                 </button>
 
 
@@ -16,22 +18,23 @@
                         type="button"
                         ng-disabled="rForm.$invalid"
                         ng-click="Login.submitLogin(rForm, Login.form)"
-                        translate>Entrar
+                        translate>Enter
                 </button>
 
             </formly-form>
 
             <div class="line">
                 <div class="left"></div>
-                <span>ou</span>
+                <span translate>or</span>
 
                 <div class="right"></div>
             </div>
 
 
-            <button-facebook sref="gallery.home"></button-facebook>
+            <button-facebook login="gallery.home"
+                             register="userlist"></button-facebook>
         </div>
-            </div>
+        </div>
 
     </ion-content>
 </ion-view>

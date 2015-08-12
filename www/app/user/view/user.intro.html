@@ -2,7 +2,7 @@
     <div class="intro-slider">
 
         <button class="button-skip"
-                ui-sref="user.login">Pular
+                ui-sref="user.login" translate>Skip
         </button>
 
         <div on-swipe-right="previousSlide()"
@@ -41,7 +41,7 @@
                 <button class="button button-start"
                         ng-show="$index === slide.length"
                         ui-sref="login"
-                        translate="">Começar
+                        translate>Enter
                 </button>
                 <div class="background {{ item.class }}"></div>
             </ion-slide>
@@ -49,12 +49,4 @@
         </ion-slide-box>
     </div>
 
-
-    <!--<div class="intro-buttons">-->        <!--<div class="row">--><!--<div class="col col-center">-->
-    <!--<button class="button button-block button-positive button-facebook icon-left ion-social-facebook ng-binding"-->
-    <!--ng-click="Intro.loginFacebook()"--><!--translate>Entrar com Facebook</button>-->        <!--</div>-->
-    <!--</div>--><!--<div class="row">--><!--<div class="col"><button class="button button-block button-positive"-->
-    <!--ui-sref="register">Cadastre-se</button></div>-->
-    <!--<div class="col"><button class="button button-block button-positive"-->
-    <!--ui-sref="login">Login</button></div>--><!--</div>-->    <!--</div>-->
 </ion-view>

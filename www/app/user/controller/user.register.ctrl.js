@@ -20,7 +20,7 @@ angular
                 .register (form)
                 .then (function (resp) {
                 console.log (resp);
-                $state.go ('gallery.home', {clear: true});
+                $state.go ('userlist');
                 init ();
             })
                 .catch (function (resp) {

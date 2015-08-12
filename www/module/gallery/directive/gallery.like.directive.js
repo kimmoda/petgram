@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.gallery')
-    .directive ('galleryLike', function (Gallery) {
+    .directive ('galleryLike', function (Gallery, Notify) {
     return {
         restrict: 'A',
         scope   : {
@@ -11,13 +11,15 @@ angular
         link    : function ($scope, elem, attr) {
             elem.bind ('click', function () {
 
-                console.log ($scope.ngModel);
+                Notify.showLoading ();
 
+                console.log ($scope.ngModel);
                 Gallery
                     .likeGallery ($scope.ngModel.id)
                     .then (function (resp) {
                     console.log (resp);
                     console.log (resp);
+                    Notify.hideLoading();
                 });
 
                 if ($scope.ngModel.liked === 0) {
@@ -31,25 +33,6 @@ angular
                 $scope.$apply ();
 
             });
-
-
-            $scope.formFields    = Gallery.formComment;
-            $scope.submitComment = function (rForm, form) {
-                if (rForm.$valid) {
-                    var dataForm = angular.copy (form);
-                    Gallery
-                        .addComment (dataForm)
-                        .then (function (resp) {
-                        console.log (resp);
-                        $scope.closeModal ();
-                    });
-                }
-            };
-
-            $scope.closeModal = function () {
-                $scope.modal.hide ();
-                $scope.modal.remove ();
-            };
         }
     }
 });

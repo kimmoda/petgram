@@ -13,6 +13,8 @@ angular
             function init () {
                 $scope.form       = User.currentUser ();
                 $scope.formFields = UserForm.profile;
+                $scope.languages  = $rootScope.langs;
+                $scope.language   = $rootScope.lang.value;
             }
 
             elem.bind ('click', function () {
@@ -31,9 +33,15 @@ angular
                 $scope.closeModal ();
             };
 
+            $scope.changeLanguage = function (language) {
+                $scope.form.language = language;
+                submitUpdateProfile ($scope.form);
+                $rootScope.setLanguage(language);
+            };
 
-            $scope.submitUpdateProfile = function () {
-                var dataForm = angular.copy ($scope.form);
+
+            function submitUpdateProfile (form) {
+                var dataForm = angular.copy (form);
                 User
                     .update (dataForm)
                     .then (function (resp) {
@@ -48,12 +56,6 @@ angular
                 $scope.modal.remove ();
             };
 
-            $scope.languages      = $rootScope.langs;
-            $scope.language       = $rootScope.lang;
-            $scope.changeLanguage = function (language) {
-                console.log (language);
-                gettextCatalog.setCurrentLanguage (language);
-            };
 
             var message = {
                 title  : 'Conheça o STube, o app para vídeos adultos',

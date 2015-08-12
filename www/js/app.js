@@ -5,38 +5,38 @@ angular
     //'cacheapp',
     //'cachemodule',
     'formlyIonic',
+    'pascalprecht.translate',
     'angularMoment',
     'ionic.components',
     'ngFacebook',
+    'translate.app',
+    'translate.form',
     'angular-cache',
     'uiGmapgoogle-maps',
     'ngCordova',
     'gettext',
     'module.core',
     'module.user',
-    'module.gallery',
-    'module.feedback',
+    'module.gallery'
 ])
-    .run (function ($ionicPlatform, $rootScope, AppConfig, gettextCatalog, amMoment, $cordovaStatusbar, GallerySetting, User) {
+    .run (function ($ionicPlatform, $rootScope, AppConfig, $cordovaStatusbar, GallerySetting, User) {
 
     User.init ();
     GallerySetting.init ();
 
-    // Language
-    $rootScope.langs = [
-        {
-            name : gettextCatalog.getString ('English'),
-            value: 'en'
-        },
-        {
-            name : gettextCatalog.getString ('Portuguese Brazil'),
-            value: 'pt_BR'
+
+    if (window.cordova) {
+        // org.apache.cordova.statusbar required
+        $cordovaStatusbar.style (1);
+        $cordovaStatusbar.styleHex (AppConfig.STATUSBAR);
+        $cordovaStatusbar.overlaysWebView (true);
+
+        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar (false);
         }
-    ];
+    }
 
     $ionicPlatform.ready (function () {
-
-        //$ionicAnalytics.register ();
 
         //inicializa o GOOGLE ANALYTICS para o app
         if (typeof analytics !== 'undefined') {
@@ -45,29 +45,42 @@ angular
             console.log ('Google Analytics for Apps Unavailable');
         }
 
+    });
 
-        if (window.cordova) {
-            // org.apache.cordova.statusbar required
-            $cordovaStatusbar.style (1);
-            $cordovaStatusbar.styleHex (AppConfig.STATUSBAR);
-            $cordovaStatusbar.overlaysWebView (true);
 
-            if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar (false);
+})
+    .run (function ($rootScope, gettextCatalog, $translate, amMoment) {
+        // Language
+        $rootScope.langs = [
+            {
+                name : gettextCatalog.getString ('English'),
+                value: 'en'
+            },
+            {
+                name : gettextCatalog.getString ('Portuguese Brazil'),
+                value: 'pt_BR'
             }
-        }
-
+        ];
 
         var LangVar     = navigator.language || navigator.userLanguage;
         var userLangVar = LangVar.substring (0, 2) + '_' + LangVar.substring (3, 5).toUpperCase ();
-        $rootScope.lang = userLangVar;
-        gettextCatalog.setCurrentLanguage (userLangVar);
+
+        $rootScope.setLanguage = function (language) {
+
+            $rootScope.lang = $rootScope.langs.filter (function (item) {
+                return item.value == language;
+            })[0];
+
+            gettextCatalog.setCurrentLanguage (language);
+            $translate.use (language);
+            amMoment.changeLocale (language);
+            console.log (language);
+            console.log ($rootScope.lang);
+        };
+
+        $rootScope.setLanguage (userLangVar);
         console.log (LangVar, userLangVar);
-        amMoment.changeLocale (userLangVar);
-
-    });
-
-})
+    })
     .config (function ($ionicConfigProvider) {
     //$ionicConfigProvider.platform.ios.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
     //$ionicConfigProvider.platform.android.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');

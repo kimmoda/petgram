@@ -11,7 +11,7 @@
                 <div class="col-25">
                     <img class="avatar"
                          user-avatar
-                         ng-src="{{ user.img }}"/>
+                         ng-src="{{ user.src }}"/>
                 </div>
                 <div class="col col-statics">
                     <div class="row">
@@ -48,15 +48,17 @@
 
             <ion-tabs class="tabs-light">
                 <ion-tab icon="ion-android-apps"
-                         ng-click="GalleryProfile.tab('grid')"></ion-tab>
+                         ng-click="tab='grid'"></ion-tab>
                 <ion-tab icon="ion-navicon-round"
-                         ng-click="GalleryProfile.tab('list')"></ion-tab>
+                         ng-click="tab='list'"></ion-tab>
                 <ion-tab icon="ion-ios-location-outline"></ion-tab>
             </ion-tabs>
         </div>
 
-        <div class="profile-view"
-             ng-include="GalleryProfile.currentTab"></div>
+        <div class="profile-view">
+            <gallery-photo-grid gallery="GalleryProfile.data"
+                                loading="GalleryProfile.loading"></gallery-photo-grid>
+        </div>
 
     </ion-content>
 </ion-view>

@@ -9140,91 +9140,98 @@ a.button {
   float: left;
   width: 33%; }
 
-.instagram {
+.photogram {
   font-family: -apple-system, "Helvetica Neue", "Segoe WP", sans-serif !important;
   color: #333; }
-  .instagram h1, .instagram h2, .instagram h3, .instagram h4, .instagram h5, .instagram h6, .instagram .h1, .instagram .h2, .instagram .h3, .instagram .h4, .instagram .h5, .instagram .h6 {
+  .photogram h1, .photogram h2, .photogram h3, .photogram h4, .photogram h5, .photogram h6, .photogram .h1, .photogram .h2, .photogram .h3, .photogram .h4, .photogram .h5, .photogram .h6 {
     color: #333; }
-  .instagram .user-username {
+  .photogram .user-username {
     font-weight: bold;
     color: #009688;
     font-size: 16px; }
-  .instagram .user-status {
+  .photogram .user-status {
     font-weight: normal;
     font-size: 14px;
     color: #333; }
-  .instagram .popover-backdrop.active {
+  .photogram .popover-backdrop.active {
     background-color: rgba(0, 0, 0, 0.4); }
-  .instagram .likes {
+  .photogram .likes {
     font-weight: bold;
     color: #009688; }
-  .instagram .card {
+  .photogram .card {
     margin: 0;
     border: none;
     box-shadow: none;
     padding: 0; }
-  .instagram .list {
+  .photogram .list {
     padding: 0;
     margin: 0; }
-  .instagram .item-body {
+  .photogram .item-body {
     padding: 0;
     border: none;
     min-height: 200px;
     background: #ccc;
     position: relative;
     overflow: hidden; }
-    .instagram .item-body img {
+    .photogram .item-body img {
       width: 100%;
       display: block; }
-  .instagram button.button-comment {
+  .photogram button.button-comment {
     padding: 0;
     margin: 0;
     text-align: left;
     font-size: 14px;
     line-height: 14px; }
-  .instagram .item-buttons {
+  .photogram .item-buttons {
     padding: 0;
     border-top: none; }
-    .instagram .item-buttons button {
-      font-size: 30px; }
-    .instagram .item-buttons .button-heart.ion-ios-heart {
-      color: #a00; }
-  .instagram .list-comments .comment-item {
+    .photogram .item-buttons .row {
+      padding: 0; }
+      .photogram .item-buttons .row button {
+        font-size: 28px;
+        position: relative; }
+      .photogram .item-buttons .row button.ion-ios-heart {
+        color: #a00; }
+      .photogram .item-buttons .row button:last-child {
+        padding-right: 20px; }
+  .photogram .list-comments .comment-item {
     display: block;
     clear: both; }
-    .instagram .list-comments .comment-item .username {
+    .photogram .list-comments .comment-item .username {
       display: block;
       float: left;
       font-weight: bold;
       color: #009688;
       margin-right: 5px; }
-    .instagram .list-comments .comment-item .comment {
+    .photogram .list-comments .comment-item .comment {
       display: block;
       float: left;
       font-weight: normal;
       color: #777; }
-  .instagram .nav-bar-title .title {
+  .photogram .nav-bar-title .title {
     left: 0;
     right: 45px;
-    line-height: 56px;
-    height: 56px;
+    line-height: 45px;
+    height: 40px;
     display: block;
-    margin-left: 0; }
-  .instagram .nav-bar-title span.icon2-logo {
+    margin-left: 0;
+    text-align: left;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); }
+  .photogram .nav-bar-title span.icon2-logo {
     font-size: 34px;
     display: block;
     margin-top: 6px;
     text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); }
-  .instagram .tab-item.middle {
+  .photogram .tab-item.middle {
     background-color: #009688;
     color: #fff;
     opacity: 1; }
-  .instagram .tabs-striped .tabs .tab-item.middle {
+  .photogram .tabs-striped .tabs .tab-item.middle {
     border-radius: 0; }
-  .instagram .item.item-avatar {
+  .photogram .item.item-avatar {
     background-color: rgba(255, 255, 255, 0.99);
     border: none; }
-    .instagram .item.item-avatar img {
+    .photogram .item.item-avatar img {
       position: absolute;
       top: 17px;
       left: 16px;
@@ -9233,7 +9240,7 @@ a.button {
       width: 100%;
       height: 100%;
       border-radius: 50%; }
-    .instagram .item.item-avatar h2 {
+    .photogram .item.item-avatar h2 {
       color: #009688;
       font-size: 14px;
       line-height: 17px;
@@ -9243,7 +9250,7 @@ a.button {
       font-weight: bold;
       margin-right: 5px;
       margin-top: 4px; }
-    .instagram .item.item-avatar span {
+    .photogram .item.item-avatar span {
       top: 33px;
       right: 10px;
       display: block;
@@ -9251,17 +9258,17 @@ a.button {
       color: #ccc;
       line-height: 0;
       font-size: 14px; }
-    .instagram .item.item-avatar div {
+    .photogram .item.item-avatar div {
       font-size: 14px;
       line-height: 20px; }
-    .instagram .item.item-avatar p {
+    .photogram .item.item-avatar p {
       font-size: 12px;
       text-align: left;
       display: block;
       width: 100%; }
-  .instagram .modal-comment .scroll {
+  .photogram .modal-comment .scroll {
     height: 100%; }
-  .instagram .modal-comment .form {
+  .photogram .modal-comment .form {
     border: 1px solid #ccc;
     padding: 1px;
     display: block;
@@ -9270,52 +9277,54 @@ a.button {
     left: 0;
     bottom: 0;
     height: 50px; }
-    .instagram .modal-comment .form label.item.item-input {
+    .photogram .modal-comment .form label.item.item-input {
       display: block;
       float: left;
       width: 86%;
       border: none; }
-    .instagram .modal-comment .form button {
+    .photogram .modal-comment .form button {
       padding: 7px;
       height: 50px;
       top: -1px;
       position: absolute;
       right: -1px;
       border: none; }
-    .instagram .modal-comment .form form .item, .instagram .modal-comment .form .formly .item {
+    .photogram .modal-comment .form form .item, .photogram .modal-comment .form .formly .item {
       border-bottom: none; }
-  .instagram .tab-item {
+  .photogram .tab-item {
     transition: all ease 0.5s;
     -webkit-transition: all ease 0.5s; }
-  .instagram .tabs-light {
+  .photogram .tabs-light {
     background: #fff; }
-  .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.tab-item-active, .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
+  .photogram ion-tabs.tabs-dark.tabs-photogram .tab-item.tab-item-active, .photogram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .photogram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
     background-color: #070808;
     border-bottom: 5px solid #009688; }
-  .instagram ion-tabs.tabs-light .tab-item.tab-item-active, .instagram ion-tabs.tabs-light .tab-item.active, .instagram ion-tabs.tabs-light .tab-item.activated {
+  .photogram ion-tabs.tabs-light .tab-item.tab-item-active, .photogram ion-tabs.tabs-light .tab-item.active, .photogram ion-tabs.tabs-light .tab-item.activated {
     background-color: #fff; }
-  .instagram .capture-legend {
+  .photogram .capture-legend {
     padding: 0; }
-    .instagram .capture-legend .item-input {
+    .photogram .capture-legend .item-input {
       border: none;
       display: block;
       top: 20px; }
-  .instagram .gallery-profile .profile-top {
+  .photogram .gallery-profile .profile-top {
     display: block;
     position: relative; }
-    .instagram .gallery-profile .profile-top img {
+    .photogram .gallery-profile .profile-top img {
       display: inline;
-      width: 90%;
+      min-width: 85px;
+      min-height: 85px;
+      max-width: 95px;
       border-radius: 50%;
       margin: 6px;
       background-color: #ddd; }
-    .instagram .gallery-profile .profile-top .col-statics span {
+    .photogram .gallery-profile .profile-top .col-statics span {
       font-weight: bold;
       color: #000;
       display: block;
       text-align: center;
       font-size: 20px; }
-    .instagram .gallery-profile .profile-top .col-statics h3 {
+    .photogram .gallery-profile .profile-top .col-statics h3 {
       font-size: 14px;
       color: #888;
       margin: 5px 0px;
@@ -9324,9 +9333,9 @@ a.button {
       text-align: center;
       text-transform: lowercase;
       white-space: nowrap; }
-    .instagram .gallery-profile .profile-top .col-edit {
+    .photogram .gallery-profile .profile-top .col-edit {
       padding: 0; }
-      .instagram .gallery-profile .profile-top .col-edit .button {
+      .photogram .gallery-profile .profile-top .col-edit .button {
         font-size: 14px;
         padding: 0px;
         background: #edeeee;
@@ -9340,45 +9349,71 @@ a.button {
         font-weight: bold;
         margin: 0 auto;
         display: block; }
-    .instagram .gallery-profile .profile-top .tabs-light {
+    .photogram .gallery-profile .profile-top .tabs-light {
       background: #fff;
       height: 50px;
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
       display: block;
       position: inherit; }
-      .instagram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item {
+      .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item {
         -webkit-transform: all .5s ease;
         -moz-transform: all .5s ease;
         -ms-transform: all .5s ease;
         -o-transform: all .5s ease;
         transform: all .5s ease; }
-      .instagram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item.tab-item-active, .instagram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .instagram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
+      .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item.tab-item-active, .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
         background-color: #fff;
         border: none;
         color: #009688; }
-  .instagram .gallery-profile .profile-view {
+  .photogram .gallery-profile .profile-view {
     display: block;
     overflow: hidden; }
-    .instagram .gallery-profile .profile-view .row {
+    .photogram .gallery-profile .profile-view .row {
       padding: 0; }
-      .instagram .gallery-profile .profile-view .row .col {
+      .photogram .gallery-profile .profile-view .row .col {
         padding: 2px;
         margin: 0; }
-  .instagram .gallery-search .row {
+  .photogram .gallery-search .row {
     padding: 0; }
-    .instagram .gallery-search .row .col {
+    .photogram .gallery-search .row .col {
       padding: 1px; }
-
-.instagram .nav-bar-title .title {
-  left: 0;
-  right: 45px;
-  line-height: 45px;
-  height: 45px;
-  display: block;
-  margin-left: 0;
-  text-align: left;
-  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); }
+  .photogram .gallery-userlist .item, .photogram .gallery-activity .item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1px; }
+    .photogram .gallery-userlist .item.item-button-right button.button, .photogram .gallery-activity .item.item-button-right button.button {
+      top: 25%;
+      border: none; }
+      .photogram .gallery-userlist .item.item-button-right button.button.button-stable, .photogram .gallery-activity .item.item-button-right button.button.button-stable {
+        color: #009688; }
+      .photogram .gallery-userlist .item.item-button-right button.button i, .photogram .gallery-activity .item.item-button-right button.button i {
+        font-size: 12px; }
+    .photogram .gallery-userlist .item.item-avatar h2, .photogram .gallery-activity .item.item-avatar h2 {
+      line-height: 11px;
+      font-size: 14px; }
+    .photogram .gallery-userlist .item.item-avatar .text, .photogram .gallery-activity .item.item-avatar .text {
+      font-size: 11px; }
+    .photogram .gallery-userlist .item.item-avatar .img-right, .photogram .gallery-activity .item.item-avatar .img-right {
+      float: right;
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 0;
+      width: 70px;
+      height: 76px; }
+      .photogram .gallery-userlist .item.item-avatar .img-right img, .photogram .gallery-activity .item.item-avatar .img-right img {
+        border-radius: 0;
+        max-width: 70px;
+        max-height: 70px;
+        top: 5px; }
+  .photogram .item-divider {
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 2px solid #ddd;
+    color: #25272a;
+    text-transform: uppercase; }
 
 .row-detail {
   background-color: #fff;
@@ -9611,57 +9646,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   height: 56px;
   color: white; }
 
-.modal .bar.bar-header .button:last-child {
+.bar-dark.bar.bar-header .buttons, .bar-dark.bar.bar-header .button:last-child {
   top: 0;
   right: 0;
   width: 44px;
   height: 44px;
   color: white; }
-
-.bounceInLeft {
-  animation-name: bounceInLeft;
-  animation-iteration-count: 1s;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden; }
-
-.bounceInRight {
-  animation-name: bounceInRight;
-  animation-iteration-count: 1s;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden; }
-
-.bounceInUp {
-  animation-name: bounceInUp;
-  animation-iteration-count: 1s;
-  animation-duration: 1s;
-  animation-delay: 1s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden; }
-
-.bounceInDown {
-  animation-name: bounceInDown;
-  animation-iteration-count: 1s;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden; }
-
-.zoomIn {
-  animation-name: zoomIn;
-  animation-iteration-count: 1s;
-  animation-duration: 1s;
-  animation-delay: 0s;
-  animation-timing-function: ease;
-  animation-fill-mode: both;
-  backface-visibility: hidden; }
 
 .background-positive {
   background-color: #009688; }

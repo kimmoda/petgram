@@ -5,31 +5,26 @@ angular
     return {
         restrict: 'A',
         scope   : {
-            gallery: '@'
+            ngModel: '='
         },
         template: '',
         link    : function ($scope, elem, attr) {
 
-            function init () {
-                $scope.loading  = true;
-                $scope.comments = [];
-                Gallery
-                    .getComments ($scope.gallery)
-                    .then (function (resp) {
-                    $scope.comments = resp;
-                    $scope.loading  = false;
-                });
 
-                $scope.form = {
-                    galleryId: $scope.gallery,
+            function init () {
+                $scope.loading = false;
+                $scope.form    = {
+                    galleryId: $scope.ngModel.id,
                     text     : ''
                 };
             }
 
             elem.bind ('click', function () {
-                console.log ($scope.gallery);
+                console.log ($scope.ngModel);
 
                 init ();
+
+                $scope.comments = $scope.ngModel.comments;
 
                 $ionicModal.fromTemplateUrl ('module/gallery/view/gallery.comment.directive.html', {
                     scope: $scope
@@ -38,6 +33,16 @@ angular
                     $scope.modal.show ();
                 });
             });
+
+            function getComments () {
+                Gallery
+                    .getComments ($scope.ngModel.id)
+                    .then (function (resp) {
+                    $scope.comments         = resp;
+                    $scope.ngModel.comments = resp;
+                    $scope.loading          = false;
+                });
+            }
 
 
             $scope.formFields    = Gallery.formComment;
@@ -49,7 +54,8 @@ angular
                         .addComment (dataForm)
                         .then (function (resp) {
                         console.log (resp);
-                        init ();
+                        getComments ();
+                        $scope.closeModal ();
                     });
                 }
             };

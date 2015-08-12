@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: gallery/view/gallery.popover.home.html:10
-#: gallery/view/gallery.settings.modal.html:37
+#: gallery/view/gallery.settings.modal.html:40
 msgid "About"
 msgstr "Sobre"
 
@@ -21,64 +21,25 @@ msgstr "Sobre"
 msgid "Account"
 msgstr "Conta"
 
-#: gallery/view/gallery.home.html:74
-#: gallery/view/gallery.profile.photos.list.html:60
+#: gallery/view/gallery.photos.list.html:64
 msgid "Add comment"
-msgstr "Adicionar um comentário"
+msgstr "Adicionar comentário"
 
-#: gallery/service/gallery.model.js:34
-msgid "Add your comment"
-msgstr "Adicionar um comentário"
-
-#: user/view/user.register.html:20 user/view/user.register.modal.html:27
-msgid ""
-"Ao criar sua conta, você está concordando com nossos <b>Termos e Condições</"
-"b>."
-msgstr ""
-
-#: feedback/service/feedback.form.js:22
-msgid "Assunto"
-msgstr ""
-
-#: user/view/user.register.modal.html:5
-msgid "Cadastro"
-msgstr ""
-
-#: gallery/service/photo.service.js:50
+#: core/service/photo.service.js:50
 msgid "Camera"
-msgstr "Camera"
+msgstr "Tirar foto"
 
-#: gallery/service/photo.service.js:58 user/controller/user.login.ctrl.js:53
+#: core/service/photo.service.js:57 user/controller/user.login.ctrl.js:53
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Cancelar"
 
 #: gallery/view/gallery.capture.modal.html:5
 msgid "Capture"
-msgstr "Capturar Foto"
+msgstr "Tirar foto"
 
-#: core/view/app.setting.html:21
-msgid "Change Password"
-msgstr "Mudar Senha"
-
-#: core/view/app.setting.html:10 gallery/view/gallery.settings.modal.html:13
+#: gallery/view/gallery.settings.modal.html:13
 msgid "Change language"
-msgstr "Mudar Idioma"
-
-#: facebook/view/facebook.feed.html:42
-msgid "Comentar"
-msgstr ""
-
-#: user/service/user.form.js:128
-msgid "Comentário"
-msgstr ""
-
-#: facebook/view/facebook.feed.html:33
-msgid "Comentários"
-msgstr ""
-
-#: user/view/user.intro.html:41
-msgid "Começar"
-msgstr ""
+msgstr "Mudar idioma"
 
 #: gallery/view/gallery.photo.html:43
 msgid "Comment"
@@ -88,112 +49,56 @@ msgstr "Comentário"
 msgid "Comments"
 msgstr "Comentários"
 
-#: facebook/view/facebook.feed.html:44
-msgid "Compartilhar"
-msgstr ""
+#: user/directive/button.facebook.directive.js:12
+msgid "Conect your Facebook"
+msgstr "Conectar com o seu Facebook"
 
-#: core/view/side.menu.html:54
-msgid "Configurações"
-msgstr ""
-
-#: user/view/user.profile.html:29 user/view/user.register.html:9
-msgid "Criar Conta"
-msgstr ""
-
-#: user/view/user.register.html:1
-msgid "Criar Conta Grátis"
-msgstr ""
-
-#: facebook/view/facebook.feed.html:31
-msgid "Curtidas"
-msgstr ""
-
-#: facebook/view/facebook.feed.html:40
-msgid "Curtir"
-msgstr ""
-
-#: user/service/user.form.js:172 user/service/user.form.js:59
-msgid "Data de Nascimento"
-msgstr ""
+#: gallery/view/gallery.profile.tabs.html:37
+msgid "EDIT YOUR PROFILE"
+msgstr "EDITAR SEU PERFIL"
 
 #: gallery/view/gallery.profile.edit.modal.html:5
 #: gallery/view/gallery.settings.modal.html:31
 msgid "Edit Profile"
-msgstr "Editar Perfil"
+msgstr "Editar perfil"
 
-#: user/service/user.form.js:12 user/service/user.form.js:48
-msgid "Email"
-msgstr ""
+#: core/service/photo.service.js:77
+msgid "Enabled your camera"
+msgstr "Ative sua câmera"
 
-#: user/service/user.form.js:150
-msgid "Endereço"
-msgstr ""
-
-#: user/view/user.login.html:1 user/view/user.login.html:15
+#: user/view/user.intro.html:41 user/view/user.login.html:1
+#: user/view/user.login.html:15 user/view/user.tabs.html:16
 #: user/view/user.tabs.html:2
-msgid "Entrar"
-msgstr ""
+msgid "Enter"
+msgstr "Entrar"
 
-#: feedback/view/feedback.form.html:10
-msgid "Enviar"
-msgstr ""
-
-#: feedback/service/feedback.form.js:33
-msgid "Erro"
+#: core/service/photo.service.js:76
+msgid "Error"
 msgstr "Erro"
 
-#: gallery/view/gallery.capture.modal.html:29
 #: gallery/view/gallery.capture.modal.html:30
 msgid "Escreva uma legenda"
 msgstr ""
 
-#: facebook/config/facebook.config.js:9
-msgid "Facebook"
-msgstr "Facebook"
-
-#: core/view/side.menu.html:60
-msgid "FeedBack"
-msgstr "Sugestões"
-
-#: feedback/view/feedback.form.html:1
+#: gallery/view/gallery.photo.feedback.modal.html:5
 msgid "Feedback"
-msgstr "Sugestões"
+msgstr "Feedback"
 
 #: gallery/view/gallery.settings.modal.html:19
 msgid "Follow Friends"
-msgstr "Seguir Amgios"
+msgstr "Seguir amigo"
 
-#: friend/config/friend.config.js:9 friend/view/friend.tab.html:1
-msgid "Friends"
-msgstr "Amigos"
+#: user/view/user.login.html:10
+msgid "Forgot your password?"
+msgstr "Esqueceu sua senha?"
 
-#: friend/view/friend.home.html:1
-msgid "Friends Home"
-msgstr ""
-
-#: friend/view/friend.list.html:1 user/view/user.list.html:1
-msgid "Friends List"
-msgstr "Lista de Amigos"
-
-#: gallery/service/photo.service.js:53
+#: core/service/photo.service.js:53
 msgid "Gallery"
 msgstr "Galeria de Fotos"
 
 #: gallery/view/gallery.view.html:1
 msgid "Gallery preview"
-msgstr "Vera Galeria"
-
-#: user/service/user.form.js:94
-msgid "Genêro"
 msgstr ""
-
-#: gallery/service/gallery.model.js:23
-msgid "Geolocalization"
-msgstr "Geolocalização"
-
-#: core/config/app.config.js:21
-msgid "Home"
-msgstr "Inicial"
 
 #: user/controller/user.login.ctrl.js:65
 msgid "Invalid Email"
@@ -201,13 +106,9 @@ msgstr "Email inválido"
 
 #: gallery/view/gallery.settings.modal.html:22
 msgid "Invite Facebook Friends"
-msgstr "Consider amigos do Facebook"
+msgstr "Convidar amigos do Facebook"
 
-#: core/view/app.setting.html:4
-msgid "Languages"
-msgstr "Idioma"
-
-#: gallery/view/gallery.home.html:60 gallery/view/gallery.photo.html:23
+#: gallery/view/gallery.photo.html:23
 msgid "Like"
 msgstr "Curtir"
 
@@ -215,44 +116,24 @@ msgstr "Curtir"
 msgid "Likes"
 msgstr "Curtidas"
 
-#: gallery/view/gallery.settings.modal.html:45
+#: gallery/view/gallery.settings.modal.html:52
 msgid "Logout"
 msgstr "Sair"
 
-#: core/view/app.setting.html:50
-msgid "More Information"
-msgstr "Mais Informações"
-
-#: user/service/user.form.js:37 user/service/user.form.js:84
-msgid "Nome"
-msgstr ""
-
-#: core/view/app.setting.html:16
-msgid "Password"
-msgstr "Senha"
-
-#: gallery/config/gallery.config.js:10
-msgid "Photogram"
+#: gallery/view/gallery.settings.modal.html:43
+msgid "Privacy Policitical"
 msgstr ""
 
 #: gallery/view/gallery.profile.photos.html:1
-#: gallery/view/gallery.profile.tabs.html:1
 msgid "Profile"
 msgstr "Perfil"
 
-#: feedback/service/feedback.form.js:29
-msgid "Reclamação"
-msgstr ""
+#: user/view/user.register.html:1 user/view/user.register.html:9
+#: user/view/user.tabs.html:18
+msgid "Register"
+msgstr "Cadastro"
 
-#: core/view/side.menu.html:72
-msgid "Sair"
-msgstr ""
-
-#: user/view/user.register.modal.html:17
-msgid "Salvar"
-msgstr ""
-
-#: gallery/view/gallery.search.html:5
+#: gallery/view/gallery.search.html:4
 msgid "Search"
 msgstr "Busca"
 
@@ -260,64 +141,98 @@ msgstr "Busca"
 msgid "Send"
 msgstr "Enviar"
 
-#: gallery/service/photo.service.js:57
+#: core/service/photo.service.js:56
 msgid "Send Photo"
 msgstr "Enviar Foto"
 
-#: user/service/user.form.js:23 user/service/user.form.js:70
-msgid "Senha"
-msgstr ""
-
-#: core/view/app.setting.html:1 gallery/view/gallery.popover.home.html:5
+#: gallery/view/gallery.popover.home.html:5
 #: gallery/view/gallery.settings.modal.html:5
 msgid "Settings"
 msgstr "Configurações"
 
-#: core/view/app.setting.html:26 gallery/view/gallery.capture.html:1
+#: gallery/view/gallery.capture.html:1
 #: gallery/view/gallery.settings.modal.html:25
 msgid "Share"
 msgstr "Compartilhar"
 
-#: user/service/user.form.js:139
-msgid "Site"
+#: user/view/user.tabs.html:12
+msgid "Share your most amazing moments"
+msgstr "Compartilhe seus melhores momentos"
+
+#: user/view/user.intro.html:4
+msgid "Skip"
+msgstr "Pular"
+
+#: gallery/view/gallery.settings.modal.html:37
+msgid "Terms"
 msgstr ""
 
-#: core/view/side.menu.html:66
-msgid "Sobre"
-msgstr ""
-
-#: feedback/service/feedback.form.js:25
-msgid "Sugestão"
-msgstr ""
-
-#: core/view/app.setting.html:54
-msgid "Suggestion"
-msgstr "Sugestões"
-
-#: user/service/user.form.js:117
-msgid "Telefone"
-msgstr ""
-
-#: gallery/service/gallery.model.js:13
-msgid "Title"
-msgstr "Título"
-
-#: feedback/service/feedback.form.js:12
-msgid "Titulo"
+#: gallery/view/gallery.settings.modal.html:46
+msgid "Terms of User"
 msgstr ""
 
 #: user/controller/user.login.ctrl.js:50
 msgid "Uma nova senha será enviada para o seu endereço de email:"
 msgstr ""
 
-#~ msgid "English"
-#~ msgstr "Inglês"
+#: user/view/user.register.html:20
+msgid "When creating your account, you agree to our <b>Terms and Conditions</b>.."
+msgstr ""
 
-#~ msgid "Search a user"
-#~ msgstr "Pesquisar"
+#: gallery/view/gallery.capture.modal.html:29
+msgid "Write a Caption"
+msgstr ""
 
-#~ msgid "Not"
-#~ msgstr "Não"
+#: gallery/view/gallery.profile.tabs.html:26
+msgid "followers"
+msgstr "seguidores"
 
-#~ msgid "Yes"
-#~ msgstr "Sim"
+#: user/view/user.login.html:26
+msgid "or"
+msgstr "ou"
+
+#: gallery/view/gallery.profile.tabs.html:21
+msgid "posts"
+msgstr "publicações"
+
+#~ msgid "Add your comment"
+#~ msgstr "Digite seu comentário"
+
+#~ msgid "Address"
+#~ msgstr "Endereço"
+
+#~ msgid "Birthday"
+#~ msgstr "Data de Nascimento"
+
+#~ msgid "Gender"
+#~ msgstr "Gênero"
+
+#~ msgid "Geolocalization"
+#~ msgstr "Geolocalização"
+
+#~ msgid "Man"
+#~ msgstr "Homen"
+
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid "Password"
+#~ msgstr "Senha"
+
+#~ msgid "Site"
+#~ msgstr "Site"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "Subject"
+#~ msgstr "Assunto"
+
+#~ msgid "Telephone"
+#~ msgstr "Telefone"
+
+#~ msgid "Title"
+#~ msgstr "Assunto"
+
+#~ msgid "Woman"
+#~ msgstr "Mulher"

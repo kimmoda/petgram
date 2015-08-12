@@ -99,11 +99,6 @@ gulp.task ('sass', function (done) {
     gulp.src ('./scss/ionic.app.scss')
         .pipe (sass ())
         .pipe (gulp.dest ('./www/css/'))
-        // .pipe(minifyCss({
-        //   keepSpecialComments: 0
-        // }))
-        // .pipe(rename({ extname: '.min.css' }))
-        // .pipe(gulp.dest('./www/css/'))
         .on ('end', done);
 });
 
@@ -155,18 +150,17 @@ gulp.task ('gettext:compile', function () {
         .pipe (gettext.compile ({format: 'json'})) // Compile to json
         .pipe (extend ('.tmp.json')) // use .json extension for gulp-wrap to load json content
         .pipe (wrap ( // Build the translation module using gulp-wrap and lodash.template
-        '\'use strict\';\n\n' +
-        'angular.module(\'translate\',[]).run(function (gettextCatalog) {\n' +
-        '/* jshint -W100,-W109 */\n' +
+        '\'use strict\';\n' +
+        'angular.module(\'translate.app\',[\'ionic\'])\n' +
+        '.run(function (gettextCatalog) {\n' +
         '<% var langs = Object.keys(contents); var i = langs.length; while (i--) {' +
         'var lang = langs[i]; var translations = contents[lang]; %>' +
         '  gettextCatalog.setStrings(\'<%= lang %>\', <%= JSON.stringify(translations, undefined, 2) %>);\n' +
         '<% }; %>' +
-        '/* jshint +W100,+W109 */\n' +
         '});'))
-        .pipe (ngAnnotate ())
-        .pipe (uglify ())
-        .pipe (rename ('translations.js')) // Rename to final javascript filename
+        //.pipe (ngAnnotate ())
+        //.pipe (uglify ())
+        .pipe (rename ('translate.js')) // Rename to final javascript filename
         .pipe (gulp.dest (paths.source + '/js/'));
 });
 
@@ -208,7 +202,9 @@ gulp.task ('template:module', function () {
         .pipe (gulp.dest ('./www/js/'));
 });
 
-gulp.task('templates',['template:app','template:module']);
+gulp.task ('templates', ['template:app',
+                         'template:module'
+]);
 
 // Cache Modules
 // ADD
@@ -264,12 +260,12 @@ gulp.task ('copy', function () {
 
 // Copy Fonts
 gulp.task ('copy:font', function () {
-    
+
     // Ionic
     gulp.src (paths.source + '/lib/ionic/fonts/**').pipe (gulp.dest (paths.source + '/fonts'));
 
     // Ionic Icons
-    gulp.src (paths.source + '/lib/simple-line-icons/fonts/**').pipe (gulp.dest (paths.source + '/fonts'));    
+    gulp.src (paths.source + '/lib/simple-line-icons/fonts/**').pipe (gulp.dest (paths.source + '/fonts'));
 
 
 });
@@ -325,16 +321,12 @@ gulp.task ('usemin', function () {
             rev ()
         ],
         js       : [
-            //stripDebug (),
+            stripDebug (),
+            //iife (),
             jshint.reporter ('default'),
             ngAnnotate ({
                 add: true
             }),
-            //iife ({
-            //    //useStrict       : false,
-            //    //trimCode        : false,
-            //    //prependSemicolon: false
-            //}),
             uglify (),
             header (getCopyright (), {
                 version: paths.version

@@ -23,7 +23,7 @@ angular
                 .login (form)
                 .then (function (data) {
                 console.log (data);
-                $state.go ('gallery.home');
+                $state.go ('userlist');
                 init ();
             })
                 .catch (function (resp) {

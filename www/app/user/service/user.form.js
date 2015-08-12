@@ -1,7 +1,7 @@
 'use strict';
 angular
     .module ('module.user')
-    .factory ('UserForm', function (gettextCatalog) {
+    .factory ('UserForm', function ($translate) {
 
     var login = [
         {
@@ -9,7 +9,7 @@ angular
             key            : 'email',
             templateOptions: {
                 type           : 'email',
-                placeholder    : gettextCatalog.getString ('Email'),
+                placeholder    : $translate.instant ('EMAIL'),
                 icon           : 'icon-envelope',
                 required       : true,
                 iconPlaceholder: true
@@ -20,7 +20,7 @@ angular
             key            : 'password',
             templateOptions: {
                 type           : 'password',
-                placeholder    : gettextCatalog.getString ('Senha'),
+                placeholder    : $translate.instant ('PASSWORD'),
                 icon           : 'icon-lock',
                 required       : true,
                 iconPlaceholder: true
@@ -34,7 +34,7 @@ angular
             key            : 'name',
             templateOptions: {
                 type           : 'text',
-                placeholder    : gettextCatalog.getString ('Nome'),
+                placeholder    : $translate.instant ('NAME'),
                 icon           : 'icon-user',
                 required       : true,
                 iconPlaceholder: true
@@ -45,7 +45,7 @@ angular
             key            : 'email',
             templateOptions: {
                 type           : 'email',
-                placeholder    : gettextCatalog.getString ('Email'),
+                placeholder    : $translate.instant ('EMAIL'),
                 icon           : 'icon-envelope',
                 required       : true,
                 iconPlaceholder: true
@@ -56,7 +56,7 @@ angular
             key            : 'birthday',
             templateOptions: {
                 type           : 'date',
-                placeholder    : gettextCatalog.getString ('Data de Nascimento'),
+                placeholder    : $translate.instant ('BIRTHDAY'),
                 icon           : 'icon-present',
                 required       : false,
                 iconPlaceholder: true
@@ -67,7 +67,7 @@ angular
             key            : 'password',
             templateOptions: {
                 type           : 'password',
-                placeholder    : gettextCatalog.getString ('Senha'),
+                placeholder    : $translate.instant ('PASSWORD'),
                 icon           : 'icon-lock',
                 required       : true,
                 iconPlaceholder: true
@@ -81,7 +81,7 @@ angular
             type           : 'input',
             templateOptions: {
                 type           : 'text',
-                placeholder    : gettextCatalog.getString ('Nome'),
+                placeholder    : $translate.instant ('NAME'),
                 icon           : 'icon-user',
                 required       : true,
                 iconPlaceholder: true
@@ -92,7 +92,7 @@ angular
             type           : 'input',
             templateOptions: {
                 type           : 'text',
-                placeholder    : gettextCatalog.getString ('Comentário'),
+                placeholder    : $translate.instant ('STATUS'),
                 icon           : 'ion-quote',
                 required       : true,
                 iconPlaceholder: true
@@ -102,14 +102,14 @@ angular
             type           : 'select',
             key            : 'gender',
             templateOptions: {
-                label          : gettextCatalog.getString ('Genêro'),
+                label          : $translate.instant ('GENDER'),
                 options        : [
                     {
-                        'label': 'Homem',
+                        'label': $translate.instant ('MAN'),
                         'id'   : 'male',
                     },
                     {
-                        'label': 'Mulher',
+                        'label': $translate.instant ('WOMAN'),
                         'id'   : 'female',
                     }
                 ],
@@ -125,7 +125,7 @@ angular
             type           : 'input',
             templateOptions: {
                 type           : 'text',
-                placeholder    : gettextCatalog.getString ('Telefone'),
+                placeholder    : $translate.instant ('TELEPHONE'),
                 icon           : 'ion-iphone',
                 required       : true,
                 iconPlaceholder: true
@@ -136,7 +136,7 @@ angular
             type           : 'input',
             templateOptions: {
                 type           : 'text',
-                placeholder    : gettextCatalog.getString ('Site'),
+                placeholder    : $translate.instant ('SITE'),
                 icon           : 'ion-earth',
                 required       : true,
                 iconPlaceholder: true
@@ -147,7 +147,7 @@ angular
             type           : 'input',
             templateOptions: {
                 type           : 'text',
-                placeholder    : gettextCatalog.getString ('Endereço'),
+                placeholder    : $translate.instant ('ADDRESS'),
                 icon           : 'icon-map',
                 required       : true,
                 iconPlaceholder: true
@@ -158,7 +158,7 @@ angular
             type           : 'input',
             templateOptions: {
                 type           : 'email',
-                placeholder    : 'Email',
+                placeholder    : $translate.instant ('EMAIL'),
                 icon           : 'icon-envelope',
                 required       : true,
                 iconPlaceholder: true
@@ -169,7 +169,7 @@ angular
             key            : 'birthday',
             templateOptions: {
                 type           : 'date',
-                placeholder    : gettextCatalog.getString ('Data de Nascimento'),
+                placeholder    : $translate.instant ('BIRTHDAY'),
                 icon           : 'icon-present',
                 required       : true,
                 iconPlaceholder: true

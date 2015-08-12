@@ -7,7 +7,7 @@
     <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
     <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ 'unsafe-inline' 'unsafe-eval'"> -->
     <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ 'unsafe-inline' 'unsafe-eval'"> -->
-    <title>Ionic</title>
+    <title>Photogram</title>
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
@@ -46,6 +46,7 @@
     <script src="lib/ionic/js/ionic-angular.js"></script>
     <script src="lib/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endinject -->
+    <script src="lib/angular-translate/angular-translate.js"></script>
     <!-- endbuild -->
 
     <script src="cordova.js"></script>
@@ -56,72 +57,59 @@
     <!-- inject:js -->
     <script src="app/core/module.core.js"></script>
     <script src="app/user/user.module.js"></script>
-    <script src="app/core/controller/app.home.ctrl.js"></script>
-    <script src="app/core/controller/sidemenu.ctrl.js"></script>
-    <script src="app/core/config/app.config.js"></script>
-    <script src="app/core/config/app.routes.js"></script>
-    <script src="app/core/filter/capitalize.filter.js"></script>
-    <script src="app/core/filter/date.br.filter.js"></script>
-    <script src="app/core/filter/raw.html.filter.js"></script>
     <script src="app/core/service/analytics.services.js"></script>
-    <script src="app/core/service/dashboards.slide.model.js"></script>
     <script src="app/core/service/parse.model.js"></script>
     <script src="app/core/service/parse.service.js"></script>
     <script src="app/core/service/photo.service.js"></script>
-    <script src="app/user/config/user.config.js"></script>
+    <script src="app/core/filter/capitalize.filter.js"></script>
+    <script src="app/core/filter/date.br.filter.js"></script>
+    <script src="app/core/filter/raw.html.filter.js"></script>
+    <script src="app/user/directive/button.facebook.directive.js"></script>
+    <script src="app/user/directive/user.avatar.directive.js"></script>
     <script src="app/user/config/user.facebook.js"></script>
     <script src="app/user/config/user.routes.js"></script>
     <script src="app/user/controller/user.intro.ctrl.js"></script>
     <script src="app/user/controller/user.login.ctrl.js"></script>
     <script src="app/user/controller/user.main.ctrl.js"></script>
     <script src="app/user/controller/user.profile.ctrl.js"></script>
-    <script src="app/user/controller/user.profile.friend.ctrl.js"></script>
     <script src="app/user/controller/user.recovery.pass.ctrl.js"></script>
     <script src="app/user/controller/user.register.ctrl.js"></script>
-    <script src="app/user/directive/button.facebook.directive.js"></script>
-    <script src="app/user/directive/user.avatar.directive.js"></script>
-    <script src="app/user/directive/user.register.directive.js"></script>
     <script src="app/user/service/notify.service.js"></script>
     <script src="app/user/service/user.form.js"></script>
     <script src="app/user/service/user.model.service.js"></script>
     <script src="component/ionic.components.js"></script>
     <script src="component/ion-affix/ion.affix.js"></script>
-    <script src="component/ion-loading/ion-loading.js"></script>
-    <script src="component/ion-location/ion-location.js"></script>
     <script src="component/ion-tinga/ion-tinga.js"></script>
+    <script src="component/ion-loading/ion-loading.js"></script>
     <script src="component/tab-swipe/tab-swipe.js"></script>
     <script src="component/ion-loading/config/ion-loading.factory.js"></script>
     <script src="component/ion-loading/config/ion-loading.run.js"></script>
     <script src="component/ion-loading/service/loading.service.js"></script>
-    <script src="component/ion-location/elements/ion-location.js"></script>
-    <script src="component/ion-location/elements/ion-md-location.js"></script>
-    <script src="component/ion-location/service/geo.service.js"></script>
-    <script src="module/feedback/module.feedback.js"></script>
     <script src="module/gallery/module.gallery.js"></script>
-    <script src="module/feedback/config/feedback.config.js"></script>
-    <script src="module/feedback/config/feedback.routes.js"></script>
-    <script src="module/feedback/controller/feedback.form.ctrl.js"></script>
-    <script src="module/feedback/service/feedback.form.js"></script>
-    <script src="module/feedback/service/feedback.model.js"></script>
-    <script src="module/gallery/config/gallery.config.js"></script>
     <script src="module/gallery/config/gallery.routes.js"></script>
     <script src="module/gallery/controller/gallery.account.ctrl.js"></script>
+    <script src="module/gallery/controller/gallery.activity.ctrl.js"></script>
     <script src="module/gallery/controller/gallery.capture.ctrl.js"></script>
     <script src="module/gallery/controller/gallery.home.ctrl.js"></script>
-    <script src="module/gallery/controller/gallery.notify.ctrl.js"></script>
     <script src="module/gallery/controller/gallery.photo.ctrl.js"></script>
     <script src="module/gallery/controller/gallery.preview.ctrl.js"></script>
     <script src="module/gallery/controller/gallery.profile.ctrl.js"></script>
     <script src="module/gallery/controller/gallery.search.ctrl.js"></script>
+    <script src="module/gallery/controller/gallery.user.list.js"></script>
     <script src="module/gallery/controller/gallery.view.ctrl.js"></script>
     <script src="module/gallery/directive/gallery.capture.directive.js"></script>
     <script src="module/gallery/directive/gallery.comment.directive.js"></script>
     <script src="module/gallery/directive/gallery.like.directive.js"></script>
     <script src="module/gallery/directive/gallery.like.modal.directive.js"></script>
     <script src="module/gallery/directive/gallery.loading.directive.js"></script>
+    <script src="module/gallery/directive/gallery.photo.feedback.js"></script>
+    <script src="module/gallery/directive/gallery.photo.grid.directive.js"></script>
+    <script src="module/gallery/directive/gallery.photo.list.directive.js"></script>
     <script src="module/gallery/directive/gallery.profile.edit.js"></script>
     <script src="module/gallery/directive/gallery.settings.modal.js"></script>
     <script src="module/gallery/directive/ion-search.directive.js"></script>
+    <script src="module/gallery/service/gallery.feedback.form.js"></script>
+    <script src="module/gallery/service/gallery.feedback.model.js"></script>
     <script src="module/gallery/service/gallery.model.js"></script>
     <script src="module/gallery/service/gallery.settings.model.js"></script>
     <script src="module/gallery/service/parse.image.service.js"></script>
@@ -130,12 +118,14 @@
     <script src="js/cachemodule.js"></script>
     <script src="js/cacheviews.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/debug.error.js"></script>
     <script src="js/google.analytics.js"></script>
     <script src="js/momentjs.pt-br.js"></script>
-    <script src="js/translations.js"></script>
+    <script src="js/translate.form.js"></script>
+    <script src="js/translate.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
-<body class="instagram">
+<body class="photogram">
 <ion-nav-view></ion-nav-view>
 <div id="modal" class=""></div>
 <div id="fb-root"></div>

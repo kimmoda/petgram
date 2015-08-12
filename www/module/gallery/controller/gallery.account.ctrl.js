@@ -3,9 +3,10 @@ angular
     .module ('module.gallery')
     .controller ('GalleryAccountCtrl', function ($scope, $rootScope, $stateParams, Gallery) {
 
-    var self = this;
-
-    self.currentTab = 'module/gallery/view/gallery.photos.grid.html';
+    var self        = this;
+    self.loading    = true;
+    self.data       = [];
+    self.tab = 'grid';
 
     Gallery
         .getUser ($rootScope.user.id)
@@ -13,16 +14,16 @@ angular
         self.form = resp;
     });
 
-    self.tab = function (type) {
-        self.currentTab = 'module/gallery/view/gallery.photos.' + type + '.html';
-
-        console.log (self.currentTab);
-    };
-
     Gallery
         .getUserGallery ($rootScope.user.id)
         .then (function (resp) {
-        $scope.data = resp;
+        self.data = resp;
+        console.log (resp);
+    })
+        .then (function () {
+        $scope.$broadcast ('scroll.refreshComplete');
+        $scope.$broadcast ('scroll.infiniteScrollComplete');
+        self.loading = false;
     });
 
 

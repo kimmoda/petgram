@@ -1,8 +1,21 @@
 'use strict';
 angular
     .module ('module.user')
-    .config (function ($stateProvider) {
+    .config (function ($stateProvider, $urlRouterProvider) {
     $stateProvider
+
+        .state ('router', {
+        url       : '/',
+        template  : '',
+        controller: function ($state) {
+            if (Parse.User.current ()) {
+                $state.go ('gallery.home', {clear: true});
+            } else {
+                $state.go ('user.login', {clear: true});
+            }
+        }
+    })
+
 
         .state ('intro', {
         url        : '/intro',
@@ -47,38 +60,8 @@ angular
             });
         }
     })
-
-        .state ('app.userlist', {
-        url  : '/users',
-        views: {
-            menuContent: {
-                controller : 'UserListCtrl as UserList',
-                templateUrl: 'app/user/view/user.list.html'
-            }
-        }
-    })
-
-
-        .state ('app.profile', {
-        url  : '/profile',
-        views: {
-            menuContent: {
-                controller : 'UserProfileCtrl as Profile',
-                templateUrl: 'app/user/view/user.profile.html'
-            }
-        }
-    })
-
-        .state ('app.profile.friends', {
-        url  : '/friends',
-        views: {
-            tabFriend: {
-                controller : 'UserProfileFriendCtrl as UserProfileFriend',
-                templateUrl: 'app/user/view/user.profile.friends.html'
-            }
-        }
-    })
-
     ;
+
+    $urlRouterProvider.otherwise ('/');
 
 });
