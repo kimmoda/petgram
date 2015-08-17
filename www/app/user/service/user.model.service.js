@@ -492,24 +492,18 @@
                     };
                     $cordovaGeolocation
                         .getCurrentPosition(posOptions)
-                        .then(function (pos) {
-                            console.log('Fez a requisição');
-                            pos.status = true;
+                        .then(function (position) {
+                            console.log('Fez a requisição', position);
 
-                            data.location = pos;
+                            data.location = {
+                                latitude : position.coords.latitude,
+                                longitude: position.coords.longitude
+                            };
                             defer.resolve(data.location);
                         }, function (err) {
                             // error
                             console.log('Pegou da Default');
-                            var location  = {
-                                coords: {
-                                    latitude : -23.5333333,
-                                    longitude: -46.6166667
-                                },
-                                status: false
-                            };
-                            data.location = location;
-                            defer.resolve(data.location);
+                            defer.reject(err);
                         });
                 }
 

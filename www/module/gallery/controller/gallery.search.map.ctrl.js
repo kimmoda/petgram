@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('module.gallery')
-        .controller('GallerySearchMapCtrl', function ($scope, $cordovaGeolocation, Notify, Gallery) {
+        .controller('GallerySearchMapCtrl', function ($scope, User, Notify, Gallery) {
             var vm = this;
             Notify.showLoading();
 
@@ -14,13 +14,9 @@
                 zoom  : 13
             };
 
-            var options = {
-                timeout           : 10000,
-                enableHighAccuracy: true
-            };
 
-            $cordovaGeolocation
-                .getCurrentPosition(options)
+            User
+                .location()
                 .then(function (position) {
 
                     console.log(position);
@@ -31,8 +27,8 @@
                     //};
 
                     vm.map.center = {
-                        latitude : position.coords.latitude,
-                        longitude: position.coords.longitude
+                        latitude : position.latitude,
+                        longitude: position.longitude
                     };
 
                     Gallery

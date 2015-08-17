@@ -26,25 +26,17 @@
             GallerySetting.init();
             ConnectMonitor.startWatching();
 
-
             if ($window.cordova) {
                 // org.apache.cordova.statusbar required
                 $cordovaStatusbar.style(1);
                 $cordovaStatusbar.styleHex('#00796B');
                 $cordovaStatusbar.overlaysWebView(true);
-
-                if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
-                }
             }
 
             $ionicPlatform.ready(function () {
 
-                //inicializa o GOOGLE ANALYTICS para o app
-                if (typeof analytics !== 'undefined') {
-                    analytics.startTrackerWithId('UA-2111029-13');
-                } else {
-                    console.log('Google Analytics for Apps Unavailable');
+                if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+                    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
                 }
 
                 if ($window.cordova) {
