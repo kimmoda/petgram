@@ -1,7 +1,8 @@
-'use strict';
-angular
-    .module ('ion-tinga', ['ionic'])
-    .directive ('tiTransparentNavBar', function (tiNavBarDelegate, $rootScope) {
+(function(){
+    'use strict';
+    angular
+        .module ('ion-tinga', ['ionic'])
+        .directive ('tiTransparentNavBar', function (tiNavBarDelegate, $rootScope) {
         return {
             restrict: 'A',
             link    : function ($scope, $element, $attr) {
@@ -23,7 +24,7 @@ angular
         }
     })
 
-    .directive ('tiFadeInNavBarOnScroll', function (tiNavBarDelegate, $rootScope) {
+        .directive ('tiFadeInNavBarOnScroll', function (tiNavBarDelegate, $rootScope) {
         return {
             restrict: 'A',
             link    : function ($scope, $element, $attr) {
@@ -84,7 +85,7 @@ angular
             }
         }
     })
-    .service ('tiNavBarDelegate', function ($document) {
+        .service ('tiNavBarDelegate', function ($document) {
         var navbars = $document[0].body.querySelectorAll ('.nav-bar-block ion-header-bar');
         return {
             makeNavBarTransparent: function () {
@@ -110,3 +111,4 @@ angular
             }
         }
     });
+})();

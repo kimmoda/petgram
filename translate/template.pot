@@ -17,16 +17,16 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: gallery/view/gallery.photos.list.html:64
+#: gallery/view/gallery.photos.list.html:75
 msgid "Add comment"
 msgstr ""
 
-#: core/service/photo.service.js:50
+#: core/service/photo.service.js:51
 msgid "Camera"
 msgstr ""
 
-#: core/service/photo.service.js:57
-#: user/controller/user.login.ctrl.js:53
+#: core/service/photo.service.js:58
+#: user/controller/user.login.ctrl.js:54
 msgid "Cancel"
 msgstr ""
 
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
-#: gallery/view/gallery.photo.html:43
+#: gallery/view/gallery.photo.html:45
 msgid "Comment"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: user/directive/button.facebook.directive.js:13
+#: user/directive/button.facebook.directive.js:14
 msgid "Conect your Facebook"
 msgstr ""
 
@@ -59,11 +59,11 @@ msgstr ""
 msgid "Edit Profile"
 msgstr ""
 
-#: core/service/photo.service.js:77
+#: core/service/photo.service.js:78
 msgid "Enabled your camera"
 msgstr ""
 
-#: user/view/user.intro.html:41
+#: user/view/user.intro.html:42
 #: user/view/user.login.html:17
 #: user/view/user.login.html:2
 #: user/view/user.tabs.html:16
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Enter"
 msgstr ""
 
-#: core/service/photo.service.js:76
+#: core/service/photo.service.js:77
 msgid "Error"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Forgot your password?"
 msgstr ""
 
-#: core/service/photo.service.js:53
+#: core/service/photo.service.js:54
 msgid "Gallery"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Gallery preview"
 msgstr ""
 
-#: user/controller/user.login.ctrl.js:65
+#: user/controller/user.login.ctrl.js:66
 msgid "Invalid Email"
 msgstr ""
 
@@ -116,11 +116,11 @@ msgid "Like"
 msgstr ""
 
 #: gallery/view/gallery.like.directive.html:5
-#: gallery/view/gallery.photos.list.html:48
+#: gallery/view/gallery.photos.list.html:59
 msgid "Likes"
 msgstr ""
 
-#: gallery/view/gallery.settings.modal.html:52
+#: gallery/view/gallery.settings.modal.html:51
 msgid "Logout"
 msgstr ""
 
@@ -132,25 +132,21 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: gallery/view/gallery.activity.html:15
-msgid "Recent"
-msgstr ""
-
 #: user/view/user.register.html:1
 #: user/view/user.register.html:9
 #: user/view/user.tabs.html:18
 msgid "Register"
 msgstr ""
 
-#: gallery/view/gallery.search.html:4
+#: gallery/view/gallery.search.grid.html:4
 msgid "Search"
 msgstr ""
 
-#: user/controller/user.login.ctrl.js:57
+#: user/controller/user.login.ctrl.js:58
 msgid "Send"
 msgstr ""
 
-#: core/service/photo.service.js:56
+#: core/service/photo.service.js:57
 msgid "Send Photo"
 msgstr ""
 
@@ -180,15 +176,15 @@ msgstr ""
 msgid "Terms of User"
 msgstr ""
 
-#: gallery/service/gallery.feedback.model.js:34
+#: gallery/service/gallery.feedback.model.js:35
 msgid "Thanks"
 msgstr ""
 
-#: gallery/service/gallery.feedback.model.js:35
+#: gallery/service/gallery.feedback.model.js:36
 msgid "Thanks for your Feedback"
 msgstr ""
 
-#: user/controller/user.login.ctrl.js:50
+#: user/controller/user.login.ctrl.js:51
 msgid "Uma nova senha será enviada para o seu endereço de email:"
 msgstr ""
 
@@ -200,11 +196,11 @@ msgstr ""
 msgid "Write a Caption"
 msgstr ""
 
-#: gallery/service/gallery.model.js:777
+#: gallery/service/gallery.model.js:816
 msgid "add comment"
 msgstr ""
 
-#: gallery/service/gallery.model.js:776
+#: gallery/service/gallery.model.js:815
 msgid "add photo"
 msgstr ""
 
@@ -212,7 +208,7 @@ msgstr ""
 msgid "followers"
 msgstr ""
 
-#: gallery/service/gallery.model.js:778
+#: gallery/service/gallery.model.js:817
 msgid "like photo"
 msgstr ""
 
@@ -224,10 +220,10 @@ msgstr ""
 msgid "posts"
 msgstr ""
 
-#: gallery/service/gallery.model.js:780
+#: gallery/service/gallery.model.js:819
 msgid "register"
 msgstr ""
 
-#: gallery/service/gallery.model.js:779
+#: gallery/service/gallery.model.js:818
 msgid "unlike photo"
 msgstr ""

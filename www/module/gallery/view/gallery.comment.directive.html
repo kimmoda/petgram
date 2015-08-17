@@ -14,9 +14,11 @@
              ng-show="comments.length">
             <div ng-repeat="item in comments"
                  class="item item-avatar">
-                <img ng-src="{{ item.user.src }}"/>
+                <img ng-src="{{ item.user.src }}" />
+
                 <div class="row">
                     <h2>{{ item.user.name }}</h2>
+
                     <div>{{ item.text }}</div>
                 </div>
                 <div class="row">

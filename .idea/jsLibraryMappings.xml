@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$" libraries="{Parse node_modules}" />
+    <file url="PROJECT" libraries="{Prototype-1.7.1, angular-formly-DefinitelyTyped, angularjs-DefinitelyTyped, parse-DefinitelyTyped}" />
+  </component>
+</project>

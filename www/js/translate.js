@@ -1,3 +1,4 @@
+;(function() {
 'use strict';
 angular.module('translate.app',['ionic'])
 .run(function (gettextCatalog) {
@@ -52,3 +53,4 @@ angular.module('translate.app',['ionic'])
 });
   gettextCatalog.setStrings('en', {});
 });
+}());

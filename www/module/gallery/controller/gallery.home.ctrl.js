@@ -1,53 +1,55 @@
-'use strict';
-angular
-    .module ('module.gallery')
-    .controller ('GalleryHomeCtrl', function ($scope, $ionicPopover, $stateParams, PhotoService, Gallery, $timeout) {
-    var self     = this;
-    self.page    = -1;
-    self.active  = false;
-    self.data    = [];
-    self.loading = false;
-    $scope.like  = false;
-    
+(function () {
+    'use strict';
+    angular
+        .module('module.gallery')
+        .controller('GalleryHomeCtrl', function ($scope, $ionicPopover, $stateParams, PhotoService, Gallery, $timeout) {
+            var vm      = this;
+            vm.page     = -1;
+            vm.active   = false;
+            vm.data     = [];
+            vm.loading  = false;
+            $scope.like = false;
 
-    $scope.loadMore = function (force) {
-        console.log ('Load More');
-        self.load (force);
-    }
 
-    self.load = function (force) {
-        console.log ('Load ');
-        self.loading = true;
-        if (force) {
-            self.data = [];
-            self.page = -1;
-        }
+            $scope.loadMore = function (force) {
+                console.log('Load More');
+                vm.load(force);
+            }
 
-        self.page = parseInt (self.page) + 1;
+            vm.load = function (force) {
+                console.log('Load ');
+                vm.loading = true;
+                if (force) {
+                    vm.data = [];
+                    vm.page = -1;
+                }
 
-        Gallery
-            .all (self.page)
-            .then (function (resp) {
-            console.log (resp);
-            angular.forEach (resp, function (value, key) {
-                self.data.push (value);
-            });
-        })
-            .then (function () {
-            $scope.$broadcast ('scroll.refreshComplete');
-            $scope.$broadcast ('scroll.infiniteScrollComplete');
-            self.loading = false;
+                vm.page = parseInt(vm.page) + 1;
+
+                Gallery
+                    .all(vm.page)
+                    .then(function (resp) {
+                        console.log(resp);
+                        angular.forEach(resp, function (value, key) {
+                            vm.data.push(value);
+                        });
+                    })
+                    .then(function () {
+                        $scope.$broadcast('scroll.refreshComplete');
+                        $scope.$broadcast('scroll.infiniteScrollComplete');
+                        vm.loading = false;
+                    });
+            };
+
+            vm.upload = function () {
+                PhotoService
+                    .open()
+                    .then(function (resp) {
+                        console.log(resp);
+                    });
+            };
+
+            vm.load($stateParams.reload);
+
         });
-    };
-
-    self.upload = function () {
-        PhotoService
-            .open ()
-            .then (function (resp) {
-            console.log (resp);
-        });
-    };
-
-    self.load ($stateParams.reload);
-
-});
+})();

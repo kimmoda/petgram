@@ -1,6 +1,8 @@
-'use strict';
-angular
-    .module ('module.core')
-    .factory ('Parse', function ($window) {
-    return $window.Parse;
-});
+(function () {
+    'use strict';
+    angular
+        .module('module.core')
+        .service('Parse', function ($window) {
+            return $window.Parse;
+        });
+})();

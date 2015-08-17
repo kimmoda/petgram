@@ -1,7 +1,7 @@
 {
-  "name": "Ionicgram",
+  "name": "Photogram",
   "version": "1.0.0",
-  "description": "Parse: An Ionic project",
+  "description": "Share your photos",
   "dependencies": {
     "ansi-styles": "^2.1.0",
     "clone": "^1.0.2",
@@ -67,7 +67,7 @@
     "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    "android",
+    "ios"
   ]
 }

@@ -1,0 +1,27 @@
+<ion-view class="maps-view">
+    <ion-nav-title>
+        Map
+    </ion-nav-title>
+    <ion-content scroll="false">
+        <div class="map-container">
+            <ui-gmap-google-map center='GallerySearchMap.map.center'
+                                zoom='GallerySearchMap.map.zoom'>
+
+                <ui-gmap-marker
+                        idKey='0'
+                        coords='GallerySearchMap.user'
+                >
+                </ui-gmap-marker>
+
+                <ui-gmap-marker
+                        idKey='item.id'
+                        coords='item.coords'
+                        ng-repeat="item in GallerySearchMap.data"
+                >
+                </ui-gmap-marker>
+
+
+            </ui-gmap-google-map>
+        </div>
+    </ion-content>
+</ion-view>

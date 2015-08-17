@@ -12,14 +12,12 @@
 
         <div class="list step2">
 
-            <div class="item item-divider">{{ 'Recent' | translate }}</div>
-
             <div class="item item-avatar"
                  ng-repeat="item in GalleryActivity.data"><img ng-src="{{ item.user.src }}">
 
                 <h2>{{ item.user.name }}</h2>
 
-                <div class="text">{{ item.action }}</div>
+                <div class="text">{{ item.action | translate }}</div>
                 <p>{{ item.created | amTimeAgo }}</p>
 
                 <div class="img-right">

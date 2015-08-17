@@ -1,2 +1,5 @@
-'use strict';
-angular.module ('ionic.loading', ['ionic']);
+(function(){
+    'use strict';
+    angular.module ('ionic.loading', ['ionic']);
+
+})();

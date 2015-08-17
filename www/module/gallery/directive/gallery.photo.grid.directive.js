@@ -1,13 +1,15 @@
-'use strict';
-angular
-    .module ('module.gallery')
-    .directive ('galleryPhotoGrid', function () {
-    return {
-        restrict   : 'E',
-        scope      : {
-            data   : '=gallery',
-            loading: '='
-        },
-        templateUrl: 'module/gallery/view/gallery.photos.grid.html'
-    }
-});
+(function () {
+    'use strict';
+    angular
+        .module('module.gallery')
+        .directive('galleryPhotoGrid', function () {
+            return {
+                restrict   : 'E',
+                scope      : {
+                    data   : '=gallery',
+                    loading: '='
+                },
+                templateUrl: 'module/gallery/view/gallery.photos.grid.html'
+            }
+        });
+})();

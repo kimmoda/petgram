@@ -1,284 +1,284 @@
 //colors
-$seashell : #f1f1f1;
-$color_mine_shaft_approx : $positive;
-$white : #fff;
+$seashell: #f1f1f1;
+$color_mine_shaft_approx: $positive;
+$white: #fff;
 
 //urls
-$url_0 : url(../img/device-mockups/iphone_5/iphone_5_port_black.png);
-$url_1 : url(../img/device-mockups/iphone_6_plus/iphone_6_plus_black_port.png);
-$url_2 : url(../img/device-mockups/iphone_6_plus/iphone_6_plus_white_port.png);
-$url_3 : url(../img/device-mockups/iphone_6_plus/iphone_6_plus_gold_port.png);
-$url_4 : url(../img/device-mockups/iphone_6/iphone_6_black_port.png);
-$url_5 : url(../img/device-mockups/iphone_6/iphone_6_white_port.png);
-$url_6 : url(../img/device-mockups/iphone_6/iphone_6_gold_port.png);
-$url_7 : url(../img/device-mockups/iphone_5/iphone_5_port_white.png);
-$url_8 : url(../img/device-mockups/nexus_6/nexus_6_port.png);
-$url_9 : url(../img/device-mockups/galaxy_s5/galaxy_s5_black_port.png);
-$url_10 : url(../img/device-mockups/galaxy_s5/galaxy_s5_white_port.png);
-$url_11 : url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
+$url_0: url(../img/device-mockups/iphone_5/iphone_5_port_black.png);
+$url_1: url(../img/device-mockups/iphone_6_plus/iphone_6_plus_black_port.png);
+$url_2: url(../img/device-mockups/iphone_6_plus/iphone_6_plus_white_port.png);
+$url_3: url(../img/device-mockups/iphone_6_plus/iphone_6_plus_gold_port.png);
+$url_4: url(../img/device-mockups/iphone_6/iphone_6_black_port.png);
+$url_5: url(../img/device-mockups/iphone_6/iphone_6_white_port.png);
+$url_6: url(../img/device-mockups/iphone_6/iphone_6_gold_port.png);
+$url_7: url(../img/device-mockups/iphone_5/iphone_5_port_white.png);
+$url_8: url(../img/device-mockups/nexus_6/nexus_6_port.png);
+$url_9: url(../img/device-mockups/galaxy_s5/galaxy_s5_black_port.png);
+$url_10: url(../img/device-mockups/galaxy_s5/galaxy_s5_white_port.png);
+$url_11: url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png);
 
 .background-positive {
-  background-color : $positive;
+  background-color: $positive;
 }
 
 .background-calm {
-  background-color : $calm;
+  background-color: $calm;
 }
 
 .background-balanced {
-  background-color : $balanced;
+  background-color: $balanced;
 }
 
 .background-energized {
-  background-color : $energized;
+  background-color: $energized;
 }
 
 .background-assertive {
-  background-color : $assertive;
+  background-color: $assertive;
 }
 
 .background-royal {
-  background-color : $royal;
+  background-color: $royal;
 }
 
 .app-intro {
-  background-color : $seashell;
+  background-color: $seashell;
   .intro-slider {
-    height : 100%;
-    
+    height: 100%;
+
     .button-skip {
-      background  : none;
-      border      : none;
-      color       : #fff;
-      display     : block;
-      font-size   : 16px;
-      font-weight : bold;
-      position    : absolute;
-      right       : 15px;
-      top         : 40px;
-      z-index     : 1;
+      background: none;
+      border: none;
+      color: #fff;
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      position: absolute;
+      right: 15px;
+      top: 40px;
+      z-index: 1;
     }
-    
+
     .device-wrapper {
-      height   : inherit;
-      padding  : 0;
-      position : absolute;
-      top      : 32px;
+      height: inherit;
+      padding: 0;
+      position: absolute;
+      top: 32px;
       .device-wrapper-body {
-        height      : 100%;
-        padding     : 0;
-        padding-top : 90px;
-        position    : absolute;
-        
+        height: 100%;
+        padding: 0;
+        padding-top: 90px;
+        position: absolute;
+
         .device-wrapper-container {
-          height  : inherit;
-          padding : 0;
+          height: inherit;
+          padding: 0;
           .top-dissapearing-effect {
-            height   : 75px;
-            position : absolute;
-            width    : inherit;
+            height: 75px;
+            position: absolute;
+            width: inherit;
           }
           .left-dissapearing-effect {
-            height  : inherit;
-            padding : 0;
-            width   : 100%;
-            z-index : 6;
+            height: inherit;
+            padding: 0;
+            width: 100%;
+            z-index: 6;
           }
           .center-dissapearing-effect {
-            height   : inherit;
-            padding  : 0;
-            position : relative;
-            width    : 100%;
+            height: inherit;
+            padding: 0;
+            position: relative;
+            width: 100%;
           }
           .right-dissapearing-effect {
-            height  : inherit;
-            padding : 0;
-            width   : 100%;
-            z-index : 6;
+            height: inherit;
+            padding: 0;
+            width: 100%;
+            z-index: 6;
           }
         }
       }
     }
   }
   .slider {
-    height     : 100%;
-    overflow   : inherit !important;
-    overflow-x : hidden;
+    height: 100%;
+    overflow: inherit !important;
+    overflow-x: hidden;
     .slider-pager {
-      height      : initial;
-      line-height : 10px;
-      top         : 40px;
-      z-index     : 0;
+      height: initial;
+      line-height: 10px;
+      top: 40px;
+      z-index: 0;
       .slider-pager-page {
-        color     : #fff;
-        font-size : 10px;
+        color: #fff;
+        font-size: 10px;
       }
     }
   }
   .intro-buttons {
-    background-color : $white;
-    height           : 22%;
-    padding-top      : 14px;
+    background-color: $white;
+    height: 22%;
+    padding-top: 14px;
     .row {
-      padding-bottom : 0px;
+      padding-bottom: 0px;
     }
     .col {
-      padding : 2px;
+      padding: 2px;
     }
     .button {
-      height      : 40px;
-      line-height : 40px;
-      margin      : 5px 0;
-      margin      : 5px auto;
-      min-height  : 20px;
-      width       : 100%;
+      height: 40px;
+      line-height: 40px;
+      margin: 5px 0;
+      margin: 5px auto;
+      min-height: 20px;
+      width: 100%;
     }
     .button-info {
-      color      : $color_mine_shaft_approx;
-      font-size  : 12px;
-      margin     : 0;
-      text-align : center;
+      color: $color_mine_shaft_approx;
+      font-size: 12px;
+      margin: 0;
+      text-align: center;
     }
   }
   .slider-slide {
-    padding-top : 30px;
-    text-align  : center;
+    padding-top: 30px;
+    text-align: center;
     .slide-head {
-      height     : 90px;
-      overflow-y : hidden;
+      height: 90px;
+      overflow-y: hidden;
       * {
-        color  : $seashell;
-        margin : 0;
+        color: $seashell;
+        margin: 0;
       }
     }
     .slide-body {
-      height     : calc(100% - 89px);
-      margin-top : 0;
-      overflow   : hidden;
-      padding    : 0;
+      height: calc(100% - 89px);
+      margin-top: 0;
+      overflow: hidden;
+      padding: 0;
       .slide-body-wrapper {
-        height     : 81%;
-        margin-top : 25%;
-        padding    : 0 20%;
+        height: 81%;
+        margin-top: 25%;
+        padding: 0 20%;
       }
       .full-width-image {
-        width : 100%;
+        width: 100%;
       }
     }
-    
+
     .background {
-      bottom   : 0;
-      display  : block;
-      left     : 0;
-      position : absolute;
-      right    : 0;
-      top      : 0;
-      z-index  : -1;
+      bottom: 0;
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
     }
   }
   .device-html-example {
-    background-color : $seashell;
-    height           : 100%;
+    background-color: $seashell;
+    height: 100%;
   }
   #icon {
-    margin : 10px 0;
+    margin: 10px 0;
     img {
-      width : 70%;
+      width: 70%;
     }
   }
 }
 
 .device-background {
-  background-color  : initial;
-  background-image  : $url_0;
-  background-repeat : no-repeat;
-  background-size   : 100%;
+  background-color: initial;
+  background-image: $url_0;
+  background-repeat: no-repeat;
+  background-size: 100%;
   &.iphone6-plus {
-    background-image      : $url_1;
-    background-position-x : center;
-    background-position-y : 32px;
-    background-size       : 100%;
-    height                : 100%;
-    left                  : -7%;
-    position              : absolute;
-    width                 : 114%;
-    z-index               : 7;
+    background-image: $url_1;
+    background-position-x: center;
+    background-position-y: 32px;
+    background-size: 100%;
+    height: 100%;
+    left: -7%;
+    position: absolute;
+    width: 114%;
+    z-index: 7;
     &.black {
-      background-image : $url_1;
+      background-image: $url_1;
     }
     &.white {
-      background-image : $url_2;
+      background-image: $url_2;
     }
     &.gold {
-      background-image : $url_3;
+      background-image: $url_3;
     }
   }
   &.iphone6 {
-    background-image      : $url_4;
-    background-position-x : center;
-    background-position-y : 26px;
-    background-size       : 100%;
-    height                : 100%;
-    left                  : -7%;
-    position              : absolute;
-    width                 : 114%;
-    z-index               : 7;
+    background-image: $url_4;
+    background-position-x: center;
+    background-position-y: 26px;
+    background-size: 100%;
+    height: 100%;
+    left: -7%;
+    position: absolute;
+    width: 114%;
+    z-index: 7;
     &.black {
-      background-image : $url_4;
+      background-image: $url_4;
     }
     &.white {
-      background-image : $url_5;
+      background-image: $url_5;
     }
     &.gold {
-      background-image : $url_6;
+      background-image: $url_6;
     }
   }
   &.iphone5 {
-    background-image      : $url_0;
-    background-position-x : center;
-    background-position-y : 0;
-    background-size       : 100%;
-    height                : 100%;
-    left                  : -15%;
-    position              : absolute;
-    width                 : 130%;
-    z-index               : 7;
+    background-image: $url_0;
+    background-position-x: center;
+    background-position-y: 0;
+    background-size: 100%;
+    height: 100%;
+    left: -15%;
+    position: absolute;
+    width: 130%;
+    z-index: 7;
     &.black {
-      background-image : $url_0;
+      background-image: $url_0;
     }
     &.white {
-      background-image : $url_7;
+      background-image: $url_7;
     }
   }
   &.nexus6 {
-    background-image      : $url_8;
-    background-position-x : center;
-    background-position-y : 64px;
-    background-size       : 100%;
-    height                : 100%;
-    left                  : -4%;
-    position              : absolute;
-    width                 : 109%;
-    z-index               : 7;
+    background-image: $url_8;
+    background-position-x: center;
+    background-position-y: 64px;
+    background-size: 100%;
+    height: 100%;
+    left: -4%;
+    position: absolute;
+    width: 109%;
+    z-index: 7;
   }
   &.galaxyS5 {
-    background-image      : $url_9;
-    background-position-x : center;
-    background-position-y : 42px;
-    background-size       : 100%;
-    height                : 100%;
-    left                  : -7%;
-    position              : absolute;
-    width                 : 114%;
-    z-index               : 7;
+    background-image: $url_9;
+    background-position-x: center;
+    background-position-y: 42px;
+    background-size: 100%;
+    height: 100%;
+    left: -7%;
+    position: absolute;
+    width: 114%;
+    z-index: 7;
     &.black {
-      background-image : $url_9;
+      background-image: $url_9;
     }
     &.white {
-      background-image : $url_10;
+      background-image: $url_10;
     }
     &.gold {
-      background-image : $url_11;
+      background-image: $url_11;
     }
   }
 }

@@ -124,3 +124,19 @@ ion-nav-bar.bar.bar-positive.bar-none.nav-bar-container {
     margin-left : 10px;
   }
 }
+
+.view-loading {
+  background-color : $positive;
+  .scroll {
+    height   : 100%;
+    position : relative;
+
+    img {
+      display  : block;
+      position : absolute;
+      top      : 25%;
+      left     : 25%;
+      max-width: 50%;
+    }
+  }
+}

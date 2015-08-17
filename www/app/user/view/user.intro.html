@@ -2,7 +2,8 @@
     <div class="intro-slider">
 
         <button class="button-skip"
-                ui-sref="user.login" translate>Skip
+                ui-sref="user.login"
+                translate>Skip
         </button>
 
         <div on-swipe-right="previousSlide()"
@@ -31,8 +32,8 @@
                     </div>
                 </div>
                 <div class="row slide-body zoomIn "
-                        ng-if="$index == slideIndex"
-                    >
+                     ng-if="$index == slideIndex"
+                >
                     <div class="col slide-body-wrapper">
                         <img class="full-width-image"
                              ng-src="{{ item.img }}">

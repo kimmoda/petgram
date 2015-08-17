@@ -5681,6 +5681,12 @@ ion-tabs.tabs-color-active-dark .tab-item {
   cursor: default;
   pointer-events: none; }
 
+.nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
+  top: 0; }
+
+.pane[hide-nav-bar="true"] .has-tabs-top {
+  top: 49px; }
+
 /**
  * Menus
  * --------------------------------------------------
@@ -5707,7 +5713,8 @@ ion-tabs.tabs-color-active-dark .tab-item {
   box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.2), 1px 0px 2px rgba(0, 0, 0, 0.2); }
 
 .menu-open .menu-content .pane, .menu-open .menu-content .scroll-content {
-  pointer-events: none; }
+  pointer-events: none;
+  overflow: hidden; }
 
 .grade-b .menu-content, .grade-c .menu-content {
   -webkit-box-sizing: content-box;
@@ -7892,7 +7899,7 @@ input[type="radio"][disabled], input[type="checkbox"][disabled], input[type="rad
     top: 0;
     bottom: 0;
     right: 0;
-    padding: 14px 48px 16px 16px;
+    padding: 0 48px 0 16px;
     max-width: 65%;
     border: none;
     background: #fff;
@@ -9296,11 +9303,14 @@ a.button {
     -webkit-transition: all ease 0.5s; }
   .photogram .tabs-light {
     background: #fff; }
-  .photogram ion-tabs.tabs-dark.tabs-photogram .tab-item.tab-item-active, .photogram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .photogram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
+  .photogram .bar-positive {
+    border-bottom: 0px; }
+  .photogram ion-tabs.tabs-dark.tabs-photogram.tabs-bottom .tab-item.tab-item-active, .photogram ion-tabs.tabs-dark.tabs-photogram.tabs-bottom .tab-item.active, .photogram ion-tabs.tabs-dark.tabs-photogram.tabs-bottom .tab-item.activated {
     background-color: #070808;
     border-bottom: 5px solid #009688; }
-  .photogram ion-tabs.tabs-light .tab-item.tab-item-active, .photogram ion-tabs.tabs-light .tab-item.active, .photogram ion-tabs.tabs-light .tab-item.activated {
-    background-color: #fff; }
+  .photogram ion-tabs.tabs-dark.tabs-photogram .tabs-top .tab-item.tab-item-active, .photogram ion-tabs.tabs-dark.tabs-photogram .tabs-top .tab-item.active, .photogram ion-tabs.tabs-dark.tabs-photogram .tabs-top .tab-item.activated {
+    background: none;
+    border-bottom: 5px solid #fff; }
   .photogram .capture-legend {
     padding: 0; }
     .photogram .capture-legend .item-input {
@@ -9415,19 +9425,9 @@ a.button {
     color: #25272a;
     text-transform: uppercase; }
 
-.row-detail {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2); }
-
-.card {
-  margin-bottom: 0px !important;
-  margin-top: 10px !important; }
-
 .map-container {
   min-height: 200px;
+  height: 100%;
   width: 100%;
   margin: 0px;
   position: relative;
@@ -9438,45 +9438,6 @@ a.button {
     bottom: 0;
     right: 0;
     left: 0; }
-
-.map-modal-container .scroll {
-  display: block;
-  height: 100%;
-  width: 100%;
-  position: relative; }
-  .map-modal-container .scroll .angular-google-map-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0; }
-
-.maps-view {
-  background-color: #EAEAEA !important; }
-
-.maps-view .center-map-action {
-  position: absolute;
-  top: 35px;
-  z-index: 9; }
-
-.maps-view .center-map-action .item.item-input-inset {
-  padding: 0px 5px; }
-
-.maps-view .center-map-action .item-input-wrapper {
-  background: none; }
-
-.maps-view map {
-  width: 100%;
-  height: 100% !important; }
-
-.maps-view .scroll, .maps-view .mapWrap {
-  height: 100%; }
-
-.image-picker-view {
-  background: #EAEAEA; }
-
-.image-picker-view .image-option {
-  font-size: 14px !important; }
 
 .form-login .scroll-content {
   padding-top: 30px; }
@@ -10107,3 +10068,15 @@ ion-nav-bar.bar.bar-positive.bar-none.nav-bar-container {
     width: 100%;
     background: none;
     margin-left: 10px; }
+
+.view-loading {
+  background-color: #009688; }
+  .view-loading .scroll {
+    height: 100%;
+    position: relative; }
+    .view-loading .scroll img {
+      display: block;
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      max-width: 50%; }
