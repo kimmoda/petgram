@@ -60,8 +60,8 @@
 
 
             return {
-                isOnline     : isOnline,
-                ifOffline    : ifOffline,
+                online       : isOnline,
+                offline      : ifOffline,
                 startWatching: startWatching
             };
         });

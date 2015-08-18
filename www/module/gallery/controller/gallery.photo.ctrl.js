@@ -1,49 +1,47 @@
-(function () {
-    'use strict';
-    angular
-        .module('module.gallery')
-        .controller('GalleryPhotoCtrl', function ($stateParams, Gallery) {
-            var vm = this;
+'use strict';
+angular
+    .module('module.gallery')
+    .controller('GalleryPhotoCtrl', function ($stateParams, Gallery) {
+        var vm = this;
 
-            function init() {
-                vm.form = {
-                    galleryId: $stateParams.id,
-                    text     : ''
-                };
+        function init() {
+            vm.form = {
+                galleryId: $stateParams.id,
+                text     : ''
+            };
 
-                loadComments();
-            }
+            loadComments();
+        }
 
-            vm.formFields = Gallery.formComment;
+        vm.formFields = Gallery.formComment;
 
+        Gallery
+            .get($stateParams.id)
+            .then(function (resp) {
+                vm.data = resp;
+            });
+
+        function loadComments() {
             Gallery
-                .get($stateParams.id)
+                .allComment($stateParams.id)
                 .then(function (resp) {
-                    vm.data = resp;
+                    console.log(resp);
+                    vm.comments = resp;
                 });
+        };
 
-            function loadComments() {
+        init();
+
+        vm.submitComment = function (rForm, form) {
+            if (rForm.$valid) {
+                var dataForm = angular.copy(form);
                 Gallery
-                    .allComment($stateParams.id)
+                    .addComment(dataForm)
                     .then(function (resp) {
                         console.log(resp);
-                        vm.comments = resp;
+                        loadComments();
                     });
-            };
+            }
+        };
 
-            init();
-
-            vm.submitComment = function (rForm, form) {
-                if (rForm.$valid) {
-                    var dataForm = angular.copy(form);
-                    Gallery
-                        .addComment(dataForm)
-                        .then(function (resp) {
-                            console.log(resp);
-                            loadComments();
-                        });
-                }
-            };
-
-        });
-})();
+    });

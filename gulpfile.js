@@ -29,6 +29,7 @@ var gulp          = require('gulp'),
     iife          = require("gulp-iife"),
     runSequence   = require('run-sequence'),
     rev           = require('gulp-rev'),
+    tag_version   = require('gulp-tag-version'),
     paths         = require('./config'),
     replaceFiles  = ['./www/js/app.js'],
     config        = ['./www/js/config.js'],
@@ -164,7 +165,7 @@ gulp.task('gettext:compile', function () {
         //.pipe (ngAnnotate ())
         //.pipe (uglify ())
         .pipe(rename('translate.js')) // Rename to final javascript filename
-        .pipe(iife())
+        //.pipe(iife())
         .pipe(gulp.dest(paths.source + '/js/'));
 });
 
@@ -191,7 +192,7 @@ gulp.task('template:app', function () {
             root      : 'app',
             standalone: true
         }))
-        .pipe(iife())
+        //.pipe(iife())
         .pipe(gulp.dest('./www/js/'));
 });
 
@@ -204,7 +205,7 @@ gulp.task('template:module', function () {
             root      : 'module',
             standalone: true
         }))
-        .pipe(iife())
+        //.pipe(iife())
         .pipe(gulp.dest('./www/js/'));
 });
 
@@ -623,17 +624,4 @@ gulp.task('lint', function () {
     return gulp.src(paths.src.js)
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
-});
-
-gulp.task('folder:prod', function (done) {
-    fs.rename('www', 'temp', function (success) {
-        fs.rename('dist', 'www')
-    })
-
-});
-
-gulp.task('folder:dev', function (done) {
-    fs.rename('www', 'dist', function (success) {
-        fs.rename('temp', 'www')
-    })
 });

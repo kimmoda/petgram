@@ -1,7 +1,5 @@
-(function () {
-    'use strict';
-    angular.module('module.core', [
-        'ionic',
-        'gettext'
-    ]);
-})();
+'use strict';
+angular.module('module.core', [
+    'ionic',
+    'gettext'
+]);

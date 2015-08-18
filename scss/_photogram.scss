@@ -206,6 +206,7 @@
     }
   }
 
+  // Modal Comment Directive
   .modal-comment {
 
     .scroll {
@@ -294,7 +295,7 @@
         display: inline;
         min-width: 85px;
         min-height: 85px;
-        max-width: 95px;
+        max-width: 85px;
         border-radius: 50%;
         margin: 6px;
         background-color: #ddd;
@@ -451,6 +452,24 @@
     border-bottom: 2px solid #ddd;
     color: $dark;
     text-transform: uppercase;
+  }
+
+  .center-ico {
+
+    i {
+      color: #ccc;
+      font-size: 150pt;
+      display: block;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 18px;
+      display: block;
+      text-align: center;
+      color: #ddd;
+    }
+
   }
 
 }

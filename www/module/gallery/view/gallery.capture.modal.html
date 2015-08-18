@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="item item-toggle">
-                Adicionar Localização <label class="toggle toggle-positive">
+                {{ 'Geolocation' | translate }}<label class="toggle toggle-positive">
                 <input type="checkbox"
                        ng-model="form.geo"
                        ng-change="getGeo(form.geo)">
@@ -44,29 +44,25 @@
                 </div>
             </label>
             </div>
-            <div class="item no-padding"
-                 ng-show="form.geo">
+            <div class="item no-padding map-container" ng-show="form.geo">
+
                 <ui-gmap-google-map class="map-container"
                                     center="map.center"
-                                    zoom="map.zoom"
-                                    options="map.options">
+                                    zoom="map.zoom">
 
-                    <ui-gmap-marker ng-repeat="mapa in here"
-                                    coords="mapa.coords"
-                                    icon="mapa.icon"
-                                    idkey="mapa.id"></ui-gmap-marker>
+                    <ui-gmap-marker idkey="0"
+                                    coords="here"
+                                    ></ui-gmap-marker>
 
                 </ui-gmap-google-map>
             </div>
-            <div class="item">
-                COMPARTILHAR NO
+            <div class="item item-divider"
+                 translate>
+                Share In
             </div>
-            <div class="item">
-                <div class="row">
-                    <div class="col">Facebook</div>
-                    <div class="col">Twitter</div>
-                </div>
-            </div>
+            <formly-form model="formShare"
+                         fields="formShareFields">
+            </formly-form>
         </div>
 
 

@@ -1,18 +1,9 @@
 module.exports = {
-    open   : true,
-    version: '1.0.0',
+    version: '0.0.2',
     const  : {
-        api     : {
+        PARSE     : {
             dev : 'http://127.0.0.1/clientes/11/4D1/server',
             prod: 'http://189.113.170.4/~fortheonecom/api/index.php'
-        },
-        blog    : {
-            dev : 'http://localhost:8100/blog/?json=',
-            prod: 'http://agenciafoccus.com.br/blog/?json='
-        },
-        facebook: {
-            dev : '750930828289265',
-            prod: '750930828289265'
         }
     },
     src    : {

@@ -1,4 +1,2 @@
-(function () {
-    'use strict';
-    angular.module('module.user', ['ionic']);
-})();
+'use strict';
+angular.module('module.user', ['ionic']);

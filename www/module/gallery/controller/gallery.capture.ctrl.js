@@ -1,124 +1,107 @@
-(function () {
-    'use strict';
-    angular
-        .module('module.gallery')
-        .controller('GalleryCaptureCtrl', function ($scope, $cordovaGeolocation, $ionicModal, PhotoService, ParseImageService, $state, Gallery, Notify) {
+'use strict';
+angular
+    .module('module.gallery')
+    .controller('GalleryCaptureCtrl', function ($scope, User, $ionicModal, PhotoService, ParseImageService, $state, Gallery, Notify) {
 
-            $scope.map = {
-                center     : {
-                    latitude : -23.5333333,
-                    longitude: -46.6166667
+        $scope.map = {
+            center: {
+                center: {
+                    latitude : 45,
+                    longitude: -73
                 },
-                scrollwheel: false,
-                zoom       : 15
+                zoom  : 13
+            }
+        };
+
+        function init() {
+            $scope.form = {
+                title   : '',
+                location: '',
+                photo   : '',
+                geo     : false
             };
 
-            function init() {
-                $scope.form = {
-                    title   : '',
-                    location: '',
-                    photo   : '',
-                    geo     : false
-                };
+            $scope.data    = '';
+        }
 
-                $scope.data    = '';
-                $scope.loading = false;
+        function getLocation() {
 
+            if ($scope.form.location === '') {
+                User
+                    .location()
+                    .then(function (position) {
+
+                        $scope.here          = position;
+                        $scope.form.location = position;
+                        $scope.map.center    = position;
+                        $scope.loading = false;
+
+                        console.log($scope.form);
+                        console.log($scope.here);
+                        console.log(position);
+                    }, function (err) {
+                        // error
+                        console.log(err);
+                    });
             }
 
-            function getLocation() {
-                var posOptions = {
-                    timeout           : 10000,
-                    enableHighAccuracy: false
-                };
 
-                if ($scope.form.location === '') {
-
-                    $scope.loading = false;
-
-                    $cordovaGeolocation
-                        .getCurrentPosition(posOptions)
-                        .then(function (position) {
-
-                            $scope.here = {
-                                id    : 1,
-                                coords: {
-                                    latitude : position.coords.latitude,
-                                    longitude: position.coords.longitude,
-                                },
-                                icon  : 'img/pin.png'
-                            };
-
-                            $scope.form.location = {
-                                latitude : position.coords.latitude,
-                                longitude: position.coords.longitude,
-                            };
-
-                            $scope.map.center = $scope.here.coords;
-                            $scope.loading    = false;
-
-                            console.log($scope.form);
-                            console.log($scope.here);
-                            console.log(position);
-                        }, function (err) {
-                            // error
-                        });
-                }
+        };
 
 
-            };
+        $scope.getGeo = function (resp) {
+            if (resp) getLocation();
+        };
 
+        $scope.formFields      = Gallery.form;
+        $scope.formShareFields = Gallery.formShare;
 
-            $scope.getGeo = function (resp) {
-                if (resp) getLocation();
-            };
+        $scope.open = function () {
+            init();
+            PhotoService
+                .open()
+                .then(function (resp) {
+                    $scope.form.photo = resp;
+                    $scope.data       = 'data:image/jpeg;base64,' + resp;
 
-            $scope.formFields = Gallery.form;
+                    Notify.showLoading();
 
-            $scope.open = function () {
-                init();
-                PhotoService
-                    .open()
-                    .then(function (resp) {
-                        $scope.loading    = false;
-                        $scope.form.photo = resp;
-                        $scope.data       = 'data:image/jpeg;base64,' + resp;
-                        // angular.element ('.title').focus ();
-
-                        $ionicModal.fromTemplateUrl('module/gallery/view/gallery.capture.modal.html', {
-                            scope: $scope
-                        }).then(function (modal) {
-                            $scope.modal = modal;
-                            $scope.modal.show();
-                        });
-
-                        $scope.closeModal = function () {
-                            $scope.modal.hide();
-                            $scope.modal.remove();
-                        };
-                    })
-                    .catch(function () {
-                        $state.go('gallery.home');
-                    });
-            };
-
-            $scope.open();
-
-            $scope.submitCapture = function (form) {
-                var dataForm = angular.copy($scope.form);
-                Notify.showLoading();
-                Gallery
-                    .add(dataForm)
-                    .then(function (resp) {
-                        $state.go('gallery.home', {
-                            reload: true
-                        });
-                        $scope.closeModal();
-                        init();
+                    $ionicModal.fromTemplateUrl('module/gallery/view/gallery.capture.modal.html', {
+                        scope: $scope
+                    }).then(function (modal) {
+                        $scope.modal = modal;
+                        $scope.modal.show();
                         Notify.hideLoading();
                     });
-            };
+
+                    $scope.closeModal = function () {
+                        $scope.modal.hide();
+                        $scope.modal.remove();
+                    };
+                })
+                .catch(function () {
+                    $state.go('gallery.home');
+                });
+        };
+
+        $scope.open();
+
+        $scope.submitCapture = function (form) {
+            var dataForm  = angular.copy($scope.form);
+            var shareForm = angular.copy($scope.formShare);
+            console.log(shareForm);
+            Notify.showLoading();
+            Gallery
+                .add(dataForm)
+                .then(function (resp) {
+                    $state.go('gallery.home', {
+                        reload: true
+                    });
+                    $scope.closeModal();
+                    init();
+                    Notify.hideLoading();
+                });
+        };
 
 
-        });
-})();
+    });

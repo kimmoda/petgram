@@ -1,4 +1,4 @@
-;(function() {
+(function() {
 "use strict";
 
 angular.module("cacheapp", []).run(["$templateCache", function($templateCache) {$templateCache.put("app/core/view/loading.html","<ion-view><ion-content class=\"view-loading\"><img src=\"img/icon.png\"></ion-content></ion-view>");

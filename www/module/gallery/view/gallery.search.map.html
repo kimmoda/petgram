@@ -1,7 +1,11 @@
 <ion-view class="maps-view">
-    <ion-nav-title>
+    <ion-nav-title translate>
         Map
     </ion-nav-title>
+    <ion-nav-buttons side="right">
+        <button ng-click="GallerySearchMap.location()"
+                class="button button-icon icon ion-pinpoint"></button>
+    </ion-nav-buttons>
     <ion-content scroll="false">
         <div class="map-container">
             <ui-gmap-google-map center='GallerySearchMap.map.center'
@@ -16,6 +20,7 @@
                 <ui-gmap-marker
                         idKey='item.id'
                         coords='item.coords'
+                        icon="item.icon"
                         ng-repeat="item in GallerySearchMap.data"
                 >
                 </ui-gmap-marker>
