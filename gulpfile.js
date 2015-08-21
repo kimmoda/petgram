@@ -61,11 +61,9 @@ gulp.task('prod', function (cb) {
         'copy',
         'cacheapp:add',
         'cachemodule:add',
-        'server:prod',
         'usemin',
         'cacheapp:remove',
         'cachemodule:remove',
-        'server:dev',
         cb
     );
 });
@@ -75,15 +73,6 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
-gulp.task('server:prod', [
-    'cache:prod',
-    'blog:prod',
-]);
-
-gulp.task('server:dev', [
-    'cache:dev',
-    'blog:dev'
-]);
 
 // Inject Files
 gulp.task('inject', function () {
@@ -165,7 +154,7 @@ gulp.task('gettext:compile', function () {
         //.pipe (ngAnnotate ())
         //.pipe (uglify ())
         .pipe(rename('translate.js')) // Rename to final javascript filename
-        //.pipe(iife())
+        .pipe(iife())
         .pipe(gulp.dest(paths.source + '/js/'));
 });
 
@@ -192,7 +181,7 @@ gulp.task('template:app', function () {
             root      : 'app',
             standalone: true
         }))
-        //.pipe(iife())
+        .pipe(iife())
         .pipe(gulp.dest('./www/js/'));
 });
 
@@ -205,7 +194,7 @@ gulp.task('template:module', function () {
             root      : 'module',
             standalone: true
         }))
-        //.pipe(iife())
+        .pipe(iife())
         .pipe(gulp.dest('./www/js/'));
 });
 
@@ -347,8 +336,7 @@ gulp.task('usemin', function () {
 });
 
 // Replaces
-// Cache Modules
-gulp.task('cache:prod', function () {
+gulp.task('replace:prod', function () {
     return replace({
         regex      : paths.const.api.dev,
         replacement: paths.const.api.prod,
@@ -358,31 +346,10 @@ gulp.task('cache:prod', function () {
     });
 });
 
-gulp.task('cache:dev', function () {
+gulp.task('replace:dev', function () {
     return replace({
         regex      : paths.const.api.prod,
         replacement: paths.const.api.dev,
-        paths      : config,
-        recursive  : false,
-        silent     : false
-    });
-});
-
-// Blog
-gulp.task('blog:prod', function () {
-    return replace({
-        regex      : paths.const.blog.dev,
-        replacement: paths.const.blog.prod,
-        paths      : config,
-        recursive  : false,
-        silent     : false
-    });
-});
-
-gulp.task('blog:dev', function () {
-    return replace({
-        regex      : paths.const.blog.prod,
-        replacement: paths.const.blog.dev,
         paths      : config,
         recursive  : false,
         silent     : false
@@ -618,10 +585,3 @@ gulp.task('release', function () {
 gulp.task('prerelease', function () {
     return inc('prerelease');
 })
-
-// run source scripts through JSHint
-gulp.task('lint', function () {
-    return gulp.src(paths.src.js)
-        .pipe(jshint())
-        .pipe(jshint.reporter(stylish));
-});

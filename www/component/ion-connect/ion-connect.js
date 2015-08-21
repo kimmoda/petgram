@@ -1,7 +1,10 @@
 (function () {
     'use strict';
     angular
-        .module('module.core')
+        .module('ion-connect', ['ionic'])
+        .run(function (ConnectMonitor) {
+            ConnectMonitor.startWatching();
+        })
         .factory('ConnectMonitor', function ($rootScope, $window, $ionicLoading, $cordovaNetwork) {
 
             function online() {

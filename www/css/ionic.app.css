@@ -9143,298 +9143,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.card-home .list .item {
-  float: left;
-  width: 33%; }
-
-.photogram {
-  font-family: -apple-system, "Helvetica Neue", "Segoe WP", sans-serif !important;
-  color: #333; }
-  .photogram h1, .photogram h2, .photogram h3, .photogram h4, .photogram h5, .photogram h6, .photogram .h1, .photogram .h2, .photogram .h3, .photogram .h4, .photogram .h5, .photogram .h6 {
-    color: #333; }
-  .photogram .user-username {
-    font-weight: bold;
-    color: #009688;
-    font-size: 16px; }
-  .photogram .user-status {
-    font-weight: normal;
-    font-size: 14px;
-    color: #333; }
-  .photogram .popover-backdrop.active {
-    background-color: rgba(0, 0, 0, 0.4); }
-  .photogram .likes {
-    font-weight: bold;
-    color: #009688; }
-  .photogram .card {
-    margin: 0;
-    border: none;
-    box-shadow: none;
-    padding: 0; }
-  .photogram .list {
-    padding: 0;
-    margin: 0; }
-  .photogram .item-body {
-    padding: 0;
-    border: none;
-    min-height: 200px;
-    background: #ccc;
-    position: relative;
-    overflow: hidden; }
-    .photogram .item-body img {
-      width: 100%;
-      display: block; }
-  .photogram button.button-comment {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    font-size: 14px;
-    line-height: 14px; }
-  .photogram .item-buttons {
-    padding: 0;
-    border-top: none; }
-    .photogram .item-buttons .row {
-      padding: 0; }
-      .photogram .item-buttons .row button {
-        font-size: 28px;
-        position: relative; }
-      .photogram .item-buttons .row button.ion-ios-heart {
-        color: #a00; }
-      .photogram .item-buttons .row button:last-child {
-        padding-right: 20px; }
-  .photogram .list-comments .comment-item {
-    display: block;
-    clear: both; }
-    .photogram .list-comments .comment-item .username {
-      display: block;
-      float: left;
-      font-weight: bold;
-      color: #009688;
-      margin-right: 5px; }
-    .photogram .list-comments .comment-item .comment {
-      display: block;
-      float: left;
-      font-weight: normal;
-      color: #777; }
-  .photogram .nav-bar-title .title {
-    left: 0;
-    right: 45px;
-    line-height: 45px;
-    height: 40px;
-    display: block;
-    margin-left: 0;
-    text-align: left;
-    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); }
-  .photogram .nav-bar-title span.icon2-logo {
-    font-size: 34px;
-    display: block;
-    margin-top: 6px;
-    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); }
-  .photogram .tab-item.middle {
-    background-color: #009688;
-    color: #fff;
-    opacity: 1; }
-  .photogram .tabs-striped .tabs .tab-item.middle {
-    border-radius: 0; }
-  .photogram .item.item-avatar {
-    background-color: rgba(255, 255, 255, 0.99);
-    border: none; }
-    .photogram .item.item-avatar img {
-      position: absolute;
-      top: 17px;
-      left: 16px;
-      max-width: 45px;
-      max-height: 45px;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%; }
-    .photogram .item.item-avatar h2 {
-      color: #009688;
-      font-size: 14px;
-      line-height: 17px;
-      text-align: left;
-      display: block;
-      float: left;
-      font-weight: bold;
-      margin-right: 5px;
-      margin-top: 4px; }
-    .photogram .item.item-avatar span {
-      top: 33px;
-      right: 10px;
-      display: block;
-      position: absolute;
-      color: #ccc;
-      line-height: 0;
-      font-size: 14px; }
-    .photogram .item.item-avatar div {
-      font-size: 14px;
-      line-height: 20px; }
-    .photogram .item.item-avatar p {
-      font-size: 12px;
-      text-align: left;
-      display: block;
-      width: 100%; }
-  .photogram .modal-comment .scroll {
-    height: 100%; }
-  .photogram .modal-comment .form {
-    border: 1px solid #ccc;
-    padding: 1px;
-    display: block;
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 50px; }
-    .photogram .modal-comment .form label.item.item-input {
-      display: block;
-      float: left;
-      width: 86%;
-      border: none; }
-    .photogram .modal-comment .form button {
-      padding: 7px;
-      height: 50px;
-      top: -1px;
-      position: absolute;
-      right: -1px;
-      border: none; }
-    .photogram .modal-comment .form form .item, .photogram .modal-comment .form .formly .item {
-      border-bottom: none; }
-  .photogram .tab-item {
-    transition: all ease 0.5s;
-    -webkit-transition: all ease 0.5s; }
-  .photogram .tabs-light {
-    background: #fff; }
-  .photogram .bar-positive {
-    border-bottom: 0px; }
-  .photogram ion-tabs.tabs-dark.tabs-photogram.tabs-bottom .tab-item.tab-item-active, .photogram ion-tabs.tabs-dark.tabs-photogram.tabs-bottom .tab-item.active, .photogram ion-tabs.tabs-dark.tabs-photogram.tabs-bottom .tab-item.activated {
-    background-color: #070808;
-    border-bottom: 5px solid #009688; }
-  .photogram ion-tabs.tabs-dark.tabs-photogram .tabs-top .tab-item.tab-item-active, .photogram ion-tabs.tabs-dark.tabs-photogram .tabs-top .tab-item.active, .photogram ion-tabs.tabs-dark.tabs-photogram .tabs-top .tab-item.activated {
-    background: none;
-    border-bottom: 5px solid #fff; }
-  .photogram .capture-legend {
-    padding: 0; }
-    .photogram .capture-legend .item-input {
-      border: none;
-      display: block;
-      top: 20px; }
-  .photogram .gallery-profile .profile-top {
-    display: block;
-    position: relative; }
-    .photogram .gallery-profile .profile-top img {
-      display: inline;
-      min-width: 85px;
-      min-height: 85px;
-      max-width: 85px;
-      border-radius: 50%;
-      margin: 6px;
-      background-color: #ddd; }
-    .photogram .gallery-profile .profile-top .col-statics span {
-      font-weight: bold;
-      color: #000;
-      display: block;
-      text-align: center;
-      font-size: 20px; }
-    .photogram .gallery-profile .profile-top .col-statics h3 {
-      font-size: 14px;
-      color: #888;
-      margin: 5px 0px;
-      display: block;
-      font-variant: small-caps;
-      text-align: center;
-      text-transform: lowercase;
-      white-space: nowrap; }
-    .photogram .gallery-profile .profile-top .col-edit {
-      padding: 0; }
-      .photogram .gallery-profile .profile-top .col-edit .button {
-        font-size: 14px;
-        padding: 0px;
-        background: #edeeee;
-        border: none;
-        color: #53575c;
-        text-transform: uppercase;
-        width: 97%;
-        line-height: 10px;
-        min-height: 27px;
-        max-height: 10px;
-        font-weight: bold;
-        margin: 0 auto;
-        display: block; }
-    .photogram .gallery-profile .profile-top .tabs-light {
-      background: #fff;
-      height: 50px;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      display: block;
-      position: inherit; }
-      .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item {
-        -webkit-transform: all .5s ease;
-        -moz-transform: all .5s ease;
-        -ms-transform: all .5s ease;
-        -o-transform: all .5s ease;
-        transform: all .5s ease; }
-      .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item.tab-item-active, .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
-        background-color: #fff;
-        border: none;
-        color: #009688; }
-  .photogram .gallery-profile .profile-view {
-    display: block;
-    overflow: hidden; }
-    .photogram .gallery-profile .profile-view .row {
-      padding: 0; }
-      .photogram .gallery-profile .profile-view .row .col {
-        padding: 2px;
-        margin: 0; }
-  .photogram .gallery-search .row {
-    padding: 0; }
-    .photogram .gallery-search .row .col {
-      padding: 1px; }
-  .photogram .gallery-userlist .item, .photogram .gallery-activity .item {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 1px; }
-    .photogram .gallery-userlist .item.item-button-right button.button, .photogram .gallery-activity .item.item-button-right button.button {
-      top: 25%;
-      border: none; }
-      .photogram .gallery-userlist .item.item-button-right button.button.button-stable, .photogram .gallery-activity .item.item-button-right button.button.button-stable {
-        color: #009688; }
-      .photogram .gallery-userlist .item.item-button-right button.button i, .photogram .gallery-activity .item.item-button-right button.button i {
-        font-size: 12px; }
-    .photogram .gallery-userlist .item.item-avatar h2, .photogram .gallery-activity .item.item-avatar h2 {
-      line-height: 11px;
-      font-size: 14px; }
-    .photogram .gallery-userlist .item.item-avatar .text, .photogram .gallery-activity .item.item-avatar .text {
-      font-size: 11px; }
-    .photogram .gallery-userlist .item.item-avatar .img-right, .photogram .gallery-activity .item.item-avatar .img-right {
-      float: right;
-      display: block;
-      position: absolute;
-      right: 20px;
-      top: 0;
-      width: 70px;
-      height: 76px; }
-      .photogram .gallery-userlist .item.item-avatar .img-right img, .photogram .gallery-activity .item.item-avatar .img-right img {
-        border-radius: 0;
-        max-width: 70px;
-        max-height: 70px;
-        top: 5px; }
-  .photogram .item-divider {
-    background: none;
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
-    border-bottom: 2px solid #ddd;
-    color: #25272a;
-    text-transform: uppercase; }
-  .photogram .center-ico i {
-    color: #ccc;
-    font-size: 150pt;
-    display: block;
-    text-align: center; }
-  .photogram .center-ico h1 {
-    font-size: 18px;
-    display: block;
-    text-align: center;
-    color: #ddd; }
-
 .map-container {
   min-height: 200px;
   height: 100%;
@@ -9626,6 +9334,16 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   width: 44px;
   height: 44px;
   color: white; }
+
+.item-animate1.ng-enter {
+  -webkit-animation: 'fadeInLeft' 1s;
+  animation: 'fadeInLeft' 1s; }
+.item-animate1.ng-enter-stagger {
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+  /* override to make sure it's not inherited from other styles */
+  -webkit-animation-duration: 0;
+  animation-duration: 0; }
 
 .background-positive {
   background-color: #009688; }
@@ -10021,6 +9739,310 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   width: 100%;
   -webkit-filter: blur(3px); }
 
+.photogram {
+  font-family: -apple-system, 'Helvetica Neue', 'Segoe WP', sans-serif !important;
+  color: #333; }
+  .photogram h1, .photogram h2, .photogram h3, .photogram h4, .photogram h5, .photogram h6, .photogram .h1, .photogram .h2, .photogram .h3, .photogram .h4, .photogram .h5, .photogram .h6 {
+    color: #333; }
+  .photogram .map-container {
+    min-height: 200px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    position: relative;
+    display: block; }
+    .photogram .map-container .angular-google-map-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: #ddd; }
+  .photogram .user-username {
+    font-weight: bold;
+    color: #009688;
+    font-size: 16px; }
+  .photogram .user-status {
+    font-weight: normal;
+    font-size: 14px;
+    color: #333; }
+  .photogram .popover-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.4); }
+  .photogram .likes {
+    font-weight: bold;
+    color: #009688; }
+  .photogram .card {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    padding: 0; }
+  .photogram .list {
+    padding: 0;
+    margin: 0; }
+  .photogram .item-body {
+    padding: 0;
+    border: none;
+    min-height: 200px;
+    position: relative;
+    overflow: hidden; }
+    .photogram .item-body img {
+      width: 100%;
+      display: block; }
+  .photogram button.button-comment {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+    line-height: 14px; }
+  .photogram .item-buttons {
+    padding: 0;
+    border-top: none; }
+    .photogram .item-buttons .row {
+      padding: 0; }
+      .photogram .item-buttons .row button {
+        font-size: 28px;
+        position: relative; }
+      .photogram .item-buttons .row button.ion-ios-heart {
+        color: #a00; }
+      .photogram .item-buttons .row button:last-child {
+        padding-right: 20px; }
+  .photogram .list-comments .comment-item {
+    display: block;
+    clear: both; }
+    .photogram .list-comments .comment-item .username {
+      display: block;
+      float: left;
+      font-weight: bold;
+      color: #009688;
+      margin-right: 5px; }
+    .photogram .list-comments .comment-item .comment {
+      display: block;
+      float: left;
+      font-weight: normal;
+      color: #777; }
+  .photogram .nav-bar-title .title {
+    left: 0;
+    right: 45px;
+    line-height: 45px;
+    height: 40px;
+    display: block;
+    margin-left: 0;
+    text-align: left;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); }
+  .photogram .nav-bar-title span.icon2-logo {
+    font-size: 34px;
+    display: block;
+    margin-top: 6px;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); }
+  .photogram .tab-item.middle {
+    background-color: #009688;
+    color: #fff;
+    opacity: 1; }
+  .photogram .tabs-striped .tabs .tab-item.middle {
+    border-radius: 0; }
+  .photogram .item.item-avatar {
+    background-color: rgba(255, 255, 255, 0.99);
+    border: none; }
+    .photogram .item.item-avatar img {
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      max-width: 45px;
+      max-height: 45px;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%; }
+    .photogram .item.item-avatar h2 {
+      color: #009688;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: left;
+      display: block;
+      float: left;
+      font-weight: bold;
+      margin-right: 5px;
+      margin-top: 4px; }
+    .photogram .item.item-avatar span {
+      top: 33px;
+      right: 10px;
+      display: block;
+      position: absolute;
+      color: #ccc;
+      line-height: 0;
+      font-size: 14px; }
+    .photogram .item.item-avatar div {
+      font-size: 14px;
+      line-height: 20px; }
+    .photogram .item.item-avatar p {
+      font-size: 12px;
+      text-align: left;
+      display: block;
+      width: 100%; }
+  .photogram .modal-comment .scroll {
+    height: 100%; }
+  .photogram .modal-comment .form {
+    border: 1px solid #ccc;
+    padding: 1px;
+    display: block;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px; }
+    .photogram .modal-comment .form label.item.item-input {
+      display: block;
+      float: left;
+      width: 86%;
+      border: none; }
+    .photogram .modal-comment .form button {
+      padding: 7px;
+      height: 50px;
+      top: -1px;
+      position: absolute;
+      right: -1px;
+      border: none; }
+    .photogram .modal-comment .form form .item, .photogram .modal-comment .form .formly .item {
+      border-bottom: none; }
+  .photogram .tab-item {
+    transition: all ease 0.5s;
+    -webkit-transition: all ease 0.5s; }
+  .photogram .tabs-light {
+    background: #fff; }
+  .photogram .bar-positive {
+    border-bottom: 0px; }
+  .photogram ion-tabs.tabs-dark.tabs-photogram.tabs-bottom .tab-item.tab-item-active, .photogram ion-tabs.tabs-dark.tabs-photogram.tabs-bottom .tab-item.active, .photogram ion-tabs.tabs-dark.tabs-photogram.tabs-bottom .tab-item.activated {
+    background-color: #070808;
+    border-bottom: 5px solid #009688; }
+  .photogram ion-tabs.tabs-dark.tabs-photogram .tabs-top .tab-item.tab-item-active, .photogram ion-tabs.tabs-dark.tabs-photogram .tabs-top .tab-item.active, .photogram ion-tabs.tabs-dark.tabs-photogram .tabs-top .tab-item.activated {
+    background: none;
+    border-bottom: 5px solid #fff; }
+  .photogram .modal-capture .capture-legend {
+    padding: 0; }
+    .photogram .modal-capture .capture-legend .item-input {
+      border: none;
+      display: block;
+      top: 20px; }
+  .photogram .modal-capture .capture-photo img {
+    display: block;
+    width: 100%; }
+  .photogram .gallery-profile .profile-top {
+    display: block;
+    position: relative; }
+    .photogram .gallery-profile .profile-top img {
+      display: inline;
+      min-width: 85px;
+      min-height: 85px;
+      max-width: 85px;
+      border-radius: 50%;
+      margin: 6px;
+      background-color: #ddd; }
+    .photogram .gallery-profile .profile-top .col-statics span {
+      font-weight: bold;
+      color: #000;
+      display: block;
+      text-align: center;
+      font-size: 20px; }
+    .photogram .gallery-profile .profile-top .col-statics h3 {
+      font-size: 14px;
+      color: #888;
+      margin: 5px 0px;
+      display: block;
+      font-variant: small-caps;
+      text-align: center;
+      text-transform: lowercase;
+      white-space: nowrap; }
+    .photogram .gallery-profile .profile-top .col-edit {
+      padding: 0; }
+      .photogram .gallery-profile .profile-top .col-edit .button {
+        font-size: 14px;
+        padding: 0px;
+        background: #edeeee;
+        border: none;
+        color: #53575c;
+        text-transform: uppercase;
+        width: 97%;
+        line-height: 10px;
+        min-height: 27px;
+        max-height: 10px;
+        font-weight: bold;
+        margin: 0 auto;
+        display: block; }
+    .photogram .gallery-profile .profile-top .tabs-light {
+      background: #fff;
+      height: 50px;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      display: block;
+      position: inherit; }
+      .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item {
+        -webkit-transform: all .5s ease;
+        -moz-transform: all .5s ease;
+        -ms-transform: all .5s ease;
+        -o-transform: all .5s ease;
+        transform: all .5s ease; }
+      .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .tab-item.tab-item-active, .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .photogram .gallery-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
+        background-color: #fff;
+        border: none;
+        color: #009688; }
+  .photogram .gallery-profile .profile-view {
+    display: block;
+    overflow: hidden; }
+    .photogram .gallery-profile .profile-view .row {
+      padding: 0; }
+      .photogram .gallery-profile .profile-view .row .col {
+        padding: 2px;
+        margin: 0; }
+  .photogram .gallery-search .row {
+    padding: 0; }
+    .photogram .gallery-search .row .col {
+      padding: 1px; }
+  .photogram .gallery-userlist .item, .photogram .gallery-activity .item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1px; }
+    .photogram .gallery-userlist .item.item-button-right button.button, .photogram .gallery-activity .item.item-button-right button.button {
+      top: 25%;
+      border: none; }
+      .photogram .gallery-userlist .item.item-button-right button.button.button-stable, .photogram .gallery-activity .item.item-button-right button.button.button-stable {
+        color: #009688; }
+      .photogram .gallery-userlist .item.item-button-right button.button i, .photogram .gallery-activity .item.item-button-right button.button i {
+        font-size: 12px; }
+    .photogram .gallery-userlist .item.item-avatar h2, .photogram .gallery-activity .item.item-avatar h2 {
+      line-height: 11px;
+      font-size: 14px; }
+    .photogram .gallery-userlist .item.item-avatar .text, .photogram .gallery-activity .item.item-avatar .text {
+      font-size: 11px; }
+    .photogram .gallery-userlist .item.item-avatar .img-right, .photogram .gallery-activity .item.item-avatar .img-right {
+      float: right;
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 0;
+      width: 70px;
+      height: 76px; }
+      .photogram .gallery-userlist .item.item-avatar .img-right img, .photogram .gallery-activity .item.item-avatar .img-right img {
+        border-radius: 0;
+        max-width: 70px;
+        max-height: 70px;
+        top: 5px; }
+  .photogram .item-divider {
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 2px solid #ddd;
+    color: #25272a;
+    text-transform: uppercase; }
+  .photogram .center-ico i {
+    color: #ccc;
+    font-size: 150pt;
+    display: block;
+    text-align: center; }
+  .photogram .center-ico h1 {
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    color: #ddd; }
+
 .spinner svg {
   stroke: #009688;
   fill: #009688; }
@@ -10028,7 +10050,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .action-sheet .button {
   color: #009688; }
 
-.no-padding {
+.no-padding, .nopadding {
   padding: 0; }
 
 .bar .title img {
@@ -10093,3 +10115,6 @@ ion-nav-bar.bar.bar-positive.bar-none.nav-bar-container {
       top: 25%;
       left: 25%;
       max-width: 50%; }
+
+pre {
+  color: #333; }

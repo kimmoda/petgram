@@ -1,6 +1,12 @@
-'use strict';
-angular.module ('ionic.components', [
-    'ionic',
-    'ionic.loading',
-    'ion-affix'
-]);
+(function(){
+    'use strict';
+    angular.module ('ionic.components', [
+        'ionic',
+        'ionic-loading',
+        'ion-affix',
+        'ion-location',
+        'ion-connect',
+        'ion-photo',
+
+    ]);
+})();

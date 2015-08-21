@@ -1,38 +1,40 @@
-'use strict';
-angular
-    .module('module.gallery')
-    .directive('galleryLike', function (Gallery, Notify) {
-        return {
-            restrict: 'A',
-            scope   : {
-                ngModel: '='
-            },
-            template: '',
-            link    : function ($scope, elem, attr) {
-                elem.bind('click', function () {
+(function () {
+    'use strict';
+    angular
+        .module('module.gallery')
+        .directive('galleryLike', function (Gallery, Loading) {
+            return {
+                restrict: 'A',
+                scope   : {
+                    ngModel: '='
+                },
+                template: '',
+                link    : function (scope, elem, attr) {
+                    elem.bind('click', function () {
 
-                    Notify.showLoading();
+                        Loading.start();
 
-                    console.log($scope.ngModel);
-                    Gallery
-                        .likeGallery($scope.ngModel.id)
-                        .then(function (resp) {
-                            console.log(resp);
-                            console.log(resp);
-                            Notify.hideLoading();
-                        });
+                        console.log(scope.ngModel);
+                        Gallery
+                            .likeGallery(scope.ngModel.id)
+                            .then(function (resp) {
+                                console.log(resp);
+                                console.log(resp);
+                                Loading.end();
+                            });
 
-                    if ($scope.ngModel.liked === 0) {
-                        $scope.ngModel.liked = 1;
-                        $scope.ngModel.likes += 1;
-                    } else {
-                        $scope.ngModel.liked = 0;
-                        $scope.ngModel.likes -= 1;
-                    }
+                        if (scope.ngModel.liked === 0) {
+                            scope.ngModel.liked = 1;
+                            scope.ngModel.likes += 1;
+                        } else {
+                            scope.ngModel.liked = 0;
+                            scope.ngModel.likes -= 1;
+                        }
 
-                    $scope.$apply();
+                        scope.$apply();
 
-                });
+                    });
+                }
             }
-        }
-    });
+        });
+})();

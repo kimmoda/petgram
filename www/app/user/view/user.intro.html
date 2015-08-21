@@ -26,12 +26,13 @@
                        on-slide-changed="slideChanged($index)">
             <ion-slide ng-repeat="item in slides">
 
-                <div class="row slide-head">
+                <div class="row animated zoomIn slide-head"
+                     ng-if="$index == slideIndex">
                     <div class="col col-center">
                         <h3 class="zoom">{{ item.title }}</h3>
                     </div>
                 </div>
-                <div class="row slide-body zoomIn "
+                <div class="row animated slide-body zoomIn "
                      ng-if="$index == slideIndex"
                 >
                     <div class="col slide-body-wrapper">

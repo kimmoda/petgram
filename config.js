@@ -1,11 +1,4 @@
 module.exports = {
-    version: '0.0.2',
-    const  : {
-        PARSE     : {
-            dev : 'http://127.0.0.1/clientes/11/4D1/server',
-            prod: 'http://189.113.170.4/~fortheonecom/api/index.php'
-        }
-    },
     src    : {
         index    : 'www/index.html',
         fonts    : 'www/lib/ionic/fonts/**.*',

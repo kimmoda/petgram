@@ -1,31 +1,30 @@
-
-.card-home {
-  .list {
-    .item {
-      float: left;
-      width: 33%;
-    }
-  }
-}
-
 .photogram {
 
   //General Resets
-  font-family: -apple-system, "Helvetica Neue", "Segoe WP", sans-serif !important;
+  font-family: -apple-system, 'Helvetica Neue', 'Segoe WP', sans-serif !important;
   color: #333;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6 {
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #333;
+  }
+
+  // View Map
+  .map-container {
+    min-height: 200px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    position: relative;
+    display: block;
+
+    .angular-google-map-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: #ddd;
+    }
   }
 
   .user-username {
@@ -64,7 +63,6 @@
     padding: 0;
     border: none;
     min-height: 200px;
-    background: #ccc;
     position: relative;
     overflow: hidden;
     img {
@@ -274,13 +272,21 @@
   }
 
   // Capture View
-  .capture-legend {
-    padding: 0;
+  .modal-capture {
+    .capture-legend {
+      padding: 0;
 
-    .item-input {
-      border: none;
-      display: block;
-      top: 20px;
+      .item-input {
+        border: none;
+        display: block;
+        top: 20px;
+      }
+    }
+    .capture-photo {
+      img {
+        display: block;
+        width: 100%;
+      }
     }
   }
 

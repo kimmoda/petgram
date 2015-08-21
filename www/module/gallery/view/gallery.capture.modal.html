@@ -1,4 +1,4 @@
-<ion-modal-view class="modal-comment">
+<ion-modal-view class="modal-capture">
     <ion-header-bar class="bar-dark">
         <button class="button button-clear button-icon ion-ios-arrow-thin-left"
                 ng-click="closeModal()"></button>
@@ -13,48 +13,26 @@
                          icon="android"></gallery-loading>
         <div class="list">
 
-            <div class="item no-padding capture-legend">
-                <div class="row">
-                    <div class="col-25">
-                        <img ng-src="{{data}}"
-                             ng-click="open()"
-                             style="width: 100%; display: block">
-                    </div>
-                    <div class="col">
-                        <div class="list">
-                            <div class="item item-input">
-                                <input type="text"
-                                       name="title"
-                                       ng-model="form.title"
-                                       placeholder="{{ 'Write a Caption'|translate }}">
-                                <!--<textarea placeholder="{{ 'Escreva uma legenda' | translate }}"></textarea>-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="item no-padding capture-photo">
+                <img ng-src="{{data}}"
+                     ng-click="open()">
             </div>
-            <div class="item item-toggle">
-                {{ 'Geolocation' | translate }}<label class="toggle toggle-positive">
-                <input type="checkbox"
-                       ng-model="form.geo"
-                       ng-change="getGeo(form.geo)">
-
-                <div class="track">
-                    <div class="handle"></div>
-                </div>
-            </label>
+            <div class="item item-input">
+                <input type="text"
+                       name="title"
+                       ng-model="form.title"
+                       placeholder="{{ 'Write a Legend'|translate }}">
             </div>
-            <div class="item no-padding map-container" ng-show="form.geo">
-
-                <ui-gmap-google-map class="map-container"
-                                    center="map.center"
-                                    zoom="map.zoom">
-
-                    <ui-gmap-marker idkey="0"
-                                    coords="here"
-                                    ></ui-gmap-marker>
-
-                </ui-gmap-google-map>
+            <div class="item item-input">
+                <input type="text"
+                       placeholder="{{ 'Location' | translate }}"
+                       ion-location
+                       location="form.geo"
+                       ng-model="form.geo.resume">
+            </div>
+            <div class="item nopadding"
+                 ng-show="form.geo.image">
+                <img ng-src="{{ form.geo.image }}">
             </div>
             <div class="item item-divider"
                  translate>

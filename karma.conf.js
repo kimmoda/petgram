@@ -29,10 +29,10 @@ module.exports = function (config) {
             'js/*.js',
             'app/*.js',
             'app/**/*.js',
-            'components/*.js',
-            'components/**/*.js',
-            'modules/*.js',
-            'modules/**/*.js',
+            'component/*.js',
+            'component/**/*.js',
+            'module/*.js',
+            'module/**/*.js',
         ],
 
 
