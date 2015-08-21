@@ -8,8 +8,9 @@
     </ion-nav-buttons>
     <ion-content scroll="false">
         <div class="map-container">
-            <ui-gmap-google-map center='GallerySearchMap.map.center'
-                                zoom='GallerySearchMap.map.zoom'>
+
+            <ui-gmap-google-map center='map.center'
+                                zoom='map.zoom'>
 
                 <ui-gmap-marker
                         idKey='0'
@@ -24,7 +25,6 @@
                         ng-repeat="item in GallerySearchMap.data"
                 >
                 </ui-gmap-marker>
-
 
             </ui-gmap-google-map>
         </div>

@@ -1,15 +1,15 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('module.gallery')
         .directive('galleryLoading', function () {
             return {
-                restrict   : 'E',
-                scope      : {
+                restrict: 'E',
+                scope   : {
                     loading: '=',
                     icon   : '@'
                 },
-                templateUrl: 'module/gallery/view/gallery.loading.directive.html'
+                template: '<div class="padding text-center loading" ng-show="loading"><ion-spinner icon="{{ icon }}"></ion-spinner></div>'
             }
         });
 })();

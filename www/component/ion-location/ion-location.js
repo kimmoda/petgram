@@ -45,12 +45,20 @@
                             $scope.modalLocation.hide();
                             $scope.modalLocation.remove();
                         };
+                        GeoService
+                            .findMe()
+                            .then(function (result) {
+                                console.log('findMe', result);
+                                $scope.search.suggestions = result.results;
+                            });
+
 
                         $scope.$watch('search.query', function (newValue) {
                             if (newValue) {
                                 GeoService
                                     .searchAddress(newValue)
                                     .then(function (result) {
+                                        console.log(result);
                                         $scope.search.suggestions = result;
                                     });
                             }
@@ -99,7 +107,7 @@
                 }
             };
         })
-        .factory('GeoService', function ($http, $window, $cordovaGeolocation, Notify, $timeout, $q) {
+        .factory('GeoService', function ($http, $window, $cordovaGeolocation, Loading, $timeout, $q) {
             /**
              'street_address', //indicates a precise street address.
              'route', //indicates a named route (such as "US 101").
@@ -173,13 +181,13 @@
 
             function getLocation() {
                 // Pega a Localização da Pessoa
-                Notify.showLoading();
+                Loading.start();
                 var defer = $q.defer();
 
                 if (data.location) {
                     $timeout(function () {
                         defer.resolve(data.location);
-                        Notify.hideLoading();
+                        Loading.end();
                     }, 1000);
                 } else {
                     var posOptions = {
@@ -195,12 +203,12 @@
                                 latitude : position.coords.latitude,
                                 longitude: position.coords.longitude
                             };
-                            Notify.hideLoading();
+                            Loading.end();
                             defer.resolve(data.location);
                         }, function (err) {
                             // error
                             console.log('Error na geolocalização', err);
-                            Notify.hideLoading();
+                            Loading.end();
                             defer.reject(err);
                         });
                 }
@@ -232,25 +240,25 @@
             };
             function getGoogleAddress(lat, lng) {
                 return $http.get('http://maps.google.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&sensor=true').success(function (data) {
-                    data.endereco_normal = data.results[0].formatted_address;
-                    data.endereco        = endereco(data.results[0].address_components);
-                    data.src             = imagem(lat, lng, 18, 500, 300);
+                    data.address_normal = data.results[0].formatted_address;
+                    data.address        = address(data.results[0].address_components);
+                    data.src            = imagem(lat, lng, 18, 500, 300);
                 });
             };
-            function endereco(endereco) {
-                if (!endereco) {
+            function address(address) {
+                if (!address) {
                     return false;
                 }
                 return {
-                    numero  : endereco[0].short_name,
-                    rua     : endereco[1].long_name,
-                    bairro  : endereco[2].short_name,
-                    cidade  : endereco[3].short_name,
-                    estado  : endereco[5].long_name,
-                    uf      : endereco[5].short_name,
-                    pais    : endereco[6].long_name,
-                    paisCode: endereco[6].short_name,
-                    cep     : endereco[7].short_name
+                    numero  : address[0].short_name,
+                    rua     : address[1].long_name,
+                    bairro  : address[2].short_name,
+                    cidade  : address[3].short_name,
+                    estado  : address[5].long_name,
+                    uf      : address[5].short_name,
+                    pais    : address[6].long_name,
+                    paisCode: address[6].short_name,
+                    cep     : address[7].short_name
                 };
             }
 
@@ -260,25 +268,25 @@
 
             function parseAddress(place) {
                 console.log(place);
-                var endereco = {
+                var address = {
                     resume: '',
                     geo   : {
-                        lat: (place.geometry.location.k) ? place.geometry.location.k : place.geometry.location.G,
-                        lng: (place.geometry.location.D) ? place.geometry.location.D : place.geometry.location.K
+                        latitude : (place.geometry.location.k) ? place.geometry.location.k : place.geometry.location.G,
+                        longitude: (place.geometry.location.D) ? place.geometry.location.D : place.geometry.location.K
                     }
                 };
-                var image    = src(endereco.geo.lat, endereco.geo.lng, 16, 900, 200);
+                var image   = src(address.geo.latitude, address.geo.longitude, 16, 900, 200);
                 for (var i = 0; i < place.address_components.length; i++) {
                     var addressType = place.address_components[i].types[0];
                     if (componentForm[addressType]) {
-                        var val                                  = place.address_components[i][componentForm[addressType]];
-                        endereco[componentFormName[addressType]] = val;
+                        var val                                 = place.address_components[i][componentForm[addressType]];
+                        address[componentFormName[addressType]] = val;
                     }
                 }
-                endereco.street = endereco.street + ', ' + endereco.number;
-                endereco.image  = image;
-                endereco.resume = endereco.street + ' - ' + endereco.city + ', ' + endereco.state + ', ' + endereco.country;
-                return endereco;
+                address.street = address.street + ', ' + address.number;
+                address.image  = image;
+                address.resume = address.street + ' - ' + address.city + ', ' + address.state + ', ' + address.country;
+                return address;
             };
             function searchAddress(input) {
                 var deferred = $q.defer();

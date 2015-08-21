@@ -112,7 +112,7 @@
 
                 if (_params.photo !== '') {
 
-                    console.log('_params.photo ' + _params.photo);
+                    //console.log('_params.photo ' + _params.photo);
 
                     // create the parse file
                     var imageFile = new Parse.File('mypic.jpg', {base64: _params.photo});
@@ -129,7 +129,7 @@
                         imageObject.set('title', _params.title);
                         imageObject.set('img', imageFile);
                         imageObject.set('user', Parse.User.current());
-                        if (_params.location) {
+                        if (_params.location !== undefined) {
                             imageObject.set('location', new Parse.GeoPoint(_params.location.latitude, _params.location.longitude));
                         }
 
@@ -263,11 +263,15 @@
                 var defer = $q.defer();
                 var data  = [];
 
-                var point = new Parse.GeoPoint(position);
+                var point       = new Parse.GeoPoint(position);
+                var maxDistance = 1000;
+
+                Loading.start();
 
                 new Parse
                     .Query('Gallery')
-                    .near('location', point)
+                    //.near('location', point)
+                    .withinRadians('location', point, maxDistance)
                     .limit(50)
                     .find()
                     .then(function (resp) {
@@ -296,6 +300,8 @@
                             };
                             data.push(obj);
                         });
+
+                        Loading.end();
                         defer.resolve(data);
                     });
 

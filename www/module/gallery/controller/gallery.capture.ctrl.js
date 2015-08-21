@@ -17,7 +17,8 @@
             function init() {
                 $scope.form = {
                     title: '',
-                    geo  : {}
+                    geo  : {},
+                    photo: ''
                 };
 
                 $scope.data = '';
@@ -56,7 +57,7 @@
             $scope.formShareFields = Gallery.formShare;
 
             $scope.open = function () {
-
+                init();
                 PhotoService
                     .open({
                         quality           : GallerySetting.get('imageQuality'),
@@ -67,9 +68,9 @@
                         saveToPhotoAlbum  : GallerySetting.get('imageSaveAlbum')
                     })
                     .then(function (resp) {
-                        init();
 
-                        $scope.data = 'data:image/jpeg;base64,' + resp;
+                        $scope.data       = 'data:image/jpeg;base64,' + resp;
+                        $scope.form.photo = resp;
 
                         $ionicModal.fromTemplateUrl('module/gallery/view/gallery.capture.modal.html', {
                             scope          : $scope,
@@ -92,11 +93,17 @@
             $scope.open();
 
             $scope.submitCapture = function () {
-                var dataForm        = angular.copy($scope.form);
-                var shareForm       = angular.copy($scope.formShare);
-                dataForm.form.photo = angular.copy($scope.data)
+                var dataForm  = angular.copy($scope.form);
+                var shareForm = angular.copy($scope.formShare);
+
+                console.log($scope.form);
+                if ($scope.form.geo) {
+                    dataForm.location = $scope.form.geo.coords;
+                }
+
                 console.log(shareForm);
                 Loading.start();
+
                 Gallery
                     .add(dataForm)
                     .then(function (resp) {

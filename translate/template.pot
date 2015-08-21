@@ -17,7 +17,7 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: gallery/view/gallery.photos.list.html:75
+#: gallery/view/gallery.photos.list.html:72
 msgid "Add comment"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgid "Like"
 msgstr ""
 
 #: gallery/view/gallery.like.directive.html:5
-#: gallery/view/gallery.photos.list.html:59
+#: gallery/view/gallery.photos.list.html:56
 msgid "Likes"
 msgstr ""
 
@@ -187,11 +187,11 @@ msgstr ""
 msgid "Write a Legend"
 msgstr ""
 
-#: gallery/service/gallery.model.js:875
+#: gallery/service/gallery.model.js:881
 msgid "add comment"
 msgstr ""
 
-#: gallery/service/gallery.model.js:874
+#: gallery/service/gallery.model.js:880
 msgid "add photo"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgstr ""
 msgid "followers"
 msgstr ""
 
-#: gallery/service/gallery.model.js:876
+#: gallery/service/gallery.model.js:882
 msgid "like photo"
 msgstr ""
 
@@ -211,10 +211,10 @@ msgstr ""
 msgid "posts"
 msgstr ""
 
-#: gallery/service/gallery.model.js:878
+#: gallery/service/gallery.model.js:884
 msgid "register"
 msgstr ""
 
-#: gallery/service/gallery.model.js:877
+#: gallery/service/gallery.model.js:883
 msgid "unlike photo"
 msgstr ""

@@ -1,10 +1,10 @@
-$animate: 'fadeInLeft';
+$animate1: 'fadeInLeft';
 
 .item-animate1 {
 
   &.ng-enter {
-    -webkit-animation: $animate 1s;
-    animation: $animate 1s;
+    -webkit-animation: $animate1 1s;
+    animation: $animate1 1s;
   }
 
   &.ng-enter-stagger {
@@ -14,5 +14,27 @@ $animate: 'fadeInLeft';
     /* override to make sure it's not inherited from other styles */
     -webkit-animation-duration: 0;
     animation-duration: 0;
+
   }
 }
+
+$animate2: 'fadeInDown';
+
+.item-animate2 {
+
+  &.ng-enter {
+    -webkit-animation: $animate1 1s;
+    animation: $animate1 1s;
+  }
+
+  &.ng-enter-stagger {
+    -webkit-animation-delay: 200ms;
+    animation-delay: 200ms;
+
+    /* override to make sure it's not inherited from other styles */
+    -webkit-animation-duration: 0;
+    animation-duration: 0;
+
+  }
+}
+

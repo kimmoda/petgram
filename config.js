@@ -7,7 +7,9 @@ module.exports = {
         lib      : 'www/lib/*',
         sass     : [
             'scss/*.scss',
-            'scss/**/*.scss'
+            'scss/**/*.scss',
+            'www/app/**/*.scss',
+            'www/module/**/*.scss'
         ],
         css      : [
             'www/css/*.css',

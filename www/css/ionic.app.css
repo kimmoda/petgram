@@ -9158,9 +9158,6 @@ a.button {
     left: 0;
     background: #ddd; }
 
-.form-login .scroll-content {
-  padding-top: 30px; }
-
 form .input-select, .formly .input-select {
   background-color: #fff;
   background-image: url("../img/icons/arrow_expand.svg");
@@ -9339,6 +9336,16 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   -webkit-animation: 'fadeInLeft' 1s;
   animation: 'fadeInLeft' 1s; }
 .item-animate1.ng-enter-stagger {
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+  /* override to make sure it's not inherited from other styles */
+  -webkit-animation-duration: 0;
+  animation-duration: 0; }
+
+.item-animate2.ng-enter {
+  -webkit-animation: 'fadeInLeft' 1s;
+  animation: 'fadeInLeft' 1s; }
+.item-animate2.ng-enter-stagger {
   -webkit-animation-delay: 200ms;
   animation-delay: 200ms;
   /* override to make sure it's not inherited from other styles */
@@ -9567,46 +9574,23 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   padding: 0; }
 .form-login .scroll {
   height: 100%; }
-.form-login .logo {
+.form-login .user-head {
   background-color: #009688;
-  height: 200px;
+  height: 220px;
   position: relative;
-  padding-bottom: 39px;
   background: url('../img/background.jpg');
   background-size: cover; }
-  .form-login .logo .tabs-top {
-    bottom: 0px;
-    position: absolute;
-    z-index: 2;
-    left: 0px;
-    display: block;
-    width: 100%;
-    height: 49px; }
-    .form-login .logo .tabs-top .tabs {
-      background: none;
-      border: none;
-      top: 0; }
-      .form-login .logo .tabs-top .tabs a.tab-item {
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -ms-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease; }
-      .form-login .logo .tabs-top .tabs a.tab-item.tab-item-active {
-        font-weight: bold;
-        font-size: 18px;
-        border-bottom: 2px solid #fff; }
-  .form-login .logo .logo2 {
+  .form-login .user-head .logo2 {
     position: relative;
     display: block;
     margin: 20px auto;
     width: 346px; }
-    .form-login .logo .logo2 img {
+    .form-login .user-head .logo2 img {
       position: absolute;
       top: 0px;
       left: 5%;
       width: 80px; }
-    .form-login .logo .logo2 span.icon2-logo {
+    .form-login .user-head .logo2 span.icon2-logo {
       font-size: 70px;
       color: #fff;
       display: block;
@@ -9615,7 +9599,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
       position: absolute;
       top: 0px;
       left: 23%; }
-  .form-login .logo h2 {
+  .form-login .user-head h2 {
     color: #fff;
     font-size: 16px;
     text-align: center;
@@ -9625,7 +9609,29 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     margin: 0 auto;
     height: 48px;
     text-shadow: -2px 1px 2px rgba(0, 0, 0, 0.8);
-    bottom: 30px; }
+    top: 130px; }
+  .form-login .user-head .tabs-top {
+    bottom: 0px;
+    position: absolute;
+    z-index: 2;
+    left: 0px;
+    display: block;
+    width: 100%;
+    height: 49px; }
+    .form-login .user-head .tabs-top .tabs {
+      background: none;
+      border: none;
+      top: 0; }
+      .form-login .user-head .tabs-top .tabs a.tab-item {
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease; }
+      .form-login .user-head .tabs-top .tabs a.tab-item.tab-item-active {
+        font-weight: bold;
+        font-size: 18px;
+        border-bottom: 2px solid #fff; }
 
 .button-facebook {
   background: none repeat scroll 0 0 #3f569b !important;

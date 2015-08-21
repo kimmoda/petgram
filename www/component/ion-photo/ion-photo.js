@@ -7,9 +7,9 @@
             function capture(type, setting) {
                 var defer = $q.defer();
 
-                if (!setting) {
-
-                    var setting = {
+                console.log(setting);
+                if (setting === undefined) {
+                    setting = {
                         quality           : 80,
                         allowEdit         : true,
                         correctOrientation: true,
@@ -20,12 +20,12 @@
                 }
 
                 var options = {
-                    quality           : setting.imageQuality,
-                    allowEdit         : setting.imageEdit,
-                    correctOrientation: setting.imageEdit,
-                    targetWidth       : setting.imageWidth,
-                    targetHeight      : setting.imageHeight,
-                    saveToPhotoAlbum  : setting.imageSaveAlbum,
+                    quality           : setting.quality,
+                    allowEdit         : setting.allowEdit,
+                    correctOrientation: setting.correctOrientation,
+                    targetWidth       : setting.targetWidth,
+                    targetHeight      : setting.targetHeight,
+                    saveToPhotoAlbum  : setting.saveToPhotoAlbum,
                     destinationType   : Camera.DestinationType.DATA_URL,
                     encodingType      : Camera.EncodingType.JPEG,
                     popoverOptions    : CameraPopoverOptions,
@@ -55,7 +55,7 @@
             }
 
 
-            function open() {
+            function open(setting) {
                 var defer       = $q.defer();
                 var actionSheet = $ionicActionSheet.show({
                     buttons      : [
@@ -75,7 +75,7 @@
                         console.log(index);
 
                         if ($window.cordova) {
-                            capture(index)
+                            capture(index, setting)
                                 .then(function (resp) {
                                     actionSheet();
                                     defer.resolve(resp);

@@ -1,11 +1,11 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('module.gallery')
-        .controller('GallerySearchMapCtrl', function ($scope, User, Loading, Gallery) {
+        .controller('GallerySearchMapCtrl', function ($scope, User, Gallery) {
             var vm = this;
 
-            vm.map = {
+            $scope.map = {
                 center: {
                     latitude : 45,
                     longitude: -73
@@ -17,6 +17,19 @@
                 init();
             };
 
+            $scope.$watch('map.center.latitude', function (newValue, oldValue) {
+                console.log(newValue);
+                if (newValue) {
+                    console.log(newValue);
+                    Gallery
+                        .nearby($scope.map.center)
+                        .then(function (resp) {
+                            console.log(resp);
+                            vm.data = resp;
+                        });
+                }
+            });
+
 
             function init() {
                 User
@@ -25,9 +38,12 @@
 
                         console.log(position);
 
-                        vm.map.center = {
-                            latitude : position.latitude,
-                            longitude: position.longitude
+                        $scope.map = {
+                            center: {
+                                latitude : position.latitude,
+                                longitude: position.longitude,
+                            },
+                            zoom  : 13
                         };
 
                         Gallery
@@ -41,7 +57,7 @@
                         console.log('Could not get location');
 
                         Gallery
-                            .nearby(vm.map.center)
+                            .nearby($scope.map.center)
                             .then(function (resp) {
                                 console.log(resp);
                                 vm.data = resp;

@@ -1,15 +1,14 @@
 (function () {
     'use strict';
     var FACEBOOK = '1024016557617380'
+
     angular
         .module('starter')
         .config(function ($facebookProvider) {
-            // Dev
             $facebookProvider.setAppId(FACEBOOK);
         })
         .run(function ($window) {
             // Load the facebook SDK asynchronously
-
             if (!($window.ionic.Platform.isIOS() || $window.ionic.Platform.isAndroid())) {
                 $window.fbAsyncInit = function () {
                     $window.Parse.FacebookUtils.init({

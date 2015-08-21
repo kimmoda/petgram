@@ -12,6 +12,8 @@
         <ion-refresher ng-if="!GalleryHome.loading"
                        on-refresh="loadMore(true)"></ion-refresher>
 
+        <ion-loading icon="android"></ion-loading>
+
         <gallery-photo-list gallery="GalleryHome.data"
                             loading="GalleryHome.loading"></gallery-photo-list>
 

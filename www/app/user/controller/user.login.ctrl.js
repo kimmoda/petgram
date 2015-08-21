@@ -10,6 +10,11 @@
                     email   : '',
                     password: ''
                 };
+
+                if (window.Parse.User.current()) {
+                    $state.go('gallery.home', {clear: true});
+                }
+
             }
 
             init();
