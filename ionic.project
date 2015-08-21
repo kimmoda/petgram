@@ -2,12 +2,12 @@
   "name": "Photogram",
   "app_id": "ea42829b",
   "gulpStartupTasks": [
-      "inject",
-      "sass",
-      "watch"
-    ],
-    "watchPatterns": [
-      "www/**/*",
-      "!www/lib/**/*"
-    ]
+    "inject",
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

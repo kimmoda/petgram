@@ -17,7 +17,7 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: gallery/view/gallery.photos.list.html:72
+#: gallery/view/gallery.photos.list.html:71
 msgid "Add comment"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgid "Like"
 msgstr ""
 
 #: gallery/view/gallery.like.directive.html:5
-#: gallery/view/gallery.photos.list.html:56
+#: gallery/view/gallery.photos.list.html:55
 msgid "Likes"
 msgstr ""
 

@@ -288,8 +288,8 @@
                                 },
 
                                 scaledSize: {
-                                    width : size,
-                                    height: size
+                                    width : size/2,
+                                    height: size/2
                                 },
                                 url       : 'img/icon.png'
                             };
