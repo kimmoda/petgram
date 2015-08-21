@@ -1,0 +1,13 @@
+#!/bin/bash
+# Usage: prod.sh 'platform'
+#
+echo "Ionic Upload App"
+gulp prod
+echo "Rename Folder to Minify Application"
+mv www temp
+mv dist www
+echo "Build Release " $*
+ionic upload
+echo "Rename folder"
+mv www dist
+mv temp www
