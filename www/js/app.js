@@ -1,8 +1,10 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('starter', [
             'ionic',
+            'ionic.service.core',
+            'ionic.service.analytics',
             //'cacheapp',
             //'cachemodule',
             'formlyIonic',
@@ -20,13 +22,14 @@
             'module.user',
             'module.gallery'
         ])
-        .run(function ($ionicPlatform, $rootScope, $window, $cordovaStatusbar, $timeout, $cordovaSplashscreen, GallerySetting, User) {
+        .run(function ($ionicPlatform, $ionicAnalytics, $rootScope, $window, $cordovaStatusbar, $timeout, $cordovaSplashscreen, GallerySetting, User) {
 
             User.init();
             GallerySetting.init();
 
             $ionicPlatform.ready(function () {
 
+                $ionicAnalytics.register();
 
                 if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);

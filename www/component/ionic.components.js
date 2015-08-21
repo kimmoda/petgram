@@ -5,7 +5,7 @@
         'ionic-loading',
         'ion-affix',
         'ion-location',
-        'ion-connect',
+        // 'ion-connect',
         'ion-photo',
 
     ]);

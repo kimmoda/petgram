@@ -2,11 +2,12 @@
 # Usage: prod.sh 'platform'
 #
 echo "Ionic Upload App"
+echo "Minify app"
 gulp prod
 echo "Rename Folder to Minify Application"
 mv www temp
 mv dist www
-echo "Build Release " $*
+echo "Ionic Upload Start"
 ionic upload
 echo "Rename folder"
 mv www dist
