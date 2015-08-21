@@ -22,7 +22,8 @@
 
                         init();
                         $ionicModal.fromTemplateUrl('module/gallery/view/gallery.photo.feedback.modal.html', {
-                            scope: scope
+                            scope: scope,
+                            focusFirstInput: true
                         }).then(function (modal) {
                             scope.modal = modal;
                             scope.modal.show();
