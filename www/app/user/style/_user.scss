@@ -155,3 +155,7 @@ $time: 0.5s;
   color: #b2b2b2;
   text-align: right;
 }
+
+.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs {
+  top: 0px !important;
+}

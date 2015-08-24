@@ -1,8 +1,8 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('module.user')
-        .controller('RegisterCtrl', function ($state, UserForm, $filter, Notify, User) {
+        .controller('RegisterCtrl', function ($state, UserForm, $filter, Notify, Gallery, User) {
             var vm = this;
 
             function init() {
@@ -21,6 +21,10 @@
                         .register(form)
                         .then(function (resp) {
                             console.log(resp);
+                            Gallery
+                                .addActivity({
+                                    action: 'registered'
+                                });
                             $state.go('userlist');
                             init();
                         })

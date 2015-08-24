@@ -7,7 +7,7 @@
             vm.page     = -1;
             vm.active   = false;
             vm.data     = [];
-            vm.loading  = false;
+            vm.loading  = true;
             $scope.like = false;
 
 
@@ -38,14 +38,6 @@
                         $scope.$broadcast('scroll.refreshComplete');
                         $scope.$broadcast('scroll.infiniteScrollComplete');
                         vm.loading = false;
-                    });
-            };
-
-            vm.upload = function () {
-                PhotoService
-                    .open()
-                    .then(function (resp) {
-                        console.log(resp);
                     });
             };
 

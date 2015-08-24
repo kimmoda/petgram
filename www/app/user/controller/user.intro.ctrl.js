@@ -1,59 +1,37 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('module.user')
-        .controller('IntroCtrl', function (User, $cordovaFacebook, gettextCatalog, $state, $scope, Notify, $ionicSlideBoxDelegate, $rootScope) {
+        .controller('IntroCtrl', function (gettextCatalog) {
             var vm = this;
 
-            $scope.slides = [
+            vm.slides = [
                 {
-                    title: 'App screenshot',
-                    class: 'background-positive',
-                    img  : 'img/intro1.png'
-                },
-
-                {
-                    title: 'Facebook paper screenshot',
-                    class: 'background-positive',
-                    img  : 'img/intro2.png'
-                },
-
-                {
-                    title: 'Foursquare screenshot',
-                    class: 'background-positive',
-                    img  : 'img/intro3.png'
+                    top       : gettextCatalog.getString('Share your most amazing moments'),
+                    img       : 'img/intro1-phone.png'
                 },
                 {
-                    title: 'Instagram screenshot',
-                    class: 'background-positive',
-                    img  : 'img/intro4.png'
+                    top       : gettextCatalog.getString('Follow your friends and relive'),
+                    img       : 'img/intro2-phone.png'
+                },
+                {
+                    top       : gettextCatalog.getString('Find and follow people around'),
+                    img       : 'img/intro3-phone.png'
+                },
+                {
+                    top       : gettextCatalog.getString('Enjoy the most amazing photos'),
+                    img       : 'img/intro4-phone.png'
                 }
+
             ];
 
-            $scope.slideIndex = 0;
-
-            $scope.nextSlide     = function () {
-                $ionicSlideBoxDelegate.next();
-            };
-            $scope.previousSlide = function () {
-                $ionicSlideBoxDelegate.previous();
-            };
+            vm.slideIndex = 0;
 
             // Called each time the slide changes
-            $scope.slideChanged = function (index) {
-                $scope.slideIndex = index;
+            vm.slideChanged = function (index) {
+                vm.slideIndex = index;
             };
 
-            var currentPlatform = ionic.Platform.platform();
-
-            console.log(currentPlatform);
-
-            if (currentPlatform) {
-                $scope.device = (currentPlatform == 'android') ? 'nexus6' : 'iphone6';
-
-            } else {
-                $scope.device = 'nexus6';
-            }
 
         })
     ;

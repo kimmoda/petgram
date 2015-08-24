@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('module.gallery')
-        .directive('galleryLike', function (Gallery, Loading) {
+        .directive('galleryLike', function (Gallery) {
             return {
                 restrict: 'A',
                 scope   : {
@@ -12,15 +12,12 @@
                 link    : function (scope, elem, attr) {
                     elem.bind('click', function () {
 
-                        Loading.start();
-
                         console.log(scope.ngModel);
                         Gallery
                             .likeGallery(scope.ngModel.id)
                             .then(function (resp) {
                                 console.log(resp);
                                 console.log(resp);
-                                Loading.end();
                             });
 
                         if (scope.ngModel.liked === 0) {

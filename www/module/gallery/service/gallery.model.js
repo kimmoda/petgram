@@ -288,8 +288,8 @@
                                 },
 
                                 scaledSize: {
-                                    width : size/2,
-                                    height: size/2
+                                    width : size / 2,
+                                    height: size / 2
                                 },
                                 url       : 'img/icon.png'
                             };
@@ -882,27 +882,41 @@
                 gettextCatalog.getString('like photo');
                 gettextCatalog.getString('unlike photo');
                 gettextCatalog.getString('register');
+                gettextCatalog.getString('registered');
 
                 console.info(data);
 
-                find(data.galeryId)
-                    .then(function (gallery) {
-                        console.log('parte2', gallery);
-                        var Object = Parse.Object.extend('GalleryActivity');
-                        var item   = new Object();
+                if (data.galleryId) {
+                    find(data.galeryId)
+                        .then(function (gallery) {
+                            var Object = Parse.Object.extend('GalleryActivity');
+                            var item   = new Object();
 
-                        item.set('user', Parse.User.current());
-                        item.set('gallery', gallery);
-                        item.set('action', data.action);
+                            item.set('user', Parse.User.current());
+                            item.set('gallery', gallery);
+                            item.set('action', data.action);
 
-                        item.save()
-                            .then(function (resp) {
-                                console.warn(resp);
-                            });
-                    });
+                            item.save()
+                                .then(function (resp) {
+                                    console.warn(resp);
+                                });
+                        });
+                } else {
+                    var Object = Parse.Object.extend('GalleryActivity');
+                    var item   = new Object();
+
+                    item.set('user', Parse.User.current());
+                    item.set('action', data.action);
+
+                    item.save()
+                        .then(function (resp) {
+                            console.warn(resp);
+                        });
+                }
             }
 
             return {
+                addActivity   : addActivity,
                 listActivity  : listActivity,
                 all           : all,
                 add           : add,

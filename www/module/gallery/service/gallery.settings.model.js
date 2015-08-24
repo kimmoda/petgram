@@ -2,12 +2,11 @@
     'use strict';
     angular
         .module('module.gallery')
-        .factory('GallerySetting', function (Parse, Loading, $window, $http, $q) {
+        .factory('GallerySetting', function (Parse, $window, $http, $q) {
 
             var data = [];
 
             function init() {
-                Loading.start();
                 var defer = $q.defer();
 
                 new Parse
@@ -24,7 +23,6 @@
 
                         });
                         defer.resolve(data);
-                        Loading.end();
                     }, function (err) {
                         alert(err);
                     });

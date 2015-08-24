@@ -2,10 +2,9 @@
     'use strict';
     angular
         .module('module.gallery')
-        .factory('GalleryFeedback', function (Parse, $q, Gallery, Notify, Loading, gettextCatalog) {
+        .factory('GalleryFeedback', function (Parse, $q, Gallery, Notify, gettextCatalog) {
 
             function submit(form) {
-                Loading.start();
                 var defer = $q.defer();
 
                 console.log(form);
@@ -26,11 +25,9 @@
                         item.set('user', Parse.User.current());
                         item.set('gallery', gallery);
 
-
                         item
                             .save(null)
                             .then(function (resp) {
-                                Loading.end();
                                 Notify.alert({
                                     title: gettextCatalog.getString('Thanks'),
                                     text : gettextCatalog.getString('Thanks for your Feedback')

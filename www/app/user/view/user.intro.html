@@ -1,54 +1,29 @@
-<ion-view class="app-intro">
-    <div class="intro-slider">
+<ion-view class="view-intro">
 
-        <button class="button-skip"
-                ui-sref="user.login"
-                translate>Skip
-        </button>
+    <ion-content scroll="false">
+        <div class="intro-slider">
+            <button class="button button-clear"
+                    ui-sref="user.login"
+                    translate>Enter
+            </button>
+            <ion-slide-box active-slide="slideIndex"
+                           show-pager="true"
+                           on-slide-changed="Intro.slideChanged($index)">
 
-        <div on-swipe-right="previousSlide()"
-             on-swipe-left="nextSlide()"
-             class="device-wrapper row">
-            <div class="col device-wrapper-body">
-                <div class="row device-wrapper-container">
-                    <div class="col-20 left-dissapearing-effect"></div>
-                    <div class="col center-dissapearing-effect">
-                        <div class="top-dissapearing-effect"></div>
-                        <div class="device-background {{ device }}"></div>
+                <ion-slide ng-repeat="item in Intro.slides">
+
+                    <div class="content"
+                         ng-if="$index == Intro.slideIndex">
+                        <span class="top">{{ item.top }}</span>
+                        <div class="phone">
+                            <img ng-src="{{ item.img }}">
+                        </div>
                     </div>
-                    <div class="col-20 right-dissapearing-effect"></div>
-                </div>
-            </div>
+
+                </ion-slide>
+
+            </ion-slide-box>
         </div>
 
-        <ion-slide-box active-slide="slideIndex"
-                       show-pager="true"
-                       on-slide-changed="slideChanged($index)">
-            <ion-slide ng-repeat="item in slides">
-
-                <div class="row animated zoomIn slide-head"
-                     ng-if="$index == slideIndex">
-                    <div class="col col-center">
-                        <h3 class="zoom">{{ item.title }}</h3>
-                    </div>
-                </div>
-                <div class="row animated slide-body zoomIn "
-                     ng-if="$index == slideIndex"
-                >
-                    <div class="col slide-body-wrapper">
-                        <img class="full-width-image"
-                             ng-src="{{ item.img }}">
-                    </div>
-                </div>
-                <button class="button button-start"
-                        ng-show="$index === slide.length"
-                        ui-sref="login"
-                        translate>Enter
-                </button>
-                <div class="background {{ item.class }}"></div>
-            </ion-slide>
-
-        </ion-slide-box>
-    </div>
-
+    </ion-content>
 </ion-view>

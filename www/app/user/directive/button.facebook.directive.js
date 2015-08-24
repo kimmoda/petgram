@@ -1,8 +1,8 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('module.user')
-        .directive('buttonFacebook', function (User, $state, gettextCatalog, $cordovaFacebook, $window, $rootScope, Notify) {
+        .directive('buttonFacebook', function (User, $state, gettextCatalog, $cordovaFacebook, $window, $rootScope, Gallery) {
             return {
                 restrict: 'E',
                 template: '<button class="button button-block button-facebook" ><i class="icon ion-social-facebook"></i> {{ msg }} </button>',
@@ -12,6 +12,12 @@
                 },
                 link    : function ($scope, elem, attr) {
                     $scope.msg = gettextCatalog.getString('Conect your Facebook')
+
+                    function logged(user) {
+                        $rootScope.user     = user.attributes;
+                        $rootScope.user.img = user.attributes.facebookimg;
+                        $state.go($scope.login, {clear: true});
+                    }
 
                     function login(user) {
                         if (!user.existed()) {
@@ -25,22 +31,21 @@
                                         user.set('facebookimg', 'https://graph.facebook.com/' + response.id + '/picture?width=250&height=250');
                                         user.set('idFacebook', response.id)
                                         user.save();
+
+                                        Gallery
+                                            .addActivity({
+                                                action: 'registered'
+                                            });
                                     }
                                     console.log('/me response', response);
 
-                                    $rootScope.user     = user.attributes;
-                                    $rootScope.user.img = user.attributes.facebookimg;
-
-                                    $state.go($scope.login, {clear: true});
+                                    logged(user);
                                 });
 
                         } else {
 
                             console.info('User logged in through Facebook!', user);
-
-                            $rootScope.user     = user.attributes;
-                            $rootScope.user.img = user.attributes.facebookimg;
-                            $state.go($scope.login, {clear: true});
+                            logged(user);
                         }
                     }
 

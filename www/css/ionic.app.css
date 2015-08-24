@@ -9332,15 +9332,39 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   height: 44px;
   color: white; }
 
+/*
+    Example usage:
+    @include animation(fadeInDown, 1s, .5s)
+ */
 .item-animate1.ng-enter {
-  -webkit-animation: 'fadeInLeft' 1s;
-  animation: 'fadeInLeft' 1s; }
+  -o-animation-name: 'fadeInLeft';
+  -o-animation-delay: 0.5s;
+  -o-animation-duration: 1s;
+  -o-animation-timing-function: ease;
+  -o-animation-fill-mode: both;
+  -moz-animation-name: 'fadeInLeft';
+  -moz-animation-delay: 0.5s;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: both;
+  -webkit-animation-name: 'fadeInLeft';
+  -webkit-animation-delay: 0.5s;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  animation-name: 'fadeInLeft';
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden; }
 .item-animate1.ng-enter-stagger {
   -webkit-animation-delay: 200ms;
   animation-delay: 200ms;
   /* override to make sure it's not inherited from other styles */
-  -webkit-animation-duration: 0;
-  animation-duration: 0; }
+  -webkit-animation-duration: 0s;
+  animation-duration: 0s; }
 
 .item-animate2.ng-enter {
   -webkit-animation: 'fadeInLeft' 1s;
@@ -9352,216 +9376,191 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   -webkit-animation-duration: 0;
   animation-duration: 0; }
 
-.background-positive {
-  background-color: #009688; }
+.step1 {
+  -o-animation-name: fadeInDown;
+  -o-animation-delay: 0s;
+  -o-animation-duration: 1s;
+  -o-animation-timing-function: ease;
+  -o-animation-fill-mode: both;
+  -moz-animation-name: fadeInDown;
+  -moz-animation-delay: 0s;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: both;
+  -webkit-animation-name: fadeInDown;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  animation-name: fadeInDown;
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden; }
 
-.background-calm {
-  background-color: #00302c; }
+.step2 {
+  -o-animation-name: fadeInUp;
+  -o-animation-delay: 0.5s;
+  -o-animation-duration: 1s;
+  -o-animation-timing-function: ease;
+  -o-animation-fill-mode: both;
+  -moz-animation-name: fadeInUp;
+  -moz-animation-delay: 0.5s;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+  -webkit-animation-delay: 0.5s;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  animation-name: fadeInUp;
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden; }
 
-.background-balanced {
-  background-color: #33cd5f; }
+.step3 {
+  -o-animation-name: fadeInUp;
+  -o-animation-delay: 1s;
+  -o-animation-duration: 1s;
+  -o-animation-timing-function: ease;
+  -o-animation-fill-mode: both;
+  -moz-animation-name: fadeInUp;
+  -moz-animation-delay: 1s;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  animation-name: fadeInUp;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden; }
 
-.background-energized {
-  background-color: #ffc900; }
-
-.background-assertive {
-  background-color: #ef473a; }
-
-.background-royal {
-  background-color: #886aea; }
-
-.app-intro {
-  background-color: #f1f1f1; }
-  .app-intro .intro-slider {
+.view-intro .scroll-content {
+  background-image: url('../img/intro1.jpg');
+  background-size: cover;
+  height: 100%;
+  color: #fff; }
+  .view-intro .scroll-content .intro-slider {
+    display: block;
     height: 100%; }
-    .app-intro .intro-slider .button-skip {
-      background: none;
-      border: none;
+    .view-intro .scroll-content .intro-slider button.button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #fff;
+      z-index: 3;
+      padding: 0 20px; }
+    .view-intro .scroll-content .intro-slider span.top {
       color: #fff;
       display: block;
-      font-size: 16px;
-      font-weight: bold;
-      position: absolute;
-      right: 15px;
-      top: 40px;
-      z-index: 1; }
-    .app-intro .intro-slider .device-wrapper {
-      height: inherit;
+      text-align: center;
+      font-size: 20px;
       padding: 0;
+      margin: 25px 15px;
+      top: 20px;
+      -o-animation-name: fadeInDown;
+      -o-animation-delay: 0.5s;
+      -o-animation-duration: 1s;
+      -o-animation-timing-function: ease;
+      -o-animation-fill-mode: both;
+      -moz-animation-name: fadeInDown;
+      -moz-animation-delay: 0.5s;
+      -moz-animation-duration: 1s;
+      -moz-animation-timing-function: ease;
+      -moz-animation-fill-mode: both;
+      -webkit-animation-name: fadeInDown;
+      -webkit-animation-delay: 0.5s;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-timing-function: ease;
+      -webkit-animation-fill-mode: both;
+      -webkit-backface-visibility: hidden;
+      animation-name: fadeInDown;
+      animation-delay: 0.5s;
+      animation-duration: 1s;
+      animation-timing-function: ease;
+      animation-fill-mode: both;
+      backface-visibility: hidden; }
+    .view-intro .scroll-content .intro-slider .phone {
       position: absolute;
-      top: 32px; }
-      .app-intro .intro-slider .device-wrapper .device-wrapper-body {
-        height: 100%;
-        padding: 0;
-        padding-top: 90px;
-        position: absolute; }
-        .app-intro .intro-slider .device-wrapper .device-wrapper-body .device-wrapper-container {
-          height: inherit;
-          padding: 0; }
-          .app-intro .intro-slider .device-wrapper .device-wrapper-body .device-wrapper-container .top-dissapearing-effect {
-            height: 75px;
-            position: absolute;
-            width: inherit; }
-          .app-intro .intro-slider .device-wrapper .device-wrapper-body .device-wrapper-container .left-dissapearing-effect {
-            height: inherit;
-            padding: 0;
-            width: 100%;
-            z-index: 6; }
-          .app-intro .intro-slider .device-wrapper .device-wrapper-body .device-wrapper-container .center-dissapearing-effect {
-            height: inherit;
-            padding: 0;
-            position: relative;
-            width: 100%; }
-          .app-intro .intro-slider .device-wrapper .device-wrapper-body .device-wrapper-container .right-dissapearing-effect {
-            height: inherit;
-            padding: 0;
-            width: 100%;
-            z-index: 6; }
-  .app-intro .slider {
-    height: 100%;
-    overflow: inherit !important;
-    overflow-x: hidden; }
-    .app-intro .slider .slider-pager {
-      height: initial;
-      line-height: 10px;
-      top: 40px;
-      z-index: 0; }
-      .app-intro .slider .slider-pager .slider-pager-page {
-        color: #fff;
-        font-size: 10px; }
-  .app-intro .intro-buttons {
-    background-color: #fff;
-    height: 22%;
-    padding-top: 14px; }
-    .app-intro .intro-buttons .row {
-      padding-bottom: 0px; }
-    .app-intro .intro-buttons .col {
-      padding: 2px; }
-    .app-intro .intro-buttons .button {
-      height: 40px;
-      line-height: 40px;
-      margin: 5px 0;
-      margin: 5px auto;
-      min-height: 20px;
-      width: 100%; }
-    .app-intro .intro-buttons .button-info {
-      color: #009688;
-      font-size: 12px;
-      margin: 0;
-      text-align: center; }
-  .app-intro .slider-slide {
-    padding-top: 30px;
-    text-align: center; }
-    .app-intro .slider-slide .slide-head {
-      height: 90px;
-      overflow-y: hidden; }
-      .app-intro .slider-slide .slide-head * {
-        color: #f1f1f1;
-        margin: 0; }
-    .app-intro .slider-slide .slide-body {
-      height: calc(100% - 89px);
-      margin-top: 0;
-      overflow: hidden;
-      padding: 0; }
-      .app-intro .slider-slide .slide-body .slide-body-wrapper {
-        height: 81%;
-        margin-top: 25%;
-        padding: 0 20%; }
-      .app-intro .slider-slide .slide-body .full-width-image {
-        width: 100%; }
-    .app-intro .slider-slide .background {
-      bottom: 0;
-      display: block;
       left: 0;
-      position: absolute;
       right: 0;
-      top: 0;
-      z-index: -1; }
-  .app-intro .device-html-example {
-    background-color: #f1f1f1;
-    height: 100%; }
-  .app-intro #icon {
-    margin: 10px 0; }
-    .app-intro #icon img {
-      width: 70%; }
+      top: 50px;
+      -o-animation-name: fadeInUp;
+      -o-animation-delay: 0.1s;
+      -o-animation-duration: 1s;
+      -o-animation-timing-function: ease;
+      -o-animation-fill-mode: both;
+      -moz-animation-name: fadeInUp;
+      -moz-animation-delay: 0.1s;
+      -moz-animation-duration: 1s;
+      -moz-animation-timing-function: ease;
+      -moz-animation-fill-mode: both;
+      -webkit-animation-name: fadeInUp;
+      -webkit-animation-delay: 0.1s;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-timing-function: ease;
+      -webkit-animation-fill-mode: both;
+      -webkit-backface-visibility: hidden;
+      animation-name: fadeInUp;
+      animation-delay: 0.1s;
+      animation-duration: 1s;
+      animation-timing-function: ease;
+      animation-fill-mode: both;
+      backface-visibility: hidden; }
+      .view-intro .scroll-content .intro-slider .phone img {
+        width: 70%;
+        display: block;
+        margin: 0 auto; }
+    .view-intro .scroll-content .intro-slider .slider {
+      display: block;
+      height: 100%;
+      padding-top: 30px; }
+    .view-intro .scroll-content .intro-slider .slider-pager, .view-intro .scroll-content .intro-slider button.button {
+      -o-animation-name: fadeInDown;
+      -o-animation-delay: 0.1s;
+      -o-animation-duration: 1s;
+      -o-animation-timing-function: ease;
+      -o-animation-fill-mode: both;
+      -moz-animation-name: fadeInDown;
+      -moz-animation-delay: 0.1s;
+      -moz-animation-duration: 1s;
+      -moz-animation-timing-function: ease;
+      -moz-animation-fill-mode: both;
+      -webkit-animation-name: fadeInDown;
+      -webkit-animation-delay: 0.1s;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-timing-function: ease;
+      -webkit-animation-fill-mode: both;
+      -webkit-backface-visibility: hidden;
+      animation-name: fadeInDown;
+      animation-delay: 0.1s;
+      animation-duration: 1s;
+      animation-timing-function: ease;
+      animation-fill-mode: both;
+      backface-visibility: hidden; }
+    .view-intro .scroll-content .intro-slider .slider-pager {
+      top: 15px; }
+      .view-intro .scroll-content .intro-slider .slider-pager span.slider-pager-page {
+        top: 15px;
+        color: #fff !important; }
 
-.device-background {
-  background-color: initial;
-  background-image: url(../img/device-mockups/iphone_5/iphone_5_port_black.png);
-  background-repeat: no-repeat;
-  background-size: 100%; }
-  .device-background.iphone6-plus {
-    background-image: url(../img/device-mockups/iphone_6_plus/iphone_6_plus_black_port.png);
-    background-position-x: center;
-    background-position-y: 32px;
-    background-size: 100%;
-    height: 100%;
-    left: -7%;
-    position: absolute;
-    width: 114%;
-    z-index: 7; }
-    .device-background.iphone6-plus.black {
-      background-image: url(../img/device-mockups/iphone_6_plus/iphone_6_plus_black_port.png); }
-    .device-background.iphone6-plus.white {
-      background-image: url(../img/device-mockups/iphone_6_plus/iphone_6_plus_white_port.png); }
-    .device-background.iphone6-plus.gold {
-      background-image: url(../img/device-mockups/iphone_6_plus/iphone_6_plus_gold_port.png); }
-  .device-background.iphone6 {
-    background-image: url(../img/device-mockups/iphone_6/iphone_6_black_port.png);
-    background-position-x: center;
-    background-position-y: 26px;
-    background-size: 100%;
-    height: 100%;
-    left: -7%;
-    position: absolute;
-    width: 114%;
-    z-index: 7; }
-    .device-background.iphone6.black {
-      background-image: url(../img/device-mockups/iphone_6/iphone_6_black_port.png); }
-    .device-background.iphone6.white {
-      background-image: url(../img/device-mockups/iphone_6/iphone_6_white_port.png); }
-    .device-background.iphone6.gold {
-      background-image: url(../img/device-mockups/iphone_6/iphone_6_gold_port.png); }
-  .device-background.iphone5 {
-    background-image: url(../img/device-mockups/iphone_5/iphone_5_port_black.png);
-    background-position-x: center;
-    background-position-y: 0;
-    background-size: 100%;
-    height: 100%;
-    left: -15%;
-    position: absolute;
-    width: 130%;
-    z-index: 7; }
-    .device-background.iphone5.black {
-      background-image: url(../img/device-mockups/iphone_5/iphone_5_port_black.png); }
-    .device-background.iphone5.white {
-      background-image: url(../img/device-mockups/iphone_5/iphone_5_port_white.png); }
-  .device-background.nexus6 {
-    background-image: url(../img/device-mockups/nexus_6/nexus_6_port.png);
-    background-position-x: center;
-    background-position-y: 64px;
-    background-size: 100%;
-    height: 100%;
-    left: -4%;
-    position: absolute;
-    width: 109%;
-    z-index: 7; }
-  .device-background.galaxyS5 {
-    background-image: url(../img/device-mockups/galaxy_s5/galaxy_s5_black_port.png);
-    background-position-x: center;
-    background-position-y: 42px;
-    background-size: 100%;
-    height: 100%;
-    left: -7%;
-    position: absolute;
-    width: 114%;
-    z-index: 7; }
-    .device-background.galaxyS5.black {
-      background-image: url(../img/device-mockups/galaxy_s5/galaxy_s5_black_port.png); }
-    .device-background.galaxyS5.white {
-      background-image: url(../img/device-mockups/galaxy_s5/galaxy_s5_white_port.png); }
-    .device-background.galaxyS5.gold {
-      background-image: url(../img/device-mockups/galaxy_s5/galaxy_s5_gold_port.png); }
+.platform-ios .view-intro .scroll-content {
+  padding-top: 20px; }
+.platform-ios .view-intro .intro-slider .button.button {
+  top: 20px; }
 
 .button {
   -webkit-transition: all 0.5s ease;
@@ -9678,6 +9677,9 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #b2b2b2;
   text-align: right; }
 
+.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs {
+  top: 0px !important; }
+
 .profile img.avatar {
   display: block;
   width: 91%;
@@ -9750,6 +9752,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #333; }
   .photogram h1, .photogram h2, .photogram h3, .photogram h4, .photogram h5, .photogram h6, .photogram .h1, .photogram .h2, .photogram .h3, .photogram .h4, .photogram .h5, .photogram .h6 {
     color: #333; }
+  .photogram .item {
+    border: none; }
   .photogram .map-container {
     min-height: 200px;
     height: 100%;

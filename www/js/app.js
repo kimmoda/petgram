@@ -36,12 +36,15 @@
                 }
 
                 if (window.cordova) {
-                    $timeout(function () {
-                        $cordovaSplashscreen.hide();
-                        $cordovaStatusbar.overlaysWebView(true);
-                        $cordovaStatusbar.style(1);
-                        $cordovaStatusbar.styleHex('#00796B');
-                    }, 500);
+
+                    statusbarTransparent.enable();
+                    
+                    // $timeout(function () {
+                    //     $cordovaSplashscreen.hide();
+                    //     $cordovaStatusbar.overlaysWebView(true);
+                    //     $cordovaStatusbar.style(1);
+                    //     $cordovaStatusbar.styleHex('#00796B');
+                    // }, 500);
                 }
 
             });
