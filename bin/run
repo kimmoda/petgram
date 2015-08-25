@@ -7,7 +7,7 @@ echo "Rename Folder to Minify Application"
 mv www temp
 mv dist www
 echo "Build platform"
-ionic run $* --device
+ionic run $*
 echo "Rename folder"
 mv www dist
 mv temp www

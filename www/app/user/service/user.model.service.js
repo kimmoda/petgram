@@ -18,10 +18,12 @@
                 var user = Parse.User.current();
 
                 if (user) {
+                    console.log('Logged user');
                     var obj = user.attributes;
                     obj.id  = user.id;
                     return loadProfile(obj);
                 } else {
+                    console.log('Not logged user, go intro');
                     $state.go('intro');
                 }
             }
@@ -34,14 +36,9 @@
             function loadProfile(response) {
 
                 if (response) {
-                    $rootScope.user = {};
-
-                    var user      = processImg(response);
-                    user.birthday = (response.birthday) ? new Date(response.birthday) : '';
-
+                    var user        = processImg(response);
                     $rootScope.user = user;
-
-                    console.log(response, user);
+                    console.log('load profile', response, user);
                     return user;
                 } else {
                     logout();
@@ -50,12 +47,11 @@
             }
 
             function processImg(obj) {
-                var random = '?' + Math.random();
-
-                if (obj.facebookimg) {
+                console.log('process image');
+                if (obj.facebook) {
                     obj.src = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
                 } else {
-                    obj.src = (obj.img) ? obj.img.url() + random : 'img/user.png';
+                    obj.src = (obj.img) ? obj.img.url() : 'img/user.png';
                 }
                 return obj;
             }
@@ -178,7 +174,8 @@
             function logout() {
                 new Parse.User.logOut();
                 delete $rootScope.user;
-                $window.location = '/';
+                //$window.location = '/#/intro';
+                $state.go('intro', {clear: true});
             }
 
             function update(form) {
@@ -186,7 +183,8 @@
                 var currentUser = Parse.User.current();
                 Loading.start();
                 delete form.img;
-                console.log(form);
+                console.info('update user', form);
+
                 angular.forEach(form, function (value, key) {
                     currentUser.set(key, value);
                 });
@@ -210,6 +208,7 @@
                     currentUser.set('deviceVersion', cordovaDevice.version);
                 }
 
+                currentUser.set('language', $rootScope.lang);
                 currentUser
                     .save()
                     .then(function (resp) {
@@ -280,7 +279,6 @@
                     location    : (response.location) ? response.location.name : '',
                     facebookimg : 'https://graph.facebook.com/' + response.id + '/picture?width=250&height=250',
                     idFacebook  : response.id,
-                    //birthday    : (response.birthday) ? converteDate (response.birthday, response.timezone) : '',
                     gender      : response.gender
                 };
 
@@ -534,7 +532,7 @@
                             .then(function (resp) {
                                 defer.resolve(resp);
                             });
-                    })
+                    });
 
                 return defer.promise;
             }

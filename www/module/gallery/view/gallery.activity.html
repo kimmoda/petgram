@@ -20,7 +20,8 @@
                 <div class="text">{{ item.action | translate }}</div>
                 <p>{{ item.created | amTimeAgo }}</p>
 
-                <div class="img-right">
+                <div class="img-right"
+                     ng-if="ite.img">
                     <img ng-src="{{ item.img }}">
                 </div>
             </div>

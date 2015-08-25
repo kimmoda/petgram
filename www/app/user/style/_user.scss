@@ -8,6 +8,20 @@ $time: 0.5s;
   transition: all $time ease;
 }
 
+.view-avatar {
+  .row {
+    .col {
+      img {
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+        width: 130px;
+        height: 130px;
+      }
+    }
+  }
+}
+
 .form-login {
 
   .scroll-content {
@@ -20,10 +34,11 @@ $time: 0.5s;
 
   .user-head {
     background-color: $positive;
-    height: 220px;
-    position: relative;
-    background: url('../img/background.jpg');
+    background-position: 20%;
+    background: url('../img/intro1.jpg');
     background-size: cover;
+    position: relative;
+    height: 220px;
 
     .logo2 {
       position: relative;
@@ -156,6 +171,10 @@ $time: 0.5s;
   text-align: right;
 }
 
-.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs {
-  top: 0px !important;
+.platform-ios.platform-cordova:not(.fullscreen) {
+  .form-login {
+    .tabs-top > .tabs {
+      top: 0px !important;
+    }
+  }
 }

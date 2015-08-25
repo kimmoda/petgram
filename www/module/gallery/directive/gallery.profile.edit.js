@@ -41,7 +41,7 @@
                                 console.log(resp);
                                 init();
                                 scope.closeModal();
-                            })
+                            });
                     };
 
                     scope.closeModal = function () {

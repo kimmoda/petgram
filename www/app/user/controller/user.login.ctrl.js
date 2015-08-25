@@ -29,8 +29,9 @@
                         .login(form)
                         .then(function (data) {
                             console.log(data);
-                            $state.go('userlist');
+                            $state.go('gallery.home');
                             init();
+                            User.init();
                         })
                         .catch(function (resp) {
                             Notify.alert({

@@ -9246,6 +9246,10 @@ form .item:first-child, .formly .item:first-child {
 .icon-verde {
   color: green; }
 
+input[type=text].ng-invalid::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #F78C8C;
+  text-indent: 0; }
+
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #aaa;
   text-indent: 0; }
@@ -9569,16 +9573,24 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease; }
 
+.view-avatar .row .col img {
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  width: 130px;
+  height: 130px; }
+
 .form-login .scroll-content {
   padding: 0; }
 .form-login .scroll {
   height: 100%; }
 .form-login .user-head {
   background-color: #009688;
-  height: 220px;
+  background-position: 20%;
+  background: url('../img/intro1.jpg');
+  background-size: cover;
   position: relative;
-  background: url('../img/background.jpg');
-  background-size: cover; }
+  height: 220px; }
   .form-login .user-head .logo2 {
     position: relative;
     display: block;
@@ -9677,7 +9689,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #b2b2b2;
   text-align: right; }
 
-.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs {
+.platform-ios.platform-cordova:not(.fullscreen) .form-login .tabs-top > .tabs {
   top: 0px !important; }
 
 .profile img.avatar {
@@ -9754,6 +9766,47 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color: #333; }
   .photogram .item {
     border: none; }
+  .photogram .view-loading {
+    background-color: #009688;
+    background-position: 15%;
+    background: url('../img/intro1.jpg');
+    background-size: cover; }
+    .photogram .view-loading .scroll-content {
+      height: 100%;
+      width: 100%;
+      display: block;
+      position: relative; }
+      .photogram .view-loading .scroll-content img {
+        display: block;
+        position: absolute;
+        max-width: 50%;
+        min-width: 200px;
+        top: 30%;
+        left: 50%;
+        margin-top: 0px;
+        margin-left: -100px;
+        -o-animation-name: fadeIn;
+        -o-animation-delay: 0.1s;
+        -o-animation-duration: 1s;
+        -o-animation-timing-function: ease;
+        -o-animation-fill-mode: both;
+        -moz-animation-name: fadeIn;
+        -moz-animation-delay: 0.1s;
+        -moz-animation-duration: 1s;
+        -moz-animation-timing-function: ease;
+        -moz-animation-fill-mode: both;
+        -webkit-animation-name: fadeIn;
+        -webkit-animation-delay: 0.1s;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-timing-function: ease;
+        -webkit-animation-fill-mode: both;
+        -webkit-backface-visibility: hidden;
+        animation-name: fadeIn;
+        animation-delay: 0.1s;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-fill-mode: both;
+        backface-visibility: hidden; }
   .photogram .map-container {
     min-height: 200px;
     height: 100%;
@@ -10098,9 +10151,6 @@ ion-nav-bar.bar.bar-positive.bar-none.nav-bar-container {
 .tabs-top .bar-subheader {
   top: 93px; }
 
-.platform-ios.platform-cordova:not(.fullscreen) .tabs-top .bar-subheader {
-  top: 113px; }
-
 .search-wrapper-light {
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
   background: none;
@@ -10113,18 +10163,6 @@ ion-nav-bar.bar.bar-positive.bar-none.nav-bar-container {
     width: 100%;
     background: none;
     margin-left: 10px; }
-
-.view-loading {
-  background-color: #009688; }
-  .view-loading .scroll {
-    height: 100%;
-    position: relative; }
-    .view-loading .scroll img {
-      display: block;
-      position: absolute;
-      top: 25%;
-      left: 25%;
-      max-width: 50%; }
 
 pre {
   color: #333; }

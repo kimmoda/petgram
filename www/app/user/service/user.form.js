@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('module.user')
@@ -32,34 +32,12 @@
             var register = [
                 {
                     type           : 'input',
-                    key            : 'name',
-                    templateOptions: {
-                        type           : 'text',
-                        placeholder    : $translate.instant('NAME'),
-                        icon           : 'icon-user',
-                        required       : true,
-                        iconPlaceholder: true
-                    }
-                },
-                {
-                    type           : 'input',
                     key            : 'email',
                     templateOptions: {
                         type           : 'email',
                         placeholder    : $translate.instant('EMAIL'),
                         icon           : 'icon-envelope',
                         required       : true,
-                        iconPlaceholder: true
-                    }
-                },
-                {
-                    type           : 'input',
-                    key            : 'birthday',
-                    templateOptions: {
-                        type           : 'date',
-                        placeholder    : $translate.instant('BIRTHDAY'),
-                        icon           : 'icon-present',
-                        required       : false,
                         iconPlaceholder: true
                     }
                 },
@@ -114,43 +92,9 @@
                                 'id'   : 'female',
                             }
                         ],
-                        //groupProp: 'gender',
                         valueProp      : 'id',
                         labelProp      : 'label',
                         icon           : 'icon-list',
-                        iconPlaceholder: true
-                    }
-                },
-                {
-                    key            : 'phone',
-                    type           : 'input',
-                    templateOptions: {
-                        type           : 'text',
-                        placeholder    : $translate.instant('TELEPHONE'),
-                        icon           : 'ion-iphone',
-                        required       : true,
-                        iconPlaceholder: true
-                    }
-                },
-                {
-                    key            : 'site',
-                    type           : 'input',
-                    templateOptions: {
-                        type           : 'text',
-                        placeholder    : $translate.instant('SITE'),
-                        icon           : 'ion-earth',
-                        required       : true,
-                        iconPlaceholder: true
-                    }
-                },
-                {
-                    key            : 'location',
-                    type           : 'input',
-                    templateOptions: {
-                        type           : 'text',
-                        placeholder    : $translate.instant('ADDRESS'),
-                        icon           : 'icon-map',
-                        required       : true,
                         iconPlaceholder: true
                     }
                 },
@@ -164,18 +108,8 @@
                         required       : true,
                         iconPlaceholder: true
                     }
-                },
-                {
-                    type           : 'input',
-                    key            : 'birthday',
-                    templateOptions: {
-                        type           : 'date',
-                        placeholder    : $translate.instant('BIRTHDAY'),
-                        icon           : 'icon-present',
-                        required       : true,
-                        iconPlaceholder: true
-                    }
                 }
+
             ];
 
             return {

@@ -2,7 +2,28 @@
     'use strict';
     angular
         .module('module.user')
-        .directive('buttonFacebook', function (User, $state, gettextCatalog, $cordovaFacebook, $window, $rootScope, Gallery) {
+        .config(function ($provide) {
+            'use strict';
+
+            var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+
+            if (isSafari) {
+                $provide.decorator('$rootScope', function ($rootScope) {
+                    var scopePrototype   = Object.getPrototypeOf($rootScope);
+                    var originalScopeNew = scopePrototype.$new;
+                    scopePrototype.$new  = function () {
+                        try {
+                            return originalScopeNew.apply(this, arguments);
+                        } catch (e) {
+                            console.error(e);
+                            throw e;
+                        }
+                    };
+                    return $rootScope;
+                });
+            }
+        })
+        .directive('buttonFacebook', function (User, Gallery, Loading, $state, $q, $timeout, gettextCatalog, $cordovaFacebook, $window, $log) {
             return {
                 restrict: 'E',
                 template: '<button class="button button-block button-facebook" ><i class="icon ion-social-facebook"></i> {{ msg }} </button>',
@@ -11,66 +32,84 @@
                     register: '@',
                 },
                 link    : function ($scope, elem, attr) {
-                    $scope.msg = gettextCatalog.getString('Conect your Facebook')
+                    $scope.msg = gettextCatalog.getString('Conect your Facebook');
 
-                    function logged(user) {
-                        $rootScope.user     = user.attributes;
-                        $rootScope.user.img = user.attributes.facebookimg;
-                        $state.go($scope.login, {clear: true});
+                    var route = 'gallery.home';
+
+                    function loginroute() {
+                        Loading.end();
+                        User.init();
+                        $timeout(function () {
+                            $state.go(route, {clear: true});
+                        }, 500);
+                    }
+
+                    function newUser(response) {
+                        var form = {
+                            name       : response.name,
+                            facebook   : response.id,
+                            facebookimg: 'https://graph.facebook.com/' + response.id + '/picture?width=250&height=250'
+                        };
+
+                        User
+                            .update(form)
+                            .then(function () {
+                                Gallery
+                                    .addActivity({
+                                        action: 'registered'
+                                    });
+                                loginroute();
+                                $log.warn('me response', response);
+                            });
                     }
 
                     function login(user) {
+                        $log.info('user exist', user.existed());
                         if (!user.existed()) {
-                            console.warn('User signed up and logged in through Facebook!', user);
-                            $window
-                                .FB
-                                .api('/me', function (response) {
-                                    if (user.attributes.idFacebook === '') {
-                                        user.set('name', response.name);
-                                        user.set('email', response.email);
-                                        user.set('facebookimg', 'https://graph.facebook.com/' + response.id + '/picture?width=250&height=250');
-                                        user.set('idFacebook', response.id)
-                                        user.save();
-
-                                        Gallery
-                                            .addActivity({
-                                                action: 'registered'
-                                            });
-                                    }
-                                    console.log('/me response', response);
-
-                                    logged(user);
-                                });
-
+                            $log.warn('New user using Facebook!', user);
+                            if (!($window.ionic.Platform.isIOS() || $window.ionic.Platform.isAndroid())) {
+                                $log.info('facebook browser');
+                                $window
+                                    .FB
+                                    .api('/me', function (response) {
+                                        newUser(response);
+                                    });
+                            } else {
+                                $log.info('facebook native');
+                                $cordovaFacebook
+                                    .api('/me', ['public_profile'])
+                                    .then(function (response) {
+                                        newUser(response);
+                                    });
+                            }
                         } else {
-
-                            console.info('User logged in through Facebook!', user);
-                            logged(user);
+                            $log.warn('User logged Facebook!', user);
+                            loginroute();
                         }
                     }
 
                     elem.bind('click', function () {
 
+                        Loading.start();
                         //Browser Login
                         if (!($window.ionic.Platform.isIOS() || $window.ionic.Platform.isAndroid())) {
-
+                            $log.info('login browser');
                             $window
                                 .Parse
                                 .FacebookUtils
                                 .logIn(null, {
                                     success: function (user) {
-                                        console.log(user);
+                                        $log.log('user1', user);
                                         login(user);
                                     },
                                     error  : function (user, error) {
-                                        console.error('User cancelled the Facebook login or did not fully authorize.');
+                                        $log.error('User cancelled the Facebook login or did not fully authorize.');
                                     }
                                 });
 
-                        }
-                        //Native Login
-                        else {
-
+                        } else {
+                            //Native Login
+                            $log.info('Login cordova');
                             $cordovaFacebook
                                 .login([
                                     'public_profile',
@@ -78,7 +117,7 @@
                                 ])
                                 .then(function (success) {
 
-                                    console.log(success);
+                                    $log.log('cordova1', success);
 
                                     //Need to convert expiresIn format from FB to date
                                     var expiration_date = new Date();
@@ -86,9 +125,9 @@
                                     expiration_date     = expiration_date.toISOString();
 
                                     var facebookAuthData = {
-                                        "id"             : success.authResponse.userID,
-                                        "access_token"   : success.authResponse.accessToken,
-                                        "expiration_date": expiration_date
+                                        id             : success.authResponse.userID,
+                                        access_token   : success.authResponse.accessToken,
+                                        expiration_date: expiration_date
                                     };
 
                                     $window
@@ -96,7 +135,7 @@
                                         .FacebookUtils
                                         .logIn(facebookAuthData, {
                                             success: function (user) {
-                                                console.log(user);
+                                                $log.log('user3', user);
                                                 login(user);
                                             },
                                             error  : function (user, error) {
@@ -105,7 +144,7 @@
                                         });
 
                                 }, function (error) {
-                                    console.log(error);
+                                    $log.log(error);
                                 });
 
                         }

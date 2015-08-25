@@ -36,15 +36,12 @@
                 }
 
                 if (window.cordova) {
-
-                    statusbarTransparent.enable();
-                    
-                    // $timeout(function () {
-                    //     $cordovaSplashscreen.hide();
-                    //     $cordovaStatusbar.overlaysWebView(true);
-                    //     $cordovaStatusbar.style(1);
-                    //     $cordovaStatusbar.styleHex('#00796B');
-                    // }, 500);
+                    $timeout(function () {
+                        $cordovaSplashscreen.hide();
+                        $cordovaStatusbar.overlaysWebView(true);
+                        $cordovaStatusbar.style(1);
+                        $cordovaStatusbar.styleHex('#00796B');
+                    }, 500);
                 }
 
             });
@@ -56,7 +53,7 @@
             $rootScope.langs = [
                 {
                     name : gettextCatalog.getString('English'),
-                    value: 'en'
+                    value: 'en_US'
                 },
                 {
                     name : gettextCatalog.getString('Portuguese Brazil'),
@@ -76,12 +73,10 @@
                 gettextCatalog.setCurrentLanguage(language);
                 $translate.use(language);
                 amMoment.changeLocale(language);
-                console.log(language);
-                console.log($rootScope.lang);
             };
 
             $rootScope.setLanguage(userLangVar);
-            console.log(LangVar, userLangVar);
+            console.info(LangVar, userLangVar);
         })
         .config(function ($ionicConfigProvider) {
             //$ionicConfigProvider.platform.ios.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');

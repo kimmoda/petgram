@@ -2,26 +2,14 @@
     'use strict';
     angular
         .module('ionic-loading', [
-            'ionic',
-            'angular-loading-bar'
+            'ionic'
         ])
-        .config(function (cfpLoadingBarProvider) {
-            cfpLoadingBarProvider.includeBar = false;
-        })
-        .directive('ionLoading', function ($rootScope) {
+        .directive('ionLoading', function () {
             return {
                 restrict: 'E',
                 scope   : {
-                    icon: '@'
-                },
-                link    : function (scope, elem) {
-                    $rootScope.$on('cfpLoadingBar:started', function () {
-                        console.log('Loading !!!');
-                        scope.loading = true;
-                    });
-                    $rootScope.$on('cfpLoadingBar:completed', function () {
-                        scope.loading = false;
-                    });
+                    icon   : '@',
+                    loading: '='
                 },
                 template: '<div class="padding text-center loading" ng-show="loading"><ion-spinner icon="{{ icon }}"></ion-spinner></div>'
             }
@@ -49,19 +37,12 @@
         .run(function ($rootScope, $ionicLoading) {
             //Loading
 
-            $rootScope.$on('loading:true', function () {
-                //$ionicLoading.show();
-                $rootScope.loading = true;
-            });
-            $rootScope.$on('loading:false', function () {
-                $rootScope.loading = false;
-                //$ionicLoading.hide();
-            });
-
             $rootScope.$on('ionicLoading:true', function () {
+                $rootScope.loading = true;
                 $ionicLoading.show();
             });
             $rootScope.$on('ionicLoading:false', function () {
+                $rootScope.loading = false;
                 $ionicLoading.hide();
             });
         })

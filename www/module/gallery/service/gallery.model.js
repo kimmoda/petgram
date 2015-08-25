@@ -397,18 +397,23 @@
                                                         commentsData.push(comment);
                                                     });
 
-                                                    var obj     = {
+                                                    var obj = {
                                                         id      : item.id,
                                                         item    : item.attributes,
                                                         created : item.createdAt,
                                                         likes   : likes,
                                                         liked   : liked,
                                                         src     : item.attributes.img.url(),
-                                                        user    : item.attributes.user.attributes,
                                                         comments: commentsData
                                                     };
-                                                    obj.user.id = item.attributes.user.id;
-                                                    obj.user    = processImg(obj.user);
+
+                                                    if (item.attributes.user) {
+                                                        obj.user = item.attributes.user.attributes,
+                                                            obj.user.id = item.attributes.user.id;
+                                                        obj.user = processImg(obj.user);
+                                                    } else {
+                                                        // remove gallery
+                                                    }
 
                                                     data.push(obj);
                                                     cb();
@@ -494,7 +499,6 @@
             function processImg(obj) {
                 console.log(obj);
                 if (obj) {
-                    var random = '?' + Math.random();
 
                     if (obj.facebook) {
                         obj.src = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
@@ -858,7 +862,7 @@
                             obj.user    = (value.attributes.user) ? value.attributes.user.attributes : '';
                             obj.user    = processImg(obj.user);
                             obj.created = value.createdAt;
-                            obj.img     = value.attributes.gallery.attributes.img.url();
+                            obj.img     = (value.attributes.gallery) ? value.attributes.gallery.attributes.img.url() : '';
                             console.log(obj);
                             data.push(obj);
                         });

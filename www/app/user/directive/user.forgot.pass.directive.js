@@ -5,11 +5,11 @@
         .directive('buttonForgotPass', function (User, $ionicPopup, gettextCatalog, Notify) {
             return {
                 restrict: 'E',
-                template: '<button class="button button-right button-block button-clear" ng-click="forgotPass()" translate>Forgot your password?</button>',
                 scope   : {
                     login   : '@',
                     register: '@',
                 },
+                template: '<button class="button button-right button-block button-clear" ng-click="forgotPass()" translate>Forgot your password?</button>',
                 link    : function ($scope, elem, attr) {
 
                     elem.bind('click', function () {
@@ -20,10 +20,15 @@
 
                         $scope.erro = '';
 
+                        $scope.text = {
+                            button: gettextCatalog.getString(''),
+                            input: gettextCatalog.getString('Email')
+                        };
+
                         $ionicPopup.show({
                             scope   : $scope,
-                            template: '<div class="popup-recovery"><form name="form.recovery" form-manager><label class="item item-input"><i class="icon ion-email placeholder-icon"></i><input type="email" ng-model="email" id="email" name="email" placeholder="{{ \'Digite seu email\' | translate }}" required ng-maxlength="80"></label><span class="error-msg">{{erro}}</span></form></div>',
-                            title   : gettextCatalog.getString('Uma nova senha ser\xE1 enviada para o seu endere\xE7o de email:'),
+                            template: '<div class="popup-recovery"><form name="form.recovery" form-manager><label class="item item-input"><i class="icon ion-email placeholder-icon"></i><input type="email" ng-model="email" id="email" name="email" placeholder="{{ text.input }}" required ng-maxlength="80"></label><span class="error-msg">{{erro}}</span></form></div>',
+                            title   : gettextCatalog.getString('A new password will be sent to your e-mail address'),
                             buttons : [
                                 {
                                     text: gettextCatalog.getString('Cancel'),

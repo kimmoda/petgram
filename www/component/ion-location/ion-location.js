@@ -1,8 +1,11 @@
 (function () {
     'use strict';
     angular
-        .module('ion-location', ['ionic'])
-        .directive('ionLocation', function ($ionicModal, GeoService) {
+        .module('ion-location', [
+            'ionic',
+            'gettext'
+        ])
+        .directive('ionLocation', function (gettextCatalog, $ionicModal, GeoService) {
             return {
                 restrict: 'A',
                 scope   : {
@@ -17,27 +20,63 @@
                     };
 
 
+                    function selectPlace(place_id) {
+                        GeoService
+                            .getDetails(place_id)
+                            .then(function (location) {
+
+                                console.info(location);
+
+                                var address = GeoService
+                                    .parseAddress(location);
+
+                                $scope.location = {
+                                    number  : address.number,
+                                    street  : address.street,
+                                    district: address.district,
+                                    city    : address.city,
+                                    state   : address.state,
+                                    country : address.country,
+                                    zipcode : address.zipcode,
+                                    coords  : address.geo,
+                                    image   : address.image,
+                                    resume  : address.resume
+                                };
+
+                                console.log($scope.location);
+                                $scope.closeModalLocation();
+                            });
+                    }
+
                     element.bind('focus', function () {
                         init();
                         console.log('Start');
+
+                        var translate = {
+                            string1: gettextCatalog.getString('My Location'),
+                            string2: gettextCatalog.getString('Search')
+                        }
 
                         $scope.modalLocation = $ionicModal.fromTemplate('<ion-modal-view>' +
                             '<ion-header-bar class="bar bar-positive item-input-inset">' +
                             '<button class="button button-clear button-icon ion-pinpoint" ng-click="findMe()"></button>' +
                             '<label class="item-input-wrapper">' +
-                            '<input type="search" ng-model="search.query" placeholder="Search"></label>' +
+                            '<input type="search" ng-model="search.query" placeholder="{{ \'Search\' | translate }}"></label>' +
                             '<button class="button button-clear button-icon ion-ios-close-empty" ng-click="closeModalLocation()"></button>' +
                             '</ion-header-bar>' +
                             '<ion-content padding="false">' +
                             '<ion-list>' +
+                            '<ion-item ng-click="findMe()" ng-hide="search.suggestions.length">{{ \'My Location\' | translate }}</ion-item>' +
                             '<ion-item ng-repeat="suggestion in search.suggestions" ng-click="choosePlace(suggestion)" ng-bind="suggestion.description"></ion-item>' +
                             '<ion-item class="item-divider"><img src="https://developers.google.com/maps/documentation/places/images/powered-by-google-on-white.png"alt=""/></ion-item>' +
                             '</ion-list>' +
                             '</ion-content>' +
                             '</ion-modal-view>', {
-                            scope          : $scope,
-                            focusFirstInput: true
-                        });
+                                scope          : $scope,
+                                focusFirstInput: true
+                            }
+                        )
+                        ;
 
                         $scope.modalLocation.show();
 
@@ -45,12 +84,6 @@
                             $scope.modalLocation.hide();
                             $scope.modalLocation.remove();
                         };
-                        GeoService
-                            .findMe()
-                            .then(function (result) {
-                                console.log('findMe', result);
-                                $scope.search.suggestions = result.results;
-                            });
 
 
                         $scope.$watch('search.query', function (newValue) {
@@ -68,37 +101,17 @@
                         $scope.findMe = function () {
                             GeoService
                                 .findMe()
-                                .then(function (result) {
-                                    console.log(result);
-                                    $scope.search.suggestions = result;
+                                .then(function (location) {
+                                    console.log(location);
+
+                                    selectPlace(location.results[0].place_id)
+
                                 });
                         };
 
                         $scope.choosePlace = function (place) {
 
-                            GeoService
-                                .getDetails(place.place_id)
-                                .then(function (location) {
-
-                                    var address = GeoService
-                                        .parseAddress(location);
-
-                                    $scope.location = {
-                                        number  : address.number,
-                                        street  : address.street,
-                                        district: address.district,
-                                        city    : address.city,
-                                        state   : address.state,
-                                        country : address.country,
-                                        zipcode : address.zipcode,
-                                        coords  : address.geo,
-                                        image   : address.image,
-                                        resume  : address.resume
-                                    };
-
-                                    console.log($scope.location);
-                                    $scope.closeModalLocation();
-                                });
+                            selectPlace(place.place_id)
 
                         };
 

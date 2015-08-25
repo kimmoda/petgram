@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('module.user')
@@ -48,6 +48,12 @@
                             templateUrl: 'app/user/view/user.register.html'
                         }
                     }
+                })
+
+                .state('useravatar', {
+                    url     : '/avatar',
+                    controller: 'UserAvatarCtrl as Avatar',
+                    templateUrl: 'app/user/view/user.avatar.html'
                 })
 
                 .state('logout', {

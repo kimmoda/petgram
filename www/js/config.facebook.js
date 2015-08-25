@@ -14,7 +14,8 @@
                     $window.Parse.FacebookUtils.init({
                         appId  : FACEBOOK,
                         version: 'v2.3',
-                        xfbml  : true
+                        status : true,                                 // Check Facebook Login status
+                        xfbml  : true                                  // Look for social plugins on the page
                     });
                 };
 

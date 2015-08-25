@@ -1,4 +1,4 @@
-(function(){
+(function () {
     'use strict';
     angular
         .module('module.gallery')
@@ -37,6 +37,9 @@
                     .then(function () {
                         $scope.$broadcast('scroll.refreshComplete');
                         $scope.$broadcast('scroll.infiniteScrollComplete');
+                        vm.loading = false;
+                    })
+                    .catch(function () {
                         vm.loading = false;
                     });
             };

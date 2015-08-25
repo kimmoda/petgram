@@ -2,7 +2,7 @@
 # Usage: prod.sh 'platform'
 # 
 #echo "Compilation Application"
-#gulp prod
+gulp prod
 echo "Rename Folder to Minify Application"
 mv www temp
 mv dist www

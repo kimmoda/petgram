@@ -100,16 +100,16 @@ ion-nav-bar.bar.bar-positive.bar-none.nav-bar-container {
   top: $bar-height + $tabs-height;
 }
 
-.platform-ios.platform-cordova {
-  // iOS has a status bar which sits on top of the header.
-  // Bump down everything to make room for it. However, if
-  // if its in Cordova, and set to fullscreen, then disregard the bump.
-  &:not(.fullscreen) {
-    .tabs-top .bar-subheader {
-      top: $bar-height + $tabs-height + $ios-statusbar-height;
-    }
-  }
-}
+//.platform-ios.platform-cordova {
+//  // iOS has a status bar which sits on top of the header.
+//  // Bump down everything to make room for it. However, if
+//  // if its in Cordova, and set to fullscreen, then disregard the bump.
+//  &:not(.fullscreen) {
+//    .tabs-top .bar-subheader {
+//      top: $bar-height + $tabs-height + $ios-statusbar-height;
+//    }
+//  }
+//}
 
 .search-wrapper-light {
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
@@ -124,22 +124,6 @@ ion-nav-bar.bar.bar-positive.bar-none.nav-bar-container {
     width: 100%;
     background: none;
     margin-left: 10px;
-  }
-}
-
-.view-loading {
-  background-color: $positive;
-  .scroll {
-    height: 100%;
-    position: relative;
-
-    img {
-      display: block;
-      position: absolute;
-      top: 25%;
-      left: 25%;
-      max-width: 50%;
-    }
   }
 }
 

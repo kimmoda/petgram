@@ -12,8 +12,11 @@ msgstr ""
 "X-Generator: Poedit 1.8.4\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: user/directive/user.forgot.pass.directive.js:31
+msgid "A new password will be sent to your e-mail address"
+msgstr "Uma nova senha será enviada para seu endereço de e-mail"
+
 #: gallery/view/gallery.popover.home.html:10
-#: gallery/view/gallery.settings.modal.html:40
 msgid "About"
 msgstr "Sobre"
 
@@ -25,11 +28,11 @@ msgstr "Conta"
 msgid "Activities"
 msgstr "Atividades"
 
-#: gallery/view/gallery.photos.list.html:71
+#: gallery/view/gallery.photos.list.html:74
 msgid "Add comment"
 msgstr "Adicionar comentário"
 
-#: user/directive/user.forgot.pass.directive.js:29
+#: user/directive/user.forgot.pass.directive.js:34
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -49,6 +52,10 @@ msgstr "Comentário"
 msgid "Comments"
 msgstr "Comentários"
 
+#: user/view/user.avatar.html:1
+msgid "Complete your Profile"
+msgstr "Complete o seu perfil"
+
 #: user/directive/button.facebook.directive.js:14
 msgid "Conect your Facebook"
 msgstr "Conectar com o seu Facebook"
@@ -61,6 +68,10 @@ msgstr "EDITAR SEU PERFIL"
 #: gallery/view/gallery.settings.modal.html:31
 msgid "Edit Profile"
 msgstr "Editar perfil"
+
+#: user/directive/user.forgot.pass.directive.js:25
+msgid "Email"
+msgstr "Email"
 
 #: user/controller/user.intro.ctrl.js:22
 msgid "Enjoy the most amazing photos"
@@ -96,7 +107,7 @@ msgstr "Siga seus amigos"
 msgid "Gallery preview"
 msgstr "Ver Galeria"
 
-#: user/directive/user.forgot.pass.directive.js:41
+#: user/directive/user.forgot.pass.directive.js:46
 msgid "Invalid Email"
 msgstr "Email inválido"
 
@@ -109,29 +120,25 @@ msgid "Like"
 msgstr "Curtir"
 
 #: gallery/view/gallery.like.directive.html:5
-#: gallery/view/gallery.photos.list.html:55
+#: gallery/view/gallery.photos.list.html:58
 msgid "Likes"
 msgstr "Curtidas"
 
 #: gallery/view/gallery.capture.modal.html:28
 msgid "Location"
-msgstr ""
+msgstr "Localizaçào"
 
-#: gallery/view/gallery.settings.modal.html:51
+#: gallery/view/gallery.settings.modal.html:50
 msgid "Logout"
 msgstr "Sair"
 
 #: gallery/view/gallery.search.map.html:2
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 #: gallery/view/gallery.comment.directive.html:34
 msgid "No Comments"
-msgstr ""
-
-#: gallery/view/gallery.settings.modal.html:43
-msgid "Privacy Policitical"
-msgstr ""
+msgstr "Nenhum Comentário"
 
 #: gallery/view/gallery.profile.photos.html:1
 msgid "Profile"
@@ -146,7 +153,7 @@ msgstr "Cadastro"
 msgid "Search"
 msgstr "Busca"
 
-#: user/directive/user.forgot.pass.directive.js:33
+#: user/directive/user.forgot.pass.directive.js:38
 msgid "Send"
 msgstr "Enviar"
 
@@ -176,13 +183,9 @@ msgstr "Compartilhe seus melhores momentos"
 msgid "Terms"
 msgstr "Termos"
 
-#: user/view/user.register.html:20
+#: gallery/view/gallery.settings.modal.html:44 user/view/user.register.html:20
 msgid "Terms and Conditions"
 msgstr "Termos e Condições"
-
-#: gallery/view/gallery.settings.modal.html:46
-msgid "Terms of User"
-msgstr "Termos do Usuário"
 
 #: gallery/service/gallery.feedback.model.js:32
 msgid "Thanks"
@@ -192,19 +195,19 @@ msgstr "Obrigado"
 msgid "Thanks for your Feedback"
 msgstr "Obrigado por enviar seu Feedback"
 
-#: user/directive/user.forgot.pass.directive.js:26
-msgid "Uma nova senha será enviada para o seu endereço de email:"
-msgstr ""
+#: user/view/user.register.html:20
+msgid "When creating your account, you agree to our"
+msgstr "Ao criar sua conta, você concorda com nossos"
 
 #: gallery/view/gallery.capture.modal.html:24
 msgid "Write a Legend"
 msgstr "Escreva uma legenda"
 
-#: gallery/service/gallery.model.js:881
+#: gallery/service/gallery.model.js:885
 msgid "add comment"
 msgstr "adicionou um comentário"
 
-#: gallery/service/gallery.model.js:880
+#: gallery/service/gallery.model.js:884
 msgid "add photo"
 msgstr "adicionou uma foto"
 
@@ -212,7 +215,7 @@ msgstr "adicionou uma foto"
 msgid "followers"
 msgstr "seguidores"
 
-#: gallery/service/gallery.model.js:882
+#: gallery/service/gallery.model.js:886
 msgid "like photo"
 msgstr "curtiu a foto"
 
@@ -224,17 +227,23 @@ msgstr "ou"
 msgid "posts"
 msgstr "publicações"
 
-#: gallery/service/gallery.model.js:884
+#: gallery/service/gallery.model.js:888
 msgid "register"
 msgstr "se cadastrou"
 
-#: gallery/service/gallery.model.js:885
+#: gallery/service/gallery.model.js:889
 msgid "registered"
 msgstr "se cadastrou"
 
-#: gallery/service/gallery.model.js:883
+#: gallery/service/gallery.model.js:887
 msgid "unlike photo"
 msgstr "tirou o curtir da foto"
+
+#~ msgid "Forgot your password?"
+#~ msgstr "Esqueceu sua senha?"
+
+#~ msgid "Terms of User"
+#~ msgstr "Termos do Usuário"
 
 #~ msgid "Camera"
 #~ msgstr "Tirar foto"
@@ -244,9 +253,6 @@ msgstr "tirou o curtir da foto"
 
 #~ msgid "Error"
 #~ msgstr "Erro"
-
-#~ msgid "Forgot your password?"
-#~ msgstr "Esqueceu sua senha?"
 
 #~ msgid "Gallery"
 #~ msgstr "Galeria de Fotos"

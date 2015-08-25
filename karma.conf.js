@@ -2,7 +2,7 @@
 // Generated on Thu Jul 02 2015 15:51:34 GMT-0300 (BRT)
 
 module.exports = function (config) {
-    config.set ({
+    config.set({
 
         // enable / disable watching file and executing tests whenever any file changes
         autoWatch: true,
