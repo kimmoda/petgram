@@ -39,6 +39,7 @@
                         $cordovaStatusbar.overlaysWebView(true);
                         $cordovaStatusbar.style(1);
                         $cordovaStatusbar.styleHex('#00796B');
+                        $cordovaStatusbar.show();
                     }, 500);
                 }
 

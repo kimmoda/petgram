@@ -12,7 +12,7 @@
                         console.log(scope.ngModel);
 
                         $cordovaInAppBrowser
-                            .open('http://ngcordova.com', '_blank', {
+                            .open('http://movibe.github.io/photogram-docs/', '_blank', {
                                 location  : 'no',
                                 clearcache: 'yes',
                                 toolbar   : 'yes'

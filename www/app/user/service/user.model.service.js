@@ -29,7 +29,7 @@
             }
 
             function currentUser() {
-                return Parse.User.current().attributes;
+                return $rootScope.user;
             }
 
 
@@ -37,6 +37,7 @@
 
                 if (response) {
                     var user        = processImg(response);
+                    delete $rootScope.user;
                     $rootScope.user = user;
                     console.log('load profile', response, user);
                     return user;

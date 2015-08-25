@@ -1,16 +1,22 @@
 
 Facebook ID: 1024016557617380
 
-// IOS
+$IOS
 
 cordova plugin add https://github.com/Wizcorp/phonegap-facebook-plugin.git --variable APP_ID="1024016557617380" --variable APP_NAME="Photogram"
 
-// ANDROID
+# ANDROID
 
 cordova -d plugin add https://github.com/phonegap/phonegap-facebook-plugin.git --variable APP_ID="1024016557617380" --variable APP_NAME="Photogram"
 android update project --subprojects --path "platforms/android" --target android-19 --library "CordovaLib"
 android update project --subprojects --path "platforms/android" --target android-19 --library "com.phonegap.plugins.facebookconnect/FacebookLib"
 
+# Android Facebook
+https://developers.facebook.com/docs/android/getting-started
+
+# Key Hashs
+keytool -exportcert -alias agfoccus -keystore ~/Documents/PlayStore/agfoccus.keystore | openssl sha1 -binary | openssl base64
+2CqJGVVBmkEHpeNJZq1rW0SAeVo=
 
 Font
 Billabong

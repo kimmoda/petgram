@@ -59,6 +59,13 @@ angular.module('translate.app',['ionic'])
   "registered": "se cadastrou",
   "unlike photo": "tirou o curtir da foto"
 });
-  gettextCatalog.setStrings('en', {});
+  gettextCatalog.setStrings('en_US', {
+  "A new password will be sent to your e-mail address": "A new password will be sent to your e-mail address",
+  "About": "About",
+  "Account": "Accout",
+  "Comment": "Comment",
+  "Comments": "Comments",
+  "EDIT YOUR PROFILE": "EDIT YOUR PROFILE"
+});
 });
 }());

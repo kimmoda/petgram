@@ -93,7 +93,6 @@
 
                 if (response) {
                     var user      = processImg(response);
-                    user.birthday = (response.birthday) ? new Date(response.birthday) : '';
 
                     console.info(response, user);
                     return user;

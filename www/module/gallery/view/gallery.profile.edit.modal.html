@@ -8,9 +8,17 @@
             <i class="icon ion-arrow-right-b"></i>
         </button>
     </ion-header-bar>
-    <ion-content>
+    <ion-content class="view-avatar">
 
-        <div class="step1">
+        <div class="row step1">
+            <div class="col">
+                <img class="avatar"
+                     user-avatar
+                     ng-src="{{ form.src }}" />
+            </div>
+        </div>
+
+        <div class="step2">
             <formly-form model="form"
                          fields="formFields"
                          form="rForm">
