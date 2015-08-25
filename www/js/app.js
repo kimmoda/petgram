@@ -2,9 +2,7 @@
     'use strict';
     angular
         .module('starter', [
-            'ionic',
-            'ionic.service.core',
-            'ionic.service.analytics',
+            'ionic','ionic.service.core','ionic.service.analytics',
             //'cacheapp',
             //'cachemodule',
             'formlyIonic',

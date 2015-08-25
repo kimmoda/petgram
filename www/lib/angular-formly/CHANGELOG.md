@@ -1,3 +1,29 @@
+# 6.23.7
+
+## Perf
+
+- [@redhead](https://github.com/redhead) optomized the use of `formState` and `model` for the `model` property. Thanks!
+
+# 6.23.5
+
+## Bug Fixes
+
+- There were issues with the `form` getting the prestine state set incorrectly.
+
+
+# 6.23.5
+
+## Bug Fixes
+
+- Had performance issues with the previous release. Also the previous release was causing problems with `$dirty`.
+  [#432](/../../issues/432). Thanks [@TheMcMurder](https://github.com/TheMcMurder)
+
+# 6.23.4
+
+## Bug Fixes
+
+- Running formatters on initial load of ng-model [#423](/../../issues/423)
+
 # 6.23.3
 
 ## Bug Fixes

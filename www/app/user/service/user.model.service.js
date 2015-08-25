@@ -207,8 +207,8 @@
                     currentUser.set('deviceUuiid', cordovaDevice.uuid);
                     currentUser.set('deviceVersion', cordovaDevice.version);
                 }
-
-                currentUser.set('language', $rootScope.lang);
+                console.log($rootScope.lang);
+                currentUser.set('language', $rootScope.lang.value);
                 currentUser
                     .save()
                     .then(function (resp) {

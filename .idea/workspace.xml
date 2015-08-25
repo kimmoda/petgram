@@ -2,49 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3636330-3ebf-450e-b681-83585b7909a2" name="Default" comment="k">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/app/user/view/user.avatar.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/photogram.apk" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.io-config.json" afterPath="$PROJECT_DIR$/.io-config.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/build" afterPath="$PROJECT_DIR$/bin/build" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/run" afterPath="$PROJECT_DIR$/bin/run" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/karma.conf.js" afterPath="$PROJECT_DIR$/karma.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_form.scss" afterPath="$PROJECT_DIR$/scss/_form.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/ionic.app.scss" afterPath="$PROJECT_DIR$/scss/ionic.app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translate/pt_BR.mo" afterPath="$PROJECT_DIR$/translate/pt_BR.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translate/pt_BR.po" afterPath="$PROJECT_DIR$/translate/pt_BR.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translate/template.pot" afterPath="$PROJECT_DIR$/translate/template.pot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/core/view/loading.html" afterPath="$PROJECT_DIR$/www/app/core/view/loading.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/config/user.routes.js" afterPath="$PROJECT_DIR$/www/app/user/config/user.routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.login.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.login.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.register.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.register.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/directive/button.facebook.directive.js" afterPath="$PROJECT_DIR$/www/app/user/directive/button.facebook.directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" afterPath="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/service/user.form.js" afterPath="$PROJECT_DIR$/www/app/user/service/user.form.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" afterPath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/style/_user.scss" afterPath="$PROJECT_DIR$/www/app/user/style/_user.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/view/user.register.html" afterPath="$PROJECT_DIR$/www/app/user/view/user.register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-loading/ion-loading.js" afterPath="$PROJECT_DIR$/www/component/ion-loading/ion-loading.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-location/ion-location.js" afterPath="$PROJECT_DIR$/www/component/ion-location/ion-location.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/ionic.app.css" afterPath="$PROJECT_DIR$/www/css/ionic.app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/cacheapp.js" afterPath="$PROJECT_DIR$/www/js/cacheapp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/cachemodule.js" afterPath="$PROJECT_DIR$/www/js/cachemodule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/config.facebook.js" afterPath="$PROJECT_DIR$/www/js/config.facebook.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/translate.form.js" afterPath="$PROJECT_DIR$/www/js/translate.form.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/translate.js" afterPath="$PROJECT_DIR$/www/js/translate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/config/gallery.routes.js" afterPath="$PROJECT_DIR$/www/module/gallery/config/gallery.routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.edit.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.edit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/style/_photogram.scss" afterPath="$PROJECT_DIR$/www/module/gallery/style/_photogram.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html" />
     </list>
     <ignored path="Parse.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,8 +28,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55588233">
-              <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.46849316">
+              <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -274,8 +234,9 @@
     </gulpfiles>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -384,7 +345,7 @@
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="113" />
@@ -504,7 +465,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -512,12 +473,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="GitLabIntegration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34950247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12313433" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12313433" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19154228" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17142858" sideWeight="0.39303482" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17142858" sideWeight="0.39337748" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17142858" sideWeight="0.6069652" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17142858" sideWeight="0.6066225" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3681592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49579832" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -981,8 +942,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55588233">
-          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.46849316">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
           <folding />
         </state>
       </provider>
