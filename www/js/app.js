@@ -90,8 +90,8 @@
             $ionicConfigProvider.platform.android.tabs.style('standard');
 
             // Android Native Scroll
-            //var jsScrolling = (ionic.Platform.isAndroid () ) ? false : true;
-            //$ionicConfigProvider.scrolling.jsScrolling (jsScrolling);
+            var jsScrolling = (ionic.Platform.isAndroid () ) ? false : true;
+            $ionicConfigProvider.scrolling.jsScrolling (jsScrolling);
             $ionicConfigProvider.views.maxCache(1);
         });
 

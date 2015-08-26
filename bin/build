@@ -1,14 +1,14 @@
 #!/bin/bash
 # Usage: prod.sh 'platform'
 # 
-#echo "Compilation Application"
+echo "Minify Application"
 gulp prod
-echo "Rename Folder to Minify Application"
+echo "Rename Folder Release app"
 mv www temp
 mv dist www
-echo "Build Release " $*
-cordova build $* --release
-echo "Rename folder"
+echo "Build Release "
+cordova build  --release --buildConfig build.json
+echo "Restore folders"
 mv www dist
 mv temp www
 
