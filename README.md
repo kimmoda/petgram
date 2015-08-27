@@ -1,44 +1,52 @@
+## Getting Started with Photogram Source Code
 
-Facebook ID: 1024016557617380
+> Thank's for purchasing!!!!
 
-$IOS
+Let's go and clone this project!
 
-cordova plugin add https://github.com/Wizcorp/phonegap-facebook-plugin.git --variable APP_ID="1024016557617380" --variable APP_NAME="Photogram"
+### Full Document and Preview:
 
-# ANDROID
-
-cordova -d plugin add https://github.com/phonegap/phonegap-facebook-plugin.git --variable APP_ID="1024016557617380" --variable APP_NAME="Photogram"
-android update project --subprojects --path "platforms/android" --target android-19 --library "CordovaLib"
-android update project --subprojects --path "platforms/android" --target android-19 --library "com.phonegap.plugins.facebookconnect/FacebookLib"
-
-# Android Facebook
-https://developers.facebook.com/docs/android/getting-started
-
-# Key Hashs
-keytool -exportcert -alias agfoccus -keystore ~/Documents/PlayStore/agfoccus.keystore | openssl sha1 -binary | openssl base64
-2CqJGVVBmkEHpeNJZq1rW0SAeVo=
-
-Font
-Billabong
-
-Sketch Camera
-http://www.sketchappsources.com/free-source/680-polaroid-land-camera-sketch-freebie-resource.html
-
-Chave Google
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoFDKBPw/LU16i+3/HmquW09qWk/hMC9LLtig+JdPaxHOr2GP/W9MGoU0Hie7qcXrBf/+LgDIKH26TkhweAYpM4GZd23Dno73gB44RiSFwQt7ncfgyITpg3VI8ZsM43vxyZ7LuAJYoybXYj12TE0+h+cXISurORW33zS7fDD4umhbnwAYvqkhWBIDTEgs0BLNa7JHrIVqHI2ey9/HpN+5r+8Wz3x0S9z/T6B0knij2ywys+/kQCi7HYmCjW0NYlLWm2QCOntR88Wa5nmd8W0b3xrwh5ylvMnSKY60+MsjnhBcSuMcZJ6caTMRuDOGlrelkmYMtcrdlhf65ivLGjhYUwIDAQAB
+[http://movibe.github.io/photogram-docs/](http://movibe.github.io/photogram-docs/)
 
 
-Key Ashes
-keytool -exportcert -alias agfoccus -keystore ~/Documents/PlayStore/agfoccus.jks | openssl sha1 -binary | openssl base64
+## Getting Starter  ##
+1) Install nodejs: http://nodejs.org/ 
 
-# Publish Goole Play
+2) Install Ionic, Bower, Cordova and Gulp
+> $ npm install -g ionic bower cordova gulp
 
-Generate Key
+3) Intall Node Modules
+> $ npm install
 
-keytool -genkey -v -keystore ~/Documents/PlayStore/agfoccus.keystore -alias agfoccus -keyalg RSA -keysize 2048 -validity 10000
+or 
 
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ~/Documents/PlayStore/agfoccus.keystore platforms/android/build/outputs/apk/android-release-unsigned.apk agfoccus
+> $ sudo npm install
 
-jarsigner -verify -verbose -certs platforms/android/build/outputs/apk/android-release-unsigned.apk
+4) Install Bower Libs
+> $ bower install
 
-zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk photogram.apk
+5) Gulp inject before test
+> $ gulp inject
+
+6) Run in Browser
+> $ ionic serve
+
+## Parse Configuration ##
+1. Create account in Parse [http://parse.com](http://parse.com)
+2. Follow online documentation in Github
+[http://movibe.github.io/photogram-docs/#parse](http://movibe.github.io/photogram-docs/#parse)
+3. Config Your Parse Keys in file
+www/js/config.parse.js
+
+![enter image description here](http://movibe.github.io/photogram-docs/assets/images/facebook-config.jpg)
+  
+## Facebook Configuration ##
+
+ 1. Create Account in Facebook Developers
+ 2. Follow  [documentation](http://movibe.github.io/photogram-docs/#facebook)
+ 2. Edit File with your Keys www/js/config.facebook.js
+
+##Build and run app on iOS (only Mac OS) ##
+> $ sudo npm install -g ios-sim 
+
+> $ ionic run ios
