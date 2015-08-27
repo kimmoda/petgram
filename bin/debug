@@ -5,8 +5,8 @@
 gulp prod
 echo "Rename Folder to Minify Application"
 ./bin/folderprod
-echo "Build Release " $*
-cordova build $* --release
+echo "Build Debug" $*
+cordova build  $*
 echo "Rename folder"
 ./bin/folderdev
 
