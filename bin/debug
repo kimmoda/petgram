@@ -1,12 +1,21 @@
 #!/bin/bash
 # Usage: prod.sh 'platform'
 # 
-#echo "Compilation Application"
+echo "---> Compilation Application"
 gulp prod
-echo "Rename Folder to Minify Application"
+
+echo ""
+echo ""
+echo "---> Rename Folder to Minify Application"
 ./bin/folderprod
-echo "Build Debug" $*
+
+echo ""
+echo ""
+echo "---> Build Debug" $*
 cordova build  $*
-echo "Rename folder"
+
+echo ""
+echo ""
+echo "---> Restore Folder"
 ./bin/folderdev
 
