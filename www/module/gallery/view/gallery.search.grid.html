@@ -3,12 +3,22 @@
         <ion-search class="search-wrapper-light"
                     placeholder="{{ 'Search' | translate }}"
                     min-length="1"
-                    model="GallerySearchGrid.data"
-                    source="GallerySearchGrid.search(str)"></ion-search>
+                    ng-model="GallerySearchGrid.str"
+                    source="GallerySearchGrid.load(GallerySearchGrid.str)"></ion-search>
     </ion-nav-title>
     <ion-content class="gallery-search">
 
+        <p>
+          {{GallerySearchGrid.str}}
+        </p>
+        <input type="text" ng-model="GallerySearchGrid.str">
+
         <gallery-photo-grid gallery="GallerySearchGrid.data"
                             loading="GallerySearchGrid.loading"></gallery-photo-grid>
+
+        <ion-infinite-scroll
+                ng-if="GallerySearchGrid.data.length>1"
+                on-infinite="GallerySearchGrid.load()">
+        </ion-infinite-scroll>
     </ion-content>
 </ion-view>

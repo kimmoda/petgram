@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('ion-photo', [
+        .module('ionic-photo', [
             'ionic',
             'gettext'
         ])

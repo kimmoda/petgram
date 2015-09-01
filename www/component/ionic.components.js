@@ -3,8 +3,8 @@
     angular.module ('ionic.components', [
         'ionic',
         'ionic-loading',
-        //'ion-affix',
-        'ion-location',
-        'ion-photo',
+        'ionic-notify',
+        'ionic-location',
+        'ionic-photo',
     ]);
 })();

@@ -1,9 +1,12 @@
 (function () {
     'use strict';
+
+    var debug = true;
     angular
-        .module('ion-location', [
+        .module('ionic-location', [
             'ionic',
-            'gettext'
+            'gettext',
+            'angular-cache'
         ])
         .directive('ionLocation', function (gettextCatalog, $ionicModal, GeoService) {
             return {
@@ -25,7 +28,7 @@
                             .getDetails(place_id)
                             .then(function (location) {
 
-                                console.info(location);
+                                $log.info(location);
 
                                 var address = GeoService
                                     .parseAddress(location);
@@ -43,14 +46,14 @@
                                     resume  : address.resume
                                 };
 
-                                console.log($scope.location);
+                                $log.log($scope.location);
                                 $scope.closeModalLocation();
                             });
                     }
 
                     element.bind('focus', function () {
                         init();
-                        console.log('Start');
+                        $log.log('Start');
 
                         var translate = {
                             string1: gettextCatalog.getString('My Location'),
@@ -91,7 +94,7 @@
                                 GeoService
                                     .searchAddress(newValue)
                                     .then(function (result) {
-                                        console.log(result);
+                                        $log.log(result);
                                         $scope.search.suggestions = result;
                                     });
                             }
@@ -102,7 +105,7 @@
                             GeoService
                                 .findMe()
                                 .then(function (location) {
-                                    console.log(location);
+                                    $log.log(location);
 
                                     selectPlace(location.results[0].place_id)
 
@@ -120,7 +123,11 @@
                 }
             };
         })
-        .factory('GeoService', function ($http, $window, $cordovaGeolocation, Loading, $timeout, $q) {
+        .config(function ($logProvider) {
+            // Debug
+            $logProvider.flag = debug;
+        })
+        .factory('GeoService', function ($http, $log, $window, CacheFactory, $cordovaGeolocation, Loading, $timeout, $q) {
             /**
              'street_address', //indicates a precise street address.
              'route', //indicates a named route (such as "US 101").
@@ -149,6 +156,16 @@
              'floor indicates', //the floor of a building address.
              'room indicates'; //the room of a building address.'
              */
+
+            if (!CacheFactory.get('appLocation')) {
+                // or CacheFactory('bookCache', { ... });
+                CacheFactory.createCache('appLocation', {
+                    deleteOnExpire: 'aggressive',
+                    recycleFreq   : 60000
+                });
+            }
+
+            var geoCache            = CacheFactory.get('appLocation');
             var options             = {types: ['geocode']};
             var autocompleteService = new $window.google.maps.places.AutocompleteService();
             var detailsService      = new $window.google.maps.places.PlacesService($window.document.createElement('input'), options);
@@ -210,7 +227,7 @@
                     $cordovaGeolocation
                         .getCurrentPosition(posOptions)
                         .then(function (position) {
-                            console.log('Fez a requisição', position);
+                            $log.log('Fez a requisição', position);
 
                             data.location = {
                                 latitude : position.coords.latitude,
@@ -220,7 +237,7 @@
                             defer.resolve(data.location);
                         }, function (err) {
                             // error
-                            console.log('Error na geolocalização', err);
+                            $log.log('Error na geolocalização', err);
                             Loading.end();
                             defer.reject(err);
                         });
@@ -231,25 +248,40 @@
             }
 
 
-            function findMe() {
+            function findMe(force) {
                 var defer = $q.defer();
+                if (force) {
+                    geoCache.remove('address');
+                }
+                var address = geoCache.get('address');
 
-                getLocation()
-                    .then(function (pos) {
-                        console.log(pos);
-                        getGoogleAddress(pos.latitude, pos.longitude)
-                            .success(function (resp) {
-                                console.log(resp);
-                                defer.resolve(resp);
-                            })
-                            .error(logErr);
-                    })
+                if (address) {
+                    $log.log(address);
+                    defer.resolve(address);
+                } else {
+                    getLocation()
+                        .then(function (pos) {
+                            $log.log(pos);
+                            getGoogleAddress(pos.latitude, pos.longitude)
+                                .success(function (resp) {
+                                    $log.log(resp);
+                                    delete resp.results;
+                                    resp.geolocation = pos;
+                                    geoCache.put('address', resp);
+                                    defer.resolve(resp);
+                                })
+                                .error(logErr);
+                        })
+                        .catch(function (resp) {
+                            defer.reject(resp);
+                        });
+                }
                 return defer.promise;
             };
 
 
             function logErr(error) {
-                console.log(error);
+                $log.log(error);
             };
             function getGoogleAddress(lat, lng) {
                 return $http.get('http://maps.google.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&sensor=true').success(function (data) {
@@ -280,7 +312,7 @@
             }
 
             function parseAddress(place) {
-                console.log(place);
+                $log.log(place);
                 var address = {
                     resume: '',
                     geo   : {
@@ -317,15 +349,16 @@
             };
             function src(lat, lng, zoom, w, h) {
                 var link = 'http://maps.googleapis.com/maps/api/staticmap?center=' + lat + ',' + lng + '&zoom=' + zoom + '&scale=1&size=' + w + 'x' + h + '&maptype=roadmap&format=jpg&visual_refresh=true&markers=size:small%7Ccolor:0xff2600%7Clabel:0%7C' + lat + ',' + lng + '&sensor=true';
-                console.log(link);
+                $log.log(link);
                 return link;
             };
             return {
-                src          : src,
-                getDetails   : getDetails,
-                searchAddress: searchAddress,
-                parseAddress : parseAddress,
-                findMe       : findMe
+                src             : src,
+                getDetails      : getDetails,
+                searchAddress   : searchAddress,
+                parseAddress    : parseAddress,
+                getGoogleAddress: getGoogleAddress,
+                findMe          : findMe
 
             }
         });

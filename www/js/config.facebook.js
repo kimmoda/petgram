@@ -4,11 +4,11 @@
 
     angular
         .module('starter')
-        .config(function ($facebookProvider) {
-            $facebookProvider.setAppId(FACEBOOK);
+        .config(function ($facebookProvider,AppConfig) {
+            $facebookProvider.setAppId(AppConfig.facebook);
         })
         .run(function ($window) {
-            // Load the facebook SDK asynchronously
+            // Load the Parse Facebook SDK asynchronously
             if (!($window.ionic.Platform.isIOS() || $window.ionic.Platform.isAndroid())) {
                 $window.fbAsyncInit = function () {
                     $window.Parse.FacebookUtils.init({

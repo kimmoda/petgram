@@ -7,8 +7,18 @@
 
     <ion-content>
 
+        <ion-refresher ng-if="!GalleryActivity.loading"
+                       on-refresh="loadMore(true)"></ion-refresher>
+
         <gallery-loading loading="GalleryActivity.loading"
                          icon="android"></gallery-loading>
+
+        <div class="center-ico step1"
+             ng-if="GalleryActivity.empty&&GalleryActivity.data.length==0">
+            <i class="icon ion-ios-chatbubble-outline"></i>
+
+            <h1 translate="">Nenhuma atividade</h1>
+        </div>
 
         <div class="list">
 
@@ -21,7 +31,7 @@
                 <p>{{ item.created | amTimeAgo }}</p>
 
                 <div class="img-right"
-                     ng-if="ite.img">
+                     ng-if="item.img">
                     <img ng-src="{{ item.img }}">
                 </div>
             </div>
@@ -29,8 +39,8 @@
         </div>
 
         <ion-infinite-scroll
-                ng-if="!GalleryActivity.loading"
-                on-infinite="GalleryActivity.load()">
+                ng-if="!GalleryActivity.loadMore&&GalleryActivity.more"
+                on-infinite="loadMore()">
         </ion-infinite-scroll>
     </ion-content>
 </ion-view>

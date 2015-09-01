@@ -24,11 +24,11 @@ msgstr ""
 msgid "Add comment"
 msgstr ""
 
-#: ion-photo/ion-photo.js:66
+#: ionic-photo/ionic.photo.js:66
 msgid "Camera"
 msgstr ""
 
-#: ion-photo/ion-photo.js:73
+#: ionic-photo/ionic.photo.js:73
 #: user/directive/user.forgot.pass.directive.js:34
 msgid "Cancel"
 msgstr ""
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: ion-photo/ion-photo.js:93
+#: ionic-photo/ionic.photo.js:93
 msgid "Enabled your camera"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgstr ""
 msgid "Enter"
 msgstr ""
 
-#: ion-photo/ion-photo.js:92
+#: ionic-photo/ionic.photo.js:92
 msgid "Error"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "Follow your friends and relive"
 msgstr ""
 
-#: ion-photo/ion-photo.js:69
+#: ionic-photo/ionic.photo.js:69
 msgid "Gallery"
 msgstr ""
 
@@ -151,8 +151,16 @@ msgstr ""
 msgid "Map"
 msgstr ""
 
-#: ion-location/ion-location.js:56
+#: ion-location/ionic.location.js:59
 msgid "My Location"
+msgstr ""
+
+#: gallery/view/gallery.activity.html:20
+msgid "Nenhuma atividade"
+msgstr ""
+
+#: gallery/view/gallery.home.html:24
+msgid "Nenhuma foto postagem por perto"
 msgstr ""
 
 #: gallery/view/gallery.comment.directive.html:34
@@ -170,7 +178,7 @@ msgid "Register"
 msgstr ""
 
 #: gallery/view/gallery.search.grid.html:4
-#: ion-location/ion-location.js:57
+#: ion-location/ionic.location.js:60
 msgid "Search"
 msgstr ""
 
@@ -193,7 +201,7 @@ msgid "Share In"
 msgstr ""
 
 #: gallery/view/gallery.capture.modal.html:5
-#: ion-photo/ion-photo.js:72
+#: ionic-photo/ionic.photo.js:72
 msgid "Share Photo"
 msgstr ""
 

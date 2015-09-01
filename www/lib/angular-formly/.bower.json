@@ -48,6 +48,6 @@
     "commit": "2ee619132dc1569f49cb41a535893d8ec0eb6f03"
   },
   "_source": "git://github.com/formly-js/angular-formly.git",
-  "_target": ">=3.0.0",
+  "_target": "~6.23.2",
   "_originalSource": "angular-formly"
 }

@@ -1,11 +1,11 @@
-(function(){
+(function () {
     'use strict';
     angular
-        .module('module.user')
+        .module('ionic-notify', ['ionic'])
         .factory('Notify', function ($ionicPopup) {
             return {
-                alert      : alert,
-                confirm    : confirm
+                alert  : alert,
+                confirm: confirm
             };
 
             function alert(params) {
