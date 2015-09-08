@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('module.gallery')
-        .controller('GallerySearchMapCtrl', function ($scope, User, GeoService, Gallery) {
+        .controller('GallerySearchMapCtrl', function ($scope, User, Gallery) {
             var vm = this;
 
             $scope.map = {
@@ -32,21 +32,27 @@
 
 
             function init() {
-                GeoService
-                    .findMe()
+                User
+                    .location()
                     .then(function (position) {
 
                         console.log(position);
 
                         $scope.map = {
-                            center: position.geolocation,
+                            center: {
+                                latitude : position.latitude,
+                                longitude: position.longitude,
+                            },
                             zoom  : 13
                         };
 
-                        vm.user = position.geolocation;
+                        vm.user = {
+                            latitude : position.latitude,
+                            longitude: position.longitude,
+                        };
 
                         Gallery
-                            .nearby(position.geolocation)
+                            .nearby(position.coords)
                             .then(function (resp) {
                                 console.log(resp);
                                 vm.data = resp;

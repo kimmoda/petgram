@@ -31,6 +31,9 @@ or
 6) Run in Browser
 > $ ionic serve
 
+7) Cordova Files
+> $ ionic plugin add cordova-plugin-file cordova-plugin-file-transfer
+
 ## Parse Configuration ##
 1. Create account in Parse [http://parse.com](http://parse.com)
 2. Follow online documentation in Github

@@ -3,21 +3,17 @@
         <span class="icon2-logo"></span>
     </ion-nav-title>
 
-    <ion-nav-buttons side="right">
-        <button gallery-settings
-                class="button button-icon icon ion-android-more-vertical"></button>
-    </ion-nav-buttons>
-
-    <ion-content overflow-scroll="false">
+    <ion-content >
         <ion-refresher ng-if="!GalleryHome.loading"
                        on-refresh="loadMore(true)"></ion-refresher>
 
-        <ion-loading icon="android"></ion-loading>
+        <gallery-loading loading="GalleryHome.loading"></gallery-loading>
+
 
         <gallery-photo-list gallery="GalleryHome.data"
                             loading="GalleryHome.loading"></gallery-photo-list>
 
-        <div class="center-ico step1"
+        <div class="center-ico"
              ng-if="GalleryHome.empty">
             <i class="icon ion-ios-camera"></i>
 

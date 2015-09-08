@@ -8,12 +8,12 @@
                 replace : true,
                 scope   : {
                     getData: '&source',
-                    ngModel  : '=',
+                    model  : '=?',
                     search : '=?filter'
                 },
                 template: '<div class="item-input-wrapper">' +
                 '<i class="icon ion-android-search"></i>' +
-                '<input type="search" placeholder="{{placeholder}}" ng-model="ngModel">' +
+                '<input type="search" placeholder="{{placeholder}}" ng-model="search.value">' +
                 '<i ng-if="search.value.length > 0" ng-click="clearSearch()" class="icon ion-close"></i>' +
                 '</div>',
                 link    : function (scope, element, attrs) {

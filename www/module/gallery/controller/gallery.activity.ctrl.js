@@ -20,7 +20,12 @@
                 vm.load(force);
             };
 
-            vm.load = function () {
+            vm.load = function (force) {
+
+                if (force) {
+                    init();
+                }
+
                 Gallery
                     .listActivity(vm.page)
                     .then(function (resp) {
