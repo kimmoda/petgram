@@ -9764,6 +9764,9 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .photogram {
   font-family: -apple-system, 'Helvetica Neue', 'Segoe WP', sans-serif !important;
   color: #333; }
+  .photogram .card {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
   .photogram h1, .photogram h2, .photogram h3, .photogram h4, .photogram h5, .photogram h6, .photogram .h1, .photogram .h2, .photogram .h3, .photogram .h4, .photogram .h5, .photogram .h6 {
     color: #333; }
   .photogram .item {
