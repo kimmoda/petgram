@@ -4,7 +4,8 @@
 #
 # Place your keystore in the root of your project and name it <company>.keystore
 # Use this script as following :
-# $ ./bin/release [company] [version]
+#
+# $ ./bin/apk [company] [appname] [version]
 #
 #
 # Original at https://gist.github.com/th3m4ri0/acc2003adc7dffdbbad6
@@ -16,15 +17,19 @@
 set -e
 
 company="$1"
-version="$2"
-appname_dirty=${PWD##*/}
-appname=${appname_dirty//[^a-zA-Z]} # Keeps only a-z letters
+appname="$2"
+version="$3"
 
 if [[ -z "$1" ]]; then
     echo "No company name provided, aborting..."
     exit 1
 fi
 if [[ -z "$2" ]]; then
+    echo "No appname, aborting..."
+    exit 1
+fi
+
+if [[ -z "$3" ]]; then
     echo "No version provided, aborting..."
     exit 1
 fi
