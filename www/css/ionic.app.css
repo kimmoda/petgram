@@ -9341,23 +9341,23 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     @include animation(fadeInDown, 1s, .5s)
  */
 .item-animate1.ng-enter {
-  -o-animation-name: 'fadeInLeft';
+  -o-animation-name: 'fadeIn';
   -o-animation-delay: 0.5s;
   -o-animation-duration: 1s;
   -o-animation-timing-function: ease;
   -o-animation-fill-mode: both;
-  -moz-animation-name: 'fadeInLeft';
+  -moz-animation-name: 'fadeIn';
   -moz-animation-delay: 0.5s;
   -moz-animation-duration: 1s;
   -moz-animation-timing-function: ease;
   -moz-animation-fill-mode: both;
-  -webkit-animation-name: 'fadeInLeft';
+  -webkit-animation-name: 'fadeIn';
   -webkit-animation-delay: 0.5s;
   -webkit-animation-duration: 1s;
   -webkit-animation-timing-function: ease;
   -webkit-animation-fill-mode: both;
   -webkit-backface-visibility: hidden;
-  animation-name: 'fadeInLeft';
+  animation-name: 'fadeIn';
   animation-delay: 0.5s;
   animation-duration: 1s;
   animation-timing-function: ease;
@@ -9371,8 +9371,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   animation-duration: 0s; }
 
 .item-animate2.ng-enter {
-  -webkit-animation: 'fadeInLeft' 1s;
-  animation: 'fadeInLeft' 1s; }
+  -webkit-animation: 'fadeIn' 1s;
+  animation: 'fadeIn' 1s; }
 .item-animate2.ng-enter-stagger {
   -webkit-animation-delay: 200ms;
   animation-delay: 200ms;
@@ -9579,6 +9579,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   margin: 0 auto;
   width: 130px;
   height: 130px; }
+.view-avatar .step2 {
+  margin-top: 20px; }
 
 .form-login .scroll-content {
   padding: 0; }
@@ -9845,7 +9847,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   .photogram .item-body {
     padding: 0;
     border: none;
-    min-height: 600px;
+    min-height: 300px;
     position: relative;
     overflow: hidden;
     background-color: #ddd;

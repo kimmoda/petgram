@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # Creates a signed and zipaligned APK from your Ionic project
 #
 # Place your keystore in the root of your project and name it <company>.keystore
 # Use this script as following :
-# $ ./release.sh [company] [version]
+# $ ./bin/release [company] [version]
 #
 #
 # Original at https://gist.github.com/th3m4ri0/acc2003adc7dffdbbad6

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="starter">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -57,7 +57,6 @@
 
     <script src="cordova.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?libraries=visualization,places&amp;language=en"></script>
-    <!--<link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic" rel="stylesheet">-->
 
     <!-- build:js scripts/scripts.js -->
     <!-- inject:js -->
@@ -81,10 +80,10 @@
     <script src="app/user/service/user.model.service.js"></script>
     <script src="component/ionic.components.js"></script>
     <script src="component/ion-affix/ion.affix.js"></script>
-    <script src="component/ion-analytics/ion-analytics.js"></script>
-    <script src="component/ion-loading/ion-loading.js"></script>
     <script src="component/ion-location/ion-location.js"></script>
     <script src="component/ion-photo/ion-photo.js"></script>
+    <script src="component/ion-loading/ion-loading.js"></script>
+    <script src="component/ion-analytics/ion-analytics.js"></script>
     <script src="module/gallery/module.gallery.js"></script>
     <script src="module/gallery/config/gallery.routes.js"></script>
     <script src="module/gallery/controller/gallery.account.ctrl.js"></script>
@@ -98,6 +97,11 @@
     <script src="module/gallery/controller/gallery.search.map.ctrl.js"></script>
     <script src="module/gallery/controller/gallery.user.list.js"></script>
     <script src="module/gallery/controller/gallery.view.ctrl.js"></script>
+    <script src="module/gallery/service/gallery.feedback.form.js"></script>
+    <script src="module/gallery/service/gallery.feedback.model.js"></script>
+    <script src="module/gallery/service/gallery.model.js"></script>
+    <script src="module/gallery/service/gallery.settings.model.js"></script>
+    <script src="module/gallery/service/parse.image.service.js"></script>
     <script src="module/gallery/directive/gallery.capture.directive.js"></script>
     <script src="module/gallery/directive/gallery.comment.directive.js"></script>
     <script src="module/gallery/directive/gallery.like.directive.js"></script>
@@ -109,11 +113,6 @@
     <script src="module/gallery/directive/gallery.profile.edit.js"></script>
     <script src="module/gallery/directive/gallery.settings.modal.js"></script>
     <script src="module/gallery/directive/ion-search.directive.js"></script>
-    <script src="module/gallery/service/gallery.feedback.form.js"></script>
-    <script src="module/gallery/service/gallery.feedback.model.js"></script>
-    <script src="module/gallery/service/gallery.model.js"></script>
-    <script src="module/gallery/service/gallery.settings.model.js"></script>
-    <script src="module/gallery/service/parse.image.service.js"></script>
     <script src="js/app.js"></script>
     <script src="js/cacheapp.js"></script>
     <script src="js/cachemodule.js"></script>
@@ -127,7 +126,7 @@
     <!-- endinject -->
     <!-- endbuild -->
 
-</head><body class="photogram">
+</head><body ng-app="starter" class="photogram">
 <ion-nav-view></ion-nav-view>
 <div id="modal" class=""></div>
 <div id="fb-root"></div>
