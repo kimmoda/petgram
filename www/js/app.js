@@ -25,7 +25,8 @@
     ])
 
 
-  .run(function ($ionicPlatform, $cacheSrc, AppConfig, $ionicAnalytics, $rootScope, $window, $cordovaStatusbar, $timeout, $cordovaSplashscreen, GallerySetting, User) {
+  .run(function ($ionicPlatform, $cacheSrc, AppConfig, $ionicAnalytics, $rootScope, $window, $cordovaStatusbar,
+      $timeout, $cordovaSplashscreen, GallerySetting, User) {
 
       $cacheSrc.color = AppConfig.color;
       $cacheSrc.bgcolor = '#ddd';
