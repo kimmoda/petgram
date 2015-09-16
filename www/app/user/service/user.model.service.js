@@ -1,25 +1,27 @@
-(function () {
+(function (window, angular, cordova, Parse, undefined) {
     'use strict';
     angular
         .module('module.user')
-        .factory('User', function ($q, AppConfig, $rootScope, $timeout, $ionicHistory, $location, Parse, $cordovaDevice, $window, $facebook, $cordovaFacebook, Loading, $state, Notify) {
+        .factory('User', function ($q, AppConfig, $rootScope, $timeout, $ionicHistory, $location, $cordovaDevice, $facebook, $cordovaFacebook, Loading, $state) {
 
-            var device   = $window.cordova ? true : false,
+            var device   = cordova ? true : false,
                 facebook = device ? $cordovaFacebook : $facebook;
 
             function init() {
                 // Parse Start
                 Parse.initialize(AppConfig.parse.applicationId, AppConfig.parse.javascriptKey);
                 var user = Parse.User.current();
-
                 if (user) {
                     console.log('Logged user');
                     return loadProfile(user);
                 } else {
                     console.log('Not logged user, go intro');
-                    $state.go(AppConfig.routes.login, {clear: true});
+                    $state.go(AppConfig.routes.login, {
+                        clear: true
+                    });
                 }
             }
+
 
             function currentUser() {
                 return $rootScope.user;
@@ -28,9 +30,9 @@
 
             function loadProfile(response) {
                 if (response) {
-                    var user        = response.attributes;
-                    user.id         = response.id;
-                    user            = processImg(user);
+                    var user = response.attributes;
+                    user.id  = response.id;
+                    user     = processImg(user);
                     delete $rootScope.user;
                     $rootScope.user = user;
                     console.log('load profile', response, user);
@@ -61,6 +63,7 @@
                             console.info(resp);
                             Loading.end();
                             var user = loadProfile(resp);
+                            //startPush('user-', user.email);
                             defer.resolve(user);
                         },
                         error  : function (user, err) {
@@ -118,10 +121,12 @@
                                                                     Loading.end();
                                                                 });
                                                         } else {
-                                                            console.log('Se ainda não está completo, manda completar o perfil', dados, response);
+                                                            console.log('Se ainda não está completo, manda completar o perfil', dados,
+                                                                response);
 
                                                             $rootScope.tempUser     = processImg(user.attributes);
-                                                            $rootScope.tempUser.src = 'https://graph.facebook.com/' + dados.id + '/picture?width=250&height=250';
+                                                            $rootScope.tempUser.src = 'https://graph.facebook.com/' + dados.id +
+                                                                '/picture?width=250&height=250';
 
                                                             console.log($rootScope.tempUser);
                                                             defer.resolve({
@@ -144,11 +149,12 @@
                                                                 // Atualizo o novo perfil
                                                                 var form = {
                                                                     name             : dados.name,
-                                                                    facebook         : dados.id,
-                                                                    email            : dados.email,
-                                                                    gender           : dados.gender,
+                                                                    facebook: dados.id,
+                                                                    email   : dados.email,
+                                                                    gender  : dados.gender,
                                                                     facebook_complete: Boolean(true),
-                                                                    facebookimg      : 'https://graph.facebook.com/' + dados.id + '/picture?width=250&height=250'
+                                                                    facebookimg      : 'https://graph.facebook.com/' + dados.id +
+                                                                    '/picture?width=250&height=250'
                                                                 };
 
                                                                 update(form)
@@ -178,10 +184,10 @@
                                     });
                             });
                     },
-                    function (response) {
-                        alert(JSON.stringify(response));
+                        function (response) {
+                            alert(JSON.stringify(response));
 
-                    });
+                        });
 
                 return defer.promise;
             }
@@ -223,6 +229,7 @@
                             var user = loadProfile(resp);
                             console.log(resp, user);
                             Loading.end();
+                            //startPush('user-', user.email);
                             defer.resolve(user);
                         },
                         error  : function (user, resp) {
@@ -245,17 +252,17 @@
                 new Parse
                     .User
                     .requestPasswordReset(form.email, {
-                        success: function (resp) {
-                            defer.resolve(resp);
-                        },
-                        error  : function (err) {
-                            if (err.code === 125) {
-                                defer.reject('Email address does not exist');
-                            } else {
-                                defer.reject('An unknown error has occurred, please try again');
-                            }
+                    success: function (resp) {
+                        defer.resolve(resp);
+                    },
+                    error  : function (err) {
+                        if (err.code === 125) {
+                            defer.reject('Email address does not exist');
+                        } else {
+                            defer.reject('An unknown error has occurred, please try again');
                         }
-                    });
+                    }
+                });
                 return defer.promise;
             }
 
@@ -263,7 +270,9 @@
                 Parse.User.logOut();
                 delete $rootScope.user;
                 //$window.location = '/#/intro';
-                $state.go('intro', {clear: true});
+                $state.go('intro', {
+                    clear: true
+                });
                 $ionicHistory.clearCache();
             }
 
@@ -282,8 +291,8 @@
 
                     var cordovaDevice = {
                         device  : $cordovaDevice.getDevice(),
-                        cordova : $cordovaDevice.getCordova(),
-                        model   : $cordovaDevice.getModel(),
+                        cordova: $cordovaDevice.getCordova(),
+                        model  : $cordovaDevice.getModel(),
                         platform: $cordovaDevice.getPlatform(),
                         uuid    : $cordovaDevice.getUUID(),
                         version : $cordovaDevice.getVersion()
@@ -318,7 +327,9 @@
                 if (photo !== '') {
 
                     // create the parse file
-                    var imageFile = new Parse.File('mypic.jpg', {base64: photo});
+                    var imageFile = new Parse.File('mypic.jpg', {
+                        base64: photo
+                    });
 
                     // save the parse file
                     return imageFile
@@ -431,34 +442,105 @@
 
             function find(userId) {
                 var defer = $q.defer();
+
                 new Parse
                     .Query('User')
                     .equalTo('objectId', userId)
                     .first()
                     .then(function (resp) {
+
+                        new Parse
+                            .Query('UserFollow')
+                            .equalTo('user', Parse.User.current())
+                            .equalTo('follow', resp)
+                            .count()
+                            .then(function (respFollow) {
+                                resp.follow = respFollow;
+                                console.log('findUser', userId, resp);
+                                defer.resolve(resp);
+                            });
+
+                    });
+
+                return defer.promise;
+            }
+
+            function profile(userId) {
+                var defer = $q.defer();
+
+                find(userId)
+                    .then(function (resp) {
                         console.log(resp);
-                        defer.resolve(resp);
+                        var user = loadProfile(resp);
+
+                        new Parse
+                            .Query('Gallery')
+                            .equalTo('user', resp)
+                            .count()
+                            .then(function (gallery) {
+                                user.galleries = gallery;
+
+                                new Parse
+                                    .Query('UserFollow')
+                                    .equalTo('user', resp)
+                                    .count()
+                                    .then(function (foloow) {
+                                        user.follow = foloow;
+
+                                        new Parse
+                                            .Query('UserFollow')
+                                            .equalTo('follow', resp)
+                                            .count()
+                                            .then(function (follow2) {
+                                                user.follow2 = follow2;
+                                                defer.resolve(user);
+                                            })
+
+                                    });
+                            });
                     });
 
                 return defer.promise;
             }
 
 
-            function addFollow(user) {
+            function follow(status, user) {
                 var defer = $q.defer();
 
-                find(user.id)
-                    .then(function (follow) {
-                        var Object = Parse.Object.extend('UserFollow');
-                        var item   = new Object();
+                if (status) {
+                    find(user)
+                        .then(function (follow) {
+                            var Object = Parse.Object.extend('UserFollow');
+                            var item   = new Object();
 
-                        item.set('user', Parse.User.current());
-                        item.set('follow', follow);
-                        item.save()
-                            .then(function (resp) {
-                                defer.resolve(resp);
-                            });
-                    });
+                            item.set('user', Parse.User.current());
+                            item.set('follow', follow);
+                            item.save()
+                                .then(function (resp) {
+                                    defer.resolve(resp);
+                                }, function (err) {
+                                    defer.resolve(err);
+                                });
+                        });
+                } else {
+                    find(user)
+                        .then(function (follow) {
+                            new Parse
+                                .Query('UserFollow')
+                                .equalTo('user', Parse.User.current())
+                                .equalTo('follow', follow)
+                                .first()
+                                .then(function (item) {
+                                    item
+                                        .destroy()
+                                        .then(function (resp) {
+                                            defer.resolve(resp);
+                                        }, function (err) {
+                                            defer.resolve(err);
+                                        });
+                                })
+                        });
+                }
 
                 return defer.promise;
             }
@@ -466,7 +548,7 @@
             function addFollows(users) {
                 var promises = [];
                 angular.forEach(users, function (user) {
-                    promises.push(addFollow(user));
+                    promises.push(follow(true, user));
                 });
                 return $q.all(promises);
             }
@@ -495,7 +577,7 @@
 
                 Parse.FacebookUtils.logIn({
                     id             : response['authResponse']['userID'],
-                    access_token   : response['authResponse']['accessToken'],
+                    access_token: response['authResponse']['accessToken'],
                     expiration_date: data
                 }, {
                     success: function (response) {
@@ -530,14 +612,15 @@
 
                                 Parse.FacebookUtils.link(user, {
                                     id             : response['authResponse']['userID'],
-                                    access_token   : response['authResponse']['accessToken'],
+                                    access_token: response['authResponse']['accessToken'],
                                     expiration_date: data
                                 }, {
                                     success: function (user) {
                                         // Função caso tenha logado tanto no face quanto no Parse
                                         console.log('User', user);
                                         user.set('facebook', response.id);
-                                        user.set('facebook_img', 'https://graph.facebook.com/' + response.id + '/picture?width=250&height=250');
+                                        user.set('facebook_img', 'https://graph.facebook.com/' + response.id +
+                                            '/picture?width=250&height=250');
                                         user.set('facebook_complete', Boolean(true));
                                         user.save()
                                             .then(function (response) {
@@ -549,10 +632,10 @@
                                 });
                             });
                     },
-                    function (response) {
-                        alert(JSON.stringify(response));
+                        function (response) {
+                            alert(JSON.stringify(response));
 
-                    });
+                        });
 
 
                 return defer.promise;
@@ -561,26 +644,25 @@
 
             return {
                 init           : init,
-                addFollows     : addFollows,
-                addFollow      : addFollow,
-                currentUser    : currentUser,
-                register       : register,
-                login          : login,
-                logout         : logout,
-                update         : update,
-                updateAvatar   : updateAvatar,
-                forgot         : forgot,
-                list           : list,
-                find           : find,
-                mail           : getMail,
-                facebookLogin  : facebookLogin,
-                facebookLink   : facebookLink,
+                addFollows: addFollows,
+                currentUser: currentUser,
+                register   : register,
+                login      : login,
+                profile    : profile,
+                logout     : logout,
+                update     : update,
+                updateAvatar: updateAvatar,
+                forgot      : forgot,
+                list        : list,
+                find        : find,
+                follow      : follow,
+                mail        : getMail,
+                facebookLogin: facebookLogin,
+                facebookLink : facebookLink,
                 facebookProfile: facebookProfile,
                 facebookFriends: facebookFriends,
                 facebookInvite : facebookInvite,
                 facebookAPI    : facebookAPI
             };
-        })
-    ;
-
-})();
+        });
+})(window, window.angular, window.cordova, window.Parse);

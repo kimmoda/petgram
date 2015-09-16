@@ -1,26 +1,27 @@
-(function () {
+(function (window, angular, Parse, undefined) {
     'use strict';
+
     angular
         .module('module.gallery')
-        .factory('Gallery', function ($http, $q, gettextCatalog, $translate, Parse, User, CacheFactory, Loading) {
+        .factory('Gallery', function ($http, $q, $rootScope, gettextCatalog, $translate, User, CacheFactory, Loading) {
 
 
             var form = [
                 {
                     key            : 'title',
-                    type           : 'input',
+                    type: 'input',
                     templateOptions: {
                         type           : 'text',
-                        placeholder    : $translate.instant('TITLE'),
-                        icon           : 'icon-envelope',
-                        required       : true,
+                        placeholder: $translate.instant('TITLE'),
+                        icon       : 'icon-envelope',
+                        required   : true,
                         iconPlaceholder: true,
                         focus          : true
                     }
                 },
                 {
                     key            : 'geo',
-                    type           : 'toggle',
+                    type: 'toggle',
                     templateOptions: {
                         label      : $translate.instant('GEOLOCATION'),
                         toggleClass: 'positive'
@@ -31,7 +32,7 @@
             var formComment = [
                 {
                     key            : 'text',
-                    type           : 'input',
+                    type: 'input',
                     templateOptions: {
                         placeholder: $translate.instant('ADDCOMMENT'),
                         type       : 'text',
@@ -46,7 +47,7 @@
             var formShare = [
                 {
                     key            : 'facebook',
-                    type           : 'toggle',
+                    type: 'toggle',
                     templateOptions: {
                         label      : $translate.instant('Facebook'),
                         toggleClass: 'positive'
@@ -54,7 +55,7 @@
                 },
                 {
                     key            : 'twitter',
-                    type           : 'toggle',
+                    type: 'toggle',
                     templateOptions: {
                         label      : $translate.instant('Twitter'),
                         toggleClass: 'positive'
@@ -62,7 +63,7 @@
                 },
                 {
                     key            : 'whatsapp',
-                    type           : 'toggle',
+                    type: 'toggle',
                     templateOptions: {
                         label      : $translate.instant('Whatsapp'),
                         toggleClass: 'positive'
@@ -70,7 +71,7 @@
                 },
                 {
                     key            : 'SMS',
-                    type           : 'toggle',
+                    type: 'toggle',
                     templateOptions: {
                         label      : $translate.instant('SMS'),
                         toggleClass: 'positive'
@@ -78,7 +79,7 @@
                 },
                 {
                     key            : 'email',
-                    type           : 'toggle',
+                    type: 'toggle',
                     templateOptions: {
                         label      : $translate.instant('Email'),
                         toggleClass: 'positive'
@@ -114,7 +115,9 @@
                     //console.log('_params.photo ' + _params.photo);
 
                     // create the parse file
-                    var imageFile = new Parse.File('mypic.jpg', {base64: _params.photo});
+                    var imageFile = new Parse.File('mypic.jpg', {
+                        base64: _params.photo
+                    });
 
                     // save the parse file
                     return imageFile.save().then(function () {
@@ -181,7 +184,7 @@
                         var objs = [];
                         angular.forEach(resp, function (item) {
                             var obj  = item.attributes;
-                            obj.id   = item.id;
+                            obj.id  = item.id;
                             obj.user = item.attributes.commentBy;
                             objs.push(obj);
                         });
@@ -210,8 +213,8 @@
                                     console.warn(item);
                                     var obj  = {
                                         id     : item.id,
-                                        text   : item.attributes.text,
-                                        user   : item.attributes.commentBy.attributes,
+                                        text: item.attributes.text,
+                                        user: item.attributes.commentBy.attributes,
                                         created: item.createdAt
                                     }
                                     obj.user = processImg(obj.user);
@@ -243,8 +246,8 @@
                                     console.warn(item);
                                     var obj = {
                                         id     : item.id,
-                                        text   : item.attributes.text,
-                                        user   : item.attributes.user.attributes,
+                                        text: item.attributes.text,
+                                        user: item.attributes.user.attributes,
                                         created: item.createdAt
                                     }
                                     objs.push(obj);
@@ -269,18 +272,18 @@
 
                 new Parse
                     .Query('Gallery')
-                    //.near('location', point)
+                //.near('location', point)
                     .withinRadians('location', point, maxDistance)
                     .limit(50)
                     .find()
                     .then(function (resp) {
                         angular.forEach(resp, function (value, key) {
                             var size     = 100;
-                            var obj      = value.attributes;
-                            obj.id       = value.id;
-                            obj.img      = value.attributes.img.url();
-                            obj.created  = value.createdAt;
-                            obj.icon     = {
+                            var obj  = value.attributes;
+                            obj.id   = value.id;
+                            obj.img  = value.attributes.img.url();
+                            obj.created = value.createdAt;
+                            obj.icon    = {
                                 size: {
                                     width : 100,
                                     height: 100
@@ -307,20 +310,23 @@
                 return defer.promise;
             }
 
-            function search() {
+            function search(string, page) {
                 var defer = $q.defer();
                 var data  = [];
+                var limit = 15;
 
                 new Parse
                     .Query('Gallery')
-                    .limit(15)
+                    .limit(limit)
+                    .skip(page * limit)
+                    .matches('title', ".* " + string + ".*")
                     .find()
                     .then(function (resp) {
                         angular.forEach(resp, function (value, key) {
                             var obj = {
                                 id     : value.id,
-                                item   : value.attributes,
-                                src    : value.attributes.img.url(),
+                                item: value.attributes,
+                                src : value.attributes.img.url(),
                                 created: value.createdAt
                             };
                             data.push(obj);
@@ -336,18 +342,43 @@
              * 2) GalleryComment, Limi
              * 3) Like, count, liked
              * */
-            function all(page) {
+            function all(page, userId) {
                 var defer = $q.defer();
                 var limit = 10;
                 var data  = new Array();
 
-                new Parse
-                    .Query('Gallery')
-                    .descending('createdAt')
-                    .include('user')
-                    .limit(limit)
-                    .skip(page * limit)
-                    .find()
+                var query;
+
+                if (userId) {
+                    console.log(userId);
+                    var loadUser = new Parse
+                        .Query('User')
+                        .equalTo('objectId', userId)
+                        .first(userId, function (resp) {
+                        return resp;
+                    });
+
+
+                    query = new Parse
+                        .Query('Gallery')
+                        .descending('createdAt')
+                        .include('user')
+                        .limit(limit)
+                        .equalTo('user', loadUser)
+                        .skip(page * limit)
+                        .find()
+                } else {
+
+                    query = new Parse
+                        .Query('Gallery')
+                        .descending('createdAt')
+                        .notEqualTo('user', Parse.User.current())
+                        .include('user')
+                        .limit(limit)
+                        .skip(page * limit)
+                        .find()
+                }
+                query
                     .then(function (resp) {
 
                         var cb = _.after(resp.length, function () {
@@ -385,7 +416,7 @@
 
                                                     angular.forEach(comments, function (item) {
                                                         var user        = item.attributes.commentBy;
-                                                        var comment     = {
+                                                        var comment = {
                                                             id  : item.id,
                                                             text: item.attributes.text,
                                                             user: user.attributes
@@ -397,11 +428,11 @@
 
                                                     var obj = {
                                                         id      : item.id,
-                                                        item    : item.attributes,
-                                                        created : item.createdAt,
-                                                        likes   : likes,
-                                                        liked   : liked,
-                                                        src     : item.attributes.img.url(),
+                                                        item: item.attributes,
+                                                        created: item.createdAt,
+                                                        likes  : likes,
+                                                        liked  : liked,
+                                                        src    : item.attributes.img.url(),
                                                         comments: commentsData
                                                     };
 
@@ -473,11 +504,11 @@
 
                                                 var obj     = {
                                                     id      : item.id,
-                                                    item    : item.attributes,
-                                                    created : item.createdAt,
-                                                    likes   : likes,
-                                                    liked   : liked,
-                                                    user    : item.attributes.user.attributes,
+                                                    item: item.attributes,
+                                                    created: item.createdAt,
+                                                    likes  : likes,
+                                                    liked  : liked,
+                                                    user   : item.attributes.user.attributes,
                                                     comments: commentsData
                                                 };
                                                 obj.user.id = item.attributes.user.id;
@@ -700,21 +731,17 @@
                 //todo: count user follow
                 //todo: count user following
 
-                Loading.start();
-
                 if (userId === undefined) {
                     userId = currentUser.id;
                 }
 
                 console.log(userId);
-                new Parse
-                    .Query('User')
-                    .equalTo('objectId', userId)
-                    .first()
+                User
+                    .find(userId )
                     .then(function (resp) {
-                        console.log(resp);
+                        console.log('getUser', resp);
                         var obj  = resp.attributes;
-                        obj.id   = resp.id;
+                        obj.id  = resp.id;
                         var user = loadProfile(obj);
 
                         new Parse
@@ -726,27 +753,18 @@
 
                                 new Parse
                                     .Query('UserFollow')
-                                    .equalTo('user', resp)
+                                    .equalTo('user', Parse.User.current())
+                                    .equalTo('follow', resp)
                                     .count()
-                                    .then(function (foloow) {
-                                        user.follow = foloow;
+                                    .then(function (follow) {
+                                        user.follow = follow;
 
-                                        new Parse
-                                            .Query('UserFollow')
-                                            .equalTo('follow', resp)
-                                            .count()
-                                            .then(function (follow2) {
-                                                user.follow2 = follow2;
-                                                Loading.end();
-                                                defer.resolve(user);
-                                            })
+                                        console.log('getUser', user);
+                                        defer.resolve(user);
 
                                     });
                             });
                     })
-                //.catch (function (resp) {
-                //    defer.reject (resp);
-                //})
 
 
                 return defer.promise;
@@ -817,12 +835,12 @@
 
                                                             var obj     = {
                                                                 id      : item.id,
-                                                                item    : item.attributes,
-                                                                src     : item.attributes.img.url(),
-                                                                created : item.createdAt,
-                                                                likes   : likes,
-                                                                liked   : liked,
-                                                                user    : item.attributes.user.attributes,
+                                                                item: item.attributes,
+                                                                src : item.attributes.img.url(),
+                                                                created: item.createdAt,
+                                                                likes  : likes,
+                                                                liked  : liked,
+                                                                user   : item.attributes.user.attributes,
                                                                 comments: commentsData
                                                             };
                                                             obj.user.id = item.attributes.user.id;
@@ -860,9 +878,9 @@
                         var data = [];
                         angular.forEach(resp, function (value, key) {
                             var obj     = value.attributes;
-                            obj.id      = value.id;
-                            obj.user    = (value.attributes.user) ? value.attributes.user.attributes : '';
-                            obj.user    = processImg(obj.user);
+                            obj.id  = value.id;
+                            obj.user = (value.attributes.user) ? value.attributes.user.attributes : '';
+                            obj.user = processImg(obj.user);
                             obj.created = value.createdAt;
                             obj.img     = (value.attributes.gallery) ? value.attributes.gallery.attributes.img.url() : '';
                             console.log(obj);
@@ -921,15 +939,41 @@
                 }
             }
 
+            function profile(userId) {
+                var defer = $q.defer();
+                var user  = {};
+
+                Loading.start();
+
+                User
+                    .profile(userId)
+                    .then(function (respProfile) {
+                        user = respProfile;
+
+                        all(true, userId)
+                            .then(function (galleries) {
+                                user.feed = galleries;
+                                console.log(user);
+                                Loading.end();
+                                defer.resolve(user);
+                            })
+                    });
+
+
+                return defer.promise;
+
+            }
+
             return {
                 addActivity   : addActivity,
-                listActivity  : listActivity,
-                all           : all,
-                add           : add,
-                get           : get,
-                find          : find,
-                nearby        : nearby,
-                getUser       : getUser,
+                listActivity: listActivity,
+                all         : all,
+                add         : add,
+                get         : get,
+                find        : find,
+                nearby      : nearby,
+                profile     : profile,
+                getUser     : getUser,
                 getUserGallery: getUserGallery,
                 likeGallery   : likeGallery,
                 allComment    : allComment,
@@ -943,4 +987,4 @@
             };
 
         });
-})();
+})(window, window.angular, window.Parse);

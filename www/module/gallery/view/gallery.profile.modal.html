@@ -1,39 +1,37 @@
-<ion-view cache-view="false" class="gallery-profile">
+<ion-modal-view class="modal-profile gallery-profile">
+    <ion-header-bar class="bar-positive">
+        <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
+        <div class="title">{{ form.name }}</div>
+    </ion-header-bar>
+    <ion-content>
 
-    <ion-nav-title>
-        <h1 class="title">{{ user.name }}</h1>
-    </ion-nav-title>
-
-    <ion-nav-buttons side="right">
-        <button gallery-settings class="button button-icon icon ion-gear-a"></button>
-    </ion-nav-buttons>
-    <ion-content overflow-scroll="true">
         <div class="profile-top">
             <div class="row">
                 <div class="col-25">
-                    <img class="avatar" user-avatar ng-src="{{ user.src }}" />
+                    <img class="avatar" user-avatar ng-src="{{ form.src }}" />
                 </div>
                 <div class="col col-statics">
                     <div class="row">
                         <div class="col">
-                            <span class="text-center">{{ GalleryProfile.form.galleries }}</span>
+                            <span class="text-center">{{ form.galleries }}</span>
 
                             <h3 translate>Posts</h3>
                         </div>
                         <div class="col">
-                            <span class="text-center">{{ GalleryProfile.form.follow }}</span>
+                            <span class="text-center">{{ form.follow }}</span>
 
                             <h3 translate>Followers</h3>
                         </div>
                         <div class="col">
-                            <span class="text-center">{{ GalleryProfile.form.follow2 }}</span>
+                            <span class="text-center">{{ form.follow2 }}</span>
 
                             <h3 translate>Followings</h3>
                         </div>
                     </div>
                     <div class="row col-edit">
                         <div class="col">
-                            <button gallery-profile-edit class="button ">{{ 'EDIT YOUR PROFILE' | translate }}
+                            <button ng-if="!form.follow" ng-click="follow(true)" class="button ">{{ 'Follow' | translate }}
+                            <button ng-if="form.follow" ng-click="follow(false)" class="button button-positive">{{ 'Unfollow' | translate }}
                             </button>
                         </div>
                     </div>
@@ -48,9 +46,11 @@
         </div>
         <div class="item item-divider" translate>Recent</div>
         <div class="profile-view">
-            <gallery-loading loading="GalleryProfile.loading"></gallery-loading>
-            <gallery-photo-list gallery="GalleryProfile.data" loading="GalleryProfile.loading"></gallery-photo-list>
+            <gallery-loading loading="loading"></gallery-loading>
+            <gallery-photo-list gallery="data" loading="loading"></gallery-photo-list>
         </div>
 
+
+        
     </ion-content>
-</ion-view>
+</ion-modal-view>

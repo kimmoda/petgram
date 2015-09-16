@@ -1,4 +1,4 @@
-(function () {
+(function (window, angular, undefined) {
     'use strict';
     angular
         .module('module.user')
@@ -8,11 +8,24 @@
                 .state('router', {
                     url        : '/',
                     templateUrl: 'app/core/view/loading.html',
-                    controller : function ($state) {
-                        if (window.Parse.User.current()) {
-                            $state.go(AppConfig.routes.home, {clear: true});
+                    controller : function ($rootScope, $state) {
+                        var user = $rootScope.user;
+                        console.log('User', user);
+                        if (user) {
+                            console.log(user);
+                            if (user.name) {
+                                $state.go(AppConfig.routes.home, {
+                                    clear: true
+                                });
+                            } else {
+                                $state.go('useravatar', {
+                                    clear: true
+                                });
+                            }
                         } else {
-                            $state.go('intro', {clear: true});
+                            $state.go('intro', {
+                                clear: true
+                            });
                         }
                     }
                 })
@@ -26,7 +39,7 @@
 
                 .state('user', {
                     url        : '/user',
-                    abstract   : true,
+                    abstract: true,
                     templateUrl: 'app/user/view/user.tabs.html'
                 })
 
@@ -52,27 +65,25 @@
 
                 .state('useravatar', {
                     url        : '/avatar',
-                    controller : 'UserAvatarCtrl as Avatar',
+                    controller: 'UserAvatarCtrl as Avatar',
                     templateUrl: 'app/user/view/user.avatar.html'
                 })
 
                 .state('usermerge', {
                     url        : '/merge',
-                    controller : 'UserMergeCtrl as Merge',
+                    controller: 'UserMergeCtrl as Merge',
                     templateUrl: 'app/user/view/user.merge.html'
                 })
 
                 .state('logout', {
                     url       : '/logout',
-                    template  : '<ion-view view-title="Logout" cache-view="false"><ion-content></ion-content></ion-view>',
+                    template: '<ion-view view-title="Logout" cache-view="false"><ion-content></ion-content></ion-view>',
                     controller: function (User, $state) {
                         User.logout();
                     }
-                })
-            ;
+                });
 
             $urlRouterProvider.otherwise('/');
 
         });
-
-})();
+})(window, window.angular);
