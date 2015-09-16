@@ -438,7 +438,7 @@ gulp.task('prettify:html:app', function () {
 });
 
 gulp.task('prettify:html:module', function () {
-    gulp.src('www/app/*/view/*.html')
+    gulp.src('www/module/*/view/*.html')
         .pipe(prettify({
             braceStyle         : "collapse",
             indentChar         : " ",

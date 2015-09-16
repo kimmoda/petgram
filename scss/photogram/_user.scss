@@ -8,6 +8,16 @@ $time: 0.5s;
   transition: all $time ease;
 }
 
+.modal-profile {
+
+  img.avatar {
+    display: block;
+    width: 91%;
+    border-radius: 50%;
+    margin: 10px;
+  }
+
+}
 .view-avatar {
   .row {
     .col {
