@@ -9455,6 +9455,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .view-intro .scroll-content {
   background-image: url('../img/intro1.jpg');
   background-size: cover;
+  background-color: #009688;
   height: 100%;
   color: #fff; }
   .view-intro .scroll-content .intro-slider {
@@ -9572,6 +9573,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease; }
+
+.modal-profile img.avatar {
+  display: block;
+  width: 91%;
+  border-radius: 50%;
+  margin: 10px; }
 
 .view-avatar .row .col img {
   border-radius: 50%;
@@ -9853,7 +9860,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     min-height: 300px;
     position: relative;
     overflow: hidden;
-    background-color: #ddd;
+    background-color: #fff;
     height: 100%; }
     .photogram .item-body .round-progress-wrapper {
       display: block;
@@ -10071,7 +10078,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     padding: 0; }
     .photogram .gallery-search .row .col {
       padding: 0px;
-      background-color: #ddd;
+      background-color: #fff;
       margin: 4px 2px; }
   .photogram .gallery-userlist .item, .photogram .gallery-activity .item {
     border-bottom: 1px solid #ddd;
