@@ -5,17 +5,14 @@
     .directive('galleryProfile', function ($ionicModal, $q, Gallery, Loading, $timeout, User, UserForm, $state) {
       return {
         restrict: 'A',
-        scope: {
-          profile: '='
-        },
-        template: '',
+        scope: false,
         link: function (scope, elem, attr) {
 
           function init() {
-            console.log(scope.profile);
 
-            var userId = scope.profile;
+            var userId = attr.profile;
             var defer = $q.defer();
+            console.log(userId);
 
             Loading.start();
 
@@ -66,10 +63,15 @@
           scope.follow = function (status) {
             Loading.start();
             User
-              .follow(status, scope.profile)
+              .follow(status, attr.profile)
               .then(function (resp) {
                 Loading.end();
                 scope.form.follow = !scope.form.follow;
+                if (status) {
+                  scope.form.follow1++;
+                } else {
+                  scope.form.follow1--;
+                }
               });
           };
 

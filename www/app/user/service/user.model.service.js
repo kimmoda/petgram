@@ -14,7 +14,12 @@
         var user = Parse.User.current();
         if (user) {
           console.log('Logged user');
-          return loadProfile(user);
+          var newUser = loadProfile(user);
+
+          if (newUser.name === '') {
+            logout();
+          }
+
         } else {
           console.log('Not logged user, go intro');
           $state.go(AppConfig.routes.login, {
@@ -418,11 +423,13 @@
         return defer.promise;
       }
 
+
       function list(force) {
         var defer = $q.defer();
 
         new Parse
           .Query('User')
+          .notEqualTo('user', Parse.User.current())
           .find()
           .then(function (resp) {
             var users = [];
@@ -430,10 +437,18 @@
               var user = item.attributes;
               user.id = item.id;
               user = processImg(user);
-              if (user.id != Parse.User.current().id) {
-                users.push(user);
-              }
 
+              new Parse
+                .Query('UserFollow')
+                .equalTo('user', Parse.User.current())
+                .equalTo('follow', item)
+                .count()
+                .then(function (follow) {
+                  user.follow = follow;
+
+                  console.log(user);
+                  users.push(user);
+                })
             });
             defer.resolve(users);
           });
@@ -444,23 +459,14 @@
       function find(userId) {
         var defer = $q.defer();
 
+        console.log('find', userId);
         new Parse
           .Query('User')
           .equalTo('objectId', userId)
           .first()
           .then(function (resp) {
-
-            new Parse
-              .Query('UserFollow')
-              .equalTo('user', Parse.User.current())
-              .equalTo('follow', resp)
-              .count()
-              .then(function (respFollow) {
-                resp.follow = respFollow;
-                console.log('findUser', userId, resp);
-                defer.resolve(resp);
-              });
-
+            console.log(resp);
+            defer.resolve(resp);
           });
 
         return defer.promise;
@@ -547,9 +553,10 @@
       }
 
       function addFollows(users) {
+        console.log('addFollows', users);
         var promises = [];
         angular.forEach(users, function (user) {
-          promises.push(follow(true, user));
+          promises.push(follow(true, user.id));
         });
         return $q.all(promises);
       }

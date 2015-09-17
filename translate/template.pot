@@ -51,7 +51,7 @@ msgstr ""
 msgid "Connect your Facebook"
 msgstr ""
 
-#: gallery/view/gallery.account.tabs.html:36
+#: gallery/view/gallery.account.tabs.html:41
 #: gallery/view/gallery.profile.tabs.html:33
 msgid "EDIT YOUR PROFILE"
 msgstr ""
@@ -101,11 +101,11 @@ msgstr ""
 msgid "Find and follow people around"
 msgstr ""
 
-#: gallery/view/gallery.profile.modal.html:33
+#: gallery/view/gallery.profile.modal.html:39
 msgid "Follow"
 msgstr ""
 
-#: gallery/view/gallery.user.list.html:4
+#: gallery/view/gallery.user.list.html:5
 msgid "Follow Users"
 msgstr ""
 
@@ -113,13 +113,17 @@ msgstr ""
 msgid "Follow your friends and relive"
 msgstr ""
 
-#: gallery/view/gallery.account.tabs.html:26
-#: gallery/view/gallery.profile.modal.html:23
+#: gallery/view/gallery.account.tabs.html:30
+#: gallery/view/gallery.profile.modal.html:26
 msgid "Followers"
 msgstr ""
 
-#: gallery/view/gallery.account.tabs.html:31
-#: gallery/view/gallery.profile.modal.html:28
+#: gallery/view/gallery.profile.modal.html:40
+msgid "Following"
+msgstr ""
+
+#: gallery/view/gallery.account.tabs.html:35
+#: gallery/view/gallery.profile.modal.html:31
 msgid "Followings"
 msgstr ""
 
@@ -197,6 +201,10 @@ msgstr ""
 msgid "No Comments"
 msgstr ""
 
+#: gallery/view/gallery.account.tabs.html:64
+msgid "No Post"
+msgstr ""
+
 #: user/view/user.merge.html:29
 msgid "Password"
 msgstr ""
@@ -205,8 +213,12 @@ msgstr ""
 msgid "Please enter your email"
 msgstr ""
 
-#: gallery/view/gallery.account.tabs.html:21
-#: gallery/view/gallery.profile.modal.html:18
+#: gallery/view/gallery.search.grid.html:1
+msgid "Popular"
+msgstr ""
+
+#: gallery/view/gallery.account.tabs.html:25
+#: gallery/view/gallery.profile.modal.html:21
 msgid "Posts"
 msgstr ""
 
@@ -214,8 +226,8 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: gallery/view/gallery.account.tabs.html:49
-#: gallery/view/gallery.profile.modal.html:47
+#: gallery/view/gallery.account.tabs.html:56
+#: gallery/view/gallery.profile.modal.html:53
 msgid "Recent"
 msgstr ""
 
@@ -230,7 +242,7 @@ msgstr ""
 msgid "Save Profile"
 msgstr ""
 
-#: gallery/view/gallery.search.grid.html:3
+#: gallery/view/gallery.search.grid.html:4
 #: ion-location/ion-location.js:57
 msgid "Search"
 msgstr ""
@@ -294,10 +306,6 @@ msgstr ""
 msgid "Twitter"
 msgstr ""
 
-#: gallery/view/gallery.profile.modal.html:34
-msgid "Unfollow"
-msgstr ""
-
 #: gallery/service/gallery.share.js:62
 msgid "Whatsapp"
 msgstr ""
@@ -314,11 +322,11 @@ msgstr ""
 msgid "Your email is already associated with another account, please enter your password"
 msgstr ""
 
-#: gallery/service/gallery.model.js:905
+#: gallery/service/gallery.model.js:931
 msgid "add comment"
 msgstr ""
 
-#: gallery/service/gallery.model.js:904
+#: gallery/service/gallery.model.js:930
 msgid "add photo"
 msgstr ""
 
@@ -326,7 +334,7 @@ msgstr ""
 msgid "followers"
 msgstr ""
 
-#: gallery/service/gallery.model.js:906
+#: gallery/service/gallery.model.js:932
 msgid "like photo"
 msgstr ""
 
@@ -338,14 +346,14 @@ msgstr ""
 msgid "posts"
 msgstr ""
 
-#: gallery/service/gallery.model.js:908
+#: gallery/service/gallery.model.js:934
 msgid "register"
 msgstr ""
 
-#: gallery/service/gallery.model.js:909
+#: gallery/service/gallery.model.js:935
 msgid "registered"
 msgstr ""
 
-#: gallery/service/gallery.model.js:907
+#: gallery/service/gallery.model.js:933
 msgid "unlike photo"
 msgstr ""

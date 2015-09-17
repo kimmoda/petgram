@@ -21,6 +21,7 @@
       };
 
       vm.load = function (string) {
+        console.log('load ', string);
         Gallery
           .search(string, vm.page)
           .then(function (resp) {
@@ -32,7 +33,7 @@
 
             console.log('qtd', resp.length);
 
-            if (resp.length) {
+            if (resp.length > 0) {
               vm.more = true;
               vm.page++;
             } else {
@@ -59,7 +60,7 @@
           });
       };
 
-      vm.load();
+      vm.load('');
 
     });
 })(window, window.angular);

@@ -13,7 +13,7 @@
                 <ui-gmap-marker idKey='0' coords='GallerySearchMap.user'>
                 </ui-gmap-marker>
 
-                <ui-gmap-marker idKey='item.id' coords='item.coords' icon="item.icon" ng-repeat="item in GallerySearchMap.data">
+                <ui-gmap-marker click="GallerySearchMapCtrl.openModal(item)" idKey='item.id' coords='item.coords' icon="item.icon" ng-repeat="item in GallerySearchMap.data">
                 </ui-gmap-marker>
 
             </ui-gmap-google-map>

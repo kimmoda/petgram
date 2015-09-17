@@ -2,7 +2,8 @@
   'use strict';
   angular
     .module('module.gallery')
-    .controller('GalleryHomeCtrl', function ($scope, $ionicPopover, GalleryShare, $stateParams, PhotoService, Gallery) {
+    .controller('GalleryHomeCtrl', function ($scope, $rootScope, $ionicPopover, GalleryShare, $stateParams,
+      PhotoService, Gallery) {
       var vm = this;
       vm.loading = true;
 
@@ -14,6 +15,10 @@
       }
 
       init();
+
+      $rootScope.$on('galleryHome:reload', function () {
+        init();
+      });
 
       $scope.loadMore = function (force) {
         console.log('Load More', vm.more);

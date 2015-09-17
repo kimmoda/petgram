@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('module.gallery')
-    .controller('GallerySearchMapCtrl', function ($scope, User, GeoService, Gallery) {
+    .controller('GallerySearchMapCtrl', function ($scope, $timeout, User, GeoService, Gallery) {
       var vm = this;
 
       $scope.map = {
@@ -17,19 +17,36 @@
         init();
       };
 
-      //$scope.$watch('map.center.latitude', function (newValue, oldValue) {
-      //  console.log(newValue);
-      //  if (newValue) {
-      //    console.log(newValue);
-      //    Gallery
-      //      .nearby($scope.map.center)
-      //      .then(function (resp) {
-      //        console.log(resp);
-      //        vm.data = resp;
-      //      });
-      //  }
-      //});
+      var time = 0;
 
+      $scope.$watch('map.center.latitude', function (newValue, oldValue) {
+        console.log(newValue);
+        if (newValue) {
+          console.log(newValue);
+          time += 2000;
+          console.log(time);
+
+
+          var timer = $timeout(function () {
+            console.log(timer);
+
+            Gallery
+              .nearby($scope.map.center)
+              .then(function (resp) {
+                console.log(resp);
+                time = 0;
+                vm.data = resp;
+
+                $timeout.cancel(timer);
+              });
+          }, time);
+
+        }
+      });
+
+      vm.openModal = function (item) {
+        console.log(item);
+      };
 
       function init() {
         GeoService

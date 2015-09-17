@@ -6,7 +6,7 @@
       $stateProvider
 
         .state('userlist', {
-        url: '/users',
+        url: '/follow',
         controller: 'GalleryUserListCtrl as GalleryUserList',
         templateUrl: 'module/gallery/view/gallery.user.list.html'
       })

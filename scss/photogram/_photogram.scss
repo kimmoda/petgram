@@ -5,7 +5,6 @@
     transform: translate3d(0, 0, 0);
   }
 
-
   //General Resets
   font-family: -apple-system, 'Helvetica Neue', 'Segoe WP', sans-serif !important;
   color: #333;
@@ -86,16 +85,24 @@
     color: $positive;
   }
 
-  .card {
-    margin: 0;
-    border: none;
-    box-shadow: none;
-    padding: 0
+  .scroll-content {
+    background-color: #f1f1f1;
   }
 
   .list {
     padding: 0;
+    border: none;
+    box-shadow: none;
     margin: 0;
+    margin-bottom: 15px;
+
+    .card {
+      margin: 0;
+      border: none;
+      box-shadow: none;
+      padding: 0
+    }
+
   }
 
   .item-body {
@@ -272,7 +279,7 @@
       label.item.item-input {
         display: block;
         float: left;
-        width: 86%;
+        width: 88%;
         border: none;
       }
       button {
@@ -341,6 +348,9 @@
   // Profile View
   .gallery-profile {
 
+    .scroll-content {
+      background-color: #fff;
+    }
     .profile-top {
       display: block;
       position: relative;
@@ -391,6 +401,26 @@
           font-weight: bold;
           margin: 0 auto;
           display: block;
+
+          &.button-follow {
+            border: 1px solid $positive;
+            background-color: #fff;
+            span {
+              color: $positive;
+              font-size: 14px;
+            }
+
+          }
+
+          &.button-unfollow {
+            border: 1px solid $positive;
+            background-color: $positive;
+            span {
+              color: #fff;
+              font-size: 14px;
+            }
+          }
+
         }
       }
 
@@ -436,6 +466,7 @@
     }
   }
 
+  $colZize: 150px;
   // Search View
   .gallery-search {
 
@@ -445,6 +476,13 @@
         padding: 0px;
         background-color: #fff;
         margin: 4px 2px;
+        width: $colZize;
+        height: $colZize;
+        overflow: hidden;
+        img {
+          min-height: $colZize;
+
+        }
       }
     }
   }

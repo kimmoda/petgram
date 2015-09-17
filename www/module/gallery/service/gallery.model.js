@@ -255,13 +255,14 @@
         var data = [];
 
         var point = new Parse.GeoPoint(position);
-        var maxDistance = 50;
+        var maxDistance = 1;
 
         Loading.start();
 
         new Parse
           .Query('Gallery')
           //.near('location', point)
+          .include('user')
           .withinRadians('location', point, maxDistance)
           .limit(50)
           .find()
@@ -309,14 +310,17 @@
           .limit(limit)
           .skip(page * limit)
           .matches('title', ".* " + string + ".*")
+          .include('user')
           .find()
           .then(function (resp) {
             angular.forEach(resp, function (value, key) {
+              console.log('gallery search item', value);
               var obj = {
                 id: value.id,
                 item: value.attributes,
                 src: value.attributes.img.url(),
-                created: value.createdAt
+                created: value.createdAt,
+                user: value.attributes.user.id
               };
               data.push(obj);
             });
@@ -733,6 +737,7 @@
             obj.id = resp.id;
             var user = loadProfile(obj);
 
+            // fotos
             new Parse
               .Query('Gallery')
               .equalTo('user', resp)
@@ -740,16 +745,37 @@
               .then(function (gallery) {
                 user.galleries = gallery;
 
+                // seguidores
                 new Parse
                   .Query('UserFollow')
-                  .equalTo('user', Parse.User.current())
                   .equalTo('follow', resp)
                   .count()
-                  .then(function (follow) {
-                    user.follow = follow;
+                  .then(function (follow1) {
+                    user.follow1 = follow1;
 
-                    console.log('getUser', user);
-                    defer.resolve(user);
+                    // seguindo
+                    new Parse
+                      .Query('UserFollow')
+                      .equalTo('user', resp)
+                      .count()
+                      .then(function (follow2) {
+                        user.follow2 = follow2;
+
+                        // seguindo
+                        new Parse
+                          .Query('UserFollow')
+                          .equalTo('user', Parse.User.current())
+                          .equalTo('follow', resp)
+                          .count()
+                          .then(function (follow) {
+                            user.follow = follow ? true : false;
+
+                            console.log('getUser', user);
+                            defer.resolve(user);
+
+                          });
+
+                      });
 
                   });
               });

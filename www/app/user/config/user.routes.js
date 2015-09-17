@@ -69,6 +69,8 @@
         templateUrl: 'app/user/view/user.avatar.html'
       })
 
+
+
       .state('usermerge', {
         url: '/merge',
         controller: 'UserMergeCtrl as Merge',

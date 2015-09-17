@@ -99,11 +99,10 @@
       //$ionicConfigProvider.tabs.position('bottom');
       $ionicConfigProvider.platform.android.tabs.position('bottom');
       $ionicConfigProvider.platform.android.tabs.style('standard');
-
+      $ionicConfigProvider.views.maxCache(1);
       // Android Native Scroll
       var jsScrolling = (ionic.Platform.isAndroid()) ? false : true;
       $ionicConfigProvider.scrolling.jsScrolling(jsScrolling);
-      $ionicConfigProvider.views.maxCache(1);
     });
 
 

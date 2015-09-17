@@ -105,7 +105,7 @@ msgstr "Preencha os campos em vermelho"
 msgid "Find and follow people around"
 msgstr "Encontre e siga pessoas por perto"
 
-#: gallery/view/gallery.profile.modal.html:33
+#: gallery/view/gallery.profile.modal.html:39
 msgid "Follow"
 msgstr "Seguir"
 
@@ -118,12 +118,16 @@ msgid "Follow your friends and relive"
 msgstr "Siga seus amigos"
 
 #: gallery/view/gallery.account.tabs.html:26
-#: gallery/view/gallery.profile.modal.html:23
+#: gallery/view/gallery.profile.modal.html:26
 msgid "Followers"
 msgstr "Seguidores"
 
+#: gallery/view/gallery.profile.modal.html:40
+msgid "Following"
+msgstr "Seguindo"
+
 #: gallery/view/gallery.account.tabs.html:31
-#: gallery/view/gallery.profile.modal.html:28
+#: gallery/view/gallery.profile.modal.html:31
 msgid "Followings"
 msgstr "Seguindo"
 
@@ -209,7 +213,7 @@ msgid "Please enter your email"
 msgstr "Por favor, digite seu e-mail"
 
 #: gallery/view/gallery.account.tabs.html:21
-#: gallery/view/gallery.profile.modal.html:18
+#: gallery/view/gallery.profile.modal.html:21
 msgid "Posts"
 msgstr "Fotos"
 
@@ -218,7 +222,7 @@ msgid "Profile"
 msgstr "Perfil"
 
 #: gallery/view/gallery.account.tabs.html:49
-#: gallery/view/gallery.profile.modal.html:47
+#: gallery/view/gallery.profile.modal.html:53
 msgid "Recent"
 msgstr "Recente"
 
@@ -291,10 +295,6 @@ msgstr "Obrigado por enviar seu Feedback"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: gallery/view/gallery.profile.modal.html:34
-msgid "Unfollow"
-msgstr "Não seguir"
-
 #: gallery/service/gallery.share.js:62
 msgid "Whatsapp"
 msgstr "WhatsApp"
@@ -313,11 +313,11 @@ msgid ""
 "password"
 msgstr "Seu email já está associado a outra conta, por favor digite sua senha"
 
-#: gallery/service/gallery.model.js:905
+#: gallery/service/gallery.model.js:895
 msgid "add comment"
 msgstr "adicionou um comentário"
 
-#: gallery/service/gallery.model.js:904
+#: gallery/service/gallery.model.js:894
 msgid "add photo"
 msgstr "adicionou uma foto"
 
@@ -325,7 +325,7 @@ msgstr "adicionou uma foto"
 msgid "followers"
 msgstr "seguidores"
 
-#: gallery/service/gallery.model.js:906
+#: gallery/service/gallery.model.js:896
 msgid "like photo"
 msgstr "curtiu a foto"
 
@@ -337,17 +337,20 @@ msgstr "ou"
 msgid "posts"
 msgstr "publicações"
 
-#: gallery/service/gallery.model.js:908
+#: gallery/service/gallery.model.js:898
 msgid "register"
 msgstr "se cadastrou"
 
-#: gallery/service/gallery.model.js:909
+#: gallery/service/gallery.model.js:899
 msgid "registered"
 msgstr "se cadastrou"
 
-#: gallery/service/gallery.model.js:907
+#: gallery/service/gallery.model.js:897
 msgid "unlike photo"
 msgstr "tirou o curtir da foto"
+
+#~ msgid "Unfollow"
+#~ msgstr "Não seguir"
 
 #~ msgid "Account"
 #~ msgstr "Conta"

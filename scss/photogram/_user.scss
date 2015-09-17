@@ -10,6 +10,10 @@ $time: 0.5s;
 
 .modal-profile {
 
+  button.button-follow{
+    border: 1px solid $positive;
+    background-color: #fff;
+  }
   img.avatar {
     display: block;
     width: 91%;

@@ -1,7 +1,7 @@
 <div class="list card animated fadeIn" ng-repeat="gallery in data ">
 
     <div class="item item-avatar">
-        <img gallery-profile profile="gallery.user.id" ng-src="{{gallery.user.src}}">
+        <img gallery-profile profile="{{gallery.user.id }}" ng-src="{{gallery.user.src}}">
 
         <h2>{{gallery.user.name}}</h2>
 
