@@ -1,30 +1,30 @@
 <ion-view>
     <ion-nav-title>
-        <span class="icon2-logo"></span>
+        <h1 class="title">{{ 'Popular' | translate }}</h1>
     </ion-nav-title>
 
     <ion-nav-buttons side="right">
-        <button ng-click="GalleryHome.openShare()"
+        <button ng-click="GalleryPopular.openShare()"
                 class="button button-icon icon ion-android-share-alt"></button>
     </ion-nav-buttons>
 
     <ion-content overflow-scroll="true">
-        <ion-refresher ng-if="!GalleryHome.loading"
+        <ion-refresher ng-if="!GalleryPopular.loading"
                        on-refresh="loadMore(true)"></ion-refresher>
 
-        <gallery-loading loading="GalleryHome.loading"></gallery-loading>
+        <gallery-loading loading="GalleryPopular.loading"></gallery-loading>
 
-        <gallery-photo-list gallery="GalleryHome.data"
-                            loading="GalleryHome.loading"></gallery-photo-list>
+        <gallery-photo-grid gallery="GalleryPopular.data"
+                            loading="GalleryPopular.loading"></gallery-photo-grid>
 
         <div class="center-ico"
-             ng-if="GalleryHome.empty">
+             ng-if="GalleryPopular.empty">
             <i class="icon ion-ios-camera"></i>
 
             <h1 translate>Nenhuma foto postagem por perto</h1>
         </div>
 
-        <ion-infinite-scroll ng-if="!GalleryHome.loadMore&&GalleryHome.more"
+        <ion-infinite-scroll ng-if="!GalleryPopular.loadMore&&GalleryPopular.more"
                              on-infinite="loadMore()"></ion-infinite-scroll>
 
     </ion-content>

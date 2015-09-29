@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('module.user')
-    .controller('LoginCtrl', function ($scope, AppConfig, $ionicPopup, UserForm, $state, gettextCatalog, Notify, User) {
+    .controller('UserSigninCtrl', function ($scope, AppConfig, $ionicPopup, UserForm, $state, gettextCatalog, Notify, User) {
       var vm = this;
       vm.routeLogged = AppConfig.routes.home;
 

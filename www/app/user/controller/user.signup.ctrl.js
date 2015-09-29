@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('module.user')
-    .controller('RegisterCtrl', function ($state, UserForm, $filter, Notify, Gallery, User) {
+    .controller('UserSignupCtrl', function ($state, UserForm, $filter, Notify, Gallery, User) {
       var vm = this;
 
       function init() {
