@@ -14,38 +14,39 @@
                 if (user) {
                     var newUser = loadProfile(user);
                     console.log('Logged user', newUser);
-                    var following = $sessionStorage.following;
 
-                    if (!following) {
-
-                        find(newUser.id)
-                            .then(function (user) {
-                                new Parse
-                                    .Query('UserFollow')
-                                    .equalTo('user', user)
-                                    .find()
-                                    .then(function (following) {
-                                        var users = [];
-                                        angular.forEach(following, function (value, key) {
-                                            users.push(value.id);
-                                        });
-
-                                        console.info('seguindo', users, following);
-                                        $sessionStorage.following = users;
-                                        $rootScope.user.following = following;
-
-                                    }, function (err) {
-                                        console.error(err);
-                                    })
-                            })
-                            .then(function (resp) {
-                                console.log('seguindo', resp);
-                            });
-                    } else {
-                        $rootScope.user.following = following;
-                    }
-
-                    console.log('following', $sessionStorage.following);
+                    // // following
+                    // var following = $sessionStorage.following;
+                    // if (!following) {
+                    //
+                    //     find(newUser.id)
+                    //         .then(function (user) {
+                    //             new Parse
+                    //                 .Query('UserFollow')
+                    //                 .equalTo('user', user)
+                    //                 .find()
+                    //                 .then(function (following) {
+                    //                     var users = [];
+                    //                     angular.forEach(following, function (value, key) {
+                    //                         users.push(value.id);
+                    //                     });
+                    //
+                    //                     console.info('seguindo', users, following);
+                    //                     $sessionStorage.following = users;
+                    //                     $rootScope.user.following = following;
+                    //
+                    //                 }, function (err) {
+                    //                     console.error(err);
+                    //                 })
+                    //         })
+                    //         .then(function (resp) {
+                    //             console.log('seguindo', resp);
+                    //         });
+                    // } else {
+                    //     $rootScope.user.following = following;
+                    // }
+                    //
+                    // console.log('following', $sessionStorage.following);
 
 
                     if (newUser.name === '') {

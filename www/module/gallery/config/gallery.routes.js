@@ -38,6 +38,16 @@
                     }
                 })
 
+                .state('gallery.capture', {
+                    url  : '/capture',
+                    views: {
+                        tabCapture: {
+                            controller : 'GalleryCaptureCtrl as GalleryCapture',
+                            templateUrl: 'module/gallery/view/gallery.capture.html'
+                        }
+                    }
+                })
+
                 .state('gallery.search', {
                     url     : '/search',
                     abstract: true,

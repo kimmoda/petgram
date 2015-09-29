@@ -307,10 +307,6 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: gallery/view/gallery.capture.modal.html:25
-msgid "Share In"
-msgstr ""
-
 #: gallery/view/gallery.capture.html:7
 msgid "Share photo"
 msgstr ""
