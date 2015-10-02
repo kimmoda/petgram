@@ -36,6 +36,6 @@
     "commit": "0b52455d3e707abf816479479316e0702ef8ea5c"
   },
   "_source": "git://github.com/kentcdodds/apiCheck.js.git",
-  "_target": "^7.0.0",
+  "_target": "~7.5.0",
   "_originalSource": "api-check"
 }

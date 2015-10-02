@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: user/directive/user.forgot.pass.directive.js:30
+#: user/directive/user.forgot.pass.directive.js:31
 msgid "A new password will be sent to your e-mail address"
 msgstr ""
 
@@ -12,11 +12,15 @@ msgstr ""
 msgid "About"
 msgstr ""
 
+#: user/directive/user.forgot.pass.directive.js:66
+msgid "Access your accout mail"
+msgstr ""
+
 #: gallery/view/gallery.activity.html:4
 msgid "Activities"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1039
+#: gallery/service/gallery.model.js:1044
 msgid "add comment"
 msgstr ""
 
@@ -25,7 +29,7 @@ msgstr ""
 msgid "Add comment"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1038
+#: gallery/service/gallery.model.js:1043
 msgid "add photo"
 msgstr ""
 
@@ -37,7 +41,7 @@ msgstr ""
 #: ion-crop/elements/ion-crop.js:110
 #: ion-crop/elements/ion-crop.js:62
 #: ion-photo/ion-photo.js:71
-#: user/directive/user.forgot.pass.directive.js:32
+#: user/directive/user.forgot.pass.directive.js:34
 msgid "Cancel"
 msgstr ""
 
@@ -83,7 +87,7 @@ msgstr ""
 msgid "Enabled your camera"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:18
+#: user/controller/user.intro.ctrl.js:31
 msgid "Enjoy the most amazing photos"
 msgstr ""
 
@@ -111,7 +115,7 @@ msgstr ""
 msgid "Fill out the fields in red"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:15
+#: user/controller/user.intro.ctrl.js:27
 msgid "Find and follow people around"
 msgstr ""
 
@@ -123,7 +127,7 @@ msgstr ""
 msgid "Follow Users"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:12
+#: user/controller/user.intro.ctrl.js:23
 msgid "Follow your friends and relive"
 msgstr ""
 
@@ -139,6 +143,10 @@ msgstr ""
 #: gallery/view/gallery.account.html:41
 #: gallery/view/gallery.profile.modal.html:37
 msgid "Followings"
+msgstr ""
+
+#: user/directive/user.forgot.pass.directive.js:65
+msgid "Forgot your password"
 msgstr ""
 
 #: user/view/user.signin.html:13
@@ -161,7 +169,7 @@ msgstr ""
 msgid "Install the application and follow me!"
 msgstr ""
 
-#: user/directive/user.forgot.pass.directive.js:43
+#: user/directive/user.forgot.pass.directive.js:46
 msgid "Invalid Email"
 msgstr ""
 
@@ -178,7 +186,7 @@ msgstr ""
 msgid "Like"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1040
+#: gallery/service/gallery.model.js:1045
 msgid "like photo"
 msgstr ""
 
@@ -264,7 +272,7 @@ msgstr ""
 msgid "Recent"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1042
+#: gallery/service/gallery.model.js:1047
 msgid "register"
 msgstr ""
 
@@ -274,7 +282,7 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1043
+#: gallery/service/gallery.model.js:1048
 msgid "registered"
 msgstr ""
 
@@ -292,7 +300,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: user/directive/user.forgot.pass.directive.js:35
+#: user/directive/user.forgot.pass.directive.js:38
 msgid "Send"
 msgstr ""
 
@@ -316,7 +324,7 @@ msgstr ""
 msgid "Share Photo"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:9
+#: user/controller/user.intro.ctrl.js:19
 #: user/view/user.tabs.html:13
 msgid "Share your most amazing moments"
 msgstr ""
@@ -352,7 +360,7 @@ msgstr ""
 msgid "Twitter"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1041
+#: gallery/service/gallery.model.js:1046
 msgid "unlike photo"
 msgstr ""
 
