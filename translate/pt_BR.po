@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Poedit 1.8.4\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: user/directive/user.forgot.pass.directive.js:30
+#: user/directive/user.forgot.pass.directive.js:31
 msgid "A new password will be sent to your e-mail address"
 msgstr "Uma nova senha será enviada para seu endereço de e-mail"
 
@@ -20,11 +20,15 @@ msgstr "Uma nova senha será enviada para seu endereço de e-mail"
 msgid "About"
 msgstr "Sobre"
 
+#: user/directive/user.forgot.pass.directive.js:66
+msgid "Access your accout mail"
+msgstr "Acessar com seu email"
+
 #: gallery/view/gallery.activity.html:4
 msgid "Activities"
 msgstr "Atividades"
 
-#: gallery/service/gallery.model.js:1039
+#: gallery/service/gallery.model.js:1044
 msgid "add comment"
 msgstr "adicionou um comentário"
 
@@ -32,7 +36,7 @@ msgstr "adicionou um comentário"
 msgid "Add comment"
 msgstr "Adicionar comentário"
 
-#: gallery/service/gallery.model.js:1038
+#: gallery/service/gallery.model.js:1043
 msgid "add photo"
 msgstr "adicionou uma foto"
 
@@ -41,7 +45,7 @@ msgid "Camera"
 msgstr "Tirar foto"
 
 #: gallery/service/gallery.share.js:67 ion-crop/elements/ion-crop.js:110 ion-crop/elements/ion-crop.js:62
-#: ion-photo/ion-photo.js:71 user/directive/user.forgot.pass.directive.js:32
+#: ion-photo/ion-photo.js:71 user/directive/user.forgot.pass.directive.js:34
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -85,7 +89,7 @@ msgstr "Email"
 msgid "Enabled your camera"
 msgstr "Ative sua câmera"
 
-#: user/controller/user.intro.ctrl.js:18
+#: user/controller/user.intro.ctrl.js:31
 msgid "Enjoy the most amazing photos"
 msgstr "Compartilhe suas melhores fotos"
 
@@ -110,7 +114,7 @@ msgstr "Feedback"
 msgid "Fill out the fields in red"
 msgstr "Preencha os campos em vermelho"
 
-#: user/controller/user.intro.ctrl.js:15
+#: user/controller/user.intro.ctrl.js:27
 msgid "Find and follow people around"
 msgstr "Encontre e siga pessoas por perto"
 
@@ -122,7 +126,7 @@ msgstr "Seguir"
 msgid "Follow Users"
 msgstr "Seguir Amigos"
 
-#: user/controller/user.intro.ctrl.js:12
+#: user/controller/user.intro.ctrl.js:23
 msgid "Follow your friends and relive"
 msgstr "Siga seus amigos"
 
@@ -137,6 +141,10 @@ msgstr "Seguindo"
 #: gallery/view/gallery.account.html:41 gallery/view/gallery.profile.modal.html:37
 msgid "Followings"
 msgstr "Seguindo"
+
+#: user/directive/user.forgot.pass.directive.js:65
+msgid "Forgot your password"
+msgstr ""
 
 #: user/view/user.signin.html:13
 msgid "Forgot your password?"
@@ -158,7 +166,7 @@ msgstr "Eu estou no"
 msgid "Install the application and follow me!"
 msgstr "Instale o aplicativo e siga-me!"
 
-#: user/directive/user.forgot.pass.directive.js:43
+#: user/directive/user.forgot.pass.directive.js:46
 msgid "Invalid Email"
 msgstr "Email inválido"
 
@@ -174,7 +182,7 @@ msgstr "Junte-se a mim no"
 msgid "Like"
 msgstr "Curtir"
 
-#: gallery/service/gallery.model.js:1040
+#: gallery/service/gallery.model.js:1045
 msgid "like photo"
 msgstr "curtiu a foto"
 
@@ -255,7 +263,7 @@ msgstr "Perfil"
 msgid "Recent"
 msgstr "Recente"
 
-#: gallery/service/gallery.model.js:1042
+#: gallery/service/gallery.model.js:1047
 msgid "register"
 msgstr "se cadastrou"
 
@@ -263,7 +271,7 @@ msgstr "se cadastrou"
 msgid "Register"
 msgstr "Cadastro"
 
-#: gallery/service/gallery.model.js:1043
+#: gallery/service/gallery.model.js:1048
 msgid "registered"
 msgstr "se cadastrou"
 
@@ -279,7 +287,7 @@ msgstr "Salvar Perfil"
 msgid "Search"
 msgstr "Busca"
 
-#: user/directive/user.forgot.pass.directive.js:35
+#: user/directive/user.forgot.pass.directive.js:38
 msgid "Send"
 msgstr "Enviar"
 
@@ -292,10 +300,6 @@ msgstr "Configurações"
 msgid "Share"
 msgstr "Compartilhar"
 
-#: gallery/view/gallery.capture.modal.html:25
-msgid "Share In"
-msgstr "Compartilhar"
-
 #: gallery/view/gallery.capture.html:7
 msgid "Share photo"
 msgstr "Compartilhar Foto"
@@ -304,7 +308,7 @@ msgstr "Compartilhar Foto"
 msgid "Share Photo"
 msgstr "Compartilhar Foto"
 
-#: user/controller/user.intro.ctrl.js:9 user/view/user.tabs.html:13
+#: user/controller/user.intro.ctrl.js:19 user/view/user.tabs.html:13
 msgid "Share your most amazing moments"
 msgstr "Compartilhe seus melhores momentos"
 
@@ -338,7 +342,7 @@ msgstr "Obrigado por enviar seu Feedback"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: gallery/service/gallery.model.js:1041
+#: gallery/service/gallery.model.js:1046
 msgid "unlike photo"
 msgstr "tirou o curtir da foto"
 
@@ -357,6 +361,9 @@ msgstr "Escreva uma legenda"
 #: user/view/user.merge.html:10
 msgid "Your email is already associated with another account, please enter your password"
 msgstr "Seu email já está associado a outra conta, por favor digite sua senha"
+
+#~ msgid "Share In"
+#~ msgstr "Compartilhar"
 
 #~ msgid "followers"
 #~ msgstr "seguidores"
