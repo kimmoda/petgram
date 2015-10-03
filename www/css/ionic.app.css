@@ -11139,17 +11139,29 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
         .view-intro .scroll-content .intro-slider .content .phone.iphone {
           background-image: url("../img/devices/iphone.png");
           background-repeat: no-repeat;
-          background-size: contain; }
+          background-size: contain;
+          width: 98%;
+          max-width: 407px;
+          min-width: 330px; }
+          .view-intro .scroll-content .intro-slider .content .phone.iphone img {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            width: 79%;
+            top: 11.1%; }
         .view-intro .scroll-content .intro-slider .content .phone.android {
           background-image: url("../img/devices/android.png");
           background-repeat: no-repeat;
-          background-size: contain; }
-        .view-intro .scroll-content .intro-slider .content .phone img {
-          display: block;
-          margin: 0 auto;
-          position: relative;
-          width: 87%;
-          top: 8.7%; }
+          background-size: contain;
+          width: 98%;
+          max-width: 376px;
+          min-width: 330px; }
+          .view-intro .scroll-content .intro-slider .content .phone.android img {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            width: 90%;
+            top: 8%; }
     .view-intro .scroll-content .intro-slider .slider {
       display: block;
       height: 100%;
@@ -11407,6 +11419,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   .photogram .card {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
+  .photogram .view-home .scroll-content {
+    background-color: #f1f1f1; }
   .photogram gallery-photo-grid .row .col {
     height: 150px;
     position: relative;
@@ -11730,7 +11744,8 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
         color: #009688; }
   .photogram .gallery-profile .profile-view {
     display: block;
-    overflow: hidden; }
+    overflow: hidden;
+    background-color: #f1f1f1; }
     .photogram .gallery-profile .profile-view .row {
       padding: 0; }
       .photogram .gallery-profile .profile-view .row .col {
