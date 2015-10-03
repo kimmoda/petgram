@@ -23,6 +23,11 @@
     transform: translate3d(0, 0, 0);
   }
 
+  .view-home {
+    .scroll-content {
+      background-color: #f1f1f1;
+    }
+  }
   gallery-photo-grid {
 
     .row {
@@ -486,6 +491,7 @@
     .profile-view {
       display: block;
       overflow: hidden;
+      background-color: #f1f1f1;
 
       .row {
         padding: 0;
