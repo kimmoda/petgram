@@ -2,19 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3636330-3ebf-450e-b681-83585b7909a2" name="Default" comment="k">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/devices/android.png" afterPath="$PROJECT_DIR$/www/img/devices/android.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/devices/iphone.png" afterPath="$PROJECT_DIR$/www/img/devices/iphone.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro1-phone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro2-phone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro3-phone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro4-phone.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/intro1.jpg" afterPath="$PROJECT_DIR$/www/img/intro1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/intro2.jpg" afterPath="$PROJECT_DIR$/www/img/intro2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/intro3.jpg" afterPath="$PROJECT_DIR$/www/img/intro3.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/intro4.jpg" afterPath="$PROJECT_DIR$/www/img/intro4.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/photogram/_intro.scss" afterPath="$PROJECT_DIR$/scss/photogram/_intro.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/photogram/_photogram.scss" afterPath="$PROJECT_DIR$/scss/photogram/_photogram.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translate/pt_BR.mo" afterPath="$PROJECT_DIR$/translate/pt_BR.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translate/pt_BR.po" afterPath="$PROJECT_DIR$/translate/pt_BR.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translate/template.pot" afterPath="$PROJECT_DIR$/translate/template.pot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" afterPath="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/ionic.app.css" afterPath="$PROJECT_DIR$/www/css/ionic.app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" afterPath="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" afterPath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/view/user.avatar.html" afterPath="$PROJECT_DIR$/www/app/user/view/user.avatar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/view/user.intro.html" afterPath="$PROJECT_DIR$/www/app/user/view/user.intro.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/view/user.signin.html" afterPath="$PROJECT_DIR$/www/app/user/view/user.signin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/view/user.signup.html" afterPath="$PROJECT_DIR$/www/app/user/view/user.signup.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/view/user.tabs.html" afterPath="$PROJECT_DIR$/www/app/user/view/user.tabs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-crop/elements/file.reader.js" afterPath="$PROJECT_DIR$/www/component/ion-crop/elements/file.reader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-crop/elements/ion-crop.js" afterPath="$PROJECT_DIR$/www/component/ion-crop/elements/ion-crop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-crop/elements/jr.crop.js" afterPath="$PROJECT_DIR$/www/component/ion-crop/elements/jr.crop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-crop/ion-crop.js" afterPath="$PROJECT_DIR$/www/component/ion-crop/ion-crop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-location/ion-location.js" afterPath="$PROJECT_DIR$/www/component/ion-location/ion-location.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/cacheapp.js" afterPath="$PROJECT_DIR$/www/js/cacheapp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/cachemodule.js" afterPath="$PROJECT_DIR$/www/js/cachemodule.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/translate.js" afterPath="$PROJECT_DIR$/www/js/translate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/config/gallery.routes.js" afterPath="$PROJECT_DIR$/www/module/gallery/config/gallery.routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.activity.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.activity.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.capture.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.capture.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.follow.modal.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.follow.modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.directive.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.modal.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.form.service.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/gallery.form.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.account.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.account.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.capture.modal.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.capture.modal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.comment.directive.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.comment.directive.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.follow.modal.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.follow.modal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.home.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.grid.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.grid.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.list.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.popular.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.popular.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.edit.modal.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.edit.modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.modal.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.tabs.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.tabs.html" />
     </list>
     <ignored path="Parse.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +80,98 @@
     <favorites_list name="Parse" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="user.model.service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="76" column="23" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gallery.settings.modal.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.187251">
+              <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gallery.home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.1538463">
+              <caret line="6" column="85" selection-start-line="6" selection-start-column="85" selection-end-line="6" selection-end-column="85" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gallery.home.ctrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="106" selection-start-line="4" selection-start-column="106" selection-end-line="4" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gallery.popular.ctrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gallery.activity.ctrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/module/gallery/controller/gallery.activity.ctrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gallery.popular.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.popular.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.8461537">
+              <caret line="7" column="22" selection-start-line="5" selection-start-column="4" selection-end-line="7" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gallery.activity.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.8461537">
+              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gallery.account.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.account.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-34.615383">
+              <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,57 +188,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/app/user/service/user.form.js" />
-        <option value="$PROJECT_DIR$/www/app/user/view/user.login.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.tabs.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.follow.modal.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.follow.modal.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.form.service.js" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/www/app/user/view/user.tabs.html" />
-        <option value="$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js" />
-        <option value="$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js" />
-        <option value="$PROJECT_DIR$/www/app/user/controller/user.recovery.pass.ctrl.js" />
-        <option value="$PROJECT_DIR$/www/app/user/config/user.routes.js" />
-        <option value="$PROJECT_DIR$/www/app/user/view/user.signin.html" />
-        <option value="$PROJECT_DIR$/www/app/user/view/user.signup.html" />
-        <option value="$PROJECT_DIR$/scss/ionic.app.scss" />
-        <option value="$PROJECT_DIR$/www/app/user/view/user.avatar.html" />
-        <option value="$PROJECT_DIR$/scss/_form.scss" />
-        <option value="$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.edit.modal.html" />
         <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.profile.ctrl.js" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.home.profile.html" />
         <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.comment.directive.js" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.tabs.html" />
         <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.directive.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.list.html" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.account.tabs.html" />
         <option value="$PROJECT_DIR$/www/module/gallery/config/gallery.routes.js" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.modal.html" />
         <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.modal.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.account.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.popular.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.grid.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/scss/photogram/_user.scss" />
         <option value="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" />
-        <option value="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" />
-        <option value="$PROJECT_DIR$/www/app/user/view/user.intro.html" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
-        <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" />
         <option value="$PROJECT_DIR$/scss/photogram/_intro.scss" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.home.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html" />
-        <option value="$PROJECT_DIR$/scss/photogram/_photogram.scss" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.comment.directive.html" />
+        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.capture.modal.html" />
+        <option value="$PROJECT_DIR$/www/component/ion-location/ion-location.js" />
+        <option value="$PROJECT_DIR$/scss/photogram/directive/_gallery.photo.grid.scss" />
+        <option value="$PROJECT_DIR$/scss/photogram/modal/_modal.comment.scss" />
+        <option value="$PROJECT_DIR$/scss/photogram/modal/_capture.scss" />
+        <option value="$PROJECT_DIR$/scss/photogram/view/_profile.scss" />
+        <option value="$PROJECT_DIR$/scss/photogram/view/_home.scss" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/scss/photogram/interface/_spinner.scss" />
+        <option value="$PROJECT_DIR$/scss/photogram/interface/_actionsheet.scss" />
+        <option value="$PROJECT_DIR$/scss/ionic.app.scss" />
+        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.list.html" />
+        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" />
+        <option value="$PROJECT_DIR$/scss/photogram/_photogram.scss" />
+        <option value="$PROJECT_DIR$/scss/photogram/view/_loading.scss" />
+        <option value="$PROJECT_DIR$/www/app/user/config/user.routes.js" />
+        <option value="$PROJECT_DIR$/scss/photogram/view/_user.scss" />
+        <option value="$PROJECT_DIR$/www/app/user/view/user.intro.html" />
+        <option value="$PROJECT_DIR$/scss/photogram/view/_intro.scss" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" />
+        <option value="$PROJECT_DIR$/platforms/ios/Photogram/Photogram-Info.plist" />
+        <option value="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" />
+        <option value="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.account.html" />
+        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.home.html" />
+        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html" />
+        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.activity.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html" />
       </list>
     </option>
   </component>
@@ -289,7 +426,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -367,12 +503,81 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="directive" />
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -411,11 +616,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scss/photogram/interface" />
+      <recent name="$PROJECT_DIR$/scss/photogram/view" />
       <recent name="$PROJECT_DIR$/scss/photogram" />
       <recent name="$PROJECT_DIR$/bin" />
       <recent name="$PROJECT_DIR$/publish" />
-      <recent name="$PROJECT_DIR$/www/js" />
-      <recent name="$PROJECT_DIR$/www/app/core/service" />
     </key>
   </component>
   <component name="RunManager">
@@ -490,14 +695,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17142858" sideWeight="0.39900866" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19785714" sideWeight="0.6009913" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19785714" sideWeight="0.6009913" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39054728" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49579832" order="1" side_tool="false" content_ui="tabs" />
@@ -518,6 +722,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="GitLabIntegration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34950247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12313433" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39054728" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -536,11 +741,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="GitLabIntegration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34950247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="GitLabIntegration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34950247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12313433" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37313432" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37298638" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17142858" sideWeight="0.39900866" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19785714" sideWeight="0.6009913" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39054728" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -570,138 +776,378 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scss/_form.scss">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.comment.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6932271">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.7394095">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_platform.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.629482">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/ionic.app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6327373">
-          <caret line="81" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17821783">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/photogram/_user.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26294822">
-          <caret line="50" column="3" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9488636">
-          <caret line="38" column="41" selection-start-line="35" selection-start-column="32" selection-end-line="38" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.json">
+    <entry file="file://$PROJECT_DIR$/scss/photogram/directive/_gallery.photo.list.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/directive/_gallery.photo.grid.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5498008">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/modal/_comment.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8605578">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/modal/_capture.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4063745">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/view/_home.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09561753">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/view/_profile.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/view/_gallery.profile.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45418328">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/component/ion-location/ion-location.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.023106547">
+          <caret line="30" column="45" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.capture.modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5697211">
+          <caret line="35" column="18" selection-start-line="32" selection-start-column="12" selection-end-line="35" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/interface/_heart.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45418328">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/interface/_sidemenu.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_animate.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/interface/_spinner.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09561753">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/interface/_actionsheet.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.047808766">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/interface/_platform.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.629482">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71875">
-          <caret line="135" column="7" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.31075698">
+          <caret line="50" column="70" selection-start-line="50" selection-start-column="70" selection-end-line="50" selection-end-column="70" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/photogram/_intro.scss">
+    <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5458167">
-          <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-          <folding />
+        <state vertical-scroll-proportion="0.61752987">
+          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/user/view/user.intro.html">
+    <entry file="file://$PROJECT_DIR$/www/css/ionic.app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47808766">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding />
+        <state vertical-scroll-proportion="0.18857902">
+          <caret line="11440" column="12" selection-start-line="11440" selection-start-column="12" selection-end-line="11440" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/controller/gallery.search.grid.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23106547">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding />
+        <state vertical-scroll-proportion="0.32991013">
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html">
+    <entry file="file://$PROJECT_DIR$/scss/photogram/interface/_font.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50199205">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.list.directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09242619">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.photos.list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3798141">
+          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/service/gallery.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30038512">
+          <caret line="995" column="14" selection-start-line="995" selection-start-column="14" selection-end-line="995" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scss/photogram/_photogram.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.476082">
-          <caret line="493" column="32" selection-start-line="493" selection-start-column="32" selection-end-line="493" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.31341302">
+          <caret line="205" column="22" selection-start-line="205" selection-start-column="22" selection-end-line="205" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.comment.directive.html">
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16733068">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.83825415">
+          <caret line="107" column="61" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/view/user.tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23904383">
+          <caret line="10" column="18" selection-start-line="7" selection-start-column="12" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/ionic.app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19123507">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/view/_loading.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.047808766">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/view/_user.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49800798">
+          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/photogram/view/_intro.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49800798">
+          <caret line="122" column="24" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/view/user.intro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7410359">
+          <caret line="32" column="81" selection-start-line="32" selection-start-column="81" selection-end-line="32" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/config/user.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4813864">
+          <caret line="26" column="18" selection-start-line="13" selection-start-column="10" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/config/gallery.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.27727857">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19127086">
+          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18485238">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/Photogram/Photogram-Info.plist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18485238">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/config.app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41591784">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/core/service/parse.push.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2701228">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="e#2736#3287#0" expanded="false" />
+            <element signature="e#4101#4468#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04229195">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <marker date="1443984825000" expanded="true" signature="1264:1269" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35301667">
+          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+        <state vertical-scroll-proportion="-4.1538463">
+          <caret line="6" column="85" selection-start-line="6" selection-start-column="85" selection-end-line="6" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54701984">
+          <caret line="44" column="63" selection-start-line="38" selection-start-column="12" selection-end-line="44" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35558408">
-          <caret line="96" column="28" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="23" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.modal.js">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.account.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37612325">
-          <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
+        <state vertical-scroll-proportion="-34.615383">
+          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.comment.directive.js">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7394095">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="106" selection-start-line="4" selection-start-column="106" selection-end-line="4" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.popular.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8461537">
+          <caret line="7" column="22" selection-start-line="5" selection-start-column="4" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8461537">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/controller/gallery.activity.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.187251">
+          <caret line="49" column="52" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
           <folding />
         </state>
       </provider>
