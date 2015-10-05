@@ -91,6 +91,7 @@
 
 
       function loadProfile(response) {
+          console.log('LoadProfile', response);
         if (response) {
           var user = response.attributes;
           user.id = response.id;
@@ -117,20 +118,16 @@
 
       function login(form) {
         var defer = $q.defer();
-        Loading.start();
         Parse
           .User
           .logIn(form.email, form.password, {
             success: function (resp) {
-              console.info(resp);
-              Loading.end();
+              console.info('Login', resp);
               var user = loadProfile(resp);
-              //ParsePush.start(user.email);
               defer.resolve(user);
             },
             error: function (user, err) {
               console.error(user, err);
-              Loading.end();
               // The login failed. Check error to see why.
               defer.reject(err);
             }
