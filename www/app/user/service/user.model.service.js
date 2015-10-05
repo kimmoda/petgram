@@ -144,13 +144,14 @@
         //facebook.logout();
         console.log('facebook login');
 
-        Loading.start();
-
         facebook
           .login(['email'])
           .then(function (response) {
 
               console.log('facebook login', response);
+              if (response.status === undefined) {
+                defer.reject('reject');
+              }
               //Pega o Status do Login
               console.log('facebook status', response);
               facebook
@@ -194,8 +195,6 @@
                                   });
                                 }
 
-
-                                Loading.end();
                               });
                           } else {
                             console.log('Se ainda não está completo, manda completar o perfil', dados,
@@ -209,7 +208,6 @@
                             defer.resolve({
                               status: 2
                             });
-                            Loading.end();
 
                           }
 
@@ -241,7 +239,6 @@
                                   defer.resolve({
                                     status: 1
                                   });
-                                  Loading.end();
                                 })
 
 
@@ -253,7 +250,7 @@
                       },
                       error: function (error) {
                         alert('Sem conexão');
-                        Loading.end();
+                        defer.reject(error);
 
                       }
                     });
@@ -262,6 +259,7 @@
             },
             function (response) {
               alert(JSON.stringify(response));
+              defer.reject(response);
 
             });
 

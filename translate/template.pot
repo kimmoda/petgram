@@ -115,6 +115,10 @@ msgstr ""
 msgid "Facebook"
 msgstr ""
 
+#: user/controller/user.signin.ctrl.js:91
+msgid "Facebook error"
+msgstr ""
+
 #: gallery/view/gallery.photo.feedback.modal.html:4
 msgid "Feedback"
 msgstr ""
