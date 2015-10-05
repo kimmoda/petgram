@@ -25,7 +25,6 @@
         vm.load(force);
       };
 
-
       vm.buySource = function () {
         var options = {
           location: 'yes',
@@ -33,8 +32,13 @@
           toolbar: 'yes'
         };
 
-        $cordovaInAppBrowser.open(
-          'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAW4JZS7KJM5S', '_blank',
+        var lang = $rootScope.lang.value;
+        var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAW4JZS7KJM5S';
+        if (lang === 'pt_BR') {
+          url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FT5W6FJW5RAEN'
+        }
+
+        $cordovaInAppBrowser.open(url, '_blank',
           options);
       };
 
