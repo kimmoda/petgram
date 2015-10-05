@@ -91,7 +91,7 @@
 
 
       function loadProfile(response) {
-          console.log('LoadProfile', response);
+        console.log('LoadProfile', response);
         if (response) {
           var user = response.attributes;
           user.id = response.id;
@@ -290,7 +290,6 @@
 
         var formData = form;
         formData.username = form.email;
-        Loading.start();
 
         console.log(formData);
         new Parse
@@ -304,7 +303,6 @@
               defer.resolve(user);
             },
             error: function (user, resp) {
-              Loading.end();
               console.log(resp);
               if (resp.code === 125) {
                 defer.reject('Please specify a valid email address');

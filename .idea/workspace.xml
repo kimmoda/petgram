@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3636330-3ebf-450e-b681-83585b7909a2" name="Default" comment="k">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Photogram.iml" afterPath="$PROJECT_DIR$/.idea/Photogram.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" afterPath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/translate.js" afterPath="$PROJECT_DIR$/www/js/translate.js" />
     </list>
     <ignored path="Parse.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,21 +36,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.signup.ctrl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.signup.ctrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-              <folding />
+            <state vertical-scroll-proportion="0.92426187">
+              <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+              <folding>
+                <marker date="1444088602000" expanded="true" signature="1579:1733" placeholder="{...}" />
+                <marker date="1444088602000" expanded="true" signature="1635:1717" placeholder="{&quot;title&quot;: 'Ops'...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.model.service.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.model.service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6097561">
-              <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="303" column="14" selection-start-line="303" selection-start-column="14" selection-end-line="303" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -72,7 +76,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.profile.ctrl.js" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.home.profile.html" />
         <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.comment.directive.js" />
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.tabs.html" />
@@ -123,6 +126,7 @@
         <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html" />
         <option value="$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js" />
         <option value="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js" />
       </list>
     </option>
   </component>
@@ -712,19 +716,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js">
+    <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <caret line="303" column="14" selection-start-line="303" selection-start-column="14" selection-end-line="303" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
+    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6097561">
-          <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
-          <folding />
+        <state vertical-scroll-proportion="0.92426187">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding>
+            <marker date="1444088602000" expanded="true" signature="1579:1733" placeholder="{...}" />
+            <marker date="1444088602000" expanded="true" signature="1635:1717" placeholder="{&quot;title&quot;: 'Ops'...}" />
+          </folding>
         </state>
       </provider>
     </entry>
