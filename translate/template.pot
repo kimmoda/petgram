@@ -247,18 +247,21 @@ msgstr ""
 msgid "No Comments"
 msgstr ""
 
-#: gallery/view/gallery.account.html:59
+#: gallery/view/gallery.account.html:70
 msgid "No Post"
 msgstr ""
 
+#: gallery/view/gallery.account.html:56
 #: gallery/view/gallery.settings.modal.html:18
 msgid "Notification"
 msgstr ""
 
+#: gallery/view/gallery.account.html:58
 #: gallery/view/gallery.settings.modal.html:20
 msgid "Off"
 msgstr ""
 
+#: gallery/view/gallery.account.html:60
 #: gallery/view/gallery.settings.modal.html:22
 msgid "On"
 msgstr ""
@@ -301,7 +304,7 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: gallery/view/gallery.account.html:53
+#: gallery/view/gallery.account.html:64
 #: gallery/view/gallery.profile.modal.html:52
 msgid "Recent"
 msgstr ""
