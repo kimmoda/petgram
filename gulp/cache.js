@@ -1,8 +1,9 @@
 'use strict';
 var path         = require('path');
 var gulp         = require('gulp');
-var replaceFiles = ['./www/js/app.js'];
+var replace       = require('replace');
 var paths        = require('./config');
+var replaceFiles = ['./www/js/app.js'];
 
 // Cache Modules
 // ADD

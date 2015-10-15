@@ -1,6 +1,7 @@
 'use strict';
 var path  = require('path');
 var gulp  = require('gulp');
+var gutil  = require('gulp-util');
 var bower = require('bower');
 var paths = require('./config');
 

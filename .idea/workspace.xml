@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3636330-3ebf-450e-b681-83585b7909a2" name="Default" comment="k">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translate/template.pot" afterPath="$PROJECT_DIR$/translate/template.pot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" afterPath="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" afterPath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/translate.js" afterPath="$PROJECT_DIR$/www/js/translate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.account.html" afterPath="$PROJECT_DIR$/www/module/gallery/view/gallery.account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="Parse.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.account.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -45,8 +39,12 @@
         <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-              <folding />
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <marker date="1444864386000" expanded="true" signature="427:703" placeholder="{...}" />
+                <marker date="1444864386000" expanded="true" signature="600:703" placeholder="{...}" />
+                <marker date="1444864386000" expanded="true" signature="2525:2649" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,10 +54,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-              <folding>
-                <element signature="e#2592#3143#0" expanded="true" />
-                <element signature="e#3923#4290#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -808,7 +803,7 @@
     <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.account.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -816,8 +811,12 @@
     <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <marker date="1444864386000" expanded="true" signature="427:703" placeholder="{...}" />
+            <marker date="1444864386000" expanded="true" signature="600:703" placeholder="{...}" />
+            <marker date="1444864386000" expanded="true" signature="2525:2649" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -825,10 +824,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding>
-            <element signature="e#2592#3143#0" expanded="true" />
-            <element signature="e#3923#4290#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
