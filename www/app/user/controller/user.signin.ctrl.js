@@ -2,96 +2,97 @@
   'use strict';
   angular
     .module('module.user')
-    .controller('UserSigninCtrl', function ($scope, AppConfig, $ionicPopup, UserForm, Loading, $state, gettextCatalog,
-      Notify,
-      User) {
-      var vm = this;
-      vm.routeLogged = AppConfig.routes.home;
+    .controller('UserSigninCtrl', UserSigninCtrl);
 
-      function init() {
-        vm.form = {
-          email: '',
-          password: ''
-        };
+  function UserSigninCtrl(AppConfig, UserForm, Loading, $state, gettextCatalog, Notify, User) {
+    var vm = this;
+    vm.formFields = UserForm.login;
+    vm.routeLogged = AppConfig.routes.home;
+    vm.submitLogin = submitLogin;
+    vm.facebook = facebook;
 
-        if (window.Parse.User.current()) {
-          $state.go(vm.routeLogged, {
-            clear: true
-          });
-        }
+    init();
 
-      }
-
-      init();
-
-      vm.formFields = UserForm.login;
-
-      vm.submitLogin = function (rForm, data) {
-
-        var form = angular.copy(data);
-        if (rForm.$valid) {
-          User
-            .login(form)
-            .then(function (data) {
-              console.log(data);
-              if (data.name.length) {
-                $state.go(vm.routeLogged, {
-                  clear: true
-                });
-              } else {
-                $state.go('useravatar', {
-                  clear: true
-                });
-              }
-            })
-            .catch(function (resp) {
-              Notify.alert({
-                title: 'Ops',
-                text: resp.message
-              });
-            });
-        } else {
-          return false;
-        }
+    function init() {
+      vm.form = {
+        email: '',
+        password: ''
       };
 
-      vm.facebook = function () {
-        Loading.start();
-        User
-          .facebookLogin()
-          .then(function (resp) {
-            console.log(resp);
+      if (window.Parse.User.current()) {
+        $state.go(vm.routeLogged, {
+          clear: true
+        });
+      }
 
-            Loading.end();
-            switch (resp.status) {
-            case 0:
-              // logado
-              $state.go(AppConfig.routes.home, {
+    }
+
+    function submitLogin(rForm, data) {
+
+      var form = angular.copy(data);
+      if (rForm.$valid) {
+        User
+          .login(form)
+          .then(function (data) {
+            console.log(data);
+            if (data.name.length) {
+              $state.go(vm.routeLogged, {
                 clear: true
               });
-              break;
-            case 1:
-              // novo user
+            } else {
               $state.go('useravatar', {
                 clear: true
               });
-              break;
-            case 2:
-              // merge
-              $state.go('usermerge', {
-                clear: true
-              })
-              break;
             }
           })
-          .catch(function () {
-            Loading.end();
+          .catch(function (resp) {
             Notify.alert({
               title: 'Ops',
-              text: gettextCatalog.getString('Facebook error')
+              text: resp.message
             });
           });
+      } else {
+        return false;
       }
+    }
 
-    });
+    function facebook() {
+      Loading.start();
+      User
+        .facebookLogin()
+        .then(function (resp) {
+          console.log(resp);
+
+          Loading.end();
+          switch (resp.status) {
+          case 0:
+            // logado
+            $state.go(AppConfig.routes.home, {
+              clear: true
+            });
+            break;
+          case 1:
+            // novo user
+            $state.go('useravatar', {
+              clear: true
+            });
+            break;
+          case 2:
+            // merge
+            $state.go('usermerge', {
+              clear: true
+            })
+            break;
+          }
+        })
+        .catch(function () {
+          Loading.end();
+          Notify.alert({
+            title: 'Ops',
+            text: gettextCatalog.getString('Facebook error')
+          });
+        });
+    }
+
+  }
 })(window, window.angular);

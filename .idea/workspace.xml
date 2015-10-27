@@ -2,9 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3636330-3ebf-450e-b681-83585b7909a2" name="Default" comment="k">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translate/template.pot" afterPath="$PROJECT_DIR$/translate/template.pot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" afterPath="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/config/user.routes.js" afterPath="$PROJECT_DIR$/www/app/user/config/user.routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.merge.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.merge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.profile.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.profile.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.recovery.pass.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.recovery.pass.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js" afterPath="$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/directive/user.avatar.directive.js" afterPath="$PROJECT_DIR$/www/app/user/directive/user.avatar.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" afterPath="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/directive/user.modal.terms.directive.js" afterPath="$PROJECT_DIR$/www/app/user/directive/user.modal.terms.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/service/notify.service.js" afterPath="$PROJECT_DIR$/www/app/user/service/notify.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/service/user.form.js" afterPath="$PROJECT_DIR$/www/app/user/service/user.form.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" afterPath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/user/view/user.intro.html" afterPath="$PROJECT_DIR$/www/app/user/view/user.intro.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-crop/elements/file.reader.js" afterPath="$PROJECT_DIR$/www/component/ion-crop/elements/file.reader.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-crop/elements/ion-crop.js" afterPath="$PROJECT_DIR$/www/component/ion-crop/elements/ion-crop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-crop/elements/jr.crop.js" afterPath="$PROJECT_DIR$/www/component/ion-crop/elements/jr.crop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-crop/ion-crop.js" afterPath="$PROJECT_DIR$/www/component/ion-crop/ion-crop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-loading/ion-loading.js" afterPath="$PROJECT_DIR$/www/component/ion-loading/ion-loading.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-location/ion-location.js" afterPath="$PROJECT_DIR$/www/component/ion-location/ion-location.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ion-photo/ion-photo.js" afterPath="$PROJECT_DIR$/www/component/ion-photo/ion-photo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/component/ionic-cache/ionic-cache.js" afterPath="$PROJECT_DIR$/www/component/ionic-cache/ionic-cache.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/cacheapp.js" afterPath="$PROJECT_DIR$/www/js/cacheapp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/cachemodule.js" afterPath="$PROJECT_DIR$/www/js/cachemodule.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/config.facebook.js" afterPath="$PROJECT_DIR$/www/js/config.facebook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/translate.js" afterPath="$PROJECT_DIR$/www/js/translate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/config/gallery.routes.js" afterPath="$PROJECT_DIR$/www/module/gallery/config/gallery.routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.activity.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.activity.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.capture.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.capture.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.notify.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.notify.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.photo.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.photo.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.preview.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.preview.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.profile.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.profile.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.search.grid.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.search.grid.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.search.map.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.search.map.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.user.list.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.user.list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.view.ctrl.js" afterPath="$PROJECT_DIR$/www/module/gallery/controller/gallery.view.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.capture.directive.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.capture.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.comment.directive.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.comment.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.follow.modal.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.follow.modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.directive.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.modal.directive.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.modal.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.loading.directive.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.loading.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.feedback.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.feedback.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.grid.directive.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.grid.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.list.directive.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.list.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.edit.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.modal.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/directive/ion-search.directive.js" afterPath="$PROJECT_DIR$/www/module/gallery/directive/ion-search.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.form.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.form.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.model.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.form.service.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/gallery.form.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.settings.model.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/gallery.settings.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.share.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/gallery.share.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/module/gallery/service/parse.image.service.js" afterPath="$PROJECT_DIR$/www/module/gallery/service/parse.image.service.js" />
     </list>
     <ignored path="Parse.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,65 +87,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gallery.account.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.account.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.model.service.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <marker date="1444864386000" expanded="true" signature="427:703" placeholder="{...}" />
-                <marker date="1444864386000" expanded="true" signature="600:703" placeholder="{...}" />
-                <marker date="1444864386000" expanded="true" signature="2525:2649" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parse.push.service.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/app/core/service/parse.push.service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.intro.ctrl.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09242619">
-              <caret line="4" column="68" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="config.app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/config.app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="64" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gallery.settings.modal.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="25" selection-start-line="15" selection-start-column="12" selection-end-line="22" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.5294118">
+              <caret line="23" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,57 +114,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scss/photogram/interface/_spinner.scss" />
-        <option value="$PROJECT_DIR$/scss/photogram/interface/_actionsheet.scss" />
-        <option value="$PROJECT_DIR$/scss/ionic.app.scss" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.list.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" />
-        <option value="$PROJECT_DIR$/scss/photogram/_photogram.scss" />
-        <option value="$PROJECT_DIR$/scss/photogram/view/_loading.scss" />
+        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.profile.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.search.grid.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.search.map.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.user.list.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.view.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.capture.directive.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.comment.directive.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.follow.modal.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.directive.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.modal.directive.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.loading.directive.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.feedback.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.grid.directive.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.list.directive.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.edit.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.modal.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/ion-search.directive.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.form.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.model.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.form.service.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.settings.model.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.share.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/service/parse.image.service.js" />
+        <option value="$PROJECT_DIR$/www/component/ion-crop/ion-crop.js" />
+        <option value="$PROJECT_DIR$/www/component/ion-crop/elements/file.reader.js" />
+        <option value="$PROJECT_DIR$/www/component/ion-crop/elements/ion-crop.js" />
+        <option value="$PROJECT_DIR$/www/component/ion-crop/elements/jr.crop.js" />
+        <option value="$PROJECT_DIR$/www/component/ion-loading/ion-loading.js" />
+        <option value="$PROJECT_DIR$/www/component/ion-location/ion-location.js" />
+        <option value="$PROJECT_DIR$/www/component/ion-photo/ion-photo.js" />
+        <option value="$PROJECT_DIR$/www/component/ionic-cache/ionic-cache.js" />
+        <option value="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" />
         <option value="$PROJECT_DIR$/www/app/user/config/user.routes.js" />
-        <option value="$PROJECT_DIR$/scss/photogram/view/_user.scss" />
-        <option value="$PROJECT_DIR$/www/app/user/view/user.intro.html" />
-        <option value="$PROJECT_DIR$/platforms/ios/Photogram/Photogram-Info.plist" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.home.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.activity.ctrl.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.merge.js" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.profile.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.recovery.pass.ctrl.js" />
         <option value="$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js" />
         <option value="$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js" />
-        <option value="$PROJECT_DIR$/www/js/config.facebook.js" />
-        <option value="$PROJECT_DIR$/scss/photogram/view/_intro.scss" />
-        <option value="$PROJECT_DIR$/platforms/android/project.properties" />
-        <option value="$PROJECT_DIR$/plugins/android.json" />
-        <option value="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/gulp/sass.scss.js" />
-        <option value="$PROJECT_DIR$/gulp/install.js" />
-        <option value="$PROJECT_DIR$/gulp/cache.js" />
-        <option value="$PROJECT_DIR$/gulp/imagemin.js" />
-        <option value="$PROJECT_DIR$/gulp/bump.js" />
-        <option value="$PROJECT_DIR$/gulp/git-check.js" />
-        <option value="$PROJECT_DIR$/_gulpfile.js" />
-        <option value="$PROJECT_DIR$/gulp/clean.js" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/gulp/e2e-tests.js" />
-        <option value="$PROJECT_DIR$/gulp/watch.js" />
-        <option value="$PROJECT_DIR$/gulp/copy.js" />
-        <option value="$PROJECT_DIR$/gulp/inject.js" />
-        <option value="$PROJECT_DIR$/gulp/jshint.js" />
-        <option value="$PROJECT_DIR$/gulp/prettify.js" />
-        <option value="$PROJECT_DIR$/gulp/replaces.js" />
-        <option value="$PROJECT_DIR$/gulp/templates.js" />
-        <option value="$PROJECT_DIR$/gulp/translate.js" />
-        <option value="$PROJECT_DIR$/gulp/unit-tests.js" />
-        <option value="$PROJECT_DIR$/gulp/usemin.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.account.html" />
-        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" />
-        <option value="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" />
-        <option value="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/app/user/directive/user.avatar.directive.js" />
+        <option value="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" />
+        <option value="$PROJECT_DIR$/www/app/user/directive/user.modal.terms.directive.js" />
+        <option value="$PROJECT_DIR$/www/app/user/service/notify.service.js" />
+        <option value="$PROJECT_DIR$/www/app/user/service/user.form.js" />
         <option value="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
-        <option value="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" />
+        <option value="$PROJECT_DIR$/www/app/user/view/user.intro.html" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" />
+        <option value="$PROJECT_DIR$/www/js/app.js" />
+        <option value="$PROJECT_DIR$/www/js/config.app.js" />
       </list>
     </option>
   </component>
@@ -285,8 +293,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -393,11 +401,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17142858" sideWeight="0.39900866" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19785714" sideWeight="0.6009913" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19785714" sideWeight="0.6009913" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -474,380 +482,360 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.account.html">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.like.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.09863014">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.account.html">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.loading.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding />
+        <state vertical-scroll-proportion="0.24657534">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/photogram/view/_loading.scss">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.feedback.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.047808766">
-          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        <state vertical-scroll-proportion="-0.5287671">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/photogram/view/_user.scss">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.grid.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49800798">
-          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.29589042">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/Photogram/Photogram-Info.plist">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.list.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18485238">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.41917807">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/ionic.app.scss">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.edit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46022728">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.29589042">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/android/build.gradle">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.modal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.19726028">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/android/gradlew">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.23748395">
+          <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/android/settings.gradle">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/ion-search.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.55455714">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/android/release-signing.properties">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.92297816">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/android/project.properties">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28609273">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.72272146">
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/android/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/service/gallery.form.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33466136">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.92297816">
+          <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/photogram/view/_intro.scss">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/service/gallery.settings.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41434264">
-          <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.81514764">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/android.json">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/service/gallery.share.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.027888447">
-          <caret line="98" column="41" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.9537869">
+          <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/fetch.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3559097">
-          <caret line="73" column="21" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13756613">
-          <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/ios.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.023809524">
-          <caret line="47" column="89" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/phonegap-facebook-plugin/facebookConnectPlugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49422336">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/apk">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32225063">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/androidinstall">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09207161">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.jshintrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/bump.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06931964">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/cache.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09242619">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/clean.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16174583">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33247754">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/copy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06931964">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/git-check.js">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/service/parse.image.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36970475">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/gulp.config.js">
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/module.gallery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.09242619">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/imagemin.js">
+    <entry file="file://$PROJECT_DIR$/www/component/ion-crop/ion-crop.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30038512">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.09242619">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/inject.js">
+    <entry file="file://$PROJECT_DIR$/www/component/ion-crop/elements/file.reader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13863929">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/install.js">
+    <entry file="file://$PROJECT_DIR$/www/component/ion-crop/elements/ion-crop.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09242619">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.3928113">
+          <caret line="17" column="78" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="78" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/jshint.js">
+    <entry file="file://$PROJECT_DIR$/www/component/ion-crop/elements/jr.crop.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06931964">
-          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.9537869">
+          <caret line="316" column="27" selection-start-line="316" selection-start-column="27" selection-end-line="316" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/prettify.js">
+    <entry file="file://$PROJECT_DIR$/www/component/ion-loading/ion-loading.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09242619">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.23106547">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/replaces.js">
+    <entry file="file://$PROJECT_DIR$/www/component/ion-location/ion-location.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09242619">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        <state vertical-scroll-proportion="-0.50834405">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/sass.js">
+    <entry file="file://$PROJECT_DIR$/www/component/ion-photo/ion-photo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09242619">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.27599487">
+          <caret line="83" column="29" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/templates.js">
+    <entry file="file://$PROJECT_DIR$/www/component/ionic-cache/ionic-cache.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13863929">
-          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.41591784">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/translate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13863929">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/macdeply.md">
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxHtmlEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7370518">
-          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/usemin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30038512">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/unit-tests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18485238">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20795892">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/watch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06931964">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/lib/ionic-platform-web-client/src/core/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32991013">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46213093">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3465982">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.account.html">
+    <entry file="file://$PROJECT_DIR$/www/component/ionic.components.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <marker date="1444864386000" expanded="true" signature="427:703" placeholder="{...}" />
-            <marker date="1444864386000" expanded="true" signature="600:703" placeholder="{...}" />
-            <marker date="1444864386000" expanded="true" signature="2525:2649" placeholder="{...}" />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/core/service/parse.push.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding />
+        <state vertical-scroll-proportion="0.9537869">
+          <caret line="206" column="5" selection-start-line="206" selection-start-column="5" selection-end-line="206" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/config.app.js">
+    <entry file="file://$PROJECT_DIR$/www/app/user/config/user.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42233634">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41591784">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.merge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18485238">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.profile.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36970475">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.recovery.pass.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23106547">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13863929">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25417203">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/directive/user.avatar.directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36970475">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1386393">
+          <caret line="83" column="17" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/service/notify.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57766366">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/service/user.form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13863929">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/user.module.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="64" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="64" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/core/module.core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulp/cache.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5147625">
+          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/cachemodule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/cacheapp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53145057">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="25" selection-start-line="15" selection-start-column="12" selection-end-line="22" selection-end-column="25" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/view/gallery.profile.edit.modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/module/gallery/service/gallery.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16174583">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4390244">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/service/user.model.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13863929">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/view/user.intro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30677292">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09242619">
-          <caret line="4" column="68" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.27727857">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/user/directive/user.modal.terms.directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60077024">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/config.app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5294118">
+          <caret line="23" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>

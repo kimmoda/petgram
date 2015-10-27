@@ -1,8 +1,11 @@
-'use strict';
-angular
-  .module('ion-crop')
-  .directive('ionCrop', function ($ionicModal, $jrCrop, $rootScope, $q, $timeout, $http, $ionicActionSheet, ENV,
-    Container, FileUploader, fileReader, gettextCatalog) {
+(function (window, angular, undefined) {
+  'use strict';
+
+  angular
+    .module('ion-crop')
+    .directive('ionCrop', ionCrop);
+
+  function ionCrop($jrCrop, $rootScope, $q, $timeout, $http, $ionicActionSheet, ENV, FileUploader, gettextCatalog) {
 
     function base64ToBlob(base64Data, contentType) {
       contentType = contentType || '';
@@ -46,7 +49,21 @@ angular
          * */
 
         // Triggered on a button click, or some other target
-        $scope.action = function () {
+        $scope.action = action;
+        element.bind('click', getElem);
+        // 3) Cortar Imagem
+        $scope.crop = crop;
+        // 2) File Input
+        angular
+          .element(document.getElementById('browseBtn'))
+          .on('change', fileUpload);
+
+
+        function getElem() {
+          document.getElementById('browseBtn').click();
+        }
+
+        function action() {
 
           // Show the action sheet
           var hideSheet = $ionicActionSheet.show({
@@ -74,14 +91,9 @@ angular
             }
           });
 
-        };
+        }
 
-        element.bind('click', function () {
-          document.getElementById('browseBtn').click();
-        });
-
-        // 2) File Input
-        angular.element(document.getElementById('browseBtn')).on('change', function (e) {
+        function fileUpload(e) {
 
           var file = e.target.files[0];
           var reader = new FileReader();
@@ -95,10 +107,9 @@ angular
           // Clear input file
           angular.element(document.getElementById('browseBtn')).val('');
 
-        });
+        }
 
-        // 3) Cortar Imagem
-        $scope.crop = function (image) {
+        function crop(image) {
 
           $jrCrop
             .crop({
@@ -121,7 +132,7 @@ angular
 
             });
 
-        };
+        }
 
 
         /////////////
@@ -163,4 +174,6 @@ angular
 
       }
     };
-  });
+  }
+
+})(window, window.angular);

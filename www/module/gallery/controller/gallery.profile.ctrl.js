@@ -2,20 +2,18 @@
   'use strict';
   angular
     .module('module.gallery')
-    .controller('GalleryProfileCtrl', function ($rootScope, $stateParams, Gallery, UserForm, User) {
+    .controller('GalleryProfileCtrl', GalleryProfileCtrl);
 
-      console.log($stateParams);
+  function GalleryProfileCtrl($rootScope, $stateParams, Gallery, UserForm, User) {
+    var vm = this;
+    init();
 
-      var vm = this;
-
-      function init() {
-        Gallery
-          .getUser($stateParams.id)
-          .then(function (resp) {
-            vm.form = resp;
-          });
-      }
-
-      init();
-    });
+    function init() {
+      Gallery
+        .getUser($stateParams.id)
+        .then(function (resp) {
+          vm.form = resp;
+        });
+    }
+  }
 })(window, window.angular);

@@ -2,34 +2,39 @@
   'use strict';
   angular
     .module('module.user')
-    .directive('openTerms', function ($cordovaInAppBrowser) {
-      return {
-        restrict: 'A',
-        template: '',
-        link: function (scope, elem, attr) {
+    .directive('openTerms', openTerms);
 
-          elem.bind('click', function () {
-            console.log(scope.ngModel);
+  function openTerms($cordovaInAppBrowser) {
+    return {
+      restrict: 'A',
+      template: '',
+      link: function (scope, elem, attr) {
 
-            $cordovaInAppBrowser
-              .open('http://movibe.github.io/photogram-docs/', '_blank', {
-                location: 'no',
-                clearcache: 'yes',
-                toolbar: 'yes'
-              })
-              .then(function (event) {
-                // success
-              })
-              .catch(function (event) {
-                // error
-              });
-          });
+        elem.bind('click', openModal);
+        scope.closeModal = closeModal;
 
-          scope.closeModal = function () {
-            scope.modal.hide();
-            scope.modal.remove();
-          };
+        function openModal() {
+          console.log(scope.ngModel);
+
+          $cordovaInAppBrowser
+            .open('http://movibe.github.io/photogram-docs/', '_blank', {
+              location: 'no',
+              clearcache: 'yes',
+              toolbar: 'yes'
+            })
+            .then(function (event) {
+              // success
+            })
+            .catch(function (event) {
+              // error
+            });
+        }
+
+        function closeModal() {
+          scope.modal.hide();
+          scope.modal.remove();
         }
       }
-    });
+    }
+  }
 })(window, window.angular);

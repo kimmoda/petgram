@@ -2,40 +2,41 @@
   'use strict';
   angular
     .module('module.gallery')
-    .directive('galleryFollow', function ($ionicModal, $q, Gallery, Loading, $timeout, User, UserForm, $state) {
-      return {
-        restrict: 'A',
-        scope: {
-          user: '='
-        },
-        link: function (scope, elem, attr) {
+    .directive('galleryFollow', galleryFollow);
 
+  function galleryFollow($ionicModal, Gallery) {
+    return {
+      restrict: 'A',
+      scope: {
+        user: '='
+      },
+      link: function (scope, elem, attr) {
+        elem.bind('click', openModal);
+        scope.closeModal = closeModal;
 
-          elem.bind('click', function () {
+        function openModal() {
+          $ionicModal.fromTemplateUrl('module/gallery/view/gallery.follow.modal.html', {
+            scope: scope
+          }).then(function (modal) {
+            scope.modalFollow = modal;
+            console.log('Open modal follow', scope.user);
 
-            $ionicModal.fromTemplateUrl('module/gallery/view/gallery.follow.modal.html', {
-              scope: scope
-            }).then(function (modal) {
-              scope.modalFollow = modal;
-              console.log('Open modal follow', scope.user);
+            Gallery
+              .getFollow(scope.user)
+              .then(function (resp) {
+                console.log(resp);
+                scope.data = resp;
+                scope.modalFollow.show();
+              });
 
-              Gallery
-                .getFollow(scope.user)
-                .then(function (resp) {
-                  console.log(resp);
-                  scope.data = resp;
-                  scope.modalFollow.show();
-                });
-
-            });
           });
+        }
 
-
-          scope.closeModal = function () {
-            scope.modalFollow.hide();
-            scope.modalFollow.remove();
-          };
+        function closeModal() {
+          scope.modalFollow.hide();
+          scope.modalFollow.remove();
         }
       }
-    });
+    }
+  }
 })(window, window.angular);

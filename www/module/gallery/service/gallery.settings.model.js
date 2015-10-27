@@ -2,43 +2,45 @@
   'use strict';
   angular
     .module('module.gallery')
-    .factory('GallerySetting', function ($window, $http, $q) {
+    .factory('GallerySetting', GallerySetting);
 
-      var data = [];
+  function GallerySetting($window, $http, $q) {
 
-      function init() {
-        var defer = $q.defer();
+    var data = [];
 
-        new Parse
-          .Query('GallerySetting')
-          .find()
-          .then(function (resp) {
-            angular.forEach(resp, function (item) {
-              var obj = {
-                key: item.attributes.key,
-                value: item.attributes.value
-              }
-              $window.localStorage[obj.key] = obj.value;
-              data.push(obj);
+    function init() {
+      var defer = $q.defer();
 
-            });
-            defer.resolve(data);
-          }, function (err) {
-            alert(err);
+      new Parse
+        .Query('GallerySetting')
+        .find()
+        .then(function (resp) {
+          angular.forEach(resp, function (item) {
+            var obj = {
+              key: item.attributes.key,
+              value: item.attributes.value
+            }
+            $window.localStorage[obj.key] = obj.value;
+            data.push(obj);
+
           });
+          defer.resolve(data);
+        }, function (err) {
+          alert(err);
+        });
 
-        return defer.promise;
+      return defer.promise;
 
-      }
+    }
 
-      function get(key) {
-        return $window.localStorage[key];
-      }
+    function get(key) {
+      return $window.localStorage[key];
+    }
 
-      return {
-        init: init,
-        get: get
-      };
+    return {
+      init: init,
+      get: get
+    };
 
-    });
+  }
 })(window, window.angular, window.Parse);

@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: user/directive/user.forgot.pass.directive.js:31
+#: user/directive/user.forgot.pass.directive.js:35
 msgid "A new password will be sent to your e-mail address"
 msgstr ""
 
@@ -12,7 +12,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: user/directive/user.forgot.pass.directive.js:63
+#: user/directive/user.forgot.pass.directive.js:67
 msgid "Access your accout mail"
 msgstr ""
 
@@ -20,7 +20,7 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1046
+#: gallery/service/gallery.model.js:1047
 msgid "add comment"
 msgstr ""
 
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Add comment"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1045
+#: gallery/service/gallery.model.js:1046
 msgid "add photo"
 msgstr ""
 
@@ -37,19 +37,19 @@ msgstr ""
 msgid "Buy Source Code"
 msgstr ""
 
-#: ion-photo/ion-photo.js:66
+#: ion-photo/ion-photo.js:68
 msgid "Camera"
 msgstr ""
 
-#: gallery/service/gallery.share.js:67
-#: ion-crop/elements/ion-crop.js:108
-#: ion-crop/elements/ion-crop.js:60
-#: ion-photo/ion-photo.js:71
-#: user/directive/user.forgot.pass.directive.js:33
+#: gallery/service/gallery.share.js:69
+#: ion-crop/elements/ion-crop.js:119
+#: ion-crop/elements/ion-crop.js:77
+#: ion-photo/ion-photo.js:73
+#: user/directive/user.forgot.pass.directive.js:37
 msgid "Cancel"
 msgstr ""
 
-#: ion-crop/elements/ion-crop.js:59
+#: ion-crop/elements/ion-crop.js:76
 msgid "Change Image"
 msgstr ""
 
@@ -70,12 +70,11 @@ msgstr ""
 msgid "Complete your Profile"
 msgstr ""
 
-#: user/view/user.intro.html:41
 #: user/view/user.signin.html:26
 msgid "Connect your Facebook"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:29
+#: user/controller/user.intro.ctrl.js:32
 msgid "Create your Social Photo Share with Ionic Framework!"
 msgstr ""
 
@@ -87,16 +86,16 @@ msgstr ""
 msgid "EDIT YOUR PROFILE"
 msgstr ""
 
-#: gallery/service/gallery.share.js:64
-#: user/directive/user.forgot.pass.directive.js:24
+#: gallery/service/gallery.share.js:66
+#: user/directive/user.forgot.pass.directive.js:28
 msgid "Email"
 msgstr ""
 
-#: ion-photo/ion-photo.js:91
+#: ion-photo/ion-photo.js:93
 msgid "Enabled your camera"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:26
+#: user/controller/user.intro.ctrl.js:29
 msgid "Enjoy the most amazing photos"
 msgstr ""
 
@@ -108,16 +107,15 @@ msgstr ""
 msgid "Enter"
 msgstr ""
 
-#: ion-photo/ion-photo.js:90
+#: ion-photo/ion-photo.js:92
 msgid "Error"
 msgstr ""
 
-#: gallery/service/gallery.share.js:58
+#: gallery/service/gallery.share.js:60
 msgid "Facebook"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:75
-#: user/controller/user.signin.ctrl.js:91
+#: user/controller/user.signin.ctrl.js:92
 msgid "Facebook error"
 msgstr ""
 
@@ -125,11 +123,11 @@ msgstr ""
 msgid "Feedback"
 msgstr ""
 
-#: user/controller/user.avatar.ctrl.js:35
+#: user/controller/user.avatar.ctrl.js:37
 msgid "Fill out the fields in red"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:23
+#: user/controller/user.intro.ctrl.js:26
 msgid "Find people around you and enjoy your photos"
 msgstr ""
 
@@ -141,7 +139,7 @@ msgstr ""
 msgid "Follow Users"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:20
+#: user/controller/user.intro.ctrl.js:23
 msgid "Follow your friends and relive their moments"
 msgstr ""
 
@@ -159,7 +157,7 @@ msgstr ""
 msgid "Followings"
 msgstr ""
 
-#: user/directive/user.forgot.pass.directive.js:62
+#: user/directive/user.forgot.pass.directive.js:66
 msgid "Forgot your password"
 msgstr ""
 
@@ -167,7 +165,7 @@ msgstr ""
 msgid "Forgot your password?"
 msgstr ""
 
-#: ion-photo/ion-photo.js:68
+#: ion-photo/ion-photo.js:70
 msgid "Gallery"
 msgstr ""
 
@@ -179,24 +177,24 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: gallery/service/gallery.share.js:8
+#: gallery/service/gallery.share.js:10
 msgid "I'm at"
 msgstr ""
 
-#: gallery/service/gallery.share.js:8
+#: gallery/service/gallery.share.js:10
 msgid "Install the application and follow me!"
 msgstr ""
 
-#: user/directive/user.forgot.pass.directive.js:44
+#: user/directive/user.forgot.pass.directive.js:48
 msgid "Invalid Email"
 msgstr ""
 
-#: user/controller/user.avatar.ctrl.js:34
-#: user/controller/user.merge.js:47
+#: user/controller/user.avatar.ctrl.js:36
+#: user/controller/user.merge.js:49
 msgid "Invalid form"
 msgstr ""
 
-#: gallery/service/gallery.share.js:7
+#: gallery/service/gallery.share.js:9
 msgid "Join me from"
 msgstr ""
 
@@ -204,7 +202,7 @@ msgstr ""
 msgid "Like"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1047
+#: gallery/service/gallery.model.js:1048
 msgid "like photo"
 msgstr ""
 
@@ -234,7 +232,7 @@ msgstr ""
 msgid "Merge Facebook"
 msgstr ""
 
-#: ion-location/ion-location.js:56
+#: ion-location/ion-location.js:59
 msgid "My Location"
 msgstr ""
 
@@ -271,15 +269,15 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: ion-crop/elements/ion-crop.js:56
+#: ion-crop/elements/ion-crop.js:73
 msgid "Photo Album"
 msgstr ""
 
-#: ion-crop/elements/ion-crop.js:54
+#: ion-crop/elements/ion-crop.js:71
 msgid "Photo Camera"
 msgstr ""
 
-#: user/controller/user.merge.js:48
+#: user/controller/user.merge.js:50
 msgid "Please enter your email"
 msgstr ""
 
@@ -306,7 +304,7 @@ msgstr ""
 msgid "Recent"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1049
+#: gallery/service/gallery.model.js:1050
 msgid "register"
 msgstr ""
 
@@ -316,7 +314,7 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1050
+#: gallery/service/gallery.model.js:1051
 msgid "registered"
 msgstr ""
 
@@ -324,7 +322,7 @@ msgstr ""
 msgid "Report a Problem"
 msgstr ""
 
-#: ion-crop/elements/ion-crop.js:109
+#: ion-crop/elements/ion-crop.js:120
 msgid "Save"
 msgstr ""
 
@@ -334,11 +332,11 @@ msgid "Save Profile"
 msgstr ""
 
 #: gallery/view/gallery.search.grid.html:4
-#: ion-location/ion-location.js:57
+#: ion-location/ion-location.js:60
 msgid "Search"
 msgstr ""
 
-#: user/directive/user.forgot.pass.directive.js:36
+#: user/directive/user.forgot.pass.directive.js:40
 msgid "Send"
 msgstr ""
 
@@ -347,7 +345,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: gallery/service/gallery.share.js:66
+#: gallery/service/gallery.share.js:68
 #: gallery/view/gallery.capture.html:1
 msgid "Share"
 msgstr ""
@@ -357,11 +355,11 @@ msgid "Share photo"
 msgstr ""
 
 #: gallery/view/gallery.capture.modal.html:4
-#: ion-photo/ion-photo.js:70
+#: ion-photo/ion-photo.js:72
 msgid "Share Photo"
 msgstr ""
 
-#: user/controller/user.intro.ctrl.js:17
+#: user/controller/user.intro.ctrl.js:20
 #: user/view/user.tabs.html:11
 msgid "Share your most amazing moments"
 msgstr ""
@@ -376,28 +374,28 @@ msgstr ""
 msgid "Terms of Service"
 msgstr ""
 
-#: gallery/service/gallery.share.js:18
+#: gallery/service/gallery.share.js:20
 msgid "Thank you for sharing!!"
 msgstr ""
 
-#: gallery/service/gallery.feedback.model.js:32
-#: gallery/service/gallery.share.js:17
+#: gallery/service/gallery.feedback.model.js:34
+#: gallery/service/gallery.share.js:19
 msgid "Thanks"
 msgstr ""
 
-#: gallery/service/gallery.feedback.model.js:33
+#: gallery/service/gallery.feedback.model.js:35
 msgid "Thanks for your Feedback"
 msgstr ""
 
-#: gallery/service/gallery.share.js:60
+#: gallery/service/gallery.share.js:62
 msgid "Twitter"
 msgstr ""
 
-#: gallery/service/gallery.model.js:1048
+#: gallery/service/gallery.model.js:1049
 msgid "unlike photo"
 msgstr ""
 
-#: gallery/service/gallery.share.js:62
+#: gallery/service/gallery.share.js:64
 msgid "Whatsapp"
 msgstr ""
 

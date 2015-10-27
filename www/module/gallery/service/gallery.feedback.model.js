@@ -2,47 +2,49 @@
   'use strict';
   angular
     .module('module.gallery')
-    .factory('GalleryFeedback', function ($q, Gallery, Notify, gettextCatalog) {
+    .factory('GalleryFeedback', GalleryFeedback);
 
-      function submit(form) {
-        var defer = $q.defer();
+  function GalleryFeedback($q, Gallery, Notify, gettextCatalog) {
 
-        console.log(form);
+    function submit(form) {
+      var defer = $q.defer();
 
-        Gallery
-          .find(form.galleryId)
-          .then(function (gallery) {
-            console.log(gallery);
-            var Object = Parse.Object.extend('GalleryFeedback');
-            var item = new Object();
+      console.log(form);
 
-            delete form.galleryId;
+      Gallery
+        .find(form.galleryId)
+        .then(function (gallery) {
+          console.log(gallery);
+          var Object = Parse.Object.extend('GalleryFeedback');
+          var item = new Object();
 
-            angular.forEach(form, function (value, key) {
-              item.set(key, value);
+          delete form.galleryId;
+
+          angular.forEach(form, function (value, key) {
+            item.set(key, value);
+          });
+
+          item.set('user', Parse.User.current());
+          item.set('gallery', gallery);
+
+          item
+            .save(null)
+            .then(function (resp) {
+              Notify.alert({
+                title: gettextCatalog.getString('Thanks'),
+                text: gettextCatalog.getString('Thanks for your Feedback')
+              })
+              defer.resolve(resp);
             });
-
-            item.set('user', Parse.User.current());
-            item.set('gallery', gallery);
-
-            item
-              .save(null)
-              .then(function (resp) {
-                Notify.alert({
-                  title: gettextCatalog.getString('Thanks'),
-                  text: gettextCatalog.getString('Thanks for your Feedback')
-                })
-                defer.resolve(resp);
-              });
-          })
+        })
 
 
-        return defer.promise;
-      }
+      return defer.promise;
+    }
 
-      return {
-        submit: submit
-      }
+    return {
+      submit: submit
+    }
 
-    });
+  }
 })(window, window.angular, window.Parse);

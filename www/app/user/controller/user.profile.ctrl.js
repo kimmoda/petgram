@@ -2,24 +2,25 @@
   'use strict';
   angular
     .module('module.user')
-    .controller('UserProfileCtrl', function ($rootScope, User, UserForm) {
-      var vm = this;
+    .controller('UserProfileCtrl', UserProfileCtrl);
 
-      vm.form = $rootScope.user;
-      vm.formFields = UserForm.profile;
+  function UserProfileCtrl($rootScope, User, UserForm) {
+    var vm = this;
+    vm.form = $rootScope.user;
+    vm.formFields = UserForm.profile;
+    vm.submitProfile = submitProfile;
 
-      // Set Motion
-      vm.submitProfile = function (rForm, form) {
-        if (rForm.$valid) {
-          var formData = angular.copy(form);
-          User
-            .update(formData)
-            .then(function (resp) {
-              console.log(resp);
-            });
-        }
-      };
+    function submitProfile(rForm, form) {
+      if (rForm.$valid) {
+        var formData = angular.copy(form);
+        User
+          .update(formData)
+          .then(function (resp) {
+            console.log(resp);
+          });
+      }
+    }
 
-    });
+  }
 
 })(window, window.angular);

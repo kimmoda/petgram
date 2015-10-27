@@ -2,24 +2,27 @@
   'use strict';
   angular
     .module('module.user')
-    .factory('Notify', function ($ionicPopup) {
-      return {
-        alert: alert,
-        confirm: confirm
-      };
+    .factory('Notify', Notify);
 
-      function alert(params) {
-        return $ionicPopup.alert({
-          title: params.title,
-          template: params.text
-        });
-      }
+  function Notify($ionicPopup) {
 
-      function confirm(title, msg) {
-        return $ionicPopup.confirm({
-          title: title,
-          template: msg
-        });
-      }
-    });
+    function alert(params) {
+      return $ionicPopup.alert({
+        title: params.title,
+        template: params.text
+      });
+    }
+
+    function confirm(title, msg) {
+      return $ionicPopup.confirm({
+        title: title,
+        template: msg
+      });
+    }
+
+    return {
+      alert: alert,
+      confirm: confirm
+    };
+  }
 })(window, window.angular);

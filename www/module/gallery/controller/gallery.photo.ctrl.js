@@ -2,48 +2,50 @@
   'use strict';
   angular
     .module('module.gallery')
-    .controller('GalleryPhotoCtrl', function ($stateParams, Gallery) {
-      var vm = this;
+    .controller('GalleryPhotoCtrl', GalleryPhotoCtrl);
 
-      function init() {
-        vm.form = {
-          galleryId: $stateParams.id,
-          text: ''
-        };
+  function GalleryPhotoCtrl($stateParams, Gallery) {
+    var vm = this;
 
-        loadComments();
-      }
+    vm.formFields = Gallery.formComment;
+    vm.submitComment = submitComment;
+    init();
 
-      vm.formFields = Gallery.formComment;
+    Gallery
+      .get($stateParams.id)
+      .then(function (resp) {
+        vm.data = resp;
+      });
 
+    function init() {
+      vm.form = {
+        galleryId: $stateParams.id,
+        text: ''
+      };
+
+      loadComments();
+    }
+
+    function loadComments() {
       Gallery
-        .get($stateParams.id)
+        .allComment($stateParams.id)
         .then(function (resp) {
-          vm.data = resp;
+          console.log(resp);
+          vm.comments = resp;
         });
+    };
 
-      function loadComments() {
+    function submitComment(rForm, form) {
+      if (rForm.$valid) {
+        var dataForm = angular.copy(form);
         Gallery
-          .allComment($stateParams.id)
+          .addComment(dataForm)
           .then(function (resp) {
             console.log(resp);
-            vm.comments = resp;
+            loadComments();
           });
-      };
+      }
+    }
 
-      init();
-
-      vm.submitComment = function (rForm, form) {
-        if (rForm.$valid) {
-          var dataForm = angular.copy(form);
-          Gallery
-            .addComment(dataForm)
-            .then(function (resp) {
-              console.log(resp);
-              loadComments();
-            });
-        }
-      };
-
-    });
+  }
 })(window, window.angular);

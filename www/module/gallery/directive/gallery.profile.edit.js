@@ -2,61 +2,70 @@
   'use strict';
   angular
     .module('module.gallery')
-    .directive('galleryProfileEdit', function ($ionicModal, User, UserForm, $state) {
-      return {
-        restrict: 'A',
-        scope: {
-          gallery: '@'
-        },
-        template: '',
-        link: function (scope, elem, attr) {
+    .directive('galleryProfileEdit', galleryProfileEdit);
 
-          function init() {
-            scope.form = User.currentUser();
-            scope.formFields = UserForm.profile;
-          }
+  function galleryProfileEdit($ionicModal, User, UserForm, $state) {
+    return {
+      restrict: 'A',
+      scope: {
+        gallery: '@'
+      },
+      template: '',
+      link: function (scope, elem, attr) {
 
-          elem.bind('click', function () {
+        scope.linkFacebook = linkFacebook;
+        scope.logout = logout;
+        scope.submitUpdateProfile = submitUpdateProfile;
+        scope.closeModal = closeModal;
+        elem.bind('click', openModal);
 
-            init();
-            $ionicModal.fromTemplateUrl('module/gallery/view/gallery.profile.edit.modal.html', {
-              scope: scope
-            }).then(function (modal) {
-              scope.modal = modal;
-              scope.modal.show();
-            });
+
+        function init() {
+          scope.form = User.currentUser();
+          scope.formFields = UserForm.profile;
+        }
+
+
+        function openModal() {
+
+          init();
+          $ionicModal.fromTemplateUrl('module/gallery/view/gallery.profile.edit.modal.html', {
+            scope: scope
+          }).then(function (modal) {
+            scope.modal = modal;
+            scope.modal.show();
           });
+        }
 
+        function logout() {
+          $state.go('logout');
+          scope.closeModal();
+        }
 
-          scope.logout = function () {
-            $state.go('logout');
-            scope.closeModal();
-          };
+        function linkFacebook() {
+          User
+            .facebookLink()
+            .then(function (resp) {
+              console.log(resp);
+            })
+        }
 
-          scope.linkFacebook = function () {
-            User
-              .facebookLink()
-              .then(function (resp) {
-                console.log(resp);
-              })
-          };
+        function submitUpdateProfile() {
+          var dataForm = angular.copy(scope.form);
+          User
+            .update(dataForm)
+            .then(function (resp) {
+              console.log(resp);
+              init();
+              scope.closeModal();
+            });
+        }
 
-          scope.submitUpdateProfile = function () {
-            var dataForm = angular.copy(scope.form);
-            User
-              .update(dataForm)
-              .then(function (resp) {
-                console.log(resp);
-                init();
-                scope.closeModal();
-              });
-          };
-
-          scope.closeModal = function () {
-            scope.modal.hide();
-            scope.modal.remove();
-          };
+        function closeModal() {
+          scope.modal.hide();
+          scope.modal.remove();
         }
       }
-    });
+    }
+  }
 })(window, window.angular);
