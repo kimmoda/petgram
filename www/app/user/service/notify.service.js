@@ -6,6 +6,11 @@
 
   function Notify($ionicPopup) {
 
+    return {
+      alert: alert,
+      confirm: confirm
+    };
+
     function alert(params) {
       return $ionicPopup.alert({
         title: params.title,
@@ -19,10 +24,5 @@
         template: msg
       });
     }
-
-    return {
-      alert: alert,
-      confirm: confirm
-    };
   }
 })(window, window.angular);

@@ -4,7 +4,7 @@
     .module('module.user')
     .controller('UserRecoveryPassCtrl', UserRecoveryPassCtrl);
 
-  function UserRecoveryPassCtrl(User, $state, Notify) {
+  function UserRecoveryPassCtrl(User, Notify) {
     var vm = this;
     vm.form = {};
     vm.submitForgot = submitForgot;
