@@ -1,32 +1,23 @@
-/**
- *  Welcome to your gulpfile!
- *  The gulp tasks are splitted in several files in the gulp directory
- *  because putting all here was really too long
- */
-
 'use strict';
-
 var gulp        = require('gulp');
 var wrench      = require('wrench');
 var runSequence = require('run-sequence');
+var conf        = require('./gulp/config');
+gulp.paths      = conf.paths;
 
-/**
- *  This will load all js or coffee files in the gulp directory
- *  in order to load all gulp tasks
- */
-wrench.readdirSyncRecursive('./gulp').filter(function (file) {
-    return (/\.(js|coffee)$/i).test(file);
-}).map(function (file) {
-    require('./gulp/' + file);
-});
+require('require-dir')('./gulp');
 
 
 // Master Tasks
-gulp.task('default', [
-    'sass',
-    'translate',
-    'inject'
-]);
+gulp.task('default', function (cb) {
+    return runSequence(
+        'install',
+        'sass',
+        'translate',
+        'inject',
+        'prettify',
+        cb)
+});
 
 gulp.task('dev', function (cb) {
     return runSequence(
@@ -41,9 +32,10 @@ gulp.task('dev', function (cb) {
 
 gulp.task('prod', function (cb) {
     return runSequence(
+        'clean',
         'templates',
         'dev',
-        'clean',
+        'img',
         'copy',
         'cacheapp:add',
         'cachemodule:add',

@@ -11,7 +11,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 var jshint     = require('gulp-jshint');
 var header     = require('gulp-header');
 var usemin     = require('gulp-usemin');
-var paths      = require('./config');
+var paths      = require('./config').paths;
 
 // Minify
 // Get copyright using NodeJs file system
@@ -22,7 +22,7 @@ var getCopyright = function () {
 
 gulp.task('usemin', function () {
     return gulp
-        .src(paths.source + '/index.html')
+        .src(paths.src + '/index.html')
         .pipe(usemin({
             css: [
                 minifyCSS()

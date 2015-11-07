@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4ea8975b-9c22-4009-8aeb-c481e6dea380" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gulp/translate2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/app.cache.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/components/ion-crop/ion-crop.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/components/ion-loading/ion-loading.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/components/ion-location/ion-location.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/components/ion-photo/ion-photo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/components/ionic-cache/ionic-cache.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/activity/photogram.activy.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/activity/photogram.notify.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/activity/photogram.push.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/capture/_capture.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/capture/photogram.capture.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/directives/comment/photo.comment.modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/directives/follow/photo.follow.modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/directives/like/photo.like.modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/directives/photogrid/photo.grid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/directives/photolist/photo.list.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/directives/search/search.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/directives/settings/settings.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/feedback/photo.feedback.modal.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/feedback/photogram.feedback.model.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/home/_home.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/home/photogram.home.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/home/photogram.home.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/intro/intro.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/intro/intro.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/photo/photogram.photo.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/photo/photogram.photo.previewctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/photo/photogram.photo.view.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/photogram.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/photogram.directives.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/photogram.model.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/photogram.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/photogram.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/photogram.services.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/popular/photogram.popular.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/popular/photogram.popular.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/directive/_gallery.photo.grid.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/directive/_gallery.photo.list.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/interface/_actionsheet.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/interface/_font.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/interface/_form.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/interface/_heart.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/interface/_map.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/interface/_platform.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/interface/_sidemenu.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/interface/_spinner.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/modal/_comment.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/photogram.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/view/_loading.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/view/_profile.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/scss/view/_user.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/search/search.grid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/search/search.map.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/_gallery.profile.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/grid.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/photogram.profile.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/photogram.profile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/profile.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/profile.edit.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/user.config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/user.controllers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/user.directives.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/user.form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/photogram/user/user.services.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/gulp.config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/replaces.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/core/module.core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/core/service/parse.push.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/config/user.routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/controller/user.intro.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/controller/user.merge.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/controller/user.profile.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/controller/user.recovery.pass.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/controller/user.signin.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/controller/user.signup.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/directive/user.avatar.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/directive/user.modal.terms.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/service/notify.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/service/user.form.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/service/user.model.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/user/user.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/component/ion-crop/elements/file.reader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/component/ion-crop/elements/ion-crop.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/component/ion-crop/elements/jr.crop.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/component/ion-crop/ion-crop.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/component/ion-crop/style/_jrcrop.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/component/ion-loading/ion-loading.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/component/ion-location/ion-location.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/component/ion-photo/ion-photo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/component/ionic-cache/ionic-cache.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/cacheapp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/cachemodule.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/config.app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/config.facebook.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/config/gallery.routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.account.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.activity.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.capture.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.home.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.notify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.photo.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.popular.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.preview.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.profile.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.search.grid.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.search.map.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.user.list.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/controller/gallery.view.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.capture.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.comment.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.follow.modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.like.modal.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.loading.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.feedback.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.grid.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.photo.list.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.edit.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/gallery.settings.modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/directive/ion-search.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/module.gallery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.form.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.feedback.model.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.form.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.model.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.settings.model.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/service/gallery.share.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/service/parse.image.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.home.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.popular.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/app/core/view/loading.html" afterPath="$PROJECT_DIR$/www/js/photogram/splash/loading.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/app/user/view/user.avatar.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/user.avatar.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/app/user/view/user.intro.html" afterPath="$PROJECT_DIR$/www/js/photogram/intro/intro.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/app/user/view/user.merge.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/friend/user.merge.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/app/user/view/user.signin.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/signin/user.signin.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/app/user/view/user.signup.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/signup/user.signup.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/app/user/view/user.tabs.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/user.tabs.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/component/ion-crop/README.md" afterPath="$PROJECT_DIR$/www/js/components/ion-crop/README.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/component/ionic.components.js" afterPath="$PROJECT_DIR$/www/js/components/components.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/js/translate.js" afterPath="$PROJECT_DIR$/www/js/app.translate.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.account.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/photogram.profile.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.activity.html" afterPath="$PROJECT_DIR$/www/js/photogram/activity/photogram.activity.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.capture.html" afterPath="$PROJECT_DIR$/www/js/photogram/capture/photogram.capture.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.capture.modal.html" afterPath="$PROJECT_DIR$/www/js/photogram/capture/photogram.capture.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.comment.directive.html" afterPath="$PROJECT_DIR$/www/js/photogram/directives/comment/photogram.comment.directive.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.follow.modal.html" afterPath="$PROJECT_DIR$/www/js/photogram/directives/follow/photogram.follow.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.like.directive.html" afterPath="$PROJECT_DIR$/www/js/photogram/directives/like/photogram.like.directive.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.photo.feedback.modal.html" afterPath="$PROJECT_DIR$/www/js/photogram/feedback/photogram.photo.feedback.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.photo.html" afterPath="$PROJECT_DIR$/www/js/photogram/photo/photogram.photo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.grid.html" afterPath="$PROJECT_DIR$/www/js/photogram/directives/photogrid/photogram.photos.grid.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.photos.list.html" afterPath="$PROJECT_DIR$/www/js/photogram/directives/photolist/photogram.photos.list.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.popover.home.html" afterPath="$PROJECT_DIR$/www/js/photogram/photo/photogram.popover.home.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.edit.modal.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/photogram.profile.edit.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.modal.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/photogram.profile.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.photos.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/profile/photogram.profile.photos.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.search.grid.html" afterPath="$PROJECT_DIR$/www/js/photogram/search/photogram.search.grid.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.search.map.html" afterPath="$PROJECT_DIR$/www/js/photogram/search/photogram.search.map.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.search.tabs.html" afterPath="$PROJECT_DIR$/www/js/photogram/search/photogram.search.tabs.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.settings.modal.html" afterPath="$PROJECT_DIR$/www/js/photogram/directives/settings/photogram.settings.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.tabs.html" afterPath="$PROJECT_DIR$/www/js/photogram/layout/photogram.tabs.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.user.list.html" afterPath="$PROJECT_DIR$/www/js/photogram/user/friend/photogram.user.list.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/module/gallery/view/gallery.view.html" afterPath="$PROJECT_DIR$/www/js/photogram/layout/photogram.view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/cache.js" afterPath="$PROJECT_DIR$/gulp/cache.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/clean.js" afterPath="$PROJECT_DIR$/gulp/clean.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/config.js" afterPath="$PROJECT_DIR$/gulp/config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/copy.js" afterPath="$PROJECT_DIR$/gulp/copy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/imagemin.js" afterPath="$PROJECT_DIR$/gulp/imagemin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/inject.js" afterPath="$PROJECT_DIR$/gulp/inject.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/jshint.js" afterPath="$PROJECT_DIR$/gulp/jshint.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/prettify.js" afterPath="$PROJECT_DIR$/gulp/prettify.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/sass.js" afterPath="$PROJECT_DIR$/gulp/sass.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/templates.js" afterPath="$PROJECT_DIR$/gulp/templates.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/translate.js" afterPath="$PROJECT_DIR$/gulp/translate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/usemin.js" afterPath="$PROJECT_DIR$/gulp/usemin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/watch.js" afterPath="$PROJECT_DIR$/gulp/watch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/ionic.app.css" afterPath="$PROJECT_DIR$/www/css/ionic.app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/google.analytics.js" afterPath="$PROJECT_DIR$/www/js/google.analytics.js" />
+    </list>
+    <ignored path="photogram-client.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="photogram-client" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.cache.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/app.cache.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.translate.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/app.translate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="google.analytics.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/google.analytics.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogram.services.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogram.routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogram.module.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.module.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogram.model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogram.directives.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.directives.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.home.html" />
+        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.account.tabs.html" />
+        <option value="$PROJECT_DIR$/www/app/user/directive/user.forgot.pass.directive.js" />
+        <option value="$PROJECT_DIR$/www/js/config.facebook.js" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.avatar.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.register.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/component/ion-loading/ion-loading.js" />
+        <option value="$PROJECT_DIR$/www/app/user/config/user.routes.js" />
+        <option value="$PROJECT_DIR$/www/app/user/view/user.avatar.html" />
+        <option value="$PROJECT_DIR$/www/app/user/directive/button.facebook.directive.js" />
+        <option value="$PROJECT_DIR$/www/app/user/view/user.login.html" />
+        <option value="$PROJECT_DIR$/www/app/user/view/user.merge.html" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.merge.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/directive/gallery.profile.edit.js" />
+        <option value="$PROJECT_DIR$/www/app/user/controller/user.login.ctrl.js" />
+        <option value="$PROJECT_DIR$/www/module/gallery/view/gallery.profile.edit.modal.html" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/www/app/user/service/user.model.service.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <gulpfiles>
+      <GulpfileState>
+        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+      </GulpfileState>
+    </gulpfiles>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram-client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="FullScreen" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="MongoRunConfiguration" factoryName="Mongo">
+      <setting name="path" value="" />
+      <setting name="shellParams" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ea8975b-9c22-4009-8aeb-c481e6dea380" name="Default" comment="" />
+      <created>1441598483688</created>
+      <option name="number" value="Default" />
+      <updated>1441598483688</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="GitLabIntegration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283767" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19193548" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="GitLabIntegration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19214286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.023809524">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.cache.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.translate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/google.analytics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/photogram/photogram.directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
