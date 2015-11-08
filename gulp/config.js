@@ -1,59 +1,47 @@
-module.exports = {
-    src    : {
-        index    : 'www/index.html',
-        fonts    : 'www/lib/ionic/fonts/**.*',
-        imgs     : 'www/img/**/**.*',
-        path     : 'www/',
-        lib      : 'www/lib/*',
-        sass     : [
-            'scss/*.scss',
-            'scss/**/*.scss'
-        ],
-        css      : [
-            'www/css/*.css',
-            'www/css/**/*.css',
-            'www/fonts/***.css',
-            'www/module/**/*.css'
-        ],
-        js       : [
-            'www/app/*.js',
-            'www/app/**/*.js',
-            '!www/app/**/*.spec.js',
-            'www/component/**/*.js',
-            '!www/component/**/*.spec.js',
-            'www/component/*.js',
-            'www/module/*.js',
-            'www/module/**/*.js',
-            '!www/module/**/*.spec.js',
-            'www/js/*.js'
-        ],
-        html     : [
-            'www/module/**/*.html'
-        ],
-        translate: [
-            'www/app/**/*.js',
-            'www/app/**/**/*.js',
-            '!www/app/**/**/*.spec.js',
-            'www/app/**/view/*.html',
+/**
+ *  This file contains the variables used in other gulp files
+ *  which defines tasks
+ *  By design, we only put there very generic config values
+ *  which are used in several places to keep good readability
+ *  of the tasks
+ */
 
-            'www/component/**/*.js',
-            '!www/component/**/**/*.spec.js',
-            'www/component/**/view/*.html',
+var gutil = require('gulp-util');
 
-            'www/module/**/**/*.js',
-            '!www/module/**/*.spec.js',
-            'www/module/**/view/*.html'
-        ]
-    },
-    libs   : [
-        'www/lib/ionicons/fonts'
-    ],
-    sass   : 'scss/ionic.app.scss',
-    source : 'www',
-    dist   : 'dist',
-    docs   : 'docs',
-    bower  : [
-        'bower.json',
-        '.bowerrc'
-    ]
+/**
+ *  The main paths of your project handle these with care
+ */
+exports.paths = {
+    version  : '1.0.0',
+    src      : 'www',
+    lib      : 'www/lib',
+    e2e      : 'e2e',
+    dist     : 'dist',
+    scss     : 'scss',
+    translate: 'translate',
+    tmp      : 'tmp'
+};
+
+/**
+ *  Wiredep is the lib which inject bower dependencies in your project
+ *  Mainly used to inject script tags in the index.html but also used
+ *  to inject css preprocessor deps and js files in karma
+ */
+exports.wiredep = {
+    //exclude: [/jquery/],
+    directory: 'www/lib'
+};
+
+/**
+ *  Common implementation for an error handler of a Gulp plugin
+ */
+exports.errorHandler = errorHandler;
+
+function errorHandler(title) {
+    'use strict';
+
+    return function (err) {
+        gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
+        this.emit('end');
+    };
 };

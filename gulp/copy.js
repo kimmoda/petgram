@@ -1,19 +1,28 @@
 'use strict';
 var path  = require('path');
 var gulp  = require('gulp');
-var paths = require('./config');
+var paths = require('./config').paths;
 
 // Copy
 gulp.task('copy', function () {
     // Images
     gulp
-        .src(paths.source + '/img/**')
+        .src(paths.src + '/img/**')
         .pipe(gulp.dest(paths.dist + '/img'));
 
     // Deploy
     gulp
-        .src(paths.source + '/fonts/**')
+        .src(paths.src + '/fonts/**')
         .pipe(gulp.dest(paths.dist + '/fonts'));
+
+    // Ionic
+    gulp
+        .src(paths.src + '/lib/ionic/fonts/**')
+        .pipe(gulp.dest(paths.dist + '/fonts'));
+
+    gulp
+        .src(paths.src + '/lib/ionic/fonts/**')
+        .pipe(gulp.dest(paths.dist + '/lib/ionic/fonts'));
 
 });
 
@@ -22,13 +31,13 @@ gulp.task('copy:font', function () {
 
     // Ionic
     gulp
-        .src(paths.source + '/lib/ionic/fonts/**')
-        .pipe(gulp.dest(paths.source + '/fonts'));
+        .src(paths.src + '/lib/ionic/fonts/**')
+        .pipe(gulp.dest(paths.dist + '/fonts'));
 
     // Ionic Icons
     gulp
-        .src(paths.source + '/lib/simple-line-icons/fonts/**')
-        .pipe(gulp.dest(paths.source + '/fonts'));
+        .src(paths.src + '/lib/simple-line-icons/fonts/**')
+        .pipe(gulp.dest(paths.dist + '/fonts'));
 
 
 });

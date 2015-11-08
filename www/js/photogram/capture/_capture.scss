@@ -1,0 +1,58 @@
+.photogram {
+  // Capture View
+  .modal-capture {
+
+    .scroll, ion-content {
+      background-color: #000;
+    }
+    .capture-legend {
+      padding: 0;
+
+      .item-input {
+        border: none;
+        display: block;
+        top: 20px;
+      }
+    }
+    .capture-photo {
+      img, canvas {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  .wide-as-needed {
+    overflow: scroll;
+    white-space: nowrap;
+  }
+
+  .wide-as-needed a img, .wide-as-needed a canvas {
+    max-height: 150px;
+    border-radius: 10px;
+  }
+
+  .wide-as-needed a {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    height: 200px;
+  }
+
+  .wide-as-needed a p {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    right: 0;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .scroll {
+    min-width: 100%;
+  }
+
+}

@@ -3,6 +3,8 @@
   subtitle: Lists all changes to each version of photogram
   layout: docs.hbs
 ---
+# Version 1.3.0
+- Install Share Plugin cordova plugin add https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git
 
 # Version 1.0.0
 > Release Date : 26th August 2015
@@ -31,5 +33,5 @@
 
 # Version 1.2.6
 > Release Date : 17th June 2015
-
 - Code style changed to match https://github.com/johnpapa/angular-styleguide
+- Oauth Instagram http://ngcordova.com/docs/plugins/oauth/

@@ -1,0 +1,161 @@
+.photogram {
+  .view-intro {
+    ion-footer-bar {
+      background-color: rgba(255, 255, 255, 0.8);;
+      padding: 0 10px;
+      height: 60px;
+    }
+    .scroll-content {
+      background-image: url('../img/bg.jpg');
+      background-size: cover;
+      background-color: $positive;
+      height: 100%;
+      color: #fff;
+      margin: 0;
+
+      .intro-slider {
+        display: block;
+        height: 100%;
+
+        .content {
+          position: relative;
+          height: 100%;
+
+          .last {
+
+            .logo2 {
+              position: absolute;
+              display: block;
+              margin: 20px auto;
+              width: 250px;
+              height: 100px;
+              top: 30%;
+              left: 0;
+              right: 0;
+
+              img {
+                position: absolute;
+                top: 0px;
+                left: 0;
+                width: 80px;
+              }
+
+              span.icon2-logo {
+                font-size: 45pt;
+                color: #fff;
+                display: block;
+                margin: 22px;
+                position: absolute;
+                top: 0px;
+                left: 20%;
+              }
+            }
+
+            button.button {
+              position: absolute;
+              color: #fff;
+              border: 1px solid #fff;
+              left: 0;
+              right: 0;
+              margin: 0 auto;
+              width: 90%;
+              bottom: 10%;
+            }
+          }
+
+          span.top {
+            display: block;
+            padding: 0;
+            margin: 10px 15px;
+            height: 14%;
+            position: relative;
+
+            h2 {
+              display: block;
+              position: absolute;
+              text-align: center;
+              color: #fff;
+              bottom: 25%;
+              width: 100%;
+              margin: 0;
+              padding: 0;
+              font-size: 19pt;
+              line-height: 19pt;
+            }
+
+            //  animation
+            @include animate(fadeInDown, 1s, .5s);
+          }
+
+          .phone {
+            position: relative;
+            width: 80%;
+            height: 736px;
+            max-width: 414px;
+            margin: 0 auto;
+            @include animate(fadeInUp, 1s, 0.1s);
+
+            &.iphone {
+              background-image: url('../img/devices/iphone.png');
+              background-repeat: no-repeat;
+              background-size: contain;
+              width: 98%;
+              max-width: 407px;
+              min-width: 325px;
+
+              img {
+                display: block;
+                margin: 0 auto;
+                position: relative;
+                width: 79%;
+                top: 11.1%;
+              }
+            }
+
+            &.android {
+              background-image: url('../img/devices/android.png');
+              background-repeat: no-repeat;
+              background-size: contain;
+              width: 90%;
+              max-width: 340px;
+              min-width: 330px;
+              margin-top: 10px;
+
+              img {
+                display: block;
+                margin: 0 auto;
+                position: relative;
+                width: 90%;
+                top: 7.1%;
+              }
+            }
+
+          }
+        }
+
+        .slider {
+          display: block;
+          height: 100%;
+          padding-top: 30px;
+        }
+
+        .slider-pager, button.button {
+          @include animate(fadeInDown, 1s, 0.1s);
+        }
+
+        .slider-pager {
+          top: 15px;
+
+          //  animation
+
+          span.slider-pager-page {
+            top: 15px;
+            color: #fff !important;
+          }
+        }
+      }
+
+    }
+  }
+
+}

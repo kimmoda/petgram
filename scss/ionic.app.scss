@@ -1,3 +1,10 @@
+/**
+ *  Do not remove this comments bellow. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+
 /*
 To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
@@ -28,4 +35,10 @@ $ionicons-font-path: '../fonts' !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "animate";
-@import "photogram/photogram";
+
+/**
+ *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector
