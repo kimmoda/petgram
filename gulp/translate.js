@@ -5,7 +5,7 @@ var wrap    = require('gulp-wrap');
 var gettext = require('gulp-angular-gettext');
 var replace = require('gulp-replace');
 var iife    = require("gulp-iife");
-var paths   = require('./config').paths;
+var paths = gulp.paths;
 
 // Translate
 gulp.task('gettext:po', function () {

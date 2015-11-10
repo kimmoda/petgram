@@ -6,7 +6,7 @@ var gutil   = require('gulp-util');
 var wiredep = require('wiredep').stream;
 var $       = require('gulp-load-plugins')();
 var _       = require('lodash');
-var paths   = require('./config').paths;
+var paths = gulp.paths;
 
 gulp.task('sass', function () {
     var sassOptions = {

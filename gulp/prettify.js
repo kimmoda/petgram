@@ -2,7 +2,7 @@
 var path     = require('path');
 var gulp     = require('gulp');
 var prettify = require('gulp-jsbeautifier');
-var paths    = require('./config').paths;
+var paths = gulp.paths;
 
 // Prettify Code
 gulp.task('prettify', [

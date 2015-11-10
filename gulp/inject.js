@@ -3,7 +3,7 @@
 var path  = require('path');
 var gulp  = require('gulp');
 var bowerFiles = require('main-bower-files');
-var paths = require('./config').paths;
+var paths = gulp.paths;
 
 var $ = require('gulp-load-plugins')();
 

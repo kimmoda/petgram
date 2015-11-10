@@ -3,6 +3,7 @@
 var path = require('path');
 var gulp = require('gulp');
 var karma = require('karma');
+var paths = gulp.paths;
 
 // Karma Test
 gulp.task('test', function () {

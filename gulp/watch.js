@@ -3,7 +3,7 @@
 var path    = require('path');
 var gulp    = require('gulp');
 var console = require('console');
-var paths   = require('./config').paths;
+var paths = gulp.paths;
 
 // Watch
 gulp.task('watch', function () {
