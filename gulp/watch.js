@@ -11,7 +11,6 @@ gulp.task('watch', function () {
     gulp.watch(paths.lib, ['inject']);
     // Sass
     gulp.watch([
-        paths.scss,
         paths.src + '/js/**/*.scss',
     ], ['sass']);
 
@@ -21,7 +20,6 @@ gulp.task('watch', function () {
         paths.src + '/**/*.html',
         paths.src + '/index.html',
     ], [
-        'translate',
         'inject'
     ]);
 });

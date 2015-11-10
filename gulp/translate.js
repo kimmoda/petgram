@@ -36,7 +36,7 @@ gulp.task('gettext:compile', function () {
             '});'))
         //.pipe (ngAnnotate ())
         //.pipe (uglify ())
-        .pipe(rename('app.translate.js')) // Rename to final javascript filename
+        .pipe(rename('app.translate.module.js')) // Rename to final javascript filename
         .pipe(iife())
         .pipe(gulp.dest(paths.src + '/js/'));
 });

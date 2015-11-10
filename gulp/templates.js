@@ -12,7 +12,7 @@ gulp.task('template:app', function () {
         .pipe(minifyHTML({quotes: true}))
         .pipe(templateCache({
             module    : 'app.cache',
-            filename: 'app.cache.js',
+            filename: 'app.cache.module.js',
             root    : 'app',
             standalone: true
         }))
