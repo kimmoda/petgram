@@ -1,11 +1,16 @@
-<ion-view view-title="{{ 'Share' | translate }}" cache-view="false">
+<ion-view view-title="{{ 'Share' | translate }}"
+          cache-view="false">
     <ion-content>
-
         <div class="center-ico">
             <i class="icon ion-camera"></i>
-
             <h1 translate>Share photo</h1>
         </div>
+
+        <button class="button button-block button-positive"
+                ion-crop
+                ng-model="vm.imagem">Imagem</button>
+        <img ng-src="{{ vm.imagem }}"
+             ng-click="vm.post(vm.imagem)">
 
     </ion-content>
 </ion-view>
