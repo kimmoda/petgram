@@ -11,7 +11,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 var jshint     = require('gulp-jshint');
 var header     = require('gulp-header');
 var usemin     = require('gulp-usemin');
-var paths      = require('./config').paths;
+var paths = gulp.paths;
 
 // Minify
 // Get copyright using NodeJs file system
@@ -20,7 +20,7 @@ var getCopyright = function () {
 };
 
 
-gulp.task('usemin', function () {
+gulp.task('usemin', function (done) {
     return gulp
         .src(paths.src + '/index.html')
         .pipe(usemin({
@@ -54,5 +54,6 @@ gulp.task('usemin', function () {
                 rev()
             ]
         }))
-        .pipe(gulp.dest(paths.dist));
+        .pipe(gulp.dest(paths.dist))
+        .on('end', done);
 });

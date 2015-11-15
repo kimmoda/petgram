@@ -4,9 +4,8 @@
         'ionic',
         'ionic-loading',
         //'ion-affix',
-        'ion-location',
         'ion-photo',
-        'ion-crop',
-        'ion-caman'
+        'ion-location',
+        'ion-notify',
     ]);
 })(window, window.angular);

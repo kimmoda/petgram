@@ -76,13 +76,31 @@ $animate2: 'fadeInDown';
 }
 
 
+.button-fab {
 
+  &.ng-enter {
+    @include animate(fadeInUp, 1s, 0s);
+  }
+
+ &.ng-leave {
+    @include animate(fadeOutDown, .5s, 0.5s);
+  }
+
+}
 .step1 {
   @include animate(fadeInDown, 1s, 0s);
+
+  &.ng-leave,&.ng-enter-leave, &.ng-hide {
+    @include animate(fadeOut, 1s, 0.5s);
+  }
 }
 
 .step2 {
   @include animate(fadeInUp, 1s, 0.5s);
+  
+  &.ng-leave,&.ng-enter-leave, &.ng-hide {
+    @include animate(fadeOut, 1s, 0.5s);
+  }
 }
 
 .step3 {

@@ -3,11 +3,12 @@ var path    = require('path');
 var gulp    = require('gulp');
 var jshint  = require('gulp-jshint');
 var stylish = require('jshint-stylish');
-var paths   = require('./config').paths;
+var paths = gulp.paths;
 
 // Lint
-gulp.task('jshint', function () {
-    return gulp.src(paths.src + '/js/**/*.js')
+gulp.task('jshint', function (done) {
+    gulp.src(paths.src + '/js/**/*.js')
         .pipe(jshint())
-        .pipe(jshint.reporter(stylish));
+        .pipe(jshint.reporter(stylish))
+        .on('end', done);
 });

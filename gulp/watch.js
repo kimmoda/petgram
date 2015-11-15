@@ -3,25 +3,25 @@
 var path    = require('path');
 var gulp    = require('gulp');
 var console = require('console');
-var paths   = require('./config').paths;
+var paths = gulp.paths;
+var paths = {
+  sass: ['./scss/**/*.scss', paths.src + '/js/**/*.scss']
+};
+
 
 // Watch
 gulp.task('watch', function () {
     // Bower
     gulp.watch(paths.lib, ['inject']);
     // Sass
-    gulp.watch([
-        paths.scss,
-        paths.src + '/js/**/*.scss',
-    ], ['sass']);
+    gulp.watch(paths.sass, ['sass']);
 
     // Js and Javascript
     gulp.watch([
+        paths.src + '/lib/**/*.js',
         paths.src + '/js/**/*.js',
-        paths.src + '/**/*.html',
-        paths.src + '/index.html',
+        paths.src + '/js/**/*.html',
     ], [
-        'translate',
         'inject'
     ]);
 });

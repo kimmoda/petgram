@@ -4,7 +4,7 @@ var gulp          = require('gulp');
 var minifyHTML    = require('gulp-minify-html');
 var templateCache = require('gulp-angular-templatecache');
 var iife          = require("gulp-iife");
-var paths         = require('./config').paths;
+var paths = gulp.paths;
 
 // Templates
 gulp.task('template:app', function () {
@@ -12,7 +12,7 @@ gulp.task('template:app', function () {
         .pipe(minifyHTML({quotes: true}))
         .pipe(templateCache({
             module    : 'app.cache',
-            filename: 'app.cache.js',
+            filename: 'app.cache.module.js',
             root    : 'app',
             standalone: true
         }))

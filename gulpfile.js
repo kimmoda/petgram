@@ -1,37 +1,36 @@
 'use strict';
-var gulp        = require('gulp');
-var wrench      = require('wrench');
-var runSequence = require('run-sequence');
-var conf        = require('./gulp/config');
+var gulp        = require ('gulp');
+var runSequence = require ('run-sequence');
+var conf        = require ('./gulp/config');
 gulp.paths      = conf.paths;
 
-require('require-dir')('./gulp');
+require ('require-dir') ('./gulp');
 
 
 // Master Tasks
-gulp.task('default', function (cb) {
-    return runSequence(
+gulp.task('default', function (done) {
+    return runSequence (
         'install',
         'sass',
         'translate',
         'inject',
         'prettify',
-        cb)
+        done);
 });
 
-gulp.task('dev', function (cb) {
-    return runSequence(
+gulp.task('dev', function (done) {
+    return runSequence (
         'install',
         'sass',
         'translate',
         'copy:font',
         'inject',
         //'prettify',
-        cb);
+        done);
 });
 
-gulp.task('prod', function (cb) {
-    return runSequence(
+gulp.task('prod', function (done) {
+    return runSequence (
         'clean',
         'templates',
         'dev',
@@ -42,6 +41,5 @@ gulp.task('prod', function (cb) {
         'usemin',
         'cacheapp:remove',
         'cachemodule:remove',
-        cb
-    );
+        done);
 });
