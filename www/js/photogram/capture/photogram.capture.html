@@ -6,11 +6,6 @@
             <h1 translate>Share photo</h1>
         </div>
 
-        <button class="button button-block button-positive"
-                ion-crop
-                ng-model="vm.imagem">Imagem</button>
-        <img ng-src="{{ vm.imagem }}"
-             ng-click="vm.post(vm.imagem)">
-
+        <div><input type="file" id="browseBtn" image="image" accept="image/*"/></div>
     </ion-content>
 </ion-view>

@@ -4,11 +4,19 @@
         .module('app.photogram')
         .controller('IntroCtrl', IntroCtrl);
 
-    function IntroCtrl(gettextCatalog) {
-        var vm              = this;
+    function IntroCtrl (gettextCatalog, $ionicSlideBoxDelegate) {
+        var vm = this;
         var currentPlatform = window.ionic.Platform.platform();
-        vm.slideIndex       = 0;
-        vm.slideChanged     = slideChanged;
+        vm.slideIndex = 0;
+        vm.slideChanged = slideChanged;
+        vm.next = function() {
+            $ionicSlideBoxDelegate.next();
+        };
+        vm.previous = function() {
+            $ionicSlideBoxDelegate.previous();
+        };
+
+
 
         if (currentPlatform) {
             vm.device = (currentPlatform == 'android') ? 'android' : 'iphone';
@@ -40,11 +48,11 @@
 
         ];
 
-        function slideChanged(index) {
+        function slideChanged (index) {
             vm.slideIndex = index;
         }
 
 
     }
 
-})(window, window.angular);
+}) (window, window.angular);

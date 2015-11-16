@@ -6,7 +6,7 @@
 
     function addRoute($stateProvider, $urlRouterProvider, AppConfig) {
 
-        var path = AppConfig.path + '/user/';
+        var path = AppConfig.path + '/user';
         
         $stateProvider
 
@@ -44,7 +44,7 @@
                 views: {
                     tabLogin: {
                         controller : 'UserSignupCtrl as vm',
-                        templateUrl: path + '/user/signup/user.signup.html'
+                        templateUrl: path + '/signup/user.signup.html'
                     }
                 }
             })

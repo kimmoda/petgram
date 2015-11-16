@@ -4,7 +4,7 @@
         .module('app.photogram')
         .factory('PhotogramShare', PhotogramShareFactory);
 
-    function PhotogramShareFactory (AppConfig, gettextCatalog, $ionicActionSheet, Notify, $cordovaSocialSharing) {
+    function PhotogramShareFactory (AppConfig, $q, gettextCatalog, $ionicActionSheet, Notify, $cordovaSocialSharing) {
 
         var message = {
             title: gettextCatalog.getString('Join me from ') + AppConfig.app.name + '!',
@@ -15,43 +15,51 @@
         };
 
 
-        function success () {
-            Notify.alert({
-                title: gettextCatalog.getString('Thanks'),
-                text: gettextCatalog.getString('Thank you for sharing!!')
-            });
-        }
+        function share (social, option) {
+            var defer = $q.defer();
 
-        function error (err) {
-            console.error(err);
-        }
+            function success (resp) {
+                Notify.alert({
+                    title: gettextCatalog.getString('Thanks'),
+                    text: gettextCatalog.getString('Thank you for sharing!!')
+                });
+                defer.resolve(resp);
+            }
 
-        function share (social) {
+            function error (err) {
+                console.error(err);
+                defer.reject();
+            }
+
+            var detail = option ? option : message;
+
             switch (social) {
                 case 'facebook':
                     $cordovaSocialSharing
-                        .shareViaFacebook(message.text, message.image, message.link)
+                        .shareViaFacebook(detail.text, detail.image, detail.link)
                         .then(success, error);
                     break;
 
                 case 'twitter':
                     $cordovaSocialSharing
-                        .shareViaTwitter(message.text, message.image, message.link)
+                        .shareViaTwitter(detail.text, detail.image, detail.link)
                         .then(success, error);
                     break;
 
                 case 'whatsapp':
                     $cordovaSocialSharing
-                        .shareViaWhatsApp(message.text, message.image, message.link)
+                        .shareViaWhatsApp(detail.text, detail.image, detail.link)
                         .then(success, error);
                     break;
 
                 case 'email':
                     $cordovaSocialSharing
-                        .shareViaEmail(message.title, message.subject)
+                        .shareViaEmail(detail.title, detail.subject ? detail.subject : detail.title)
                         .then(success, error);
                     break;
             }
+
+            return defer.promise;
         }
 
         function open () {

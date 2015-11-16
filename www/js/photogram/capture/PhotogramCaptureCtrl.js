@@ -1,20 +1,26 @@
-(function(window, angular, undefined){
+(function (window, angular, undefined) {
     'use strict';
     /**
- * @ngdoc controller
- * @name PhotogramCaptureCtrl
- *
- * @description
- * _Please update the description and dependencies._
- *
- * @requires $scope
- * */
+     * @ngdoc controller
+     * @name PhotogramCaptureCtrl
+     *
+     * @description
+     * _Please update the description and dependencies._
+     *
+     * @requires $scope
+     * */
     angular
-    .module('app.photogram')
+        .module('app.photogram')
         .controller('PhotogramCaptureCtrl', PhotogramCaptureController);
+    
+    function imageTo64 (image) {
+        return 'data:image/jpeg;base64,' + image;
+    }
 
-    function PhotogramCaptureController ($scope, AppConfig, User, $ionicModal, PhotoService, PhotogramSetting, $state, Photogram,
-                                   PhotogramForm, CamanJs, Loading) {
+    function PhotogramCaptureController ($scope, AppConfig, User, $ionicModal, PhotoService, PhotogramSetting, PhotogramShare, $state, Photogram,
+                                         $jrCrop, PhotogramForm, gettextCatalog, PhotoFilter, Loading) {
+
+
         var vm = this;
         var path = AppConfig.path;
         var map = {
@@ -31,6 +37,25 @@
             height: 150,
         };
 
+        var socials = [
+            {
+                title: 'Instagram',
+                checked: false
+            },
+            {
+                title: 'Facebook',
+                checked: false
+            },
+            {
+                title: 'Twitter',
+                checked: false
+            },
+            {
+                title: 'whatsapp',
+                checked: false
+            }
+        ];
+
         console.log(option);
 
         vm.map = map;
@@ -38,7 +63,6 @@
         vm.getGeo = getGeo;
         vm.formFields = PhotogramForm.form;
         vm.formShareFields = PhotogramForm.formShare;
-        vm.submitCapture = submitCapture;
         vm.post = modalImage;
         vm.share = modalShare;
 
@@ -83,63 +107,59 @@
             init ();
             var option = {
                 quality: PhotogramSetting.get('imageQuality'),
-                allowEdit: PhotogramSetting.get('imageEdit'),
+                allowEdit: false,
                 correctOrientation: PhotogramSetting.get('imageEdit'),
                 targetWidth: PhotogramSetting.get('imageWidth'),
                 targetHeight: PhotogramSetting.get('imageHeight'),
-                saveToPhotoAlbum: PhotogramSetting.get('imageSaveAlbum')
+                saveToPhotoAlbum: false
             };
 
             PhotoService
                 .open(option)
-                .then(modalImage)
+                .then(modalShare)
                 .catch(goHome);
         }
+
+        //open (modalShare);
+
+        function cropImage (image) {
+            $jrCrop
+                .crop({
+                    url: image,
+                    width: $scope.option ? $scope.option.width : 500,
+                    height: $scope.option ? $scope.option.height : 500,
+                    cancelText: gettextCatalog.getString('Cancel'),
+                    chooseText: gettextCatalog.getString('Save')
+                })
+                .then(modalImage);
+        }
+
 
         function goHome () {
             $state.go('photogram.home');
         }
 
-        function applyFilter (elem, effect) {
-            CamanJs
-                .effect(elem, effect, true)
-                .then(function (resp) {
-                    console.log(resp);
-                });
-        }
 
         function modalImage (resp) {
+            PhotoFilter.load(resp, modalShare)
+        }
 
-            if (resp === '') return false;
 
-            $scope.data = resp;
-            $scope.filters = CamanJs.filters;
-            $scope.closeCapture = closeModalCapture;
-            $scope.applyFilter = applyFilter;
-            $scope.submitCapture = submitCapture;
-            $scope.form = {
-                photo: resp
-            };
-
-            $ionicModal
-                .fromTemplateUrl(path + '/capture/photogram.capture.modal.html', {
-                    scope: $scope,
-                    focusFirstInput: true
-                })
-                .then(function (modal) {
-                    vm.modalCapture = modal;
-                    vm.modalCapture.show();
-                });
-
-            function closeModalCapture () {
-                vm.modalCapture.hide();
-                vm.modalCapture.remove();
-            }
+        function shareSocial (social, form) {
+            return PhotogramShare
+                .share(social,
+                    {
+                        text: form.title,
+                        image: form.photo,
+                        link: AppConfig.app.url
+                    });
         }
 
         function modalShare (image) {
             $scope.closeShare = closeModalShare;
             $scope.submitShare = submitShare;
+            $scope.share = shareSocial;
+            $scope.socials = socials;
             $scope.form = {
                 title: '',
                 location: '',
@@ -156,45 +176,57 @@
                     vm.modalShare.show();
                 });
 
-            function closeModalShare () {
-                vm.modalShare.hide();
-                vm.modalShare.remove();
-            }
         }
 
-        function submitShare () {
-            var dataForm = angular.copy(vm.form);
-            var shareForm = angular.copy(vm.formShare);
+        function closeModalShare () {
+            vm.modalShare.hide();
+            vm.modalShare.remove();
+        }
 
-            console.log(vm.form);
-            if (vm.form.geo) {
-                dataForm.location = vm.form.geo.coords;
-            }
+        function submitShare (resp, social) {
+            var form = angular.copy(resp);
 
-            console.log(shareForm);
+            //if (vm.form.geo) {
+            //    dataForm.location = vm.form.geo.coords;
+            //}
+
+            console.log(form);
             Loading.start();
 
             return Photogram
-                .add(dataForm)
-                .then(function (resp) {
+                .add(form)
+                .then(function () {
                     $state.go('photogram.home', {
                         reload: true
                     });
-                    vm.closeModal();
+                    closeModalShare();
                     init ();
                     Loading.end();
                 });
         }
 
-        function submitCapture () {
-            var canvas = window.document.getElementById('image');
-            var dataUrl = canvas.toDataURL();
 
-            return modalShare (dataUrl);
+
+        angular.element(document.getElementById('browseBtn')).on('change', fileUpload);
+
+        function fileUpload (e) {
+
+            var file = e.target.files[0];
+            var reader = new FileReader ();
+            reader.readAsDataURL(file);
+
+            reader.onload = function (event) {
+                var image = event.target.result;
+                console.log('cropImage', image);
+                cropImage(image);
+            };
+
+            // Clear input file
+            angular.element(document.getElementById('browseBtn')).val('');
 
         }
 
     }
 
 
-})(window, window.angular);
+}) (window, window.angular);

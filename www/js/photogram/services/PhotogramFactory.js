@@ -1,4 +1,4 @@
-(function (window, angular, undefined) {
+(function (window, angular, Parse,undefined) {
     'use strict';
     angular
         .module('app.photogram')
@@ -322,7 +322,7 @@
 
         function home (page) {
             var defer = $q.defer();
-            var limit = 9;
+            var limit = 4;
             var data = new Array ();
             //var following = $rootScope.user.following;
             var user = new Parse.User.current ();
@@ -330,7 +330,7 @@
             new Parse
                 .Query ('Gallery')
                 .descending('createdAt')
-                .notEqualTo('user', user)
+                //.notEqualTo('user', user)
                 //.containedIn('ref', following)
                 //.containsAll('ref', following)
                 .include('user')
@@ -442,17 +442,17 @@
                     .limit(limit)
                     .equalTo('user', loadUser)
                     .skip(page * limit)
-                    .find()
+                    .find();
             } else {
 
                 query = new Parse
                     .Query ('Gallery')
                     .descending('createdAt')
-                    .notEqualTo('user', Parse.User.current())
+                    //.notEqualTo('user', Parse.User.current())
                     .include('user')
                     .limit(limit)
                     .skip(page * limit)
-                    .find()
+                    .find();
             }
             query
                 .then(function (resp) {
@@ -1138,4 +1138,4 @@
     }
 
 
-}) (window, window.angular);
+}) (window, window.angular, window.Parse);

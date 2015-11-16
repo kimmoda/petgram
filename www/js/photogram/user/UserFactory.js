@@ -1,10 +1,13 @@
-(function(window, angular, undefined){
+(function (window, angular, Parse, cordova, undefined) {
     'use strict';
     angular
-    .module('app.photogram')
+        .module('app.photogram')
         .factory('User', UserFactory);
 
-    function UserFactory($q, AppConfig, ParsePush, $rootScope, $ionicHistory, $cordovaDevice, $facebook, $cordovaFacebook, Loading, $state) {
+    function UserFactory ($q, AppConfig, ParsePush, $rootScope, $ionicHistory, $cordovaDevice, $facebook, $cordovaFacebook, Loading, $state) {
+
+        var device = cordova ? true : false;
+        var facebook = device ? $cordovaFacebook : $facebook;
 
         return {
             init: init,
@@ -33,16 +36,16 @@
             facebookAPI: facebookAPI
         };
 
-        var device = cordova ? true : false,
-            facebook = device ? $cordovaFacebook : $facebook;
 
-        function init() {
+        function init () {
             // Parse Start
+
             Parse.initialize(AppConfig.parse.applicationId, AppConfig.parse.javascriptKey);
+            console.log('device', cordova, device);
 
             var user = Parse.User.current();
             if (user) {
-                var newUser = loadProfile(user);
+                var newUser = loadProfile (user);
                 console.log('Logged user', newUser);
 
                 //if(user.push) {
@@ -85,7 +88,7 @@
 
 
                 if (newUser.name === '') {
-                    logout();
+                    logout ();
                 }
 
             } else {
@@ -96,16 +99,16 @@
             }
         }
 
-        function push(user) {
+        function push (user) {
             console.log('Push user', status, user);
 
             if (user.status) {
-                update(user)
+                update (user)
                     .then(function () {
                         ParsePush.start(user.email);
                     })
             } else {
-                update(user)
+                update (user)
                     .then(function () {
                         ParsePush.postUnSubscribe(user.email);
                     });
@@ -113,28 +116,28 @@
         }
 
 
-        function currentUser() {
+        function currentUser () {
             return $rootScope.user;
         }
 
 
-        function loadProfile(response) {
+        function loadProfile (response) {
             console.log('LoadProfile', response);
             if (response) {
                 var user = response.attributes;
                 user.id = response.id;
-                user = processImg(user);
+                user = processImg (user);
                 delete $rootScope.user;
                 $rootScope.user = user;
                 console.log('load profile', response, user);
                 return user;
             } else {
-                logout();
+                logout ();
                 return false;
             }
         }
 
-        function processImg(obj) {
+        function processImg (obj) {
             console.log('process image', obj);
             if (obj.facebook) {
                 obj.src = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
@@ -144,14 +147,14 @@
             return obj;
         }
 
-        function login(form) {
+        function login (form) {
             var defer = $q.defer();
             Parse
                 .User
                 .logIn(form.email, form.password, {
                     success: function (resp) {
                         console.info('Login', resp);
-                        var user = loadProfile(resp);
+                        var user = loadProfile (resp);
                         defer.resolve(user);
                     },
                     error: function (user, err) {
@@ -163,7 +166,7 @@
             return defer.promise;
         }
 
-        function loginFacebook2(response) {
+        function loginFacebook2 (response) {
             var defer = $q.defer();
             console.log('Facebook api');
             facebook
@@ -171,7 +174,7 @@
                 .then(function (dados) {
                     console.log('facebook api', dados);
 
-                    var query = new Parse.Query(Parse.User);
+                    var query = new Parse.Query (Parse.User);
                     query
                         .equalTo('email', dados.email)
                         .first({
@@ -180,9 +183,9 @@
 
                                 if (user) {
                                     console.log('Já existe um cadastro com esse email', user);
-                                    if (user.get('facebook_complete') == Boolean(true)) {
+                                    if (user.get('facebook_complete') == Boolean (true)) {
 
-                                        loginFacebook(response)
+                                        loginFacebook (response)
                                             .then(function (resp) {
                                                 console.log('Logado', resp);
 
@@ -191,7 +194,7 @@
                                                     var updateUser = user.attributes;
                                                     updateUser.name = dados.name;
 
-                                                    update(updateUser)
+                                                    update (updateUser)
                                                         .then(function () {
                                                             defer.resolve({
                                                                 status: 0
@@ -199,7 +202,7 @@
                                                         });
                                                 } else {
 
-                                                    loadProfile(user);
+                                                    loadProfile (user);
 
                                                     defer.resolve({
                                                         status: 0
@@ -211,7 +214,7 @@
                                         console.log('Se ainda não está completo, manda completar o perfil', dados,
                                             response);
 
-                                        $rootScope.tempUser = processImg(user.attributes);
+                                        $rootScope.tempUser = processImg (user.attributes);
                                         $rootScope.tempUser.src = 'https://graph.facebook.com/' + dados.id +
                                             '/picture?width=250&height=250';
 
@@ -227,7 +230,7 @@
                                     console.log('Novo usuário');
 
                                     // Crio uma conta no parse com o Facebook
-                                    loginFacebook(response)
+                                    loginFacebook (response)
                                         .then(function (newuser) {
 
                                             console.log(newuser);
@@ -238,12 +241,12 @@
                                                 facebook: dados.id,
                                                 email: dados.email,
                                                 gender: dados.gender,
-                                                facebook_complete: Boolean(true),
+                                                facebook_complete: Boolean (true),
                                                 facebookimg: 'https://graph.facebook.com/' + dados.id +
                                                 '/picture?width=250&height=250'
                                             };
 
-                                            update(form)
+                                            update (form)
                                                 .then(function (resp) {
                                                     console.warn('me response', resp);
 
@@ -260,7 +263,7 @@
 
                             },
                             error: function (error) {
-                                alert('Sem conexão');
+                                alert ('Sem conexão');
                                 defer.reject(error);
 
                             }
@@ -274,7 +277,7 @@
             return defer.promise;
         }
 
-        function facebookLogin() {
+        function facebookLogin () {
             var defer = $q.defer();
 
             //facebook.logout();
@@ -285,7 +288,7 @@
                 .then(function (respStatus) {
 
                     if (respStatus.status === 'connected') {
-                        loginFacebook2(respStatus)
+                        loginFacebook2 (respStatus)
                             .then(function (deferStatus) {
                                 defer.resolve(deferStatus);
                             });
@@ -305,7 +308,7 @@
 
                                     //Pega o Status do Login
                                     console.log('facebook status', response);
-                                    loginFacebook2(response)
+                                    loginFacebook2 (response)
                                         .then(function (deferStatus) {
                                             defer.resolve(deferStatus);
                                         });
@@ -327,9 +330,9 @@
         }
 
 
-        function facebookProfile() {
+        function facebookProfile () {
             var defer = $q.defer();
-            facebookLogin()
+            facebookLogin ()
                 .then(function (resp) {
 
                     facebook
@@ -348,7 +351,7 @@
         }
 
 
-        function register(form) {
+        function register (form) {
             var defer = $q.defer();
 
             var formData = form;
@@ -356,10 +359,10 @@
 
             console.log(formData);
             new Parse
-                .User(formData)
+                .User (formData)
                 .signUp(null, {
                     success: function (resp) {
-                        var user = loadProfile(resp);
+                        var user = loadProfile (resp);
                         console.log(resp, user);
                         Loading.end();
                         //startPush('user-', user.email);
@@ -379,11 +382,11 @@
             return defer.promise;
         }
 
-        function forgot(email) {
+        function forgot (email) {
             var defer = $q.defer();
             new Parse
                 .User
-                .requestPasswordReset(email, {
+                .requestPasswordReset (email, {
                 success: function (resp) {
                     defer.resolve(resp);
                 },
@@ -398,7 +401,7 @@
             return defer.promise;
         }
 
-        function logout() {
+        function logout () {
             Parse.User.logOut();
             delete $rootScope.user;
             //$window.location = '/#/intro';
@@ -408,7 +411,7 @@
             $ionicHistory.clearCache();
         }
 
-        function update(form) {
+        function update (form) {
             var defer = $q.defer();
             var currentUser = Parse.User.current();
             Loading.start();
@@ -445,7 +448,7 @@
                 .save()
                 .then(function (resp) {
                     console.log('load user', user);
-                    var user = loadProfile(resp);
+                    var user = loadProfile (resp);
                     Loading.end();
                     defer.resolve(user);
                 });
@@ -454,7 +457,7 @@
             return defer.promise;
         }
 
-        function updateAvatar(photo) {
+        function updateAvatar (photo) {
             var defer = $q.defer();
 
             Loading.start();
@@ -462,7 +465,7 @@
             if (photo !== '') {
 
                 // create the parse file
-                var imageFile = new Parse.File('mypic.jpg', {
+                var imageFile = new Parse.File ('mypic.jpg', {
                     base64: photo
                 });
 
@@ -483,7 +486,7 @@
                         currentUser
                             .save()
                             .then(function (resp) {
-                                var user = loadProfile(resp);
+                                var user = loadProfile (resp);
                                 console.log(resp);
                                 Loading.end();
                                 defer.resolve(user);
@@ -500,7 +503,7 @@
         }
 
 
-        function facebookFriends() {
+        function facebookFriends () {
             var defer = $q.defer();
 
             facebook
@@ -514,7 +517,7 @@
             return defer.promise;
         }
 
-        function facebookAPI(api) {
+        function facebookAPI (api) {
             var defer = $q.defer();
 
             facebook
@@ -528,7 +531,7 @@
             return defer.promise;
         }
 
-        function facebookInvite() {
+        function facebookInvite () {
             var defer = $q.defer();
             if (device) {
                 facebook
@@ -553,11 +556,11 @@
         }
 
 
-        function list(force) {
+        function list (force) {
             var defer = $q.defer();
 
             new Parse
-                .Query('User')
+                .Query ('User')
                 .notEqualTo('user', Parse.User.current())
                 .find()
                 .then(function (resp) {
@@ -565,10 +568,10 @@
                     angular.forEach(resp, function (item) {
                         var user = item.attributes;
                         user.id = item.id;
-                        user = processImg(user);
+                        user = processImg (user);
 
                         new Parse
-                            .Query('UserFollow')
+                            .Query ('UserFollow')
                             .equalTo('user', Parse.User.current())
                             .equalTo('follow', item)
                             .count()
@@ -585,12 +588,12 @@
             return defer.promise;
         }
 
-        function find(userId) {
+        function find (userId) {
             var defer = $q.defer();
 
             console.log('find', userId);
             new Parse
-                .Query('User')
+                .Query ('User')
                 .equalTo('objectId', userId)
                 .first()
                 .then(function (resp) {
@@ -601,30 +604,30 @@
             return defer.promise;
         }
 
-        function profile(userId) {
+        function profile (userId) {
             var defer = $q.defer();
 
-            find(userId)
+            find (userId)
                 .then(function (resp) {
                     console.log(resp);
-                    var user = loadProfile(resp);
+                    var user = loadProfile (resp);
 
                     new Parse
-                        .Query('Gallery')
+                        .Query ('Gallery')
                         .equalTo('user', resp)
                         .count()
                         .then(function (gallery) {
                             user.galleries = gallery;
 
                             new Parse
-                                .Query('UserFollow')
+                                .Query ('UserFollow')
                                 .equalTo('user', resp)
                                 .count()
                                 .then(function (foloow) {
                                     user.follow = foloow;
 
                                     new Parse
-                                        .Query('UserFollow')
+                                        .Query ('UserFollow')
                                         .equalTo('follow', resp)
                                         .count()
                                         .then(function (follow2) {
@@ -639,15 +642,15 @@
             return defer.promise;
         }
 
-        function isFollow(userId) {
+        function isFollow (userId) {
             var defer = $q.defer();
 
             console.log('isFollow start', userId);
 
-            find(userId)
+            find (userId)
                 .then(function (followUser) {
                     new Parse
-                        .Query('UserFollow')
+                        .Query ('UserFollow')
                         .equalTo('user', Parse.User.current())
                         .equalTo('follow', followUser)
                         .count()
@@ -661,17 +664,17 @@
         }
 
 
-        function getFollowers(userId) {
+        function getFollowers (userId) {
             var defer = $q.defer();
 
             if (!userId) {
                 userId = Parse.User.current().id;
             }
 
-            find(userId)
+            find (userId)
                 .then(function (user) {
                     new Parse
-                        .Query('UserFollow')
+                        .Query ('UserFollow')
                         .equalTo('follow', user)
                         .count()
                         .then(function (qtdFollowers) {
@@ -683,17 +686,17 @@
             return defer.promise;
         }
 
-        function getFollowing(userId) {
+        function getFollowing (userId) {
             var defer = $q.defer();
 
             if (!userId) {
                 userId = Parse.User.current().id;
             }
 
-            find(userId)
+            find (userId)
                 .then(function (user) {
                     new Parse
-                        .Query('UserFollow')
+                        .Query ('UserFollow')
                         .equalTo('user', user)
                         .count()
                         .then(function (qtdFollowing) {
@@ -705,12 +708,12 @@
             return defer.promise;
         }
 
-        function follow(status, user) {
+        function follow (status, user) {
             var defer = $q.defer();
-            var qtdFollow = Parse.User.current().qtdFollow ? parseInt(Parse.User.current().qtdFollow) : 0;
+            var qtdFollow = Parse.User.current().qtdFollow ? parseInt (Parse.User.current().qtdFollow) : 0;
 
 
-            find(user.id)
+            find (user.id)
                 .then(function (follow) {
 
                     if (status) {
@@ -718,7 +721,7 @@
                         console.log('Follow User', follow);
 
                         var Object = Parse.Object.extend('UserFollow');
-                        var item = new Object();
+                        var item = new Object ();
 
                         item.set('user', Parse.User.current());
                         item.set('follow', follow);
@@ -726,7 +729,7 @@
                             .then(function (resp) {
                                 console.log('Follow User', resp);
 
-                                update({
+                                update ({
                                     qtdFollow: qtdFollow + 1
                                 })
                                     .then(function (userResp) {
@@ -742,7 +745,7 @@
                         console.log('Unfollow User', follow);
 
                         new Parse
-                            .Query('UserFollow')
+                            .Query ('UserFollow')
                             .equalTo('user', Parse.User.current())
                             .equalTo('follow', follow)
                             .first()
@@ -751,7 +754,7 @@
                                     .destroy()
                                     .then(function (resp) {
 
-                                        update({
+                                        update ({
                                             qtdFollow: qtdFollow - 1
                                         })
                                             .then(function (userResp) {
@@ -768,20 +771,20 @@
             return defer.promise;
         }
 
-        function addFollows(users) {
+        function addFollows (users) {
             console.log('addFollows', users);
             var promises = [];
             angular.forEach(users, function (user) {
-                promises.push(follow(true, user.id));
+                promises.push(follow (true, user.id));
             });
             return $q.all(promises);
         }
 
-        function getMail(email) {
+        function getMail (email) {
             var defer = $q.defer();
             Loading.start();
             new Parse
-                .Query('User')
+                .Query ('User')
                 .equalTo('email', email)
                 .first()
                 .then(function (resp) {
@@ -794,10 +797,10 @@
             return defer.promise;
         }
 
-        function loginFacebook(response) {
+        function loginFacebook (response) {
             var defer = $q.defer();
 
-            var data = new Date(new Date().getTime() + response['authResponse']['expiresIn'] * 1000);
+            var data = new Date (new Date ().getTime() + response['authResponse']['expiresIn'] * 1000);
 
             Parse.FacebookUtils.logIn({
                 id: response['authResponse']['userID'],
@@ -806,7 +809,7 @@
             }, {
                 success: function (response) {
                     // Função caso tenha logado tanto no face quanto no Parse
-                    var user = loadProfile(response);
+                    var user = loadProfile (response);
                     console.log('User', user);
                     defer.resolve(user);
                 }
@@ -815,7 +818,7 @@
             return defer.promise;
         }
 
-        function facebookLink() {
+        function facebookLink () {
             var defer = $q.defer();
 
             facebook
@@ -825,7 +828,7 @@
                         console.log('facebook login', response);
                         //Pega o Status do Login
 
-                        var data = new Date(new Date().getTime() + response['authResponse']['expiresIn'] * 1000);
+                        var data = new Date (new Date ().getTime() + response['authResponse']['expiresIn'] * 1000);
 
                         var user = Parse.User.current();
                         console.log(user, response, data);
@@ -841,10 +844,10 @@
                                 user.set('facebook', response['authResponse']['userID']);
                                 user.set('facebookimg', 'https://graph.facebook.com/' + response['authResponse']['userID'] +
                                     '/picture?width=250&height=250');
-                                user.set('facebook_complete', Boolean(true));
+                                user.set('facebook_complete', Boolean (true));
                                 user.save()
                                     .then(function (response) {
-                                        var user = loadProfile(response);
+                                        var user = loadProfile (response);
                                         console.info('User Update', user);
                                         defer.resolve(user);
                                     });
@@ -853,7 +856,7 @@
                         ;
                     },
                     function (response) {
-                        alert(JSON.stringify(response));
+                        alert (JSON.stringify(response));
 
                     });
 
@@ -864,4 +867,4 @@
 
     }
 
-})(window, window.angular);
+}) (window, window.angular, window.Parse, window.cordova);

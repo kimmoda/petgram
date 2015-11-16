@@ -4,7 +4,7 @@
                 ng-click="closeShare()"></button>
         <div class="title">{{ 'Share' | translate }}</div>
         <button class="button button-positive"
-                ng-click="submitShare()">
+                ng-click="submitShare(form, social)">
             <i class="icon ion-arrow-right-b"></i>
         </button>
     </ion-header-bar>
@@ -16,10 +16,9 @@
                  href="#">
                 <img ng-src="{{form.photo}}"
                      id="image">
-                <input type="text"
-                       name="title"
-                       ng-model="form.title"
-                       placeholder="{{ 'Write a Legend'|translate }}">
+                <textarea type="text"
+                          ng-model="form.title"
+                          placeholder="{{ 'Write a Legend'|translate }}"></textarea>
             </div>
         </div>
 
@@ -40,34 +39,13 @@
         <ul class="list">
             <li class="item item-divider"
                 translate>Share in</li>
-          <li class="item item-icon-left item-toggle">
-              <i class="icon ion-social-facebook"></i>
-             Facebook
+          <li class="item item-icon-left item-toggle"
+              ng-repeat="social in socials">
+              <i class="icon ion-social-{{ social.title | lowercase }}"></i>
+             {{ social.title }}
              <label class="toggle toggle-positive">
                <input type="checkbox"
-                      ng-model="social.facebook">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-            <li class="item item-icon-left item-toggle">
-              <i class="icon ion-social-instagram"></i>
-             Instagram
-             <label class="toggle toggle-positive">
-               <input type="checkbox"
-                      ng-model="social.instagram">
-               <div class="track">
-                 <div class="handle"></div>
-               </div>
-             </label>
-          </li>
-            <li class="item item-icon-left item-toggle">
-              <i class="icon ion-social-whatsapp"></i>
-             Whatsapp
-             <label class="toggle toggle-positive">
-               <input type="checkbox"
-                      ng-model="social.whatsapp">
+                      ng-model="social.checked">
                <div class="track">
                  <div class="handle"></div>
                </div>
@@ -76,6 +54,7 @@
 
         </ul>
 
+        <pre>{{ socials | json }}</pre>
 
     </ion-content>
 
