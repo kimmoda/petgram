@@ -1,3 +1,4 @@
+'use strict';
 var gulp    = require('gulp');
 var rename  = require('gulp-rename');
 var extend  = require('gulp-extend');
@@ -8,7 +9,7 @@ var iife    = require("gulp-iife");
 var paths = gulp.paths;
 
 // Translate
-gulp.task('gettext:po', function () {
+gulp.task('gettext:po', function (done) {
     return gulp.src([
             paths.src + '/js/**/*.js',
             '!' + paths.src + '/js/**/*.spec.js',
@@ -17,12 +18,12 @@ gulp.task('gettext:po', function () {
         .pipe(gettext.extract('template.pot', {
             // options to pass to angular-gettext-tools...
         }))
-        .pipe(gulp.dest('./translate/'));
-})
-;
+        .pipe(gulp.dest('./translate/'))
+        .on('end', done);
+});
 
-gulp.task('gettext:compile', function () {
-    return gulp.src('translate/**/*.po') // Stream PO translation files.
+gulp.task('gettext:compile', function (done) {
+     gulp.src('translate/**/*.po') // Stream PO translation files.
         .pipe(gettext.compile({format: 'json'})) // Compile to json
         .pipe(extend('.tmp.json')) // use .json extension for gulp-wrap to load json content
         .pipe(wrap( // Build the translation module using gulp-wrap and lodash.template
@@ -38,16 +39,18 @@ gulp.task('gettext:compile', function () {
         //.pipe (uglify ())
         .pipe(rename('app.translate.module.js')) // Rename to final javascript filename
         .pipe(iife())
-        .pipe(gulp.dest(paths.src + '/js/'));
+        .pipe(gulp.dest(paths.src + '/js/'))
+        .on('end', done);
 });
 
-gulp.task('translations', function () {
-    return gulp.src('translate/**/*.po')
+gulp.task('translations', function (done) {
+     gulp.src('translate/**/*.po')
         .pipe(gettext.compile({
             // options to pass to angular-gettext-tools...
             format: 'json'
         }))
-        .pipe(gulp.dest(paths.src + '/js/il8n'));
+        .pipe(gulp.dest(paths.src + '/js/il8n'))
+        .on('end', done);
 });
 
 gulp.task('translate', [
