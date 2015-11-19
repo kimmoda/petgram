@@ -1,53 +1,44 @@
-<ion-view cache-view="false"
-          class="photogram-profile">
+<ion-view cache-view="false" class="photogram-profile">
 
-      <ion-nav-title>
+    <ion-nav-title>
         <h1 class="title">{{ user.name }}</h1>
     </ion-nav-title>
 
-     <ion-nav-buttons side="right">
-        <button photogram-settings
-                class="button button-icon icon ion-gear-a"></button>
+    <ion-nav-buttons side="right">
+        <button photogram-settings class="button button-icon icon ion-gear-a"></button>
     </ion-nav-buttons>
 
-    <ion-content class="animated fadeIn"
-                 overflow-scroll="false">
+    <ion-content class="animated fadeIn" overflow-scroll="false">
 
         <div class="profile-top">
             <div class="row">
                 <div class="col-25">
-                    <img class="avatar"
-                         user-avatar
-                         ng-src="{{ user.src }}"/>
+                    <img class="avatar" user-avatar ng-src="{{ user.src }}" />
                 </div>
                 <div class="col col-statics">
                     <div class="row">
                         <div class="col">
                             <photogram-loading loading="loadingPhotos"></photogram-loading>
-                            <span ng-if="!loadingPhotos"
-                                  class="text-center">{{ user.qtdPhotos  }}</span>
+                            <span ng-if="!loadingPhotos" class="text-center">{{ user.qtdPhotos  }}</span>
 
                             <h3 translate>Posts</h3>
                         </div>
                         <div class="col">
                             <photogram-loading loading="loadingFollowers"></photogram-loading>
-                            <span ng-if="!loadingFollowers"
-                                  class="text-center">{{ user.qtdFollowers }}</span>
+                            <span ng-if="!loadingFollowers" class="text-center">{{ user.qtdFollowers }}</span>
 
                             <h3 translate>Followers</h3>
                         </div>
                         <div class="col">
                             <photogram-loading loading="loadingFollowing"></photogram-loading>
-                            <span ng-if="!loadingFollowing"
-                                  class="text-center">{{ user.qtdFollowing  }}</span>
+                            <span ng-if="!loadingFollowing" class="text-center">{{ user.qtdFollowing  }}</span>
 
                             <h3 translate>Followings</h3>
                         </div>
                     </div>
                     <div class="row col-edit">
                         <div class="col">
-                            <button photogram-profile-edit
-                                    class="button ">{{ 'EDIT YOUR PROFILE' | translate }}
+                            <button photogram-profile-edit class="button ">{{ 'EDIT YOUR PROFILE' | translate }}
                             </button>
                         </div>
                     </div>
@@ -62,23 +53,17 @@
 
         <div class="item bar">
             <div class="button-bar">
-            <button class="button button-icon icon ion-drag"
-                    ng-class="{active: vm.tab.list}"
-                    ng-click="vm.changeTab('list')"></button>
-                <button class="button button-icon icon ion-grid"
-                        ng-class="{active: vm.tab.grid}"
-                        ng-click="vm.changeTab('grid')"></button>
+                <button class="button button-icon icon ion-drag" ng-class="{active: vm.tab.list}" ng-click="vm.changeTab('list')"></button>
+                <button class="button button-icon icon ion-grid" ng-class="{active: vm.tab.grid}" ng-click="vm.changeTab('grid')"></button>
                 <button class="button button-icon icon ion-ios-location"></button>
 
-        </div>
-        </div>
-
-           <div class="item item-divider"
-                translate>Recent
+            </div>
         </div>
 
-        <div class="center-ico animated fadeIn"
-             ng-if="vm.empty">
+        <div class="item item-divider" translate>Recent
+        </div>
+
+        <div class="center-ico animated fadeIn" ng-if="vm.empty">
             <i class="icon ion-camera"></i>
 
             <h1 translate="">No Post</h1>
@@ -87,17 +72,15 @@
         <photogram-loading loading="vm.loading"></photogram-loading>
 
         <div class="tab" ng-if="vm.tab.list">
-            <photogram-photo-list photogram="vm.data"
-                                  loading="vm.loading"></photogram-photo-list>
+            <photogram-photo-list photogram="vm.data" loading="vm.loading"></photogram-photo-list>
         </div>
 
         <div class="tab" ng-if="vm.tab.grid">
-            <photogram-photo-grid photogram="vm.data"
-                                  loading="vm.loading"></photogram-photo-grid>
+            <photogram-photo-grid photogram="vm.data" loading="vm.loading"></photogram-photo-grid>
         </div>
 
 
-        
+
 
     </ion-content>
 </ion-view>

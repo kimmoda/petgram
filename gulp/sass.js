@@ -19,14 +19,15 @@ var injectOptions = {
     addRootSlash: false
 };
 
-gulp.task('sass:inject', function () {
+gulp.task('sass:inject', function (done) {
     gulp
         .src(paths.scss + '/ionic.app.scss')
         .pipe($.inject(injectFiles, injectOptions))
-        .pipe(gulp.dest(paths.scss));
+        .pipe(gulp.dest(paths.scss))
+        .on('end', done);
 });
 
-gulp.task('sass', function () {
+gulp.task('sass', function (done) {
 
     gulp
         .src(paths.scss + '/ionic.app.scss')
@@ -34,5 +35,6 @@ gulp.task('sass', function () {
         .pipe($.sass(sassOptions).on('error', $.sass.logError))
         .pipe($.autoprefixer())
         .pipe($.sourcemaps.write('./map'))
-        .pipe(gulp.dest(paths.src + '/css'));
+        .pipe(gulp.dest(paths.src + '/css'))
+        .on('end', done);
 });

@@ -12,7 +12,7 @@ gulp.task('default', function (done) {
     return runSequence (
         'install',
         'sass',
-        'translate',
+        // 'translate',
         'inject',
         'prettify',
         done);
@@ -22,24 +22,22 @@ gulp.task('dev', function (done) {
     return runSequence (
         'install',
         'sass',
-        'translate',
+        // 'translate',
         'copy:font',
         'inject',
-        //'prettify',
+        'prettify',
         done);
 });
 
 gulp.task('prod', function (done) {
     return runSequence (
         'clean',
-        'templates',
         'dev',
+        'templates',
         'img',
         'copy',
         'cacheapp:add',
-        'cachemodule:add',
         'usemin',
         'cacheapp:remove',
-        'cachemodule:remove',
         done);
 });
