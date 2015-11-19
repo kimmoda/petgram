@@ -40,7 +40,8 @@
 
     $ionicPlatform.ready(function () {
 
-      $ionicAnalytics.register();
+      // Active Ionic Analytics
+      // $ionicAnalytics.register();
 
       if (cordova && cordova.plugins && cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
