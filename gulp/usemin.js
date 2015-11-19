@@ -20,7 +20,7 @@ var getCopyright = function () {
 };
 
 
-gulp.task('usemin', function (done) {
+gulp.task('usemin', function () {
     return gulp
         .src(paths.src + '/index.html')
         .pipe(usemin({
@@ -54,6 +54,5 @@ gulp.task('usemin', function (done) {
                 rev()
             ]
         }))
-        .pipe(gulp.dest(paths.dist))
-        .on('end', done);
+        .pipe(gulp.dest(paths.dist));
 });

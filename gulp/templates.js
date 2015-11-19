@@ -13,7 +13,7 @@ gulp.task('template:app', function () {
         .pipe(templateCache({
             module    : 'app.cache',
             filename: 'app.cache.module.js',
-            root    : 'app',
+            root    : 'js',
             standalone: true
         }))
         .pipe(iife())

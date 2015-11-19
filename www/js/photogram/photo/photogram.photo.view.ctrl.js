@@ -1,18 +1,18 @@
 (function (window, angular, undefined) {
-    'use strict';
-    angular
-        .module('app.photogram')
-        .controller('PhotogramViewCtrl', PhotogramViewCtrl);
+  'use strict';
+  angular
+    .module('app.photogram')
+    .controller('PhotogramViewCtrl', PhotogramViewCtrl);
 
-    function PhotogramViewCtrl(Photogram, $stateParams) {
-        var vm = this;
-        Photogram
-            .get($stateParams.id)
-            .then(function (resp) {
-                console.log(resp);
-                vm.data = resp;
-            });
-    }
+  function PhotogramViewCtrl(Photogram, $stateParams) {
+    var vm = this;
+    Photogram
+      .get($stateParams.id)
+      .then(function (resp) {
+        console.log(resp);
+        vm.data = resp;
+      });
+  }
 
 
 })(window, window.angular);

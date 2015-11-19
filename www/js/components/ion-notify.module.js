@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('ion-notify',['ionic'])
+    .module('ion-notify', ['ionic'])
     .factory('Notify', Notify);
 
   function Notify($ionicPopup) {

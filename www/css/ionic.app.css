@@ -10787,6 +10787,58 @@ a.button {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden; }
 
+.button-facebook {
+  background: none repeat scroll 0 0 #3f569b !important;
+  border: 1px solid #222e52;
+  color: #fff !important;
+  position: relative;
+  width: 100%; }
+  .button-facebook i {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    left: 20px;
+    padding-right: 10px;
+    position: absolute;
+    width: 30px; }
+
+.button-instagram {
+  background: none repeat scroll 0 0 #3f729b !important;
+  border: 1px solid #223d52;
+  color: #fff !important;
+  position: relative;
+  width: 100%; }
+  .button-instagram i {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    left: 20px;
+    padding-right: 10px;
+    position: absolute;
+    width: 30px; }
+
+.button-whatsapp {
+  background: none repeat scroll 0 0 #009688 !important;
+  border: 1px solid #00302c;
+  color: #fff !important;
+  position: relative;
+  width: 100%; }
+  .button-whatsapp i {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    left: 20px;
+    padding-right: 10px;
+    position: absolute;
+    width: 30px; }
+
+.button-twitter {
+  background: none repeat scroll 0 0 #2795e9 !important;
+  border: 1px solid #105e9a;
+  color: #fff !important;
+  position: relative;
+  width: 100%; }
+  .button-twitter i {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    left: 20px;
+    padding-right: 10px;
+    position: absolute;
+    width: 30px; }
+
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
@@ -10822,85 +10874,6 @@ a.button {
   border: none;
   background-color: transparent;
   background-image: none; }
-
-.photogram .title.text-left {
-  text-align: left; }
-
-.photogram .modal-share .scroll-content .list .item-thumbnail-left textarea {
-  width: 100%;
-  height: 100%;
-  min-height: 80px; }
-
-.photogram .modal-capture .scroll, .photogram .modal-capture ion-content {
-  background-color: #000;
-  color: #fff; }
-
-.photogram .capture-photo {
-  display: block;
-  position: relative;
-  margin-bottom: 10px; }
-  .photogram .capture-photo .image {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    min-height: 300px; }
-    .photogram .capture-photo .image.disabled img, .photogram .capture-photo .image.disabled canvas {
-      opacity: 0; }
-    .photogram .capture-photo .image img, .photogram .capture-photo .image canvas {
-      width: 100%; }
-  .photogram .capture-photo ion-spinner {
-    position: absolute;
-    left: 45%;
-    top: 45%;
-    z-index: 3;
-    color: #fff; }
-
-.photogram .wide-as-needed {
-  overflow: scroll;
-  white-space: nowrap;
-  padding-left: 10px; }
-  .photogram .wide-as-needed ion-spinner {
-    position: absolute;
-    left: 35%;
-    top: 25%;
-    z-index: 3;
-    color: #fff; }
-  .photogram .wide-as-needed a {
-    display: inline-block;
-    position: relative;
-    margin-right: 10px;
-    height: 140px;
-    font-size: 11px;
-    width: 100px; }
-    .photogram .wide-as-needed a .image {
-      display: block;
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      background: #333;
-      height: 100px;
-      width: 100px; }
-      .photogram .wide-as-needed a .image.disabled img, .photogram .wide-as-needed a .image.disabled canvas {
-        opacity: 0; }
-      .photogram .wide-as-needed a .image img, .photogram .wide-as-needed a .image canvas {
-        max-height: 100px; }
-    .photogram .wide-as-needed a p {
-      display: block;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      color: #fff;
-      right: 0;
-      text-align: center;
-      font-weight: bold;
-      text-transform: uppercase; }
-
-.photogram .scroll {
-  min-width: 100%; }
-
-.photogram .modal-share textarea {
-  width: 100%; }
 
 .photogram .view-home .scroll-content {
   background-color: #f1f1f1; }
@@ -11128,17 +11101,6 @@ a.button {
           font-weight: bold;
           font-size: 18px;
           border-bottom: 2px solid #fff; }
-  .photogram .button-facebook {
-    background: none repeat scroll 0 0 #3f569b !important;
-    border: 1px solid #222e52;
-    color: #fff !important;
-    position: relative;
-    width: 100%; }
-    .photogram .button-facebook i {
-      border-right: 1px solid rgba(255, 255, 255, 0.3);
-      left: 20px;
-      padding-right: 10px;
-      position: absolute; }
   .photogram .line {
     display: block;
     margin: 0 auto;
@@ -11903,6 +11865,428 @@ a.button {
     text-align: center;
     color: #ddd; }
 
+.photogram .title.text-left {
+  text-align: left; }
+
+.photogram .modal-share .scroll-content .list .item-thumbnail-left textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 80px; }
+
+.photogram .modal-capture .scroll, .photogram .modal-capture ion-content {
+  background-color: #000;
+  color: #fff; }
+
+.photogram .capture-photo {
+  display: block;
+  position: relative;
+  margin-bottom: 10px; }
+  .photogram .capture-photo .image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 300px; }
+    .photogram .capture-photo .image.disabled img, .photogram .capture-photo .image.disabled canvas {
+      opacity: 0; }
+    .photogram .capture-photo .image img, .photogram .capture-photo .image canvas {
+      width: 100%; }
+  .photogram .capture-photo ion-spinner {
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    z-index: 3;
+    color: #fff; }
+
+.photogram .wide-as-needed {
+  overflow: scroll;
+  white-space: nowrap;
+  padding-left: 10px; }
+  .photogram .wide-as-needed ion-spinner {
+    position: absolute;
+    left: 35%;
+    top: 25%;
+    z-index: 3;
+    color: #fff; }
+  .photogram .wide-as-needed a {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    height: 140px;
+    font-size: 11px;
+    width: 100px; }
+    .photogram .wide-as-needed a .image {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #333;
+      height: 100px;
+      width: 100px; }
+      .photogram .wide-as-needed a .image.disabled img, .photogram .wide-as-needed a .image.disabled canvas {
+        opacity: 0; }
+      .photogram .wide-as-needed a .image img, .photogram .wide-as-needed a .image canvas {
+        max-height: 100px; }
+    .photogram .wide-as-needed a p {
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      color: #fff;
+      right: 0;
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase; }
+
+.photogram .scroll {
+  min-width: 100%; }
+
+.photogram .modal-share textarea {
+  width: 100%; }
+
+.photogram #image {
+  display: block;
+  position: relative; }
+  .photogram #image img {
+    width: 100%; }
+  .photogram #image .title {
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    color: #fff; }
+
+.photogram textarea {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  padding: 10px; }
+
+.photogram .view-intro ion-footer-bar {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0 10px;
+  height: 60px; }
+
+.photogram .view-intro .scroll-content {
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-color: #009688;
+  height: 100%;
+  color: #fff;
+  margin: 0; }
+  .photogram .view-intro .scroll-content .button-fab {
+    border-radius: 50%;
+    min-width: 35px;
+    min-height: 35px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease; }
+    .photogram .view-intro .scroll-content .button-fab.left {
+      left: 10px !important;
+      position: absolute;
+      bottom: 20px;
+      width: 10px !important;
+      box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.4); }
+    .photogram .view-intro .scroll-content .button-fab.left:active {
+      box-shadow: 4px 5px 6px 5px rgba(0, 0, 0, 0.4); }
+    .photogram .view-intro .scroll-content .button-fab.right {
+      right: 10px !important;
+      position: absolute;
+      bottom: 20px;
+      width: 10px !important;
+      box-shadow: -2px 5px 6px 0px rgba(0, 0, 0, 0.4); }
+    .photogram .view-intro .scroll-content .button-fab.right:active {
+      box-shadow: -2px 5px 6px 5px rgba(0, 0, 0, 0.4); }
+  .photogram .view-intro .scroll-content .intro-slider {
+    display: block;
+    height: 100%; }
+    .photogram .view-intro .scroll-content .intro-slider .content {
+      position: relative;
+      height: 100%; }
+      .photogram .view-intro .scroll-content .intro-slider .content .last .logo2 {
+        position: absolute;
+        display: block;
+        margin: 20px auto;
+        width: 250px;
+        height: 100px;
+        top: 30%;
+        left: 0;
+        right: 0; }
+        .photogram .view-intro .scroll-content .intro-slider .content .last .logo2 img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 80px; }
+        .photogram .view-intro .scroll-content .intro-slider .content .last .logo2 span.icon2-logo {
+          font-size: 45pt;
+          color: #fff;
+          display: block;
+          margin: 22px;
+          position: absolute;
+          top: 0;
+          left: 20%; }
+      .photogram .view-intro .scroll-content .intro-slider .content .last button.button {
+        position: absolute;
+        color: #fff;
+        border: 1px solid #fff;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 90%;
+        bottom: 10%; }
+      .photogram .view-intro .scroll-content .intro-slider .content span.top {
+        display: block;
+        padding: 0;
+        margin: 10px 15px;
+        height: 14%;
+        position: relative;
+        -o-animation-name: fadeInDown;
+        -o-animation-delay: 0.5s;
+        -o-animation-duration: 1s;
+        -o-animation-timing-function: ease;
+        -o-animation-fill-mode: both;
+        -moz-animation-name: fadeInDown;
+        -moz-animation-delay: 0.5s;
+        -moz-animation-duration: 1s;
+        -moz-animation-timing-function: ease;
+        -moz-animation-fill-mode: both;
+        -webkit-animation-name: fadeInDown;
+        -webkit-animation-delay: 0.5s;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-timing-function: ease;
+        -webkit-animation-fill-mode: both;
+        -webkit-backface-visibility: hidden;
+        -webkit-animation-name: fadeInDown;
+                animation-name: fadeInDown;
+        -webkit-animation-delay: 0.5s;
+                animation-delay: 0.5s;
+        -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+        -webkit-animation-timing-function: ease;
+                animation-timing-function: ease;
+        -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden; }
+        .photogram .view-intro .scroll-content .intro-slider .content span.top h2 {
+          display: block;
+          position: absolute;
+          text-align: center;
+          color: #fff;
+          bottom: 25%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          font-size: 16pt;
+          line-height: 16pt; }
+      .photogram .view-intro .scroll-content .intro-slider .content .phone {
+        position: relative;
+        width: 80%;
+        height: 736px;
+        max-width: 414px;
+        margin: 0 auto;
+        -o-animation-name: fadeInUp;
+        -o-animation-delay: 0.1s;
+        -o-animation-duration: 1s;
+        -o-animation-timing-function: ease;
+        -o-animation-fill-mode: both;
+        -moz-animation-name: fadeInUp;
+        -moz-animation-delay: 0.1s;
+        -moz-animation-duration: 1s;
+        -moz-animation-timing-function: ease;
+        -moz-animation-fill-mode: both;
+        -webkit-animation-name: fadeInUp;
+        -webkit-animation-delay: 0.1s;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-timing-function: ease;
+        -webkit-animation-fill-mode: both;
+        -webkit-backface-visibility: hidden;
+        -webkit-animation-name: fadeInUp;
+                animation-name: fadeInUp;
+        -webkit-animation-delay: 0.1s;
+                animation-delay: 0.1s;
+        -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+        -webkit-animation-timing-function: ease;
+                animation-timing-function: ease;
+        -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+        -webkit-backface-visibility: hidden;
+                backface-visibility: hidden; }
+        .photogram .view-intro .scroll-content .intro-slider .content .phone.iphone {
+          background-image: url(../img/devices/iphone.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 98%;
+          max-width: 407px;
+          min-width: 315px; }
+          .photogram .view-intro .scroll-content .intro-slider .content .phone.iphone img {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            width: 79%;
+            top: 11.1%; }
+        .photogram .view-intro .scroll-content .intro-slider .content .phone.android {
+          background-image: url(../img/devices/android.png);
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 90%;
+          max-width: 340px;
+          min-width: 330px;
+          margin-top: 10px; }
+          .photogram .view-intro .scroll-content .intro-slider .content .phone.android img {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            width: 90%;
+            top: 7.1%; }
+    .photogram .view-intro .scroll-content .intro-slider .slider {
+      display: block;
+      height: 100%;
+      padding-top: 30px; }
+    .photogram .view-intro .scroll-content .intro-slider .slider-pager,
+    .photogram .view-intro .scroll-content .intro-slider button.button {
+      -o-animation-name: fadeInDown;
+      -o-animation-delay: 0.1s;
+      -o-animation-duration: 1s;
+      -o-animation-timing-function: ease;
+      -o-animation-fill-mode: both;
+      -moz-animation-name: fadeInDown;
+      -moz-animation-delay: 0.1s;
+      -moz-animation-duration: 1s;
+      -moz-animation-timing-function: ease;
+      -moz-animation-fill-mode: both;
+      -webkit-animation-name: fadeInDown;
+      -webkit-animation-delay: 0.1s;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-timing-function: ease;
+      -webkit-animation-fill-mode: both;
+      -webkit-backface-visibility: hidden;
+      -webkit-animation-name: fadeInDown;
+              animation-name: fadeInDown;
+      -webkit-animation-delay: 0.1s;
+              animation-delay: 0.1s;
+      -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+      -webkit-animation-timing-function: ease;
+              animation-timing-function: ease;
+      -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden; }
+    .photogram .view-intro .scroll-content .intro-slider .slider-pager {
+      top: 15px; }
+      .photogram .view-intro .scroll-content .intro-slider .slider-pager span.slider-pager-page {
+        top: 15px;
+        color: #fff !important; }
+
+.photogram .photogram-profile .scroll-content {
+  background-color: #fff; }
+
+.photogram .photogram-profile ion-tabs.tabs-light.tabs-top.tabs-bottom.tabs-standard {
+  display: block;
+  position: relative;
+  height: 100%; }
+
+.photogram .photogram-profile .tabs-top > .tabs, .photogram .photogram-profile .tabs.tabs-top {
+  top: 0;
+  padding-top: 0;
+  background-position: bottom;
+  border-top-width: 1px;
+  border-bottom-width: 1px; }
+  .photogram .photogram-profile .tabs-top > .tabs a, .photogram .photogram-profile .tabs.tabs-top a {
+    color: #009688; }
+
+.photogram .photogram-profile .view-container {
+  display: block;
+  position: relative;
+  top: 48px; }
+
+.photogram .photogram-profile .profile-top {
+  display: block;
+  position: relative; }
+  .photogram .photogram-profile .profile-top img {
+    display: inline;
+    min-width: 85px;
+    min-height: 85px;
+    max-width: 85px;
+    border-radius: 50%;
+    margin: 6px;
+    background-color: #ddd; }
+  .photogram .photogram-profile .profile-top .col-statics {
+    margin-left: 5px; }
+    .photogram .photogram-profile .profile-top .col-statics span {
+      font-weight: bold;
+      color: #000;
+      display: block;
+      text-align: center;
+      font-size: 20px; }
+    .photogram .photogram-profile .profile-top .col-statics h3 {
+      font-size: 14px;
+      color: #888;
+      margin: 5px 0px;
+      display: block;
+      font-variant: small-caps;
+      text-align: center;
+      text-transform: lowercase;
+      white-space: nowrap; }
+  .photogram .photogram-profile .profile-top .col-edit {
+    padding: 0; }
+    .photogram .photogram-profile .profile-top .col-edit .button {
+      font-size: 14px;
+      padding: 0px;
+      background: #edeeee;
+      border: none;
+      color: #53575c;
+      text-transform: uppercase;
+      width: 97%;
+      line-height: 10px;
+      min-height: 27px;
+      max-height: 10px;
+      font-weight: bold;
+      margin: 0 auto;
+      display: block; }
+      .photogram .photogram-profile .profile-top .col-edit .button.button-follow {
+        border: 1px solid #009688;
+        background-color: #fff; }
+        .photogram .photogram-profile .profile-top .col-edit .button.button-follow span {
+          color: #009688;
+          font-size: 14px; }
+      .photogram .photogram-profile .profile-top .col-edit .button.button-unfollow {
+        border: 1px solid #009688;
+        background-color: #009688; }
+        .photogram .photogram-profile .profile-top .col-edit .button.button-unfollow span {
+          color: #fff;
+          font-size: 14px; }
+  .photogram .photogram-profile .profile-top .tabs-light {
+    background: #fff;
+    height: 50px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: block;
+    position: inherit; }
+    .photogram .photogram-profile .profile-top .tabs-light .tab-nav.tabs .tab-item {
+      -webkit-transform: all .5s ease;
+      -ms-transform: all .5s ease;
+      transform: all .5s ease; }
+    .photogram .photogram-profile .profile-top .tabs-light .tab-nav.tabs .tab-item.tab-item-active, .photogram .photogram-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .photogram .photogram-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
+      background-color: #fff;
+      border: none;
+      color: #009688; }
+
+.photogram .photogram-profile .profile-view {
+  display: block;
+  overflow: hidden;
+  background-color: #f1f1f1; }
+  .photogram .photogram-profile .profile-view .row {
+    padding: 0; }
+    .photogram .photogram-profile .profile-view .row .col {
+      padding: 2px;
+      margin: 0; }
+
 photogram-photo-grid .row .col {
   height: 150px;
   position: relative;
@@ -12561,18 +12945,6 @@ ion-nav-bar.bar.nav-bar-container.nav-bar-tabs-top {
         font-size: 18px;
         border-bottom: 2px solid #fff; }
 
-.button-facebook {
-  background: none repeat scroll 0 0 #3f569b !important;
-  border: 1px solid #222e52;
-  color: #fff !important;
-  position: relative;
-  width: 100%; }
-  .button-facebook i {
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-    left: 20px;
-    padding-right: 10px;
-    position: absolute; }
-
 .line {
   display: block;
   margin: 0 auto;
@@ -12608,329 +12980,5 @@ ion-nav-bar.bar.nav-bar-container.nav-bar-tabs-top {
 
 .platform-ios.platform-cordova:not(.fullscreen) .form-login .tabs-top > .tabs {
   top: 0px !important; }
-
-.photogram .view-intro ion-footer-bar {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 0 10px;
-  height: 60px; }
-
-.photogram .view-intro .scroll-content {
-  background-image: url(../img/bg.jpg);
-  background-size: cover;
-  background-color: #009688;
-  height: 100%;
-  color: #fff;
-  margin: 0; }
-  .photogram .view-intro .scroll-content .button-fab {
-    border-radius: 50%;
-    min-width: 35px;
-    min-height: 35px;
-    width: 35px;
-    height: 35px;
-    border: none;
-    -webkit-transition: all 1s ease;
-    transition: all 1s ease; }
-    .photogram .view-intro .scroll-content .button-fab.left {
-      left: 10px !important;
-      position: absolute;
-      bottom: 20px;
-      width: 10px !important;
-      box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.4); }
-    .photogram .view-intro .scroll-content .button-fab.left:active {
-      box-shadow: 4px 5px 6px 5px rgba(0, 0, 0, 0.4); }
-    .photogram .view-intro .scroll-content .button-fab.right {
-      right: 10px !important;
-      position: absolute;
-      bottom: 20px;
-      width: 10px !important;
-      box-shadow: -2px 5px 6px 0px rgba(0, 0, 0, 0.4); }
-    .photogram .view-intro .scroll-content .button-fab.right:active {
-      box-shadow: -2px 5px 6px 5px rgba(0, 0, 0, 0.4); }
-  .photogram .view-intro .scroll-content .intro-slider {
-    display: block;
-    height: 100%; }
-    .photogram .view-intro .scroll-content .intro-slider .content {
-      position: relative;
-      height: 100%; }
-      .photogram .view-intro .scroll-content .intro-slider .content .last .logo2 {
-        position: absolute;
-        display: block;
-        margin: 20px auto;
-        width: 250px;
-        height: 100px;
-        top: 30%;
-        left: 0;
-        right: 0; }
-        .photogram .view-intro .scroll-content .intro-slider .content .last .logo2 img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 80px; }
-        .photogram .view-intro .scroll-content .intro-slider .content .last .logo2 span.icon2-logo {
-          font-size: 45pt;
-          color: #fff;
-          display: block;
-          margin: 22px;
-          position: absolute;
-          top: 0;
-          left: 20%; }
-      .photogram .view-intro .scroll-content .intro-slider .content .last button.button {
-        position: absolute;
-        color: #fff;
-        border: 1px solid #fff;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 90%;
-        bottom: 10%; }
-      .photogram .view-intro .scroll-content .intro-slider .content span.top {
-        display: block;
-        padding: 0;
-        margin: 10px 15px;
-        height: 14%;
-        position: relative;
-        -o-animation-name: fadeInDown;
-        -o-animation-delay: 0.5s;
-        -o-animation-duration: 1s;
-        -o-animation-timing-function: ease;
-        -o-animation-fill-mode: both;
-        -moz-animation-name: fadeInDown;
-        -moz-animation-delay: 0.5s;
-        -moz-animation-duration: 1s;
-        -moz-animation-timing-function: ease;
-        -moz-animation-fill-mode: both;
-        -webkit-animation-name: fadeInDown;
-        -webkit-animation-delay: 0.5s;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-timing-function: ease;
-        -webkit-animation-fill-mode: both;
-        -webkit-backface-visibility: hidden;
-        -webkit-animation-name: fadeInDown;
-                animation-name: fadeInDown;
-        -webkit-animation-delay: 0.5s;
-                animation-delay: 0.5s;
-        -webkit-animation-duration: 1s;
-                animation-duration: 1s;
-        -webkit-animation-timing-function: ease;
-                animation-timing-function: ease;
-        -webkit-animation-fill-mode: both;
-                animation-fill-mode: both;
-        -webkit-backface-visibility: hidden;
-                backface-visibility: hidden; }
-        .photogram .view-intro .scroll-content .intro-slider .content span.top h2 {
-          display: block;
-          position: absolute;
-          text-align: center;
-          color: #fff;
-          bottom: 25%;
-          width: 100%;
-          margin: 0;
-          padding: 0;
-          font-size: 16pt;
-          line-height: 16pt; }
-      .photogram .view-intro .scroll-content .intro-slider .content .phone {
-        position: relative;
-        width: 80%;
-        height: 736px;
-        max-width: 414px;
-        margin: 0 auto;
-        -o-animation-name: fadeInUp;
-        -o-animation-delay: 0.1s;
-        -o-animation-duration: 1s;
-        -o-animation-timing-function: ease;
-        -o-animation-fill-mode: both;
-        -moz-animation-name: fadeInUp;
-        -moz-animation-delay: 0.1s;
-        -moz-animation-duration: 1s;
-        -moz-animation-timing-function: ease;
-        -moz-animation-fill-mode: both;
-        -webkit-animation-name: fadeInUp;
-        -webkit-animation-delay: 0.1s;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-timing-function: ease;
-        -webkit-animation-fill-mode: both;
-        -webkit-backface-visibility: hidden;
-        -webkit-animation-name: fadeInUp;
-                animation-name: fadeInUp;
-        -webkit-animation-delay: 0.1s;
-                animation-delay: 0.1s;
-        -webkit-animation-duration: 1s;
-                animation-duration: 1s;
-        -webkit-animation-timing-function: ease;
-                animation-timing-function: ease;
-        -webkit-animation-fill-mode: both;
-                animation-fill-mode: both;
-        -webkit-backface-visibility: hidden;
-                backface-visibility: hidden; }
-        .photogram .view-intro .scroll-content .intro-slider .content .phone.iphone {
-          background-image: url(../img/devices/iphone.png);
-          background-repeat: no-repeat;
-          background-size: contain;
-          width: 98%;
-          max-width: 407px;
-          min-width: 315px; }
-          .photogram .view-intro .scroll-content .intro-slider .content .phone.iphone img {
-            display: block;
-            margin: 0 auto;
-            position: relative;
-            width: 79%;
-            top: 11.1%; }
-        .photogram .view-intro .scroll-content .intro-slider .content .phone.android {
-          background-image: url(../img/devices/android.png);
-          background-repeat: no-repeat;
-          background-size: contain;
-          width: 90%;
-          max-width: 340px;
-          min-width: 330px;
-          margin-top: 10px; }
-          .photogram .view-intro .scroll-content .intro-slider .content .phone.android img {
-            display: block;
-            margin: 0 auto;
-            position: relative;
-            width: 90%;
-            top: 7.1%; }
-    .photogram .view-intro .scroll-content .intro-slider .slider {
-      display: block;
-      height: 100%;
-      padding-top: 30px; }
-    .photogram .view-intro .scroll-content .intro-slider .slider-pager,
-    .photogram .view-intro .scroll-content .intro-slider button.button {
-      -o-animation-name: fadeInDown;
-      -o-animation-delay: 0.1s;
-      -o-animation-duration: 1s;
-      -o-animation-timing-function: ease;
-      -o-animation-fill-mode: both;
-      -moz-animation-name: fadeInDown;
-      -moz-animation-delay: 0.1s;
-      -moz-animation-duration: 1s;
-      -moz-animation-timing-function: ease;
-      -moz-animation-fill-mode: both;
-      -webkit-animation-name: fadeInDown;
-      -webkit-animation-delay: 0.1s;
-      -webkit-animation-duration: 1s;
-      -webkit-animation-timing-function: ease;
-      -webkit-animation-fill-mode: both;
-      -webkit-backface-visibility: hidden;
-      -webkit-animation-name: fadeInDown;
-              animation-name: fadeInDown;
-      -webkit-animation-delay: 0.1s;
-              animation-delay: 0.1s;
-      -webkit-animation-duration: 1s;
-              animation-duration: 1s;
-      -webkit-animation-timing-function: ease;
-              animation-timing-function: ease;
-      -webkit-animation-fill-mode: both;
-              animation-fill-mode: both;
-      -webkit-backface-visibility: hidden;
-              backface-visibility: hidden; }
-    .photogram .view-intro .scroll-content .intro-slider .slider-pager {
-      top: 15px; }
-      .photogram .view-intro .scroll-content .intro-slider .slider-pager span.slider-pager-page {
-        top: 15px;
-        color: #fff !important; }
-
-.photogram .photogram-profile .scroll-content {
-  background-color: #fff; }
-
-.photogram .photogram-profile ion-tabs.tabs-light.tabs-top.tabs-bottom.tabs-standard {
-  display: block;
-  position: relative;
-  height: 100%; }
-
-.photogram .photogram-profile .tabs-top > .tabs, .photogram .photogram-profile .tabs.tabs-top {
-  top: 0;
-  padding-top: 0;
-  background-position: bottom;
-  border-top-width: 1px;
-  border-bottom-width: 1px; }
-  .photogram .photogram-profile .tabs-top > .tabs a, .photogram .photogram-profile .tabs.tabs-top a {
-    color: #009688; }
-
-.photogram .photogram-profile .view-container {
-  display: block;
-  position: relative;
-  top: 48px; }
-
-.photogram .photogram-profile .profile-top {
-  display: block;
-  position: relative; }
-  .photogram .photogram-profile .profile-top img {
-    display: inline;
-    min-width: 85px;
-    min-height: 85px;
-    max-width: 85px;
-    border-radius: 50%;
-    margin: 6px;
-    background-color: #ddd; }
-  .photogram .photogram-profile .profile-top .col-statics {
-    margin-left: 5px; }
-    .photogram .photogram-profile .profile-top .col-statics span {
-      font-weight: bold;
-      color: #000;
-      display: block;
-      text-align: center;
-      font-size: 20px; }
-    .photogram .photogram-profile .profile-top .col-statics h3 {
-      font-size: 14px;
-      color: #888;
-      margin: 5px 0px;
-      display: block;
-      font-variant: small-caps;
-      text-align: center;
-      text-transform: lowercase;
-      white-space: nowrap; }
-  .photogram .photogram-profile .profile-top .col-edit {
-    padding: 0; }
-    .photogram .photogram-profile .profile-top .col-edit .button {
-      font-size: 14px;
-      padding: 0px;
-      background: #edeeee;
-      border: none;
-      color: #53575c;
-      text-transform: uppercase;
-      width: 97%;
-      line-height: 10px;
-      min-height: 27px;
-      max-height: 10px;
-      font-weight: bold;
-      margin: 0 auto;
-      display: block; }
-      .photogram .photogram-profile .profile-top .col-edit .button.button-follow {
-        border: 1px solid #009688;
-        background-color: #fff; }
-        .photogram .photogram-profile .profile-top .col-edit .button.button-follow span {
-          color: #009688;
-          font-size: 14px; }
-      .photogram .photogram-profile .profile-top .col-edit .button.button-unfollow {
-        border: 1px solid #009688;
-        background-color: #009688; }
-        .photogram .photogram-profile .profile-top .col-edit .button.button-unfollow span {
-          color: #fff;
-          font-size: 14px; }
-  .photogram .photogram-profile .profile-top .tabs-light {
-    background: #fff;
-    height: 50px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    display: block;
-    position: inherit; }
-    .photogram .photogram-profile .profile-top .tabs-light .tab-nav.tabs .tab-item {
-      -webkit-transform: all .5s ease;
-      -ms-transform: all .5s ease;
-      transform: all .5s ease; }
-    .photogram .photogram-profile .profile-top .tabs-light .tab-nav.tabs .tab-item.tab-item-active, .photogram .photogram-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.active, .photogram .photogram-profile .profile-top .tabs-light .tab-nav.tabs .instagram ion-tabs.tabs-dark.tabs-photogram .tab-item.activated {
-      background-color: #fff;
-      border: none;
-      color: #009688; }
-
-.photogram .photogram-profile .profile-view {
-  display: block;
-  overflow: hidden;
-  background-color: #f1f1f1; }
-  .photogram .photogram-profile .profile-view .row {
-    padding: 0; }
-    .photogram .photogram-profile .profile-view .row .col {
-      padding: 2px;
-      margin: 0; }
 
 /*# sourceMappingURL=map/ionic.app.css.map */

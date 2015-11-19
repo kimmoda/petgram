@@ -10,16 +10,15 @@ gulp.task('prettify', [
     'prettify:html:app'
 ]);
 
-gulp.task('prettify:js:app', function (done) {
+gulp.task('prettify:js:app', function () {
     gulp.src(paths.src +'/js/**/*.js')
         .pipe(prettify({config: ".jsbeautifyrc"}))
-        .pipe(gulp.dest(paths.src + '/js'))
-        .on('end', done);
+        .pipe(gulp.dest(paths.src + '/js'));
 });
 
 
 // HTML
-gulp.task('prettify:html:app', function (done) {
+gulp.task('prettify:html:app', function () {
     gulp.src(paths.src + '/js/**/*.html')
         .pipe(prettify({
             braceStyle         : "collapse",
@@ -30,6 +29,5 @@ gulp.task('prettify:html:app', function (done) {
             preserveNewlines   : true,
             wrapLineLength     : 0
         }))
-        .pipe(gulp.dest(paths.src + '/js'))
-        .on('end', done);
+        .pipe(gulp.dest(paths.src + '/js'));
 });
