@@ -24,7 +24,7 @@
         init ();
 
         $rootScope.$on('PhotogramHome:reload', function () {
-            init ();
+            loadMore(true);
         });
 
         function init () {

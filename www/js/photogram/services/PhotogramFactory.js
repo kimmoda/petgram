@@ -1,4 +1,4 @@
-(function (window, angular, Parse,undefined) {
+(function (window, angular, Parse, undefined) {
     'use strict';
     angular
         .module('app.photogram')
@@ -6,7 +6,7 @@
 
     function PhotogramFactory ($q, gettextCatalog, User, Loading) {
 
-        var currentUser = Parse.User.current();
+        var currentUser  = Parse.User.current();
         var limitComment = 3;
 
         return {
@@ -14,8 +14,9 @@
             listActivity: listActivity,
             all: all,
             home: home,
-            add: add,
+            post: post,
             get: get,
+            deletePhoto: deletePhoto,
             find: find,
             nearby: nearby,
             profile: profile,
@@ -44,9 +45,22 @@
             }
         }
 
-
-        function add (_params) {
+        function deletePhoto (galleryId) {
             var defer = $q.defer();
+
+            new Parse
+                .Query ('Gallery')
+                .get(galleryId, function (resp) {
+                    resp.destroy(function () {
+                        defer.resolve(resp);
+                    });
+                });
+
+            return defer.promise;
+        }
+
+        function post (_params) {
+            var defer       = $q.defer();
             var ImageObject = Parse.Object.extend('Gallery');
 
             if (_params.photo !== '') {
@@ -57,42 +71,37 @@
                 });
 
                 // save the parse file
-                return imageFile.save()
-                                .then(function () {
+                 imageFile
+                    .save()
+                    .then(function () {
 
-                                    _params.photo = null;
+                        _params.photo = null;
 
-                                    // create object to hold caption and file reference
-                                    var imageObject = new ImageObject ();
+                        // create object to hold caption and file reference
+                        var imageObject = new ImageObject ();
 
-                                    // set object properties
-                                    imageObject.set('title', _params.title);
-                                    imageObject.set('img', imageFile);
-                                    imageObject.set('user', Parse.User.current());
-                                    if (_params.location !== undefined) {
-                                        imageObject.set('location', new Parse.GeoPoint (_params.location.latitude, _params.location.longitude));
-                                    }
+                        // set object properties
+                        imageObject.set('title', _params.title);
+                        imageObject.set('user', Parse.User.current());
+                        imageObject.set('img', imageFile);
 
-                                    // save object to parse backend
-                                    imageObject
-                                        .save(function (resp) {
-                                            // Add User QtdPhoto
-                                            User
-                                                .update({
-                                                    qtdPhoto: currentUser.qtdPhoto ? parseInt (currentUser.qtdPhoto + 1) : 1
-                                                })
-                                                .then(function (userResp) {
-                                                    console.log(userResp);
-                                                    defer.resolve(resp);
-                                                });
+                        if (_params.location !== undefined) {
+                            imageObject.set('location', new Parse.GeoPoint (_params.location.latitude, _params.location.longitude));
+                        }
 
-                                        });
+                        // save object to parse backend
+                        imageObject
+                            .save()
+                            .then(function (resp) {
+                                console.log('Posted Photo', resp);
+                                // Add User QtdPhoto
+                                defer.resolve(resp);
+                            });
 
-
-                                }, function (error) {
-                                    console.log('Error', error);
-                                    defer.reject(error);
-                                });
+                    }, function (error) {
+                        console.log('Error', error);
+                        defer.reject(error);
+                    });
 
             } else {
                 // create object to hold caption and file reference
@@ -129,8 +138,8 @@
                 .then(function (resp) {
                     var objs = [];
                     angular.forEach(resp, function (item) {
-                        var obj = item.attributes;
-                        obj.id = item.id;
+                        var obj  = item.attributes;
+                        obj.id  = item.id;
                         obj.user = item.attributes.commentBy;
                         objs.push(obj);
                     });
@@ -242,9 +251,9 @@
 
         function nearby (position) {
             var defer = $q.defer();
-            var data = [];
+            var data  = [];
 
-            var point = new Parse.GeoPoint (position);
+            var point       = new Parse.GeoPoint (position);
             var maxDistance = 1;
 
             Loading.start();
@@ -258,12 +267,12 @@
                 .find()
                 .then(function (resp) {
                     angular.forEach(resp, function (value, key) {
-                        var size = 100;
-                        var obj = value.attributes;
-                        obj.id = value.id;
-                        obj.img = value.attributes.img.url();
+                        var size     = 100;
+                        var obj  = value.attributes;
+                        obj.id   = value.id;
+                        obj.img  = value.attributes.img.url();
                         obj.created = value.createdAt;
-                        obj.icon = {
+                        obj.icon    = {
                             size: {
                                 width: 100,
                                 height: 100
@@ -276,7 +285,7 @@
                             url: 'img/icon.png'
                         };
                         obj.icon.url = obj.img;
-                        obj.coords = {
+                        obj.coords   = {
                             latitude: obj.location._latitude,
                             longitude: obj.location._longitude
                         };
@@ -292,7 +301,7 @@
 
         function search (string, page) {
             var defer = $q.defer();
-            var data = [];
+            var data  = [];
             var limit = 15;
 
             new Parse
@@ -322,15 +331,15 @@
 
         function home (page) {
             var defer = $q.defer();
-            var limit = 9;
-            var data = new Array ();
+            var limit = 4;
+            var data  = new Array ();
             //var following = $rootScope.user.following;
             var user = new Parse.User.current ();
 
             new Parse
                 .Query ('Gallery')
                 .descending('createdAt')
-                .notEqualTo('user', user)
+                //.notEqualTo('user', user)
                 //.containedIn('ref', following)
                 //.containsAll('ref', following)
                 .include('user')
@@ -348,7 +357,7 @@
                     _.each(resp, function (item) {
                         //grab relations
 
-                        var likes = item.relation('likes');
+                        var likes    = item.relation('likes');
                         var comments = item.relation('comments');
 
                         likes
@@ -379,7 +388,7 @@
                                             };
 
                                             comment.user.id = user.id;
-                                            comment.user = processImg (comment.user);
+                                            comment.user    = processImg (comment.user);
                                             commentsData.push(comment);
                                         });
 
@@ -421,7 +430,7 @@
         function all (page, userId) {
             var defer = $q.defer();
             var limit = 18;
-            var data = new Array ();
+            var data  = new Array ();
 
             var query;
 
@@ -442,17 +451,17 @@
                     .limit(limit)
                     .equalTo('user', loadUser)
                     .skip(page * limit)
-                    .find()
+                    .find();
             } else {
 
                 query = new Parse
                     .Query ('Gallery')
                     .descending('createdAt')
-                    .notEqualTo('user', Parse.User.current())
+                    //.notEqualTo('user', Parse.User.current())
                     .include('user')
                     .limit(limit)
                     .skip(page * limit)
-                    .find()
+                    .find();
             }
             query
                 .then(function (resp) {
@@ -464,7 +473,7 @@
                     _.each(resp, function (item) {
                         //grab relations
 
-                        var likes = item.relation('likes');
+                        var likes    = item.relation('likes');
                         var comments = item.relation('comments');
 
                         likes
@@ -486,14 +495,14 @@
                                         var commentsData = [];
 
                                         angular.forEach(comments, function (item) {
-                                            var user = item.attributes.commentBy;
+                                            var user        = item.attributes.commentBy;
                                             var comment = {
                                                 id: item.id,
                                                 text: item.attributes.text,
                                                 user: user.attributes
                                             };
                                             comment.user.id = user.id;
-                                            comment.user = processImg (comment.user);
+                                            comment.user    = processImg (comment.user);
                                             commentsData.push(comment);
                                         });
 
@@ -537,7 +546,7 @@
                 .then(function (resp) {
                     console.log(resp);
 
-                    var likes = resp.relation('likes');
+                    var likes    = resp.relation('likes');
                     var comments = resp.relation('comments');
 
                     likes
@@ -564,7 +573,7 @@
                                             var commentsData = [];
 
                                             angular.forEach(comments, function (item) {
-                                                var comment = {
+                                                var comment     = {
                                                     id: item.id,
                                                     text: item.attributes.text,
                                                     user: item.attributes.commentBy.attributes
@@ -573,7 +582,7 @@
                                                 commentsData.push(comment);
                                             });
 
-                                            var obj = {
+                                            var obj     = {
                                                 id: item.id,
                                                 item: item.attributes,
                                                 created: item.createdAt,
@@ -583,7 +592,7 @@
                                                 comments: commentsData
                                             };
                                             obj.user.id = item.attributes.user.id;
-                                            obj.user = processImg (obj.user);
+                                            obj.user    = processImg (obj.user);
 
                                             defer.resolve(obj);
                                             Loading.end();
@@ -629,7 +638,7 @@
             find (form.galleryId)
                 .then(function (gallery) {
                     var Object = Parse.Object.extend('GalleryComment');
-                    var item = new Object ();
+                    var item   = new Object ();
 
                     angular.forEach(form, function (value, key) {
                         item.set(key, value);
@@ -692,7 +701,7 @@
             find (galleryId)
                 .then(function (gallery) {
                     var Object = new Parse.Object.extend ('GalleryLike');
-                    var item = new Object ();
+                    var item   = new Object ();
 
                     item.set('user', currentUser);
                     item.set('gallery', gallery);
@@ -860,8 +869,8 @@
                 .find(userId)
                 .then(function (resp) {
                     console.log('getUser', resp);
-                    var obj = resp.attributes;
-                    obj.id = resp.id;
+                    var obj  = resp.attributes;
+                    obj.id  = resp.id;
                     var user = loadProfile (obj);
 
                     // fotos
@@ -935,7 +944,7 @@
 
         function getUserGallery (userId, page) {
             var defer = $q.defer();
-            var data = new Array ();
+            var data  = new Array ();
             var limit = 9;
 
             if (userId === undefined) {
@@ -965,7 +974,7 @@
                             _.each(resp, function (item) {
                                 //grab relations
 
-                                var likes = item.relation('likes');
+                                var likes    = item.relation('likes');
                                 var comments = item.relation('comments');
 
                                 likes
@@ -992,7 +1001,7 @@
                                                         var commentsData = [];
 
                                                         angular.forEach(comments, function (item) {
-                                                            var comment = {
+                                                            var comment     = {
                                                                 id: item.id,
                                                                 text: item.attributes.text,
                                                                 user: item.attributes.commentBy.attributes
@@ -1001,7 +1010,7 @@
                                                             commentsData.push(comment);
                                                         });
 
-                                                        var obj = {
+                                                        var obj     = {
                                                             id: item.id,
                                                             item: item.attributes,
                                                             src: item.attributes.img.url(),
@@ -1012,7 +1021,7 @@
                                                             comments: commentsData
                                                         };
                                                         obj.user.id = item.attributes.user.id;
-                                                        obj.user = processImg (obj.user);
+                                                        obj.user    = processImg (obj.user);
 
                                                         data.push(obj);
                                                         cb ();
@@ -1047,12 +1056,12 @@
                     console.log(resp);
                     var data = [];
                     angular.forEach(resp, function (value, key) {
-                        var obj = value.attributes;
-                        obj.id = value.id;
+                        var obj     = value.attributes;
+                        obj.id  = value.id;
                         obj.user = (value.attributes.user) ? value.attributes.user.attributes : '';
                         obj.user = processImg (obj.user);
                         obj.created = value.createdAt;
-                        obj.img = (value.attributes.gallery) ? value.attributes.gallery.attributes.img.url() : '';
+                        obj.img     = (value.attributes.gallery) ? value.attributes.gallery.attributes.img.url() : '';
                         console.log(obj);
                         data.push(obj);
                     });
@@ -1084,7 +1093,7 @@
                 find (data.galleryId)
                     .then(function (gallery) {
                         var Object = Parse.Object.extend('GalleryActivity');
-                        var item = new Object ();
+                        var item   = new Object ();
 
                         item.set('user', Parse.User.current());
                         item.set('gallery', gallery);
@@ -1097,7 +1106,7 @@
                     });
             } else {
                 var Object = Parse.Object.extend('GalleryActivity');
-                var item = new Object ();
+                var item   = new Object ();
 
                 item.set('user', Parse.User.current());
                 item.set('action', data.action);
@@ -1111,7 +1120,7 @@
 
         function profile (userId) {
             var defer = $q.defer();
-            var user = {};
+            var user  = {};
 
             Loading.start();
 

@@ -4,7 +4,7 @@
         .module('app.photogram')
         .factory('PhotogramShare', PhotogramShareFactory);
 
-    function PhotogramShareFactory (AppConfig, gettextCatalog, $ionicActionSheet, Notify, $cordovaSocialSharing) {
+    function PhotogramShareFactory (AppConfig, $q, gettextCatalog, $ionicActionSheet, Notify, $cordovaSocialSharing) {
 
         var message = {
             title: gettextCatalog.getString('Join me from ') + AppConfig.app.name + '!',
@@ -14,23 +14,38 @@
             link: AppConfig.app.url
         };
 
-
-        function success () {
-            Notify.alert({
-                title: gettextCatalog.getString('Thanks'),
-                text: gettextCatalog.getString('Thank you for sharing!!')
-            });
-        }
-
-        function error (err) {
-            console.error(err);
-        }
+        return {
+            share: share,
+            open: open
+        };
 
         function share (social, option) {
+            var defer = $q.defer();
+
+            function success (resp) {
+                Notify.alert({
+                    title: gettextCatalog.getString('Thanks'),
+                    text: gettextCatalog.getString('Thank you for sharing!!')
+                });
+                defer.resolve(resp);
+            }
+
+            function error (err) {
+                console.error(err);
+                defer.reject();
+            }
 
             var detail = option ? option : message;
 
             switch (social) {
+                case 'instagram':
+                    window
+                        .plugins
+                        .socialsharing
+                        .shareViaInstagram(message.text, message.image, message.link)
+                        .then(success, error);
+                    break;
+
                 case 'facebook':
                     $cordovaSocialSharing
                         .shareViaFacebook(detail.text, detail.image, detail.link)
@@ -55,12 +70,17 @@
                         .then(success, error);
                     break;
             }
+
+            return defer.promise;
         }
 
         function open () {
             var modal = $ionicActionSheet
                 .show({
                     buttons: [
+                        {
+                            text: '<i class="icon ion-social-instagram"></i>' + gettextCatalog.getString('Instagram')
+                        },
                         {
                             text: '<i class="icon ion-social-facebook"></i>' + gettextCatalog.getString('Facebook')
                         },
@@ -83,15 +103,18 @@
                         console.log(index);
                         switch (index) {
                             case 0:
-                                share ('facebook');
+                                share ('instagram');
                                 break;
                             case 1:
-                                share ('twitter');
+                                share ('facebook');
                                 break;
                             case 2:
-                                share ('whatsapp');
+                                share ('twitter');
                                 break;
                             case 3:
+                                share ('whatsapp');
+                                break;
+                            case 4:
                                 share ('email');
                                 break;
                         }
@@ -101,11 +124,6 @@
                 });
 
         }
-
-        return {
-            share: share,
-            open: open
-        };
     }
 
 }) (window, window.angular);

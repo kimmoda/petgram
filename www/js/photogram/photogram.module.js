@@ -4,6 +4,7 @@
         .module('app.photogram', [
             'ionic',
             'ngCordova',
+            'app.user',
             'gettext'
         ]);
 })(window, window.angular);

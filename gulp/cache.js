@@ -7,25 +7,23 @@ var replaceFiles = [paths.src + '/js/app.js'];
 
 // Cache Modules
 // ADD
-gulp.task('cacheapp:add', function (done) {
+gulp.task('cacheapp:add', function () {
   replace ({
     regex: "//'app.cache'",
     replacement: "'app.cache'",
     paths: replaceFiles,
     recursive: false,
     silent: false
-  })
-  .on('end', done);
+  });
 });
 
 // REMOVE
-gulp.task('cacheapp:remove', function (done) {
+gulp.task('cacheapp:remove', function () {
   replace ({
     regex: "'app.cache'",
     replacement: "//'app.cache'",
     paths: replaceFiles,
     recursive: false,
     silent: false
-  })
-  .on('end', done);
+  });
 });

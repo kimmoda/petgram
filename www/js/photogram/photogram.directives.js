@@ -13,7 +13,7 @@
                 icon: '@'
             },
             template: '<div class="padding text-center loading" ng-show="loading"><ion-spinner icon="{{ icon }}"></ion-spinner></div>'
-        }
+        };
     }
 
 

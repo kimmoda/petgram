@@ -10,17 +10,12 @@
 
         $stateProvider
 
-            .state('userlist', {
-                url: '/follow',
-                controller: 'PhotogramUserListCtrl as vm',
-                templateUrl: path + '/user/friend/photogram.user.list.html'
-            })
-
 
             .state('photogram', {
                 url: '/photogram',
                 abstract: true,
-                templateUrl: path + '/layout/photogram.tabs.html'
+                templateUrl: path + '/tabs/photogram.tabs.html',
+                controller: 'PhotogramTabsCtrl as vm'
             })
 
             .state('photogram.home', {
@@ -39,16 +34,6 @@
                     tabPopular: {
                         controller: 'PhotogramPopularCtrl as vm',
                         templateUrl: path + '/popular/photogram.popular.html'
-                    }
-                }
-            })
-
-            .state('photogram.capture', {
-                url: '/capture',
-                views: {
-                    tabCapture: {
-                        controller: 'PhotogramCaptureCtrl as vm',
-                        templateUrl: path + '/capture/photogram.capture.html'
                     }
                 }
             })
@@ -93,36 +78,22 @@
                 }
             })
 
+            .state('userlist', {
+                url: '/follow',
+                controller: 'PhotogramUserListCtrl as vm',
+                templateUrl: 'js/user/friend/user.list.html'
+            })
+
             .state('photogram.account', {
                 url: '/account',
-                abstract: true,
                 views: {
                     tabProfile: {
-                        controller: 'PhotogramProfileCtrl as PhotogramProfile',
-                        templateUrl: path + '/user/profile/photogram.profile.html'
+                        controller: 'PhotogramProfileCtrl as vm',
+                        templateUrl: 'js/user/profile/profile.html'
                     }
                 }
             })
 
-            .state('photogram.account.list', {
-                url: '/list',
-                views: {
-                    tabUser: {
-                        controller: 'PhotogramProfilePhoto as vm',
-                        templateUrl: path + '/user/profile/list.html'
-                    }
-                }
-            })
-
-            .state('photogram.account.grid', {
-                url: '/grid',
-                views: {
-                    tabUser: {
-                        controller: 'PhotogramProfilePhoto as vm',
-                        templateUrl: path + '/user/profile/grid.html'
-                    }
-                }
-            })
 
         ;
     }
