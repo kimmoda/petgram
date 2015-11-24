@@ -1,12 +1,12 @@
 'use strict';
-var gulp        = require ('gulp');
-var path        = require ('path');
-var gutil       = require ('gulp-util');
-var $           = require ('gulp-load-plugins') ();
-var _           = require ('lodash');
-var sass        = require ('gulp-sass');
-var paths       = gulp.paths;
-var sassOptions = {style: 'expanded'};
+var gulp = require ('gulp');
+var $    = require ('gulp-load-plugins') ();
+
+var paths = gulp.paths;
+var sassOptions = {
+    style: 'expanded',
+    errLogToConsole: true
+};
 
 var injectFiles = gulp.src([paths.src + '/js/**/*.scss'], {read: false});
 
@@ -31,10 +31,10 @@ gulp.task('sass', function (done) {
 
     gulp
         .src(paths.scss + '/ionic.app.scss')
-        .pipe($.sourcemaps.init())
-        .pipe($.sass(sassOptions).on('error', $.sass.logError))
-        .pipe($.autoprefixer())
-        .pipe($.sourcemaps.write('./map'))
+        //.pipe($.sourcemaps.init())
+        .pipe($.sass(sassOptions))
+        //.pipe($.autoprefixer())
+        //.pipe($.sourcemaps.write('./map'))
         .pipe(gulp.dest(paths.src + '/css'))
         .on('end', done);
 });

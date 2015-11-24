@@ -21,7 +21,7 @@ gulp.task('prettify:js:app', function () {
 gulp.task('prettify:html:app', function () {
     gulp.src(paths.src + '/js/**/*.html')
         .pipe(prettify({
-            braceStyle         : "collapse",
+            braceStyle         : 'collapse',
             indentChar: " ",
             indentScripts: "keep",
             indentSize   : 4,

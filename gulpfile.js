@@ -2,6 +2,7 @@
 var gulp        = require ('gulp');
 var runSequence = require ('run-sequence');
 var conf        = require ('./gulp/config');
+var sh = require('shelljs');
 gulp.paths      = conf.paths;
 
 require ('require-dir') ('./gulp');
@@ -40,4 +41,20 @@ gulp.task('prod', function (done) {
         'usemin',
         'cacheapp:remove',
         done);
+});
+
+
+gulp.task('serve', function (done) {
+    sh.exec('ionic serve');
+    done();
+});
+
+gulp.task('livereload android', function (done) {
+    sh.exec('ionic run android -l');
+    done();
+});
+
+gulp.task('android', function (done) {
+    sh.exec('ionic run android');
+    done();
 });

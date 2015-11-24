@@ -3,9 +3,8 @@
 var path    = require('path');
 var gulp    = require('gulp');
 var console = require('console');
-var paths = gulp.paths;
 var paths = {
-  sass: ['./scss/**/*.scss', paths.src + '/js/**/*.scss']
+  sass: ['./scss/**/*.scss',  'www/js/**/*.scss',  'www/js/*.scss']
 };
 
 
