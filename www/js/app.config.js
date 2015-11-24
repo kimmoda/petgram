@@ -23,6 +23,6 @@
         clientKey: 'CIcH8fg5AogNNrEQ8IbmA5nujNjIvVNmuW0PyvCy',
         javascriptKey: 'UbrjB5Imc0btrAyoSb83HmCAHmFWc77JEB9AA1to'
       }
-    }
+    };
   }
 })(window, window.angular);

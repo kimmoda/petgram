@@ -8,7 +8,7 @@
         <div class="profile-top">
             <div class="row">
                 <div class="col-25">
-                    <img class="avatar" user-avatar ng-src="{{ user.src }}" />
+                    <img class="avatar" ng-src="{{ user.src }}" />
                 </div>
                 <div class="col col-statics">
                     <div class="row">
@@ -49,59 +49,31 @@
             </div>
 
         </div>
-        <div class="item item-divider" translate>Recent
-        </div>
-        <div class="profile-view">
-            <photogram-loading loading="loadingGallery"></photogram-loading>
 
-            <!--  Photo List-->
-            <div class="list card animated fadeIn" ng-repeat="gallery in data ">
+        <div class="item bar">
+            <div class="button-bar">
+                <button class="button button-icon icon ion-drag" ng-class="{active: tab.list}" ng-click="changeTab('list')"></button>
+                <button class="button button-icon icon ion-grid" ng-class="{active: tab.grid}" ng-click="changeTab('grid')"></button>
+                <button class="button button-icon icon ion-ios-location"></button>
 
-                <div class="item item-avatar">
-                    <img ng-src="{{gallery.user.src}}">
-
-                    <h2>{{gallery.user.name}}</h2>
-
-                    <p>{{ gallery.user.status }}</p>
-                    <span>{{gallery.created | amTimeAgo}}</span>
-                </div>
-
-                <div class="item item-body" ng-click="like = !like">
-                    <i class="icon" ng-if="like"></i> <img cache-src="{{gallery.src}}">
-                </div>
-                <div class="item item-buttons">
-                    <div class="row">
-                        <div class="col col-75">
-                            <button photogram-like ng-model="gallery" ng-class="(gallery.liked ===1) ? 'ion-ios-heart' : 'ion-ios-heart-outline' " class="button-clear button-icon button-heart"></button>
-                            <button photogram-comment ng-model="gallery" class="button-clear button-icon ion-ios-chatbubble-outline"></button>
-                        </div>
-                        <div class="col text-right">
-                            <button photogram-photo-feedback photogram="{{ gallery.id }}" class="button-clear button-icon ion-android-more-vertical"></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="padding">
-
-                    <span class="likes" photogram-like photogram="{{ gallery }}"><i class="icon ion-ios-heart"></i>
-                    {{ gallery.qtdLike + ' ' }} {{  'Likes' | translate }}</span>
-
-
-                    <div class="list-comments">
-                        <div class="comment-item">
-                            <span class="username">{{ gallery.user.name }}</span>
-                            <span class="comment">{{ gallery.item.title }}</span>
-                        </div>
-                        <div class="comment-item" ng-repeat="item in gallery.comments">
-                            <span class="username">{{ item.user.name }}</span>
-                            <span class="comment">{{ item.text }}</span>
-                        </div>
-                    </div>
-
-                    <button class="button button-block button-clear button-comment " photogram-comment ng-model="gallery">{{ 'Add comment' | translate }}
-                    </button>
-                </div>
             </div>
-            <!-- End Photolist-->
+        </div>
+
+        <div class="item item-divider" translate>Recent</div>
+
+        <div class="center-ico animated fadeIn" ng-if="empty">
+            <i class="icon ion-camera"></i>
+            <h1 translate="">No Post</h1>
+        </div>
+
+        <photogram-loading loading="loading"></photogram-loading>
+
+        <div class="tab" ng-if="tab.list">
+            <photogram-photo-list photogram="data" user="false" loading="loading"></photogram-photo-list>
+        </div>
+
+        <div class="tab" ng-if="tab.grid">
+            <photogram-photo-grid photogram="data" user="false" loading="loading"></photogram-photo-grid>
         </div>
 
 

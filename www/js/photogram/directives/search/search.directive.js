@@ -23,14 +23,15 @@
           value: ''
         };
 
-        if (attrs.class)
+        if (attrs.class) {
           element.addClass(attrs.class);
+        }
 
         if (attrs.source) {
           scope.$watch('search.value', watchSearch);
         }
 
-        function watchSearch(newValue, oldValue) {
+        function watchSearch(newValue) {
           if (newValue.length > attrs.minLength) {
             $timeout(function () {
               scope

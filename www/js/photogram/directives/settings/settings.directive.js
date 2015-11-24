@@ -15,7 +15,7 @@
         photogram: '@'
       },
       template: '',
-      link: function (scope, elem, attr) {
+      link: function (scope, elem) {
 
         elem.bind('click', openModal);
         scope.closeModal = closeModal;
@@ -43,7 +43,7 @@
         }
 
         function link(sref) {
-          $state.go(sref)
+          $state.go(sref);
           scope.closeModal();
         }
 
@@ -72,7 +72,7 @@
               console.log(resp);
               init();
               scope.closeModal();
-            })
+            });
         }
 
         function closeModal() {
@@ -81,7 +81,7 @@
         }
 
       }
-    }
+    };
   }
 
 

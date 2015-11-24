@@ -40,8 +40,7 @@
 
     $ionicPlatform.ready(function () {
 
-      // Active Ionic Analytics
-      // $ionicAnalytics.register();
+      $ionicAnalytics.register();
 
       if (cordova && cordova.plugins && cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -79,7 +78,7 @@
     $rootScope.setLanguage = function (language) {
 
       $rootScope.lang = $rootScope.langs.filter(function (item) {
-        return item.value == language;
+        return item.value === language;
       })[0];
 
       gettextCatalog.setCurrentLanguage(language);
