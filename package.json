@@ -36,10 +36,10 @@
     "gulp-ngdocs": "^0.2.13",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.2.0",
     "gulp-wrap": "^0.11.0",
-    "gulp-sass": "^2.0.4",
     "has-ansi": "^2.0.0",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
@@ -76,18 +76,28 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
-    "cordova-plugin-statusbar",
-    "cordova-plugin-camera",
-    "cordova-plugin-imagepicker",
-    "cordova-plugin-geolocation",
-    "cordova-plugin-device",
-    "cordova-plugin-console",
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-whitelist",
     "com.ionic.keyboard",
+    "cordova-plugin-camera",
+    "cordova-plugin-console",
+    "cordova-plugin-device",
     "cordova-plugin-file",
     "cordova-plugin-file-transfer",
-    "cordova-plugin-inappbrowser"
+    "cordova-plugin-geolocation",
+    "cordova-plugin-imagepicker",
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-x-socialsharing",
+    {
+      "locator": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
+      "id": "",
+      "variables": {
+        "APP_ID": "1024016557617380",
+        "APP_NAME": "Photogram"
+      }
+    }
+
   ],
   "cordovaPlatforms": [
     "ios",
