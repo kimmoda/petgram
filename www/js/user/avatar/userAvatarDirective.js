@@ -15,21 +15,34 @@
     .module('app.user')
     .directive('userAvatar', userAvatarDirective);
 
-  function userAvatarDirective(PhotoService, User) {
+  function userAvatarDirective(PhotoService, PhotogramSetting, User) {
     return {
       restrict: 'A',
       scope: {
         gallery: '@'
       },
       template: '',
-      link: function ($scope, elem, attr) {
+      link: function ($scope, elem) {
 
         elem.bind('click', openModal);
 
         function openModal() {
 
+          var option = {
+            allowEdit: PhotogramSetting.get('imageEdit'),
+            filter: PhotogramSetting.get('imageFilter'),
+            allowRotation: PhotogramSetting.get('imageRotation'),
+            quality: PhotogramSetting.get('imageQuality'),
+            correctOrientation: PhotogramSetting.get('imageEdit'),
+            targetWidth: PhotogramSetting.get('imageWidth'),
+            targetHeight: PhotogramSetting.get('imageHeight'),
+            saveToPhotoAlbum: PhotogramSetting.get('imageSaveAlbum')
+          };
+
+          console.log(option);
+
           PhotoService
-            .open()
+            .open(option)
             .then(function (imageData) {
               User
                 .updateAvatar(imageData)

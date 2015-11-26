@@ -78,7 +78,7 @@
     $rootScope.setLanguage = function (language) {
 
       $rootScope.lang = $rootScope.langs.filter(function (item) {
-        return item.value == language;
+        return item.value === language;
       })[0];
 
       gettextCatalog.setCurrentLanguage(language);

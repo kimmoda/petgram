@@ -8,8 +8,7 @@
     <!--</ion-nav-title>-->
     <ion-content class="photogram-search">
 
-        <photogram-photo-grid photogram="GallerySearchGrid.data" loading="GallerySearchGrid.loading"></photogram-photo-grid>
-
+        <photogram-photo-grid profile="true" photogram="GallerySearchGrid.data" loading="GallerySearchGrid.loading"></photogram-photo-grid>
 
         <ion-infinite-scroll ng-if="GallerySearchGrid.more" on-infinite="loadMore()"></ion-infinite-scroll>
     </ion-content>

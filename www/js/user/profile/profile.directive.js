@@ -4,118 +4,146 @@
     .module('app.user')
     .directive('photogramProfile', photogramProfile);
 
-  function photogramProfile($ionicModal, $rootScope, $q, AppConfig, Photogram, User) {
-    var path = AppConfig.path;
+  function photogramProfile($ionicModal, $rootScope, $q, Photogram, User) {
 
     return {
       restrict: 'A',
       scope: {
         user: '='
       },
-      link: function (scope, elem, attr) {
+      link: photogramProfileLink
+    };
 
-        elem.bind('click', openModal);
+    function photogramProfileLink(scope, elem) {
 
-        function init() {
-          var defer = $q.defer();
-          scope.loadingPhotogram = true;
+      elem.bind('click', openModal);
 
-          Photogram
-            .getUserGallery(scope.user.id)
-            .then(function (resp) {
-              scope.data = resp;
-              console.log(resp);
-              scope.$broadcast('scroll.refreshComplete');
-              scope.$broadcast('scroll.infiniteScrollComplete');
-              scope.loadingPhotogram = false;
-              defer.resolve(scope.data);
-            });
+      function init() {
+        var defer = $q.defer();
+        scope.loadingPhotogram = true;
 
-          return defer.promise;
+        Photogram
+          .getUserGallery(scope.user.id)
+          .then(function (resp) {
+            scope.data = resp;
+            console.log(resp);
+            scope.$broadcast('scroll.refreshComplete');
+            scope.$broadcast('scroll.infiniteScrollComplete');
+            scope.loadingPhotogram = false;
+            defer.resolve(scope.data);
+          });
+
+        return defer.promise;
+      }
+
+      function changeTab(tab) {
+        if (tab === 'list') {
+          scope.tab = {
+            list: true,
+            grid: false
+          };
+        } else {
+          scope.tab = {
+            list: false,
+            grid: true
+          };
         }
+      }
 
-        function getFollower(userId) {
-          scope.loadingFollowers = true;
-          scope.loadingFollowing = true;
-          scope.loadingPhotos = true;
+      function getFollower(userId) {
+        scope.loadingFollowers = true;
+        scope.loadingFollowing = true;
+        scope.loadingPhotos = true;
 
-          Photogram
-            .getUserGalleryQtd(userId)
-            .then(function (qtdPhotos) {
-              scope.user.qtdPhotos = qtdPhotos;
-              scope.loadingPhotos = false;
-            });
+        Photogram
+          .getUserGalleryQtd(userId)
+          .then(function (qtdPhotos) {
+            scope.user.qtdPhotos = qtdPhotos;
+            scope.loadingPhotos = false;
+          });
 
-          User
-            .getFollowers(userId)
-            .then(function (qtdFollowers) {
-              console.log('qtdFollower: seguindo', qtdFollowers);
-              scope.user.qtdFollowers = qtdFollowers;
-              scope.loadingFollowers = false;
-            });
+        User
+          .getFollowers(userId)
+          .then(function (qtdFollowers) {
+            console.log('qtdFollower: seguindo', qtdFollowers);
+            scope.user.qtdFollowers = qtdFollowers;
+            scope.loadingFollowers = false;
+          });
 
-          User
-            .getFollowing(userId)
-            .then(function (qtdFollowing) {
-              console.log('qtdFollowing: seguidores', qtdFollowing);
-              scope.user.qtdFollowing = qtdFollowing;
-              scope.loadingFollowing = false;
-            });
-        }
+        User
+          .getFollowing(userId)
+          .then(function (qtdFollowing) {
+            console.log('qtdFollowing: seguidores', qtdFollowing);
+            scope.user.qtdFollowing = qtdFollowing;
+            scope.loadingFollowing = false;
+          });
+      }
 
-        function openModal() {
+      function openModal() {
 
-          if (scope.user.id === $rootScope.user.id) return false;
+        console.log(scope.user);
 
-          $ionicModal
-            .fromTemplateUrl('js/user/profile/profile.modal.html', {
-              scope: scope
-            })
-            .then(function (modal) {
-              scope.modalProfile = modal;
-              scope.modalProfile.show();
+        if (scope.user.id === $rootScope.user.id) return false;
 
-              init();
-              getFollower(scope.user.id);
+        $ionicModal
+          .fromTemplateUrl('js/user/profile/profile.modal.html', {
+            scope: scope
+          })
+          .then(function (modal) {
+            scope.modalProfile = modal;
+            scope.loadingFollow = true;
+            scope.changeTab = changeTab;
+            scope.follow = follow;
+            scope.closeModal = closeModal;
+            scope.modalProfile.show();
 
-              scope.loadingFollow = true;
+            init();
+            getFollower(scope.user.id);
+            changeTab('list');
+            isFollow();
+
+            function isFollow() {
               User
                 .isFollow(scope.user.id)
-                .then(function (resp) {
-                  console.info('follow user?', resp);
-                  scope.user.follow = resp;
-                  scope.loadingFollow = false;
-                });
+                .then(isFollowResp);
+            }
 
-              scope.follow = function () {
+            function isFollowResp(resp) {
+              console.info('follow user?', resp);
+              scope.user.follow = resp;
+              scope.loadingFollow = false;
+            }
 
-                scope.loadingFollow = true;
-                var status;
+            function follow() {
 
-                if (scope.user.follow) {
-                  status = false;
-                } else {
-                  status = true;
-                }
+              scope.loadingFollow = true;
+              var status;
 
-                User
-                  .follow(status, scope.user)
-                  .then(function (resp) {
+              if (scope.user.follow) {
+                status = false;
+              } else {
+                status = true;
+              }
 
-                    console.log('Follow result', resp);
-                    scope.user.follow = status;
-                    scope.loadingFollow = false;
-                    getFollower(scope.user.id);
-                  });
-              };
+              User
+                .follow(status, scope.user)
+                .then(followResp);
 
-              scope.closeModal = function () {
-                delete scope.data;
-                scope.modalProfile.hide();
-                scope.modalProfile.remove();
-              };
-            });
-        }
+              function followResp(resp) {
+
+                console.log('Follow result', resp);
+                scope.user.follow = status;
+                scope.loadingFollow = false;
+                getFollower(scope.user.id);
+              }
+            }
+
+            function closeModal() {
+              delete scope.data;
+              scope.modalProfile.hide();
+              scope.modalProfile.remove();
+            }
+          });
       }
     }
   }

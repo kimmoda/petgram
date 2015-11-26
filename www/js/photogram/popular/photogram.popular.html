@@ -12,7 +12,7 @@
 
         <photogram-loading loading="vm.loading"></photogram-loading>
 
-        <photogram-photo-grid photogram="vm.data" loading="vm.loading"></photogram-photo-grid>
+        <photogram-photo-grid profile="true" photogram="vm.data" loading="vm.loading"></photogram-photo-grid>
 
         <div class="center-ico" ng-if="vm.empty">
             <i class="icon ion-ios-camera"></i>
@@ -20,7 +20,7 @@
             <h1 translate>Nenhuma foto postagem por perto</h1>
         </div>
 
-        <ion-infinite-scroll ng-if="!vm.loadMore&&vm.more" on-infinite="loadMore()"></ion-infinite-scroll>
+        <ion-infinite-scroll ng-if="!vm.more" on-infinite="vm.loadMore"></ion-infinite-scroll>
 
     </ion-content>
 </ion-view>

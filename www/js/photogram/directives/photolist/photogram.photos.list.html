@@ -1,8 +1,8 @@
 <div class="list card animated fadeIn" ng-repeat="gallery in data ">
 
     <div class="item item-avatar">
-        <img photogram-profile user="gallery.user" profile="{{gallery.user.id }}" ng-src="{{gallery.user.src}}">
-
+        <img photogram-profile user="gallery.user" ng-if="profile" profile="{{gallery.user.id }}" ng-src="{{gallery.user.src}}">
+        <img ng-if="!profile" ng-src="{{gallery.user.src}}">
         <h2>{{gallery.user.name}}</h2>
 
         <p>{{ gallery.user.status }}</p>

@@ -19,7 +19,7 @@
     vm.buySource = buySource;
     vm.load = load;
     vm.load($stateParams.reload);
-    $scope.loadMore = loadMore;
+    vm.loadMore = loadMore;
 
     init();
 

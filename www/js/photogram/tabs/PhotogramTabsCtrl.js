@@ -21,14 +21,14 @@
 
     function open() {
       var option = {
-        allowEdit: false,
-        filter: true,
-        allowRotation: true,
+        allowEdit: PhotogramSetting.get('imageEdit'),
+        filter: PhotogramSetting.get('imageFilter'),
+        allowRotation: PhotogramSetting.get('imageRotation'),
         quality: PhotogramSetting.get('imageQuality'),
         correctOrientation: PhotogramSetting.get('imageEdit'),
         targetWidth: PhotogramSetting.get('imageWidth'),
         targetHeight: PhotogramSetting.get('imageHeight'),
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: PhotogramSetting.get('imageSaveAlbum')
       };
 
       console.log(option);

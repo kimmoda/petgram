@@ -13,10 +13,12 @@
       restrict: 'E',
       scope: {
         data: '=photogram',
+        profile: '=',
         loading: '='
       },
       templateUrl: path + '/directives/photogrid/photogram.photos.grid.html'
-    }
+    };
+
   }
 
 

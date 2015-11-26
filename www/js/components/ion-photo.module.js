@@ -18,16 +18,10 @@
     .directive('photoCarousel', photoFilterCarouselDirective)
     .factory('CamanJs', CamanJs);
 
-
-  // TODO: options (size, crop, filter)
-  // TODO: alert photo picker or gallery
-  // TODO: crop photo
-  // TODO: filter
-  // TODO: return photo
-
   function PhotoService($ionicActionSheet, AppConfig, PhotogramShare, $jrCrop, $rootScope, $ionicModal,
     $cordovaCamera, gettextCatalog, $q, Notify) {
 
+    // Default Setting
     var setting = {
       quality: 90,
       allowEdit: false,
@@ -58,9 +52,9 @@
         targetWidth: option.width ? option.width : setting.targetWidth,
         targetHeight: option.height ? option.height : setting.targetHeight,
         saveToPhotoAlbum: option.saveToPhotoAlbum ? option.saveToPhotoAlbum : setting.saveToPhotoAlbum,
-        destinationType: Camera.DestinationType.DATA_URL,
-        encodingType: Camera.EncodingType.JPEG,
-        popoverOptions: CameraPopoverOptions,
+        destinationType: window.cordova ? Camera.DestinationType.DATA_URL : null,
+        encodingType: window.cordova ? Camera.EncodingType.JPEG : null,
+        popoverOptions: window.cordova ? CameraPopoverOptions : null,
       };
       var buttons = [{
         text: '<i class="icon ion-ios-camera"></i>' + gettextCatalog.getString('Camera')

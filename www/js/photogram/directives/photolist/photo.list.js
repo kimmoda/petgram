@@ -12,15 +12,16 @@
       restrict: 'E',
       scope: {
         data: '=photogram',
+        profile: '=',
         loading: '='
       },
       templateUrl: path + '/directives/photolist/photogram.photos.list.html',
-      controller: ActionCtrl,
+      controller: photogramPhotoListCtrl,
       controllerAs: 'vm'
     };
   }
 
-  function ActionCtrl(AppConfig, Photogram, $scope, $ionicPopup, PhotogramFeedbackForm, PhotogramFeedback,
+  function photogramPhotoListCtrl(AppConfig, Photogram, $scope, $ionicPopup, PhotogramFeedbackForm, PhotogramFeedback,
     gettextCatalog, $ionicActionSheet, $ionicModal) {
     var vm = this;
     var path = AppConfig.path;
