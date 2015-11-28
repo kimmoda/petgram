@@ -8,9 +8,9 @@
 
   function runLoading($rootScope, $ionicLoading) {
     //Loading
-    $rootScope.$on('ionicLoading:true', function () {
+    $rootScope.$on('ionicLoading:true', function (text) {
       $rootScope.loading = true;
-      $ionicLoading.show();
+      $ionicLoading.show(text);
     });
     $rootScope.$on('ionicLoading:false', function () {
       $rootScope.loading = false;
@@ -26,20 +26,20 @@
         loading: '='
       },
       template: '<div class="padding text-center loading" ng-show="loading"><ion-spinner icon="{{ icon }}"></ion-spinner></div>'
-    }
+    };
   }
 
   function Loading($rootScope, $timeout) {
+    var seconds = 0;
 
     return {
       start: showLoading,
       end: hideLoading,
-    }
+    };
 
-    var seconds = 0;
 
-    function showLoading() {
-      $rootScope.$broadcast('ionicLoading:true');
+    function showLoading(text) {
+      $rootScope.$broadcast('ionicLoading:true',text);
     }
 
     function hideLoading() {

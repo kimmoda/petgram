@@ -1,10 +1,21 @@
 (function (window, angular, undefined) {
     'use strict';
+
+    /**
+     * @ngdoc directive
+     * @name photogramProfile
+     *
+     * @description
+     * _Please update the description and restriction._
+     *
+     * @restrict A
+     * */
+
     angular
         .module('app.user')
-        .directive('photogramProfile', photogramProfile);
+        .directive('photogramProfile', photogramProfileDirective);
 
-    function photogramProfile ($ionicModal, $rootScope, $q, Photogram, User) {
+    function photogramProfileDirective($ionicModal, $rootScope, $q, Photogram, User) {
 
         return {
             restrict: 'A',
@@ -14,12 +25,12 @@
             link: photogramProfileLink
         };
 
-        function photogramProfileLink (scope, elem) {
+        function photogramProfileLink(scope, elem) {
 
             elem.bind('click', openModal);
 
-            function init () {
-                var defer              = $q.defer();
+            function init() {
+                var defer = $q.defer();
                 scope.loadingPhotogram = true;
 
                 Photogram
@@ -36,7 +47,7 @@
                 return defer.promise;
             }
 
-            function changeTab (tab) {
+            function changeTab(tab) {
                 if (tab === 'list') {
                     scope.tab = {
                         list: true,
@@ -50,16 +61,16 @@
                 }
             }
 
-            function getFollower (userId) {
+            function getFollower(userId) {
                 scope.loadingFollowers = true;
                 scope.loadingFollowing = true;
-                scope.loadingPhotos    = true;
+                scope.loadingPhotos = true;
 
                 Photogram
                     .getUserGalleryQtd(userId)
                     .then(function (qtdPhotos) {
                         scope.user.qtdPhotos = qtdPhotos;
-                        scope.loadingPhotos  = false;
+                        scope.loadingPhotos = false;
                     });
 
                 User
@@ -67,7 +78,7 @@
                     .then(function (qtdFollowers) {
                         console.log('qtdFollower: seguindo', qtdFollowers);
                         scope.user.qtdFollowers = qtdFollowers;
-                        scope.loadingFollowers  = false;
+                        scope.loadingFollowers = false;
                     });
 
                 User
@@ -75,11 +86,11 @@
                     .then(function (qtdFollowing) {
                         console.log('qtdFollowing: seguidores', qtdFollowing);
                         scope.user.qtdFollowing = qtdFollowing;
-                        scope.loadingFollowing  = false;
+                        scope.loadingFollowing = false;
                     });
             }
 
-            function openModal () {
+            function openModal() {
 
                 console.log(scope.user);
 
@@ -90,31 +101,31 @@
                         scope: scope
                     })
                     .then(function (modal) {
-                        scope.modalProfile  = modal;
+                        scope.modalProfile = modal;
                         scope.loadingFollow = true;
-                        scope.changeTab     = changeTab;
-                        scope.follow        = follow;
-                        scope.closeModal    = closeModal;
+                        scope.changeTab = changeTab;
+                        scope.follow = follow;
+                        scope.closeModal = closeModal;
                         scope.modalProfile.show();
 
-                        init ();
-                        getFollower (scope.user.id);
-                        changeTab ('list');
-                        isFollow ();
+                        init();
+                        getFollower(scope.user.id);
+                        changeTab('list');
+                        isFollow();
 
-                        function isFollow () {
+                        function isFollow() {
                             User
                                 .isFollow(scope.user.id)
                                 .then(isFollowResp);
                         }
 
-                        function isFollowResp (resp) {
+                        function isFollowResp(resp) {
                             console.info('follow user?', resp);
-                            scope.user.follow   = resp;
+                            scope.user.follow = resp;
                             scope.loadingFollow = false;
                         }
 
-                        function follow () {
+                        function follow() {
 
                             scope.loadingFollow = true;
                             var status;
@@ -129,16 +140,16 @@
                                 .follow(status, scope.user)
                                 .then(followResp);
 
-                            function followResp (resp) {
+                            function followResp(resp) {
 
                                 console.log('Follow result', resp);
-                                scope.user.follow   = status;
+                                scope.user.follow = status;
                                 scope.loadingFollow = false;
-                                getFollower (scope.user.id);
+                                getFollower(scope.user.id);
                             }
                         }
 
-                        function closeModal () {
+                        function closeModal() {
                             delete scope.data;
                             scope.modalProfile.hide();
                             scope.modalProfile.remove();
