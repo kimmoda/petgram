@@ -23,6 +23,7 @@
 
     // Default Setting
     var setting = {
+      jrCrop: false,
       quality: 90,
       allowEdit: false,
       filter: true,
@@ -74,7 +75,13 @@
 
         if (window.cordova) {
           capture(index, options)
-            .then(cropImage)
+            .then(function (image) {
+              if (options.jrCrop) {
+                cropImage(image);
+              } else {
+                resolveImage(image);
+              }
+            })
             .catch(buttonCancel);
         } else {
           Notify.alert({
@@ -88,22 +95,13 @@
       function cropImage(image) {
         actionSheet();
         cropModal('data:image/jpeg;base64,' + image, options)
-          .then(filterImage)
+          .then(res)
           .catch(buttonCancel);
-      }
-
-      function filterImage(resp) {
-        if (option.filter) {
-          filterModal(resp)
-            .then(resolveImage)
-            .catch(buttonCancel);
-        } else {
-          resolveImage(resp);
-        }
       }
 
       function resolveImage(resp) {
         console.log('resolved image');
+        actionSheet();
         defer.resolve(resp);
       }
 
@@ -185,37 +183,37 @@
 
     }
 
-    function filterModal(image) {
-      var defer = $q.defer();
+    function filterModal(image, action) {
+      image = 'data:image/jpeg;base64,' + image;
+
       var template =
         '<ion-modal-view class="modal-capture"><ion-header-bar class="bar-dark"><button class="button button-clear button-icon ion-ios-arrow-thin-left"ng-click="closeFilter()"></button><div class="title">{{ \'Filters\' | translate }}</div><button class="button button-icon " ng-click="submitFilter()"><i class="icon ion-ios-arrow-thin-right"></i></button></ion-header-bar><ion-content><photo-filter image="form.photo"></photo-filter></ion-content></ion-modal-view>';
       var scope = $rootScope.$new(true);
       scope.closeFilter = closeFilter;
       scope.submitFilter = submitFilter;
       scope.form = {
-        photo: image.toDataURL()
+        photo: image
       };
 
-      scope.modal = $ionicModal.fromTemplate(template, {
+      scope.modalFilter = $ionicModal.fromTemplate(template, {
         scope: scope
       });
 
-      scope.modal.show();
+      scope.modalFilter.show();
 
       function submitFilter() {
         var canvas = window.document.getElementById('image');
         var dataUrl = canvas.toDataURL();
         console.log('Submit Filter');
-        defer.resolve(dataUrl);
-        scope.modal.hide();
+        action(dataUrl);
       }
 
       function closeFilter() {
-        scope.modal.hide();
-        defer.reject();
+        console.log('Close Modal Filter');
+        scope.modalFilter.hide();
       }
 
-      return defer.promise;
+      $rootScope.$on('filterModal:close', closeFilter);
     }
 
 
@@ -232,7 +230,7 @@
         options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
       }
 
-      console.log(options);
+      console.log('capture image', options);
 
       $cordovaCamera
         .getPicture(options)

@@ -28,7 +28,7 @@ msgstr "Acessar com seu email"
 msgid "Activities"
 msgstr "Atividades"
 
-#: photogram/services/PhotogramFactory.js:1122
+#: photogram/services/PhotogramFactory.js:1121
 msgid "add comment"
 msgstr "adicionou um comentário"
 
@@ -36,26 +36,30 @@ msgstr "adicionou um comentário"
 msgid "Add comment"
 msgstr "Adicionar comentário"
 
-#: photogram/services/PhotogramFactory.js:1121
+#: photogram/services/PhotogramFactory.js:1120
 msgid "add photo"
 msgstr "adicionou uma foto"
+
+#: photogram/directives/photolist/photo.list.js:82
+msgid "Are you sure?"
+msgstr "Você tem certeza?"
 
 #: photogram/directives/settings/photogram.settings.modal.html:50
 msgid "Buy Source Code"
 msgstr "Comprar Código Fonte"
 
-#: components/ion-photo.module.js:60
+#: components/ion-photo.module.js:62
 msgid "Camera"
 msgstr "Tirar foto"
 
-#: components/ion-photo.module.js:126 components/ion-photo.module.js:288 components/ion-photo.module.js:334
-#: components/ion-photo.module.js:67 photogram/directives/comment/photogramCommentDirective.js:98
+#: components/ion-photo.module.js:127 components/ion-photo.module.js:292 components/ion-photo.module.js:338
+#: components/ion-photo.module.js:71 photogram/directives/comment/photogramCommentDirective.js:98
 #: photogram/directives/photolist/photo.list.js:64 photogram/services/PhotogramShareFactory.js:92
 #: user/recovery/recoveryPassDirective.js:48
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: components/ion-photo.module.js:287
+#: components/ion-photo.module.js:291
 msgid "Change Image"
 msgstr "Trocar imagem"
 
@@ -87,6 +91,10 @@ msgstr "Crie sua rede social de fotos com Ionic Framework"
 msgid "Delete comment"
 msgstr "Excluir comentário"
 
+#: photogram/directives/photolist/photo.list.js:81
+msgid "Delete photo"
+msgstr "Excluir foto"
+
 #: photogram/directives/photolist/photo.list.js:54
 msgid "Delete your photo"
 msgstr "Deletar foto"
@@ -111,7 +119,7 @@ msgstr "EDITAR SEU PERFIL"
 msgid "Email"
 msgstr "Email"
 
-#: components/ion-photo.module.js:82
+#: components/ion-photo.module.js:92
 msgid "Enabled your camera"
 msgstr "Ative sua câmera"
 
@@ -128,7 +136,7 @@ msgstr "Compartilhe suas melhores fotos"
 msgid "Enter"
 msgstr "Entrar"
 
-#: components/ion-photo.module.js:81
+#: components/ion-photo.module.js:91
 msgid "Error"
 msgstr "Erro"
 
@@ -184,7 +192,7 @@ msgstr "Esqueceu sua senha"
 msgid "Forgot your password?"
 msgstr "Esqueceu sua senha?"
 
-#: components/ion-photo.module.js:62
+#: components/ion-photo.module.js:65
 msgid "Gallery"
 msgstr "Galeria de Fotos"
 
@@ -230,7 +238,7 @@ msgstr "Junte-se a mim no"
 msgid "Like"
 msgstr "Curtir"
 
-#: photogram/services/PhotogramFactory.js:1123
+#: photogram/services/PhotogramFactory.js:1122
 msgid "like photo"
 msgstr "curtiu a foto"
 
@@ -300,11 +308,11 @@ msgstr "Senha"
 msgid "Photo"
 msgstr "Foto"
 
-#: components/ion-photo.module.js:284
+#: components/ion-photo.module.js:287
 msgid "Photo Album"
 msgstr "Álbum de foto"
 
-#: components/ion-photo.module.js:282
+#: components/ion-photo.module.js:284
 msgid "Photo Camera"
 msgstr "Foto da Câmera"
 
@@ -344,7 +352,7 @@ msgstr "Recente"
 msgid "Recent List"
 msgstr "Recente"
 
-#: photogram/services/PhotogramFactory.js:1125
+#: photogram/services/PhotogramFactory.js:1124
 msgid "register"
 msgstr "se cadastrou"
 
@@ -352,7 +360,7 @@ msgstr "se cadastrou"
 msgid "Register"
 msgstr "Cadastro"
 
-#: photogram/services/PhotogramFactory.js:1126
+#: photogram/services/PhotogramFactory.js:1125
 msgid "registered"
 msgstr "se cadastrou"
 
@@ -368,7 +376,7 @@ msgstr "Denunciar"
 msgid "Report a Problem"
 msgstr "Reportar um Problema"
 
-#: components/ion-photo.module.js:127 components/ion-photo.module.js:335
+#: components/ion-photo.module.js:128 components/ion-photo.module.js:339
 msgid "Save"
 msgstr "Salvar"
 
@@ -398,7 +406,7 @@ msgstr "Compartilhar"
 msgid "Share in"
 msgstr "Compartilhar no"
 
-#: components/ion-photo.module.js:66
+#: components/ion-photo.module.js:70
 msgid "Share Photo"
 msgstr "Compartilhar Foto"
 
@@ -432,7 +440,7 @@ msgstr "Obrigado por enviar seu Feedback"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: photogram/services/PhotogramFactory.js:1124
+#: photogram/services/PhotogramFactory.js:1123
 msgid "unlike photo"
 msgstr "tirou o curtir da foto"
 

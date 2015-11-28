@@ -39,7 +39,7 @@
 
 
     function showLoading(text) {
-      $rootScope.$broadcast('ionicLoading:true',text);
+      $rootScope.$broadcast('ionicLoading:true', text);
     }
 
     function hideLoading() {

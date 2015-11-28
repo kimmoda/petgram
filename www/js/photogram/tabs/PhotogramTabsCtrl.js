@@ -13,7 +13,8 @@
     .module('app.photogram')
     .controller('PhotogramTabsCtrl', PhotogramTabsController);
 
-  function PhotogramTabsController($scope, $state, AppConfig, Photogram, $ionicModal, Loading, PhotogramSetting,
+  function PhotogramTabsController($scope, $state, AppConfig, $rootScope, Photogram, $ionicModal, Loading,
+    PhotogramSetting,
     PhotoService) {
     var vm = this;
     var path = AppConfig.path;
@@ -21,6 +22,7 @@
 
     function open() {
       var option = {
+        crop: PhotogramSetting.get('imageCrop'),
         allowEdit: PhotogramSetting.get('imageEdit'),
         filter: PhotogramSetting.get('imageFilter'),
         allowRotation: PhotogramSetting.get('imageRotation'),
@@ -39,13 +41,13 @@
         .catch(goHome);
     }
 
+
     function goHome() {
       console.warn('Deu erro');
       $state.go('photogram.home');
     }
 
     function modalPost(image) {
-      console.log('ModalPost', image);
       $scope.closePost = closeModalPost;
       $scope.submitPost = submitPost;
       $scope.form = {
@@ -54,15 +56,23 @@
         photo: image,
         geo: false
       };
-      $ionicModal
-        .fromTemplateUrl(path + '/share/photogram.post.modal.html', {
-          scope: $scope,
-          focusFirstInput: true
-        })
-        .then(function (modal) {
-          $scope.modalPost = modal;
-          $scope.modalPost.show();
+
+      PhotoService
+        .filter(image, function (resp) {
+
+          $ionicModal
+            .fromTemplateUrl(path + '/share/photogram.post.modal.html', {
+              scope: $scope,
+              focusFirstInput: true
+            })
+            .then(function (modal) {
+              console.log('Modal post photo filter', resp);
+              $scope.form.photo = resp;
+              $scope.modalPost = modal;
+              $scope.modalPost.show();
+            });
         });
+
 
       function closeModalPost() {
         $scope.modalPost.hide();
@@ -76,14 +86,14 @@
         Loading.start();
         Photogram
           .post(form)
-          .then(sharePhoto);
+          .then(function () {
+            closeModalPost();
+            $rootScope.$emit('filterModal:close');
+            $rootScope.$emit('PhotogramHome:reload');
+          });
       }
 
-      function sharePhoto(resp) {
-        console.log('SharePhoto', resp);
-        closeModalPost();
-        PhotoService.share(resp);
-      }
+
 
     }
 
