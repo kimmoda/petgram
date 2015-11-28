@@ -78,8 +78,8 @@
 
           $ionicPopup
             .confirm({
-              title: 'Delete photo',
-              template: 'Are you sure you delete this photo?'
+              title: gettextCatalog.getString('Delete photo'),
+              template: gettextCatalog.getString('Are you sure?')
             })
             .then(function (res) {
               if (res) {

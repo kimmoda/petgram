@@ -15,7 +15,7 @@
         .module('app.photogram')
         .directive('photogramComment', photogramCommentDirective);
 
-    function photogramCommentDirective ($ionicModal, Loading, $ionicPopup, User, Notify, $timeout, AppConfig, Photogram, PhotogramForm) {
+    function photogramCommentDirective ($ionicModal, Loading, $ionicPopup, gettextCatalog, User, Notify, $timeout, AppConfig, Photogram, PhotogramForm) {
 
         var path = AppConfig.path;
 
@@ -70,7 +70,7 @@
                 function deleteComment (obj) {
                     console.log(obj);
                     Notify
-                        .confirm('Delete comment', 'You are sure?')
+                        .confirm(gettextCatalog.getString('Delete comment'), gettextCatalog.getString('You are sure?'))
                         .then(function (resp) {
                             console.log(resp);
                             if (resp) {
@@ -91,13 +91,13 @@
                     $ionicPopup
                         .show({
                             template: '<input type="text" ng-model="data.text">',
-                            title: 'Edit comment',
+                            title: gettextCatalog.getString('Edit comment'),
                             //subTitle: 'Please use normal things',
                             scope: scope,
                             buttons: [
-                                {text: 'Cancel'},
+                                {text: gettextCatalog.getString('Cancel')},
                                 {
-                                    text: '<b>Save</b>',
+                                    text: '<b>OK</b>',
                                     type: 'button-positive',
                                     onTap: function (e) {
                                         console.log(scope.data);
@@ -111,14 +111,16 @@
                                 }
                             ]
                         })
-                        .then(function (res) {
-                            console.log('Tapped!', res);
-                            Photogram
-                                .updateComment(res)
-                                .then(function  (resp) {
-                                    console.log(resp);
-                                    getComments();
-                                });
+                        .then(function (resp) {
+                            console.log(resp);
+                            if(resp) {
+                                Photogram
+                                    .updateComment(resp)
+                                    .then(function (resp) {
+                                        console.log(resp);
+                                        getComments ();
+                                    });
+                            }
                         });
                 }
 

@@ -57,9 +57,8 @@
             new Parse
                 .Query ('Gallery')
                 .get(galleryId, function (resp) {
-                    resp.destroy(function () {
-                        defer.resolve(resp);
-                    });
+                    resp.destroy();
+                    defer.resolve(resp);
                 });
 
             return defer.promise;
