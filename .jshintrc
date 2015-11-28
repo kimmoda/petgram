@@ -12,7 +12,7 @@
   "newcap": false,
   "noarg": true,
   "quotmark": "single",
-  "undef": true,
+  "undef": false,
   "unused": true,
   "trailing": true,
   "smarttabs": true,

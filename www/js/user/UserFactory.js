@@ -107,7 +107,7 @@
         update(user)
           .then(function () {
             ParsePush.start(user.email);
-          })
+          });
       } else {
         update(user)
           .then(function () {
@@ -123,14 +123,14 @@
 
 
     function loadProfile(response) {
-      console.log('LoadProfile', response);
+      //console.log('LoadProfile', response);
       if (response) {
         var user = response.attributes;
         user.id = response.id;
         user = processImg(user);
         delete $rootScope.user;
         $rootScope.user = user;
-        console.log('load profile', response, user);
+        //console.log('load profile', response, user);
         return user;
       } else {
         logout();
@@ -139,7 +139,7 @@
     }
 
     function processImg(obj) {
-      console.log('process image', obj);
+      //console.log('process image', obj);
       if (obj.facebook) {
         obj.src = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
       } else {

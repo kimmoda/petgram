@@ -4,7 +4,7 @@
     .module('app.user')
     .config(addRoute);
 
-  function addRoute($stateProvider, $urlRouterProvider, AppConfig) {
+  function addRoute($stateProvider, $urlRouterProvider) {
 
     var path = 'js/user';
 
