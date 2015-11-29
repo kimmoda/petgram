@@ -1,11 +1,13 @@
 Photogram 1.3
 ===================
-### Summary
-
-[TOC]
 
 # Important warning
 Although this project be based on version 1.2, the code has changed a lot, became more organized and if you have already started another project, I advise you to do a version using the 1.3 and go moving slowly.
+
+# Manual Step by Step
+
+- English Version:  http://pt.slideshare.net/movibe/photogram-english-manual
+- Versão em Portugês:  http://pt.slideshare.net/movibe/photogram-manual-em-portugus
 
 ----------
 ## Release Notes 1.3
