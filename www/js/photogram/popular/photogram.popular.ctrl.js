@@ -53,10 +53,10 @@
           vm.empty = false;
 
         })
-        .catch(function () {
+        .catch(function (status) {
           $scope.$broadcast('scroll.refreshComplete');
           $scope.$broadcast('scroll.infiniteScrollComplete');
-          if (vm.data.length) {
+          if (!status) {
             vm.loading = false;
             vm.page++;
           } else {

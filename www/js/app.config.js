@@ -19,9 +19,9 @@
       color: '#00796B',
       facebook: '1024016557617380',
       parse: {
-        applicationId: '7lWT9DJntSvMKTetpoT0wL79pTG9dk4ob5pztktX',
-        clientKey: 'CIcH8fg5AogNNrEQ8IbmA5nujNjIvVNmuW0PyvCy',
-        javascriptKey: 'UbrjB5Imc0btrAyoSb83HmCAHmFWc77JEB9AA1to'
+        applicationId: 'UvhuXeVcCTJ0yTeHwVDgCV0n7R0NVzc1wXW9VNcz',
+        clientKey: 'shfQZO4NjY0nZYEa76HdkDqVmHxwBVdNmWXyF8w0',
+        javascriptKey: 'Qm8aQHKH2W2cm81yGbi18uqrC2DJNMJdM3TcOFIX'
       }
     };
   }
