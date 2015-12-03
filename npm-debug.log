@@ -1,0 +1,410 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/movibe/.nvm/versions/node/v4.2.2/bin/node',
+1 verbose cli   '/Users/movibe/.nvm/versions/node/v4.2.2/bin/npm',
+1 verbose cli   'install' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.2
+4 verbose readDependencies loading dependencies from /Users/movibe/Photogram/package.json
+5 warn package.json Photogram@1.3.0 No repository field.
+6 warn package.json Photogram@1.3.0 No license field.
+7 verbose install where, deps [ '/Users/movibe/Photogram',
+7 verbose install   [ 'ansi-styles',
+7 verbose install     'clone',
+7 verbose install     'clone-stats',
+7 verbose install     'core-util-is',
+7 verbose install     'ecstatic',
+7 verbose install     'escape-string-regexp',
+7 verbose install     'glob',
+7 verbose install     'gulp',
+7 verbose install     'gulp-angular-filesort',
+7 verbose install     'gulp-angular-gettext',
+7 verbose install     'gulp-angular-templatecache',
+7 verbose install     'gulp-autoprefixer',
+7 verbose install     'gulp-beautify',
+7 verbose install     'gulp-bower',
+7 verbose install     'gulp-clean',
+7 verbose install     'gulp-concat',
+7 verbose install     'gulp-cordova-bump',
+7 verbose install     'gulp-extend',
+7 verbose install     'gulp-imagemin',
+7 verbose install     'gulp-inject',
+7 verbose install     'gulp-jshint',
+7 verbose install     'gulp-json-format',
+7 verbose install     'gulp-karma',
+7 verbose install     'gulp-load-plugins',
+7 verbose install     'gulp-minify-css',
+7 verbose install     'gulp-minify-html',
+7 verbose install     'gulp-ng-annotate',
+7 verbose install     'gulp-ngdocs',
+7 verbose install     'gulp-rename',
+7 verbose install     'gulp-replace',
+7 verbose install     'gulp-sass',
+7 verbose install     'gulp-sourcemaps',
+7 verbose install     'gulp-uglify',
+7 verbose install     'gulp-wrap',
+7 verbose install     'has-ansi',
+7 verbose install     'jshint',
+7 verbose install     'jshint-stylish',
+7 verbose install     'karma',
+7 verbose install     'lodash',
+7 verbose install     'main-bower-files',
+7 verbose install     'map-stream',
+7 verbose install     'nopt',
+7 verbose install     'open',
+7 verbose install     'process-nextick-args',
+7 verbose install     'q',
+7 verbose install     'replace',
+7 verbose install     'require-dir',
+7 verbose install     'run-sequence',
+7 verbose install     'strip-ansi',
+7 verbose install     'supports-color',
+7 verbose install     'traverse',
+7 verbose install     'vinyl-transform',
+7 verbose install     'which',
+7 verbose install     'wiredep',
+7 verbose install     'wrench',
+7 verbose install     'yandex-translate',
+7 verbose install     'yargs',
+7 verbose install     'bower',
+7 verbose install     'gulp-header',
+7 verbose install     'gulp-iife',
+7 verbose install     'gulp-jsbeautifier',
+7 verbose install     'gulp-rev',
+7 verbose install     'gulp-strip-debug',
+7 verbose install     'gulp-usemin',
+7 verbose install     'gulp-util',
+7 verbose install     'shelljs' ] ]
+8 verbose install where, peers [ '/Users/movibe/Photogram', [] ]
+9 verbose installManyTop reading for lifecycle /Users/movibe/Photogram/package.json
+10 info preinstall Photogram@1.3.0
+11 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/ansi-styles/package.json
+12 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/bower/package.json
+13 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/clone/package.json
+14 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/clone-stats/package.json
+15 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/core-util-is/package.json
+16 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/ecstatic/package.json
+17 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/escape-string-regexp/package.json
+18 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/glob/package.json
+19 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp/package.json
+20 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-angular-filesort/package.json
+21 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-angular-gettext/package.json
+22 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-angular-templatecache/package.json
+23 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-autoprefixer/package.json
+24 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-beautify/package.json
+25 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-bower/package.json
+26 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-clean/package.json
+27 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-concat/package.json
+28 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-cordova-bump/package.json
+29 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-extend/package.json
+30 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-header/package.json
+31 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-iife/package.json
+32 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-imagemin/package.json
+33 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-inject/package.json
+34 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-jsbeautifier/package.json
+35 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-jshint/package.json
+36 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-json-format/package.json
+37 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-karma/package.json
+38 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-load-plugins/package.json
+39 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-minify-css/package.json
+40 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-minify-html/package.json
+41 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-ng-annotate/package.json
+42 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-ngdocs/package.json
+43 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-rename/package.json
+44 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-replace/package.json
+45 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-rev/package.json
+46 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-sass/package.json
+47 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-sourcemaps/package.json
+48 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-strip-debug/package.json
+49 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-uglify/package.json
+50 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-usemin/package.json
+51 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-util/package.json
+52 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/gulp-wrap/package.json
+53 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/has-ansi/package.json
+54 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/jshint/package.json
+55 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/jshint-stylish/package.json
+56 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/karma/package.json
+57 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/lodash/package.json
+58 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/main-bower-files/package.json
+59 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/map-stream/package.json
+60 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/nopt/package.json
+61 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/open/package.json
+62 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/process-nextick-args/package.json
+63 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/q/package.json
+64 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/replace/package.json
+65 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/require-dir/package.json
+66 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/run-sequence/package.json
+67 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/shelljs/package.json
+68 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/strip-ansi/package.json
+69 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/supports-color/package.json
+70 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/traverse/package.json
+71 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/vinyl-transform/package.json
+72 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/which/package.json
+73 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/wiredep/package.json
+74 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/wrench/package.json
+75 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/yandex-translate/package.json
+76 verbose installManyTop reading scoped package data from /Users/movibe/Photogram/node_modules/yargs/package.json
+77 info package.json gulp-beautify@1.1.2 No license field.
+78 info package.json gulp-clean@0.3.1 No license field.
+79 info package.json gulp-cordova-bump@1.3.0 No license field.
+80 info package.json gulp-extend@0.2.0 No license field.
+81 info package.json gulp-jsbeautifier@1.0.1 No license field.
+82 info package.json gulp-inject@1.5.0 No license field.
+83 info package.json gulp-json-format@1.0.0 No license field.
+84 info package.json gulp-minify-css@0.3.13 No license field.
+85 info package.json gulp-rename@1.2.2 No license field.
+86 info package.json gulp-util@2.2.20 No license field.
+87 info package.json gulp-wrap@0.11.0 No license field.
+88 info package.json q@1.4.1 license should be a valid SPDX license expression
+89 info package.json shelljs@0.3.0 license should be a valid SPDX license expression
+90 info package.json wiredep@2.2.2 No license field.
+91 info package.json wrench@1.5.8 No license field.
+92 verbose readDependencies loading dependencies from /Users/movibe/Photogram/package.json
+93 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/ansi-styles/package.json
+94 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/bower/package.json
+95 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/clone/package.json
+96 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/clone-stats/package.json
+97 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/core-util-is/package.json
+98 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/ecstatic/package.json
+99 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/escape-string-regexp/package.json
+100 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/glob/package.json
+101 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp/package.json
+102 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-angular-filesort/package.json
+103 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-angular-gettext/package.json
+104 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-angular-templatecache/package.json
+105 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-autoprefixer/package.json
+106 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-beautify/package.json
+107 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-bower/package.json
+108 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-clean/package.json
+109 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-concat/package.json
+110 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-cordova-bump/package.json
+111 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-extend/package.json
+112 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-header/package.json
+113 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-iife/package.json
+114 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-imagemin/package.json
+115 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-inject/package.json
+116 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-jsbeautifier/package.json
+117 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-jshint/package.json
+118 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-json-format/package.json
+119 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-karma/package.json
+120 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-load-plugins/package.json
+121 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-minify-css/package.json
+122 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-minify-html/package.json
+123 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-ng-annotate/package.json
+124 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-ngdocs/package.json
+125 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-rename/package.json
+126 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-replace/package.json
+127 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-rev/package.json
+128 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-sass/package.json
+129 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-sourcemaps/package.json
+130 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-strip-debug/package.json
+131 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-uglify/package.json
+132 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-usemin/package.json
+133 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-util/package.json
+134 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/gulp-wrap/package.json
+135 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/has-ansi/package.json
+136 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/jshint/package.json
+137 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/jshint-stylish/package.json
+138 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/karma/package.json
+139 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/lodash/package.json
+140 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/main-bower-files/package.json
+141 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/map-stream/package.json
+142 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/nopt/package.json
+143 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/open/package.json
+144 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/process-nextick-args/package.json
+145 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/q/package.json
+146 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/replace/package.json
+147 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/require-dir/package.json
+148 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/run-sequence/package.json
+149 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/shelljs/package.json
+150 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/strip-ansi/package.json
+151 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/supports-color/package.json
+152 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/traverse/package.json
+153 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/vinyl-transform/package.json
+154 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/which/package.json
+155 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/wiredep/package.json
+156 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/wrench/package.json
+157 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/yandex-translate/package.json
+158 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/yargs/package.json
+159 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/bower/package.json
+160 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/ecstatic/package.json
+161 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/gulp/package.json
+162 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/jshint/package.json
+163 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/karma/package.json
+164 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/nopt/package.json
+165 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/replace/package.json
+166 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/search/package.json
+167 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/shjs/package.json
+168 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/which/package.json
+169 verbose targetResolver reading package data from /Users/movibe/Photogram/node_modules/.bin/wiredep/package.json
+170 verbose already installed skipping gulp-imagemin@^2.3.0 /Users/movibe/Photogram
+171 verbose already installed skipping gulp-inject@^1.5.0 /Users/movibe/Photogram
+172 verbose already installed skipping gulp-jshint@^1.11.2 /Users/movibe/Photogram
+173 verbose already installed skipping gulp-json-format@^1.0.0 /Users/movibe/Photogram
+174 verbose already installed skipping gulp-karma@0.0.4 /Users/movibe/Photogram
+175 verbose already installed skipping gulp-load-plugins@^0.10.0 /Users/movibe/Photogram
+176 verbose already installed skipping gulp-minify-css@^0.3.0 /Users/movibe/Photogram
+177 verbose already installed skipping gulp-minify-html@^1.0.4 /Users/movibe/Photogram
+178 verbose already installed skipping gulp-ng-annotate@^1.1.0 /Users/movibe/Photogram
+179 verbose already installed skipping gulp-ngdocs@^0.2.13 /Users/movibe/Photogram
+180 verbose already installed skipping gulp-rename@^1.2.2 /Users/movibe/Photogram
+181 verbose already installed skipping gulp-replace@^0.5.4 /Users/movibe/Photogram
+182 verbose already installed skipping gulp-sass@^2.0.4 /Users/movibe/Photogram
+183 verbose already installed skipping gulp-sourcemaps@^1.6.0 /Users/movibe/Photogram
+184 verbose already installed skipping gulp-uglify@^1.2.0 /Users/movibe/Photogram
+185 verbose already installed skipping gulp-wrap@^0.11.0 /Users/movibe/Photogram
+186 verbose already installed skipping has-ansi@^2.0.0 /Users/movibe/Photogram
+187 verbose already installed skipping jshint@^2.8.0 /Users/movibe/Photogram
+188 verbose already installed skipping jshint-stylish@^2.0.1 /Users/movibe/Photogram
+189 verbose already installed skipping karma@^0.13.3 /Users/movibe/Photogram
+190 verbose already installed skipping lodash@^3.10.1 /Users/movibe/Photogram
+191 verbose already installed skipping main-bower-files@^2.9.0 /Users/movibe/Photogram
+192 verbose already installed skipping map-stream@0.0.6 /Users/movibe/Photogram
+193 verbose already installed skipping nopt@^3.0.4 /Users/movibe/Photogram
+194 verbose already installed skipping open@0.0.5 /Users/movibe/Photogram
+195 verbose already installed skipping process-nextick-args@^1.0.2 /Users/movibe/Photogram
+196 verbose already installed skipping q@^1.4.1 /Users/movibe/Photogram
+197 verbose already installed skipping replace@^0.3.0 /Users/movibe/Photogram
+198 verbose already installed skipping require-dir@^0.3.0 /Users/movibe/Photogram
+199 verbose already installed skipping run-sequence@^1.1.2 /Users/movibe/Photogram
+200 verbose already installed skipping strip-ansi@^3.0.0 /Users/movibe/Photogram
+201 verbose already installed skipping supports-color@^3.1.0 /Users/movibe/Photogram
+202 verbose already installed skipping traverse@^0.6.6 /Users/movibe/Photogram
+203 verbose already installed skipping vinyl-transform@^1.0.0 /Users/movibe/Photogram
+204 verbose already installed skipping which@^1.1.2 /Users/movibe/Photogram
+205 verbose already installed skipping wiredep@^2.2.2 /Users/movibe/Photogram
+206 verbose already installed skipping wrench@^1.5.8 /Users/movibe/Photogram
+207 verbose already installed skipping yandex-translate@^2.1.0 /Users/movibe/Photogram
+208 verbose already installed skipping yargs@^3.29.0 /Users/movibe/Photogram
+209 verbose already installed skipping bower@^1.3.3 /Users/movibe/Photogram
+210 verbose already installed skipping gulp-header@^1.2.2 /Users/movibe/Photogram
+211 verbose already installed skipping gulp-iife@0.0.7 /Users/movibe/Photogram
+212 verbose already installed skipping gulp-jsbeautifier@^1.0.1 /Users/movibe/Photogram
+213 verbose already installed skipping gulp-rev@^5.1.0 /Users/movibe/Photogram
+214 verbose already installed skipping gulp-strip-debug@^1.0.2 /Users/movibe/Photogram
+215 verbose already installed skipping gulp-usemin@^0.3.11 /Users/movibe/Photogram
+216 verbose already installed skipping gulp-util@^2.2.14 /Users/movibe/Photogram
+217 verbose already installed skipping shelljs@^0.3.0 /Users/movibe/Photogram
+218 verbose already installed skipping ansi-styles@^2.1.0 /Users/movibe/Photogram
+219 verbose already installed skipping clone@^1.0.2 /Users/movibe/Photogram
+220 verbose already installed skipping clone-stats@0.0.1 /Users/movibe/Photogram
+221 verbose already installed skipping core-util-is@^1.0.1 /Users/movibe/Photogram
+222 verbose already installed skipping ecstatic@^0.8.0 /Users/movibe/Photogram
+223 verbose already installed skipping escape-string-regexp@^1.0.3 /Users/movibe/Photogram
+224 verbose already installed skipping glob@^5.0.14 /Users/movibe/Photogram
+225 verbose already installed skipping gulp@^3.5.6 /Users/movibe/Photogram
+226 verbose already installed skipping gulp-angular-filesort@^1.1.1 /Users/movibe/Photogram
+227 verbose already installed skipping gulp-angular-gettext@^2.1.0 /Users/movibe/Photogram
+228 verbose already installed skipping gulp-angular-templatecache@^1.7.0 /Users/movibe/Photogram
+229 verbose already installed skipping gulp-autoprefixer@^3.1.0 /Users/movibe/Photogram
+230 verbose already installed skipping gulp-beautify@^1.1.2 /Users/movibe/Photogram
+231 verbose already installed skipping gulp-bower@0.0.10 /Users/movibe/Photogram
+232 verbose already installed skipping gulp-clean@^0.3.1 /Users/movibe/Photogram
+233 verbose already installed skipping gulp-concat@^2.2.0 /Users/movibe/Photogram
+234 verbose already installed skipping gulp-cordova-bump@^1.2.2 /Users/movibe/Photogram
+235 verbose already installed skipping gulp-extend@^0.2.0 /Users/movibe/Photogram
+236 silly install resolved []
+237 info build /Users/movibe/Photogram
+238 info linkStuff Photogram@1.3.0
+239 silly linkStuff Photogram@1.3.0 has /Users/movibe as its parent node_modules
+240 verbose linkBins Photogram@1.3.0
+241 verbose linkMans Photogram@1.3.0
+242 verbose rebuildBundles Photogram@1.3.0
+243 verbose rebuildBundles [ '.bin',
+243 verbose rebuildBundles   'ansi-styles',
+243 verbose rebuildBundles   'bower',
+243 verbose rebuildBundles   'clone',
+243 verbose rebuildBundles   'clone-stats',
+243 verbose rebuildBundles   'core-util-is',
+243 verbose rebuildBundles   'ecstatic',
+243 verbose rebuildBundles   'escape-string-regexp',
+243 verbose rebuildBundles   'glob',
+243 verbose rebuildBundles   'gulp',
+243 verbose rebuildBundles   'gulp-angular-filesort',
+243 verbose rebuildBundles   'gulp-angular-gettext',
+243 verbose rebuildBundles   'gulp-angular-templatecache',
+243 verbose rebuildBundles   'gulp-autoprefixer',
+243 verbose rebuildBundles   'gulp-beautify',
+243 verbose rebuildBundles   'gulp-bower',
+243 verbose rebuildBundles   'gulp-clean',
+243 verbose rebuildBundles   'gulp-concat',
+243 verbose rebuildBundles   'gulp-cordova-bump',
+243 verbose rebuildBundles   'gulp-extend',
+243 verbose rebuildBundles   'gulp-header',
+243 verbose rebuildBundles   'gulp-iife',
+243 verbose rebuildBundles   'gulp-imagemin',
+243 verbose rebuildBundles   'gulp-inject',
+243 verbose rebuildBundles   'gulp-jsbeautifier',
+243 verbose rebuildBundles   'gulp-jshint',
+243 verbose rebuildBundles   'gulp-json-format',
+243 verbose rebuildBundles   'gulp-karma',
+243 verbose rebuildBundles   'gulp-load-plugins',
+243 verbose rebuildBundles   'gulp-minify-css',
+243 verbose rebuildBundles   'gulp-minify-html',
+243 verbose rebuildBundles   'gulp-ng-annotate',
+243 verbose rebuildBundles   'gulp-ngdocs',
+243 verbose rebuildBundles   'gulp-rename',
+243 verbose rebuildBundles   'gulp-replace',
+243 verbose rebuildBundles   'gulp-rev',
+243 verbose rebuildBundles   'gulp-sass',
+243 verbose rebuildBundles   'gulp-sourcemaps',
+243 verbose rebuildBundles   'gulp-strip-debug',
+243 verbose rebuildBundles   'gulp-uglify',
+243 verbose rebuildBundles   'gulp-usemin',
+243 verbose rebuildBundles   'gulp-util',
+243 verbose rebuildBundles   'gulp-wrap',
+243 verbose rebuildBundles   'has-ansi',
+243 verbose rebuildBundles   'jshint',
+243 verbose rebuildBundles   'jshint-stylish',
+243 verbose rebuildBundles   'karma',
+243 verbose rebuildBundles   'lodash',
+243 verbose rebuildBundles   'main-bower-files',
+243 verbose rebuildBundles   'map-stream',
+243 verbose rebuildBundles   'nopt',
+243 verbose rebuildBundles   'open',
+243 verbose rebuildBundles   'process-nextick-args',
+243 verbose rebuildBundles   'q',
+243 verbose rebuildBundles   'replace',
+243 verbose rebuildBundles   'require-dir',
+243 verbose rebuildBundles   'run-sequence',
+243 verbose rebuildBundles   'shelljs',
+243 verbose rebuildBundles   'strip-ansi',
+243 verbose rebuildBundles   'supports-color',
+243 verbose rebuildBundles   'traverse',
+243 verbose rebuildBundles   'vinyl-transform',
+243 verbose rebuildBundles   'which',
+243 verbose rebuildBundles   'wiredep',
+243 verbose rebuildBundles   'wrench',
+243 verbose rebuildBundles   'yandex-translate',
+243 verbose rebuildBundles   'yargs' ]
+244 info install Photogram@1.3.0
+245 info postinstall Photogram@1.3.0
+246 verbose unsafe-perm in lifecycle true
+247 info Photogram@1.3.0 Failed to exec postinstall script
+248 verbose stack Error: Photogram@1.3.0 postinstall: `bower install && gulp`
+248 verbose stack Exit status 1
+248 verbose stack     at EventEmitter.<anonymous> (/Users/movibe/.nvm/versions/node/v4.2.2/lib/node_modules/npm/lib/utils/lifecycle.js:214:16)
+248 verbose stack     at emitTwo (events.js:87:13)
+248 verbose stack     at EventEmitter.emit (events.js:172:7)
+248 verbose stack     at ChildProcess.<anonymous> (/Users/movibe/.nvm/versions/node/v4.2.2/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+248 verbose stack     at emitTwo (events.js:87:13)
+248 verbose stack     at ChildProcess.emit (events.js:172:7)
+248 verbose stack     at maybeClose (internal/child_process.js:818:16)
+248 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+249 verbose pkgid Photogram@1.3.0
+250 verbose cwd /Users/movibe/Photogram
+251 error Darwin 15.0.0
+252 error argv "/Users/movibe/.nvm/versions/node/v4.2.2/bin/node" "/Users/movibe/.nvm/versions/node/v4.2.2/bin/npm" "install"
+253 error node v4.2.2
+254 error npm  v2.14.7
+255 error code ELIFECYCLE
+256 error Photogram@1.3.0 postinstall: `bower install && gulp`
+256 error Exit status 1
+257 error Failed at the Photogram@1.3.0 postinstall script 'bower install && gulp'.
+257 error This is most likely a problem with the Photogram package,
+257 error not with npm itself.
+257 error Tell the author that this fails on your system:
+257 error     bower install && gulp
+257 error You can get their info via:
+257 error     npm owner ls Photogram
+257 error There is likely additional logging output above.
+258 verbose exit [ 1, true ]
