@@ -2,7 +2,7 @@
 var gulp        = require ('gulp');
 var runSequence = require ('run-sequence');
 var conf        = require ('./gulp/config');
-var sh = require('shelljs');
+var sh          = require ('shelljs');
 gulp.paths      = conf.paths;
 
 require ('require-dir') ('./gulp');
@@ -46,15 +46,25 @@ gulp.task('prod', function (done) {
 
 gulp.task('serve', function (done) {
     sh.exec('ionic serve');
-    done();
+    done ();
+});
+
+gulp.task('folderprod', function (done) {
+    sh.exec('mv www temp && mv dist www');
+    done ();
+});
+
+gulp.task('folderdev', function (done) {
+    sh.exec('mv www dist && mv temp www');
+    done ();
 });
 
 gulp.task('livereload android', function (done) {
     sh.exec('ionic run android -l');
-    done();
+    done ();
 });
 
 gulp.task('android', function (done) {
     sh.exec('ionic run android');
-    done();
+    done ();
 });

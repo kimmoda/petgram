@@ -4,7 +4,7 @@
     .module('app.user')
     .factory('User', UserFactory);
 
-  function UserFactory($q, AppConfig, ParsePush, $rootScope, $ionicHistory, $cordovaDevice, $facebook,
+  function UserFactory($q, AppConfig, $rootScope, $ionicHistory, $cordovaDevice, $facebook,
     $cordovaFacebook, Loading, $state) {
 
     var device = cordova ? true : false;
@@ -48,11 +48,6 @@
       if (user) {
         var newUser = loadProfile(user);
         console.log('Logged user', newUser);
-
-        //if(user.push) {
-        //    console.log();
-        //    ParsePush.start(user.email);
-        //}
 
         // // following
         // var following = $sessionStorage.following;

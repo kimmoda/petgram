@@ -26,7 +26,7 @@
     .config(configIonic);
 
 
-  function runIonic($ionicPlatform, $cacheSrc, AppConfig, $ionicAnalytics, $cordovaStatusbar, $timeout,
+  function runIonic($ionicPlatform, $cacheSrc, ParsePush, AppConfig, $ionicAnalytics, $cordovaStatusbar, $timeout,
     $cordovaSplashscreen, PhotogramSetting, User) {
 
     $cacheSrc.color = AppConfig.color;
@@ -41,6 +41,8 @@
     $ionicPlatform.ready(function () {
 
       $ionicAnalytics.register();
+
+      ParsePush.start('photogram');
 
       if (cordova && cordova.plugins && cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -71,23 +73,30 @@
       value: 'pt_BR'
     }];
 
-    var LangVar = navigator.language || navigator.userLanguage;
-    var userLangVar = LangVar.substring(0, 2) + '_' + LangVar.substring(3, 5)
-      .toUpperCase();
+    // var LangVar = navigator.language || navigator.userLanguage;
+    var LangVar = 'tr_TR';
+    var userLangVar = LangVar.substring(0, 2) + '_' + LangVar.substring(3, 5).toUpperCase();
 
     $rootScope.setLanguage = function (language) {
 
       $rootScope.lang = $rootScope.langs.filter(function (item) {
         return item.value === language;
       })[0];
+      
+      // Fix language
+      if($rootScope.lang===undefined) {
+        $rootScope.lang = $rootScope.langs[0];
+        language = $rootScope.lang.value;
+      }
 
       gettextCatalog.setCurrentLanguage(language);
       $translate.use(language);
       amMoment.changeLocale(language);
+ 
     };
 
     $rootScope.setLanguage(userLangVar);
-    console.info(LangVar, userLangVar);
+    console.info($rootScope.lang);
   }
 
   function configIonic($ionicConfigProvider) {

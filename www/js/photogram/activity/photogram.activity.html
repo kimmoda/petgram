@@ -24,7 +24,7 @@
 
         </div>
 
-        <ion-infinite-scroll ng-if="!vm.loading" on-infinite="vm.load()">
+        <ion-infinite-scroll ng-if="!vm.loading && !vm.empty" on-infinite="vm.load()">
         </ion-infinite-scroll>
     </ion-content>
 </ion-view>
