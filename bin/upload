@@ -14,12 +14,6 @@ fi
 
 echo "Ionic Upload App"
 echo "Minify app"
-gulp prod
-echo "Rename Folder to Minify Application"
-mv www temp
-mv dist www
+gulp build
 echo "Ionic Upload Start"
 ionic upload --note "$note"
-echo "Rename folder"
-mv www dist
-mv temp www

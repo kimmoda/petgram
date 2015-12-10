@@ -32,12 +32,7 @@ fi
 echo ""
 echo ""
 echo "---> Gulp Production"
-gulp prod
-
-echo ""
-echo ""
-echo "---> Rename Folders for Production"
-./bin/folderprod
+gulp build
 
 echo "---> Starting build v$version"
 
@@ -50,12 +45,6 @@ echo "---> Zipaligning"
 mkdir -p releases/
 # rm releases/com.$company.$appname.v$version.apk
 zipalign -v 4 platforms/android/build/outputs/apk/android-release.apk releases/com.$company.$appname.v$version.apk
-
-
-echo ""
-echo ""
-echo "---> Restore name Folders for Development"
-./bin/folderdev
 
 echo ""
 echo ""
