@@ -3,7 +3,7 @@
  * --------------------------------------------------
  */
 
-@import "themes/mixins";
+@import "mixins";
 .bar {
   @include display-flex();
   @include translate3d(0, 0, 0);

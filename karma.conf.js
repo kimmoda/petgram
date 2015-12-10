@@ -1,93 +1,110 @@
-// Karma configuration
-// Generated on Thu Jul 02 2015 15:51:34 GMT-0300 (BRT)
+'use strict';
 
-module.exports = function (config) {
-    config.set({
+var path = require('path');
+var conf = require('./gulp/conf');
 
-        // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+var _ = require('lodash');
+var wiredep = require('wiredep');
 
-        // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: 'www',
+var pathSrcHtml = [
+  path.join(conf.paths.src, '/**/*.html')
+];
 
+function listFiles() {
+  var wiredepOptions = _.extend({}, conf.wiredep, {
+    dependencies: true,
+    devDependencies: true
+  });
 
-        // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
+  var patterns = wiredep(wiredepOptions).js
+    .concat([
+      path.join(conf.paths.src, '/app/**/*.module.js'),
+      path.join(conf.paths.src, '/app/**/*.js'),
+      path.join(conf.paths.src, '/**/*.spec.js'),
+      path.join(conf.paths.src, '/**/*.mock.js'),
+    ])
+    .concat(pathSrcHtml);
 
+  var files = patterns.map(function(pattern) {
+    return {
+      pattern: pattern
+    };
+  });
+  files.push({
+    pattern: path.join(conf.paths.src, '/assets/**/*'),
+    included: false,
+    served: true,
+    watched: false
+  });
+  return files;
+}
 
-        // list of files / patterns to load in the browser
-        files: [
-            'lib/angular/angular.js',
-            'lib/angular-mocks/angular-mocks.js',
-            'lib/angular-animate/angular-animate.js',
-            'lib/angular-cookies/angular-cookies.js',
-            'lib/angular-resource/angular-resource.js',
-            'lib/angular-route/angular-route.js',
-            'lib/angular-sanitize/angular-sanitize.js',
-            'lib/angular-touch/angular-touch.js',
-            'js/*.js',
-            'app/*.js',
-            'app/**/*.js',
-            'component/*.js',
-            'component/**/*.js',
-            'module/*.js',
-            'module/**/*.js',
-        ],
+module.exports = function(config) {
 
+  var configuration = {
+    files: listFiles(),
 
-        // list of files to exclude
-        exclude: [],
+    singleRun: true,
 
+    autoWatch: false,
 
-        // Which plugins to enable
-        plugins         : [
-            'karma-phantomjs-launcher',
-            'karma-jasmine',
-            'karma-coverage'
-        ],
-        preprocessors   : {
-            'app/**/*.js'       : 'coverage',
-            'components/**/*.js': 'coverage',
-            'modules/**/*.js'   : 'coverage'
-        }
-        ,
-        reporters       : [
-            'progress',
-            'coverage'
-        ],
-        // tell karma how you want the coverage results
-        coverageReporter: {
-            type: 'html',
-            // where to store the report
-            dir : 'coverage/'
-        },
+    ngHtml2JsPreprocessor: {
+      stripPrefix: conf.paths.src + '/',
+      moduleName: 'photogram'
+    },
 
+    logLevel: 'WARN',
 
-        // web server port
-        port: 8080,
+    frameworks: ['jasmine', 'angular-filesort'],
 
+    angularFilesort: {
+      whitelist: [path.join(conf.paths.src, '/**/!(*.html|*.spec|*.mock).js')]
+    },
 
-        // enable / disable colors in the output (reporters and logs)
-        colors: true,
+    browsers : ['PhantomJS'],
 
+    plugins : [
+      'karma-phantomjs-launcher',
+      'karma-angular-filesort',
+      'karma-coverage',
+      'karma-jasmine',
+      'karma-ng-html2js-preprocessor'
+    ],
 
-        // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_INFO,
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
+    reporters: ['progress'],
 
-        // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+    proxies: {
+      '/assets/': path.join('/base/', conf.paths.src, '/assets/')
+    }
+  };
 
+  // This is the default preprocessors configuration for a usage with Karma cli
+  // The coverage preprocessor is added in gulp/unit-test.js only for single tests
+  // It was not possible to do it there because karma doesn't let us now if we are
+  // running a single test or not
+  configuration.preprocessors = {};
+  pathSrcHtml.forEach(function(path) {
+    configuration.preprocessors[path] = ['ng-html2js'];
+  });
 
-        // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'],
+  // This block is needed to execute Chrome on Travis
+  // If you ever plan to use Chrome and Travis, you can keep it
+  // If not, you can safely remove it
+  // https://github.com/karma-runner/karma/issues/1144#issuecomment-53633076
+  if(configuration.browsers[0] === 'Chrome' && process.env.TRAVIS) {
+    configuration.customLaunchers = {
+      'chrome-travis-ci': {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    };
+    configuration.browsers = ['chrome-travis-ci'];
+  }
 
-
-        // Continuous Integration mode
-        // if true, Karma captures browsers, runs the tests and exits
-        singleRun: true
-    });
+  config.set(configuration);
 };

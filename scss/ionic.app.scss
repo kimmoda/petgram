@@ -26,34 +26,11 @@ $dark: #25272a !default;
 $ionicons-font-path: '../fonts' !default;
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+@import "bower_components/ionic/scss/ionic";
 @import "animate";
 @import "socialbuttons";
 
-/**
- *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
- *  all your sass files automatically
- */
+/* Do not remove the comments below. It's the markers used by gulp-inject to inject
+   all your sass files automatically */
 // injector
-@import "www/js/components/jcrop.scss";
-@import "www/js/photogram/home/_home.scss";
-@import "www/js/photogram/scss/photogram.scss";
-@import "www/js/photogram/share/_capture.scss";
-@import "www/js/photogram/share/_modal.share.scss";
-@import "www/js/user/intro/intro.scss";
-@import "www/js/user/profile/_gallery.profile.scss";
-@import "www/js/photogram/scss/directive/_gallery.photo.grid.scss";
-@import "www/js/photogram/scss/directive/_gallery.photo.list.scss";
-@import "www/js/photogram/scss/interface/_actionsheet.scss";
-@import "www/js/photogram/scss/interface/_font.scss";
-@import "www/js/photogram/scss/interface/_form.scss";
-@import "www/js/photogram/scss/interface/_heart.scss";
-@import "www/js/photogram/scss/interface/_map.scss";
-@import "www/js/photogram/scss/interface/_platform.scss";
-@import "www/js/photogram/scss/interface/_sidemenu.scss";
-@import "www/js/photogram/scss/interface/_spinner.scss";
-@import "www/js/photogram/scss/modal/_comment.scss";
-@import "www/js/photogram/scss/view/_loading.scss";
-@import "www/js/photogram/scss/view/_profile.scss";
-@import "www/js/photogram/scss/view/_user.scss";
 // endinjector

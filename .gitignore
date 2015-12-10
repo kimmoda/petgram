@@ -5,7 +5,8 @@ node_modules/
 platforms/
 plugins/
 dist/
-www/lib/
+bower_components/
 resources/android/
 resources/ios/
 releases/
+.tmp/

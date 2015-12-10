@@ -1,70 +1,29 @@
+/**
+ *  Welcome to your gulpfile!
+ *  The gulp tasks are splitted in several files in the gulp directory
+ *  because putting all here was really too long
+ */
+
 'use strict';
-var gulp        = require ('gulp');
-var runSequence = require ('run-sequence');
-var conf        = require ('./gulp/config');
-var sh          = require ('shelljs');
-gulp.paths      = conf.paths;
 
-require ('require-dir') ('./gulp');
+var gulp = require('gulp');
+var wrench = require('wrench');
 
-
-// Master Tasks
-gulp.task('default', function (done) {
-    return runSequence (
-        'install',
-        'sass',
-        // 'translate',
-        'inject',
-        'prettify',
-        done);
-});
-
-gulp.task('dev', function (done) {
-    return runSequence (
-        'install',
-        'sass',
-        // 'translate',
-        'copy:font',
-        'inject',
-        'prettify',
-        done);
-});
-
-gulp.task('prod', function (done) {
-    return runSequence (
-        'clean',
-        'dev',
-        'templates',
-        'img',
-        'copy',
-        'cacheapp:add',
-        'usemin',
-        'cacheapp:remove',
-        done);
+/**
+ *  This will load all js or coffee files in the gulp directory
+ *  in order to load all gulp tasks
+ */
+wrench.readdirSyncRecursive('./gulp').filter(function(file) {
+  return (/\.(js|coffee)$/i).test(file);
+}).map(function(file) {
+  require('./gulp/' + file);
 });
 
 
-gulp.task('serve', function (done) {
-    sh.exec('ionic serve');
-    done ();
-});
-
-gulp.task('folderprod', function (done) {
-    sh.exec('mv www temp && mv dist www');
-    done ();
-});
-
-gulp.task('folderdev', function (done) {
-    sh.exec('mv www dist && mv temp www');
-    done ();
-});
-
-gulp.task('livereload android', function (done) {
-    sh.exec('ionic run android -l');
-    done ();
-});
-
-gulp.task('android', function (done) {
-    sh.exec('ionic run android');
-    done ();
+/**
+ *  Default task clean temporaries directories and launch the
+ *  main optimization build task
+ */
+gulp.task('default', ['clean'], function () {
+  gulp.start('build');
 });
