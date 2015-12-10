@@ -2,11 +2,7 @@
 # Usage: prod.sh 'platform'
 # 
 echo "Minify Application"
-# gulp prod
-echo "Rename Folder Release app"
-./bin/folderprod
+gulp build
 echo "Build Release "
 cordova build  --release --buildConfig build.json
-echo "Restore folders"
-./bin/folderdev
 

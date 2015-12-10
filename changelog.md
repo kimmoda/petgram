@@ -39,6 +39,7 @@
 
 # Version 1.4.0
 > Release Date : 10th Dezember 2015
+- ionic 1.2.0 "zirconium-zeren" (2015-12-09) 
 - useref : allow configuration of your files in comments of your HTML file
 - ngAnnotate : convert simple injection to complete syntax to be minification proof
 - uglify : optimize all your JavaScript

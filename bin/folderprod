@@ -1,9 +1,0 @@
-#!/bin/bash
-# Usage: prod.sh 'platform'
-#
-#echo "Compilation Application"
-#gulp prod
-
-echo "Rename folder"
-mv www temp
-mv dist www
