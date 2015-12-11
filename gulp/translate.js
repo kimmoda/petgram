@@ -5,14 +5,15 @@ var extend  = require('gulp-extend');
 var wrap    = require('gulp-wrap');
 var gettext = require('gulp-angular-gettext');
 var iife    = require('gulp-iife');
-var paths = gulp.paths;
+var conf = require('./conf');
 
 // Translate
 gulp.task('gettext:po', function () {
     return gulp.src([
-            paths.src + '/js/**/*.js',
-            '!' + paths.src + '/js/**/*.spec.js',
-            paths.src + '/js/**/*.html'
+            conf.paths.src + '/app/**/*.js',
+            '!' + conf.paths.src + '/app/**/*Spec.js',
+            '!' + conf.paths.src + '/app/**/*.spec.js',
+            conf.paths.src + '/app/**/*.html'
         ])
         .pipe(gettext.extract('template.pot', {
             // options to pass to angular-gettext-tools...
@@ -35,9 +36,9 @@ gulp.task('gettext:compile', function () {
             '});'))
         //.pipe (ngAnnotate ())
         //.pipe (uglify ())
-        .pipe(rename('app.translate.module.js')) // Rename to final javascript filename
+        .pipe(rename('index.translate.module.js')) // Rename to final javascript filename
         .pipe(iife())
-        .pipe(gulp.dest(paths.src + '/js/'));
+        .pipe(gulp.dest(conf.paths.src + '/app/'));
 });
 
 gulp.task('translations', function () {
@@ -46,7 +47,7 @@ gulp.task('translations', function () {
             // options to pass to angular-gettext-tools...
             format: 'json'
         }))
-        .pipe(gulp.dest(paths.src + '/js/il8n'));
+        .pipe(gulp.dest(conf.paths.src + '/app/il8n'));
 });
 
 gulp.task('translate', [
