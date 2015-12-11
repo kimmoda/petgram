@@ -27,7 +27,7 @@ gulp.task ('img', function () {
 gulp.task ('partials', function () {
     return gulp
         .src ([
-            path.join (conf.paths.src, '/js/**/*.html'),
+            path.join (conf.paths.src, '/app/**/*.html'),
             path.join (conf.paths.tmp, '/serve/app/**/*.html')
         ])
         .pipe ($.minifyHtml ({
@@ -37,7 +37,7 @@ gulp.task ('partials', function () {
         }))
         .pipe ($.angularTemplatecache ('templateCacheHtml.js', {
             module: 'starter',
-            root: 'js'
+            root: 'app'
         }))
         .pipe (gulp.dest (conf.paths.tmp + '/partials/'));
 });
@@ -126,6 +126,7 @@ gulp.task ('clean', function () {
 
 gulp.task ('build', function (cb) {
     $.runSequence ('clean',
+        'prettify',
         'translate',
         'html',
         'fonts',

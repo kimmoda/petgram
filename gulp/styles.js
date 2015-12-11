@@ -31,7 +31,7 @@ var buildStyles = function() {
 
   var injectOptions = {
     transform: function(filePath) {
-      filePath = filePath.replace(conf.paths.src + '/js/', 'src/js/');
+      filePath = filePath.replace(conf.paths.src + '/app/', 'src/app/');
       return '@import "' + filePath + '";';
     },
     starttag: '// injector',

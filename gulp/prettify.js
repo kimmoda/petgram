@@ -2,7 +2,7 @@
 var path     = require('path');
 var gulp     = require('gulp');
 var prettify = require('gulp-jsbeautifier');
-var paths = gulp.paths;
+var conf = require('./conf');
 
 // Prettify Code
 gulp.task('prettify', [
@@ -11,15 +11,15 @@ gulp.task('prettify', [
 ]);
 
 gulp.task('prettify:js:app', function () {
-    gulp.src(paths.src +'/js/**/*.js')
+    gulp.src(conf.paths.src +'/app/**/*.js')
         .pipe(prettify({config: ".jsbeautifyrc"}))
-        .pipe(gulp.dest(paths.src + '/js'));
+        .pipe(gulp.dest(conf.paths.src + '/app'));
 });
 
 
 // HTML
 gulp.task('prettify:html:app', function () {
-    gulp.src(paths.src + '/js/**/*.html')
+    gulp.src(conf.paths.src + '/app/**/*.html')
         .pipe(prettify({
             braceStyle         : 'collapse',
             indentChar: " ",
@@ -29,5 +29,5 @@ gulp.task('prettify:html:app', function () {
             preserveNewlines   : true,
             wrapLineLength     : 0
         }))
-        .pipe(gulp.dest(paths.src + '/js'));
+        .pipe(gulp.dest(conf.paths.src + '/app'));
 });
