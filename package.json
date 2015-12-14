@@ -1,9 +1,9 @@
 {
   "name": "Photogram",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Share your photos",
   "scripts": {
-    "postinstall": "bower install && gulp serve"
+    "postinstall": "bower install"
   },
   "dependencies": {
     "browser-sync": "~2.9.11",

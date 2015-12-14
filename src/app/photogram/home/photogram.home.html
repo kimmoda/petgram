@@ -8,7 +8,7 @@
 
     </ion-nav-buttons>
 
-    <ion-content overflow-scroll="false">
+    <ion-content>
         <ion-refresher ng-if="!vm.loading" on-refresh="loadMore(true)"></ion-refresher>
 
         <photogram-loading loading="vm.loading"></photogram-loading>

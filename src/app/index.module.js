@@ -15,7 +15,6 @@
       'ngCordova',
       'translate.form',
       'gettext',
-      //'app.cache',
       'app.translate',
       'app.photogram',
     ]);

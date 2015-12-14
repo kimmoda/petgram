@@ -7,7 +7,7 @@
   function PhotogramPopularCtrl($scope, Photogram, PhotogramShare) {
     var vm = this;
     vm.loading = true;
-    $scope.loadMore = loadMore;
+    vm.loadMore = loadMore;
     vm.openShare = PhotogramShare.open;
     vm.load = load;
     init();
