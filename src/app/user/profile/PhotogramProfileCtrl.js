@@ -13,9 +13,10 @@
     .module('app.user')
     .controller('PhotogramProfileCtrl', PhotogramProfileController);
 
-  function PhotogramProfileController($stateParams, $scope, Photogram) {
+  function PhotogramProfileController($stateParams, $scope, Photogram, User) {
     var vm = this;
     vm.changeTab = changeTab;
+    vm.user = User.currentUser();
 
     init();
     changeTab('list');
@@ -35,19 +36,45 @@
     }
 
     function init() {
+      getFollower();
+      getGallery();
+    }
+
+    function getFollower() {
+      vm.loadingFollowers = true;
+      vm.loadingFollowing = true;
+      vm.loadingPhotos = true;
+
       Photogram
-        .getUser($stateParams.id)
-        .then(function (resp) {
-          vm.form = resp;
-          getGallery(resp);
+        .getUserGalleryQtd()
+        .then(function (qtdPhotos) {
+          vm.user.qtdPhotos = qtdPhotos;
+          vm.loadingPhotos = false;
+        });
+
+      User
+        .getFollowers()
+        .then(function (qtdFollowers) {
+          console.log('qtdFollower: seguindo', qtdFollowers);
+          vm.user.qtdFollowers = qtdFollowers;
+          vm.loadingFollowers = false;
+        });
+
+      User
+        .getFollowing()
+        .then(function (qtdFollowing) {
+          console.log('qtdFollowing: seguidores', qtdFollowing);
+          vm.user.qtdFollowing = qtdFollowing;
+          vm.loadingFollowing = false;
         });
     }
 
-    function getGallery(user) {
+
+    function getGallery() {
       vm.loading = true;
 
       Photogram
-        .getUserGallery(user.id)
+        .getUserGallery()
         .then(function (resp) {
           vm.data = resp;
           console.log(resp);

@@ -2,25 +2,23 @@
 <html ng-app="starter">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-      <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http:"> -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Photogram</title>
-    <meta name="description"
-          content="">
-      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <meta name="description" content="">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-      <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
-      <!-- bower:css -->
-      <!-- run `gulp inject` to automatically populate bower styles dependencies -->
-      <!-- endbower -->
-      <!-- endbuild -->
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
 
-      <!-- build:css({.tmp/serve,src}) styles/app.css -->
-      <!-- inject:css -->
-      <!-- css files will be automatically insert here -->
-      <!-- endinject -->
-      <!-- endbuild -->
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=visualization,places&language=en"></script>
   </head>
   <body class="photogram">
     
@@ -67,14 +65,14 @@
      <!-- endbower -->
      <!-- endbuild -->
 
+     <script src="cordova.js"></script>
+
      <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
      <!-- inject:js -->
      <!-- js files will be automatically insert here -->
     <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
     <script src="lib/angular-translate/angular-translate.js"></script>
      <!-- endinject -->
-    <script src="cordova.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?libraries=visualization,places&amp;language=en"></script>
 
      <!-- inject:partials -->
      <!-- angular templates will be automatically converted in js and inserted here -->

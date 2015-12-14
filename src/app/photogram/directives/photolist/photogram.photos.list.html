@@ -9,7 +9,8 @@
         <span>{{gallery.created | amTimeAgo}}</span>
     </div>
 
-    <div class="item item-body" ng-click="like = !like">
+    <div class="item item-body" on-double-tap="vm.like(gallery)" ng-model="gallery">
+        <div class="heart" ng-class="(gallery.item.liked) ? 'happy' : 'broken' "></div>
         <i class="icon" ng-if="like"></i> <img cache-src="{{gallery.src}}">
     </div>
     <div class="item item-buttons">

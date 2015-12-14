@@ -56,3 +56,4 @@
 - imagemin: Minify PNG, JPEG, GIF and SVG images
 - strip-debug: Strip console, alert, and debugger statements from JavaScript code
 - gettext: Extract and compile translatable strings using angular-gettext
+- Splash Loading - http://tobiasahlin.com/spinkit/

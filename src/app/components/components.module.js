@@ -4,7 +4,7 @@
     .module('ionic.components', [
       'ionic',
       'ionic-loading',
-      'ion-affix',
+      // 'ion-affix',
       'ion-photo',
       'ion-location',
       'ion-notify',

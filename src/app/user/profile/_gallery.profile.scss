@@ -37,12 +37,13 @@
     .profile-top {
       display: block;
       position: relative;
-
+      $avatar-size: 85px;
       img {
         display: inline;
-        min-width: 85px;
-        min-height: 85px;
-        max-width: 85px;
+        min-width: $avatar-size;
+        min-height: $avatar-size;
+        max-width: $avatar-size;
+        max-height: $avatar-size;
         border-radius: 50%;
         margin: 6px;
         background-color: #ddd;

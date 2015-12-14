@@ -31,7 +31,6 @@
       getFollowing: getFollowing,
       isFollow: isFollow,
       mail: getMail,
-      push: push,
       facebookLogin: facebookLogin,
       facebookLink: facebookLink,
       facebookProfile: facebookProfile,
@@ -95,22 +94,6 @@
         $state.go(AppConfig.routes.login, {
           clear: true
         });
-      }
-    }
-
-    function push(user) {
-      console.log('Push user', status, user);
-
-      if (user.status) {
-        update(user)
-          .then(function () {
-            ParsePush.start(user.email);
-          });
-      } else {
-        update(user)
-          .then(function () {
-            ParsePush.postUnSubscribe(user.email);
-          });
       }
     }
 

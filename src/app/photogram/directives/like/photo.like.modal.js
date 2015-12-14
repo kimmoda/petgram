@@ -20,10 +20,10 @@
           console.log('photogram', scope.ngModel);
           var photogram = scope.ngModel.item;
           photogram.likeProgress = true;
+          photogram.liked = !photogram.liked;
           Photogram
             .likeGallery(scope.ngModel.id)
             .then(function (resp) {
-              photogram.liked = resp.liked;
               photogram.qtdLike = resp.likes;
               delete photogram.likeProgress;
               console.log(photogram, resp);
@@ -31,7 +31,7 @@
           scope.$apply();
         }
       }
-    }
+    };
   }
 
   function photogramLikeModal($ionicModal, AppConfig, Photogram) {

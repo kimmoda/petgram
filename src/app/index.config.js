@@ -12,7 +12,7 @@
     .config(configIonic);
 
 
-  function runIonic($ionicPlatform, $cacheSrc, ParsePush, AppConfig, $cordovaStatusbar, $timeout,
+  function runIonic($ionicPlatform, $cacheSrc, AppConfig, $cordovaStatusbar, $timeout,
     $cordovaSplashscreen, PhotogramSetting, User) {
 
     $cacheSrc.color = AppConfig.color;
@@ -27,8 +27,6 @@
     $ionicPlatform.ready(function () {
 
       //$ionicAnalytics.register();
-
-      ParsePush.start('photogram');
 
       if (cordova && cordova.plugins && cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);

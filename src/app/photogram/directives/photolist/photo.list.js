@@ -35,9 +35,21 @@
     };
 
     vm.action = action;
+    vm.like = likePhoto;
     vm.gallery = {
       src: ''
     };
+
+    function likePhoto(gallery) {
+      //gallery.item.likeProgress = true;
+      gallery.item.liked = !gallery.item.liked;
+      Photogram
+        .likeGallery(gallery.id)
+        .then(function (resp) {
+          gallery.item.qtdLike = resp.likes;
+          //delete gallery.item.likeProgress;
+        });
+    }
 
     function action(gallery) {
 

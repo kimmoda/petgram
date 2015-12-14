@@ -24,7 +24,7 @@ msgstr ""
 msgid "add comment"
 msgstr ""
 
-#: photogram/directives/photolist/photogram.photos.list.html:44
+#: photogram/directives/photolist/photogram.photos.list.html:45
 msgid "Add comment"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr ""
 msgid "add photo"
 msgstr ""
 
-#: photogram/directives/photolist/photo.list.js:82
+#: photogram/directives/photolist/photo.list.js:94
 msgid "Are you sure?"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 #: components/ion-photo.module.js:332
 #: components/ion-photo.module.js:68
 #: photogram/directives/comment/photogramCommentDirective.js:99
-#: photogram/directives/photolist/photo.list.js:64
+#: photogram/directives/photolist/photo.list.js:76
 #: photogram/services/PhotogramShareFactory.js:92
 #: user/recovery/recoveryPassDirective.js:48
 msgid "Cancel"
@@ -88,11 +88,11 @@ msgstr ""
 msgid "Delete comment"
 msgstr ""
 
-#: photogram/directives/photolist/photo.list.js:81
+#: photogram/directives/photolist/photo.list.js:93
 msgid "Delete photo"
 msgstr ""
 
-#: photogram/directives/photolist/photo.list.js:54
+#: photogram/directives/photolist/photo.list.js:66
 msgid "Delete your photo"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Enabled your camera"
 msgstr ""
 
-#: index.config.js:55
+#: index.config.js:53
 msgid "English"
 msgstr ""
 
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: photogram/directives/photolist/photo.list.js:161
+#: photogram/directives/photolist/photo.list.js:173
 #: photogram/directives/photolist/photo.list.js:31
 #: photogram/services/PhotogramShareFactory.js:11
 msgid "I'm at"
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Instagram"
 msgstr ""
 
-#: photogram/directives/photolist/photo.list.js:161
+#: photogram/directives/photolist/photo.list.js:173
 #: photogram/directives/photolist/photo.list.js:31
 #: photogram/services/PhotogramShareFactory.js:11
 msgid "Install the application and follow me!"
@@ -250,7 +250,7 @@ msgid "like photo"
 msgstr ""
 
 #: photogram/directives/like/photogram.like.directive.html:4
-#: photogram/directives/photolist/photogram.photos.list.html:31
+#: photogram/directives/photolist/photogram.photos.list.html:32
 msgid "Likes"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: photogram/directives/photolist/photo.list.js:63
+#: photogram/directives/photolist/photo.list.js:75
 msgid "Photo"
 msgstr ""
 
@@ -335,7 +335,7 @@ msgstr ""
 msgid "Popular"
 msgstr ""
 
-#: index.config.js:58
+#: index.config.js:56
 msgid "Portuguese Brazil"
 msgstr ""
 
@@ -383,7 +383,7 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: photogram/directives/photolist/photo.list.js:47
+#: photogram/directives/photolist/photo.list.js:59
 msgid "Report"
 msgstr ""
 
@@ -416,7 +416,7 @@ msgid "Settings"
 msgstr ""
 
 #: components/modal.share.photo.html:3
-#: photogram/directives/photolist/photo.list.js:45
+#: photogram/directives/photolist/photo.list.js:57
 #: photogram/services/PhotogramShareFactory.js:91
 #: photogram/share/photogram.share.modal.html:4
 msgid "Share"

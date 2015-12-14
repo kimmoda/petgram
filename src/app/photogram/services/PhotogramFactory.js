@@ -850,12 +850,12 @@
                       console.error(err);
                       defer.reject(err);
                     });
-                })
+                });
 
 
             });
 
-        })
+        });
       return defer.promise;
     }
 
