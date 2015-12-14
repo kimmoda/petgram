@@ -8,31 +8,28 @@ Let's go and clone this project!
 
 [http://movibe.github.io/photogram-docs/](http://movibe.github.io/photogram-docs/)
 
+> Lets you quickly set up a project with:
+> * your favorite technologies
+> * web best pratices.
+> * guidelines powered by Google.
 
-## Getting Starter  ##
+> Gulp provide fast workspace with quick feedback.
+
+## Require  ##
 1) Install nodejs: http://nodejs.org/ 
 
 2) Install Ionic, Bower, Cordova and Gulp
 > $ npm install -g ionic bower cordova gulp
 
-3) Intall Node Modules
+## Getting Starter  ##
+1) Intall Project Modules
 > $ npm install
 
-or 
+2) Run in Browser
+> $ gulp serve
 
-> $ sudo npm install
-
-4) Install Bower Libs
-> $ bower install
-
-5) Gulp inject before test
-> $ gulp inject
-
-6) Run in Browser
-> $ ionic serve
-
-7) Cordova Files
-> $ ionic plugin add cordova-plugin-file cordova-plugin-file-transfer
+3) Build Project
+> $ gulp build
 
 ## Parse Configuration ##
 1. Create account in Parse [http://parse.com](http://parse.com)
