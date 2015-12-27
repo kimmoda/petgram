@@ -20,7 +20,7 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: photogram/services/PhotogramFactory.js:1149
+#: photogram/services/PhotogramFactory.js:1148
 msgid "add comment"
 msgstr ""
 
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Add comment"
 msgstr ""
 
-#: photogram/services/PhotogramFactory.js:1148
+#: photogram/services/PhotogramFactory.js:1147
 msgid "add photo"
 msgstr ""
 
@@ -44,10 +44,10 @@ msgstr ""
 msgid "Camera"
 msgstr ""
 
-#: components/ion-photo.module.js:124
-#: components/ion-photo.module.js:286
-#: components/ion-photo.module.js:332
-#: components/ion-photo.module.js:68
+#: components/ion-photo.module.js:140
+#: components/ion-photo.module.js:302
+#: components/ion-photo.module.js:348
+#: components/ion-photo.module.js:70
 #: photogram/directives/comment/photogramCommentDirective.js:99
 #: photogram/directives/photolist/photo.list.js:76
 #: photogram/services/PhotogramShareFactory.js:92
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: components/ion-photo.module.js:285
+#: components/ion-photo.module.js:301
 msgid "Change Image"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: components/ion-photo.module.js:89
+#: components/ion-photo.module.js:91
 msgid "Enabled your camera"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 msgid "Enter"
 msgstr ""
 
-#: components/ion-photo.module.js:88
+#: components/ion-photo.module.js:90
 msgid "Error"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Like"
 msgstr ""
 
-#: photogram/services/PhotogramFactory.js:1150
+#: photogram/services/PhotogramFactory.js:1149
 msgid "like photo"
 msgstr ""
 
@@ -318,11 +318,11 @@ msgstr ""
 msgid "Photo"
 msgstr ""
 
-#: components/ion-photo.module.js:282
+#: components/ion-photo.module.js:298
 msgid "Photo Album"
 msgstr ""
 
-#: components/ion-photo.module.js:280
+#: components/ion-photo.module.js:296
 msgid "Photo Camera"
 msgstr ""
 
@@ -365,7 +365,7 @@ msgstr ""
 msgid "Recent List"
 msgstr ""
 
-#: photogram/services/PhotogramFactory.js:1152
+#: photogram/services/PhotogramFactory.js:1151
 msgid "register"
 msgstr ""
 
@@ -375,7 +375,7 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: photogram/services/PhotogramFactory.js:1153
+#: photogram/services/PhotogramFactory.js:1152
 msgid "registered"
 msgstr ""
 
@@ -391,8 +391,8 @@ msgstr ""
 msgid "Report a Problem"
 msgstr ""
 
-#: components/ion-photo.module.js:125
-#: components/ion-photo.module.js:333
+#: components/ion-photo.module.js:141
+#: components/ion-photo.module.js:349
 msgid "Save"
 msgstr ""
 
@@ -426,7 +426,7 @@ msgstr ""
 msgid "Share in"
 msgstr ""
 
-#: components/ion-photo.module.js:67
+#: components/ion-photo.module.js:69
 msgid "Share Photo"
 msgstr ""
 
@@ -462,8 +462,12 @@ msgstr ""
 msgid "Twitter"
 msgstr ""
 
-#: photogram/services/PhotogramFactory.js:1151
+#: photogram/services/PhotogramFactory.js:1150
 msgid "unlike photo"
+msgstr ""
+
+#: components/ion-photo.module.js:65
+msgid "Video"
 msgstr ""
 
 #: user/merge/user.merge.html:35

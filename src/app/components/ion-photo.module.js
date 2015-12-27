@@ -19,7 +19,7 @@
     .factory('CamanJs', CamanJs);
 
   function PhotoService($ionicActionSheet, AppConfig, PhotogramShare, $jrCrop, $rootScope, $ionicModal,
-    $cordovaCamera, gettextCatalog, $q, Notify) {
+    $cordovaCamera, $cordovaCapture, gettextCatalog, $q, Notify) {
 
     // Default Setting
     var setting = {
@@ -61,6 +61,8 @@
         text: '<i class="icon ion-ios-camera"></i>' + gettextCatalog.getString('Camera')
       }, {
         text: '<i class="icon ion-images"></i>' + gettextCatalog.getString('Gallery')
+      }, {
+        text: '<i class="icon ion-ios-videocam"></i>' + gettextCatalog.getString('Video')
       }];
       var actionSheet = $ionicActionSheet.show({
         buttons: buttons,
@@ -90,6 +92,20 @@
           });
           buttonCancel();
         }
+      }
+
+      function caputreVideo() {
+        var defer = $q.defer();
+
+        $cordovaCapture
+          .captureVideo({
+            limit: 3,
+            duration: 15
+          })
+          .then(defer.resolve)
+          .catch(defer.reject);
+
+        return defer.promise;
       }
 
       function cropImage(image) {

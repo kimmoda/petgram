@@ -63,7 +63,7 @@ module.exports = function (config) {
         ],
 
         angularFilesort: {
-            whitelist: [path.join (conf.paths.src, '/**/!(*.html|*.spec|*.mock).js')]
+            whitelist: [path.join (conf.paths.src, '/**/!(*.html|*.spec|*Spec|*.mock).js')]
         },
 
         browsers: ['PhantomJS'],

@@ -1,15 +1,15 @@
 (function () {
   'use strict';
 
-  var cordova = window.cordova;
 
   angular
     .module('app.user')
     .factory('User', UserFactory);
 
-  function UserFactory($q, AppConfig, $rootScope, $ionicHistory, $cordovaDevice, $facebook,
+  function UserFactory($q, $window, AppConfig, $rootScope, $ionicHistory, $cordovaDevice, $facebook,
     $cordovaFacebook, Loading, $state) {
 
+    var cordova = $window.cordova;
     var device = cordova ? true : false;
     var facebook = device ? $cordovaFacebook : $facebook;
 

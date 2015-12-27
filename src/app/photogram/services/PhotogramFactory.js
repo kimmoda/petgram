@@ -1,12 +1,12 @@
 (function () {
   'use strict';
-  var cordova = window.cordova;
   angular
     .module('app.photogram')
     .factory('Photogram', PhotogramFactory);
 
-  function PhotogramFactory($q, gettextCatalog, User, Loading) {
+  function PhotogramFactory($q, $window, gettextCatalog, User, Loading) {
 
+    var cordova = $window.cordova;
     var currentUser = Parse.User.current();
     var limitComment = 3;
 
@@ -1102,7 +1102,6 @@
       var limit = 20;
 
       console.info(page, limit);
-
 
 
       new Parse
