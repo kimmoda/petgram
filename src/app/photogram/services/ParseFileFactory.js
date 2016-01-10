@@ -4,6 +4,20 @@
         .module('app.photogram')
         .factory('ParseFile', ParseFileFactory);
 
+    /*
+     * params
+     * .object
+     * .title
+     * .photo
+     *  .. filename
+     *  .. photo = base64
+     *  .geo
+     *  .. class
+     *  .. lat
+     *  .. lng
+     *
+     * */
+
     function ParseFileFactory($q) {
         return {
             upload: upload
@@ -11,12 +25,12 @@
 
         function upload(_params) {
             var defer = $q.defer();
-            var ImageObject = Parse.Object.extend('Gallery');
+            var ImageObject = Parse.Object.extend(_params.object || 'Gallery');
 
             if (_params.photo !== '') {
 
                 // create the parse file
-                var imageFile = new Parse.File('mypic.jpg', {
+                var imageFile = new Parse.File(_params.filename || 'mypic.jpg', {
                     base64: _params.photo
                 });
 
@@ -35,8 +49,8 @@
                         imageObject.set('user', Parse.User.current());
                         imageObject.set('img', imageFile);
 
-                        if (_params.location !== undefined) {
-                            imageObject.set('location', new Parse.GeoPoint(_params.location.latitude, _params.location.longitude));
+                        if (_params.geo !== undefined) {
+                            imageObject.set(_params.geo.class || 'location', new Parse.GeoPoint(_params.geo.lat, _params.geo.lng));
                         }
 
                         // save object to parse backend
