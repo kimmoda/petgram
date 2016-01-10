@@ -8,10 +8,23 @@
         <p>{{ gallery.user.status }}</p>
         <span>{{gallery.created | amTimeAgo}}</span>
     </div>
+    <div class="row">
+        <div class="colors">
+            <div class="color" style="background-color:rgb({{vm.palette[0][0]}},{{vm.palette[0][1]}},{{vm.palette[0][2]}})"></div>
+            <div class="palette">
+                <div ng-if="$index > 0" class="color" ng-repeat="c in vm.palette" style="background-color:rgb({{c[0]}},{{c[1]}},{{c[2]}})">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col"><button class="button button-block button-positive" ng-click="vm.getColors(gallery.id)">Get Colors</button></div>
+    </div>
 
     <div class="item item-body" on-double-tap="vm.like(gallery)" ng-model="gallery">
         <div class="icon ion-ios-heart heart" ng-class="(gallery.item.liked) ? 'happy' : 'broken' "></div>
-        <i class="icon" ng-if="like"></i> <img cache-src="{{gallery.src}}">
+        <i class="icon" ng-if="like"></i> <img cache-src="{{gallery.src}}" id="{{gallery.id}}">
     </div>
     <div class="item item-buttons">
         <div class="row">
