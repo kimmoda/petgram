@@ -4,7 +4,6 @@
     .module('app.photogram')
     .directive('photogramPhotoList', photogramPhotoList);
 
-
   function photogramPhotoList(AppConfig) {
     var path = AppConfig.path;
 
@@ -39,6 +38,22 @@
     vm.gallery = {
       src: ''
     };
+
+    vm.pallete = [];
+    vm.getColors = getColors;
+
+    function getColors(elemId) {
+      var a = document.getElementById(elemId);
+      if (a) {
+        var c = new ColorThief().getColor(a);
+        var p = new ColorThief().getPalette(a, 5);
+
+        console.log(c, p);
+        $scope.palette = p;
+      } else {
+        alert("Take a picture first!");
+      }
+    }
 
     function likePhoto(gallery) {
       //gallery.item.likeProgress = true;

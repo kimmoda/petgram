@@ -57,9 +57,10 @@
       value: 'pt_BR'
     }];
 
-    // var LangVar = navigator.language || navigator.userLanguage;
-    var LangVar = 'tr_TR';
+    var LangVar = navigator.language || navigator.userLanguage;
     var userLangVar = LangVar.substring(0, 2) + '_' + LangVar.substring(3, 5).toUpperCase();
+
+    console.log(userLangVar);
 
     $rootScope.setLanguage = function (language) {
 

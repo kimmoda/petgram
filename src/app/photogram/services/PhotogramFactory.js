@@ -1,11 +1,11 @@
 (function () {
   'use strict';
-  var cordova = window.cordova;
+
   angular
     .module('app.photogram')
     .factory('Photogram', PhotogramFactory);
 
-  function PhotogramFactory($q, gettextCatalog, User, Loading) {
+  function PhotogramFactory($q, Parse, ParseFile, gettextCatalog, User, Loading) {
 
     var currentUser = Parse.User.current();
     var limitComment = 3;
@@ -47,7 +47,7 @@
         console.info(response, user);
         return user;
       } else {
-        logout();
+        User.logout();
         return false;
       }
     }
@@ -170,7 +170,7 @@
             .find()
             .then(function (resp) {
               var comments = [];
-              angular.forEach(resp, function (item) {
+              resp.map(function (item) {
                 console.warn(item);
                 var obj = {
                   id: item.id,
@@ -240,14 +240,14 @@
                   text: item.attributes.text,
                   user: item.attributes.follow.attributes,
                   created: item.createdAt
-                }
+                };
                 obj.user = processImg(obj.user);
 
                 data.push(obj.user);
               });
               defer.resolve(data);
-            })
-        })
+            });
+        });
 
       return defer.promise;
     }
@@ -275,7 +275,7 @@
                     text: item.attributes.text,
                     user: item.attributes.user.attributes,
                     created: item.createdAt
-                  }
+                  };
                   objs.push(obj);
                 });
                 console.log(objs);
@@ -284,7 +284,7 @@
           } else {
             defer.reject(true);
           }
-        })
+        });
 
       return defer.promise;
     }
@@ -306,7 +306,7 @@
         .find()
         .then(function (resp) {
           if (resp.length) {
-            angular.forEach(resp, function (value, key) {
+            resp.map(function (value) {
               var size = 100;
               var obj = value.attributes;
               obj.id = value.id;
@@ -351,11 +351,11 @@
         .Query('Gallery')
         .limit(limit)
         .skip(page * limit)
-        .matches('title', ".* " + string + ".*")
+        .matches('title', '* ' + string + '.*')
         .include('user')
         .find()
         .then(function (resp) {
-          angular.forEach(resp, function (value, key) {
+          resp.map(function (value) {
             console.log('gallery search item', value);
             var obj = {
               id: value.id,
@@ -375,9 +375,7 @@
     function home(page) {
       var defer = $q.defer();
       var limit = 4;
-      var data = new Array();
-      //var following = $rootScope.user.following;
-      var user = new Parse.User.current();
+      var data = [];
 
       new Parse
         .Query('Gallery')
@@ -427,7 +425,7 @@
 
                     var commentsData = [];
 
-                    angular.forEach(comments, function (item) {
+                    comments.map(function (item) {
                       var user = item.attributes.commentBy;
 
                       var comment = {
@@ -454,7 +452,7 @@
 
                     if (item.attributes.user) {
                       obj.user = item.attributes.user.attributes,
-                        obj.user.id = item.attributes.user.id;
+                        obj.user.id = item.attributes.user.id ? item.attributes.user.id : '';
                       obj.user = processImg(obj.user);
                     } else {
                       // remove gallery
@@ -479,7 +477,7 @@
     function all(page, userId) {
       var defer = $q.defer();
       var limit = 18;
-      var data = new Array();
+      var data = [];
 
       var query;
 
@@ -569,8 +567,8 @@
 
                       if (item.attributes.user) {
                         obj.user = item.attributes.user.attributes,
-                          obj.user.id = item.attributes.user.id;
-                        obj.user = processImg(obj.user);
+                          obj.user.id = item.attributes.user.id ? item.attributes.user.id : '',
+                          obj.user = processImg(obj.user);
                       } else {
                         // remove gallery
                       }
@@ -693,7 +691,7 @@
       find(form.galleryId)
         .then(function (gallery) {
           var Object = Parse.Object.extend('GalleryComment');
-          var item = new Object();
+          var item = new Object({});
 
           angular.forEach(form, function (value, key) {
             item.set(key, value);
@@ -719,7 +717,7 @@
                 .then(function (resp) {
                   console.log(resp);
                   defer.resolve(resp);
-                })
+                });
             });
         });
 
@@ -745,7 +743,7 @@
                 defer.resolve(resp);
               }
             });
-        })
+        });
 
       return defer.promise;
     }
@@ -756,7 +754,7 @@
       find(galleryId)
         .then(function (gallery) {
           var Object = new Parse.Object.extend('GalleryLike');
-          var item = new Object();
+          var item = new Object({});
 
           item.set('user', currentUser);
           item.set('gallery', gallery);
@@ -794,9 +792,9 @@
                 }, function (err) {
                   console.error(err);
                   defer.reject(err);
-                })
+                });
             });
-        })
+        });
       return defer.promise;
     }
 
@@ -832,24 +830,24 @@
 
               like
                 .destroy(function (resp) {
-                  console.log('Remove like');
+                  if (resp) {
+                    console.log('Remove like');
+                    // Save Gallery
+                    gallery
+                      .save()
+                      .then(function (newGallery) {
+                        console.log('New Gallery', newGallery);
 
+                        defer.resolve({
+                          liked: false,
+                          likes: newGallery.attributes.qtdLike
+                        });
 
-                  // Save Gallery
-                  gallery
-                    .save()
-                    .then(function (newGallery) {
-                      console.log('New Gallery', newGallery);
-
-                      defer.resolve({
-                        liked: false,
-                        likes: newGallery.attributes.qtdLike
+                      }, function (err) {
+                        console.error(err);
+                        defer.reject(err);
                       });
-
-                    }, function (err) {
-                      console.error(err);
-                      defer.reject(err);
-                    });
+                  }
                 });
 
 
@@ -865,9 +863,11 @@
       isLiked(gallery)
         .then(function (resp) {
           console.warn(resp);
+          var promise = '';
+
           if (resp) {
             console.log('Remove Like');
-            var promise = removeLike(gallery);
+            promise = removeLike(gallery);
             addActivity({
               galleryId: gallery,
               action: 'unlike like'
@@ -875,7 +875,7 @@
 
           } else {
             console.log('Add like');
-            var promise = addLike(gallery);
+            promise = addLike(gallery);
             addActivity({
               galleryId: gallery,
               action: 'add like'
@@ -901,8 +901,8 @@
             .then(function (resp) {
               console.log(resp);
               defer.resolve(resp);
-            })
-        })
+            });
+        });
       return defer.promise;
     }
 
@@ -970,7 +970,7 @@
 
                 });
             });
-        })
+        });
 
 
       return defer.promise;
@@ -991,7 +991,7 @@
             .count()
             .then(function (qtdGalleries) {
               defer.resolve(qtdGalleries);
-            })
+            });
         });
 
       return defer.promise;
@@ -999,7 +999,7 @@
 
     function getUserGallery(userId, page) {
       var defer = $q.defer();
-      var data = new Array();
+      var data = [];
       var limit = 9;
 
       if (userId === undefined) {
@@ -1092,7 +1092,7 @@
             }, function () {
               defer.reject(true);
             });
-        })
+        });
 
       return defer.promise;
     }
@@ -1102,7 +1102,6 @@
       var limit = 20;
 
       console.info(page, limit);
-
 
 
       new Parse
@@ -1117,7 +1116,7 @@
           console.log(resp.length);
           if (resp.length) {
             var data = [];
-            angular.forEach(resp, function (value, key) {
+            resp.map(function (value) {
               var obj = value.attributes;
               obj.id = value.id;
               obj.user = (value.attributes.user) ? value.attributes.user.attributes : '';
@@ -1158,7 +1157,7 @@
         find(data.galleryId)
           .then(function (gallery) {
             var Object = Parse.Object.extend('GalleryActivity');
-            var item = new Object();
+            var item = new Object({});
 
             item.set('user', Parse.User.current());
             item.set('gallery', gallery);
@@ -1171,7 +1170,7 @@
           });
       } else {
         var Object = Parse.Object.extend('GalleryActivity');
-        var item = new Object();
+        var item = new Object({});
 
         item.set('user', Parse.User.current());
         item.set('action', data.action);
@@ -1200,7 +1199,7 @@
               console.log(user);
               Loading.end();
               defer.resolve(user);
-            })
+            });
         });
 
 

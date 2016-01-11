@@ -34,7 +34,7 @@
           console.log(resp);
           vm.comments = resp;
         });
-    };
+    }
 
     function submitComment(rForm, form) {
       if (rForm.$valid) {

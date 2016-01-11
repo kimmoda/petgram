@@ -1,15 +1,15 @@
 (function () {
   'use strict';
 
-  var cordova = window.cordova;
 
   angular
     .module('app.user')
     .factory('User', UserFactory);
 
-  function UserFactory($q, AppConfig, $rootScope, $ionicHistory, $cordovaDevice, $facebook,
-    $cordovaFacebook, Loading, $state) {
+  function UserFactory($q, $window, AppConfig, $rootScope, $ionicHistory, $cordovaDevice, $facebook, $cordovaFacebook,
+    Loading, $location, $state) {
 
+    var cordova = $window.cordova;
     var device = cordova ? true : false;
     var facebook = device ? $cordovaFacebook : $facebook;
 
@@ -91,9 +91,8 @@
 
       } else {
         console.log('Not logged user, go intro');
-        $state.go(AppConfig.routes.login, {
-          clear: true
-        });
+        logout();
+        $location.path(AppConfig.routes.login);
       }
     }
 
@@ -365,25 +364,23 @@
 
     function forgot(email) {
       var defer = $q.defer();
-      new Parse
-        .User
-        .requestPasswordReset(email, {
-          success: function (resp) {
-            defer.resolve(resp);
-          },
-          error: function (err) {
-            if (err.code === 125) {
-              defer.reject('Email address does not exist');
-            } else {
-              defer.reject('An unknown error has occurred, please try again');
-            }
+      new Parse.User.requestPasswordReset(email, {
+        success: function (resp) {
+          defer.resolve(resp);
+        },
+        error: function (err) {
+          if (err.code === 125) {
+            defer.reject('Email address does not exist');
+          } else {
+            defer.reject('An unknown error has occurred, please try again');
           }
-        });
+        }
+      });
       return defer.promise;
     }
 
     function logout() {
-      Parse.User.logOut();
+      new Parse.User.logOut();
       delete $rootScope.user;
       //$window.location = '/#/intro';
       $state.go('intro', {
@@ -833,7 +830,7 @@
                     defer.resolve(user);
                   });
               }
-            });;
+            });
           },
           function (response) {
             alert(JSON.stringify(response));
@@ -845,6 +842,7 @@
     }
 
 
-  }
 
+
+  }
 })();

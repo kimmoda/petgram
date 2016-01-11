@@ -28,6 +28,27 @@
       }
     })
 
+    // Direct
+    .state('photogram.direct', {
+      url: '/direct',
+      views: {
+        tabHome: {
+          controller: 'DirectHomeCtrl as vm',
+          templateUrl: path + '/direct/direct.home.html'
+        }
+      }
+    })
+
+    .state('photogram.message', {
+      url: '/message/:channelId',
+      views: {
+        tabHome: {
+          controller: 'DirectMessagesCtrl as vm',
+          templateUrl: path + '/direct/direct.messages.html'
+        }
+      }
+    })
+
     .state('photogram.popular', {
       url: '/popular',
       views: {

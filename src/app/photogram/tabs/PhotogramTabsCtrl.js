@@ -14,8 +14,7 @@
     .controller('PhotogramTabsCtrl', PhotogramTabsController);
 
   function PhotogramTabsController($scope, $state, AppConfig, $rootScope, Photogram, $ionicModal, Loading,
-    PhotogramSetting,
-    PhotoService) {
+    PhotogramSetting, PhotoService) {
     var vm = this;
     var path = AppConfig.path;
     vm.postPhoto = open;
@@ -32,7 +31,6 @@
         targetHeight: PhotogramSetting.get('imageHeight'),
         saveToPhotoAlbum: PhotogramSetting.get('imageSaveAlbum')
       };
-
       console.log(option);
 
       PhotoService
@@ -92,12 +90,7 @@
             $rootScope.$emit('PhotogramHome:reload');
           });
       }
-
-
-
     }
-
-
   }
 
 })();
