@@ -4,9 +4,9 @@
 
 Let's go and clone this project!
 
-### Full Document and Preview:
+### NEW Document in Development
 
-[http://movibe.github.io/photogram-docs/](http://movibe.github.io/photogram-docs/) 
+[NEW DOCUMENTATION IN HERE!!!!!](https://docs.google.com/presentation/d/1gWrISqNAihE3_t72zxuxUSl1LPwZkhiRSR-cPM9UmpQ/edit?usp=sharing)
 
 > Lets you quickly set up a project with:
 > * your favorite technologies
@@ -36,7 +36,7 @@ Let's go and clone this project!
 2. Follow online documentation in Github
 [http://movibe.github.io/photogram-docs/#parse](http://movibe.github.io/photogram-docs/#parse)
 3. Config Your Parse Keys in file
-www/js/config.parse.js
+src/app/index.constant.js
 
 ![enter image description here](http://movibe.github.io/photogram-docs/assets/images/facebook-config.jpg)
 
