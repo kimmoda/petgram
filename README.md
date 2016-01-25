@@ -6,7 +6,7 @@ Let's go and clone this project!
 
 ### Full Document and Preview:
 
-[http://movibe.github.io/photogram-docs/](http://movibe.github.io/photogram-docs/)
+[http://movibe.github.io/photogram-docs/](http://movibe.github.io/photogram-docs/) 
 
 > Lets you quickly set up a project with:
 > * your favorite technologies
@@ -16,7 +16,7 @@ Let's go and clone this project!
 > Gulp provide fast workspace with quick feedback.
 
 ## Require  ##
-1) Install nodejs: http://nodejs.org/ 
+1) Install nodejs: http://nodejs.org/
 
 2) Install Ionic, Bower, Cordova and Gulp
 > $ npm install -g ionic bower cordova gulp
@@ -39,7 +39,7 @@ Let's go and clone this project!
 www/js/config.parse.js
 
 ![enter image description here](http://movibe.github.io/photogram-docs/assets/images/facebook-config.jpg)
-  
+
 ## Facebook Configuration ##
 
  1. Create Account in Facebook Developers
@@ -47,6 +47,6 @@ www/js/config.parse.js
  2. Edit File with your Keys www/js/config.facebook.js
 
 ##Build and run app on iOS (only Mac OS) ##
-> $ sudo npm install -g ios-sim 
+> $ sudo npm install -g ios-sim
 
 > $ ionic run ios

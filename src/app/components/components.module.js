@@ -8,5 +8,7 @@
       'ion-photo',
       'ion-location',
       'ion-notify',
+      'ngCache',
+      'ngParse',
     ]);
 })();

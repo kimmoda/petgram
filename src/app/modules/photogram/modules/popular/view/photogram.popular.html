@@ -1,0 +1,24 @@
+<ion-view>
+    <ion-nav-title>
+        <h1 class="title" translate="PHOTOGRAM.POPULAR.TITLE"></h1>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+        <button ng-click="vm.openShare()" class="button button-icon icon ion-android-share-alt"></button>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <ion-refresher ng-if="!vm.loading" on-refresh="loadMore(true)"></ion-refresher>
+
+        <photogram-loading loading="vm.loading"></photogram-loading>
+
+        <photogram-photo-grid profile="true" photogram="vm.data" loading="vm.loading"></photogram-photo-grid>
+
+        <div class="center-ico" ng-if="vm.empty">
+            <i class="icon ion-ios-camera"></i>
+        </div>
+
+        <ion-infinite-scroll ng-if="!vm.loading && !vm.empty" on-infinite="vm.loadMore()"></ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

@@ -2,8 +2,7 @@
   'use strict';
   angular
     .module('ion-location', [
-      'ionic',
-      'gettext'
+      'ionic'
     ]);
-    
+
 })();

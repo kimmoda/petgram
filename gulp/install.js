@@ -1,11 +1,11 @@
 'use strict';
-var path  = require('path');
-var gulp  = require('gulp');
-var gutil  = require('gulp-util');
-var bower = require('bower');
-var paths = gulp.paths;
+const path  = require('path');
+const gulp  = require('gulp');
+const gutil  = require('gulp-util');
+const bower = require('bower');
+const paths = gulp.paths;
 
-gulp.task('install', ['git-check'], function () {
+gulp.task('install', ['git-check'],  () =>{
     return bower.commands.install()
         .on('log', function (data) {
             gutil.log('bower', gutil.colors.cyan(data.id), data.message);

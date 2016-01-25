@@ -1,11 +1,11 @@
-(function() {
-'use strict';
+(function () {
+  'use strict';
 
-    angular
-        .module('ionic-loading')
-        .factory('Loading', Loading);
+  angular
+    .module('ionic-loading')
+    .factory('Loading', Loading);
 
-    function Loading($rootScope, $timeout) {
+  function Loading($rootScope, $timeout) {
     var seconds = 0;
 
     return {

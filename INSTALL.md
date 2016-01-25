@@ -12,7 +12,7 @@ Install nodejs: http://nodejs.org/
 
 Start with a blank Ionic template
         
-        $ ionic start appName blank
+$ ionic start appName blank
         
 Start with an Ionic tabs template
         

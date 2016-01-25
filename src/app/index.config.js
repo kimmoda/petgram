@@ -6,8 +6,8 @@
   angular
     .module('starter')
     .run(runIonic)
-    .run(runLanguage)
     .run(runFacebook)
+    .config(configLang)
     .config(configFacebook)
     .config(configIonic);
 
@@ -47,41 +47,41 @@
 
   }
 
-  function runLanguage($rootScope, gettextCatalog, $translate, amMoment) {
-    // Language
-    $rootScope.langs = [{
-      name: gettextCatalog.getString('English'),
-      value: 'en_US'
-    }, {
-      name: gettextCatalog.getString('Portuguese Brazil'),
-      value: 'pt_BR'
-    }];
+  function configLang($translateProvider, AppConfig, tmhDynamicLocaleProvider) {
 
-     var LangVar = navigator.language || navigator.userLanguage;
-    var userLangVar = LangVar.substring(0, 2) + '_' + LangVar.substring(3, 5).toUpperCase();
+    // angular-translate configuration
+    $translateProvider.useLoader('$translatePartialLoader', {
+      urlTemplate: '{part}/i18n/{lang}.json'
+    });
+    $translateProvider.useSanitizeValueStrategy('sanitize');
 
-    console.log(userLangVar);
+    // Translate Config
+    $translateProvider.preferredLanguage(AppConfig.preferredLocale);
+    $translateProvider.useMissingTranslationHandlerLog();
+    $translateProvider.useLocalStorage(); // saves selected language to localStorage
+    tmhDynamicLocaleProvider.localeLocationPattern('../bower_components/angular-i18n/angular-locale_{{locale}}.js');
 
-    $rootScope.setLanguage = function (language) {
+    //var langvar = navigator.language || navigator.userlanguage;
+    //var userlangvar = langvar.substring(0, 2) + '_' + langvar.substring(3, 5).touppercase();
+    //
+    //console.log(userlangvar);
 
-      $rootScope.lang = $rootScope.langs.filter(function (item) {
-        return item.value === language;
-      })[0];
-
-      // Fix language
-      if ($rootScope.lang === undefined) {
-        $rootScope.lang = $rootScope.langs[0];
-        language = $rootScope.lang.value;
-      }
-
-      gettextCatalog.setCurrentLanguage(language);
-      $translate.use(language);
-      amMoment.changeLocale(language);
-
-    };
-
-    $rootScope.setLanguage(userLangVar);
-    console.info($rootScope.lang);
+    //$rootscope.setlanguage = function (language) {
+    //
+    //    $rootscope.lang = $rootscope.langs.filter(function (item) {
+    //        return item.value === language;
+    //    })[0];
+    //
+    //    // fix language
+    //    if ($rootscope.lang === undefined) {
+    //        $rootscope.lang = $rootscope.langs[0];
+    //        language = $rootscope.lang.value;
+    //    }
+    //
+    //    ammoment.changelocale(language);
+    //
+    //};
+    //    $translateprovider.preferredlanguage(language);
   }
 
   function configIonic($ionicConfigProvider) {

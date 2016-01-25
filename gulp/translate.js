@@ -1,56 +1,66 @@
 'use strict';
-var gulp    = require('gulp');
-var rename  = require('gulp-rename');
-var extend  = require('gulp-extend');
-var wrap    = require('gulp-wrap');
-var gettext = require('gulp-angular-gettext');
-var iife    = require('gulp-iife');
-var conf = require('./conf');
+// ADD YOUR YANDEX API KEY HERE
+// User gulp translate --from en --to pt
+// go here for more info
+// npm install -S gulp-util yargs map-stream gulp-rename traverse yandex-translate vinyl-transform gulp-json-format
+// https://tech.yandex.com/translate/
+const YANDEX_API_KEY = 'trnsl.1.1.20151231T023309Z.303cfcb0d309b4d4.c701d72bbd3edb7916cc6759995de6191b63993b';
 
-// Translate
-gulp.task('gettext:po', function () {
-    return gulp.src([
-            conf.paths.src + '/app/**/*.js',
-            '!' + conf.paths.src + '/app/**/*Spec.js',
-            '!' + conf.paths.src + '/app/**/*.spec.js',
-            conf.paths.src + '/app/**/*.html'
-        ])
-        .pipe(gettext.extract('template.pot', {
-            // options to pass to angular-gettext-tools...
-        }))
-        .pipe(gulp.dest('./translate/'));
+const gulp       = require('gulp');
+const gutil      = require('gulp-util');
+const argv       = require('yargs').argv;
+const map        = require('map-stream');
+const rename     = require('gulp-rename');
+const traverse   = require('traverse');
+const translate  = require('yandex-translate')(YANDEX_API_KEY);
+const transform  = require('vinyl-transform');
+const jsonFormat = require('gulp-json-format');
+const conf       = require('./conf');
+const paths      = conf.paths;
+
+gulp.task('translate', function () {
+    const translateFile = transform(function (filename) {
+
+        return map( (data, done) => {
+            let j              = JSON.parse(data);
+            let translateCount = 0;
+            let appTranslated  = traverse(j).forEach(function (x) {
+                if (typeof x !== 'object') {
+                    let self = this;
+                    translateCount++;
+
+                    translate.translate(x, {
+                        to: argv.to
+                    },  (err, res) => {
+                        if (err) console.log(err);
+
+                        self.update(res.text.toString());
+                        translateCount--;
+                        if (translateCount === 0) {
+                            let finishedJSON = JSON.stringify(appTranslated);
+                            gutil.log(gutil.colors.green('Translated ' + filename));
+                            done(null, finishedJSON);
+                        }
+                    });
+                }
+            });
+        })
+    });
+
+    // make sure we have a from and to language
+    if (argv.from !== undefined && argv.to !== undefined) {
+
+        return gulp.src([
+                paths.src + '/app/**/i18n/' + argv.from + '.json',
+            ])
+            .pipe(translateFile)
+            .pipe(jsonFormat(4))
+            .pipe(rename({
+                basename: argv.to,
+            }))
+            .pipe(gulp.dest(paths.src + '/app'));
+    }
+    else {
+        gutil.log(gutil.colors.red('Need to specify 2 lanuages e.g. translate --from en --to fr <-- translate en json files to French'));
+    }
 });
-
-gulp.task('gettext:compile', function () {
-     gulp.src('translate/**/*.po') // Stream PO translation files.
-        .pipe(gettext.compile({format: 'json'})) // Compile to json
-        .pipe(extend('.tmp.json')) // use .json extension for gulp-wrap to load json content
-        .pipe(wrap( // Build the translation module using gulp-wrap and lodash.template
-            //'\'use strict\';\n' +
-            'angular.module(\'app.translate\',[\'ionic\'])\n' +
-            '.run(function (gettextCatalog) {\n' +
-            '<% var langs = Object.keys(contents); var i = langs.length; while (i--) {' +
-            'var lang = langs[i]; var translations = contents[lang]; %>' +
-            '  gettextCatalog.setStrings(\'<%= lang %>\', <%= JSON.stringify(translations, undefined, 2) %>);\n' +
-            '<% }; %>' +
-            '});'))
-        //.pipe (ngAnnotate ())
-        //.pipe (uglify ())
-        .pipe(rename('index.translate.module.js')) // Rename to final javascript filename
-        .pipe(iife())
-        .pipe(gulp.dest(conf.paths.src + '/app/'));
-});
-
-gulp.task('translations', function () {
-     gulp.src('translate/**/*.po')
-        .pipe(gettext.compile({
-            // options to pass to angular-gettext-tools...
-            format: 'json'
-        }))
-        .pipe(gulp.dest(conf.paths.src + '/app/il8n'));
-});
-
-gulp.task('translate', [
-    'gettext:po',
-    'gettext:compile'
-]);

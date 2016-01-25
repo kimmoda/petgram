@@ -1,0 +1,15 @@
+{
+    "AVATAR": {
+        "BUTTON": {
+            "FORGOT": "Esqueceu sua senha?",
+            "REGISTER": "Criar Conta",
+            "LOGIN": "Fazer Login",
+            "ENTER_IN": "Entrar usando o ",
+            "RESET_PASS": "Gerar nova senha",
+            "UPDATE": "Atualizar",
+            "SAVE": "Salvar",
+            "NEW": "Novo",
+            "CREATE": "Cadastrar"
+        }
+    }
+}

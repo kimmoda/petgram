@@ -10,3 +10,4 @@ resources/ios/
 releases/
 .tmp/
 www/
+.vscode/

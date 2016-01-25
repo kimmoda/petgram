@@ -1,10 +1,9 @@
 'use strict';
 
-var path = require ('path');
-var gulp = require ('gulp');
-var conf = require ('./conf');
-
-var $ = require ('gulp-load-plugins') ({
+const path = require ('path');
+const gulp = require ('gulp');
+const conf = require ('./conf');
+const $ = require ('gulp-load-plugins') ({
     pattern: [
         'gulp-*',
         'main-bower-files',
@@ -13,7 +12,7 @@ var $ = require ('gulp-load-plugins') ({
     ]
 });
 
-gulp.task ('img', function () {
+gulp.task ('img', () => {
     return gulp
         .src (conf.paths.src + '/img/***')
         .pipe ($.imagemin ({
@@ -24,7 +23,7 @@ gulp.task ('img', function () {
         .pipe (gulp.dest (conf.paths.dist + '/img'));
 });
 
-gulp.task ('partials', function () {
+gulp.task ('partials',  () => {
     return gulp
         .src ([
             path.join (conf.paths.src, '/app/**/*.html'),
@@ -45,7 +44,7 @@ gulp.task ('partials', function () {
 gulp.task ('html', [
     'inject',
     'partials'
-], function () {
+],  ()=> {
     var partialsInjectFile    = gulp.src (path.join (conf.paths.tmp, '/partials/templateCacheHtml.js'), {read: false});
     var partialsInjectOptions = {
         starttag: '<!-- inject:partials -->',
@@ -96,7 +95,7 @@ gulp.task ('html', [
 
 // Only applies for fonts from bower dependencies
 // Custom fonts are handled by the "other" task
-gulp.task ('fonts', function () {
+gulp.task ('fonts',  ()=> {
     return gulp.src ($.mainBowerFiles ()
                       .concat ('bower_components/material-design-iconfont/iconfont/*'))
                .pipe ($.filter ('**/*.{eot,svg,ttf,woff,woff2}'))
@@ -104,7 +103,7 @@ gulp.task ('fonts', function () {
                .pipe (gulp.dest (path.join (conf.paths.dist, '/fonts/')));
 });
 
-gulp.task ('other', function () {
+gulp.task ('other',  ()=> {
     var fileFilter = $.filter (function (file) {
         return file.stat.isFile ();
     });
@@ -117,14 +116,14 @@ gulp.task ('other', function () {
                .pipe (gulp.dest (path.join (conf.paths.dist, '/')));
 });
 
-gulp.task ('clean', function () {
+gulp.task ('clean',  ()=> {
     return $.del ([
         path.join (conf.paths.dist, '/'),
         path.join (conf.paths.tmp, '/')
     ]);
 });
 
-gulp.task ('build', function (cb) {
+gulp.task ('build',  (cb) => {
     $.runSequence ('clean',
         'prettify',
         'translate',
