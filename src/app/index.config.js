@@ -53,7 +53,7 @@
     $translateProvider.useLoader('$translatePartialLoader', {
       urlTemplate: '{part}/i18n/{lang}.json'
     });
-    $translateProvider.useSanitizeValueStrategy('sanitize');
+    $translateProvider.useSanitizeValueStrategy(null);
 
     // Translate Config
     $translateProvider.useMissingTranslationHandlerLog();

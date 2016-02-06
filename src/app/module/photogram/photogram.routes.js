@@ -4,7 +4,7 @@
     .module('app.photogram')
     .config(configRoutes);
 
-  var path = 'app/module/photogram/';
+  var path = 'app/module/photogram';
 
   function configRoutes($stateProvider, $translatePartialLoaderProvider) {
 

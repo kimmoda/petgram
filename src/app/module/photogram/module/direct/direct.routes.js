@@ -4,12 +4,9 @@
     .module('app.direct')
     .config(configRoutes);
 
-  var path = 'app/module/photogram/module/direct/';
+  var path = 'app/module/photogram/module/direct';
 
-  function configRoutes($stateProvider, $translatePartialLoaderProvider) {
-
-    // Translation
-    //$translatePartialLoaderProvider.addPart(path);
+  function configRoutes($stateProvider) {
 
 
     $stateProvider
