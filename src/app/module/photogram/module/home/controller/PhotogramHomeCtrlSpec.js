@@ -1,20 +1,20 @@
 describe('Controller: app.PhotogramHome', function () {
 
-    // load the controller's module
-    beforeEach(module('app'));
+  // load the controller's module
+  beforeEach(module('app'));
 
-    var ctrl,
-        scope;
+  var ctrl,
+    scope;
 
-    // Initialize the controller and a mock scope
-    beforeEach(inject(function ($controller, $rootScope) {
-        scope = $rootScope.$new();
-        ctrl = $controller('PhotogramHome', {
-            $scope: scope
-        });
-    }));
-
-    it('should be defined', function () {
-        expect(ctrl).toBeDefined();
+  // Initialize the controller and a mock scope
+  beforeEach(inject(function ($controller, $rootScope) {
+    scope = $rootScope.$new();
+    ctrl = $controller('PhotogramHome', {
+      $scope: scope
     });
+  }));
+
+  it('should be defined', function () {
+    expect(ctrl).toBeDefined();
+  });
 });

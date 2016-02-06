@@ -8,7 +8,7 @@
         <div class="profile-top">
             <div class="row">
                 <div class="col-25">
-                    <img class="avatar" ng-src="{{ user.src }}"/>
+                    <img class="avatar" ng-src="{{ user.src }}" />
                 </div>
                 <div class="col col-statics">
                     <div class="row">
@@ -34,9 +34,7 @@
                     <div class="row col-edit">
                         <div class="col">
                             <photogram-loading loading="loadingFollow"></photogram-loading>
-                            <button ng-if="!loadingFollow"
-                                    ng-class="{'button-unfollow': user.follow, 'button-follow': !user.follow}"
-                                    ng-click="follow()" class="button">
+                            <button ng-if="!loadingFollow" ng-class="{'button-unfollow': user.follow, 'button-follow': !user.follow}" ng-click="follow()" class="button">
                                 <span ng-show="!user.follow" translate>Follow</span>
                                 <span ng-show="user.follow" translate>Following</span>
                             </button>

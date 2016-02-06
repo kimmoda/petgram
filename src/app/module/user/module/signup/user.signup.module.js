@@ -1,6 +1,6 @@
 (function () {
-    'use strict';
-    angular
-        .module('user.signup', []);
+  'use strict';
+  angular
+    .module('user.signup', []);
 
 })();

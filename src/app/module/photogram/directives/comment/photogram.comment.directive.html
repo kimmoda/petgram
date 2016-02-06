@@ -10,7 +10,7 @@
 
         <ion-list class="list" ng-show="comments.length" can-swipe="true">
             <ion-item ng-repeat="item in comments" class="item item-avatar">
-                <img ng-src="{{ item.user.src }}"/>
+                <img ng-src="{{ item.user.src }}" />
 
                 <div class="row">
                     <h2>{{ item.user.name }}</h2>
@@ -22,11 +22,9 @@
                 </div>
 
                 <div ng-if="item.user.id === currentUser.id">
-                    <ion-option-button class="button-info" ng-click="editComment(item)"
-                                       translate="PHOTOGRAM.BUTTON.EDIT">Edit
+                    <ion-option-button class="button-info" ng-click="editComment(item)" translate="PHOTOGRAM.BUTTON.EDIT">Edit
                     </ion-option-button>
-                    <ion-option-button class="button-assertive" ng-click="deleteComment(item)"
-                                       translate="PHOTOGRAM.BUTTON.REMOVE">Remove
+                    <ion-option-button class="button-assertive" ng-click="deleteComment(item)" translate="PHOTOGRAM.BUTTON.REMOVE">Remove
                     </ion-option-button>
                 </div>
             </ion-item>

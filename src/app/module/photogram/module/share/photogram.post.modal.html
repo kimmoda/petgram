@@ -12,12 +12,10 @@
         </div>
         <ul class="list">
             <li class="item">
-                <textarea type="text" ng-model="form.title" autofocus
-                          placeholder="{{ 'SHARE.FORM.LEGEND' | translate }}"></textarea>
+                <textarea type="text" ng-model="form.title" autofocus placeholder="{{ 'SHARE.FORM.LEGEND' | translate }}"></textarea>
             </li>
             <li class="item item-input" ng-show="form.geo.image">
-                <input type="text" placeholder="{{ 'SHARE.FORM.LOCATION' | translate }}" ion-location
-                       location="form.geo" ng-model="form.geo.resume">
+                <input type="text" placeholder="{{ 'SHARE.FORM.LOCATION' | translate }}" ion-location location="form.geo" ng-model="form.geo.resume">
             </li>
             <li class="item nopadding" ng-show="form.geo.image">
                 <img ng-src="{{ form.geo.image }}">

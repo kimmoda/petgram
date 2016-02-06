@@ -10,8 +10,7 @@
 
                 <ui-gmap-marker idKey='0' coords='vm.user'></ui-gmap-marker>
 
-                <ui-gmap-marker click="vm.openModal(item)" idKey='item.id' coords='item.coords'
-                                icon="item.icon" ng-repeat="item in vm.data">
+                <ui-gmap-marker click="vm.openModal(item)" idKey='item.id' coords='item.coords' icon="item.icon" ng-repeat="item in vm.data">
                 </ui-gmap-marker>
 
             </ui-gmap-google-map>

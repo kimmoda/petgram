@@ -1,22 +1,22 @@
 (function () {
-    'use strict';
-    angular
-        .module('app.intro')
-        .config(configRoutes);
+  'use strict';
+  angular
+    .module('app.intro')
+    .config(configRoutes);
 
-    var path = 'app/module/intro';
+  var path = 'app/module/intro';
 
-    function configRoutes($stateProvider, $translatePartialLoaderProvider) {
-        $stateProvider
-            .state('intro', {
-                url: '/intro',
-                templateUrl: path + '/view/intro.html',
-                controller: 'IntroCtrl',
-                controllerAs: 'vm'
-            });
+  function configRoutes($stateProvider, $translatePartialLoaderProvider) {
+    $stateProvider
+      .state('intro', {
+        url: '/intro',
+        templateUrl: path + '/view/intro.html',
+        controller: 'IntroCtrl',
+        controllerAs: 'vm'
+      });
 
-        // Translation
-        $translatePartialLoaderProvider.addPart(path);
-    }
+    // Translation
+    $translatePartialLoaderProvider.addPart(path);
+  }
 
 })();

@@ -1,6 +1,6 @@
 (function () {
-    'use strict';
-    angular
-        .module('user.logout', []);
+  'use strict';
+  angular
+    .module('user.logout', []);
 
 })();

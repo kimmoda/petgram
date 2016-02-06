@@ -1,22 +1,22 @@
 (function () {
-    'use strict';
-    var path = 'app/module/user/module/merge';
+  'use strict';
+  var path = 'app/module/user/module/merge';
 
-    angular
-        .module('user.merge')
-        .config(addRoute);
+  angular
+    .module('user.merge')
+    .config(addRoute);
 
-    function addRoute($stateProvider, $translatePartialLoaderProvider) {
-        //$translatePartialLoaderProvider.addPart(path);
+  function addRoute($stateProvider, $translatePartialLoaderProvider) {
+    //$translatePartialLoaderProvider.addPart(path);
 
-        $stateProvider
-            .state('usermerge', {
-                url: '/merge',
-                controller: 'UserMergeCtrl', controllerAs: 'vm',
-                templateUrl: path + '/view/user.merge.html'
-            })
-        ;
+    $stateProvider
+      .state('usermerge', {
+        url: '/merge',
+        controller: 'UserMergeCtrl',
+        controllerAs: 'vm',
+        templateUrl: path + '/view/user.merge.html'
+      });
 
-    }
+  }
 
 })();

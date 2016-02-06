@@ -12,15 +12,13 @@
         <div class="list">
             <div class="item item-thumbnail-left" href="#">
                 <img ng-src="{{form.photo}}" id="image">
-                <textarea type="text" ng-model="form.title"
-                          placeholder="{{ 'SHARE.FORM.LEGEND'|translate }}"></textarea>
+                <textarea type="text" ng-model="form.title" placeholder="{{ 'SHARE.FORM.LEGEND'|translate }}"></textarea>
             </div>
         </div>
 
         <ul class="list">
             <li class="item item-input">
-                <input type="text" placeholder="{{ 'SHARE.FORM.LOCATION' | translate }}" ion-location
-                       location="form.geo" ng-model="form.geo.resume">
+                <input type="text" placeholder="{{ 'SHARE.FORM.LOCATION' | translate }}" ion-location location="form.geo" ng-model="form.geo.resume">
             </li>
             <div class="item nopadding" ng-show="form.geo.image">
                 <img ng-src="{{ form.geo.image }}">

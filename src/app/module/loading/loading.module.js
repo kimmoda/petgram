@@ -1,6 +1,6 @@
 (function () {
-    'use strict';
-    angular
-        .module('app.loading', []);
+  'use strict';
+  angular
+    .module('app.loading', []);
 
 })();

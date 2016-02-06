@@ -1,31 +1,31 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('ion-notify', ['ionic'])
-        .factory('Notify', Notify);
+  angular
+    .module('ion-notify', ['ionic'])
+    .factory('Notify', Notify);
 
-    function Notify($ionicPopup) {
+  function Notify($ionicPopup) {
 
-        return {
-            alert: alert,
-            confirm: confirm
-        };
+    return {
+      alert: alert,
+      confirm: confirm
+    };
 
-        function alert(params) {
-            return $ionicPopup.alert({
-                title: params.title,
-                template: params.text
-            });
-        }
-
-        function confirm(title, msg) {
-            return $ionicPopup.confirm({
-                title: title,
-                template: msg
-            });
-        }
+    function alert(params) {
+      return $ionicPopup.alert({
+        title: params.title,
+        template: params.text
+      });
     }
+
+    function confirm(title, msg) {
+      return $ionicPopup.confirm({
+        title: title,
+        template: msg
+      });
+    }
+  }
 
 
 })();

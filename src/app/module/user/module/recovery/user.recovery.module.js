@@ -1,6 +1,6 @@
 (function () {
-    'use strict';
-    angular
-        .module('user.recovery', []);
+  'use strict';
+  angular
+    .module('user.recovery', []);
 
 })();

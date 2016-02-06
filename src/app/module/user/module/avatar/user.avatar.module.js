@@ -1,6 +1,6 @@
 (function () {
-    'use strict';
-    angular
-        .module('user.avatar', ['app.user']);
+  'use strict';
+  angular
+    .module('user.avatar', ['app.user']);
 
 })();
