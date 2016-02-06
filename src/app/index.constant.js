@@ -36,7 +36,7 @@
                     'code': 'tr'
                 },
                 fa: {
-                    'translation': 'LANG.PERSINA',
+                    'translation': 'LANG.PERSIAN',
                     'code': 'fa'
                 },
                 de: {
