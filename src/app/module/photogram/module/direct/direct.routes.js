@@ -9,7 +9,7 @@
     function configRoutes($stateProvider, $translatePartialLoaderProvider) {
 
         // Translation
-        $translatePartialLoaderProvider.addPart(path);
+        //$translatePartialLoaderProvider.addPart(path);
 
 
         $stateProvider

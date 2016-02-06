@@ -8,7 +8,7 @@
 
     function configRoutes($stateProvider, $translatePartialLoaderProvider) {
 
-        $translatePartialLoaderProvider.addPart(path);
+        //$translatePartialLoaderProvider.addPart(path);
 
         $stateProvider
             .state('photogram.search', {

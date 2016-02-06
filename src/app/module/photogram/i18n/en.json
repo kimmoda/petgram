@@ -1,4 +1,48 @@
 {
+  "HOME": {
+    "TITLE": {
+      "NO_PHOTO": "No photo"
+    }
+  },
+  "ACTIVITY": {
+    "TITLE": "Activities",
+    "FORM": {
+      "PLACEHOLDER": "Send a message..."
+    }
+  },
+  "DIRECT": {
+    "TITLE": "Direct Messages",
+    "FORM": {
+      "PLACEHOLDER": "Send a message..."
+    },
+    "BUTTON": {
+      "PULL": "Pull to refresh..."
+    }
+  },
+  "FEEDBACK": {
+    "TITLE": "Feedback",
+    "SUBJECT": "Subject",
+    "COMPLAINT": "Complaint",
+    "BUG": "Bug",
+    "SUGGESTION": "Suggestion",
+    "MESSAGE": "Your message"
+  },
+  "SEARCH": {
+    "TITLE": "Search",
+    "TITLE_LIST": "Seach in List",
+    "TITLE_MAP": "Seach in Map",
+    "FORM": {
+      "INPUT": "Search..."
+    }
+  },
+  "SHARE": {
+    "TITLE": "Post photo",
+    "FORM": {
+      "SHARE_IN": "Share in",
+      "LEGEND": "Write a Legend",
+      "LOCATION": "Location"
+    }
+  },
   "PHOTOGRAM": {
     "TITLE": {
       "HOME": "Home",

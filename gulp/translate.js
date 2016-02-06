@@ -20,25 +20,19 @@ const conf       = require('./conf');
 const paths      = conf.paths;
 
 gulp.task('translate', function () {
-    const translateFile = transform(function (filename) {
-
-        return map( (data, done) => {
-            let j              = JSON.parse(data);
-            let translateCount = 0;
-            let appTranslated  = traverse(j).forEach(function (x) {
-                if (typeof x !== 'object') {
-                    let self = this;
+    var translateFile = transform(function(filename) {
+        return map(function(data, done) {
+            var j = JSON.parse(data);
+            var translateCount = 0;
+            var appTranslated = traverse(j).forEach(function(x) {
+                if(typeof x !== 'object') {
+                    var self = this;
                     translateCount++;
-
-                    translate.translate(x, {
-                        to: argv.to
-                    },  (err, res) => {
-                        if (err) console.log(err);
-
+                    translate(x, { to: argv.to, key: YANDEX_API_KEY }, function(err, res) {
                         self.update(res.text.toString());
                         translateCount--;
-                        if (translateCount === 0) {
-                            let finishedJSON = JSON.stringify(appTranslated);
+                        if(translateCount === 0) {
+                            var finishedJSON = JSON.stringify(appTranslated);
                             gutil.log(gutil.colors.green('Translated ' + filename));
                             done(null, finishedJSON);
                         }
@@ -49,10 +43,9 @@ gulp.task('translate', function () {
     });
 
     // make sure we have a from and to language
-    if (argv.from !== undefined && argv.to !== undefined) {
-
+    if(argv.from !== undefined && argv.to !== undefined) {
         return gulp.src([
-                paths.src + '/app/**/i18n/' + argv.from + '.json',
+                paths.src + '/app/**/il8n/' + argv.from + '.json',
             ])
             .pipe(translateFile)
             .pipe(jsonFormat(4))

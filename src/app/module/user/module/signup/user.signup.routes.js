@@ -7,7 +7,7 @@
         .config(addRoute);
 
     function addRoute($stateProvider, $translatePartialLoaderProvider) {
-        $translatePartialLoaderProvider.addPart(path);
+        //$translatePartialLoaderProvider.addPart(path);
 
         $stateProvider
             .state('user.signup', {

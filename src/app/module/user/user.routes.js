@@ -14,7 +14,7 @@
             .state('user', {
                 url: '/user',
                 abstract: true,
-                templateUrl: path + '/tabs/user.tabs.html'
+                templateUrl: path + '/view/user.tabs.html'
             })
         ;
 

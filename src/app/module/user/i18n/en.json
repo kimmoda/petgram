@@ -1,4 +1,10 @@
 {
+  "AVATAR": {
+    "TITLE": "Avatar",
+    "BUTTON": {
+      "SUBMIT": "Save profile"
+    }
+  },
   "USER": {
     "INTRO": "Share your most amazing moments",
     "OR": "or",
