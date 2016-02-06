@@ -3,7 +3,7 @@
   "version": "1.4.2",
   "description": "Share your photos",
   "scripts": {
-    "postinstall": "bower install && gulp && gulp serve"
+    "postinstall": "bower install"
   },
   "dependencies": {
     "browser-sync": "~2.9.11",
@@ -84,8 +84,8 @@
       "locator": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
       "id": "",
       "variables": {
-        "APP_ID": "",
-        "APP_NAME": ""
+        "APP_ID": "1024016557617380",
+        "APP_NAME": "Photogram"
       }
     }
   ],

@@ -6,8 +6,8 @@
     .module('app.user')
     .factory('User', UserFactory);
 
-  function UserFactory($q, $window, AppConfig, $rootScope, $ionicHistory, $cordovaDevice, $facebook, $cordovaFacebook,
-    Loading, $location, $state) {
+  function UserFactory($q, $window, AppConfig, $rootScope, $ionicHistory, $cordovaDevice, $facebook,
+    $cordovaFacebook, Loading, $state) {
 
     var cordova = $window.cordova;
     var device = cordova ? true : false;
@@ -91,8 +91,9 @@
 
       } else {
         console.log('Not logged user, go intro');
-        logout();
-        $location.path(AppConfig.routes.login);
+        $state.go(AppConfig.routes.login, {
+          clear: true
+        });
       }
     }
 
@@ -364,23 +365,25 @@
 
     function forgot(email) {
       var defer = $q.defer();
-      new Parse.User.requestPasswordReset(email, {
-        success: function (resp) {
-          defer.resolve(resp);
-        },
-        error: function (err) {
-          if (err.code === 125) {
-            defer.reject('Email address does not exist');
-          } else {
-            defer.reject('An unknown error has occurred, please try again');
+      new Parse
+        .User
+        .requestPasswordReset(email, {
+          success: function (resp) {
+            defer.resolve(resp);
+          },
+          error: function (err) {
+            if (err.code === 125) {
+              defer.reject('Email address does not exist');
+            } else {
+              defer.reject('An unknown error has occurred, please try again');
+            }
           }
-        }
-      });
+        });
       return defer.promise;
     }
 
     function logout() {
-      new Parse.User.logOut();
+      Parse.User.logOut();
       delete $rootScope.user;
       //$window.location = '/#/intro';
       $state.go('intro', {
@@ -830,7 +833,7 @@
                     defer.resolve(user);
                   });
               }
-            });
+            });;
           },
           function (response) {
             alert(JSON.stringify(response));
@@ -842,7 +845,6 @@
     }
 
 
-
-
   }
+
 })();

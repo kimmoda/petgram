@@ -42,19 +42,18 @@
     vm.pallete = [];
     vm.getColors = getColors;
 
-    function getColors(elemId) {
+    function getColors (elemId) {
       var a = document.getElementById(elemId);
-      if (a) {
+      if(a){
         var c = new ColorThief().getColor(a);
         var p = new ColorThief().getPalette(a, 5);
-
+        
         console.log(c, p);
         $scope.palette = p;
       } else {
         alert("Take a picture first!");
       }
     }
-
     function likePhoto(gallery) {
       //gallery.item.likeProgress = true;
       gallery.item.liked = !gallery.item.liked;

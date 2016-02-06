@@ -1,8 +1,7 @@
 exports.config = {
     specs: [
-        './www/app/**/*.spec.js',
-        './www/components/**/*.spec.js',
-        './www/modules/**/*.spec.js'
+        './src/js/**/*Spec.js',
+        './src/js/**/*.spec.js',
     ],
 
     framework      : 'jasmine',

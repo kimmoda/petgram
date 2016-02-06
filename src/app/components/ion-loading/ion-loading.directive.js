@@ -1,11 +1,11 @@
-(function () {
-  'use strict';
+(function() {
+    'use strict';
 
-  angular
-    .module('ionic-loading')
-    .directive('ionLoading', ionLoading);
+    angular
+        .module('ionic-loading')
+        .directive('ionLoading', ionLoading);
 
-  function ionLoading() {
+    function ionLoading() {
     return {
       restrict: 'E',
       scope: {
