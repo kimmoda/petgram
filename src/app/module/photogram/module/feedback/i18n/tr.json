@@ -1,0 +1,10 @@
+{
+    "FEEDBACK": {
+        "TITLE": "Geribildirim",
+        "SUBJECT": "Konu",
+        "COMPLAINT": "Şikayet",
+        "BUG": "Hata",
+        "SUGGESTION": "Öneri",
+        "MESSAGE": "Mesaj"
+    }
+}

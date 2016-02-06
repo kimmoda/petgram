@@ -1,0 +1,11 @@
+{
+    "DIRECT": {
+        "TITLE": "Direkte Nachrichten",
+        "FORM": {
+            "PLACEHOLDER": "Senden Sie eine Nachricht..."
+        },
+        "BUTTON": {
+            "PULL": "Ziehen zum aktualisieren..."
+        }
+    }
+}

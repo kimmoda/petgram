@@ -1,0 +1,11 @@
+{
+    "DIRECT": {
+        "TITLE": "Mensagens Diretas",
+        "FORM": {
+            "PLACEHOLDER": "Enviar uma mensagem..."
+        },
+        "BUTTON": {
+            "PULL": "Puxe para atualizar..."
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "FEEDBACK": {
+        "TITLE": "Comentários",
+        "SUBJECT": "Assunto",
+        "COMPLAINT": "Reclamação",
+        "BUG": "Erro",
+        "SUGGESTION": "Sugestão",
+        "MESSAGE": "A sua mensagem"
+    }
+}

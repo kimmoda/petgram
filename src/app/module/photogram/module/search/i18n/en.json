@@ -1,0 +1,10 @@
+{
+  "SEARCH": {
+    "TITLE": "Search",
+    "TITLE_LIST": "Seach in List",
+    "TITLE_MAP": "Seach in Map",
+    "FORM": {
+      "INPUT": "Search..."
+    }
+  }
+}

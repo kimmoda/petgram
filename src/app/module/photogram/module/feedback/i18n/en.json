@@ -1,0 +1,10 @@
+{
+  "FEEDBACK": {
+    "TITLE": "Feedback",
+    "SUBJECT": "Subject",
+    "COMPLAINT": "Complaint",
+    "BUG": "Bug",
+    "SUGGESTION": "Suggestion",
+    "MESSAGE": "Your message"
+  }
+}

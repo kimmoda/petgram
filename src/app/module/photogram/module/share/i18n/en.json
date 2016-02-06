@@ -1,0 +1,10 @@
+{
+  "SHARE": {
+    "TITLE": "Post photo",
+    "FORM": {
+      "SHARE_IN": "Share in",
+      "LEGEND": "Write a Legend",
+      "LOCATION": "Location"
+    }
+  }
+}

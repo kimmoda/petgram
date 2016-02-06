@@ -1,0 +1,11 @@
+{
+    "DIRECT": {
+        "TITLE": "Doğrudan Mesaj",
+        "FORM": {
+            "PLACEHOLDER": "Mesaj gönder..."
+        },
+        "BUTTON": {
+            "PULL": "Yenilemek için çekin."
+        }
+    }
+}

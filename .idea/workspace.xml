@@ -2,10 +2,257 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3636330-3ebf-450e-b681-83585b7909a2" name="Default" comment="k">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/INSTALL.md" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/README_BR.md" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webResources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/photolist/gallery.photo.list.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/search/ion-search.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/search/search.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/account/account.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/account/account.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/activity.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/activity.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/controller/activy.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/controller/notify.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/service/parseprush.factory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/controller/direct.home.ctl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/controller/direct.messages.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/service/direct.factory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogram.feedback.model.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogramPhotoFeedbackDirective.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/feedback/feedback.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/feedback/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/controller/PhotogramHomeCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/controller/PhotogramHomeCtrlSpec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/home.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/home.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/style/home.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/controller/photogram.photo.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/controller/photogram.photo.previewctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/controller/photogram.photo.view.ctrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/controller/search.grid.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/controller/search.map.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/search.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/search.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/view/photo.modal.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/view/photogram.search.map.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/photogram.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/view/photogram.tabs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/avatar/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/avatar/user.avatar.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/friend/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/friend/user.friend.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/friend/user.friend.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/merge/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/user.profile.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/recovery/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/signin/controller/UserSigninCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/signin/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/signin/user.signin.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/signin/user.signin.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/signup/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/signup/user.signup.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/signup/user.signup.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/term/i18n/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/term/user.term.module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/term/user.term.routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/user.module.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/intro/i18n/pt.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/comment/photogramCommentDirectiveSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/search/search.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/i18n/pt.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/account/account.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/account/account.routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/activity/activity.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/activity/activity.routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/activity/controller/activy.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/activity/controller/notify.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/activity/service/parseprush.factory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/controller/direct.home.ctl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/controller/direct.messages.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/direct.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/direct.routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/i18n/en.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/i18n/pt.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/service/direct.factory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/feedback/controller/photogram.feedback.model.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/feedback/controller/photogramPhotoFeedbackDirective.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/feedback/feedback.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/home/controller/PhotogramHomeCtrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/home/controller/PhotogramHomeCtrlSpec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/home/home.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/home/home.routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/home/style/home.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/photo/controller/photogram.photo.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/photo/controller/photogram.photo.previewctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/photo/controller/photogram.photo.view.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/popular/controller/photogram.popular.ctrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/popular/popular.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/popular/popular.routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/search/controller/search.grid.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/search/controller/search.map.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/search/search.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/search/search.routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/search/view/photogram.search.grid.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/search/view/photogram.search.map.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/tab/tab.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/tab/tab.routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/tab/view/photogram.tabs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/user/i18n/pt.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/avatar/i18n/en.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/avatar/i18n/pt.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/signin/controller/UserSigninCtrl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/modules/user/user.module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/translate/en_US.mo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/translate/en_US.po" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/translate/pt_BR.mo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/translate/pt_BR.po" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/translate/template.pot" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/components.module.js" afterPath="$PROJECT_DIR$/src/app/component/components.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-cache-src/cache.src.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-cache-src/cache.src.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-cache-src/cache.src.storage.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-cache-src/cache.src.storage.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-cache-src/ionic-cache-src.module.js" afterPath="$PROJECT_DIR$/src/app/component/ion-cache-src/ionic-cache-src.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-loading/Loading.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-loading/Loading.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-loading/ion-loading.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-loading/ion-loading.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-loading/ion-loading.module.js" afterPath="$PROJECT_DIR$/src/app/component/ion-loading/ion-loading.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-location/geoservice.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-location/geoservice.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-location/ion-location.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-location/ion-location.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-location/ion-location.module.js" afterPath="$PROJECT_DIR$/src/app/component/ion-location/ion-location.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-notify/ion-notify.module.js" afterPath="$PROJECT_DIR$/src/app/component/ion-notify/ion-notify.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/caman.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/caman.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/camanjs.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/camanjs.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/ion-crop.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/ion-crop.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/ion-photo.module.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/ion-photo.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/jcrop.scss" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/jcrop.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/modal.share.photo.html" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/modal.share.photo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/photofilter.carousel.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/photofilter.carousel.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/photofilter.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/photofilter.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/photofilter.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/photofilter.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/photoservice.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/photoservice.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ion-photo/video.factoy.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/video.factoy.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/ngCache/ngCache.js" afterPath="$PROJECT_DIR$/src/app/component/ngCache/ngCache.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/parse/Parse.module.js" afterPath="$PROJECT_DIR$/src/app/component/parse/Parse.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/parse/ParseFileFactory.js" afterPath="$PROJECT_DIR$/src/app/component/parse/ParseFileFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/parse/ParseImageServiceFactory.js" afterPath="$PROJECT_DIR$/src/app/component/parse/ParseImageServiceFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/components/parse/parse.factory.js" afterPath="$PROJECT_DIR$/src/app/component/parse/parse.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/intro/controller/intro.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/intro/controller/intro.ctrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/intro/i18n/en.json" afterPath="$PROJECT_DIR$/src/app/module/intro/i18n/en.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/intro/intro.module.js" afterPath="$PROJECT_DIR$/src/app/module/intro/intro.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/intro/intro.routes.js" afterPath="$PROJECT_DIR$/src/app/module/intro/intro.routes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/intro/style/intro.scss" afterPath="$PROJECT_DIR$/src/app/module/intro/style/intro.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/intro/view/intro.html" afterPath="$PROJECT_DIR$/src/app/module/intro/view/intro.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/loading/controller/loading.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/loading/controller/loading.ctrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/loading/loading.module.js" afterPath="$PROJECT_DIR$/src/app/module/loading/loading.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/loading/loading.routes.js" afterPath="$PROJECT_DIR$/src/app/module/loading/loading.routes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/loading/style/loading.scss" afterPath="$PROJECT_DIR$/src/app/module/loading/style/loading.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/loading/view/loading.html" afterPath="$PROJECT_DIR$/src/app/module/loading/view/loading.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/comment/comment.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/comment/comment.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/comment/photogram.comment.directive.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/comment/photogram.comment.directive.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/comment/photogramCommentDirective.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/comment/photogramCommentDirective.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/follow/photo.follow.modal.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/follow/photo.follow.modal.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/follow/photogram.follow.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/follow/photogram.follow.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/heart/heart.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/heart/heart.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/heart/heartDirective.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/heart/heartDirective.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/heart/heartDirectiveSpec.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/heart/heartDirectiveSpec.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/like/photo.like.modal.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/like/photo.like.modal.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/like/photogram.like.directive.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/like/photogram.like.directive.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/photogrid/gallery.photo.grid.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/photogrid/gallery.photo.grid.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/photogrid/photo.grid.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/photogrid/photo.grid.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/photogrid/photogram.photos.grid.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/photogrid/photogram.photos.grid.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/photolist/gallery.photo.list.scss" afterPath="$PROJECT_DIR$/src/app/locale/angular-locale-pt-br.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/photolist/photo.list.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/photolist/photo.list.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/photolist/view/photo.list.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/photolist/view/photo.list.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/settings/photogram.settings.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/settings/photogram.settings.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/directives/settings/settings.directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directives/settings/settings.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/i18n/en.json" afterPath="$PROJECT_DIR$/src/app/module/photogram/i18n/en.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/activity/view/photogram.activity.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/view/photogram.activity.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/style/direct.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/style/direct.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/view/direct.home.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/view/direct.home.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/view/direct.messages.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/view/direct.messages.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/feedback/view/photogram.photo.feedback.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/feedback/view/photogram.photo.feedback.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/home/view/home.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/view/home.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/photo/view/photogram.photo.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/view/photogram.photo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/photo/view/photogram.popover.home.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/view/photogram.popover.home.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/popular/view/photogram.popular.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/view/photogram.search.grid.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/search/style/map.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/style/map.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/search/view/photogram.search.tabs.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/view/photogram.search.tabs.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/share/_capture.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/_capture.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/share/_modal.share.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/_modal.share.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/share/photogram.post.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.post.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/share/photogram.share.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/tab/controller/PhotogramTabsCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/controller/PhotogramTabsCtrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/modules/tab/view/photogram.view.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/view/photogram.view.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/photogram.directives.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/photogram.directives.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/photogram.module.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/photogram.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/services/PhotogramFactory.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/services/PhotogramFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/services/PhotogramSettingFactory.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/services/PhotogramSettingFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/services/PhotogramShareFactory.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/services/PhotogramShareFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/services/photogram.form.factory.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/services/photogram.form.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/style/_actionsheet.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/style/_actionsheet.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/style/_font.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/style/_font.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/style/_form.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/style/_form.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/style/_platform.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/style/_platform.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/style/_sidemenu.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/style/_sidemenu.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/style/_spinner.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/style/_spinner.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/photogram/style/photogram.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/style/photogram.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/i18n/en.json" afterPath="$PROJECT_DIR$/src/app/module/user/i18n/en.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/avatar/controller/UserAvatarCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/avatar/controller/UserAvatarCtrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/avatar/directive/userAvatarDirective.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/avatar/directive/userAvatarDirective.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/avatar/user.avatar.module.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/avatar/user.avatar.module.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/avatar/view/user.avatar.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/avatar/view/user.avatar.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/friend/view/user.list.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/friend/view/user.list.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/logout/controller/logout.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/logout/controller/logout.ctrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/merge/controller/user.merge.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/merge/controller/user.merge.ctrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/merge/view/user.merge.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/merge/view/user.merge.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/controller/PhotogramProfileCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/controller/PhotogramProfileCtrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/controller/PhotogramProfilePhotoCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/controller/PhotogramProfilePhotoCtrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/controller/UserProfileCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/controller/UserProfileCtrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/directive/profile.modal.directive.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/directive/profile.modal.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/directive/profile.modal.edit.directive.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/directive/profile.modal.edit.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/style/gallery.profile.scss" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/style/gallery.profile.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/style/profile.scss" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/style/profile.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/view/grid.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/view/grid.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/view/list.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/view/list.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/view/profile.edit.modal.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/view/profile.edit.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/view/profile.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/view/profile.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/view/profile.modal.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/view/profile.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/profile/view/profile.photos.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/profile/view/profile.photos.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/recovery/controller/user.recovery.pass.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/recovery/controller/user.recovery.pass.ctrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/recovery/directive/recovery.pass.directive.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/recovery/directive/recovery.pass.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/signin/view/user.signin.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/signin/view/user.signin.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/signup/controller/UserSignupCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/signup/controller/UserSignupCtrl.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/signup/view/user.signup.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/signup/view/user.signup.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/modules/terms/directive/openTermsDirective.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/term/directive/openTermsDirective.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/service/UserFactory.js" afterPath="$PROJECT_DIR$/src/app/module/user/service/UserFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/service/UserFormFactory.js" afterPath="$PROJECT_DIR$/src/app/module/user/service/UserFormFactory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/style/user.scss" afterPath="$PROJECT_DIR$/src/app/module/user/style/user.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/tabs/user.tabs.html" afterPath="$PROJECT_DIR$/src/app/module/user/tabs/user.tabs.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/modules/user/user.routes.js" afterPath="$PROJECT_DIR$/src/app/module/user/user.routes.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/momentjs.pt-br.js" afterPath="$PROJECT_DIR$/src/app/locale/momentjs.pt-br.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Photogram.iml" afterPath="$PROJECT_DIR$/.idea/Photogram.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/translate.js" afterPath="$PROJECT_DIR$/gulp/translate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.config.js" afterPath="$PROJECT_DIR$/src/app/index.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.constant.js" afterPath="$PROJECT_DIR$/src/app/index.constant.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.lib.js" afterPath="$PROJECT_DIR$/src/app/index.lib.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.module.js" afterPath="$PROJECT_DIR$/src/app/index.module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.parse.push.js" afterPath="$PROJECT_DIR$/src/app/index.parse.push.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
     </list>
     <list id="45b66ff0-8e6b-417a-82d5-194b38148897" name="push" comment="" />
     <ignored path="Parse.iws" />
@@ -27,28 +274,102 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="126">
-                <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="en.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/module/user/module/merge/i18n/en.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LICENSE.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LICENSE.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="126">
-                <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="user.merge.routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.logout.routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogramPhotoFeedbackDirective.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogramPhotoFeedbackDirective.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogram.feedback.model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogram.feedback.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="64" column="59" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="en.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/i18n/en.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="12" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="feedback.module.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/feedback.module.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogram.routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/photogram.routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="11" column="54" selection-start-line="10" selection-start-column="8" selection-end-line="11" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogram.module.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/photogram.module.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photogram.share.module.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.module.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,57 +392,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/directives/photolist/photo.list.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/directive/photogramProfileEditDirective.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/directive/photogramProfileDirective.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/directive/profile.modal.directive.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/directive/profile.modal.edit.directive.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/signin/controller/UserSigninCtrl.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/signin/view/user.signin.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/recovery/recoveryPassDirective.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/recovery/controller/user.recovery.pass.ctrl.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/account/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/activity/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/direct/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/feedback/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/popular/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/search/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/tab/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/avatar/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/service/UserFactory.js" />
-        <option value="$PROJECT_DIR$/src/app/index.config.js" />
-        <option value="$PROJECT_DIR$/src/app/index.module.js" />
-        <option value="$PROJECT_DIR$/src/app/index.constant.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/home/view/home.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/home/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/tab/tab.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/photogram.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/account/account.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/activity/activity.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/home/home.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/popular/popular.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/search/search.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/photogram.directives.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/directives/comment/photogramCommentDirective.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/directives/settings/photogram.settings.modal.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/directives/photolist/view/photo.list.html" />
+        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/search/view/photogram.search.map.html" />
+        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/share/photogram.post.modal.html" />
         <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/share/photogram.share.modal.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/services/photogram.form.factory.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/feedback/view/photogram.photo.feedback.modal.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/feedback/controller/photogram.feedback.model.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/view/profile.modal.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/directives/comment/photogram.comment.directive.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/popular/view/photogram.popular.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/activity/view/photogram.activity.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/view/profile.edit.modal.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/view/profile.html" />
+        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/share/photogram.share.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/home/home.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/photogram/photogram.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/photogram/photogram.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/photogram/modules/share/i18n/en.json" />
+        <option value="$PROJECT_DIR$/src/app/modules/photogram/view/photogram.tabs.html" />
         <option value="$PROJECT_DIR$/src/app/modules/photogram/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/intro/i18n/pt.json" />
-        <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/CONTRIBUTING.md" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/avatar/view/user.avatar.html" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/avatar/i18n/en.json" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/merge/user.merge.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/user.profile.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/logout/user.logout.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/user.profile.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/recovery/user.recovery.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/recovery/user.recovery.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/logout/user.logout.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/merge/user.merge.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/friend/user.friend.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/friend/user.friend.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/avatar/user.avatar.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/signin/user.signin.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/signup/user.signup.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/user.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/terms/user.term.module.js" />
+        <option value="$PROJECT_DIR$/src/app/modules/user/modules/terms/user.term.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/signup/user.signup.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/user.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/intro/intro.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/modules/account/account.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/modules/activity/activity.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/modules/direct/direct.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/avatar/user.avatar.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/signin/user.signin.routes.js" />
+        <option value="$PROJECT_DIR$/gulp/translate.js" />
+        <option value="$PROJECT_DIR$/src/app/index.constant.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/i18n/en.json" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/i18n/pt.json" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/i18n/tr.json" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/friend/user.friend.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/profile/user.profile.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/term/user.term.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/photogram.module.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.module.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogramPhotoFeedbackDirective.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/module/feedback/feedback.module.js" />
       </list>
     </option>
   </component>
@@ -340,7 +661,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -358,8 +679,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="NBKnowledgePane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -410,9 +730,216 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feedback" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feedback" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="i18n" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="i18n" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="NBKnowledgePane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -423,21 +950,21 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="147" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="140" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="146" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="139" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="146" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="139" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="769" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="832" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="171" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="182" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="163" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="173" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="165" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="176" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="709" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="719" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/movibe/Sites/clientes/Photogram/Photogram/config.xml" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -455,19 +982,19 @@
     <property name="js.buildTools.gulp.gulp_package_dir" value="$USER_HOME$/.nvm/versions/node/v5.5.0/lib/node_modules/gulp" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/modules/user/modules/terms" />
+      <recent name="$PROJECT_DIR$/src/app/modules/user/modules/signup" />
+      <recent name="$PROJECT_DIR$/src/app/modules/user/modules/avatar" />
+      <recent name="$PROJECT_DIR$/src/app/modules/user/modules/friend" />
+      <recent name="$PROJECT_DIR$/src/app/modules/user/modules/recovery" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/modules/photogram" />
+      <recent name="$PROJECT_DIR$/src/app/locale" />
       <recent name="$PROJECT_DIR$/src/app/modules/photogram/modules/search/style" />
       <recent name="$PROJECT_DIR$/src/app/modules/user/modules/recovery/controller" />
       <recent name="$PROJECT_DIR$/src/app/modules/user/modules/recovery/directive" />
-      <recent name="$PROJECT_DIR$/src/app/modules/user/modules/profile/directive" />
-      <recent name="$PROJECT_DIR$/src/app/modules/photogram/directives/photolist/view" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/modules/photogram" />
-      <recent name="$PROJECT_DIR$/src/app/modules/photogram/modules/account" />
-      <recent name="$PROJECT_DIR$/src/app/modules/user" />
-      <recent name="$PROJECT_DIR$/src/app/modules/photogram/modules/tab" />
-      <recent name="$PROJECT_DIR$/src/app/user/intro" />
     </key>
   </component>
   <component name="RunManager" selected="Gulp.js.Serve">
@@ -618,22 +1145,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2907916" sideWeight="0.46125463" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1434659" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51699716" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.515625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21890146" sideWeight="0.5411765" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21890146" sideWeight="0.45882353" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3101777" sideWeight="0.45882353" order="0" side_tool="false" content_ui="combo" />
       <window_info id="ReST Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Get Gist" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Pomodoro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38210228" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49579832" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="eSnippet Pro" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6586402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -642,14 +1172,11 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893157" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="GitLabIntegration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34950247" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1434659" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Floobits" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3823934" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="eSnippet Pro" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6586402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -707,31 +1234,207 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bower.json">
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="460">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.post.modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="57">
+          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/share/i18n/en.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        <state relative-caret-position="76">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index.config.js">
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/view/photogram.tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/avatar/view/user.avatar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="118" selection-start-line="22" selection-start-column="118" selection-end-line="22" selection-end-column="118" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/home/home.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/avatar/i18n/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/profile/user.profile.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/friend/user.friend.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signin/user.signin.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signup/user.signup.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/term/user.term.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/term/directive/openTermsDirective.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signup/user.signup.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signin/user.signin.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/avatar/user.avatar.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/activity/activity.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/account/account.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/intro/intro.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="34" selection-start-line="13" selection-start-column="38" selection-end-line="14" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulp/translate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/directives/settings/photogram.settings.modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="72" column="21" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/i18n/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/loading/loading.routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -739,102 +1442,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/app/module/intro/i18n/en.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        <state relative-caret-position="209">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/i18n/tr.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="228">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/i18n/pt.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CONTRIBUTING.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="126">
-            <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/INSTALL.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README_BR.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1302">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="566">
+          <caret line="76" column="28" selection-start-line="74" selection-start-column="8" selection-end-line="76" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/index.constant.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="486">
+          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PARSE_PUSH.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="364">
-            <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/macdeply.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="414">
-            <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/user.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protractor.config.js">
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/user.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/friend/user.friend.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signin/controller/UserSigninCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="93" column="39" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/term/user.term.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/photogram.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/profile/i18n/en.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -842,25 +1554,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="126">
-            <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/profile/user.profile.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="126">
-            <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/merge/i18n/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/view/photogram.photo.feedback.modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogramPhotoFeedbackDirective.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/i18n/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-56">
+          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogram.feedback.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="64" column="59" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/i18n/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/photogram.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="11" column="54" selection-start-line="10" selection-start-column="8" selection-end-line="11" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/feedback.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

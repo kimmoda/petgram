@@ -3,6 +3,7 @@
 // User gulp translate --from en --to pt
 // go here for more info
 // npm install -S gulp-util yargs map-stream gulp-rename traverse yandex-translate vinyl-transform gulp-json-format
+// https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/
 // https://tech.yandex.com/translate/
 const YANDEX_API_KEY = 'trnsl.1.1.20151231T023309Z.303cfcb0d309b4d4.c701d72bbd3edb7916cc6759995de6191b63993b';
 
