@@ -1,9 +1,10 @@
-var gulp  = require('gulp');
-var gutil = require('gulp-util');
-var sh    = require('shelljs');
+'use strict';
+const gulp  = require('gulp');
+const gutil = require('gulp-util');
+const sh    = require('shelljs');
 
 // Git Check
-gulp.task('git-check', function (done) {
+gulp.task('git-check',  (done) =>{
     if (!sh.which('git')) {
         console.log(
             '  ' + gutil.colors.red('Git is not installed.'),

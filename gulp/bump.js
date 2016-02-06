@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+const gulp = require('gulp');
 
 // Bump
 gulp.task('bump', require('gulp-cordova-bump'));
