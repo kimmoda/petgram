@@ -1,11 +1,11 @@
 {
-  "AVATAR": {
-    "TITLE": "Avatar",
-    "BUTTON": {
-      "SUBMIT": "Save profile"
-    }
-  },
   "USER": {
+    "AVATAR": {
+      "TITLE": "Avatar",
+      "BUTTON": {
+        "SUBMIT": "Save profile"
+      }
+    },
     "INTRO": "Share your most amazing moments",
     "OR": "or",
     "TERM1": "When creating your account, you agree to our",
