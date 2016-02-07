@@ -33,11 +33,11 @@
 
 
         <div class="list-comments">
-            <div class="comment-item" photogram-profile user="gallery.user">
+            <div class="comment-item" profile-modal user="gallery.user">
                 <span class="username">{{ gallery.user.name }}</span>
                 <span class="comment">{{ gallery.item.title }}</span>
             </div>
-            <div class="comment-item" photogram-profile user="item.user" ng-repeat="item in gallery.comments">
+            <div class="comment-item" profile-modal user="item.user" ng-repeat="item in gallery.comments">
                 <span class="username">{{ item.user.name }}</span> <span class="comment">{{ item.text }}</span>
             </div>
         </div>
