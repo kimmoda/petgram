@@ -53,8 +53,8 @@
               $state.go('useravatar', {
                 clear: true
               });
-              Loading.end();
             }
+              Loading.end();
           })
           .catch(function (resp) {
             Notify.alert({
