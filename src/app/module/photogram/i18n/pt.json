@@ -1,4 +1,8 @@
 {
+    "add comment":"Comentou",
+    "add like":"Curtiu",
+    "unlike like": "Descurtiu",
+    "registred": "Se cadastrou",
     "HOME": {
         "TITLE": {
             "NO_PHOTO": "Sem foto"
@@ -110,12 +114,13 @@
             "UPDATE": "Atualizar",
             "SAVE": "Salvar",
             "NEW": "Novo",
-            "CREATE": "Cadastrar"
+            "CREATE": "Cadastrar",
+            "TERM_PRIVACY": "Termo de Uso"
         }
     },
     "LANG": {
         "ENGLISH": "Inglês",
-        "PORTUGUES": "Portuguesa",
+        "PORTUGUES": "Português",
         "PERSIAN": "Persa",
         "GERMAN": "Alemão",
         "TURKISH": "Turco"
