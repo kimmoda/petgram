@@ -62,7 +62,7 @@
           $translate.use(language);
           moment.locale(language);
           scope.form.language = language;
-          //submitUpdateProfile(scope.form);
+          submitUpdateProfile(scope.form);
         }
 
 
