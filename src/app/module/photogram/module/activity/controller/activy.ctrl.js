@@ -35,9 +35,11 @@
       Photogram
         .listActivity(vm.page)
         .then(function (resp) {
-          angular.forEach(resp, function (value) {
+
+          resp.map(function (value) {
             vm.data.push(value);
           });
+
           if (resp.length) {
             vm.loading = false;
             vm.more = true;
