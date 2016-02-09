@@ -12,7 +12,7 @@
         "TERM2": "Termos e Condições",
         "FORM": {
             "NAME": "Nome",
-            "PASSWORD": "Palavra-passe",
+            "PASSWORD": "Senha",
             "EMAIL": "E-mail",
             "STATUS": "Estado",
             "GENDER": "Sexo",
@@ -20,13 +20,13 @@
             "WOMAN": "Mulher"
         },
         "BUTTON": {
-            "LOGOUT": "Logout",
+            "LOGOUT": "Sair",
             "ENTER": "Entrar",
             "NEXT": "Próximo",
             "LOGIN_SOCIAL": "Ligue o seu ",
-            "SIGNIN": "Signin",
-            "SIGNUP": "Inscrição",
-            "FORGOT": "Esqueceu a sua passagem?",
+            "SIGNIN": "Login",
+            "SIGNUP": "Cadastro",
+            "FORGOT": "Esqueceu a sua senha?",
             "RESET_PASS": "Gerar nova senha",
             "UPDATE": "Atualizar",
             "SAVE": "SALVAR",

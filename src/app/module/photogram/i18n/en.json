@@ -103,15 +103,16 @@
       "COMMENT_REMOVE": "Add comment",
       "LIKE_ADD": "Like",
       "LIKE_REMOVE": "Unlike",
-      "FORGOT": "Esqueceu sua senha?",
-      "REGISTER": "Criar Conta",
-      "LOGIN": "Fazer Login",
-      "ENTER_IN": "Entrar usando ",
-      "RESET_PASS": "Gerar nova senha",
-      "UPDATE": "Atualizar",
-      "SAVE": "Salvar",
-      "NEW": "Novo",
-      "CREATE": "Cadastrar"
+      "FORGOT": "Forgot your pass?",
+      "REGISTER": "Register",
+      "LOGIN": "Login",
+      "ENTER_IN": "Enter in",
+      "RESET_PASS": "Reset new password",
+      "UPDATE": "Update",
+      "SAVE": "Save",
+      "NEW": "New",
+      "CREATE": "Create",
+      "TERM_PRIVACY": "Term of use"
     }
   },
   "LANG": {
