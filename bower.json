@@ -52,6 +52,7 @@
     "angular-translate": ">=2.9.0",
     "angular-sanitize": ">=1.4.3",
     "angular-svg-round-progressbar": ">=0.3.8",
-    "ionic": ">=1.2.4"
+    "ionic": ">=1.2.4",
+    "moment": ">=2.11.2"
   }
 }
