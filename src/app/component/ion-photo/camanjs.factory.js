@@ -3,9 +3,9 @@
 
   angular
     .module('ion-photo')
-    .factory('CamanJS', CamanJs);
+    .factory('CamanJs', CamanJsFactory);
 
-  function CamanJs($q) {
+  function CamanJsFactory($q) {
     var filters = [
       'normal',
       'vintage',
@@ -38,7 +38,7 @@
       var defer = $q.defer();
       var image = window.document.getElementById(elem);
 
-      Caman(image, applyEffect);
+      window.Caman(image, applyEffect);
 
       function applyEffect() {
 
@@ -65,7 +65,7 @@
 
       var defer = $q.defer();
       var image = window.document.getElementById(elem);
-      Caman(image, resetCaman);
+      window.Caman(image, resetCaman);
 
       function resetCaman() {
         this.revert();

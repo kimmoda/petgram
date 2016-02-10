@@ -23,7 +23,8 @@
       var option = {
         crop: PhotogramSetting.get('imageCrop'),
         allowEdit: PhotogramSetting.get('imageEdit'),
-        filter: PhotogramSetting.get('imageFilter'),
+        filter: true,
+        //filter: PhotogramSetting.get('imageFilter'),
         allowRotation: PhotogramSetting.get('imageRotation'),
         quality: PhotogramSetting.get('imageQuality'),
         correctOrientation: PhotogramSetting.get('imageEdit'),
