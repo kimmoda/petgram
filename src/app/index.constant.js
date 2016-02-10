@@ -8,19 +8,19 @@
     return {
       path: 'app/photogram',
       app: {
-        name: 'Photogram',
-        url: 'http://photogramapp.com',
-        image: 'http://photogramapp.com/social-share.jpg',
+        name: 'GoCapture',
+        url: 'http://gocaptureapp.com',
+        image: 'http://gocaptureapp.com/social-share.jpg',
       },
       routes: {
         home: 'photogram.home',
         login: 'intro'
       },
-      color: '#00796B',
-      facebook: '1024016557617380',
+      color: '#0097a7',
+      facebook: '196860533985722',
       parse: {
-        applicationId: '7lWT9DJntSvMKTetpoT0wL79pTG9dk4ob5pztktX',
-        javascriptKey: 'UbrjB5Imc0btrAyoSb83HmCAHmFWc77JEB9AA1to'
+        applicationId: 'FHLkaJHZ3FHyDfbj7PKB415nZQz8xK9dWCpRzJZv',
+        javascriptKey: 'OElFDBigKrSktmwnXfjabvsCoBUa1ypHC9T07QB0'
       }
     };
   }

@@ -4,7 +4,8 @@
   src:url('../fonts/icomoon.eot?#iefixjmwoa9') format('embedded-opentype'),
   url('../fonts/icomoon.ttf?jmwoa9') format('truetype'),
   url('../fonts/icomoon.woff?jmwoa9') format('woff'),
-  url('../fonts/icomoon.svg?jmwoa9#icomoon') format('svg');
+  url('../fonts/icomoon.svg?jmwoa9#icomoon') format('svg'),
+  url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
   font-weight: normal;
   font-style: normal;
 }
@@ -24,8 +25,23 @@
 }
 
 .icon2-logo:before {
-  content: "\e600";
+    content: "GoCapture";
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 20px;
+    position: relative;
+    top: -10px;
+    left: 0px;
 }
+
+.view-intro .icon2-logo:before {
+    content: "GoCapture";
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 20px;
+    position: relative;
+    top: -10px;
+    left: 0px;
+}
+
 .icon2-camera:before {
   content: "\e601";
 }

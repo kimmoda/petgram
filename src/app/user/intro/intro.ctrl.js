@@ -25,20 +25,11 @@
     }
 
     vm.slides = [{
-        top: gettextCatalog.getString('Share your most amazing moments'),
+        top: gettextCatalog.getString('Capture moments...'),
         img: 'img/intro1.jpg'
       }, {
-        top: gettextCatalog.getString('Follow your friends and relive their moments'),
-        img: 'img/intro2.jpg'
-      }, {
-        top: gettextCatalog.getString('Find people around you and enjoy your photos'),
-        img: 'img/intro3.jpg'
-      }, {
-        top: gettextCatalog.getString('Enjoy the most amazing photos'),
+        top: gettextCatalog.getString('...and share them to friends'),
         img: 'img/intro4.jpg'
-      }, {
-        top: gettextCatalog.getString('Create your Social Photo Share with Ionic Framework!'),
-        img: 'img/intro5.jpg'
       }
 
     ];
