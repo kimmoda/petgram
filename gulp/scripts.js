@@ -1,20 +1,18 @@
 'use strict';
 
-var path = require ('path');
-var gulp = require ('gulp');
-var conf = require ('./conf');
-
-var browserSync = require ('browser-sync');
-
-var $ = require ('gulp-load-plugins') ();
+const path = require ('path');
+const gulp = require ('gulp');
+const conf = require ('./conf');
+const browserSync = require ('browser-sync');
+const $ = require ('gulp-load-plugins') ();
 
 
-gulp.task ('scripts-reload', function () {
+gulp.task ('scripts-reload',  () => {
     return buildScripts ()
         .pipe (browserSync.stream ());
 });
 
-gulp.task ('scripts', function () {
+gulp.task ('scripts',  () =>{
     return buildScripts ();
 });
 

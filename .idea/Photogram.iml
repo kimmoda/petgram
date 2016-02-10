@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/.vscode" />
+      <excludeFolder url="file://$MODULE_DIR$/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/e2e" />
+      <excludeFolder url="file://$MODULE_DIR$/gulp" />
+      <excludeFolder url="file://$MODULE_DIR$/hooks" />
+      <excludeFolder url="file://$MODULE_DIR$/key" />
+      <excludeFolder url="file://$MODULE_DIR$/minds" />
+      <excludeFolder url="file://$MODULE_DIR$/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/node_modules/gulp-jshint/node_modules/jshint/src/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/com.phonegap.plugins.facebookconnect/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/cordova-plugin-crosswalk-webview/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/phonegap-facebook-plugin/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/releases" />
+      <excludeFolder url="file://$MODULE_DIR$/resources" />
+      <excludeFolder url="file://$MODULE_DIR$/screen" />
+      <excludeFolder url="file://$MODULE_DIR$/translate" />
+      <excludeFolder url="file://$MODULE_DIR$/www" />
+      <excludeFolder url="file://$MODULE_DIR$/www/lib/ionic-contrib-tinder-cards/example/platforms" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Parse node_modules" level="project" />
+    <orderEntry type="library" name="Prototype-1.7.1" level="application" />
+    <orderEntry type="library" name="parse-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angularjs-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="ionic-DefinitelyTyped" level="application" />
+  </component>
+</module>

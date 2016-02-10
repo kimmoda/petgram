@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/photogram-client.iml" filepath="$PROJECT_DIR$/.idea/photogram-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Photogram.iml" filepath="$PROJECT_DIR$/.idea/Photogram.iml" />
     </modules>
   </component>
 </project>

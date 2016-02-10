@@ -7,15 +7,18 @@
       //'ionic.service.analytics',
       'ionic-cache-src',
       'formlyIonic',
-      'pascalprecht.translate',
+      'ngCookies',
+      'pascalprecht.translate', // angular-translate
+      'tmh.dynamicLocale', // angular-dynamic-locale
       'angularMoment',
       'ionic.components',
       'ngFacebook',
+      'uiGmapgoogle-maps',
       'angular-cache',
       'ngCordova',
-      'translate.form',
-      'gettext',
-      'app.translate',
+      'app.intro',
+      'app.loading',
+      'app.user',
       'app.photogram',
     ]);
 
