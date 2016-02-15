@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
+  "name": "GoCapture",
+  "app_id": "675c7b63",
+=======
   "name": "Photogram",
   "app_id": "ea42829b",
+>>>>>>> origin/master
   "gulpStartupTasks": [
     "sass",
     "watch"
