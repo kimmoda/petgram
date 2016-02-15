@@ -25,13 +25,6 @@
 
     console.log($translate.instant('INTRO.STEP1'));
     vm.slides = [{
-<<<<<<< HEAD:src/app/user/intro/intro.ctrl.js
-        top: gettextCatalog.getString('Capture moments...'),
-        img: 'img/intro1.jpg'
-      }, {
-        top: gettextCatalog.getString('...and share them to friends'),
-        img: 'img/intro4.jpg'
-=======
         top: $translate.instant('INTRO.STEP1'),
         img: 'img/intro1.jpg'
       }, {
@@ -46,7 +39,6 @@
       }, {
         top: $translate.instant('INTRO.STEP5'),
         img: 'img/intro5.jpg'
->>>>>>> origin/master:src/app/module/intro/controller/intro.ctrl.js
       }
 
     ];
