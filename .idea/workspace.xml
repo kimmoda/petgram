@@ -2,19 +2,120 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3636330-3ebf-450e-b681-83585b7909a2" name="Default" comment="k">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.eot" afterPath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.ttf" afterPath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.woff" afterPath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/config.gypi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/directives/photofilter.carousel.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/directives/photofilter.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/i18n/pt.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/services/photoservice.factory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/view/photo.filter.carousel.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/view/photo.filter.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/photofilter.carousel.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/photofilter.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/photoservice.factory.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/billabong.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/billabong.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icomoon.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icomoon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icomoon.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icomoon.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/ionicons.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/ionicons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/ionicons.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/ionicons.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/devices/android.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/devices/iphone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/user.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/css/ionic.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/css/ionic.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/fonts/ionicons.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic-angular.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.bundle.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/js/ionic.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_action-sheet.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_animations.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_backdrop.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_badge.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_bar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_button-bar.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_button.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_checkbox.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_form.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_grid.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_items.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_list.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_loading.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_menu.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_mixins.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_modal.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_platform.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_popover.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_popup.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_progress.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_radio.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_range.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_refresher.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_reset.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_scaffolding.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_select.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_slide-box.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_slides.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_spinner.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_tabs.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_toggle.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_transitions.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_type.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_util.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/ionic.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/ionicons/_ionicons-font.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/ionicons/_ionicons-icons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/ionicons/_ionicons-variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/ionicons/ionicons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/scss/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/lib/ionic/version.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-bb36b673b9.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/vendor-1904c0df61.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/styles/app-e54ebfb189.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/styles/vendor-b0138bed1a.css" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/caman.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/directives/caman.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/camanjs.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/services/camanjs.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/capture.scss" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/style/capture.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/ion-crop.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/directives/ion-crop.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/jcrop.scss" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/style/jcrop.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/modal.share.photo.html" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/view/modal.share.photo.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/photofilter.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/services/photofilter.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/video.factoy.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/services/video.factoy.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.post.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/view/photogram.post.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/view/photogram.share.modal.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/service/UserFactory.js" afterPath="$PROJECT_DIR$/src/app/module/user/service/user.factory.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/service/UserFormFactory.js" afterPath="$PROJECT_DIR$/src/app/module/user/service/user.form.factory.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.config.js" afterPath="$PROJECT_DIR$/src/app/index.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.routes.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/photogram.routes.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/photogram.routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.svg" afterPath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulp/server.js" afterPath="$PROJECT_DIR$/gulp/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/ion-photo.module.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/ion-photo.module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/controller/PhotogramTabsCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/controller/PhotogramTabsCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/user/module/signin/controller/UserSigninCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/signin/controller/UserSigninCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/user/user.module.js" afterPath="$PROJECT_DIR$/src/app/module/user/user.module.js" />
     </list>
     <list id="45b66ff0-8e6b-417a-82d5-194b38148897" name="push" comment="" />
     <ignored path="Parse.iws" />
@@ -36,104 +137,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.constant.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/index.constant.js">
+      <file leaf-file-name="photoservice.factory.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/services/photoservice.factory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-              <folding>
-                <marker date="1454795708000" expanded="true" signature="1129:1132" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="55" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
+            <state relative-caret-position="-1315">
+              <caret line="151" column="29" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bower.json">
+      <file leaf-file-name="tr.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/i18n/tr.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="en.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/i18n/en.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1343">
-              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="photogram.routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/photogram.routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="direct.routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="intro.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/module/intro/view/intro.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="intro.ctrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/module/intro/controller/intro.ctrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-171">
+            <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.config.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/index.config.js">
+      <file leaf-file-name="index.constant.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/index.constant.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photofilter.carousel.directive.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/directives/photofilter.carousel.directive.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+              <folding>
+                <marker date="1455509795000" expanded="true" signature="766:769" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,8 +186,8 @@
       <list>
         <option value="Html5" />
         <option value="Empty Mind Map" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -156,57 +197,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/modules/photogram/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/avatar/view/user.avatar.html" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/avatar/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/merge/user.merge.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/user.profile.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/logout/user.logout.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/profile/user.profile.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/recovery/user.recovery.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/recovery/user.recovery.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/logout/user.logout.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/merge/user.merge.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/friend/user.friend.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/friend/user.friend.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/avatar/user.avatar.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/signin/user.signin.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/signup/user.signup.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/user.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/terms/user.term.module.js" />
-        <option value="$PROJECT_DIR$/src/app/modules/user/modules/terms/user.term.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/intro/intro.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/modules/account/account.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/modules/activity/activity.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/modules/direct/direct.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/i18n/tr.json" />
-        <option value="$PROJECT_DIR$/src/app/module/user/module/profile/user.profile.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/photogram.module.js" />
-        <option value="$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogramPhotoFeedbackDirective.js" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/module/activity/activity.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/module/search/search.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/module/user/module/avatar/user.avatar.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/user/module/friend/user.friend.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/user/module/signin/user.signin.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/user/module/signup/user.signup.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/user/module/term/user.term.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/module/user/user.routes.js" />
         <option value="$PROJECT_DIR$/src/app/module/photogram/module/feedback/feedback.module.js" />
         <option value="$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.module.js" />
         <option value="$PROJECT_DIR$/src/app/module/user/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/module/photogram/i18n/pt.json" />
         <option value="$PROJECT_DIR$/gulp/translate.js" />
         <option value="$PROJECT_DIR$/src/app/index.constant.js" />
-        <option value="$PROJECT_DIR$/config.xml" />
-        <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/app/module/photogram/photogram.routes.js" />
         <option value="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.routes.js" />
         <option value="$PROJECT_DIR$/src/app/index.config.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/src/app/module/user/i18n/pt.json" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/module/activity/view/photogram.activity.html" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/module/activity/controller/activy.ctrl.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/directives/photolist/view/photo.list.html" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/directives/settings/settings.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/directives/settings/photogram.settings.modal.html" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/i18n/pt.json" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/i18n/en.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/www/scripts/app-deb2ba6f09.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/services/PhotogramShareFactory.js" />
+        <option value="$PROJECT_DIR$/gulp/build.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/module/home/view/home.html" />
+        <option value="$PROJECT_DIR$/gulp/server.js" />
+        <option value="$PROJECT_DIR$/www/scripts/app-a682e47a3b.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/camanjs.factory.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/photofilter.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/service/UserFactory.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/user.module.js" />
+        <option value="$PROJECT_DIR$/bower.json" />
+        <option value="$PROJECT_DIR$/src/app/module/user/user.routes.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/module/signin/controller/UserSigninCtrl.js" />
+        <option value="$PROJECT_DIR$/src/app/module/user/service/user.factory.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/photoservice.factory.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/caman.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/i18n/de.json" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/photofilter.carousel.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/ion-photo.module.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/directives/ion-crop.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/services/photofilter.factory.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/i18n/pt.json" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/services/camanjs.factory.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/directives/caman.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/view/photo.filter.carousel.html" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/directives/photofilter.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/view/photo.filter.html" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/directives/photofilter.carousel.directive.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/services/photoservice.factory.js" />
+        <option value="$PROJECT_DIR$/src/app/module/photogram/controller/PhotogramTabsCtrl.js" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-photo/i18n/en.json" />
       </list>
     </option>
   </component>
@@ -443,7 +484,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -565,7 +605,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="intro" />
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="share" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -591,7 +639,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="intro" />
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="share" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -621,16 +677,159 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="intro" />
+              <option name="myItemId" value="photogram" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="i18n" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ion-photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Photogram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ion-photo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="i18n" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="NBKnowledgePane" />
     </panes>
   </component>
@@ -642,21 +841,21 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="140" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="131" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="139" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="130" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="139" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="131" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="832" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="816" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="182" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="176" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="173" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="167" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="176" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="170" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="719" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="695" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/movibe/Sites/clientes/Photogram/Photogram/config.xml" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -674,19 +873,19 @@
     <property name="js.buildTools.gulp.gulp_package_dir" value="$USER_HOME$/.nvm/versions/node/v5.5.0/lib/node_modules/gulp" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/module/photogram/module/share/view" />
+      <recent name="$PROJECT_DIR$/src/app/component/ion-photo/services" />
+      <recent name="$PROJECT_DIR$/src/app/component/ion-photo/directives" />
+      <recent name="$PROJECT_DIR$/src/app/component/ion-photo/style" />
+      <recent name="$PROJECT_DIR$/src/app/component/ion-photo/view" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/component/ion-photo" />
       <recent name="$PROJECT_DIR$/src/app/modules/user/modules/terms" />
       <recent name="$PROJECT_DIR$/src/app/modules/user/modules/signup" />
       <recent name="$PROJECT_DIR$/src/app/modules/user/modules/avatar" />
       <recent name="$PROJECT_DIR$/src/app/modules/user/modules/friend" />
-      <recent name="$PROJECT_DIR$/src/app/modules/user/modules/recovery" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/modules/photogram" />
-      <recent name="$PROJECT_DIR$/src/app/locale" />
-      <recent name="$PROJECT_DIR$/src/app/modules/photogram/modules/search/style" />
-      <recent name="$PROJECT_DIR$/src/app/modules/user/modules/recovery/controller" />
-      <recent name="$PROJECT_DIR$/src/app/modules/user/modules/recovery/directive" />
     </key>
   </component>
   <component name="RunManager" selected="Gulp.js.Serve">
@@ -842,17 +1041,20 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2907916" sideWeight="0.46125463" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32670453" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1434659" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.515625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28895184" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21890146" sideWeight="0.5411765" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3101777" sideWeight="0.45882353" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23828125" sideWeight="0.45882353" order="0" side_tool="false" content_ui="combo" />
       <window_info id="ReST Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Get Gist" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Pomodoro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Pomodoro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31774417" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49579832" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="eSnippet Pro" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6586402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -861,14 +1063,12 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893157" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="GitLabIntegration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34950247" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1434659" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Floobits" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38210228" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3806818" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="eSnippet Pro" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6586402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -891,15 +1091,15 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="GitLabIntegration" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34950247" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2907916" sideWeight="0.46125463" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14442916" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1434659" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Floobits" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51704544" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23828755" sideWeight="0.5288809" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21171875" sideWeight="0.47111914" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.515625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21890146" sideWeight="0.5411765" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26332796" sideWeight="0.45882353" order="0" side_tool="false" content_ui="combo" />
       <window_info id="ReST Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Pomodoro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3823934" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38210228" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -926,393 +1126,347 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/i18n/tr.json">
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/services/photoservice.factory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.module.js">
+    <entry file="file://$PROJECT_DIR$/www/scripts/app-deb2ba6f09.js" />
+    <entry file="file://$PROJECT_DIR$/www/scripts/app-deb2ba6f09.js" />
+    <entry file="file://$PROJECT_DIR$/gulp/conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-215">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/directives/photolist/view/photo.list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="78" selection-start-line="11" selection-start-column="78" selection-end-line="11" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulp/styles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/selenium-webdriver/lib/test/data/injectableContent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/services/PhotogramShareFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/scripts/app-ad9b860ec0.js" />
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/home/view/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulp/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/intro/style/intro.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulp/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/scripts/app-aaf1d8dd6e.js" />
+    <entry file="file://$PROJECT_DIR$/.bowerrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/scripts/app-a682e47a3b.js" />
+    <entry file="file://$PROJECT_DIR$/bower_components/caman/dist/caman.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/caman/dist/caman.full.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-570">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/caman/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="266">
+            <caret line="17" column="5" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/style/jcrop.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/style/capture.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/scripts/app-38bce886a4.js" />
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/user.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/parse/parse.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="8329" column="8" selection-start-line="8329" selection-start-column="2" selection-end-line="8329" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/service/user.factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="61" column="49" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signin/controller/UserSigninCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulp/.jshintrc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/user.module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signin/controller/UserSigninCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="93" column="39" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/profile/i18n/en.json" />
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/profile/user.profile.routes.js" />
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/view/photogram.photo.feedback.modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogram.feedback.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="64" column="59" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogramPhotoFeedbackDirective.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/photogram.module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="3" selection-start-line="1" selection-start-column="2" selection-end-line="8" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/activity/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="3" selection-start-line="1" selection-start-column="2" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/direct/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="9" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/home/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="3" selection-start-line="1" selection-start-column="2" selection-end-line="5" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/photo/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/search/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="8" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/search/search.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/home/home.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/activity/activity.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/share/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="3" selection-start-line="1" selection-start-column="2" selection-end-line="8" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/avatar/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="3" selection-start-line="1" selection-start-column="2" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/avatar/user.avatar.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/friend/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/friend/user.friend.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/merge/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/recovery/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signin/user.signin.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signin/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signup/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/term/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1343">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulp/translate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/module/user/user.routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="171">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/feedback/feedback.module.js">
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/ion-photo.module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-          <folding />
+        <state relative-caret-position="114">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/term/user.term.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/module/signup/user.signup.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/user/i18n/en.json">
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/directives/ion-crop.directive.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/i18n/pt.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/services/photofilter.factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/services/video.factoy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/directives/photofilter.directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/i18n/pt.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index.constant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding>
-            <marker date="1454795708000" expanded="true" signature="1129:1132" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="55" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/view/photo.filter.carousel.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <caret line="2" column="125" selection-start-line="2" selection-start-column="95" selection-end-line="2" selection-end-column="125" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/directives/caman.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        <state relative-caret-position="95">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/view/photo.filter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/services/camanjs.factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/module/photogram/photogram.routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/intro/view/intro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/module/intro/controller/intro.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-171">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="323">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/index.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
+        <state relative-caret-position="-874">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/index.constant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/directives/photofilter.carousel.directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+          <folding>
+            <marker date="1455509795000" expanded="true" signature="766:769" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/module/photogram/controller/PhotogramTabsCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1311">
+          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+          <folding>
+            <marker date="1455509795000" expanded="true" signature="2382:2385" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/i18n/de.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/i18n/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/i18n/fa.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/services/photoservice.factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1315">
+          <caret line="151" column="29" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-photo/i18n/tr.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

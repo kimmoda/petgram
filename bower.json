@@ -15,7 +15,7 @@
     "angular-formly-templates-ionic": "~1.2.2",
     "angular-google-maps": "^2.3.1",
     "angular-moment": "~0.10.3",
-    "angular-translate": "2.9.0",
+    "angular-translate": "2.9.1",
     "angular-translate-loader-partial": "~2.9.0",
     "animate.css": "3.5.1",
     "api-check": "~7.5.5",
@@ -46,8 +46,10 @@
     "ionic": "driftyco/ionic-bower#1.2.4"
   },
   "resolutions": {
-    "angular": ">=1.4.9",
+    "angular": ">=1.5.0",
+    "parse": "~1.5.0",
     "lodash": ">=3.8.0",
+    "moment": ">=2.11.2",
     "angular-animate": ">=1.4.3",
     "angular-translate": ">=2.9.0",
     "angular-sanitize": ">=1.4.3",

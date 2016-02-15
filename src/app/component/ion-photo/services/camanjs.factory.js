@@ -1,11 +1,13 @@
 (function () {
   'use strict';
 
+
   angular
     .module('ion-photo')
     .factory('CamanJs', CamanJsFactory);
 
   function CamanJsFactory($q) {
+    var Caman = window.Caman;
     var filters = [
       'normal',
       'vintage',
@@ -38,26 +40,30 @@
       var defer = $q.defer();
       var image = window.document.getElementById(elem);
 
-      window.Caman(image, applyEffect);
+      if (image) {
+        Caman(image, function () {
+          if (effect === 'normal') {
+            this.revert();
+            this.render(function () {
+              defer.resolve(effect);
+            });
+          }
 
-      function applyEffect() {
+          if (effect in this) {
+            this[effect]();
 
-        if (effect === 'normal') {
-          this.revert();
-          this.render(function () {
-            defer.resolve(effect);
-          });
-        }
+            if (status) {
+              this.revert();
+            }
+            this.render(function () {
+              defer.resolve(effect);
+            });
+          }
 
-        if (effect in this) {
-          this[effect]();
-          if (status) resetEffect(elem);
-          this.render(function () {
-            defer.resolve(effect);
-          });
-        }
+        });
+      } else {
+        defer.reject();
       }
-
       return defer.promise;
     }
 
@@ -65,12 +71,11 @@
 
       var defer = $q.defer();
       var image = window.document.getElementById(elem);
-      window.Caman(image, resetCaman);
 
-      function resetCaman() {
+      Caman(image, function () {
         this.revert();
         defer.resolve(true);
-      }
+      });
 
       return defer.promise;
     }

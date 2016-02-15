@@ -3,15 +3,15 @@
 
   angular
     .module('ion-photo')
-    .directive('caman', caman);
+    .directive('caman', camanDirective);
 
-  function caman(CamanJs, $timeout) {
+  function camanDirective(CamanJs, $timeout) {
     return {
       restrict: 'A',
       scope: {
-        filter: '=',
-        name: '@',
+        name: '=',
         image: '=',
+        filter: '=',
         loading: '='
       },
       template: '<img ng-src="{{ image }}" id="{{ name }}">',

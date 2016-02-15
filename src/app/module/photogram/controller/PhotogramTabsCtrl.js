@@ -56,22 +56,16 @@
         geo: false
       };
 
-      PhotoService
-        .filter(image, function (resp) {
-
-          $ionicModal
-            .fromTemplateUrl(path + '/share/photogram.post.modal.html', {
-              scope: $scope,
-              focusFirstInput: true
-            })
-            .then(function (modal) {
-              console.log('Modal post photo filter', resp);
-              $scope.form.photo = resp;
-              $scope.modalPost = modal;
-              $scope.modalPost.show();
-            });
+      $ionicModal
+        .fromTemplateUrl(path + '/module/share/view/photogram.post.modal.html', {
+          scope: $scope,
+          focusFirstInput: true
+        })
+        .then(function (modal) {
+          $scope.form.photo = image;
+          $scope.modalPost = modal;
+          $scope.modalPost.show();
         });
-
 
       function closeModalPost() {
         $scope.modalPost.hide();

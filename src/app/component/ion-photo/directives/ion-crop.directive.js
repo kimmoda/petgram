@@ -5,7 +5,7 @@
     .module('ion-photo')
     .directive('ionCrop', ionCrop);
 
-  function ionCrop($jrCrop, $ionicActionSheet) {
+  function ionCrop($jrCrop, $translate, $ionicActionSheet) {
 
     return {
       restrict: 'A',
@@ -76,8 +76,7 @@
         };
 
         // Clear input file
-        angular.element(document.getElementById('browseBtn'))
-          .val('');
+        angular.element(document.getElementById('browseBtn')).val('');
 
       }
 
