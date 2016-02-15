@@ -34,6 +34,7 @@ function browserSyncInit(baseDir, browser) {
 
   browserSync.instance = browserSync.init({
     startPath: '/',
+    port: 8100,
     server: server,
     browser: browser
   });
@@ -45,7 +46,7 @@ browserSync.use(browserSyncSpa({
 
 gulp.task('serve', ['watch'],  () => browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]));
 
-gulp.task('serve:dist', ['build'],  () => browserSyncInit(conf.paths.dist));
+gulp.task('serve:dist', ['watch','build'],  () => browserSyncInit(conf.paths.dist));
 
 gulp.task('serve:e2e', ['inject'], () => browserSyncInit([conf.paths.tmp + '/serve', conf.paths.src], []));
 

@@ -12,7 +12,6 @@
       'user.signin',
       'user.signup',
       'user.term',
-
     ]);
 
 })();
