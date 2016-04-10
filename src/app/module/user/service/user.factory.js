@@ -47,8 +47,7 @@
 
       var user = Parse.User.current();
       if (user) {
-        var newUser = loadProfile(JSON.parse(window.localStorage['Parse/###/currentUser'].replace('###', AppConfig.parse
-          .appId)));
+        var newUser = loadProfile(JSON.parse(window.localStorage['Parse/###/currentUser'].replace('###', AppConfig.parse.appId)));
         if (newUser.name === '') {
           logout();
         }
