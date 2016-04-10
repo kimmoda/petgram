@@ -13,7 +13,7 @@
       console.log(form);
 
       Photogram
-        .find(form.PhotogramId)
+        .find(form.photogramId)
         .then(function (Photogram) {
           console.log(Photogram);
           var Object = Parse.Object.extend('PhotogramFeedback');

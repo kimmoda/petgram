@@ -143,7 +143,7 @@
       $scope.formFields = PhotogramFeedbackForm.form;
 
       $ionicModal
-        .fromTemplateUrl(path + '/feedback/photogram.photo.feedback.modal.html', {
+        .fromTemplateUrl(path + '/module/feedback/view/feedback.modal.html', {
           scope: $scope,
           focusFirstInput: true
         })

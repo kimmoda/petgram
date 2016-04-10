@@ -21,7 +21,7 @@
   angular
     .module('ionic-cache-src', [
       'ionic',
-      'angular-svg-round-progress',
+      'angular-svg-round-progressbar',
       'ngCordova',
       'ngStorage'
     ])

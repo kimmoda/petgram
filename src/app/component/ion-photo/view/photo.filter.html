@@ -1,5 +1,5 @@
 <div class="capture-photo">
-    <div caman filter="'normal'" loading="loadingMaster" class="image" ng-class="{disabled: loadingMaster}" name="'image'" image="image"></div>
-    <ion-spinner ng-show="loading"></ion-spinner>
+  <div caman filter="'normal'" loading="loadingMaster" class="image" ng-class="{disabled: loadingMaster}" name="'image'" image="image"></div>
+  <ion-spinner ng-show="loadingMaster"></ion-spinner>
 </div>
-<photo-filter-carousel image="image"></photo-filter-carousel>
+<photo-filter-carousel apply="applyFilter" image="image"></photo-filter-carousel>
