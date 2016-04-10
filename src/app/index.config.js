@@ -5,12 +5,17 @@
 
   angular
     .module('starter')
+    .run(startParse)
     .run(runIonic)
     .run(runFacebook)
     .config(configLanguage)
     .config(configFacebook)
     .config(configIonic);
 
+  function startParse(AppConfig) {
+    Parse.initialize(AppConfig.parse.appId);
+    Parse.serverURL = AppConfig.parse.server;
+  }
 
   function runIonic($ionicPlatform, $cacheSrc, AppConfig, $cordovaStatusbar, $timeout,
     $cordovaSplashscreen, PhotogramSetting, User) {

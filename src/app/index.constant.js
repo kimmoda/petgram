@@ -19,8 +19,8 @@
       color: '#00796B',
       facebook: '1024016557617380',
       parse: {
-        applicationId: '7lWT9DJntSvMKTetpoT0wL79pTG9dk4ob5pztktX',
-        javascriptKey: 'UbrjB5Imc0btrAyoSb83HmCAHmFWc77JEB9AA1to'
+        appId: 'myAppId',
+        server: 'http://localhost:1337/parse'
       },
       locales: {
         pt: {
