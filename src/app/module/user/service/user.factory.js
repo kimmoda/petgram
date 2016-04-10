@@ -43,48 +43,12 @@
     function init() {
       // Parse Start
 
-      Parse.initialize(AppConfig.parse.applicationId, AppConfig.parse.javascriptKey);
       console.log('device', cordova, device);
 
       var user = Parse.User.current();
       if (user) {
-        var newUser = loadProfile(user);
-        console.log('Logged user', newUser);
-
-        // // following
-        // var following = $sessionStorage.following;
-        // if (!following) {
-        //
-        //     find(newUser.id)
-        //         .then(function (user) {
-        //             new Parse
-        //                 .Query('UserFollow')
-        //                 .equalTo('user', user)
-        //                 .find()
-        //                 .then(function (following) {
-        //                     var users = [];
-        //                     angular.forEach(following, function (value, key) {
-        //                         users.push(value.id);
-        //                     });
-        //
-        //                     console.info('seguindo', users, following);
-        //                     $sessionStorage.following = users;
-        //                     $rootScope.user.following = following;
-        //
-        //                 }, function (err) {
-        //                     console.error(err);
-        //                 })
-        //         })
-        //         .then(function (resp) {
-        //             console.log('seguindo', resp);
-        //         });
-        // } else {
-        //     $rootScope.user.following = following;
-        // }
-        //
-        // console.log('following', $sessionStorage.following);
-
-
+        var newUser = loadProfile(JSON.parse(window.localStorage['Parse/###/currentUser'].replace('###', AppConfig.parse
+          .appId)));
         if (newUser.name === '') {
           logout();
         }
@@ -103,10 +67,9 @@
 
 
     function loadProfile(response) {
-      //console.log('LoadProfile', response);
+      console.log('LoadProfile', response);
       if (response) {
-        var user = response.attributes;
-        user.id = response.id;
+        var user = response;
         user = processImg(user);
         delete $rootScope.user;
         $rootScope.user = user;
