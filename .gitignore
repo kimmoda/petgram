@@ -2,13 +2,11 @@
 # http://git-scm.com/docs/gitignore
 node_modules/
 platforms/
-plugins/
 dist/
 bower_components/
 resources/android/
 resources/ios/
 releases/
 .tmp/
-www/
 .vscode
 .idea
