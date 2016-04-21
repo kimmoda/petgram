@@ -15,7 +15,7 @@
 
   function UserProfileController($rootScope, User, UserForm) {
     var vm = this;
-    vm.form = $rootScope.user;
+    vm.form = $rootScope.currentUser;
     vm.formFields = UserForm.profile;
     vm.submitProfile = submitProfile;
 

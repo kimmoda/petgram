@@ -25,7 +25,7 @@
     "ng-facebook": "~0.1.6",
     "ngCordova": "~0.1.26-alpha",
     "ngmap": "~1.17.3",
-    "parse": "1.6.4",
+    "parse": "~1.6.14",
     "simple-line-icons": "~2.2.4",
     "caman": "~4.1.2",
     "jr-crop": "~1.1.2",
@@ -47,7 +47,6 @@
   },
   "resolutions": {
     "angular": ">=1.5.3",
-    "parse": "=1.6.4",
     "moment": ">=2.12.0",
     "lodash": ">=4.9.0",
     "angular-svg-round-progressbar": ">=0.4.2"

@@ -20,7 +20,7 @@
       facebook: '1024016557617380',
       parse: {
         appId: 'myAppId',
-        server: 'http://localhost:1337/parse'
+        server: 'https://photogramserver.herokuapp.com/parse/'
       },
       locales: {
         pt: {

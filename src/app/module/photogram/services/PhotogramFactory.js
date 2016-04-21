@@ -178,9 +178,8 @@
                   created: item.createdAt
                 };
                 var userComment = item.attributes.commentBy.attributes;
-                userComment.id = item.attributes.commentBy.id;
-
-                obj.user = processImg(userComment);
+                // userComment.id = item.attributes.commentBy.id;
+                // obj.user = processImg(userComment);
                 comments.push(obj);
               });
               defer.resolve(comments);
@@ -414,6 +413,8 @@
               .count()
               .then(function (liked) {
 
+                  console.log(liked);
+
                 comments
                   .query()
                   .include('commentBy')
@@ -434,8 +435,8 @@
                         user: user.attributes
                       };
 
-                      comment.user.id = user.id;
-                      comment.user = processImg(comment.user);
+                      // comment.user.id = user.id;
+                      // comment.user = processImg(comment.user);
                       commentsData.push(comment);
                     });
 
@@ -445,18 +446,11 @@
                       created: item.createdAt,
                       likes: likes,
                       src: item.attributes.img.url(),
-                      comments: commentsData
+                      comments: commentsData,
+                        user: item.attributes.user.attributes
                     };
 
-                    obj.item.liked = liked;
 
-                    if (item.attributes.user) {
-                      obj.user = item.attributes.user.attributes,
-                        obj.user.id = item.attributes.user.id ? item.attributes.user.id : '';
-                      obj.user = processImg(obj.user);
-                    } else {
-                      // remove gallery
-                    }
 
                     data.push(obj);
                     cb();
@@ -1073,11 +1067,11 @@
                                 created: item.createdAt,
                                 likes: likes,
                                 liked: liked,
-                                user: item.attributes.user.attributes,
-                                comments: commentsData
+                                comments: commentsData,
+                                user: item.attributes.user.attributes
                               };
-                              obj.user.id = item.attributes.user.id;
-                              obj.user = processImg(obj.user);
+                              // obj.user.id = item.attributes.user.id;
+                              // obj.user = processImg(obj.user);
 
                               data.push(obj);
                               cb();

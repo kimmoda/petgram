@@ -10,7 +10,7 @@
 
     <ion-list class="list" ng-show="comments.length" can-swipe="true">
       <ion-item ng-repeat="item in comments" class="item item-avatar">
-        <img ng-src="{{ item.user.src }}" />
+        <img ng-src="{{ item.user.img._url }}" />
 
         <div class="row">
           <h2>{{ item.user.name }}</h2>

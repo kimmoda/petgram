@@ -1,9 +1,9 @@
 {
   "apps": [
     {
-      "serverURL": "https://photogram-server.herokuapp.com/parse",
+      "serverURL": "https://photogramserver.herokuapp.com/parse",
       "appId": "myAppId",
-      "masterKey": "myMasterKey",
+      "masterKey": "PhotogramKey123",
       "appName": "Photogram"
     }
   ]

@@ -94,7 +94,7 @@
 
         console.log(scope.user);
 
-        if (scope.user.id === $rootScope.user.id) {
+        if (scope.user.id === $rootScope.currentUser.id) {
           return false;
         }
 

@@ -14,7 +14,7 @@
     .controller('LoadingCtrl', LoadingController);
 
   function LoadingController($rootScope, AppConfig, $state) {
-    var user = $rootScope.user;
+    var user = $rootScope.currentUser;
     console.log('User', user);
 
     if (user) {

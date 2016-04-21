@@ -16,7 +16,7 @@
   function PhotogramProfileController($stateParams, $scope, Photogram, User) {
     var vm = this;
     vm.changeTab = changeTab;
-    vm.user = User.currentUser();
+    vm.user = {};
 
     init();
     changeTab('list');
@@ -48,6 +48,7 @@
       Photogram
         .getUserGalleryQtd()
         .then(function (qtdPhotos) {
+          console.log(qtdPhotos);
           vm.user.qtdPhotos = qtdPhotos;
           vm.loadingPhotos = false;
         });

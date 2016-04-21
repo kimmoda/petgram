@@ -19,7 +19,15 @@
     init();
 
     function init() {
-      vm.form = User.currentUser();
+      var user = User.currentUser();
+      vm.form = {
+        name: user.name,
+        email: user.email,
+        status : user.status,
+        gender: user.gender,
+        img: user.img,
+        username: user.username
+      };
       vm.formFields = UserForm.profile;
       console.log(vm.form);
     }
@@ -38,7 +46,7 @@
             User.init();
             $state.go(AppConfig.routes.home, {
               clear: true
-            })
+            });
           });
       } else {
         Notify.alert({

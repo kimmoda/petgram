@@ -13,7 +13,7 @@
     <div class="profile-top">
       <div class="row">
         <div class="col-25">
-          <img class="avatar" user-avatar ng-src="{{ vm.user.src }}" />
+          <img class="avatar" user-avatar ng-src="{{ currentUser.img._url || 'img/user.png' }}" />
         </div>
         <div class="col col-statics">
           <div class="row">
@@ -46,8 +46,8 @@
         </div>
       </div>
       <div class="padding">
-        <span class="user-username">{{ vm.user.name }}</span>
-        <p class="user-status">{{ vm.user.status }}</p>
+        <span class="user-username">{{ currentUser.name }}</span>
+        <p class="user-status">{{ currentUser.status }}</p>
       </div>
 
     </div>
