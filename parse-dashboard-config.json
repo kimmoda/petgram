@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "serverURL": "https://photogram-server.herokuapp.com/parse",
+      "appId": "myAppId",
+      "masterKey": "myMasterKey",
+      "appName": "Photogram"
+    }
+  ]
+}
