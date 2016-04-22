@@ -1,7 +1,5 @@
 ## Getting Started with Photogram Source Code
 
-> Thank's for purchasing!!!!
-
 [![PHotogram Getting Starter](http://img.youtube.com/vi/LpREY_bPJLc/0.jpg)](http://www.youtube.com/watch?v=LpREY_bPJLc)
 
 
