@@ -2,43 +2,37 @@
 
 > Thank's for purchasing!!!!
 
+[![PHotogram Getting Starter](http://img.youtube.com/vi/LpREY_bPJLc/0.jpg)](http://www.youtube.com/watch?v=LpREY_bPJLc)
+
 Let's go and clone this project!
 
 ### NEW Document in Development
 
 [NEW DOCUMENTATION IN HERE!!!!!](https://docs.google.com/presentation/d/1gWrISqNAihE3_t72zxuxUSl1LPwZkhiRSR-cPM9UmpQ/edit?usp=sharing)
 
-> Lets you quickly set up a project with:
-> * your favorite technologies
-> * web best pratices.
-> * guidelines powered by Google.
 
-> Gulp provide fast workspace with quick feedback.
+Lets you quickly set up a project with:
+ * your favorite technologies
+ * web best pratices.
+ * guidelines powered by Google.
+
 
 ## Require  ##
-1) Install nodejs: http://nodejs.org/
+1) Install nodejs:
+    [Nodejs](http://nodejs.org/)
 
 2) Install Ionic, Bower, Cordova and Gulp
-> $ npm install -g ionic bower cordova gulp
+    $ npm install -g ionic bower cordova gulp
 
 ## Getting Starter  ##
 1) Intall Project Modules
-> $ npm install
+    $ npm install
 
 2) Run in Browser
-> $ gulp serve
+   $ gulp serve
 
 3) Build Project
-> $ gulp build
-
-## Parse Configuration ##
-1. Create account in Parse [http://parse.com](http://parse.com)
-2. Follow online documentation in Github
-[http://movibe.github.io/photogram-docs/#parse](http://movibe.github.io/photogram-docs/#parse)
-3. Config Your Parse Keys in file
-src/app/index.constant.js
-
-![enter image description here](http://movibe.github.io/photogram-docs/assets/images/facebook-config.jpg)
+    $ gulp build
 
 ## Facebook Configuration ##
 
