@@ -7,7 +7,11 @@
 
     function PhotogramFactory($q, Parse, User, Loading) {
 
-        var currentUser = Parse.User.current().attributes;
+        var currentUser = {};
+        if (Parse.User.current()) {
+            currentUser = Parse.User.current().attributes;
+        }
+
         var limitComment = 3;
 
         return {
