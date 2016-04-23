@@ -112,18 +112,25 @@ $time: 0.5s;
         border: none;
         //border: 1px solid yellow;
 
-        a.tab-item {
-          -webkit-transition: all $time ease;
-          -moz-transition: all $time ease;
-          -ms-transition: all $time ease;
-          -o-transition: all $time ease;
-          transition: all $time ease;
-        }
+        a {
+          &.tab-item {
+            -webkit-transition: all $time ease;
+            -moz-transition: all $time ease;
+            -ms-transition: all $time ease;
+            -o-transition: all $time ease;
+            transition: all $time ease;
+            &.tab-item-active {
+              font-weight: bold;
+              font-size: 18px;
+              border-bottom: 2px solid #fff;
+            }
+          }
 
-        a.tab-item.tab-item-active {
-          font-weight: bold;
-          font-size: 18px;
-          border-bottom: 2px solid #fff;
+          span.tab-title.ng-binding {
+            display: block;
+            position: relative;
+            top: -30px;
+          }
         }
 
       }

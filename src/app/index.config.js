@@ -13,8 +13,8 @@
     .config(configIonic);
 
   function startParse(AppConfig) {
-    Parse.initialize(AppConfig.parse.appId);
-    Parse.serverURL = AppConfig.parse.server;
+    window.Parse.initialize(AppConfig.parse.appId);
+    window.Parse.serverURL = AppConfig.parse.server;
   }
 
   function runIonic($ionicPlatform, $cacheSrc, AppConfig, $cordovaStatusbar, $timeout,
@@ -68,14 +68,12 @@
     var langvar = navigator.language || navigator.userlanguage;
     var userlangvar = langvar.split('-')[0];
     var language = AppConfig.preferredLocale;
-    if (_.some(AppConfig.locales, {
-        code: userlangvar
-      })) {
+    var searchLang = _.some(AppConfig.locales, {code: userlangvar});
+    if ( searchLang ) {
       language = userlangvar;
     }
     $translateProvider.preferredLanguage(language);
     moment.locale(language);
-
   }
 
   function configIonic($ionicConfigProvider) {
@@ -93,6 +91,11 @@
   }
 
   // Facebook
+
+  function configFacebook($facebookProvider, AppConfig) {
+    $facebookProvider.setAppId(AppConfig.facebook);
+    $facebookProvider.setPermissions('id,name,email,user_likes,bio');
+  }
 
   function runFacebook() {
     var ionic = window.ionic;
@@ -118,10 +121,7 @@
     }
   }
 
-  function configFacebook($facebookProvider, AppConfig) {
-    $facebookProvider.setAppId(AppConfig.facebook);
-    $facebookProvider.setPermissions('id,name,email,user_likes,bio');
-  }
+
 
 
 })();

@@ -13,7 +13,7 @@
                 <select ng-model="language"
                         ng-change="changeLanguage(language)"
                         >
-                    <option ng-repeat="item in languages" value="{{item.code}}" translate="{{item.translation}}"></option>
+                    <option ng-repeat="item in languages" value="{{ ::item.code}}" translate="{{ ::item.translation}}"></option>
                 </select>
             </label>
 

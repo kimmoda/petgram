@@ -1,13 +1,13 @@
 <ion-modal-view class="modal-profile">
   <ion-header-bar class="bar-positive">
     <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
-    <div class="title">{{ 'Edit Profile' | translate }}</div>
+    <div class="title">{{ ::'Edit Profile' | translate }}</div>
   </ion-header-bar>
   <ion-content class="view-avatar">
 
     <div class="row step1">
       <div class="col">
-        <img class="avatar" user-avatar ng-src="{{ form.img.url || 'img/user.png' }}" />
+        <img class="avatar" user-avatar ng-src="{{ ::form.img._url || 'img/user.png' }}" />
       </div>
     </div>
 

@@ -14,7 +14,7 @@
         profile: '=',
         loading: '='
       },
-      templateUrl: path + '/directives/photolist/view/photo.list.html',
+      templateUrl: path + '/directives/photolist/photo.list.html',
       controller: photogramPhotoListCtrl,
       controllerAs: 'vm'
     };

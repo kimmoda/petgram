@@ -7,10 +7,10 @@
         <ion-slide ng-repeat="item in vm.slides">
 
           <div class="content" ng-if="$index == vm.slideIndex">
-            <span class="top"><h2>{{ item.top }}</h2></span>
+            <span class="top"><h2>{{ ::item.top }}</h2></span>
 
-            <div class="phone {{ vm.device }}">
-              <img ng-src="{{ item.img }}">
+            <div class="phone {{ ::vm.device }}">
+              <img ng-src="{{ ::item.img }}">
             </div>
           </div>
 

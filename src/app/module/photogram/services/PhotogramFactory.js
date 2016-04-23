@@ -1110,17 +1110,16 @@
                 .skip(page * limit)
                 .find()
                 .then(function (resp) {
-                    console.log(resp.length);
                     if (resp.length) {
                         var data = [];
-                        resp.map(function (value) {
-                            var obj = value.attributes;
-                            obj.id = value.id;
-                            obj.user = (value.attributes.user) ? value.attributes.user.attributes : '';
-                            obj.user = processImg(obj.user);
-                            obj.created = value.createdAt;
-                            obj.img = (value.attributes.gallery) ? value.attributes.gallery.attributes.img.url() : '';
-                            console.log(obj);
+                        resp.map(function (item) {
+                            var obj = {
+                                id: item.id,
+                                user: item.attributes.user ? item.attributes.user.attributes : {name: 'Nulled',img: {_url: 'img/user.png'}},
+                                img : item.attributes.gallery ? item.attributes.gallery.attributes.img : null,
+                                action: item.attributes.action,
+                                created: item.attributes.createdAt
+                            };
                             data.push(obj);
                         });
                         defer.resolve(data);
