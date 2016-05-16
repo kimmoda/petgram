@@ -16,7 +16,6 @@
   function PhotogramHomeController($scope, $rootScope, $cordovaInAppBrowser, $stateParams, Photogram) {
     var vm = this;
     vm.loading = true;
-    vm.buySource = buySource;
     vm.load = load;
     vm.load($stateParams.reload);
     vm.loadMore = loadMore;
@@ -40,24 +39,9 @@
       vm.load(force);
     }
 
-    function buySource() {
-      var options = {
-        location: 'yes',
-        clearcache: 'yes',
-        toolbar: 'yes'
-      };
-
-      var lang = $rootScope.lang.value;
-      var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAW4JZS7KJM5S';
-      if (lang === 'pt_BR') {
-        url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FT5W6FJW5RAEN'
-      }
-
-      $cordovaInAppBrowser.open(url, '_blank', options);
-    }
 
     function load(force) {
-      console.log('Load ');
+      // console.log('Load ');
 
       if (force) {
         init();
@@ -67,15 +51,17 @@
         .home(vm.page)
         .then(function (resp) {
 
-          console.log(resp);
+          // console.log(resp);
 
           vm.loading = false;
 
-          angular.forEach(resp, function (value, key) {
-            vm.data.push(value);
+          resp.galleries.map(function (item) {
+            item.progress = false;
+            // console.table(item);
+            vm.data.push(item);
           });
 
-          console.log('qtd', resp.length);
+          // console.log('qtd', resp.length);
 
           if (resp.length) {
             vm.more = true;

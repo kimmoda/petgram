@@ -15,6 +15,7 @@
       'ngFacebook',
       'uiGmapgoogle-maps',
       'angular-cache',
+      'ngParse',
       'ngCordova',
       'app.intro',
       'app.loading',
@@ -36,25 +37,6 @@
       'ngCache',
       'ngParse',
     ]);
-})();
-(function () {
-  'use strict';
-  angular
-    .module('ionic-loading', ['ionic'])
-    .run(runLoading);
-
-  function runLoading($rootScope, $ionicLoading) {
-    //Loading
-    $rootScope.$on('ionicLoading:true', function (text) {
-      $rootScope.loading = true;
-      $ionicLoading.show(text);
-    });
-    $rootScope.$on('ionicLoading:false', function () {
-      $rootScope.loading = false;
-      $ionicLoading.hide();
-    });
-  }
-
 })();
 (function () {
   'use strict';
@@ -102,6 +84,25 @@
     };
   }
 
+
+})();
+(function () {
+  'use strict';
+  angular
+    .module('ionic-loading', ['ionic'])
+    .run(runLoading);
+
+  function runLoading($rootScope, $ionicLoading) {
+    //Loading
+    $rootScope.$on('ionicLoading:true', function (text) {
+      $rootScope.loading = true;
+      $ionicLoading.show(text);
+    });
+    $rootScope.$on('ionicLoading:false', function () {
+      $rootScope.loading = false;
+      $ionicLoading.hide();
+    });
+  }
 
 })();
 (function () {
@@ -158,6 +159,69 @@
 
   function configTranslate($translatePartialLoaderProvider, config) {
     $translatePartialLoaderProvider.addPart(config.path);
+  }
+
+})();
+(function () {
+  'use strict';
+  angular
+    .module('ngParse', [])
+    .factory('ngParse', ngParseFactory);
+
+  function ngParseFactory($q) {
+    return {
+      count: count,
+      paginate: paginate
+    };
+
+    function count(model) {
+      var defer = $q.defer();
+      new Parse
+        .Query(model)
+        .count()
+        .then(function (resp) {
+          defer.resolve(resp);
+        });
+      return defer.promise;
+    }
+
+    function paginate(model, options) {
+      var defer = $q.defer();
+
+      var query = new Parse.Query(model);
+      query.skip(options.pageNumber);
+      query.limit(options.pageSize);
+
+      if (options.sort) {
+        var sort = options.sort;
+        if (sort.order === 'asc') {
+          query.ascending(options.sort.field);
+        } else {
+          query.descending(options.sort.field);
+        }
+      }
+      query.find()
+        .then(function (resp) {
+          var data = {
+            results: [],
+            total: 0
+          };
+          resp.map(function (item) {
+            var obj = item.attributes;
+            obj.id = item.id;
+            data.results.push(obj);
+          });
+
+          count(model)
+            .then(function (count) {
+              data.total = count;
+              defer.resolve(data);
+            });
+        });
+
+
+      return defer.promise;
+    }
   }
 
 })();
@@ -382,8 +446,10 @@
     var langvar = navigator.language || navigator.userlanguage;
     var userlangvar = langvar.split('-')[0];
     var language = AppConfig.preferredLocale;
-    var searchLang = _.some(AppConfig.locales, {code: userlangvar});
-    if ( searchLang ) {
+    var searchLang = _.some(AppConfig.locales, {
+      code: userlangvar
+    });
+    if (searchLang) {
       language = userlangvar;
     }
     $translateProvider.preferredLanguage(language);
@@ -489,7 +555,7 @@
     };
   }
 })();
-
+/*
 // -------------------------------------------------------------
 // Rollbar - must be first
 // -------------------------------------------------------------
@@ -684,8 +750,8 @@
 
 }());
 
-/* Google Analytics
- * */
+/!* Google Analytics
+ * *!/
 
 (function (i, s, o, g, r, a, m) {
   i['GoogleAnalyticsObject'] = r;
@@ -701,7 +767,50 @@
 })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
 ga('create', 'UA-53950213-5', {
   'cookieDomain': 'none'
-});
+});*/
+/*
+ * cordova -d plugin add https://github.com/emilyemorehouse/phonegap-parse-plugin --variable APP_ID=7lWT9DJntSvMKTetpoT0wL79pTG9dk4ob5pztktX --variable CLIENT_KEY=CIcH8fg5AogNNrEQ8IbmA5nujNjIvVNmuW0PyvCy
+ * */
+(function () {
+  'use strict';
+  angular
+    .module('starter')
+    .run(runParsePush);
+
+  function runParsePush($ionicPlatform, $q, $window, AppConfig) {
+
+    var ParsePushPlugin = $window.parsePlugin;
+
+
+    $ionicPlatform.ready(function () {
+      if ($window.cordova) {
+        startPush();
+      }
+    });
+
+
+    function startPush() {
+      var defer = $q.defer();
+
+      ParsePushPlugin
+        .initialize(AppConfig.parse.applicationId, AppConfig.parse.clientKey, function () {
+
+          ParsePushPlugin
+            .subscribe('Photogram', function () {
+              ParsePushPlugin
+                .getInstallationId(defer.resolve, defer.reject);
+
+            }, defer.reject);
+
+        }, defer.reject);
+
+      return defer.promise;
+    }
+
+
+  }
+
+})();
 'use strict';
 angular.module("ngLocale", [], ["$provide", function ($provide) {
   var PLURAL_CATEGORY = {
@@ -895,51 +1004,6 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
   return pt_br;
 
 }));
-(function () {
-  'use strict';
-
-  angular
-    .module('ionic-loading')
-    .factory('Loading', Loading);
-
-  function Loading($rootScope, $timeout) {
-    var seconds = 0;
-
-    return {
-      start: showLoading,
-      end: hideLoading,
-    };
-
-
-    function showLoading(text) {
-      $rootScope.$broadcast('ionicLoading:true', text);
-    }
-
-    function hideLoading() {
-      $timeout(function () {
-        $rootScope.$broadcast('ionicLoading:false');
-      }, parseInt(seconds + '000'));
-    }
-  }
-})();
-(function () {
-  'use strict';
-
-  angular
-    .module('ionic-loading')
-    .directive('ionLoading', ionLoading);
-
-  function ionLoading() {
-    return {
-      restrict: 'E',
-      scope: {
-        icon: '@',
-        loading: '='
-      },
-      template: '<div class="padding text-center loading" ng-show="loading"><ion-spinner icon="{{ icon }}"></ion-spinner></div>'
-    };
-  }
-})();
 (function () {
   'use strict';
 
@@ -1149,6 +1213,51 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
       return c;
     };
     return c;
+  }
+})();
+(function () {
+  'use strict';
+
+  angular
+    .module('ionic-loading')
+    .factory('Loading', Loading);
+
+  function Loading($rootScope, $timeout) {
+    var seconds = 0;
+
+    return {
+      start: showLoading,
+      end: hideLoading,
+    };
+
+
+    function showLoading(text) {
+      $rootScope.$broadcast('ionicLoading:true', text);
+    }
+
+    function hideLoading() {
+      $timeout(function () {
+        $rootScope.$broadcast('ionicLoading:false');
+      }, parseInt(seconds + '000'));
+    }
+  }
+})();
+(function () {
+  'use strict';
+
+  angular
+    .module('ionic-loading')
+    .directive('ionLoading', ionLoading);
+
+  function ionLoading() {
+    return {
+      restrict: 'E',
+      scope: {
+        icon: '@',
+        loading: '='
+      },
+      template: '<div class="padding text-center loading" ng-show="loading"><ion-spinner icon="{{ icon }}"></ion-spinner></div>'
+    };
   }
 })();
 (function () {
@@ -2912,1206 +3021,1201 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 
 })();
 (function () {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('app.photogram')
-        .factory('Photogram', PhotogramFactory);
+  angular
+    .module('app.photogram')
+    .factory('Photogram', PhotogramFactory);
 
-    function PhotogramFactory($q, Parse, User, Loading) {
+  function PhotogramFactory($q, Parse, User, Loading) {
 
-        var currentUser = {};
-        if (Parse.User.current()) {
-            currentUser = Parse.User.current().attributes;
-        }
+    var limitComment = 3;
 
-        var limitComment = 3;
+    return {
+      addActivity: addActivity,
+      listActivity: listActivity,
+      all: all,
+      home: home,
+      post: post,
+      get: get,
+      deletePhoto: deletePhoto,
+      find: find,
+      nearby: nearby,
+      // User
+      profile: profile,
+      getUser: getUser,
+      getUserGallery: getUserGallery,
+      getUserGalleryQtd: getUserGalleryQtd,
+      // Comment
+      allComment: allComment,
+      addComment: addComment,
+      getComments: getComments,
+      updateComment: updateComment,
+      deleteComment: deleteComment,
+      // Like
+      getLikes: getLikes,
+      likeGallery: likeGallery,
+      // Follow
+      getFollow: getFollow,
+      search: search
+    };
 
-        return {
-            addActivity: addActivity,
-            listActivity: listActivity,
-            all: all,
-            home: home,
-            post: post,
-            get: get,
-            deletePhoto: deletePhoto,
-            find: find,
-            nearby: nearby,
-            // User
-            profile: profile,
-            getUser: getUser,
-            getUserGallery: getUserGallery,
-            getUserGalleryQtd: getUserGalleryQtd,
-            // Comment
-            allComment: allComment,
-            addComment: addComment,
-            getComments: getComments,
-            updateComment: updateComment,
-            deleteComment: deleteComment,
-            // Like
-            getLikes: getLikes,
-            likeGallery: likeGallery,
-            // Follow
-            getFollow: getFollow,
-            search: search
-        };
+    function loadProfile(response) {
 
-        function loadProfile(response) {
+      if (response) {
+        var user = User.processImg(response);
+        console.info(response, user);
+        return user;
+      } else {
+        User.logout();
+        return false;
+      }
+    }
 
-            if (response) {
-                var user = processImg(response);
+    function deletePhoto(galleryId) {
+      var defer = $q.defer();
 
-                console.info(response, user);
-                return user;
-            } else {
-                User.logout();
-                return false;
-            }
-        }
+      new Parse
+        .Query('Gallery')
+        .get(galleryId, function (resp) {
+          resp.destroy();
+          defer.resolve(resp);
+        });
 
-        function deletePhoto(galleryId) {
-            var defer = $q.defer();
+      return defer.promise;
+    }
 
-            new Parse
-                .Query('Gallery')
-                .get(galleryId, function (resp) {
-                    resp.destroy();
-                    defer.resolve(resp);
-                });
+    function post(_params) {
+      var defer = $q.defer();
+      var ImageObject = Parse.Object.extend('Gallery');
 
-            return defer.promise;
-        }
+      if (_params.photo !== '') {
 
-        function post(_params) {
-            var defer = $q.defer();
-            var ImageObject = Parse.Object.extend('Gallery');
+        // create the parse file
+        var imageFile = new Parse.File('mypic.jpg', {
+          base64: _params.photo
+        });
 
-            if (_params.photo !== '') {
+        // save the parse file
+        imageFile
+          .save()
+          .then(function () {
 
-                // create the parse file
-                var imageFile = new Parse.File('mypic.jpg', {
-                    base64: _params.photo
-                });
+            _params.photo = null;
 
-                // save the parse file
-                imageFile
-                    .save()
-                    .then(function () {
+            // create object to hold caption and file reference
+            var imageObject = new ImageObject();
 
-                        _params.photo = null;
+            // set object properties
+            imageObject.set('title', _params.title);
+            imageObject.set('user', Parse.User.current());
+            imageObject.set('img', imageFile);
 
-                        // create object to hold caption and file reference
-                        var imageObject = new ImageObject();
-
-                        // set object properties
-                        imageObject.set('title', _params.title);
-                        imageObject.set('user', Parse.User.current());
-                        imageObject.set('img', imageFile);
-
-                        if (_params.location !== undefined) {
-                            imageObject.set('location', new Parse.GeoPoint(_params.location.latitude, _params.location.longitude));
-                        }
-
-                        // save object to parse backend
-                        imageObject
-                            .save()
-                            .then(function (resp) {
-                                console.log('Posted Photo', resp);
-                                // Add User QtdPhoto
-                                defer.resolve(resp);
-                            });
-
-                    }, function (error) {
-                        console.log('Error', error);
-                        defer.reject(error);
-                    });
-
-            } else {
-                // create object to hold caption and file reference
-                var imageObject = new ImageObject();
-
-                // set object properties
-                imageObject.set('caption', _params.caption);
-
-                // save object to parse backend
-                return imageObject.save();
-
+            if (_params.location !== undefined) {
+              imageObject.set('location', new Parse.GeoPoint(_params.location.latitude, _params.location.longitude));
             }
 
+            // save object to parse backend
+            imageObject
+              .save()
+              .then(function (resp) {
+                console.log('Posted Photo', resp);
+                // Add User QtdPhoto
+                defer.resolve(resp);
+              });
 
-            return defer.promise;
-        }
+          }, function (error) {
+            console.log('Error', error);
+            defer.reject(error);
+          });
 
-        function allComment(galleryId) {
-            var defer = $q.defer();
+      } else {
+        // create object to hold caption and file reference
+        var imageObject = new ImageObject();
 
-            var gallery = new Parse
-                .Query('Gallery')
-                .get(galleryId, function (resp) {
-                    console.log(resp);
-                    return resp;
-                });
+        // set object properties
+        imageObject.set('caption', _params.caption);
 
+        // save object to parse backend
+        return imageObject.save();
+
+      }
+
+
+      return defer.promise;
+    }
+
+    function allComment(galleryId) {
+      var defer = $q.defer();
+
+      var gallery = new Parse
+        .Query('Gallery')
+        .get(galleryId, function (resp) {
+          console.log(resp);
+          return resp;
+        });
+
+      new Parse
+        .Query('GalleryComment')
+        .equalTo('galery', gallery)
+        //.include ('commentBy')
+        .descending('createdAt')
+        .find()
+        .then(function (resp) {
+          var objs = [];
+          angular.forEach(resp, function (item) {
+            var obj = item.attributes;
+            obj.id = item.id;
+            obj.user = item.attributes.commentBy;
+            objs.push(obj);
+          });
+          Loading.end();
+          defer.resolve(objs);
+        });
+      return defer.promise;
+    }
+
+    function getComments(obj) {
+      var defer = $q.defer();
+
+      new Parse
+        .Query('Gallery')
+        .get(obj)
+        .then(function (gallery) {
+          new Parse
+            .Query('GalleryComment')
+            .equalTo('gallery', gallery)
+            .include('commentBy')
+            .ascending('createdAt')
+            .find()
+            .then(function (resp) {
+              var comments = [];
+              resp.map(function (item) {
+                console.warn(item);
+                var obj = {
+                  id: item.id,
+                  text: item.attributes.text,
+                  created: item.createdAt
+                };
+                var userComment = item.attributes.commentBy.attributes;
+                // userComment.id = item.attributes.commentBy.id;
+                obj.user = User.processImg(userComment);
+                comments.push(obj);
+              });
+              defer.resolve(comments);
+            });
+        });
+
+      return defer.promise;
+    }
+
+    function updateComment(obj) {
+      var defer = $q.defer();
+      console.log('updateComment', obj);
+      new Parse
+        .Query('GalleryComment')
+        .get(obj.id, function (comment) {
+          console.log('updateComment comment', comment);
+          comment.set('text', obj.text);
+          comment.save();
+          defer.resolve();
+        });
+      return defer.promise;
+    }
+
+    function deleteComment(item) {
+      var defer = $q.defer();
+      new Parse
+        .Query('GalleryComment')
+        .get(item.id, deleteItem);
+
+      function deleteItem(comment) {
+        comment.destroy(function () {
+          defer.resolve();
+        });
+      }
+
+      return defer.promise;
+    }
+
+    function getFollow(userId) {
+      var defer = $q.defer();
+
+      User
+        .find(userId)
+        .then(function (user) {
+
+          new Parse
+            .Query('UserFollow')
+            .equalTo('user', user)
+            .include('follow')
+            .find()
+            .then(function (resp) {
+              var data = [];
+              angular.forEach(resp, function (item) {
+                console.warn(item);
+                var obj = {
+                  id: item.id,
+                  text: item.attributes.text,
+                  user: item.attributes.follow.attributes,
+                  created: item.createdAt
+                };
+                obj.user = User.processImg(obj.user);
+
+                data.push(obj.user);
+              });
+              defer.resolve(data);
+            });
+        });
+
+      return defer.promise;
+    }
+
+    function getLikes(obj) {
+      var defer = $q.defer();
+
+      new Parse
+        .Query('Gallery')
+        .get(obj)
+        .then(function (gallery) {
+          if (gallery.length) {
             new Parse
-                .Query('GalleryComment')
-                .equalTo('galery', gallery)
-                //.include ('commentBy')
-                .descending('createdAt')
-                .find()
-                .then(function (resp) {
-                    var objs = [];
-                    angular.forEach(resp, function (item) {
-                        var obj = item.attributes;
-                        obj.id = item.id;
-                        obj.user = item.attributes.commentBy;
-                        objs.push(obj);
-                    });
-                    Loading.end();
-                    defer.resolve(objs);
+              .Query('GalleryLike')
+              .equalTo('gallery', gallery)
+              .include('user')
+              .ascending('createdAt')
+              .find()
+              .then(function (resp) {
+                var objs = [];
+                angular.forEach(resp, function (item) {
+                  console.warn(item);
+                  var obj = {
+                    id: item.id,
+                    text: item.attributes.text,
+                    user: item.attributes.user.attributes,
+                    created: item.createdAt
+                  };
+                  objs.push(obj);
                 });
-            return defer.promise;
-        }
+                console.log(objs);
+                defer.resolve(objs);
+              });
+          } else {
+            defer.reject(true);
+          }
+        });
 
-        function getComments(obj) {
-            var defer = $q.defer();
+      return defer.promise;
+    }
 
-            new Parse
-                .Query('Gallery')
-                .get(obj)
-                .then(function (gallery) {
-                    new Parse
-                        .Query('GalleryComment')
-                        .equalTo('gallery', gallery)
-                        .include('commentBy')
-                        .ascending('createdAt')
-                        .find()
-                        .then(function (resp) {
-                            var comments = [];
-                            resp.map(function (item) {
-                                console.warn(item);
-                                var obj = {
-                                    id: item.id,
-                                    text: item.attributes.text,
-                                    created: item.createdAt
-                                };
-                                var userComment = item.attributes.commentBy.attributes;
-                                // userComment.id = item.attributes.commentBy.id;
-                                // obj.user = processImg(userComment);
-                                comments.push(obj);
-                            });
-                            defer.resolve(comments);
+
+    function nearby(position) {
+      var defer = $q.defer();
+      var data = [];
+
+      var point = new Parse.GeoPoint(position);
+      var maxDistance = 1;
+
+      new Parse
+        .Query('Gallery')
+        //.near('location', point)
+        .include('user')
+        .withinRadians('location', point, maxDistance)
+        .limit(50)
+        .find()
+        .then(function (resp) {
+          if (resp.length) {
+            resp.map(function (value) {
+              var size = 100;
+              var obj = value.attributes;
+              obj.id = value.id;
+              obj.img = value.attributes.img.url();
+              obj.created = value.createdAt;
+              obj.icon = {
+                size: {
+                  width: 100,
+                  height: 100
+                },
+
+                scaledSize: {
+                  width: size / 2,
+                  height: size / 2
+                },
+                url: 'img/icon.png'
+              };
+              obj.icon.url = obj.img;
+              obj.coords = {
+                latitude: obj.location._latitude,
+                longitude: obj.location._longitude
+              };
+              data.push(obj);
+            });
+
+
+            defer.resolve(data);
+          } else {
+            defer.reject(true);
+          }
+        });
+
+      return defer.promise;
+    }
+
+    function search(string, page) {
+      var defer = $q.defer();
+      var data = [];
+      var limit = 15;
+
+      new Parse
+        .Query('Gallery')
+        .limit(limit)
+        .skip(page * limit)
+        .matches('title', '* ' + string + '.*')
+        .include('user')
+        .find()
+        .then(function (resp) {
+          resp.map(function (value) {
+            console.log('gallery search item', value);
+            var obj = {
+              id: value.id,
+              item: value.attributes,
+              src: value.attributes.img.url(),
+              created: value.createdAt,
+              user: value.attributes.user.id
+            };
+            data.push(obj);
+          });
+          defer.resolve(data);
+        });
+
+      return defer.promise;
+    }
+
+    function home(page) {
+      var defer = $q.defer();
+      var _limit = 4;
+      var _result = {
+        total: 0,
+        galleries: []
+      };
+
+      var _query = function () {
+        return new Parse
+          .Query('Gallery')
+          .descending('createdAt')
+          //.notEqualTo('user', user)
+          //.containedIn('ref', following)
+          //.containsAll('ref', following)
+        ;
+      };
+
+      _query()
+        .count()
+        .then(function (totalGallery) {
+          console.log('results', totalGallery);
+          _result.total = totalGallery;
+          _query()
+            .include('user')
+            .limit(_limit)
+            .skip(page * _limit)
+            .find()
+            .then(function (resp) {
+
+              console.log('home', resp);
+
+              var qtd = resp.length;
+
+              if (!qtd) {
+                defer.reject(true);
+              }
+
+              var cb = _.after(resp.length, function () {
+                defer.resolve(_result);
+              });
+
+              _.each(resp, function (item) {
+                //grab relations
+
+                var _likes = item.relation('likes');
+                var _comments = item.relation('comments');
+
+                _likes
+                  .query()
+                  .equalTo('gallery', item)
+                  .equalTo('user', Parse.User.current())
+                  .count()
+                  .then(function (liked) {
+
+                    _comments
+                      .query()
+                      .include('commentBy')
+                      .ascending('createdAt')
+                      .limit(limitComment)
+                      .find()
+                      .then(function (comments) {
+
+                        var commentsData = [];
+                        comments.map(function (item) {
+                          var user = item.attributes.commentBy;
+
+                          var comment = {
+                            id: item.id,
+                            text: item.attributes.text,
+                            user: user.attributes,
+                            created: item.attributes.createdAt
+                          };
+                          commentsData.push(comment);
                         });
-                });
 
-            return defer.promise;
-        }
-
-        function updateComment(obj) {
-            var defer = $q.defer();
-            console.log('updateComment', obj);
-            new Parse
-                .Query('GalleryComment')
-                .get(obj.id, function (comment) {
-                    console.log('updateComment comment', comment);
-                    comment.set('text', obj.text);
-                    comment.save();
-                    defer.resolve();
-                });
-            return defer.promise;
-        }
-
-        function deleteComment(item) {
-            var defer = $q.defer();
-            new Parse
-                .Query('GalleryComment')
-                .get(item.id, deleteItem);
-
-            function deleteItem(comment) {
-                comment.destroy(function () {
-                    defer.resolve();
-                });
-            }
-
-            return defer.promise;
-        }
-
-        function getFollow(userId) {
-            var defer = $q.defer();
-
-            User
-                .find(userId)
-                .then(function (user) {
-
-                    new Parse
-                        .Query('UserFollow')
-                        .equalTo('user', user)
-                        .include('follow')
-                        .find()
-                        .then(function (resp) {
-                            var data = [];
-                            angular.forEach(resp, function (item) {
-                                console.warn(item);
-                                var obj = {
-                                    id: item.id,
-                                    text: item.attributes.text,
-                                    user: item.attributes.follow.attributes,
-                                    created: item.createdAt
-                                };
-                                obj.user = processImg(obj.user);
-
-                                data.push(obj.user);
-                            });
-                            defer.resolve(data);
-                        });
-                });
-
-            return defer.promise;
-        }
-
-        function getLikes(obj) {
-            var defer = $q.defer();
-
-            new Parse
-                .Query('Gallery')
-                .get(obj)
-                .then(function (gallery) {
-                    if (gallery.length) {
-                        new Parse
-                            .Query('GalleryLike')
-                            .equalTo('gallery', gallery)
-                            .include('user')
-                            .ascending('createdAt')
-                            .find()
-                            .then(function (resp) {
-                                var objs = [];
-                                angular.forEach(resp, function (item) {
-                                    console.warn(item);
-                                    var obj = {
-                                        id: item.id,
-                                        text: item.attributes.text,
-                                        user: item.attributes.user.attributes,
-                                        created: item.createdAt
-                                    };
-                                    objs.push(obj);
-                                });
-                                console.log(objs);
-                                defer.resolve(objs);
-                            });
-                    } else {
-                        defer.reject(true);
-                    }
-                });
-
-            return defer.promise;
-        }
-
-
-        function nearby(position) {
-            var defer = $q.defer();
-            var data = [];
-
-            var point = new Parse.GeoPoint(position);
-            var maxDistance = 1;
-
-            new Parse
-                .Query('Gallery')
-            //.near('location', point)
-                .include('user')
-                .withinRadians('location', point, maxDistance)
-                .limit(50)
-                .find()
-                .then(function (resp) {
-                    if (resp.length) {
-                        resp.map(function (value) {
-                            var size = 100;
-                            var obj = value.attributes;
-                            obj.id = value.id;
-                            obj.img = value.attributes.img.url();
-                            obj.created = value.createdAt;
-                            obj.icon = {
-                                size: {
-                                    width: 100,
-                                    height: 100
-                                },
-
-                                scaledSize: {
-                                    width: size / 2,
-                                    height: size / 2
-                                },
-                                url: 'img/icon.png'
-                            };
-                            obj.icon.url = obj.img;
-                            obj.coords = {
-                                latitude: obj.location._latitude,
-                                longitude: obj.location._longitude
-                            };
-                            data.push(obj);
-                        });
-
-
-                        defer.resolve(data);
-                    } else {
-                        defer.reject(true);
-                    }
-                });
-
-            return defer.promise;
-        }
-
-        function search(string, page) {
-            var defer = $q.defer();
-            var data = [];
-            var limit = 15;
-
-            new Parse
-                .Query('Gallery')
-                .limit(limit)
-                .skip(page * limit)
-                .matches('title', '* ' + string + '.*')
-                .include('user')
-                .find()
-                .then(function (resp) {
-                    resp.map(function (value) {
-                        console.log('gallery search item', value);
                         var obj = {
-                            id: value.id,
-                            item: value.attributes,
-                            src: value.attributes.img.url(),
-                            created: value.createdAt,
-                            user: value.attributes.user.id
+                          id: item.id,
+                          item: angular.copy(item.attributes),
+                          created: item.createdAt,
+                          likes: item.attributes.qtdLike || 0,
+                          liked: liked,
+                          src: item.attributes.img.url(),
+                          comments: commentsData,
+                          user: item.attributes.user.attributes
                         };
-                        data.push(obj);
+                        console.table(obj);
+
+                        _result.galleries.push(obj);
+                        cb();
+                      });
+                  });
+
+              });
+            });
+        });
+
+      return defer.promise;
+    }
+
+    /*
+     * 1) Gallery, Limit
+     * 2) GalleryComment, Limi
+     * 3) Like, count, liked
+     * */
+    function all(page, userId) {
+      var defer = $q.defer();
+      var limit = 18;
+      var data = [];
+
+      var query;
+
+      if (userId) {
+        console.log(userId);
+        var loadUser = new Parse
+          .Query('User')
+          .equalTo('objectId', userId)
+          .first(userId, function (resp) {
+            return resp;
+          });
+
+
+        query = new Parse
+          .Query('Gallery')
+          .descending('createdAt')
+          .include('user')
+          .limit(limit)
+          .equalTo('user', loadUser)
+          .skip(page * limit)
+          .find();
+      } else {
+
+        query = new Parse
+          .Query('Gallery')
+          .descending('createdAt')
+          //.notEqualTo('user', Parse.User.current())
+          .include('user')
+          .limit(limit)
+          .skip(page * limit)
+          .find();
+      }
+      query
+        .then(function (resp) {
+          if (resp.length) {
+
+            var cb = _.after(resp.length, function () {
+              defer.resolve(data);
+            });
+
+            _.each(resp, function (item) {
+              //grab relations
+
+              var likes = item.relation('likes');
+              var comments = item.relation('comments');
+
+              likes
+                .query()
+                .equalTo('gallery', item)
+                .equalTo('user', Parse.User.current())
+                .count()
+                .then(function (liked) {
+
+                  comments
+                    .query()
+                    .include('commentBy')
+                    .ascending('createdAt')
+                    .limit(limitComment)
+                    .find()
+                    .then(function (comments) {
+                      console.log(comments);
+
+                      var commentsData = [];
+
+                      angular.forEach(comments, function (item) {
+                        var user = item.attributes.commentBy;
+                        var comment = {
+                          id: item.id,
+                          text: item.attributes.text,
+                          user: user.attributes
+                        };
+                        comment.user.id = user.id;
+                        comment.user = User.processImg(comment.user);
+                        commentsData.push(comment);
+                      });
+
+                      var obj = {
+                        id: item.id,
+                        item: item.attributes,
+                        created: item.createdAt,
+                        likes: likes,
+                        src: item.attributes.img.url(),
+                        comments: commentsData
+                      };
+
+                      obj.item.liked = liked;
+
+                      if (item.attributes.user) {
+                        obj.user = item.attributes.user.attributes,
+                          obj.user.id = item.attributes.user.id ? item.attributes.user.id : '',
+                          obj.user = User.processImg(obj.user);
+                      } else {
+                        // remove gallery
+                      }
+
+                      data.push(obj);
+                      cb();
                     });
-                    defer.resolve(data);
                 });
 
-            return defer.promise;
-        }
+            });
+          } else {
+            defer.reject(true);
+          }
 
-        function home(page) {
-            var defer = $q.defer();
-            var limit = 4;
-            var data = [];
+        });
 
-            new Parse
-                .Query('Gallery')
-                .descending('createdAt')
-                //.notEqualTo('user', user)
-                //.containedIn('ref', following)
-                //.containsAll('ref', following)
-                .include('user')
-                .limit(limit)
-                .skip(page * limit)
-                .find()
-                .then(function (resp) {
+      return defer.promise;
+    }
 
-                    console.log('home', resp);
+    function get(item) {
+      var defer = $q.defer();
 
-                    var qtd = resp.length;
+      console.log(item);
+      Loading.start();
 
-                    if (!qtd) {
-                        defer.reject(true);
-                    }
+      find(item)
+        .then(function (resp) {
+          console.log(resp);
 
-                    var cb = _.after(resp.length, function () {
-                        defer.resolve(data);
-                    });
+          var likes = resp.relation('likes');
+          var comments = resp.relation('comments');
 
-                    _.each(resp, function (item) {
-                        //grab relations
+          likes
+            .query()
+            .equalTo('gallery', item)
+            .equalTo('user', Parse.User.current())
+            .count()
+            .then(function (liked) {
 
-                        var likes = item.relation('likes');
-                        var comments = item.relation('comments');
+              likes
+                .query()
+                .count()
+                .then(function (likes) {
 
-                        likes
-                            .query()
-                            .equalTo('gallery', item)
-                            .equalTo('user', currentUser)
-                            .count()
-                            .then(function (liked) {
+                  comments
+                    .query()
+                    .include('commentBy')
+                    .descending('createdAt')
+                    .limit(limitComment)
+                    .find()
+                    .then(function (comments) {
+                      console.log(comments);
 
-                                console.log(liked);
+                      var commentsData = [];
 
-                                comments
-                                    .query()
-                                    .include('commentBy')
-                                    .ascending('createdAt')
-                                    .limit(limitComment)
-                                    .find()
-                                    .then(function (comments) {
-                                        console.log(comments);
+                      angular.forEach(comments, function (item) {
+                        var comment = {
+                          id: item.id,
+                          text: item.attributes.text,
+                          user: item.attributes.commentBy.attributes
+                        };
+                        comment.user.id = item.id;
+                        commentsData.push(comment);
+                      });
 
-                                        var commentsData = [];
+                      var obj = {
+                        id: item.id,
+                        item: item.attributes,
+                        created: item.createdAt,
+                        likes: likes,
+                        liked: liked,
+                        user: item.attributes.user.attributes,
+                        comments: commentsData
+                      };
+                      obj.user.id = item.attributes.user.id;
+                      obj.user = User.processImg(obj.user);
 
-                                        comments.map(function (item) {
-                                            var user = item.attributes.commentBy;
-
-                                            var comment = {
-                                                id: item.id,
-                                                text: item.attributes.text,
-                                                user: user.attributes
-                                            };
-
-                                            // comment.user.id = user.id;
-                                            // comment.user = processImg(comment.user);
-                                            commentsData.push(comment);
-                                        });
-
-                                        var obj = {
-                                            id: item.id,
-                                            item: item.attributes,
-                                            created: item.createdAt,
-                                            likes: likes,
-                                            src: item.attributes.img.url(),
-                                            comments: commentsData,
-                                            user: item.attributes.user.attributes
-                                        };
-
-
-                                        data.push(obj);
-                                        cb();
-                                    });
-                            });
-
+                      defer.resolve(obj);
+                      Loading.end();
                     });
                 });
+            });
 
-            return defer.promise;
-        }
+        });
 
-        /*
-         * 1) Gallery, Limit
-         * 2) GalleryComment, Limi
-         * 3) Like, count, liked
-         * */
-        function all(page, userId) {
-            var defer = $q.defer();
-            var limit = 18;
-            var data = [];
-
-            var query;
-
-            if (userId) {
-                console.log(userId);
-                var loadUser = new Parse
-                    .Query('User')
-                    .equalTo('objectId', userId)
-                    .first(userId, function (resp) {
-                        return resp;
-                    });
+      return defer.promise;
+    }
 
 
-                query = new Parse
-                    .Query('Gallery')
-                    .descending('createdAt')
-                    .include('user')
-                    .limit(limit)
-                    .equalTo('user', loadUser)
-                    .skip(page * limit)
-                    .find();
-            } else {
+    function find(id) {
+      var defer = $q.defer();
+      new Parse
+        .Query('Gallery')
+        .include('user')
+        .get(id)
+        .then(function (resp) {
+          defer.resolve(resp);
+        });
+      return defer.promise;
+    }
 
-                query = new Parse
-                    .Query('Gallery')
-                    .descending('createdAt')
-                    //.notEqualTo('user', Parse.User.current())
-                    .include('user')
-                    .limit(limit)
-                    .skip(page * limit)
-                    .find();
-            }
-            query
+
+    function addComment(form) {
+      var defer = $q.defer();
+      console.log('addComent', form);
+
+      find(form.galleryId)
+        .then(function (gallery) {
+          var Object = Parse.Object.extend('GalleryComment');
+          var item = new Object({});
+
+          angular.forEach(form, function (value, key) {
+            item.set(key, value);
+          });
+          item.set('commentBy', Parse.User.current());
+          item.set('gallery', gallery);
+
+          item.save(null)
+            .then(function (resp) {
+              console.log(resp);
+
+              addActivity({
+                galleryId: gallery.id,
+                action: 'add comment'
+              });
+
+              gallery
+                .relation('comments')
+                .add(resp);
+
+              gallery
+                .save()
                 .then(function (resp) {
-                    if (resp.length) {
+                  console.log(resp);
+                  defer.resolve(resp);
+                });
+            });
+        });
 
-                        var cb = _.after(resp.length, function () {
-                            defer.resolve(data);
+
+      return defer.promise;
+    }
+
+    function isLiked(galleryId) {
+      var defer = $q.defer();
+
+      find(galleryId)
+        .then(function (gallery) {
+          new Parse
+            .Query('GalleryLike')
+            .equalTo('gallery', gallery)
+            .equalTo('user', Parse.User.current())
+            .first()
+            .then(function (resp) {
+              console.warn(resp);
+              if (resp === undefined) {
+                defer.reject(resp);
+              } else {
+                defer.resolve(resp);
+              }
+            });
+        });
+
+      return defer.promise;
+    }
+
+    function addLike(galleryId) {
+      var defer = $q.defer();
+
+      find(galleryId)
+        .then(function (gallery) {
+          var Object = new Parse.Object.extend('GalleryLike');
+          var item = new Object({});
+
+          item.set('user', Parse.User.current());
+          item.set('gallery', gallery);
+
+          console.log(gallery);
+
+          item.save(null)
+            .then(function (resp) {
+              console.log(resp);
+
+              // Gallery Increment Like
+              var likes = parseInt(gallery.attributes.qtdLike) ? parseInt(gallery.attributes.qtdLike + 1) : 1;
+              console.log('Qtd Like', likes);
+
+              // Increment Like
+              gallery
+                .set('qtdLike', likes);
+
+              // Add Relation
+              gallery
+                .relation('likes')
+                .add(resp);
+
+              console.log('Save Gallery', gallery);
+
+              // Save Gallery
+              gallery
+                .save()
+                .then(function (newGallery) {
+                  console.log(newGallery);
+                  defer.resolve({
+                    liked: true,
+                    likes: likes
+                  });
+                }, function (err) {
+                  console.error(err);
+                  defer.reject(err);
+                });
+            });
+        });
+      return defer.promise;
+    }
+
+    function removeLike(galleryId) {
+
+      var defer = $q.defer();
+      find(galleryId)
+        .then(function (gallery) {
+
+          new Parse
+            .Query('GalleryLike')
+            .equalTo('gallery', gallery)
+            .equalTo('user', Parse.User.current())
+            .first()
+            .then(function (like) {
+
+              var likes = parseInt(gallery.attributes.qtdLike - 1);
+              if (likes < 0) {
+                likes = 0;
+              }
+
+              console.log('Remove like', likes, gallery);
+
+
+              // Gallery Decrement Like
+              gallery
+                .set('qtdLike', likes);
+
+              // Remove Relation
+              gallery
+                .relation('likes')
+                .remove(like);
+
+              like
+                .destroy(function (resp) {
+                  if (resp) {
+                    console.log('Remove like');
+                    // Save Gallery
+                    gallery
+                      .save()
+                      .then(function (newGallery) {
+                        console.log('New Gallery', newGallery);
+
+                        defer.resolve({
+                          liked: false,
+                          likes: newGallery.attributes.qtdLike
                         });
 
-                        _.each(resp, function (item) {
-                            //grab relations
-
-                            var likes = item.relation('likes');
-                            var comments = item.relation('comments');
-
-                            likes
-                                .query()
-                                .equalTo('gallery', item)
-                                .equalTo('user', currentUser)
-                                .count()
-                                .then(function (liked) {
-
-                                    comments
-                                        .query()
-                                        .include('commentBy')
-                                        .ascending('createdAt')
-                                        .limit(limitComment)
-                                        .find()
-                                        .then(function (comments) {
-                                            console.log(comments);
-
-                                            var commentsData = [];
-
-                                            angular.forEach(comments, function (item) {
-                                                var user = item.attributes.commentBy;
-                                                var comment = {
-                                                    id: item.id,
-                                                    text: item.attributes.text,
-                                                    user: user.attributes
-                                                };
-                                                comment.user.id = user.id;
-                                                comment.user = processImg(comment.user);
-                                                commentsData.push(comment);
-                                            });
-
-                                            var obj = {
-                                                id: item.id,
-                                                item: item.attributes,
-                                                created: item.createdAt,
-                                                likes: likes,
-                                                src: item.attributes.img.url(),
-                                                comments: commentsData
-                                            };
-
-                                            obj.item.liked = liked;
-
-                                            if (item.attributes.user) {
-                                                obj.user = item.attributes.user.attributes,
-                                                    obj.user.id = item.attributes.user.id ? item.attributes.user.id : '',
-                                                    obj.user = processImg(obj.user);
-                                            } else {
-                                                // remove gallery
-                                            }
-
-                                            data.push(obj);
-                                            cb();
-                                        });
-                                });
-
-                        });
-                    } else {
-                        defer.reject(true);
-                    }
-
+                      }, function (err) {
+                        console.error(err);
+                        defer.reject(err);
+                      });
+                  }
                 });
 
-            return defer.promise;
-        }
 
-        function get(item) {
-            var defer = $q.defer();
+            });
 
-            console.log(item);
-            Loading.start();
+        });
+      return defer.promise;
+    }
 
-            find(item)
-                .then(function (resp) {
-                    console.log(resp);
+    function likeGallery(gallery) {
+      var defer = $q.defer();
 
-                    var likes = resp.relation('likes');
-                    var comments = resp.relation('comments');
+      isLiked(gallery)
+        .then(function (resp) {
+          console.warn(resp);
+          var promise = '';
 
-                    likes
+          if (resp) {
+            console.log('Remove Like');
+            promise = removeLike(gallery);
+            addActivity({
+              galleryId: gallery,
+              action: 'unlike like'
+            });
+
+          } else {
+            console.log('Add like');
+            promise = addLike(gallery);
+            addActivity({
+              galleryId: gallery,
+              action: 'add like'
+            });
+          }
+
+          promise
+            .then(function (resp) {
+              console.log(resp);
+              defer.resolve(resp);
+            });
+
+        })
+        .catch(function (err) {
+          console.log('Add like', err);
+
+          addActivity({
+            galleryId: gallery,
+            action: 'add like'
+          });
+
+          addLike(gallery)
+            .then(function (resp) {
+              console.log(resp);
+              defer.resolve(resp);
+            });
+        });
+      return defer.promise;
+    }
+
+
+    function getUser(userId) {
+      var defer = $q.defer();
+
+      //todo: get user
+      //todo: count user gallery
+      //todo: count user follow
+      //todo: count user following
+
+      if (userId === undefined) {
+        userId = Parse.User.current().id;
+      }
+
+      console.log(userId);
+      User
+        .find(userId)
+        .then(function (resp) {
+          console.log('getUser', resp);
+          var obj = resp.attributes;
+          obj.id = resp.id;
+          var user = loadProfile(obj);
+
+          // fotos
+          new Parse
+            .Query('Gallery')
+            .equalTo('user', resp)
+            .count()
+            .then(function (gallery) {
+              user.galleries = gallery;
+
+              // seguidores
+              new Parse
+                .Query('UserFollow')
+                .equalTo('follow', resp)
+                .count()
+                .then(function (follow1) {
+                  user.follow1 = follow1;
+
+                  // seguindo
+                  new Parse
+                    .Query('UserFollow')
+                    .equalTo('user', resp)
+                    .count()
+                    .then(function (follow2) {
+                      user.follow2 = follow2;
+
+                      // seguindo
+                      new Parse
+                        .Query('UserFollow')
+                        .equalTo('user', Parse.User.current())
+                        .equalTo('follow', resp)
+                        .count()
+                        .then(function (follow) {
+                          user.follow = follow ? true : false;
+
+                          console.log('getUser', user);
+                          defer.resolve(user);
+
+                        });
+
+                    });
+
+                });
+            });
+        });
+
+
+      return defer.promise;
+    }
+
+    function getUserGalleryQtd(userId) {
+      var defer = $q.defer();
+      if (userId === undefined) {
+        userId = Parse.User.current().id;
+      }
+
+      User
+        .find(userId)
+        .then(function (user) {
+          new Parse
+            .Query('Gallery')
+            .equalTo('user', user)
+            .count()
+            .then(function (qtdGalleries) {
+              defer.resolve(qtdGalleries);
+            });
+        });
+
+      return defer.promise;
+    }
+
+    function getUserGallery(userId, page) {
+      var defer = $q.defer();
+      var data = [];
+      var limit = 9;
+
+      if (userId === undefined) {
+        userId = Parse.User.current().id;
+      }
+
+      User
+        .find(userId)
+        .then(function (user) {
+
+          new Parse
+            .Query('Gallery')
+            .equalTo('user', user)
+            .descending('createdAt')
+            //.containedIn('ref', following)
+            //.containsAll('ref', following)
+            .include('user')
+            .limit(limit)
+            .skip(page * limit)
+            .find()
+            .then(function (resp) {
+
+              if (resp.length) {
+                var cb = _.after(resp.length, function () {
+                  defer.resolve(data);
+                });
+
+                _.each(resp, function (item) {
+                  //grab relations
+
+                  var likes = item.relation('likes');
+                  var comments = item.relation('comments');
+
+                  likes
+                    .query()
+                    .equalTo('gallery', item)
+                    .equalTo('user', Parse.User.current())
+                    .count()
+                    .then(function (liked) {
+
+                      likes
                         .query()
-                        .equalTo('gallery', item)
-                        .equalTo('user', currentUser)
                         .count()
-                        .then(function (liked) {
-
-                            likes
-                                .query()
-                                .count()
-                                .then(function (likes) {
-
-                                    comments
-                                        .query()
-                                        .include('commentBy')
-                                        .descending('createdAt')
-                                        .limit(limitComment)
-                                        .find()
-                                        .then(function (comments) {
-                                            console.log(comments);
-
-                                            var commentsData = [];
-
-                                            angular.forEach(comments, function (item) {
-                                                var comment = {
-                                                    id: item.id,
-                                                    text: item.attributes.text,
-                                                    user: item.attributes.commentBy.attributes
-                                                };
-                                                comment.user.id = item.id;
-                                                commentsData.push(comment);
-                                            });
-
-                                            var obj = {
-                                                id: item.id,
-                                                item: item.attributes,
-                                                created: item.createdAt,
-                                                likes: likes,
-                                                liked: liked,
-                                                user: item.attributes.user.attributes,
-                                                comments: commentsData
-                                            };
-                                            obj.user.id = item.attributes.user.id;
-                                            obj.user = processImg(obj.user);
-
-                                            defer.resolve(obj);
-                                            Loading.end();
-                                        });
-                                });
-                        });
-
-                });
-
-            return defer.promise;
-        }
-
-        function processImg(obj) {
-            console.log(obj);
-            if (obj) {
-                if (obj.facebook) {
-                    obj.src = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
-                } else {
-                    obj.src = (obj.img) ? obj.img.url() : 'img/user.png';
-                }
-                return obj;
-            } else {
-                return {};
-            }
-        }
-
-        function find(id) {
-            var defer = $q.defer();
-            new Parse
-                .Query('Gallery')
-                .include('user')
-                .get(id)
-                .then(function (resp) {
-                    defer.resolve(resp);
-                });
-            return defer.promise;
-        }
-
-
-        function addComment(form) {
-            var defer = $q.defer();
-            console.log('addComent', form);
-
-            find(form.galleryId)
-                .then(function (gallery) {
-                    var Object = Parse.Object.extend('GalleryComment');
-                    var item = new Object({});
-
-                    angular.forEach(form, function (value, key) {
-                        item.set(key, value);
-                    });
-                    item.set('commentBy', Parse.User.current());
-                    item.set('gallery', gallery);
-
-                    item.save(null)
-                        .then(function (resp) {
-                            console.log(resp);
-
-                            addActivity({
-                                galleryId: gallery.id,
-                                action: 'add comment'
-                            });
-
-                            gallery
-                                .relation('comments')
-                                .add(resp);
-
-                            gallery
-                                .save()
-                                .then(function (resp) {
-                                    console.log(resp);
-                                    defer.resolve(resp);
-                                });
-                        });
-                });
-
-
-            return defer.promise;
-        }
-
-        function isLiked(galleryId) {
-            var defer = $q.defer();
-
-            find(galleryId)
-                .then(function (gallery) {
-                    new Parse
-                        .Query('GalleryLike')
-                        .equalTo('gallery', gallery)
-                        .equalTo('user', currentUser)
-                        .first()
-                        .then(function (resp) {
-                            console.warn(resp);
-                            if (resp === undefined) {
-                                defer.reject(resp);
-                            } else {
-                                defer.resolve(resp);
-                            }
-                        });
-                });
-
-            return defer.promise;
-        }
-
-        function addLike(galleryId) {
-            var defer = $q.defer();
-
-            find(galleryId)
-                .then(function (gallery) {
-                    var Object = new Parse.Object.extend('GalleryLike');
-                    var item = new Object({});
-
-                    item.set('user', currentUser);
-                    item.set('gallery', gallery);
-
-                    console.log(gallery);
-
-                    item.save(null)
-                        .then(function (resp) {
-                            console.log(resp);
-
-                            // Gallery Increment Like
-                            var likes = parseInt(gallery.attributes.qtdLike) ? parseInt(gallery.attributes.qtdLike + 1) : 1;
-                            console.log('Qtd Like', likes);
-
-                            // Increment Like
-                            gallery
-                                .set('qtdLike', likes);
-
-                            // Add Relation
-                            gallery
-                                .relation('likes')
-                                .add(resp);
-
-                            console.log('Save Gallery', gallery);
-
-                            // Save Gallery
-                            gallery
-                                .save()
-                                .then(function (newGallery) {
-                                    console.log(newGallery);
-                                    defer.resolve({
-                                        liked: true,
-                                        likes: likes
-                                    });
-                                }, function (err) {
-                                    console.error(err);
-                                    defer.reject(err);
-                                });
-                        });
-                });
-            return defer.promise;
-        }
-
-        function removeLike(galleryId) {
-
-            var defer = $q.defer();
-            find(galleryId)
-                .then(function (gallery) {
-
-                    new Parse
-                        .Query('GalleryLike')
-                        .equalTo('gallery', gallery)
-                        .equalTo('user', currentUser)
-                        .first()
-                        .then(function (like) {
-
-                            var likes = parseInt(gallery.attributes.qtdLike - 1);
-                            if (likes < 0) {
-                                likes = 0;
-                            }
-
-                            console.log('Remove like', likes, gallery);
-
-
-                            // Gallery Decrement Like
-                            gallery
-                                .set('qtdLike', likes);
-
-                            // Remove Relation
-                            gallery
-                                .relation('likes')
-                                .remove(like);
-
-                            like
-                                .destroy(function (resp) {
-                                    if (resp) {
-                                        console.log('Remove like');
-                                        // Save Gallery
-                                        gallery
-                                            .save()
-                                            .then(function (newGallery) {
-                                                console.log('New Gallery', newGallery);
-
-                                                defer.resolve({
-                                                    liked: false,
-                                                    likes: newGallery.attributes.qtdLike
-                                                });
-
-                                            }, function (err) {
-                                                console.error(err);
-                                                defer.reject(err);
-                                            });
-                                    }
-                                });
-
-
-                        });
-
-                });
-            return defer.promise;
-        }
-
-        function likeGallery(gallery) {
-            var defer = $q.defer();
-
-            isLiked(gallery)
-                .then(function (resp) {
-                    console.warn(resp);
-                    var promise = '';
-
-                    if (resp) {
-                        console.log('Remove Like');
-                        promise = removeLike(gallery);
-                        addActivity({
-                            galleryId: gallery,
-                            action: 'unlike like'
-                        });
-
-                    } else {
-                        console.log('Add like');
-                        promise = addLike(gallery);
-                        addActivity({
-                            galleryId: gallery,
-                            action: 'add like'
-                        });
-                    }
-
-                    promise
-                        .then(function (resp) {
-                            console.log(resp);
-                            defer.resolve(resp);
-                        });
-
-                })
-                .catch(function (err) {
-                    console.log('Add like', err);
-
-                    addActivity({
-                        galleryId: gallery,
-                        action: 'add like'
-                    });
-
-                    addLike(gallery)
-                        .then(function (resp) {
-                            console.log(resp);
-                            defer.resolve(resp);
-                        });
-                });
-            return defer.promise;
-        }
-
-
-        function getUser(userId) {
-            var defer = $q.defer();
-
-            //todo: get user
-            //todo: count user gallery
-            //todo: count user follow
-            //todo: count user following
-
-            if (userId === undefined) {
-                userId = currentUser.id;
-            }
-
-            console.log(userId);
-            User
-                .find(userId)
-                .then(function (resp) {
-                    console.log('getUser', resp);
-                    var obj = resp.attributes;
-                    obj.id = resp.id;
-                    var user = loadProfile(obj);
-
-                    // fotos
-                    new Parse
-                        .Query('Gallery')
-                        .equalTo('user', resp)
-                        .count()
-                        .then(function (gallery) {
-                            user.galleries = gallery;
-
-                            // seguidores
-                            new Parse
-                                .Query('UserFollow')
-                                .equalTo('follow', resp)
-                                .count()
-                                .then(function (follow1) {
-                                    user.follow1 = follow1;
-
-                                    // seguindo
-                                    new Parse
-                                        .Query('UserFollow')
-                                        .equalTo('user', resp)
-                                        .count()
-                                        .then(function (follow2) {
-                                            user.follow2 = follow2;
-
-                                            // seguindo
-                                            new Parse
-                                                .Query('UserFollow')
-                                                .equalTo('user', Parse.User.current())
-                                                .equalTo('follow', resp)
-                                                .count()
-                                                .then(function (follow) {
-                                                    user.follow = follow ? true : false;
-
-                                                    console.log('getUser', user);
-                                                    defer.resolve(user);
-
-                                                });
-
-                                        });
-
-                                });
-                        });
-                });
-
-
-            return defer.promise;
-        }
-
-        function getUserGalleryQtd(userId) {
-            var defer = $q.defer();
-            if (userId === undefined) {
-                userId = currentUser.id;
-            }
-
-            User
-                .find(userId)
-                .then(function (user) {
-                    new Parse
-                        .Query('Gallery')
-                        .equalTo('user', user)
-                        .count()
-                        .then(function (qtdGalleries) {
-                            defer.resolve(qtdGalleries);
-                        });
-                });
-
-            return defer.promise;
-        }
-
-        function getUserGallery(userId, page) {
-            var defer = $q.defer();
-            var data = [];
-            var limit = 9;
-
-            if (userId === undefined) {
-                userId = currentUser.id;
-            }
-
-            User
-                .find(userId)
-                .then(function (user) {
-
-                    new Parse
-                        .Query('Gallery')
-                        .equalTo('user', user)
-                        .descending('createdAt')
-                        //.containedIn('ref', following)
-                        //.containsAll('ref', following)
-                        .include('user')
-                        .limit(limit)
-                        .skip(page * limit)
-                        .find()
-                        .then(function (resp) {
-
-                            if (resp.length) {
-                                var cb = _.after(resp.length, function () {
-                                    defer.resolve(data);
-                                });
-
-                                _.each(resp, function (item) {
-                                    //grab relations
-
-                                    var likes = item.relation('likes');
-                                    var comments = item.relation('comments');
-
-                                    likes
-                                        .query()
-                                        .equalTo('gallery', item)
-                                        .equalTo('user', currentUser)
-                                        .count()
-                                        .then(function (liked) {
-
-                                            likes
-                                                .query()
-                                                .count()
-                                                .then(function (likes) {
-
-                                                    comments
-                                                        .query()
-                                                        .include('commentBy')
-                                                        .descending('createdAt')
-                                                        .limit(limitComment)
-                                                        .find()
-                                                        .then(function (comments) {
-                                                            console.log(comments);
-
-                                                            var commentsData = [];
-
-                                                            angular.forEach(comments, function (item) {
-                                                                var comment = {
-                                                                    id: item.id,
-                                                                    text: item.attributes.text,
-                                                                    user: item.attributes.commentBy.attributes
-                                                                };
-                                                                comment.user.id = item.id;
-                                                                commentsData.push(comment);
-                                                            });
-
-                                                            var obj = {
-                                                                id: item.id,
-                                                                item: item.attributes,
-                                                                src: item.attributes.img.url(),
-                                                                created: item.createdAt,
-                                                                likes: likes,
-                                                                liked: liked,
-                                                                comments: commentsData,
-                                                                user: item.attributes.user.attributes
-                                                            };
-                                                            // obj.user.id = item.attributes.user.id;
-                                                            // obj.user = processImg(obj.user);
-
-                                                            data.push(obj);
-                                                            cb();
-                                                        });
-                                                });
-                                        });
-
-                                });
-                            } else {
-                                defer.reject(true);
-                            }
-                        }, function () {
-                            defer.reject(true);
-                        });
-                });
-
-            return defer.promise;
-        }
-
-        function listActivity(page) {
-            var defer = $q.defer();
-            var limit = 20;
-
-            console.info(page, limit);
-
-
-            new Parse
-                .Query('GalleryActivity')
-                .include('user')
-                .include('gallery')
-                .descending('createdAt')
-                .limit(limit)
-                .skip(page * limit)
-                .find()
-                .then(function (resp) {
-                    if (resp.length) {
-                        var data = [];
-                        resp.map(function (item) {
-                            var obj = {
+                        .then(function (likes) {
+
+                          comments
+                            .query()
+                            .include('commentBy')
+                            .descending('createdAt')
+                            .limit(limitComment)
+                            .find()
+                            .then(function (comments) {
+                              console.log(comments);
+
+                              var commentsData = [];
+
+                              angular.forEach(comments, function (item) {
+                                var comment = {
+                                  id: item.id,
+                                  text: item.attributes.text,
+                                  user: item.attributes.commentBy.attributes
+                                };
+                                comment.user.id = item.id;
+                                commentsData.push(comment);
+                              });
+
+                              var obj = {
                                 id: item.id,
-                                user: item.attributes.user ? item.attributes.user.attributes : {name: 'Nulled',img: {_url: 'img/user.png'}},
-                                img : item.attributes.gallery ? item.attributes.gallery.attributes.img : null,
-                                action: item.attributes.action,
-                                created: item.attributes.createdAt
-                            };
-                            data.push(obj);
-                        });
-                        defer.resolve(data);
-                    } else {
-                        defer.reject(true);
-                    }
-                });
+                                item: item.attributes,
+                                src: item.attributes.img.url(),
+                                created: item.createdAt,
+                                likes: likes,
+                                liked: liked,
+                                comments: commentsData,
+                                user: item.attributes.user.attributes
+                              };
+                              // obj.user.id = item.attributes.user.id;
+                              obj.user = User.processImg(obj.user);
 
-            return defer.promise;
-        }
-
-        function addActivity(data) {
-            /*
-             * ACTIONS
-             * add photo
-             * add comment
-             * like photo
-             * unlike photo
-             * register
-             * */
-
-            console.info(data);
-
-            if (data.galleryId) {
-                find(data.galleryId)
-                    .then(function (gallery) {
-                        var Object = Parse.Object.extend('GalleryActivity');
-                        var item = new Object({});
-
-                        item.set('user', Parse.User.current());
-                        item.set('gallery', gallery);
-                        item.set('action', data.action);
-
-                        item.save()
-                            .then(function (resp) {
-                                console.warn(resp);
+                              data.push(obj);
+                              cb();
                             });
-                    });
-            } else {
-                var Object = Parse.Object.extend('GalleryActivity');
-                var item = new Object({});
-
-                item.set('user', Parse.User.current());
-                item.set('action', data.action);
-
-                item.save()
-                    .then(function (resp) {
-                        console.warn(resp);
-                    });
-            }
-        }
-
-        function profile(userId) {
-            var defer = $q.defer();
-            var user = {};
-
-            Loading.start();
-
-            User
-                .profile(userId)
-                .then(function (respProfile) {
-                    user = respProfile;
-
-                    all(true, userId)
-                        .then(function (galleries) {
-                            user.feed = galleries;
-                            console.log(user);
-                            Loading.end();
-                            defer.resolve(user);
                         });
+                    });
+
                 });
+              } else {
+                defer.reject(true);
+              }
+            }, function () {
+              defer.reject(true);
+            });
+        });
+
+      return defer.promise;
+    }
+
+    function listActivity(page) {
+      var defer = $q.defer();
+      var limit = 20;
+
+      console.info(page, limit);
 
 
-            return defer.promise;
+      new Parse
+        .Query('GalleryActivity')
+        .include('user')
+        .include('gallery')
+        .descending('createdAt')
+        .limit(limit)
+        .skip(page * limit)
+        .find()
+        .then(function (resp) {
+          if (resp.length) {
+            var data = [];
+            resp.map(function (item) {
+              var obj = {
+                id: item.id,
+                user: item.attributes.user ? item.attributes.user.attributes : {
+                  name: 'Nulled',
+                  img: {
+                    _url: 'img/user.png'
+                  }
+                },
+                img: item.attributes.gallery ? item.attributes.gallery.attributes.img : null,
+                action: item.attributes.action,
+                created: item.attributes.createdAt
+              };
+              data.push(obj);
+            });
+            defer.resolve(data);
+          } else {
+            defer.reject(true);
+          }
+        });
 
-        }
+      return defer.promise;
+    }
 
+    function addActivity(data) {
+      /*
+       * ACTIONS
+       * add photo
+       * add comment
+       * like photo
+       * unlike photo
+       * register
+       * */
+
+      console.info(data);
+
+      if (data.galleryId) {
+        find(data.galleryId)
+          .then(function (gallery) {
+            var Object = Parse.Object.extend('GalleryActivity');
+            var item = new Object({});
+
+            item.set('user', Parse.User.current());
+            item.set('gallery', gallery);
+            item.set('action', data.action);
+
+            item.save()
+              .then(function (resp) {
+                console.warn(resp);
+              });
+          });
+      } else {
+        var Object = Parse.Object.extend('GalleryActivity');
+        var item = new Object({});
+
+        item.set('user', Parse.User.current());
+        item.set('action', data.action);
+
+        item.save()
+          .then(function (resp) {
+            console.warn(resp);
+          });
+      }
+    }
+
+    function profile(userId) {
+      var defer = $q.defer();
+      var user = {};
+
+      Loading.start();
+
+      User
+        .profile(userId)
+        .then(function (respProfile) {
+          user = respProfile;
+
+          all(true, userId)
+            .then(function (galleries) {
+              user.feed = galleries;
+              console.log(user);
+              Loading.end();
+              defer.resolve(user);
+            });
+        });
+
+
+      return defer.promise;
 
     }
+
+
+  }
 
 
 })();
@@ -4386,802 +4490,808 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 
 })();
 (function () {
-    'use strict';
+  'use strict';
 
 
-    angular
-        .module('app.user')
-        .factory('User', UserFactory);
+  angular
+    .module('app.user')
+    .factory('User', UserFactory);
 
-    function UserFactory($q, $window, AppConfig, $rootScope, $ionicHistory, $cordovaDevice, $facebook, $cordovaFacebook,
-                         Loading, $location, $state) {
+  function UserFactory($q, $window, AppConfig, $rootScope, $ionicHistory, $cordovaDevice, $facebook, $cordovaFacebook,
+    Loading, $location, $state) {
 
-        var cordova = $window.cordova;
-        var device = cordova ? true : false;
-        var facebook = device ? $cordovaFacebook : $facebook;
-        var user;
+    var cordova = $window.cordova;
+    var device = cordova ? true : false;
+    var facebook = device ? $cordovaFacebook : $facebook;
+    var user;
 
-        return {
-            init: init,
-            addFollows: addFollows,
-            currentUser: currentUser,
-            register: register,
-            login: login,
-            profile: profile,
-            logout: logout,
-            update: update,
-            updateAvatar: updateAvatar,
-            forgot: forgot,
-            list: list,
-            find: find,
-            follow: follow,
-            getFollowers: getFollowers,
-            getFollowing: getFollowing,
-            isFollow: isFollow,
-            mail: getMail,
-            facebookLogin: facebookLogin,
-            facebookLink: facebookLink,
-            facebookProfile: facebookProfile,
-            facebookFriends: facebookFriends,
-            facebookInvite: facebookInvite,
-            facebookAPI: facebookAPI
+    return {
+      init: init,
+      addFollows: addFollows,
+      currentUser: currentUser,
+      register: register,
+      login: login,
+      profile: profile,
+      logout: logout,
+      update: update,
+      updateAvatar: updateAvatar,
+      forgot: forgot,
+      list: list,
+      find: find,
+      follow: follow,
+      processImg: processImg,
+      getFollowers: getFollowers,
+      getFollowing: getFollowing,
+      isFollow: isFollow,
+      mail: getMail,
+      facebookLogin: facebookLogin,
+      facebookLink: facebookLink,
+      facebookProfile: facebookProfile,
+      facebookFriends: facebookFriends,
+      facebookInvite: facebookInvite,
+      facebookAPI: facebookAPI
+    };
+
+
+    function init() {
+      // Parse Start
+
+      console.log('device', cordova, device);
+
+      if (Parse.User.current()) {
+        user = Parse.User.current();
+        loadProfile();
+      } else {
+        console.log('Not logged user, go intro');
+        logout();
+        $location.path(AppConfig.routes.login);
+      }
+    }
+
+
+    function currentUser() {
+      return user;
+    }
+
+
+    function loadProfile() {
+      user = Parse.User.current();
+      if (user) {
+        // user = processImg(user);
+        $rootScope.currentUser = user.attributes;
+        console.log('load profile', user);
+        return user;
+      } else {
+        logout();
+        return false;
+      }
+    }
+
+    function processImg(obj) {
+      console.log(obj);
+      if (obj) {
+        if (obj.facebook) {
+          obj.src = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
+        } else {
+          // obj.src = (obj.img._url) ? obj.img._url : 'img/user.png';
+        }
+        return obj;
+      } else {
+        return {};
+      }
+    }
+
+    function login(form) {
+      var defer = $q.defer();
+      Parse
+        .User
+        .logIn(form.email, form.password, {
+          success: function (resp) {
+            console.log(resp);
+            defer.resolve(loadProfile());
+          },
+          error: function (user, err) {
+            console.error(user, err);
+            // The login failed. Check error to see why.
+            defer.reject(err);
+          }
+        });
+      return defer.promise;
+    }
+
+    function loginFacebook2(response) {
+      var defer = $q.defer();
+      console.log('Facebook api');
+      facebook
+        .api('me/?fields=id,name,email,gender,bio', ['public_profile'])
+        .then(function (dados) {
+          console.log('facebook api', dados);
+
+          var query = new Parse.Query(Parse.User);
+          query
+            .equalTo('email', dados.email)
+            .first({
+              success: function (user) {
+                console.log(user);
+
+                if (user) {
+                  console.log('Já existe um cadastro com esse email', user);
+                  if (user.get('facebook_complete') === Boolean(true)) {
+
+                    loginFacebook(response)
+                      .then(function (resp) {
+                        console.log('Logado', resp);
+
+                        if (user.attributes.name === '') {
+                          console.info('User sem nome', user, dados);
+                          var updateUser = user.attributes;
+                          updateUser.name = dados.name;
+
+                          update(updateUser)
+                            .then(function () {
+                              defer.resolve({
+                                status: 0
+                              });
+                            });
+                        } else {
+
+                          loadProfile(user);
+
+                          defer.resolve({
+                            status: 0
+                          });
+                        }
+
+                      });
+                  } else {
+                    console.log('Se ainda não está completo, manda completar o perfil', dados,
+                      response);
+
+                    $rootScope.tempUser = processImg(user.attributes);
+                    $rootScope.tempUser.src = 'https://graph.facebook.com/' + dados.id +
+                      '/picture?width=250&height=250';
+
+                    console.log($rootScope.tempUser);
+                    defer.resolve({
+                      status: 2
+                    });
+
+                  }
+
+                } else {
+                  // Se não encontrar nenhum usuário
+                  console.log('Novo usuário');
+
+                  // Crio uma conta no parse com o Facebook
+                  loginFacebook(response)
+                    .then(function (newuser) {
+
+                      console.log(newuser);
+
+                      // Atualizo o novo perfil
+                      var form = {
+                        name: dados.name,
+                        facebook: dados.id,
+                        email: dados.email,
+                        gender: dados.gender,
+                        facebook_complete: Boolean(true),
+                        facebookimg: 'https://graph.facebook.com/' + dados.id +
+                          '/picture?width=250&height=250'
+                      };
+
+                      update(form)
+                        .then(function (resp) {
+                          console.warn('me response', resp);
+
+                          defer.resolve({
+                            status: 1
+                          });
+                        });
+
+
+                    });
+
+
+                }
+
+              },
+              error: function (error) {
+                alert('Sem conexão');
+                defer.reject(error);
+
+              }
+            });
+
+        }, function (resp) {
+          console.log('Facebook Error', resp);
+          defer.reject(resp);
+        });
+
+      return defer.promise;
+    }
+
+    function facebookLogin() {
+      var defer = $q.defer();
+
+      //facebook.logout();
+      console.info('facebook login', device, facebook);
+
+      facebook
+        .getLoginStatus()
+        .then(function (respStatus) {
+
+          if (respStatus.status === 'connected') {
+            loginFacebook2(respStatus)
+              .then(function (deferStatus) {
+                defer.resolve(deferStatus);
+              });
+          } else {
+
+            facebook
+              .login([
+                'public_profile',
+                'email'
+              ])
+              .then(function (response) {
+
+                  console.warn('facebook login response', response);
+                  if (response.status === undefined) {
+                    defer.reject('reject');
+                  }
+
+                  //Pega o Status do Login
+                  console.log('facebook status', response);
+                  loginFacebook2(response)
+                    .then(function (deferStatus) {
+                      defer.resolve(deferStatus);
+                    });;
+                },
+                function (response) {
+                  //alert(JSON.stringify(response));
+                  console.log('Facebook Error', response);
+                  defer.reject(JSON.stringify(response));
+
+                });
+
+          }
+
+        })
+
+
+      return defer.promise;
+    }
+
+
+    function facebookProfile() {
+      var defer = $q.defer();
+      facebookLogin()
+        .then(function (resp) {
+
+          facebook
+            .api('me', '')
+            .then(function (response) {
+              defer.resolve([
+                resp,
+                response
+              ]);
+            }, function (error) {
+              console.log(error);
+              defer.reject(error);
+            });
+        });
+      return defer.promise;
+    }
+
+
+    function register(form) {
+      var defer = $q.defer();
+
+      var formData = form;
+      formData.username = form.email;
+
+      console.log(formData);
+      new Parse
+        .User(formData)
+        .signUp(null, {
+          success: function (resp) {
+            var user = loadProfile(resp);
+            console.log(resp, user);
+            Loading.end();
+            //startPush('user-', user.email);
+            defer.resolve(user);
+          },
+          error: function (user, resp) {
+            console.log(resp);
+            if (resp.code === 125) {
+              defer.reject('Please specify a valid email address');
+            } else if (resp.code === 202) {
+              defer.reject('The email address is already registered');
+            } else {
+              defer.reject(resp);
+            }
+          }
+        });
+      return defer.promise;
+    }
+
+    function forgot(email) {
+      var defer = $q.defer();
+      new Parse.User.requestPasswordReset(email, {
+        success: function (resp) {
+          defer.resolve(resp);
+        },
+        error: function (err) {
+          if (err.code === 125) {
+            defer.reject('Email address does not exist');
+          } else {
+            defer.reject('An unknown error has occurred, please try again');
+          }
+        }
+      });
+      return defer.promise;
+    }
+
+    function logout() {
+      new Parse.User.logOut();
+      delete $rootScope.currentUser;
+      //$window.location = '/#/intro';
+      $state.go('intro', {
+        clear: true
+      });
+      $ionicHistory.clearCache();
+    }
+
+    function update(form) {
+      var defer = $q.defer();
+      Loading.start();
+      var currentUser = Parse.User.current();
+
+      angular.forEach(form, function (value, key) {
+        console.log(key, value);
+        currentUser.set(key, value);
+      });
+
+      if (cordova) {
+        var cordovaDevice = {
+          device: $cordovaDevice.getDevice(),
+          cordova: $cordovaDevice.getCordova(),
+          model: $cordovaDevice.getModel(),
+          platform: $cordovaDevice.getPlatform(),
+          uuid: $cordovaDevice.getUUID(),
+          version: $cordovaDevice.getVersion()
         };
 
+        currentUser.set('device', cordovaDevice.device);
+        currentUser.set('deviceCordova', cordovaDevice.cordova);
+        currentUser.set('deviceModel', cordovaDevice.model);
+        currentUser.set('devicePlatform', cordovaDevice.platform);
+        currentUser.set('deviceUuiid', cordovaDevice.uuid);
+        currentUser.set('deviceVersion', cordovaDevice.version);
+      }
+      // Update Language
+      //currentUser.set('language', $rootScope.lang.value || null);
 
-        function init() {
-            // Parse Start
-
-            console.log('device', cordova, device);
-
-            if (Parse.User.current()) {
-                loadProfile();
-            } else {
-                console.log('Not logged user, go intro');
-                logout();
-                $location.path(AppConfig.routes.login);
-            }
-        }
-
-
-        function currentUser() {
-            return user;
-        }
-
-
-        function loadProfile() {
-            user = Parse.User.current().attributes;
-            if (user) {
-                user = processImg(user);
-                $rootScope.currentUser = user;
-                console.log('load profile', user);
-                return user;
-            } else {
-                logout();
-                return false;
-            }
-        }
-
-        function processImg(obj) {
-            console.log('process image', obj);
-            if (obj.facebookimg) {
-                obj.img._url = obj.facebookimg;
-            }
-            return obj;
-        }
-
-        function login(form) {
-            var defer = $q.defer();
-            Parse
-                .User
-                .logIn(form.email, form.password, {
-                    success: function (resp) {
-                        console.log(resp);
-                        defer.resolve(loadProfile());
-                    },
-                    error: function (user, err) {
-                        console.error(user, err);
-                        // The login failed. Check error to see why.
-                        defer.reject(err);
-                    }
-                });
-            return defer.promise;
-        }
-
-        function loginFacebook2(response) {
-            var defer = $q.defer();
-            console.log('Facebook api');
-            facebook
-                .api('me/?fields=id,name,email,gender,bio', ['public_profile'])
-                .then(function (dados) {
-                    console.log('facebook api', dados);
-
-                    var query = new Parse.Query(Parse.User);
-                    query
-                        .equalTo('email', dados.email)
-                        .first({
-                            success: function (user) {
-                                console.log(user);
-
-                                if (user) {
-                                    console.log('Já existe um cadastro com esse email', user);
-                                    if (user.get('facebook_complete') === Boolean(true)) {
-
-                                        loginFacebook(response)
-                                            .then(function (resp) {
-                                                console.log('Logado', resp);
-
-                                                if (user.attributes.name === '') {
-                                                    console.info('User sem nome', user, dados);
-                                                    var updateUser = user.attributes;
-                                                    updateUser.name = dados.name;
-
-                                                    update(updateUser)
-                                                        .then(function () {
-                                                            defer.resolve({
-                                                                status: 0
-                                                            });
-                                                        });
-                                                } else {
-
-                                                    loadProfile(user);
-
-                                                    defer.resolve({
-                                                        status: 0
-                                                    });
-                                                }
-
-                                            });
-                                    } else {
-                                        console.log('Se ainda não está completo, manda completar o perfil', dados,
-                                            response);
-
-                                        $rootScope.tempUser = processImg(user.attributes);
-                                        $rootScope.tempUser.src = 'https://graph.facebook.com/' + dados.id +
-                                            '/picture?width=250&height=250';
-
-                                        console.log($rootScope.tempUser);
-                                        defer.resolve({
-                                            status: 2
-                                        });
-
-                                    }
-
-                                } else {
-                                    // Se não encontrar nenhum usuário
-                                    console.log('Novo usuário');
-
-                                    // Crio uma conta no parse com o Facebook
-                                    loginFacebook(response)
-                                        .then(function (newuser) {
-
-                                            console.log(newuser);
-
-                                            // Atualizo o novo perfil
-                                            var form = {
-                                                name: dados.name,
-                                                facebook: dados.id,
-                                                email: dados.email,
-                                                gender: dados.gender,
-                                                facebook_complete: Boolean(true),
-                                                facebookimg: 'https://graph.facebook.com/' + dados.id +
-                                                '/picture?width=250&height=250'
-                                            };
-
-                                            update(form)
-                                                .then(function (resp) {
-                                                    console.warn('me response', resp);
-
-                                                    defer.resolve({
-                                                        status: 1
-                                                    });
-                                                });
+      // console.log(currentUser);
+      currentUser
+        .save()
+        .then(function (resp) {
+          console.log(resp);
+          loadProfile();
+          Loading.end();
+          defer.resolve(resp);
+        });
 
 
-                                        });
+      return defer.promise;
+    }
 
+    function updateAvatar(photo) {
+      var defer = $q.defer();
 
-                                }
+      Loading.start();
 
-                            },
-                            error: function (error) {
-                                alert('Sem conexão');
-                                defer.reject(error);
+      if (photo !== '') {
 
-                            }
-                        });
+        // create the parse file
+        var imageFile = new Parse.File('mypic.jpg', {
+          base64: photo
+        });
 
-                }, function (resp) {
-                    console.log('Facebook Error', resp);
-                    defer.reject(resp);
-                });
+        // save the parse file
+        return imageFile
+          .save()
+          .then(function () {
 
-            return defer.promise;
-        }
+            photo = null;
 
-        function facebookLogin() {
-            var defer = $q.defer();
-
-            //facebook.logout();
-            console.info('facebook login', device, facebook);
-
-            facebook
-                .getLoginStatus()
-                .then(function (respStatus) {
-
-                    if (respStatus.status === 'connected') {
-                        loginFacebook2(respStatus)
-                            .then(function (deferStatus) {
-                                defer.resolve(deferStatus);
-                            });
-                    } else {
-
-                        facebook
-                            .login([
-                                'public_profile',
-                                'email'
-                            ])
-                            .then(function (response) {
-
-                                    console.warn('facebook login response', response);
-                                    if (response.status === undefined) {
-                                        defer.reject('reject');
-                                    }
-
-                                    //Pega o Status do Login
-                                    console.log('facebook status', response);
-                                    loginFacebook2(response)
-                                        .then(function (deferStatus) {
-                                            defer.resolve(deferStatus);
-                                        });
-                                    ;
-                                },
-                                function (response) {
-                                    //alert(JSON.stringify(response));
-                                    console.log('Facebook Error', response);
-                                    defer.reject(JSON.stringify(response));
-
-                                });
-
-                    }
-
-                })
-
-
-            return defer.promise;
-        }
-
-
-        function facebookProfile() {
-            var defer = $q.defer();
-            facebookLogin()
-                .then(function (resp) {
-
-                    facebook
-                        .api('me', '')
-                        .then(function (response) {
-                            defer.resolve([
-                                resp,
-                                response
-                            ]);
-                        }, function (error) {
-                            console.log(error);
-                            defer.reject(error);
-                        });
-                });
-            return defer.promise;
-        }
-
-
-        function register(form) {
-            var defer = $q.defer();
-
-            var formData = form;
-            formData.username = form.email;
-
-            console.log(formData);
-            new Parse
-                .User(formData)
-                .signUp(null, {
-                    success: function (resp) {
-                        var user = loadProfile(resp);
-                        console.log(resp, user);
-                        Loading.end();
-                        //startPush('user-', user.email);
-                        defer.resolve(user);
-                    },
-                    error: function (user, resp) {
-                        console.log(resp);
-                        if (resp.code === 125) {
-                            defer.reject('Please specify a valid email address');
-                        } else if (resp.code === 202) {
-                            defer.reject('The email address is already registered');
-                        } else {
-                            defer.reject(resp);
-                        }
-                    }
-                });
-            return defer.promise;
-        }
-
-        function forgot(email) {
-            var defer = $q.defer();
-            new Parse.User.requestPasswordReset(email, {
-                success: function (resp) {
-                    defer.resolve(resp);
-                },
-                error: function (err) {
-                    if (err.code === 125) {
-                        defer.reject('Email address does not exist');
-                    } else {
-                        defer.reject('An unknown error has occurred, please try again');
-                    }
-                }
-            });
-            return defer.promise;
-        }
-
-        function logout() {
-            new Parse.User.logOut();
-            delete $rootScope.currentUser;
-            //$window.location = '/#/intro';
-            $state.go('intro', {
-                clear: true
-            });
-            $ionicHistory.clearCache();
-        }
-
-        function update(form) {
-            var defer = $q.defer();
-            Loading.start();
+            // create object to hold caption and file reference
             var currentUser = Parse.User.current();
 
-            angular.forEach(form, function (value, key) {
-                console.log(key, value);
-                currentUser.set(key, value);
-            });
+            // set object properties
+            currentUser.set('img', imageFile);
 
-            if (cordova) {
-                var cordovaDevice = {
-                    device: $cordovaDevice.getDevice(),
-                    cordova: $cordovaDevice.getCordova(),
-                    model: $cordovaDevice.getModel(),
-                    platform: $cordovaDevice.getPlatform(),
-                    uuid: $cordovaDevice.getUUID(),
-                    version: $cordovaDevice.getVersion()
-                };
-
-                currentUser.set('device', cordovaDevice.device);
-                currentUser.set('deviceCordova', cordovaDevice.cordova);
-                currentUser.set('deviceModel', cordovaDevice.model);
-                currentUser.set('devicePlatform', cordovaDevice.platform);
-                currentUser.set('deviceUuiid', cordovaDevice.uuid);
-                currentUser.set('deviceVersion', cordovaDevice.version);
-            }
-            // Update Language
-            //currentUser.set('language', $rootScope.lang.value || null);
-
-            // console.log(currentUser);
+            // save object to parse backend
             currentUser
-                .save()
-                .then(function (resp) {
-                    console.log(resp);
-                    loadProfile();
-                    Loading.end();
-                    defer.resolve(resp);
-                });
+              .save()
+              .then(function (resp) {
+                loadProfile();
+                Loading.end();
+                defer.resolve(resp);
+              });
 
 
-            return defer.promise;
-        }
-
-        function updateAvatar(photo) {
-            var defer = $q.defer();
-
-            Loading.start();
-
-            if (photo !== '') {
-
-                // create the parse file
-                var imageFile = new Parse.File('mypic.jpg', {
-                    base64: photo
-                });
-
-                // save the parse file
-                return imageFile
-                    .save()
-                    .then(function () {
-
-                        photo = null;
-
-                        // create object to hold caption and file reference
-                        var currentUser = Parse.User.current();
-
-                        // set object properties
-                        currentUser.set('img', imageFile);
-
-                        // save object to parse backend
-                        currentUser
-                            .save()
-                            .then(function (resp) {
-                                loadProfile();
-                                Loading.end();
-                                defer.resolve(resp);
-                            });
+          }, function (error) {
+            Loading.end();
+            console.log(error);
+            defer.reject(error);
+          });
+      }
+      return defer.promise;
+    }
 
 
-                    }, function (error) {
-                        Loading.end();
-                        console.log(error);
-                        defer.reject(error);
-                    });
-            }
-            return defer.promise;
-        }
+    function facebookFriends() {
+      var defer = $q.defer();
+
+      facebook
+        .api('me/friends')
+        .then(function (success) {
+          defer.resolve(success);
+        }, function (error) {
+          defer.reject(error);
+        });
+
+      return defer.promise;
+    }
+
+    function facebookAPI(api) {
+      var defer = $q.defer();
+
+      facebook
+        .api(api)
+        .then(function (success) {
+          defer.resolve(success);
+        }, function (error) {
+          defer.reject(error);
+        });
+
+      return defer.promise;
+    }
+
+    function facebookInvite() {
+      var defer = $q.defer();
+      if (device) {
+        facebook
+          .showDialog({
+            method: 'apprequests',
+            message: 'Venha para o nosso clube!'
+          })
+          .then(function (resp) {
+            defer.resolve(resp);
+          });
+      } else {
+        facebook
+          .ui({
+            method: 'apprequests',
+            message: 'Venha para o nosso clube!'
+          })
+          .then(function (resp) {
+            defer.resolve(resp);
+          });
+      }
+      return defer.promise;
+    }
 
 
-        function facebookFriends() {
-            var defer = $q.defer();
+    function list() {
+      var defer = $q.defer();
 
-            facebook
-                .api('me/friends')
-                .then(function (success) {
-                    defer.resolve(success);
-                }, function (error) {
-                    defer.reject(error);
-                });
-
-            return defer.promise;
-        }
-
-        function facebookAPI(api) {
-            var defer = $q.defer();
-
-            facebook
-                .api(api)
-                .then(function (success) {
-                    defer.resolve(success);
-                }, function (error) {
-                    defer.reject(error);
-                });
-
-            return defer.promise;
-        }
-
-        function facebookInvite() {
-            var defer = $q.defer();
-            if (device) {
-                facebook
-                    .showDialog({
-                        method: 'apprequests',
-                        message: 'Venha para o nosso clube!'
-                    })
-                    .then(function (resp) {
-                        defer.resolve(resp);
-                    });
-            } else {
-                facebook
-                    .ui({
-                        method: 'apprequests',
-                        message: 'Venha para o nosso clube!'
-                    })
-                    .then(function (resp) {
-                        defer.resolve(resp);
-                    });
-            }
-            return defer.promise;
-        }
-
-
-        function list() {
-            var defer = $q.defer();
+      new Parse
+        .Query('User')
+        .notEqualTo('user', Parse.User.current())
+        .find()
+        .then(function (resp) {
+          var users = [];
+          angular.forEach(resp, function (item) {
+            var user = item.attributes;
+            user.id = item.id;
+            user = processImg(user);
 
             new Parse
-                .Query('User')
-                .notEqualTo('user', Parse.User.current())
-                .find()
-                .then(function (resp) {
-                    var users = [];
-                    angular.forEach(resp, function (item) {
-                        var user = item.attributes;
-                        user.id = item.id;
-                        user = processImg(user);
+              .Query('UserFollow')
+              .equalTo('user', Parse.User.current())
+              .equalTo('follow', item)
+              .count()
+              .then(function (follow) {
+                user.follow = follow;
 
-                        new Parse
-                            .Query('UserFollow')
-                            .equalTo('user', Parse.User.current())
-                            .equalTo('follow', item)
-                            .count()
-                            .then(function (follow) {
-                                user.follow = follow;
+                console.log(user);
+                users.push(user);
+              });
+          });
+          defer.resolve(users);
+        });
 
-                                console.log(user);
-                                users.push(user);
-                            });
+      return defer.promise;
+    }
+
+    function find(userId) {
+      var defer = $q.defer();
+
+      new Parse
+        .Query('User')
+        .equalTo('objectId', userId)
+        .first()
+        .then(function (resp) {
+          // console.log(resp);
+          defer.resolve(resp);
+        });
+
+      return defer.promise;
+    }
+
+    function profile(userId) {
+      var defer = $q.defer();
+
+      find(userId)
+        .then(function (resp) {
+          console.log(resp);
+          var user = loadProfile(resp);
+
+          new Parse
+            .Query('Gallery')
+            .equalTo('user', resp)
+            .count()
+            .then(function (gallery) {
+              user.galleries = gallery;
+
+              new Parse
+                .Query('UserFollow')
+                .equalTo('user', resp)
+                .count()
+                .then(function (foloow) {
+                  user.follow = foloow;
+
+                  new Parse
+                    .Query('UserFollow')
+                    .equalTo('follow', resp)
+                    .count()
+                    .then(function (follow2) {
+                      user.follow2 = follow2;
+                      defer.resolve(user);
                     });
-                    defer.resolve(users);
+
                 });
-
-            return defer.promise;
-        }
-
-        function find(userId) {
-            var defer = $q.defer();
-
-            new Parse
-                .Query('User')
-                .equalTo('objectId', userId)
-                .first()
-                .then(function (resp) {
-                    // console.log(resp);
-                    defer.resolve(resp);
-                });
-
-            return defer.promise;
-        }
-
-        function profile(userId) {
-            var defer = $q.defer();
-
-            find(userId)
-                .then(function (resp) {
-                    console.log(resp);
-                    var user = loadProfile(resp);
-
-                    new Parse
-                        .Query('Gallery')
-                        .equalTo('user', resp)
-                        .count()
-                        .then(function (gallery) {
-                            user.galleries = gallery;
-
-                            new Parse
-                                .Query('UserFollow')
-                                .equalTo('user', resp)
-                                .count()
-                                .then(function (foloow) {
-                                    user.follow = foloow;
-
-                                    new Parse
-                                        .Query('UserFollow')
-                                        .equalTo('follow', resp)
-                                        .count()
-                                        .then(function (follow2) {
-                                            user.follow2 = follow2;
-                                            defer.resolve(user);
-                                        });
-
-                                });
-                        });
-                });
-
-            return defer.promise;
-        }
-
-        function isFollow(userId) {
-            var defer = $q.defer();
-
-            console.log('isFollow start', userId);
-
-            find(userId)
-                .then(function (followUser) {
-                    new Parse
-                        .Query('UserFollow')
-                        .equalTo('user', Parse.User.current())
-                        .equalTo('follow', followUser)
-                        .count()
-                        .then(function (respFollow) {
-                            //console.log('isFollow', respFollow);
-                            defer.resolve(respFollow);
-                        });
-                });
-
-            return defer.promise;
-        }
-
-
-        function getFollowers(userId) {
-            var defer = $q.defer();
-
-            if (!userId) {
-                userId = Parse.User.current().id;
-            }
-
-            find(userId)
-                .then(function (user) {
-                    new Parse
-                        .Query('UserFollow')
-                        .equalTo('follow', user)
-                        .count()
-                        .then(function (qtdFollowers) {
-                            defer.resolve(qtdFollowers);
-                        }, function (err) {
-                            defer.reject(err);
-                        });
-                });
-            return defer.promise;
-        }
-
-        function getFollowing(userId) {
-            var defer = $q.defer();
-
-            if (!userId) {
-                userId = Parse.User.current().id;
-            }
-
-            find(userId)
-                .then(function (user) {
-                    new Parse
-                        .Query('UserFollow')
-                        .equalTo('user', user)
-                        .count()
-                        .then(function (qtdFollowing) {
-                            defer.resolve(qtdFollowing);
-                        }, function (err) {
-                            defer.reject(err);
-                        });
-                });
-            return defer.promise;
-        }
-
-        function follow(status, user) {
-            var defer = $q.defer();
-            var qtdFollow = Parse.User.current().qtdFollow ? parseInt(Parse.User.current().qtdFollow) : 0;
-
-
-            find(user.id)
-                .then(function (follow) {
-
-                    if (status) {
-                        // Follow User
-                        console.log('Follow User', follow);
-
-                        var Object = Parse.Object.extend('UserFollow');
-                        var item = new Object();
-
-                        item.set('user', Parse.User.current());
-                        item.set('follow', follow);
-                        item.save()
-                            .then(function (resp) {
-                                console.log('Follow User', resp);
-
-                                update({
-                                    qtdFollow: qtdFollow + 1
-                                })
-                                    .then(function (userResp) {
-                                        console.log('Follow User Update', userResp);
-                                        defer.resolve(userResp);
-                                    });
-
-                            }, function (err) {
-                                defer.resolve(err);
-                            });
-                    } else {
-                        // Unfollow User
-                        console.log('Unfollow User', follow);
-
-                        new Parse
-                            .Query('UserFollow')
-                            .equalTo('user', Parse.User.current())
-                            .equalTo('follow', follow)
-                            .first()
-                            .then(function (item) {
-                                item
-                                    .destroy()
-                                    .then(function (resp) {
-
-                                        update({
-                                            qtdFollow: qtdFollow - 1
-                                        })
-                                            .then(function (userResp) {
-                                                console.log('Follow User Update', userResp);
-                                                defer.resolve(userResp);
-                                            });
-                                    }, function (err) {
-                                        defer.resolve(err);
-                                    });
-                            });
-                    }
-                });
-
-            return defer.promise;
-        }
-
-        function addFollows(users) {
-            console.log('addFollows', users);
-            var promises = [];
-            angular.forEach(users, function (user) {
-                promises.push(follow(true, user.id));
             });
-            return $q.all(promises);
-        }
+        });
 
-        function getMail(email) {
-            var defer = $q.defer();
-            Loading.start();
+      return defer.promise;
+    }
+
+    function isFollow(userId) {
+      var defer = $q.defer();
+
+      console.log('isFollow start', userId);
+
+      find(userId)
+        .then(function (followUser) {
+          new Parse
+            .Query('UserFollow')
+            .equalTo('user', Parse.User.current())
+            .equalTo('follow', followUser)
+            .count()
+            .then(function (respFollow) {
+              //console.log('isFollow', respFollow);
+              defer.resolve(respFollow);
+            });
+        });
+
+      return defer.promise;
+    }
+
+
+    function getFollowers(userId) {
+      var defer = $q.defer();
+
+      if (!userId) {
+        userId = Parse.User.current().id;
+      }
+
+      find(userId)
+        .then(function (user) {
+          new Parse
+            .Query('UserFollow')
+            .equalTo('follow', user)
+            .count()
+            .then(function (qtdFollowers) {
+              defer.resolve(qtdFollowers);
+            }, function (err) {
+              defer.reject(err);
+            });
+        });
+      return defer.promise;
+    }
+
+    function getFollowing(userId) {
+      var defer = $q.defer();
+
+      if (!userId) {
+        userId = Parse.User.current().id;
+      }
+
+      find(userId)
+        .then(function (user) {
+          new Parse
+            .Query('UserFollow')
+            .equalTo('user', user)
+            .count()
+            .then(function (qtdFollowing) {
+              defer.resolve(qtdFollowing);
+            }, function (err) {
+              defer.reject(err);
+            });
+        });
+      return defer.promise;
+    }
+
+    function follow(status, user) {
+      var defer = $q.defer();
+      var qtdFollow = Parse.User.current().qtdFollow ? parseInt(Parse.User.current().qtdFollow) : 0;
+
+
+      find(user.id)
+        .then(function (follow) {
+
+          if (status) {
+            // Follow User
+            console.log('Follow User', follow);
+
+            var Object = Parse.Object.extend('UserFollow');
+            var item = new Object();
+
+            item.set('user', Parse.User.current());
+            item.set('follow', follow);
+            item.save()
+              .then(function (resp) {
+                console.log('Follow User', resp);
+
+                update({
+                    qtdFollow: qtdFollow + 1
+                  })
+                  .then(function (userResp) {
+                    console.log('Follow User Update', userResp);
+                    defer.resolve(userResp);
+                  });
+
+              }, function (err) {
+                defer.resolve(err);
+              });
+          } else {
+            // Unfollow User
+            console.log('Unfollow User', follow);
+
             new Parse
-                .Query('User')
-                .equalTo('email', email)
-                .first()
-                .then(function (resp) {
-                    Loading.end();
-                    defer.resolve(resp);
-                }, function (resp) {
-                    Loading.end();
-                    defer.reject(resp);
-                });
-            return defer.promise;
-        }
+              .Query('UserFollow')
+              .equalTo('user', Parse.User.current())
+              .equalTo('follow', follow)
+              .first()
+              .then(function (item) {
+                item
+                  .destroy()
+                  .then(function (resp) {
 
-        function loginFacebook(response) {
-            var defer = $q.defer();
+                    update({
+                        qtdFollow: qtdFollow - 1
+                      })
+                      .then(function (userResp) {
+                        console.log('Follow User Update', userResp);
+                        defer.resolve(userResp);
+                      });
+                  }, function (err) {
+                    defer.resolve(err);
+                  });
+              });
+          }
+        });
+
+      return defer.promise;
+    }
+
+    function addFollows(users) {
+      console.log('addFollows', users);
+      var promises = [];
+      angular.forEach(users, function (user) {
+        promises.push(follow(true, user.id));
+      });
+      return $q.all(promises);
+    }
+
+    function getMail(email) {
+      var defer = $q.defer();
+      Loading.start();
+      new Parse
+        .Query('User')
+        .equalTo('email', email)
+        .first()
+        .then(function (resp) {
+          Loading.end();
+          defer.resolve(resp);
+        }, function (resp) {
+          Loading.end();
+          defer.reject(resp);
+        });
+      return defer.promise;
+    }
+
+    function loginFacebook(response) {
+      var defer = $q.defer();
+
+      var data = new Date(new Date().getTime() + response['authResponse']['expiresIn'] * 1000);
+
+      Parse.FacebookUtils.logIn({
+        id: response['authResponse']['userID'],
+        access_token: response['authResponse']['accessToken'],
+        expiration_date: data
+      }, {
+        success: function (response) {
+          // Função caso tenha logado tanto no face quanto no Parse
+          var user = loadProfile(response);
+          console.log('User', user);
+          defer.resolve(user);
+        }
+      });
+
+      return defer.promise;
+    }
+
+    function facebookLink() {
+      var defer = $q.defer();
+
+      facebook
+        .login(['email'])
+        .then(function (response) {
+
+            console.log('facebook login', response);
+            //Pega o Status do Login
 
             var data = new Date(new Date().getTime() + response['authResponse']['expiresIn'] * 1000);
 
-            Parse.FacebookUtils.logIn({
-                id: response['authResponse']['userID'],
-                access_token: response['authResponse']['accessToken'],
-                expiration_date: data
+            var user = Parse.User.current();
+            console.log(user, response, data);
+
+            Parse.FacebookUtils.link(user, {
+              id: response['authResponse']['userID'],
+              access_token: response['authResponse']['accessToken'],
+              expiration_date: data
             }, {
-                success: function (response) {
-                    // Função caso tenha logado tanto no face quanto no Parse
+              success: function (user) {
+                // Função caso tenha logado tanto no face quanto no Parse
+                console.log('User', user);
+                user.set('facebook', response['authResponse']['userID']);
+                user.set('facebookimg', 'https://graph.facebook.com/' + response['authResponse']['userID'] +
+                  '/picture?width=250&height=250');
+                user.set('facebook_complete', Boolean(true));
+                user.save()
+                  .then(function (response) {
                     var user = loadProfile(response);
-                    console.log('User', user);
+                    console.info('User Update', user);
                     defer.resolve(user);
-                }
+                  });
+              }
             });
+          },
+          function (response) {
+            alert(JSON.stringify(response));
 
-            return defer.promise;
-        }
-
-        function facebookLink() {
-            var defer = $q.defer();
-
-            facebook
-                .login(['email'])
-                .then(function (response) {
-
-                        console.log('facebook login', response);
-                        //Pega o Status do Login
-
-                        var data = new Date(new Date().getTime() + response['authResponse']['expiresIn'] * 1000);
-
-                        var user = Parse.User.current();
-                        console.log(user, response, data);
-
-                        Parse.FacebookUtils.link(user, {
-                            id: response['authResponse']['userID'],
-                            access_token: response['authResponse']['accessToken'],
-                            expiration_date: data
-                        }, {
-                            success: function (user) {
-                                // Função caso tenha logado tanto no face quanto no Parse
-                                console.log('User', user);
-                                user.set('facebook', response['authResponse']['userID']);
-                                user.set('facebookimg', 'https://graph.facebook.com/' + response['authResponse']['userID'] +
-                                    '/picture?width=250&height=250');
-                                user.set('facebook_complete', Boolean(true));
-                                user.save()
-                                    .then(function (response) {
-                                        var user = loadProfile(response);
-                                        console.info('User Update', user);
-                                        defer.resolve(user);
-                                    });
-                            }
-                        });
-                    },
-                    function (response) {
-                        alert(JSON.stringify(response));
-
-                    });
+          });
 
 
-            return defer.promise;
-        }
-
-
+      return defer.promise;
     }
-})();
 
+
+  }
+})();
 (function () {
   'use strict';
   angular
@@ -5294,6 +5404,49 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 
   /**
    * @ngdoc directive
+   * @name buy
+   *
+   * @description
+   * _Please update the description and restriction._
+   *
+   * @restrict A
+   * */
+
+  angular
+    .module('app.photogram')
+    .directive('buy', buyDirective);
+
+  function buyDirective($cordovaInAppBrowser) {
+    return {
+      restrict: 'A',
+      link: buyLink
+    };
+
+    function buyLink(scope, elem, attr) {
+      elem.bind('click', function () {
+        var options = {
+          location: 'yes',
+          clearcache: 'yes',
+          toolbar: 'yes'
+        };
+
+        var lang = navigator.language;
+        var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAW4JZS7KJM5S';
+        if (lang === 'pt-BR') {
+          url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FT5W6FJW5RAEN';
+        }
+
+        $cordovaInAppBrowser.open(url, '_blank', options);
+      });
+    }
+  }
+
+})();
+(function () {
+  'use strict';
+
+  /**
+   * @ngdoc directive
    * @name photogramComment
    *
    * @description
@@ -5322,6 +5475,7 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
         scope.deleteComment = deleteComment;
         scope.editComment = editComment;
         scope.closeModal = closeModal;
+
         elem.bind('click', openModalComment);
 
         function init() {
@@ -5445,7 +5599,7 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
           scope.modal.remove();
         }
       }
-    }
+    };
   }
 
 })();
@@ -5545,21 +5699,21 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
       scope: {
         ngModel: '='
       },
-      link: function (scope, elem, attr) {
+      link: function (scope, elem) {
         elem.bind('click', likePhotogram);
 
         function likePhotogram() {
 
           console.log('photogram', scope.ngModel);
-          var photogram = scope.ngModel.item;
-          photogram.likeProgress = true;
-          photogram.liked = !photogram.liked;
+          var _model = scope.ngModel;
+          _model.progress = true;
+          _model.liked = !_model.liked;
           Photogram
             .likeGallery(scope.ngModel.id)
             .then(function (resp) {
-              photogram.qtdLike = resp.likes;
-              delete photogram.likeProgress;
-              console.log(photogram, resp);
+              _model.likes = resp.likes;
+              _model.progress = false;
+              console.log(_model, resp);
             });
           scope.$apply();
         }
@@ -5613,7 +5767,7 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
         }
 
       }
-    }
+    };
   }
 
 
@@ -5665,7 +5819,8 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
     };
   }
 
-  function photogramPhotoListCtrl(AppConfig, Photogram, $scope, $ionicPopup, PhotogramFeedbackForm, PhotogramFeedback,
+  function photogramPhotoListCtrl(AppConfig, $window, Photogram, $scope, $ionicPopup, PhotogramFeedbackForm,
+    PhotogramFeedback,
     $ionicActionSheet, $ionicModal) {
     var vm = this;
     var path = AppConfig.path;
@@ -5701,7 +5856,6 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
     }
 
     function likePhoto(gallery) {
-      //gallery.item.likeProgress = true;
       gallery.item.liked = !gallery.item.liked;
       Photogram
         .likeGallery(gallery.id)
@@ -5832,10 +5986,14 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
       console.log('Social Share', post);
       var message = ("I'm at ") + AppConfig.app.name + '! ' + (
         'Install the application and follow me!') + ' ' + AppConfig.app.url;
-      window
-        .plugins
-        .socialsharing
-        .share(post.text + ', ' + message, post.text, post.image, null);
+      if ($window.cordova) {
+        window
+          .plugins
+          .socialsharing
+          .share(post.text + ', ' + message, post.text, post.image, null);
+      } else {
+        alert('Only in smartphone');
+      }
     }
 
   }
@@ -6331,215 +6489,6 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 })();
 (function () {
   'use strict';
-  /*
-   *
-   https://github.com/avivais/phonegap-parse-plugin
-   cordova plugin add https://github.com/FrostyElk/phonegap-parse-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
-   cordova plugin add https://github.com/FrostyElk/cordova-parse-plugin.git --variable APP_ID=7lWT9DJntSvMKTetpoT0wL79pTG9dk4ob5pztktX --variable CLIENT_KEY=CIcH8fg5AogNNrEQ8IbmA5nujNjIvVNmuW0PyvCy
-
-   Phonegap Parse.com Plugin
-   Phonegap 3.0.0 plugin for Parse.com push service
-
-   Using Parse.com's REST API for push requires the installation id, which isn't available in JS
-
-   This plugin exposes the four native Android API push services to JS:
-
-   getInstallationId
-   getSubscriptions
-   subscribe
-   unsubscribe
-
-   * */
-  angular
-    .module('app.activity')
-    .factory('ParsePush', ParsePush);
-
-  function ParsePush($q, AppConfig) {
-
-    return {
-      start: start,
-      getInstall: getInstall,
-      getSubscribe: getSubscriptions,
-      postSubscribe: postSubscribe,
-      unSubscribe: postUnSubscribe
-    };
-
-    function init() {
-      var defer = $q.defer();
-      var appId = AppConfig.parse.applicationId,
-        clientKey = AppConfig.parse.clientKey;
-
-      console.log('Init', appId, clientKey);
-
-      parsePlugin.initialize(appId, clientKey, function () {
-        console.log('Parse Push initialize');
-        on();
-        defer.resolve();
-      }, function (e) {
-        console.error('Parse Push Initialize error', e);
-        defer.reject(e);
-      });
-
-      return defer.promise;
-    }
-
-    function on() {
-      parsePlugin.on('receivePN', function (pn) {
-        console.log('yo i got this push notification:' + JSON.stringify(pn));
-      });
-
-      //customEvt can be any string of your choosing, i.e., chat, system, upvote, etc.
-      parsePlugin.on('receivePN:chat', function (pn) {
-        console.log('yo i can also use custom event to keep things like chat modularized');
-      });
-
-      parsePlugin.on('openPN', function (pn) {
-        //you can do things like navigating to a different view here
-        console.log('Yo, I get this when the user clicks open a notification from the tray');
-      });
-    }
-
-
-    function _start(channel) {
-      var cordova = window.cordova;
-
-      console.log('Parse Start', cordova, channel);
-      if (cordova) {
-        console.log('Push Start');
-        init()
-          .then(function () {
-            console.log('Plugin Load');
-            parsePlugin
-              .subscribe(channel, function () {
-                console.log('Enter channel', channel);
-                parsePlugin
-                  .getInstallationId(function (id) {
-                    console.log('Success Push', channel, id);
-                    /**
-                                         * Now you can construct an object and save it to your own services, or Parse, and corrilate users to parse installations
-                                         *
-                                         var install_data = {
-                                          installation_id: id,
-                                          channels: ['SampleChannel']
-                                       }
-                                         *
-                                         */
-                    on();
-
-                  }, function (e) {
-                    alert('error');
-                  });
-
-              }, function (e) {
-                alert('error');
-              });
-
-          }, function (e) {
-            alert('error');
-          });
-      }
-    }
-
-    function start(channel) {
-      var cordova = window.cordova;
-
-      console.log('Parse Start', cordova, channel);
-      if (cordova) {
-
-        console.log('Plugin Load');
-        init()
-          .then(function () {
-
-            console.log('Parse Ente Chanell', channel);
-            parsePlugin
-              .subscribe(channel, function () {
-                console.log('Enter channel', channel);
-                parsePlugin
-                  .getInstallationId(function (id) {
-                    console.log('Success Push', channel, id);
-                    /**
-                                         * Now you can construct an object and save it to your own services, or Parse, and corrilate users to parse installations
-                                         *
-                                         var install_data = {
-                        installation_id: id,
-                        channels: ['SampleChannel']
-                     }
-                                         *
-                                         */
-                    on();
-
-                  }, function (e) {
-                    alert('error');
-                  });
-
-              }, function (e) {
-                alert('error');
-              });
-          })
-
-
-      }
-    }
-
-    function getInstall() {
-      var defer = $q.defer();
-      console.log('getInstall');
-      parsePlugin
-        .getInstallationId(function (id) {
-          console.log('getInstall', id);
-          defer.resolve(id);
-        }, function (e) {
-          console.error('getInstall', e);
-          defer.reject(e);
-        });
-      return defer.promise;
-    }
-
-    function getSubscriptions() {
-      var defer = $q.defer();
-      parsePlugin.getSubscriptions(function (subscriptions) {
-        alert(subscriptions);
-        defer.resolve(subscriptions);
-      }, function (e) {
-        alert('error');
-        defer.reject(e);
-      });
-      return defer.promise;
-    }
-
-    function postSubscribe(channel) {
-      var defer = $q.defer();
-      console.log('postSubscribe', channel);
-      parsePlugin
-        .subscribe(channel, function (resp) {
-          console.log('postSubscribe', channel, resp);
-          defer.resolve(true);
-        }, function (e) {
-          console.log('postSubscribe', channel, e);
-          defer.reject(e);
-        });
-      return defer.promise;
-    }
-
-    function postUnSubscribe(channel) {
-      var defer = $q.defer();
-      console.log('postUnSubscribe', channel);
-      parsePlugin
-        .unsubscribe(channel, function (msg) {
-          console.log('postUnSubscribe', channel, msg);
-          defer.resolve(msg);
-        }, function (e) {
-          console.log('postUnSubscribe', channel, e);
-          alert('error');
-          defer.reject(e);
-        });
-      return defer.promise;
-    }
-
-  }
-})();
-(function () {
-  'use strict';
   angular
     .module('app.activity')
     .controller('PhotogramActivityCtrl', PhotogramActivityCtrl);
@@ -6824,6 +6773,215 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 
   }
 
+})();
+(function () {
+  'use strict';
+  /*
+   *
+   https://github.com/avivais/phonegap-parse-plugin
+   cordova plugin add https://github.com/FrostyElk/phonegap-parse-plugin --variable APP_ID=PARSE_APP_ID --variable CLIENT_KEY=PARSE_CLIENT_KEY
+   cordova plugin add https://github.com/FrostyElk/cordova-parse-plugin.git --variable APP_ID=7lWT9DJntSvMKTetpoT0wL79pTG9dk4ob5pztktX --variable CLIENT_KEY=CIcH8fg5AogNNrEQ8IbmA5nujNjIvVNmuW0PyvCy
+
+   Phonegap Parse.com Plugin
+   Phonegap 3.0.0 plugin for Parse.com push service
+
+   Using Parse.com's REST API for push requires the installation id, which isn't available in JS
+
+   This plugin exposes the four native Android API push services to JS:
+
+   getInstallationId
+   getSubscriptions
+   subscribe
+   unsubscribe
+
+   * */
+  angular
+    .module('app.activity')
+    .factory('ParsePush', ParsePush);
+
+  function ParsePush($q, AppConfig) {
+
+    return {
+      start: start,
+      getInstall: getInstall,
+      getSubscribe: getSubscriptions,
+      postSubscribe: postSubscribe,
+      unSubscribe: postUnSubscribe
+    };
+
+    function init() {
+      var defer = $q.defer();
+      var appId = AppConfig.parse.applicationId,
+        clientKey = AppConfig.parse.clientKey;
+
+      console.log('Init', appId, clientKey);
+
+      parsePlugin.initialize(appId, clientKey, function () {
+        console.log('Parse Push initialize');
+        on();
+        defer.resolve();
+      }, function (e) {
+        console.error('Parse Push Initialize error', e);
+        defer.reject(e);
+      });
+
+      return defer.promise;
+    }
+
+    function on() {
+      parsePlugin.on('receivePN', function (pn) {
+        console.log('yo i got this push notification:' + JSON.stringify(pn));
+      });
+
+      //customEvt can be any string of your choosing, i.e., chat, system, upvote, etc.
+      parsePlugin.on('receivePN:chat', function (pn) {
+        console.log('yo i can also use custom event to keep things like chat modularized');
+      });
+
+      parsePlugin.on('openPN', function (pn) {
+        //you can do things like navigating to a different view here
+        console.log('Yo, I get this when the user clicks open a notification from the tray');
+      });
+    }
+
+
+    function _start(channel) {
+      var cordova = window.cordova;
+
+      console.log('Parse Start', cordova, channel);
+      if (cordova) {
+        console.log('Push Start');
+        init()
+          .then(function () {
+            console.log('Plugin Load');
+            parsePlugin
+              .subscribe(channel, function () {
+                console.log('Enter channel', channel);
+                parsePlugin
+                  .getInstallationId(function (id) {
+                    console.log('Success Push', channel, id);
+                    /**
+                                         * Now you can construct an object and save it to your own services, or Parse, and corrilate users to parse installations
+                                         *
+                                         var install_data = {
+                                          installation_id: id,
+                                          channels: ['SampleChannel']
+                                       }
+                                         *
+                                         */
+                    on();
+
+                  }, function (e) {
+                    alert('error');
+                  });
+
+              }, function (e) {
+                alert('error');
+              });
+
+          }, function (e) {
+            alert('error');
+          });
+      }
+    }
+
+    function start(channel) {
+      var cordova = window.cordova;
+
+      console.log('Parse Start', cordova, channel);
+      if (cordova) {
+
+        console.log('Plugin Load');
+        init()
+          .then(function () {
+
+            console.log('Parse Ente Chanell', channel);
+            parsePlugin
+              .subscribe(channel, function () {
+                console.log('Enter channel', channel);
+                parsePlugin
+                  .getInstallationId(function (id) {
+                    console.log('Success Push', channel, id);
+                    /**
+                                         * Now you can construct an object and save it to your own services, or Parse, and corrilate users to parse installations
+                                         *
+                                         var install_data = {
+                        installation_id: id,
+                        channels: ['SampleChannel']
+                     }
+                                         *
+                                         */
+                    on();
+
+                  }, function (e) {
+                    alert('error');
+                  });
+
+              }, function (e) {
+                alert('error');
+              });
+          })
+
+
+      }
+    }
+
+    function getInstall() {
+      var defer = $q.defer();
+      console.log('getInstall');
+      parsePlugin
+        .getInstallationId(function (id) {
+          console.log('getInstall', id);
+          defer.resolve(id);
+        }, function (e) {
+          console.error('getInstall', e);
+          defer.reject(e);
+        });
+      return defer.promise;
+    }
+
+    function getSubscriptions() {
+      var defer = $q.defer();
+      parsePlugin.getSubscriptions(function (subscriptions) {
+        alert(subscriptions);
+        defer.resolve(subscriptions);
+      }, function (e) {
+        alert('error');
+        defer.reject(e);
+      });
+      return defer.promise;
+    }
+
+    function postSubscribe(channel) {
+      var defer = $q.defer();
+      console.log('postSubscribe', channel);
+      parsePlugin
+        .subscribe(channel, function (resp) {
+          console.log('postSubscribe', channel, resp);
+          defer.resolve(true);
+        }, function (e) {
+          console.log('postSubscribe', channel, e);
+          defer.reject(e);
+        });
+      return defer.promise;
+    }
+
+    function postUnSubscribe(channel) {
+      var defer = $q.defer();
+      console.log('postUnSubscribe', channel);
+      parsePlugin
+        .unsubscribe(channel, function (msg) {
+          console.log('postUnSubscribe', channel, msg);
+          defer.resolve(msg);
+        }, function (e) {
+          console.log('postUnSubscribe', channel, e);
+          alert('error');
+          defer.reject(e);
+        });
+      return defer.promise;
+    }
+
+  }
 })();
 (function () {
   'use strict';
@@ -7339,7 +7497,6 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
   function PhotogramHomeController($scope, $rootScope, $cordovaInAppBrowser, $stateParams, Photogram) {
     var vm = this;
     vm.loading = true;
-    vm.buySource = buySource;
     vm.load = load;
     vm.load($stateParams.reload);
     vm.loadMore = loadMore;
@@ -7363,24 +7520,9 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
       vm.load(force);
     }
 
-    function buySource() {
-      var options = {
-        location: 'yes',
-        clearcache: 'yes',
-        toolbar: 'yes'
-      };
-
-      var lang = $rootScope.lang.value;
-      var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAW4JZS7KJM5S';
-      if (lang === 'pt_BR') {
-        url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FT5W6FJW5RAEN'
-      }
-
-      $cordovaInAppBrowser.open(url, '_blank', options);
-    }
 
     function load(force) {
-      console.log('Load ');
+      // console.log('Load ');
 
       if (force) {
         init();
@@ -7390,15 +7532,17 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
         .home(vm.page)
         .then(function (resp) {
 
-          console.log(resp);
+          // console.log(resp);
 
           vm.loading = false;
 
-          angular.forEach(resp, function (value, key) {
-            vm.data.push(value);
+          resp.galleries.map(function (item) {
+            item.progress = false;
+            // console.table(item);
+            vm.data.push(item);
           });
 
-          console.log('qtd', resp.length);
+          // console.log('qtd', resp.length);
 
           if (resp.length) {
             vm.more = true;
@@ -7709,7 +7853,7 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
       vm.form = {
         name: user.name,
         email: user.email,
-        status : user.status,
+        status: user.status,
         gender: user.gender,
         img: user.img,
         username: user.username
@@ -8237,95 +8381,95 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 
 })();
 (function () {
-    'use strict';
+  'use strict';
 
-    /**
-     * @ngdoc directive
-     * @name photogramProfileEdit
-     *
-     * @description
-     * _Please update the description and restriction._
-     *
-     * @restrict A
-     * */
+  /**
+   * @ngdoc directive
+   * @name photogramProfileEdit
+   *
+   * @description
+   * _Please update the description and restriction._
+   *
+   * @restrict A
+   * */
 
-    angular
-        .module('app.user')
-        .directive('profileModalEdit', profileModalEditDirective);
+  angular
+    .module('app.user')
+    .directive('profileModalEdit', profileModalEditDirective);
 
-    function profileModalEditDirective($ionicModal, User, UserForm, $state) {
+  function profileModalEditDirective($ionicModal, User, UserForm, $state) {
 
-        return {
-            restrict: 'A',
-            scope: {
-                photogram: '@'
-            },
-            template: '',
-            link: function (scope, elem) {
+    return {
+      restrict: 'A',
+      scope: {
+        photogram: '@'
+      },
+      template: '',
+      link: function (scope, elem) {
 
-                scope.linkFacebook = linkFacebook;
-                scope.logout = logout;
-                scope.submitUpdateProfile = submitUpdateProfile;
-                scope.closeModal = closeModal;
-                elem.bind('click', openModal);
-
-
-                function init() {
-                    var user = User.currentUser();
-                    scope.form = {
-                        name: user.name,
-                        email: user.email,
-                        status: user.status,
-                        img: user.img,
-                        username: user.username,
-                        gender: user.gender
-                    };
-                    scope.formFields = UserForm.profile;
-                }
+        scope.linkFacebook = linkFacebook;
+        scope.logout = logout;
+        scope.submitUpdateProfile = submitUpdateProfile;
+        scope.closeModal = closeModal;
+        elem.bind('click', openModal);
 
 
-                function openModal() {
+        function init() {
+          var user = User.currentUser();
+          scope.form = {
+            name: user.name,
+            email: user.email,
+            status: user.status,
+            img: user.img,
+            username: user.username,
+            gender: user.gender
+          };
+          scope.formFields = UserForm.profile;
+        }
 
-                    init();
-                    $ionicModal.fromTemplateUrl('app/module/user/module/profile/view/profile.edit.modal.html', {
-                        scope: scope
-                    }).then(function (modal) {
-                        scope.modal = modal;
-                        scope.modal.show();
-                    });
-                }
 
-                function logout() {
-                    $state.go('logout');
-                    scope.closeModal();
-                }
+        function openModal() {
 
-                function linkFacebook() {
-                    User
-                        .facebookLink()
-                        .then(function (resp) {
-                            console.log(resp);
-                        });
-                }
+          init();
+          $ionicModal.fromTemplateUrl('app/module/user/module/profile/view/profile.edit.modal.html', {
+            scope: scope
+          }).then(function (modal) {
+            scope.modal = modal;
+            scope.modal.show();
+          });
+        }
 
-                function submitUpdateProfile() {
-                    var dataForm = angular.copy(scope.form);
-                    User
-                        .update(dataForm)
-                        .then(function (resp) {
-                            console.log(resp);
-                            init();
-                            scope.closeModal();
-                        });
-                }
+        function logout() {
+          $state.go('logout');
+          scope.closeModal();
+        }
 
-                function closeModal() {
-                    scope.modal.hide();
-                    scope.modal.remove();
-                }
-            }
-        };
-    }
+        function linkFacebook() {
+          User
+            .facebookLink()
+            .then(function (resp) {
+              console.log(resp);
+            });
+        }
+
+        function submitUpdateProfile() {
+          var dataForm = angular.copy(scope.form);
+          User
+            .update(dataForm)
+            .then(function (resp) {
+              console.log(resp);
+              init();
+              scope.closeModal();
+            });
+        }
+
+        function closeModal() {
+          scope.modal.hide();
+          scope.modal.remove();
+        }
+      }
+    };
+  }
 
 })();
 (function () {
@@ -8509,7 +8653,7 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 
             console.log(data);
 
-            
+
             if (data.name.length) {
               $state.go(vm.routeLogged, {
                 clear: true
@@ -8720,13 +8864,13 @@ $templateCache.put("app/module/photogram/directives/comment/photogram.comment.di
 $templateCache.put("app/module/photogram/directives/follow/photogram.follow.modal.html","<ion-modal-view class=\"modal-profile photogram-profile\"><ion-header-bar class=\"bar-positive\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closeModal()\"></button><div class=\"title\">\nFollow Users</div></ion-header-bar><ion-content><div class=\"list\"><div class=\"item item-avatar item-button-right\" \nng-repeat=\"item in data\"><img ng-src=\"{{ ::item.src }}\"><h2>{{ ::item.name }}</h2><p>{{ ::item.status }}</p><button \nclass=\"button\" ng-click=\"item.follow = !item.follow\" ng-class=\"item.follow ? \'button-positive\' : \'button-stable\'\"><i \nclass=\"icon\" ng-class=\"item.follow? \'ion-thumbsup\' : \'ion-plus\'\"></i></button></div></div></ion-content>\n</ion-modal-view>");
 $templateCache.put("app/module/photogram/directives/like/photogram.like.directive.html","<ion-modal-view class=\"modal-comment\"><ion-header-bar class=\"bar-dark\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closeModal()\"></button><div class=\"title\">\n{{ ::\'Likes\' | translate }} ({{ ::likes.length }})</div></ion-header-bar><ion-content><div class=\"list step1\"><div \nng-repeat=\"item in likes\" class=\"item item-avatar item-button-right\"><img ng-src=\"{{ ::item.user.img }}\"><h2>\n{{ ::item.user.name }}</h2><div>{{ ::item.text }}</div><p>{{ ::item.created | amTimeAgo }}</p><button \nclass=\"button button-positive button-outline\"><i class=\"icon ion-ios-plus-empty\"></i> {{ ::\'Follow\' }}</button></div>\n</div></ion-content></ion-modal-view>");
 $templateCache.put("app/module/photogram/directives/photogrid/photogram.photos.grid.html","<div class=\"row\" ng-if=\"$index % 3 === 0\" ng-repeat=\"image in data\"><div class=\"col col-33 item-animate1\" \nng-if=\"$index < data.length\"><img ng-if=\"profile\" profile-modal user=\"data[$index].user\" \nng-src=\"{{ ::data[$index].src}}\" width=\"100%\"> <img ng-if=\"!profile\" ng-src=\"{{ ::data[$index].src}}\" width=\"100%\">\n</div><div class=\"col col-33 item-animate1\" ng-if=\"$index + 1 < data.length\"><img ng-if=\"profile\" profile-modal \nuser=\"data[$index + 1].user\" ng-src=\"{{ ::data[$index + 1].src}}\" width=\"100%\"> <img ng-if=\"!profile\" \nng-src=\"{{ ::data[$index + 1].src}}\" width=\"100%\"></div><div class=\"col col-33 item-animate1\" \nng-if=\"$index + 2 < data.length\"><img ng-if=\"profile\" profile-modal user=\"data[$index + 2].user\" \nng-src=\"{{ ::data[$index + 2].src}}\" width=\"100%\"> <img ng-if=\"!profile\" ng-src=\"{{ ::data[$index + 2].src}}\" \nwidth=\"100%\"></div></div>");
-$templateCache.put("app/module/photogram/directives/photolist/photo.list.html","<div class=\"list card animated fadeIn\" ng-repeat=\"gallery in data \"><div class=\"item item-avatar\" ion-affix \ndata-affix-within-parent-with-class=\"card\" profile-modal user=\"gallery.user\"><img ng-if=\"profile\" \nprofile=\"{{ ::gallery.user.id }}\" ng-src=\"{{ ::gallery.user.img._url}}\"> <img ng-src=\"{{ ::gallery.user.img._url}}\">\n<h2>{{ ::gallery.user.name}}</h2><p>{{ :: gallery.user.status }}</p><span>{{ ::gallery.created | amTimeAgo}}</span>\n</div><div class=\"item item-body\" on-double-tap=\"vm.like(gallery)\" ng-model=\"gallery\"><div \nclass=\"icon ion-ios-heart heart\" ng-class=\"(gallery.item.liked) ? \'happy\' : \'broken\' \"></div><i class=\"icon\" \nng-if=\"like\"></i> <img cache-src=\"{{ ::gallery.src}}\" id=\"{{ ::gallery.id}}\"></div><div class=\"item item-buttons\"><div \nclass=\"row\"><div class=\"col col-75\"><ion-spinner ng-show=\"gallery.item.likeProgress\"></ion-spinner><button \nphotogram-like ng-model=\"gallery\" ng-if=\"!gallery.item.likeProgress\" \nng-class=\"(gallery.item.liked) ? \'ion-ios-heart\' : \'ion-ios-heart-outline\' \" \nclass=\"button-clear button-icon button-heart\"></button> <button photogram-comment ng-model=\"gallery\" \nclass=\"button-clear button-icon ion-ios-chatbubble-outline\"></button> <button ng-click=\"vm.action(gallery)\" \nphotogram=\"{{ :: gallery.id }}\" class=\"button-clear button-icon ion-android-share\"></button></div><div \nclass=\"col text-right\"><button ng-click=\"vm.action(gallery)\" photogram=\"{{ :: gallery.id }}\" \nclass=\"button-clear button-icon ion-android-more-vertical\"></button></div></div></div><div class=\"padding\"><span \nclass=\"likes\" photogram-like photogram=\"{{ :: gallery }}\"><i class=\"icon ion-ios-heart\"></i> <span \nng-if=\"!gallery.item.likeProgress\">{{ :: gallery.item.qtdLike }}</span> <span translate=\"PHOTOGRAM.LIKES\"></span>\n</span><div class=\"list-comments\"><div class=\"comment-item\" profile-modal user=\"gallery.user\"><span class=\"username\">\n{{ :: gallery.user.name }}</span> <span class=\"comment\">{{ :: gallery.item.title }}</span></div><div \nclass=\"comment-item\" profile-modal user=\"item.user\" ng-repeat=\"item in gallery.comments\"><span class=\"username\">\n{{ :: item.user.name }}</span> <span class=\"comment\">{{ :: item.text }}</span></div></div><button \nclass=\"button button-block button-clear button-comment\" photogram-comment ng-model=\"gallery\"><span \ntranslate=\"PHOTOGRAM.BUTTON.COMMENT_ADD\"></span></button></div></div>");
+$templateCache.put("app/module/photogram/directives/photolist/photo.list.html","<div class=\"list card animated fadeIn\" ng-repeat=\"gallery in data \"><div class=\"item item-avatar\" ion-affix \ndata-affix-within-parent-with-class=\"card\" profile-modal user=\"gallery.user\"><img ng-if=\"profile\" \nprofile=\"{{ ::gallery.user.id }}\" ng-src=\"{{ ::gallery.user.img._url}}\"> <img ng-src=\"{{ ::gallery.user.img._url}}\">\n<h2>{{ ::gallery.user.name}}</h2><p>{{ :: gallery.user.status }}</p><span>{{ ::gallery.created | amTimeAgo}}</span>\n</div><div class=\"item item-body\" on-double-tap=\"vm.like(gallery)\" ng-model=\"gallery\"><div \nclass=\"icon ion-ios-heart heart\" ng-class=\"gallery.liked ? \'happy\' : \'broken\' \"></div><i class=\"icon\" ng-if=\"like\"></i>\n <img cache-src=\"{{ ::gallery.src}}\" id=\"{{ ::gallery.id}}\"></div><div class=\"item item-buttons\"><div class=\"row\"><div \nclass=\"col col-75\"><ion-spinner ng-show=\"gallery.progress\"></ion-spinner><button photogram-like ng-model=\"gallery\" \nng-if=\"!gallery.progress\" ng-class=\"gallery.liked ? \'ion-ios-heart\' : \'ion-ios-heart-outline\' \" \nclass=\"button-clear button-icon button-heart\"></button> <button photogram-comment ng-model=\"gallery\" \nclass=\"button-clear button-icon ion-ios-chatbubble-outline\"></button> <button ng-click=\"vm.action(gallery)\" \nphotogram=\"{{ :: gallery.id }}\" class=\"button-clear button-icon ion-android-share\"></button></div><div \nclass=\"col text-right\"><button ng-click=\"vm.action(gallery)\" photogram=\"{{ :: gallery.id }}\" \nclass=\"button-clear button-icon ion-android-more-vertical\"></button></div></div></div><div class=\"padding\"><span \nclass=\"likes\" photogram-like photogram=\"{{ :: gallery }}\"><i class=\"icon ion-ios-heart\"></i> <span \nng-if=\"!gallery.progress\">{{ :: gallery.likes }}</span> <span translate=\"PHOTOGRAM.LIKES\"></span></span><div \nclass=\"list-comments\"><div class=\"comment-item\" profile-modal user=\"gallery.user\"><span class=\"username\">\n{{ :: gallery.user.name }}</span> <span class=\"comment\">{{ :: gallery.item.title }}</span></div><div \nclass=\"comment-item\" profile-modal user=\"item.user\" ng-repeat=\"item in gallery.comments\"><span class=\"username\">\n{{ :: item.user.name }}</span> <span class=\"comment\">{{ :: item.text }}</span></div></div><button \nclass=\"button button-block button-clear button-comment\" photogram-comment ng-model=\"gallery\"><span \ntranslate=\"PHOTOGRAM.BUTTON.COMMENT_ADD\"></span></button></div></div>");
 $templateCache.put("app/module/photogram/directives/settings/photogram.settings.modal.html","<ion-modal-view class=\"modal-profile\"><ion-header-bar class=\"bar-dark\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closeModal()\"></button><div class=\"title\" \ntranslate=\"PHOTOGRAM.SETTING.TITLE\"></div></ion-header-bar><ion-content class=\"animated fadeIn\"><div class=\"list\">\n<label class=\"item item-input item-select\"><div class=\"input-label\" style=\"z-index: 2\"><h2 \ntranslate=\"PHOTOGRAM.BUTTON.CHANGE_LANGUAGE\"></h2></div><select ng-model=\"language\" \nng-change=\"changeLanguage(language)\"><option ng-repeat=\"item in languages\" value=\"{{ ::item.code}}\" \ntranslate=\"{{ ::item.translation}}\"></option></select></label><ion-toggle class=\"toggle-positive\" ng-model=\"form.push\">\n<h3><small translate=\"PHOTOGRAM.SETTING.NOTIFICATION\"></small></h3><p ng-if=\"!setting_preview\" \ntranslate=\"PHOTOGRAM.BUTTON.OFF\"></p><p ng-if=\"setting_preview\" translate=\"PHOTOGRAM.BUTTON.ON\"></p></ion-toggle>\n<ion-item class=\"item-icon-right\" \nng-click=\"openLink(\'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAW4JZS7KJM5S\')\"><h3><small \ntranslate=\"PHOTOGRAM.BUTTON.BUY\"></small></h3><i class=\"icon ion-ios-arrow-right\"></i></ion-item><ion-item \nclass=\"item-icon-right\" ng-click=\"openLink(\'http://photogramapp.com\')\"><h3><small translate=\"PHOTOGRAM.BUTTON.HELP\">\n</small></h3><i class=\"icon ion-ios-arrow-right\"></i></ion-item><ion-item class=\"item-icon-right\" \nng-click=\"openLink(\'http://photogramapp.com\')\"><h3><small translate=\"PHOTOGRAM.BUTTON.TERM_PRIVACY\"></small></h3><i \nclass=\"icon ion-ios-arrow-right\"></i></ion-item><ion-item class=\"item-icon-right\" \nng-click=\"openLink(\'http://photogramapp.com\')\"><h3><small translate=\"PHOTOGRAM.BUTTON.TERM_SERVICE\">Terms of Service\n</small></h3><i class=\"icon ion-ios-arrow-right\"></i></ion-item><ion-item class=\"item-icon-right\" ng-click=\"show();\">\n<h3><small translate=\"PHOTOGRAM.BUTTON.REPORT\">Report a Problem</small></h3><i class=\"icon ion-ios-arrow-right\"></i>\n</ion-item></div><div class=\"padding\"><button ng-click=\"link(\'logout\')\" class=\"button button-block button-positive\" \ntranslat=\"USER.BUTTON.LOGOUT\">Logout</button></div></ion-content></ion-modal-view>");
 $templateCache.put("app/module/photogram/module/activity/view/photogram.activity.html","<ion-view cache-view=\"false\" class=\"photogram-activity\"><ion-nav-title><h1 class=\"title\" translate=\"ACTIVITY.TITLE\">\n</h1></ion-nav-title><ion-content><photogram-loading loading=\"vm.loading\" icon=\"android\"></photogram-loading><div \nclass=\"list\"><div class=\"item item-avatar item-animate1\" ng-repeat=\"item in vm.data\"><img \nng-src=\"{{ ::item.user.img._url || \'img/user.png\' }}\"><h2>{{ ::item.user.name }}</h2><div class=\"text\">\n{{ ::item.action | translate }}</div><p>{{ ::item.created | amTimeAgo }}</p><div class=\"img-right\" ng-if=\"item.img\">\n<img ng-src=\"{{ ::item.img._url }}\"></div></div></div><ion-infinite-scroll ng-if=\"!vm.loading && !vm.empty\" \non-infinite=\"vm.load()\"></ion-infinite-scroll></ion-content></ion-view>");
 $templateCache.put("app/module/photogram/module/direct/view/direct.home.html","<ion-view><ion-nav-title translate=\"DIRECT.TITLE\"></ion-nav-title><ion-nav-buttons side=\"right\"><button \nclass=\"button button-icon ion-ios-plus-empty\" ui-sref=\"photogram.direct\"></button></ion-nav-buttons><ion-content>\n<ion-list><ion-item class=\"item-avatar\" ng-repeat=\"item in vm.data\" ui-sref=\"photogram.message({channelId: item.id})\">\n<img ng-src=\"{{item.user.src}}\" alt=\"\"><h2>{{ item.user.name}}</h2><p>{{ item.msg }}</p></ion-item></ion-list>\n</ion-content></ion-view>");
 $templateCache.put("app/module/photogram/module/direct/view/direct.messages.html","<ion-view id=\"userMessagesView\" cache-view=\"false\" view-title=\"Messages\"><div class=\"loader-center\" \nng-if=\"!vm.doneLoading\"><div class=\"loader\"><i class=\"icon ion-loading-c\"></i></div></div><ion-content \nhas-bouncing=\"true\" class=\"has-header has-footer\" delegate-handle=\"userMessageScroll\"><ion-refresher \npulling-text=\"{{\'DIRECT.BUTTON.PULL\' | TRANSLATE}}\" on-refresh=\"vm.doRefresh()\"></ion-refresher><div \nng-repeat=\"message in vm.data.messages\" class=\"message-wrapper\" on-hold=\"onMessageHold($event, $index, message)\"><div \nng-if=\"vm.user.id === message.user.id\"><img class=\"profile-pic right\" ng-src=\"{{message.user.src}}\"><div \nclass=\"chat-bubble right\"><div class=\"message\" ng-bind-html=\"message.body | nl2br\" autolinker></div><div \nclass=\"message-detail\"><span class=\"bold\">{{message.user.name}}</span>, <span am-time-ago=\"message.date\"></span></div>\n</div></div><div ng-if=\"vm.user.id !== message.user.id\"><img class=\"profile-pic left\" ng-src=\"{{message.user.src}}\">\n<div class=\"chat-bubble left\"><div class=\"message\" ng-bind-html=\"message.body | nl2br\" autolinker></div><div \nclass=\"message-detail\"><span class=\"bold\">{{message.user.name}}</span>, <span am-time-ago=\"message.date\"></span></div>\n</div></div><div class=\"cf\"></div></div></ion-content><form name=\"sendMessageForm\" \nng-submit=\"vm.sendMessage(sendMessageForm, vm.model)\" novalidate><ion-footer-bar \nclass=\"bar-stable item-input-inset message-footer\" keyboard-attach><label class=\"item-input-wrapper\"><textarea \nng-model=\"vm.model.text\" placeholder=\"{{ \'DIRECT.FORM.PLACEHOLDER\' | TRANSLATE}}\" required minlength=\"1\" \nmaxlength=\"1500\" msd-elastic></textarea></label><div class=\"footer-btn-wrap\"><button \nclass=\"button button-icon icon ion-android-send footer-btn\" type=\"submit\"></button></div></ion-footer-bar></form>\n</ion-view>");
 $templateCache.put("app/module/photogram/module/feedback/view/feedback.modal.html","<ion-modal-view class=\"modal-profile\"><ion-header-bar class=\"bar-dark\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closeModal()\"></button><div class=\"title\" \ntranslate=\"FEEDBACK.TITLE\"></div><button class=\"button button-positive\" ng-click=\"submitFeedback()\"><i \nclass=\"icon ion-arrow-right-b\"></i></button></ion-header-bar><ion-content><formly-form model=\"form\" form=\"rForm\" \nfields=\"formFields\"></formly-form></ion-content></ion-modal-view>");
-$templateCache.put("app/module/photogram/module/home/view/home.html","<ion-view class=\"view-home\"><ion-nav-title><span class=\"icon2-logo\"></span></ion-nav-title><ion-nav-buttons \nside=\"right\"><button class=\"button button-icon ion-ios-filing\" ui-sref=\"photogram.direct\"></button></ion-nav-buttons>\n<ion-content><ion-refresher ng-if=\"!vm.loading\" on-refresh=\"loadMore(true)\"></ion-refresher><photogram-loading \nloading=\"vm.loading\"></photogram-loading><photogram-photo-list profile=\"true\" photogram=\"vm.data\" loading=\"vm.loading\">\n</photogram-photo-list><div class=\"center-ico\" ng-if=\"vm.empty\"><i class=\"icon ion-ios-camera\"></i><h1 \ntranslate=\"HOME.TITLE.NO_PHOTO\"></h1></div><ion-infinite-scroll ng-if=\"!vm.loading && !vm.empty\" \non-infinite=\"vm.loadMore()\"></ion-infinite-scroll></ion-content></ion-view>");
+$templateCache.put("app/module/photogram/module/home/view/home.html","<ion-view class=\"view-home\"><ion-nav-title><span class=\"icon2-logo\"></span></ion-nav-title><ion-nav-buttons \nside=\"right\"><button class=\"button button-icon ion-ios-cart-outline\" buy></button> <button \nclass=\"button button-icon ion-ios-filing\" ui-sref=\"photogram.direct\"></button></ion-nav-buttons><ion-content>\n<ion-refresher ng-if=\"!vm.loading\" on-refresh=\"loadMore(true)\"></ion-refresher><photogram-loading loading=\"vm.loading\">\n</photogram-loading><photogram-photo-list profile=\"true\" photogram=\"vm.data\" loading=\"vm.loading\">\n</photogram-photo-list><div class=\"center-ico\" ng-if=\"vm.data.total==0\"><i class=\"icon ion-ios-camera\"></i><h1 \ntranslate=\"HOME.TITLE.NO_PHOTO\"></h1></div><ion-infinite-scroll ng-if=\"vm.data.galleries.length<vm.data.total\" \non-infinite=\"vm.loadMore()\"></ion-infinite-scroll></ion-content></ion-view>");
 $templateCache.put("app/module/photogram/module/photo/view/photogram.photo.html","<ion-view view-title=\"Photo\"><ion-content><div class=\"list card step1\"><div class=\"item item-avatar\" \ndata-affix-within-parent-with-class=\"card\" ion-affix><img ng-src=\"{{vm.data.user.img}}\"><h2>{{vm.data.user.name}}</h2>\n<span>{{vm.data.created | amTimeAgo}}</span></div><div class=\"item item-body\"><img ng-src=\"{{vm.data.img._url}}\" \nstyle=\"width: 100%\"></div><div class=\"padding\"><p>{{ vm.data.title }}</p><p><a class=\"subdued\" href=\"#\">\n1 {{ \'Like\' | translate}}</a></p></div></div><div class=\"list\"><div ng-repeat=\"item in vm.comments\" \nclass=\"item item-avatar\"><img ng-src=\"{{ item.user.img }}\"><h2>{{ item.user.name }}</h2><p>{{ item.text }}</p></div>\n</div><div class=\"step2\"><formly-form model=\"vm.form\" fields=\"vm.formFields\" form=\"rForm\"><div class=\"padding\"><button \nclass=\"button button-block button-positive\" type=\"button\" ng-click=\"vm.submitComment(rForm, vm.form)\" translate>Comment\n</button></div></formly-form></div></ion-content></ion-view>");
 $templateCache.put("app/module/photogram/module/photo/view/photogram.popover.home.html","<ion-popover-view><ion-content><div class=\"list\"><div class=\"item\" ui-sref=\"gallery.settings\" translate>Settings</div>\n<div class=\"item\" ui-sref=\"gallery.settings\" translate>About</div></div></ion-content></ion-popover-view>");
 $templateCache.put("app/module/photogram/module/search/view/photo.modal.html","<ion-modal-view class=\"modal-profile photogram-profile\"><ion-header-bar class=\"bar-positive\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closeModal()\"></button><div class=\"title\">\n{{ user.name }}</div></ion-header-bar><ion-content overflow-scroll=\"true\"><div class=\"profile-top\"><div class=\"row\">\n<div class=\"col-25\"><img class=\"avatar\" ng-src=\"{{ user.src }}\"></div><div class=\"col col-statics\"><div class=\"row\">\n<div class=\"col\"><photogram-loading loading=\"loadingPhotos\"></photogram-loading><span ng-if=\"!loadingPhotos\" \nclass=\"text-center\">{{ user.qtdPhotos }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.POST\">Posts</h3></div><div \nclass=\"col\"><photogram-loading loading=\"loadingFollowers\"></photogram-loading><span ng-if=\"!loadingFollowers\" \nclass=\"text-center\">{{ user.qtdFollowers }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.FOLLOWER\"></h3></div><div \nclass=\"col\"><photogram-loading loading=\"loadingFollowing\"></photogram-loading><span ng-if=\"!loadingFollowing\" \nclass=\"text-center\">{{ user.qtdFollowing }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.FOLLOWING\">Followings</h3>\n</div></div><div class=\"row col-edit\"><div class=\"col\"><photogram-loading loading=\"loadingFollow\"></photogram-loading>\n<button ng-if=\"!loadingFollow\" ng-class=\"{\'button-unfollow\': user.follow, \'button-follow\': !user.follow}\" \nng-click=\"follow()\" class=\"button\"><span ng-show=\"!user.follow\" translate>Follow</span> <span ng-show=\"user.follow\" \ntranslate>Following</span></button></div></div></div></div><div class=\"padding\"><span class=\"user-username\">\n{{ user.name }}</span><p class=\"user-status\">{{ user.status }}</p></div></div></ion-content></ion-modal-view>");
@@ -8741,7 +8885,7 @@ $templateCache.put("app/module/user/module/merge/view/user.merge.html","<ion-vie
 $templateCache.put("app/module/user/module/profile/view/grid.html","<ion-view hide-nav-bar><ion-content><div class=\"item item-divider\" translate>Grid List</div><div \nclass=\"center-ico animated fadeIn\" ng-if=\"vm.empty\"><i class=\"icon ion-camera\"></i><h1 translate=\"\">No Post</h1></div>\n<photogram-loading loading=\"vm.loading\"></photogram-loading><photogram-photo-grid photogram=\"vm.data\" \nloading=\"vm.loading\"></photogram-photo-grid></ion-content></ion-view>");
 $templateCache.put("app/module/user/module/profile/view/list.html","<ion-view hide-nav-bar><ion-content><div class=\"item item-divider\" translate>Recent List</div><div \nclass=\"center-ico animated fadeIn\" ng-if=\"vm.empty\"><i class=\"icon ion-camera\"></i><h1 translate=\"\">No Post</h1></div>\n<photogram-loading loading=\"vm.loading\"></photogram-loading><photogram-photo-list photogram=\"vm.data\" \nloading=\"vm.loading\"></photogram-photo-list></ion-content></ion-view>");
 $templateCache.put("app/module/user/module/profile/view/profile.edit.modal.html","<ion-modal-view class=\"modal-profile\"><ion-header-bar class=\"bar-positive\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closeModal()\"></button><div class=\"title\">\n{{ ::\'Edit Profile\' | translate }}</div></ion-header-bar><ion-content class=\"view-avatar\"><div class=\"row step1\"><div \nclass=\"col\"><img class=\"avatar\" user-avatar ng-src=\"{{ ::form.img._url || \'img/user.png\' }}\"></div></div><div \nclass=\"step2\"><label class=\"item item-input\"><i class=\"icon icon-envelope placeholder-icon\"></i> <input type=\"text\" \nng-model=\"form.email\" disabled=\"disabled\"></label><formly-form model=\"form\" fields=\"formFields\" form=\"rForm\">\n</formly-form></div><div class=\"padding step3\"><button ng-click=\"linkFacebook()\" ng-disabled=\"form.facebook\" \nclass=\"button button-block button-facebook\"><i class=\"icon ion-social-facebook\"></i> <span \ntranslate=\"PHOTOGRAM.BUTTON.FACEBOOK_LINK\"></span></button> <button class=\"button button-block button-positive\" \nng-click=\"submitUpdateProfile()\" translate=\"PHOTOGRAM.BUTTON.SAVE_PROFILE\"></button></div></ion-content>\n</ion-modal-view>");
-$templateCache.put("app/module/user/module/profile/view/profile.html","<ion-view cache-view=\"false\" class=\"photogram-profile\"><ion-nav-title><h1 class=\"title\">{{ ::vm.user.name }}</h1>\n</ion-nav-title><ion-nav-buttons side=\"right\"><button photogram-settings class=\"button button-icon icon ion-gear-a\">\n</button></ion-nav-buttons><ion-content class=\"animated fadeIn\"><div class=\"profile-top\"><div class=\"row\"><div \nclass=\"col-25\"><img class=\"avatar\" user-avatar ng-src=\"{{ ::currentUser.img._url || \'img/user.png\' }}\"></div><div \nclass=\"col col-statics\"><div class=\"row\"><div class=\"col\"><photogram-loading loading=\"loadingPhotos\">\n</photogram-loading><span ng-if=\"!loadingPhotos\" class=\"text-center\">{{ ::vm.user.qtdPhotos }}</span><h3 \ntranslate=\"PHOTOGRAM.PROFILE.TITLE.POST\">Posts</h3></div><div class=\"col\"><photogram-loading \nloading=\"loadingFollowers\"></photogram-loading><span ng-if=\"!loadingFollowers\" class=\"text-center\">\n{{ ::vm.user.qtdFollowers }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.FOLLOWER\"></h3></div><div class=\"col\">\n<photogram-loading loading=\"loadingFollowing\"></photogram-loading><span ng-if=\"!loadingFollowing\" class=\"text-center\">\n{{ ::vm.user.qtdFollowing }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.FOLLOWING\">Followings</h3></div></div><div \nclass=\"row col-edit\"><div class=\"col\"><button profile-modal-edit class=\"button\"><div \ntranslate=\"PHOTOGRAM.BUTTON.PROFILE_EDIT\"></div></button></div></div></div></div><div class=\"padding\"><span \nclass=\"user-username\">{{ ::currentUser.name }}</span><p class=\"user-status\">{{ ::currentUser.status }}</p></div></div>\n<div class=\"item bar\"><div class=\"button-bar\"><button class=\"button button-icon icon ion-drag\" \nng-class=\"{active: vm.tab.list}\" ng-click=\"vm.changeTab(\'list\')\"></button> <button \nclass=\"button button-icon icon ion-grid\" ng-class=\"{active: vm.tab.grid}\" ng-click=\"vm.changeTab(\'grid\')\"></button> \n<button class=\"button button-icon icon ion-ios-location\"></button></div></div><div class=\"item item-divider\" \ntranslate=\"PHOTOGRAM.MSG.RECENT\">Recent</div><div class=\"center-ico animated fadeIn\" ng-if=\"vm.empty\"><i \nclass=\"icon ion-camera\"></i><h1 translate=\"PHOTOGRAM.MSG.NO_POST\">No Post</h1></div><photogram-loading \nloading=\"vm.loading\"></photogram-loading><div class=\"tab\" ng-if=\"vm.tab.list\"><photogram-photo-list \nphotogram=\"vm.data\" loading=\"vm.loading\"></photogram-photo-list></div><div class=\"tab\" ng-if=\"vm.tab.grid\">\n<photogram-photo-grid photogram=\"vm.data\" loading=\"vm.loading\"></photogram-photo-grid></div></ion-content></ion-view>");
+$templateCache.put("app/module/user/module/profile/view/profile.html","<ion-view cache-view=\"false\" class=\"photogram-profile\"><ion-nav-title><h1 class=\"title\">{{ ::vm.user.name }}</h1>\n</ion-nav-title><ion-nav-buttons side=\"right\"><button photogram-settings class=\"button button-icon icon ion-gear-a\">\n</button></ion-nav-buttons><ion-content class=\"animated fadeIn\"><div class=\"profile-top\"><div class=\"row\"><div \nclass=\"col-25\"><img class=\"avatar\" user-avatar ng-src=\"{{ currentUser.img._url || \'img/user.png\' }}\"></div><div \nclass=\"col col-statics\"><div class=\"row\"><div class=\"col\"><photogram-loading loading=\"loadingPhotos\">\n</photogram-loading><span ng-if=\"!loadingPhotos\" class=\"text-center\">{{ ::vm.user.qtdPhotos }}</span><h3 \ntranslate=\"PHOTOGRAM.PROFILE.TITLE.POST\">Posts</h3></div><div class=\"col\"><photogram-loading \nloading=\"loadingFollowers\"></photogram-loading><span ng-if=\"!loadingFollowers\" class=\"text-center\">\n{{ ::vm.user.qtdFollowers }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.FOLLOWER\"></h3></div><div class=\"col\">\n<photogram-loading loading=\"loadingFollowing\"></photogram-loading><span ng-if=\"!loadingFollowing\" class=\"text-center\">\n{{ ::vm.user.qtdFollowing }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.FOLLOWING\">Followings</h3></div></div><div \nclass=\"row col-edit\"><div class=\"col\"><button profile-modal-edit class=\"button\"><div \ntranslate=\"PHOTOGRAM.BUTTON.PROFILE_EDIT\"></div></button></div></div></div></div><div class=\"padding\"><span \nclass=\"user-username\">{{ ::currentUser.name }}</span><p class=\"user-status\">{{ ::currentUser.status }}</p></div></div>\n<div class=\"item bar\"><div class=\"button-bar\"><button class=\"button button-icon icon ion-drag\" \nng-class=\"{active: vm.tab.list}\" ng-click=\"vm.changeTab(\'list\')\"></button> <button \nclass=\"button button-icon icon ion-grid\" ng-class=\"{active: vm.tab.grid}\" ng-click=\"vm.changeTab(\'grid\')\"></button> \n<button class=\"button button-icon icon ion-ios-location\"></button></div></div><div class=\"item item-divider\" \ntranslate=\"PHOTOGRAM.MSG.RECENT\">Recent</div><div class=\"center-ico animated fadeIn\" ng-if=\"vm.empty\"><i \nclass=\"icon ion-camera\"></i><h1 translate=\"PHOTOGRAM.MSG.NO_POST\">No Post</h1></div><photogram-loading \nloading=\"vm.loading\"></photogram-loading><div class=\"tab\" ng-if=\"vm.tab.list\"><photogram-photo-list \nphotogram=\"vm.data\" loading=\"vm.loading\"></photogram-photo-list></div><div class=\"tab\" ng-if=\"vm.tab.grid\">\n<photogram-photo-grid photogram=\"vm.data\" loading=\"vm.loading\"></photogram-photo-grid></div></ion-content></ion-view>");
 $templateCache.put("app/module/user/module/profile/view/profile.modal.html","<ion-modal-view class=\"modal-profile photogram-profile\"><ion-header-bar class=\"bar-positive\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closeModal()\"></button><div class=\"title\">\n{{ user.name }}</div></ion-header-bar><ion-content overflow-scroll=\"true\"><div class=\"profile-top\"><div class=\"row\">\n<div class=\"col-25\"><img class=\"avatar\" ng-src=\"{{ user.src }}\"></div><div class=\"col col-statics\"><div class=\"row\">\n<div class=\"col\"><photogram-loading loading=\"loadingPhotos\"></photogram-loading><span ng-if=\"!loadingPhotos\" \nclass=\"text-center\">{{ user.qtdPhotos }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.POST\">Posts</h3></div><div \nclass=\"col\"><photogram-loading loading=\"loadingFollowers\"></photogram-loading><span ng-if=\"!loadingFollowers\" \nclass=\"text-center\">{{ user.qtdFollowers }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.FOLLOWER\"></h3></div><div \nclass=\"col\"><photogram-loading loading=\"loadingFollowing\"></photogram-loading><span ng-if=\"!loadingFollowing\" \nclass=\"text-center\">{{ user.qtdFollowing }}</span><h3 translate=\"PHOTOGRAM.PROFILE.TITLE.FOLLOWING\">Followings</h3>\n</div></div><div class=\"row col-edit\"><div class=\"col\"><photogram-loading loading=\"loadingFollow\"></photogram-loading>\n<button ng-if=\"!loadingFollow\" ng-class=\"{\'button-unfollow\': user.follow, \'button-follow\': !user.follow}\" \nng-click=\"follow()\" class=\"button\"><span ng-show=\"!user.follow\" translate>Follow</span> <span ng-show=\"user.follow\" \ntranslate>Following</span></button></div></div></div></div><div class=\"padding\"><span class=\"user-username\">\n{{ user.name }}</span><p class=\"user-status\">{{ user.status }}</p></div></div><div class=\"item bar\"><div \nclass=\"button-bar\"><button class=\"button button-icon icon ion-drag\" ng-class=\"{active: tab.list}\" \nng-click=\"changeTab(\'list\')\"></button> <button class=\"button button-icon icon ion-grid\" ng-class=\"{active: tab.grid}\" \nng-click=\"changeTab(\'grid\')\"></button> <button class=\"button button-icon icon ion-ios-location\"></button></div></div>\n<div class=\"item item-divider\" translate>Recent</div><div class=\"center-ico animated fadeIn\" ng-if=\"empty\"><i \nclass=\"icon ion-camera\"></i><h1 translate=\"\">No Post</h1></div><photogram-loading loading=\"loading\">\n</photogram-loading><div class=\"tab\" ng-if=\"tab.list\"><photogram-photo-list photogram=\"data\" user=\"false\" \nloading=\"loading\"></photogram-photo-list></div><div class=\"tab\" ng-if=\"tab.grid\"><photogram-photo-grid \nphotogram=\"data\" user=\"false\" loading=\"loading\"></photogram-photo-grid></div></ion-content></ion-modal-view>");
 $templateCache.put("app/module/user/module/profile/view/profile.photos.html","<ion-view title=\"{{\'Profile\' | translate}}\" class=\"profile\"><ion-content scroll=\"false\"><h2>Fotos</h2></ion-content>\n</ion-view>");
 $templateCache.put("app/module/user/module/signin/view/user.signin.html","<ion-view class=\"view-login\" view-title=\"{{ ::\'USER.BUTTON.ENTER\' | translate }}\"><ion-content padding=\"false\"><div \nclass=\"padding\"><formly-form model=\"vm.form\" fields=\"vm.formFields\" form=\"vm.rForm\"><button recovery-pass \nclass=\"button button-right button-block button-clear\"><span></span></button> <button \nclass=\"button button-block button-positive\" type=\"button\" ng-disabled=\"vm.rForm.$invalid\" \nng-click=\"vm.submitLogin(vm.rForm, vm.form)\" translate=\"USER.BUTTON.ENTER\"></button></formly-form><div class=\"line\">\n<div class=\"left\"></div><span translate=\"USER.OR\">or</span><div class=\"right\"></div></div><button \nng-click=\"vm.facebook()\" class=\"button button-block button-facebook\"><i class=\"icon ion-social-facebook\"></i> <span>\n{{ ::\'USER.BUTTON.LOGIN_SOCIAL\'| translate}}Facebook</span></button></div></ion-content></ion-view>");

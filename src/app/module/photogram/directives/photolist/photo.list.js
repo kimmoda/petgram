@@ -20,7 +20,8 @@
     };
   }
 
-  function photogramPhotoListCtrl(AppConfig, Photogram, $scope, $ionicPopup, PhotogramFeedbackForm, PhotogramFeedback,
+  function photogramPhotoListCtrl(AppConfig, $window, Photogram, $scope, $ionicPopup, PhotogramFeedbackForm,
+    PhotogramFeedback,
     $ionicActionSheet, $ionicModal) {
     var vm = this;
     var path = AppConfig.path;
@@ -56,7 +57,6 @@
     }
 
     function likePhoto(gallery) {
-      //gallery.item.likeProgress = true;
       gallery.item.liked = !gallery.item.liked;
       Photogram
         .likeGallery(gallery.id)
@@ -187,10 +187,14 @@
       console.log('Social Share', post);
       var message = ("I'm at ") + AppConfig.app.name + '! ' + (
         'Install the application and follow me!') + ' ' + AppConfig.app.url;
-      window
-        .plugins
-        .socialsharing
-        .share(post.text + ', ' + message, post.text, post.image, null);
+      if ($window.cordova) {
+        window
+          .plugins
+          .socialsharing
+          .share(post.text + ', ' + message, post.text, post.image, null);
+      } else {
+        alert('Only in smartphone');
+      }
     }
 
   }

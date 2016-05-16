@@ -47,7 +47,7 @@
 
             console.log(data);
 
-            
+
             if (data.name.length) {
               $state.go(vm.routeLogged, {
                 clear: true

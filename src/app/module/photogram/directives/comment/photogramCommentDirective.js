@@ -31,6 +31,7 @@
         scope.deleteComment = deleteComment;
         scope.editComment = editComment;
         scope.closeModal = closeModal;
+
         elem.bind('click', openModalComment);
 
         function init() {
@@ -154,7 +155,7 @@
           scope.modal.remove();
         }
       }
-    }
+    };
   }
 
 })();

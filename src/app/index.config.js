@@ -68,8 +68,10 @@
     var langvar = navigator.language || navigator.userlanguage;
     var userlangvar = langvar.split('-')[0];
     var language = AppConfig.preferredLocale;
-    var searchLang = _.some(AppConfig.locales, {code: userlangvar});
-    if ( searchLang ) {
+    var searchLang = _.some(AppConfig.locales, {
+      code: userlangvar
+    });
+    if (searchLang) {
       language = userlangvar;
     }
     $translateProvider.preferredLanguage(language);

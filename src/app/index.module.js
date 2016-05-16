@@ -15,6 +15,7 @@
       'ngFacebook',
       'uiGmapgoogle-maps',
       'angular-cache',
+      'ngParse',
       'ngCordova',
       'app.intro',
       'app.loading',

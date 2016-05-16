@@ -12,21 +12,21 @@
       scope: {
         ngModel: '='
       },
-      link: function (scope, elem, attr) {
+      link: function (scope, elem) {
         elem.bind('click', likePhotogram);
 
         function likePhotogram() {
 
           console.log('photogram', scope.ngModel);
-          var photogram = scope.ngModel.item;
-          photogram.likeProgress = true;
-          photogram.liked = !photogram.liked;
+          var _model = scope.ngModel;
+          _model.progress = true;
+          _model.liked = !_model.liked;
           Photogram
             .likeGallery(scope.ngModel.id)
             .then(function (resp) {
-              photogram.qtdLike = resp.likes;
-              delete photogram.likeProgress;
-              console.log(photogram, resp);
+              _model.likes = resp.likes;
+              _model.progress = false;
+              console.log(_model, resp);
             });
           scope.$apply();
         }
@@ -80,7 +80,7 @@
         }
 
       }
-    }
+    };
   }
 
 

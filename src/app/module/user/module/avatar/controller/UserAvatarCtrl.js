@@ -23,7 +23,7 @@
       vm.form = {
         name: user.name,
         email: user.email,
-        status : user.status,
+        status: user.status,
         gender: user.gender,
         img: user.img,
         username: user.username

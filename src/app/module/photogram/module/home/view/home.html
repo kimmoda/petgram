@@ -4,6 +4,7 @@
   </ion-nav-title>
 
   <ion-nav-buttons side="right">
+    <button class="button button-icon ion-ios-cart-outline" buy></button>
     <button class="button button-icon ion-ios-filing" ui-sref="photogram.direct"></button>
 
   </ion-nav-buttons>
@@ -15,13 +16,13 @@
 
     <photogram-photo-list profile="true" photogram="vm.data" loading="vm.loading"></photogram-photo-list>
 
-    <div class="center-ico" ng-if="vm.empty">
+    <div class="center-ico" ng-if="vm.data.total==0">
       <i class="icon ion-ios-camera"></i>
 
       <h1 translate="HOME.TITLE.NO_PHOTO"></h1>
     </div>
 
-    <ion-infinite-scroll ng-if="!vm.loading && !vm.empty" on-infinite="vm.loadMore()"></ion-infinite-scroll>
+    <ion-infinite-scroll ng-if="vm.data.galleries.length<vm.data.total" on-infinite="vm.loadMore()"></ion-infinite-scroll>
 
   </ion-content>
 </ion-view>
