@@ -26,7 +26,7 @@ $dark: #25272a !default;
 $ionicons-font-path: '../fonts' !default;
 
 // Include all of Ionic
-@import "bower_components/ionic/scss/ionic";
+@import "../bower_components/ionic/scss/ionic";
 @import "splash";
 @import "animate";
 @import "socialbuttons";

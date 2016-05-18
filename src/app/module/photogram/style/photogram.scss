@@ -131,10 +131,12 @@
   .item-buttons {
     padding: 0;
     border-top: none;
+    border-bottom: 1px solid #ccc;
 
     .row {
       padding: 0;
       button {
+        color: #979797;
         font-size: 28px;
         position: relative;
       }

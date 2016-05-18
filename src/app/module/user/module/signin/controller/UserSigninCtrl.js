@@ -13,7 +13,7 @@
     .module('app.user')
     .controller('UserSigninCtrl', UserSigninController);
 
-  function UserSigninController(AppConfig, UserForm, Loading, $state, Notify, User) {
+  function UserSigninController(AppConfig, UserForm, Parse, Loading, $state, Notify, User) {
     var vm = this;
     vm.formFields = UserForm.login;
     vm.routeLogged = AppConfig.routes.home;
@@ -28,7 +28,7 @@
         password: ''
       };
 
-      if (window.Parse.User.current()) {
+      if (Parse.User.current()) {
         $state.go(vm.routeLogged, {
           clear: true
         });
@@ -46,7 +46,6 @@
           .then(function (data) {
 
             console.log(data);
-
 
             if (data.name.length) {
               $state.go(vm.routeLogged, {

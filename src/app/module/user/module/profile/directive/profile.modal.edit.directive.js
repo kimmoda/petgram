@@ -33,7 +33,7 @@
 
 
         function init() {
-          var user = User.currentUser();
+          var user = Parse.User.current().attributes;
           scope.form = {
             name: user.name,
             email: user.email,

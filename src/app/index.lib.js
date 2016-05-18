@@ -1,3 +1,4 @@
+/*
 // -------------------------------------------------------------
 // Rollbar - must be first
 // -------------------------------------------------------------
@@ -192,8 +193,8 @@
 
 }());
 
-/* Google Analytics
- * */
+/!* Google Analytics
+ * *!/
 
 (function (i, s, o, g, r, a, m) {
   i['GoogleAnalyticsObject'] = r;
@@ -209,4 +210,4 @@
 })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
 ga('create', 'UA-53950213-5', {
   'cookieDomain': 'none'
-});
+});*/
