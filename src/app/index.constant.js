@@ -22,28 +22,28 @@
         appId: 'myAppId',
         server: 'https://photogramserver.herokuapp.com/parse/'
       },
-      locales: {
-        pt: {
-          'translation': 'LANG.PORTUGUES',
-          'code': 'pt'
+      locales: [
+        {
+          translation: 'LANG.PORTUGUES',
+          code: 'pt'
         },
-        en: {
-          'translation': 'LANG.ENGLISH',
-          'code': 'en'
+        {
+          translation: 'LANG.ENGLISH',
+          code: 'en'
         },
-        tr: {
-          'translation': 'LANG.TURKISH',
-          'code': 'tr'
+        {
+          translation: 'LANG.TURKISH',
+          code: 'tr'
         },
-        fa: {
-          'translation': 'LANG.PERSIAN',
-          'code': 'fa'
+        {
+          translation: 'LANG.PERSIAN',
+          code: 'fa'
         },
-        de: {
-          'translation': 'LANG.GERMAN',
-          'code': 'de'
+        {
+          translation: 'LANG.GERMAN',
+          code: 'de'
         }
-      },
+      ],
       preferredLocale: 'en'
     };
   }

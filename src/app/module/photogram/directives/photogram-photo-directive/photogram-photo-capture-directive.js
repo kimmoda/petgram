@@ -2,20 +2,7 @@
   'use strict';
   angular
     .module('app.photogram')
-    .directive('photogramPhotoCapture', photogramPhotoCapture)
-    .directive('photogramLoading', photogramLoading);
-
-  function photogramLoading() {
-    return {
-      restrict: 'E',
-      scope: {
-        loading: '=',
-        icon: '@'
-      },
-      template: '<div class="padding text-center loading" ng-show="loading"><ion-spinner icon="{{ icon }}"></ion-spinner></div>'
-    };
-  }
-
+    .directive('photogramPhotoCapture', photogramPhotoCapture);
 
   function photogramPhotoCapture($ionicModal, $cordovaGeolocation, AppConfig, Loading, $state, PhotoService,
     Photogram) {

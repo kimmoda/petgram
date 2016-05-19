@@ -30,7 +30,10 @@
         scope.submitComment = submitComment;
         scope.deleteComment = deleteComment;
         scope.editComment = editComment;
-        scope.closeModal = closeModal;
+        scope.closeModal = function () {
+          scope.modal.hide();
+          scope.modal.remove();
+        };
 
         elem.bind('click', openModalComment);
 
@@ -150,10 +153,7 @@
           }
         }
 
-        function closeModal() {
-          scope.modal.hide();
-          scope.modal.remove();
-        }
+
       }
     };
   }

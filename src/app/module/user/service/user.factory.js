@@ -51,8 +51,8 @@
                 loadProfile();
             } else {
                 console.log('Not logged user, go intro');
-                logout();
-                $location.path(AppConfig.routes.login);
+                // logout();
+                // $location.path(AppConfig.routes.login);
             }
         }
 

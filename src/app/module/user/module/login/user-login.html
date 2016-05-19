@@ -1,0 +1,30 @@
+<ion-view id="user-login">
+
+    <ion-content class="padding">
+        <button class="button button-block button-clear button-light button-language" modal-language>{{vm.language.translation | translate}} <i class="icon ion-chevron-down"></i></button>
+
+        <div class="area1">
+            <div class="logo">
+                <span class="icon2-logo"></span>
+            </div>
+            <span class="desc">Cadastre-se para ver fotos e <br> vídeos de seus amigos.</span>
+        </div>
+
+        <button facebook-login class="button button-block button-facebook"><i
+                class="icon ion-social-facebook"></i>
+            <span>{{ ::'USER.BUTTON.LOGIN_SOCIAL'| translate}}Facebook</span>
+        </button>
+
+        <div class="or">
+            <div class="line"></div>
+            <span>Ou</span>
+            <div class="line"></div>
+        </div>
+        <button class="button button-block button-light button-clear">Cadastre-se com o e-mail ou telefone</button>
+
+        <span class="term">Ao se cadastrar você concorda com os <a href="">Termos</a> e <a href="">Política de Privacidade</a></span>
+
+        <button class="button button-block button-light button-clear button-footer">Já tem uma conta? Faça login.</button>
+    </ion-content>
+
+</ion-view>

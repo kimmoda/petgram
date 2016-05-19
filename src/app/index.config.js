@@ -74,8 +74,8 @@
     if (searchLang) {
       language = userlangvar;
     }
-    $translateProvider.preferredLanguage(language);
-    moment.locale(language);
+    $translateProvider.preferredLanguage(language.code);
+    moment.locale(language.code);
   }
 
   function configIonic($ionicConfigProvider) {
@@ -122,8 +122,5 @@
       firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
     }
   }
-
-
-
 
 })();
