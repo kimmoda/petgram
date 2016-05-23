@@ -1,6 +1,24 @@
 (function () {
-  'use strict';
-  angular
-    .module('app.account', []);
+    'use strict';
+    angular
+        .module('app.account', [])
+        .config(configRoutes);
 
+    var path = 'app/module/photogram/module/account';
+
+    function configRoutes($stateProvider) {
+        $stateProvider
+
+
+            .state('photogram.account', {
+                url: '/account',
+                views: {
+                    tabProfile: {
+                        controller: 'PhotogramAccountCtrl',
+                        controllerAs: 'vm',
+                        templateUrl: 'app/module/photogram/module/account/account.html'
+                    }
+                }
+            });
+    }
 })();

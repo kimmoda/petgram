@@ -83,21 +83,7 @@
     color: $positive;
   }
 
-  .list {
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    margin: 0;
-    margin-bottom: 15px;
 
-    .card {
-      margin: 0;
-      border: none;
-      box-shadow: none;
-      padding: 0
-    }
-
-  }
 
   .item-body {
     padding: 0;
@@ -128,29 +114,7 @@
     line-height: 14px;
   }
 
-  .item-buttons {
-    padding: 0;
-    border-top: none;
-    border-bottom: 1px solid #ccc;
 
-    .row {
-      padding: 0;
-      button {
-        color: #979797;
-        font-size: 28px;
-        position: relative;
-      }
-
-      button.ion-ios-heart {
-        color: #a00;
-      }
-
-      button:last-child {
-        padding-right: 20px;
-      }
-    }
-
-  }
 
   .list-comments {
 

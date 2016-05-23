@@ -28,9 +28,6 @@
         "cordova-plugin-imagepicker": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
         "cordova-plugin-media-capture": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
@@ -47,6 +44,9 @@
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-themeablebrowser": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         }
     },

@@ -1,26 +1,24 @@
 (function () {
-  'use strict';
-  angular
-    .module('starter', [
-      'ionic',
-      //'ionic.service.core',
-      //'ionic.service.analytics',
-      'ionic-cache-src',
-      'formlyIonic',
-      'ngCookies',
-      'pascalprecht.translate', // angular-translate
-      'tmh.dynamicLocale', // angular-dynamic-locale
-      'angularMoment',
-      'ionic.components',
-      'ngFacebook',
-      'uiGmapgoogle-maps',
-      'angular-cache',
-      'ngParse',
-      'ngCordova',
-      'app.intro',
-      'app.loading',
-      'app.user',
-      'app.photogram',
-    ]);
+    'use strict';
+    angular
+        .module('starter', [
+            'ionic',
+            'ionic-cache-src',
+            'formlyIonic',
+            'ngCookies',
+            'pascalprecht.translate', // angular-translate
+            'tmh.dynamicLocale', // angular-dynamic-locale
+            'angularMoment',
+            'ngFacebook',
+            'uiGmapgoogle-maps',
+            'angular-cache',
+            'ngParse',
+            'ngCordova',
+            'ionic.components',
+            'app.loading',
+            'app.intro',
+            'app.user',
+            'app.photogram',
+        ]);
 
 })();

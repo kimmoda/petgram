@@ -5,6 +5,7 @@
       'ionic',
       'ionic-loading',
       // 'ion-affix',
+      'ion-href',
       'ion-photo',
       'ion-location',
       'ion-notify',

@@ -1,0 +1,29 @@
+<ion-view id="user-layout">
+
+    <ion-content class="padding">
+        <button class="button button-block button-clear button-light button-language" modal-language ng-model="vm.language">{{vm.language.translation | translate}} <i class="icon ion-chevron-down"></i></button>
+
+        <div class="area1 step1">
+            <div class="logo">
+                <span class="icon2-logo"></span>
+            </div>
+            <span class="desc">{{::'USER.DESC1' | translate}} <br> {{::'USER.DESC2' | translate}}</span>
+        </div>
+
+        <div class="step2">
+            <facebook-login></facebook-login>
+
+            <div class="or">
+                <div class="line"></div>
+                <span>Ou</span>
+                <div class="line"></div>
+            </div>
+            <button class="button button-block button-light button-outline" ui-sref="user.register" translate>USER.BUTTON.SIGNUP</button>
+
+            <span class="term">{{::'USER.TERM' | translate}} <a href="">{{::'USER.TERM1' | translate}}</a> e <a href="">{{::'USER.TERM2' | translate}}</a></span>
+        </div>
+
+        <button class="button button-block button-light button-clear button-footer" ui-sref="user.login"  translate="USER.BUTTON.SIGNIN"></button>
+    </ion-content>
+
+</ion-view>

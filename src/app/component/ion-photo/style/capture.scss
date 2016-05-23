@@ -1,6 +1,11 @@
 .photogram {
   // Capture View
 
+  .scroll {
+    height:100%;
+    min-width: 100%;
+  }
+
   .title.text-left {
     text-align: left;
   }
@@ -22,8 +27,8 @@
   .modal-capture {
 
     .scroll, ion-content {
-      background-color: #000;
-      color: #fff;
+      background-color: #fff;
+      color: #000;
     }
 
   }
@@ -62,9 +67,14 @@
   }
 
   .wide-as-needed {
+    position: absolute;
+    bottom: 0;
+    height: 150px;
     overflow: scroll;
     white-space: nowrap;
     padding-left: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
 
     ion-spinner {
       position: absolute;
@@ -87,7 +97,7 @@
         position: relative;
         overflow: hidden;
         border-radius: 10px;
-        background: #333;
+        background: #ccc;
         height: 100px;
         width: 100px;
 
@@ -116,10 +126,6 @@
       }
     }
 
-  }
-
-  .scroll {
-    min-width: 100%;
   }
 
 }
