@@ -2,332 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9eabd7a-7d96-4ddd-9e94-d83aa3ae9f81" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/doc/images/android_menu_sample_01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/doc/images/android_sample_01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/doc/images/ios_menu_sample_01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/doc/images/ios_sample_01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/back.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/back_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/close.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/close_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/forward.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/forward_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/menu.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/menu_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/share.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/res/drawable-xhdpi/share_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/back@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/back_pressed@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/close@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/close_pressed@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/forward@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/forward_pressed@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/menu@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/menu_pressed@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/share@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/share_pressed@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ubuntu/close.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/tests/resources/local.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jsconfig.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/browser.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/NOTICE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/RELEASENOTES.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/de/index.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/es/index.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/fr/index.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/it/index.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/ja/index.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/ko/index.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/pl/index.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/ru/index.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/legacy_doc/zh/index.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/plugin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/amazon/InAppBrowser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/amazon/InAppChromeClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/InAppChromeClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/ThemeableBrowser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/ThemeableBrowserDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/android/ThemeableBrowserUnmarshaller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/blackberry10/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/browser/InAppBrowserProxy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/firefoxos/InAppBrowserProxy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/CDVThemeableBrowser.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/CDVThemeableBrowser.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ios/Resources/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ubuntu/InAppBrowser.qml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ubuntu/InAppBrowser_escapeScript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ubuntu/inappbrowser.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/ubuntu/inappbrowser.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/windows/InAppBrowserProxy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/src/wp/InAppBrowser.cs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/tests/plugin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/tests/resources/inject.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/tests/resources/inject.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/tests/resources/inject.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/tests/resources/local.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/tests/resources/video.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/tests/tests.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/www/inappbrowser.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/www/themeablebrowser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-themeablebrowser/www/windows8/InAppBrowserProxy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/_variables.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/component/ion-href/ion-href.module.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/directives/photo-share.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/intro/intro.ctrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/loading/loading.ctrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/feedback/photogram-feedback-form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/photogrid/photo.grid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/photolist/gallery.photo.list.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/account/account.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct-message/direct-message.module.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/home.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/photogram-search.ctrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/search.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/photogram/style/_jrcrop.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/intro/user-intro.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/layout/user-layout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/layout/user-login.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/merge/merge.ctrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/merge/merge.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/module/user/module/register/user-register.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/maps/scripts/app-3f06ae2b73.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/maps/scripts/app-9e287ce441.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/maps/scripts/vendor-c5170bd000.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/scripts/app-3f06ae2b73.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/scripts/app-9e287ce441.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/_splash.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_backdrop.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_bar.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_button.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_colors.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_items.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_loading.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_material.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_mixins.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_shadow.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_tabs.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/_themes.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/_pallets.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/amber.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/blue-gray.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/blue.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/brown.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/cyan.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/dark.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/deep-orange.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/deep-purple.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/green.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/grey.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/indigo.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/light-blue.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/light-green.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/light.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/lime.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/orange.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/pink.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/purple.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/red.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/teal.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scss/material/themes/yellow.sass" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/intro/controller/intro.ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/intro/intro.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/loading/controller/loading.ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/loading/loading.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/loading/view/loading.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/photogrid/photo.grid.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/photolist/gallery.photo.list.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/account/account.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/activity/activity.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/activity/controller/notify.ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/activity/service/parseprush.factory.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/feedback/feedback.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/home/home.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/search/controller/search.grid.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/search/controller/search.map.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/search/search.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/search/view/photo.modal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/search/view/photogram.search.grid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/search/view/photogram.search.map.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/search/view/photogram.search.tabs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/photogram.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/photogram/view/photogram.view.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/avatar/user.avatar.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/avatar/user.avatar.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/friend/user.friend.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/friend/user.friend.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/friend/view/user.list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/login/user-login.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/logout/user.logout.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/merge/controller/user.merge.ctrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/merge/user.merge.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/merge/view/user.merge.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/controller/PhotogramProfilePhotoCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/controller/UserProfileCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/style/gallery.profile.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/style/profile.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/user.profile.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/view/profile.photos.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/signin/user.signin.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/signin/user.signin.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/signin/view/user.signin.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/signup/user.signup.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/signup/user.signup.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/signup/view/user.signup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/term/directive/openTermsDirective.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/term/user.term.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/module/term/user.term.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/user.routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/module/user/view/user.tabs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/bg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-f5c64794de.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/vendor-a12ead658f.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-ddd462bb68.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-f5c64794de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/vendor-b6752a53e7.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ionic.project" afterPath="$PROJECT_DIR$/ionic.config.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/intro/style/intro.scss" afterPath="$PROJECT_DIR$/src/app/module/intro/intro.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/intro/view/intro.html" afterPath="$PROJECT_DIR$/src/app/module/intro/intro.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/loading/style/loading.scss" afterPath="$PROJECT_DIR$/src/app/module/loading/loading.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/controller/PhotogramTabsCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/tabs/PhotogramTabsCtrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/buy/buy.directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/buy/buy.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/comment/comment.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/comment/comment.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/comment/photogram.comment.directive.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/comment/photogram.comment.directive.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/comment/photogramCommentDirective.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/comment/photogramCommentDirective.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/facebook-login/facebook-login.directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/facebook-login/facebook-login.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/follow/photo.follow.modal.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/follow/photo.follow.modal.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/follow/photogram.follow.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/follow/photogram.follow.modal.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/heart/heart.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/heart/heart.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/heart/heartDirective.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/heart/heartDirective.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/heart/heartDirectiveSpec.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/heart/heartDirectiveSpec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/like/photo.like.modal.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/like/photo.like.modal.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/like/photogram.like.directive.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/like/photogram.like.directive.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/modal-language/modal-language.directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/modal-language/modal-language.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/modal-language/modal-language.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/modal-language/modal-language.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/photogram-loading/photogram-loading.directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/photogram-loading/photogram-loading.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/photogram-photo-directive/photogram-photo-capture-directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/photogram-photo-directive/photogram-photo-capture-directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/photogrid/gallery.photo.grid.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/photogrid/gallery.photo.grid.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/photogrid/photogram.photos.grid.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/photogrid/photo-grid.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/photolist/photo.list.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/photolist/photo.list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/photolist/photo.list.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/photolist/photo.list.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/search/ion-search.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/search/ion-search.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/search/search.directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/search/search.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/settings/photogram.settings.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/settings-modal/photogram.settings.modal.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/directives/settings/settings.directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/settings-modal/settings.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/activity/controller/activy.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/activy.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/activity/view/photogram.activity.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/activity.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/direct/controller/direct.home.ctl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.home.ctl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/direct/controller/direct.messages.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct-message/direct.message.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/direct/service/direct.factory.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/direct/style/direct.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/direct/view/direct.home.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.home.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/direct/view/direct.messages.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct-message/direct-message.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogram.feedback.model.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/feedback/photogram-feedback-factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/feedback/controller/photogramPhotoFeedbackDirective.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/feedback/photogramPhotoFeedbackDirective.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/feedback/view/feedback.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/feedback/feedback-modal.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/home/controller/PhotogramHomeCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/PhotogramHomeCtrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/home/style/home.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/home.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/home/view/home.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/home.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/photo/controller/photogram.photo.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/photogram.photo.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/photo/controller/photogram.photo.previewctrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/photogram.photo.previewctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/photo/controller/photogram.photo.view.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/photogram.photo.view.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/photo/view/photogram.photo.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/photogram.photo.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/photo/view/photogram.popover.home.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/photo/photogram.popover.home.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/search/style/map.scss" afterPath="$PROJECT_DIR$/scss/_map.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/share/view/photogram.post.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.post.modal.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/share/view/photogram.share.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/share/photogram.share.modal.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/services/PhotogramFactory.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/service/photogram-factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/services/PhotogramSettingFactory.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/service/photogram-setting-factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/services/PhotogramShareFactory.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/service/photogram-share-factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/services/photogram.form.factory.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/service/photogram-form-factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/photogram/view/photogram.tabs.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/tabs/photogram-tabs.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/avatar/controller/UserAvatarCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/avatar/UserAvatarCtrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/avatar/directive/userAvatarDirective.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/avatar/userAvatarDirective.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/avatar/view/user.avatar.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/avatar/user.avatar.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/login/user-login.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/intro/user-intro.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/logout/controller/logout.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/logout/logout.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/controller/PhotogramProfileCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/account/account.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/directive/profile.modal.directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/profile-modal/profile.modal.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/directive/profile.modal.edit.directive.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/profile-edit-modal/profile-edit-modal.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/view/profile.edit.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/profile-edit-modal/profile-edit-modal.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/view/profile.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/account/account.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/profile/view/profile.modal.html" afterPath="$PROJECT_DIR$/src/app/module/photogram/directive/profile-modal/profile-modal.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/recovery/controller/user.recovery.pass.ctrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/recovery/user.recovery.pass.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/recovery/directive/recovery.pass.directive.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/recovery/recovery.pass.directive.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/signin/controller/UserSigninCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/login/user-login.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/module/signup/controller/UserSignupCtrl.js" afterPath="$PROJECT_DIR$/src/app/module/user/module/register/user-register.ctrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/service/user.factory.js" afterPath="$PROJECT_DIR$/src/app/module/user/service/user-factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/service/user.form.factory.js" afterPath="$PROJECT_DIR$/src/app/module/user/service/user-form-factory.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/module/user/style/user.scss" afterPath="$PROJECT_DIR$/src/app/module/user/user.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/scripts/vendor-a12ead658f.js" afterPath="$PROJECT_DIR$/www/scripts/vendor-c5170bd000.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/icon.png" afterPath="$PROJECT_DIR$/resources/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/splash.png" afterPath="$PROJECT_DIR$/resources/splash.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/icon.png" afterPath="$PROJECT_DIR$/src/img/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/icon.png" afterPath="$PROJECT_DIR$/www/img/icon.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/fetch.json" afterPath="$PROJECT_DIR$/plugins/fetch.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/ios.json" afterPath="$PROJECT_DIR$/plugins/ios.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/ionic.app.scss" afterPath="$PROJECT_DIR$/scss/ionic.app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/components.module.js" afterPath="$PROJECT_DIR$/src/app/component/components.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/services/photofilter.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/services/photofilter.factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/services/photoservice.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/services/photoservice.factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/style/capture.scss" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/style/capture.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.config.js" afterPath="$PROJECT_DIR$/src/app/index.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.constant.js" afterPath="$PROJECT_DIR$/src/app/index.constant.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.lib.js" afterPath="$PROJECT_DIR$/src/app/index.lib.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.module.js" afterPath="$PROJECT_DIR$/src/app/index.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/intro/intro.module.js" afterPath="$PROJECT_DIR$/src/app/module/intro/intro.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/loading/loading.module.js" afterPath="$PROJECT_DIR$/src/app/module/loading/loading.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/account/account.module.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/account/account.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/activity/activity.module.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/activity/activity.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.module.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/direct/direct.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/home/home.module.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/home/home.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/module/search/search.module.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/module/search/search.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/photogram.module.js" afterPath="$PROJECT_DIR$/src/app/module/photogram/photogram.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/photogram/style/photogram.scss" afterPath="$PROJECT_DIR$/src/app/module/photogram/style/photogram.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/user/i18n/pt.json" afterPath="$PROJECT_DIR$/src/app/module/user/i18n/pt.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/user/module/login/user-login.html" afterPath="$PROJECT_DIR$/src/app/module/user/module/login/user-login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/module/user/user.module.js" afterPath="$PROJECT_DIR$/src/app/module/user/user.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/module/user/i18n/pt.json" afterPath="$PROJECT_DIR$/www/app/module/user/i18n/pt.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/styles/app.css" afterPath="$PROJECT_DIR$/www/styles/app.css" />
     </list>
     <ignored path="photogram.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -347,7 +22,18 @@
     <favorites_list name="photogram" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.module.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/index.module.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -587,144 +273,6 @@
               <option name="myItemId" value="module" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="directive" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photogram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -848,12 +396,12 @@
       <workItem from="1463793784843" duration="15000" />
       <workItem from="1463855977462" duration="2258000" />
       <workItem from="1463960901376" duration="15000" />
-      <workItem from="1463960918281" duration="5251000" />
+      <workItem from="1463960918281" duration="5430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51720000" />
+    <option name="totallyTimeSpent" value="51899000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -866,7 +414,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -875,7 +423,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31774417" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25859374" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25859374" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="ReST Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1110,14 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index.module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/index.lib.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1318,6 +858,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/index.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding />
         </state>
       </provider>
