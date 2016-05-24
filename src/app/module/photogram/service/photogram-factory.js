@@ -10,8 +10,7 @@
         var limitComment = 3;
 
         return {
-            addActivity: addActivity,
-            listActivity: listActivity,
+            // Feed
             all: all,
             feed: feed,
             post: post,
@@ -19,9 +18,10 @@
             deletePhoto: deletePhoto,
             find: find,
             nearby: nearby,
+            // Activity
+            addActivity: addActivity,
+            listActivity: listActivity,
             // User
-            profile: profile,
-            getUser: getUser,
             getUserGallery: getUserGallery,
             getUserGalleryQtd: getUserGalleryQtd,
             // Comment
@@ -458,9 +458,9 @@
                                                     liked: liked,
                                                     src: item.attributes.img.url(),
                                                     comments: commentsData,
-                                                    user: item.attributes.user.attributes
+                                                    user: item.attributes.user
                                                 };
-                                                // console.table(obj);
+                                                console.table(obj);
                                                 _result.galleries.push(obj);
                                                 cb();
                                             });
@@ -469,7 +469,6 @@
                             });
                         });
                 });
-
             return defer.promise;
         }
 
@@ -896,77 +895,6 @@
                 });
             return defer.promise;
         }
-
-
-        function getUser(userId) {
-            var defer = $q.defer();
-
-            //todo: get user
-            //todo: count user gallery
-            //todo: count user follow
-            //todo: count user following
-
-            if (userId === undefined) {
-                userId = Parse.User.current().id;
-            }
-
-            console.log(userId);
-            User
-                .find(userId)
-                .then(function (resp) {
-                    console.log('getUser', resp);
-                    var obj  = resp.attributes;
-                    obj.id   = resp.id;
-                    var user = loadProfile(obj);
-
-                    // fotos
-                    new Parse
-                        .Query('Gallery')
-                        .equalTo('user', resp)
-                        .count()
-                        .then(function (gallery) {
-                            user.galleries = gallery;
-
-                            // seguidores
-                            new Parse
-                                .Query('UserFollow')
-                                .equalTo('follow', resp)
-                                .count()
-                                .then(function (follow1) {
-                                    user.follow1 = follow1;
-
-                                    // seguindo
-                                    new Parse
-                                        .Query('UserFollow')
-                                        .equalTo('user', resp)
-                                        .count()
-                                        .then(function (follow2) {
-                                            user.follow2 = follow2;
-
-                                            // seguindo
-                                            new Parse
-                                                .Query('UserFollow')
-                                                .equalTo('user', Parse.User.current())
-                                                .equalTo('follow', resp)
-                                                .count()
-                                                .then(function (follow) {
-                                                    user.follow = follow ? true : false;
-
-                                                    console.log('getUser', user);
-                                                    defer.resolve(user);
-
-                                                });
-
-                                        });
-
-                                });
-                        });
-                });
-
-
-            return defer.promise;
-        }
-
         function getUserGalleryQtd(userId) {
             var defer = $q.defer();
             if (userId === undefined) {
@@ -1171,30 +1099,6 @@
             }
         }
 
-        function profile(userId) {
-            var defer = $q.defer();
-            var user  = {};
-
-            Loading.start();
-
-            User
-                .profile(userId)
-                .then(function (respProfile) {
-                    user = respProfile;
-
-                    all(true, userId)
-                        .then(function (galleries) {
-                            user.feed = galleries;
-                            console.log(user);
-                            Loading.end();
-                            defer.resolve(user);
-                        });
-                });
-
-
-            return defer.promise;
-
-        }
 
 
     }
