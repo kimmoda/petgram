@@ -11,7 +11,7 @@
             .state('photogram.search', {
                 url: '/search',
                 views: {
-                    tabsearch: {
+                    tabSearch: {
                         controller: 'PhotogramSearchCtrl',
                         controllerAs: 'vm',
                         templateUrl: path + '/search.html'
