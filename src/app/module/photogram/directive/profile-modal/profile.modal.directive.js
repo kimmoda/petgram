@@ -62,42 +62,40 @@
       }
 
       function getFollower(userId) {
+        console.log('getFollowers', userId);
         scope.loadingFollowers = true;
         scope.loadingFollowing = true;
         scope.loadingPhotos = true;
 
         Photogram
-          .getUserGalleryQtd(userId)
-          .then(function (qtdPhotos) {
-            scope.user.qtdPhotos = qtdPhotos;
-            scope.loadingPhotos = false;
-          });
+            .getUserGalleryQtd(userId)
+            .then(function (qtdPhotos) {
+              console.log(qtdPhotos);
+              scope.user.qtdPhotos = qtdPhotos;
+              scope.loadingPhotos  = false;
+            });
 
         User
-          .getFollowers(userId)
-          .then(function (qtdFollowers) {
-            console.log('qtdFollower: seguindo', qtdFollowers);
-            scope.user.qtdFollowers = qtdFollowers;
-            scope.loadingFollowers = false;
-          });
+            .getFollowers(userId)
+            .then(function (qtdFollowers) {
+              console.log('qtdFollower: seguindo', qtdFollowers);
+              scope.user.qtdFollowers = qtdFollowers;
+              scope.loadingFollowers  = false;
+            });
 
         User
-          .getFollowing(userId)
-          .then(function (qtdFollowing) {
-            console.log('qtdFollowing: seguidores', qtdFollowing);
-            scope.user.qtdFollowing = qtdFollowing;
-            scope.loadingFollowing = false;
-          });
+            .getFollowing(userId)
+            .then(function (qtdFollowing) {
+              console.log('qtdFollowing: seguidores', qtdFollowing);
+              scope.user.qtdFollowing = qtdFollowing;
+              scope.loadingFollowing  = false;
+            });
       }
 
       function openModal() {
 
         console.log(scope.user);
-
-        if (scope.user.id === $rootScope.currentUser.id) {
-          return false;
-        }
-
+        
         $ionicModal
           .fromTemplateUrl('app/module/photogram/directive/profile-modal/profile-modal.html', {
             scope: scope
