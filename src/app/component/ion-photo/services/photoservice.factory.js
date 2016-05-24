@@ -52,9 +52,9 @@
         text: '<i class="icon ion-ios-camera"></i>' + $translate.instant('ION-PHOTO.CAMERA')
       }, {
         text: '<i class="icon ion-images"></i>' + $translate.instant('ION-PHOTO.GALLERY')
-      }, {
-        text: '<i class="icon ion-ios-videocam"></i>' + $translate.instant('ION-PHOTO.VIDEO')
-      }];
+      },
+        // {text: '<i class="icon ion-ios-videocam"></i>' + $translate.instant('ION-PHOTO.VIDEO')}
+      ];
       var actionSheet = $ionicActionSheet.show({
         buttons: buttons,
         titleText: $translate.instant('ION-PHOTO.SHARE'),
