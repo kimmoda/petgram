@@ -3,18 +3,23 @@
   <h1 translate="HOME.TITLE.NO_PHOTO"></h1>
 </div>
 
+<ion-refresher ng-if="!loading" on-refresh="loadMore(true)"></ion-refresher>
+<photogram-loading loading="loading"></photogram-loading>
+
 <div class="row " ng-if="$index % 3 === 0" ng-repeat="image in data.galleries">
   <div class="col col-33 item-animate1" ng-if="$index < data.galleries.length">
-    <img ng-if="profile" profile-modal user="data[$index].user" ng-src="{{ ::data.galleries[$index].src}}" width="100%" />
+    <img ng-if="profile" profile-modal user="data.galleries[$index].user" ng-src="{{ ::data.galleries[$index].src}}" width="100%" />
     <img ng-if="!profile" ng-src="{{ ::data.galleries[$index].src}}" width="100%" />
   </div>
   <div class="col col-33 item-animate1" ng-if="$index + 1 < data.galleries.length">
-    <img ng-if="profile" profile-modal user="data[$index + 1].user" ng-src="{{ ::data.galleries[$index + 1].src}}" width="100%" />
+    <img ng-if="profile" profile-modal user="data.galleries[$index + 1].user" ng-src="{{ ::data.galleries[$index + 1].src}}" width="100%" />
     <img ng-if="!profile" ng-src="{{ ::data.galleries[$index + 1].src}}" width="100%" />
   </div>
   <div class="col col-33 item-animate1" ng-if="$index + 2 < data.galleries.length">
-    <img ng-if="profile" profile-modal user="data[$index + 2].user" ng-src="{{ ::data.galleries[$index + 2].src}}" width="100%" />
+    <img ng-if="profile" profile-modal user="data.galleries[$index + 2].user" ng-src="{{ ::data.galleries[$index + 2].src}}" width="100%" />
     <img ng-if="!profile" ng-src="{{ ::data.galleries[$index + 2].src}}" width="100%" />
   </div>
 
 </div>
+
+<ion-infinite-scroll ng-if="data.galleries.length<data.total" on-infinite="loadMore()"></ion-infinite-scroll>

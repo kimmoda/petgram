@@ -69,7 +69,6 @@
               console.log(resp);
               resp.galleries.map(function (item) {
                 item.progress     = false;
-                // console.table(item);
                 $scope.data.total = resp.total;
                 $scope.data.galleries.push(item);
               });
@@ -110,7 +109,6 @@
             .likeGallery(gallery.id)
             .then(function (resp) {
               gallery.item.qtdLike = resp.likes;
-              //delete gallery.item.likeProgress;
             });
       }
 
@@ -172,14 +170,10 @@
           }
           return true;
         }
-
-
+        
         // Show the action sheet
         $ionicActionSheet.show(actionSheet);
-
       }
-
-
     }
 
   }
