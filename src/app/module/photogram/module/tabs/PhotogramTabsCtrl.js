@@ -75,7 +75,6 @@
 
       function submitPost(resp) {
         var form = angular.copy(resp);
-        console.log(form);
         Loading.start();
         Photogram
           .post(form)
