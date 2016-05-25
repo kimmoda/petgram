@@ -46,9 +46,10 @@
         <span class="username">{{ :: gallery.user.attributes.name }}</span>
         <span class="comment">{{ :: gallery.item.title }}</span>
       </div>
-      <div class="comment-item" profile-modal user="item.user" ng-repeat="item in gallery.comments">
+      <div class="comment-item" profile-modal user="item.user" ng-repeat="item in gallery.comments| limitTo:3">
         <span class="username">{{ :: item.user.attributes.name }}</span> <span class="comment">{{ :: item.text }}</span>
       </div>
+      <a class="comment-item" photogram-comment ng-model="gallery" ng-if="gallery.comments.length>3">Ver todos os comentários</a>
     </div>
 
     <button class="button button-block button-clear button-comment " photogram-comment ng-model="gallery"><span

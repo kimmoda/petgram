@@ -7,7 +7,7 @@
 
     function PhotogramFactory($q, Parse, User, Loading) {
 
-        var limitComment = 3;
+        var limitComment = 5;
 
         return {
             // Feed
@@ -162,12 +162,10 @@
                                 var obj         = {
                                     id: item.id,
                                     text: item.attributes.text,
-                                    created: item.createdAt
+                                    created: item.createdAt,
+                                    user: item.attributes.commentBy
                                 };
-                                var userComment = item.attributes.commentBy.attributes;
-                                // userComment.id = item.attributes.commentBy.id;
-                                obj.user        = userComment;
-                                obj.userAvatar  = User.avatar(userComment)
+                                obj.userAvatar  = User.avatar(obj.user.attributes)
                                 comments.push(obj);
                             });
                             defer.resolve(comments);
@@ -362,7 +360,7 @@
 
         function feed(page, user) {
             var defer   = $q.defer();
-            var _limit  = 4;
+            var _limit  = 15;
             var _result = {
                 total: 0,
                 galleries: []
@@ -435,9 +433,10 @@
                                                     var comment = {
                                                         id: item.id,
                                                         text: item.attributes.text,
-                                                        user: user.attributes,
+                                                        user: user,
                                                         created: item.attributes.createdAt
                                                     };
+                                                    comment.userAvatar = User.avatar(comment.user.attributes);
                                                     commentsData.push(comment);
                                                 });
 

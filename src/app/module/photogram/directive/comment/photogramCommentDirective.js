@@ -26,14 +26,7 @@
         ngModel: '='
       },
       link: function (scope, elem) {
-        scope.formFields = PhotogramForm.formComment;
-        scope.submitComment = submitComment;
-        scope.deleteComment = deleteComment;
-        scope.editComment = editComment;
-        scope.closeModal = function () {
-          scope.modal.hide();
-          scope.modal.remove();
-        };
+
 
         elem.bind('click', openModalComment);
 
@@ -51,6 +44,15 @@
           console.log(scope.ngModel);
 
           init();
+
+          scope.formFields = PhotogramForm.formComment;
+          scope.submitComment = submitComment;
+          scope.deleteComment = deleteComment;
+          scope.editComment = editComment;
+          scope.closeModal = function () {
+            scope.modal.hide();
+            scope.modal.remove();
+          };
 
           scope.comments = scope.ngModel.comments;
           $timeout(function () {

@@ -34,7 +34,7 @@
                 $timeout(function () {
                     $cordovaSplashscreen.hide();
                     $cordovaStatusbar.overlaysWebView(true);
-                    $cordovaStatusbar.style(1);
+                    $cordovaStatusbar.style(0);
                     $cordovaStatusbar.styleHex(AppConfig.color);
                     $cordovaStatusbar.show();
                 }, 500);

@@ -37,6 +37,9 @@
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
+        "cordova-plugin-themeablebrowser": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
@@ -44,9 +47,6 @@
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
-        "cordova-plugin-themeablebrowser": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         }
     },

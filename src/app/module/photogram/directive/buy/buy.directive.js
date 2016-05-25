@@ -1,43 +1,58 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  /**
-   * @ngdoc directive
-   * @name buy
-   *
-   * @description
-   * _Please update the description and restriction._
-   *
-   * @restrict A
-   * */
+    /**
+     * @ngdoc directive
+     * @name buy
+     *
+     * @description
+     * _Please update the description and restriction._
+     *
+     * @restrict A
+     * */
 
-  angular
-    .module('app.photogram')
-    .directive('buy', buyDirective);
+    angular
+        .module('app.photogram')
+        .directive('buy', buyDirective);
 
-  function buyDirective($cordovaInAppBrowser) {
-    return {
-      restrict: 'A',
-      link: buyLink
-    };
-
-    function buyLink(scope, elem, attr) {
-      elem.bind('click', function () {
-        var options = {
-          location: 'yes',
-          clearcache: 'yes',
-          toolbar: 'yes'
+    function buyDirective($cordovaInAppBrowser) {
+        return {
+            restrict: 'A',
+            link: buyLink
         };
 
-        var lang = navigator.language;
-        var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAW4JZS7KJM5S';
-        if (lang === 'pt-BR') {
-          url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FT5W6FJW5RAEN';
-        }
+        function buyLink(scope, elem) {
+            elem.bind('click', function () {
+                var url     = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAW4JZS7KJM5S';
 
-        $cordovaInAppBrowser.open(url, '_blank', options);
-      });
+                if(window.cordova ) {
+                    cordova
+                        .ThemeableBrowser
+                        .open(url, '_blank', {
+                            statusbar: {
+                                color: '#ffffffff'
+                            },
+                            toolbar: {
+                                height: 44,
+                                color: '#f0f0f0ff'
+                            },
+                            title: {
+                                color: '#333333',
+                                showPageTitle: true
+                            },
+                            closeButton: {
+                                image: 'close',
+                                imagePressed: 'close_pressed',
+                                align: 'left',
+                                event: 'closePressed'
+                            },
+                            backButtonCanClose: true
+                        });
+                } else {
+                    window.open(url,'_blank');
+                }
+            });
+        }
     }
-  }
 
 })();
