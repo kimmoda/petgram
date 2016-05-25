@@ -10,7 +10,8 @@
 
     <div class="list">
 
-      <div class="item item-avatar item-animate1" ng-repeat="item in vm.data"><img ng-src="{{ item.user.facebookimg || item.user.img._url || 'img/user.png' }}">
+      <div class="item item-avatar item-animate1" ng-repeat="item in vm.data">
+        <img ng-src="{{ item.userAvatar }}">
 
         <h2>{{ ::item.user.name }}</h2>
 

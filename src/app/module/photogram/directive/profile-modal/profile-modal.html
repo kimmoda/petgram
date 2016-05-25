@@ -1,5 +1,5 @@
-<ion-modal-view class="modal-profile photogram-profile">
-  <ion-header-bar class="bar-positive">
+<ion-modal-view id="account-view">
+  <ion-header-bar class="bar-light">
     <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
     <div class="title">{{ user.attributes.name }}</div>
   </ion-header-bar>
@@ -8,7 +8,7 @@
     <div class="profile-top">
       <div class="row">
         <div class="col-25">
-          <img class="avatar" ng-src="{{ user.attributes.src }}" />
+          <img class="avatar" ng-src="{{ avatar}}" />
         </div>
         <div class="col col-statics">
           <div class="row">
@@ -53,21 +53,21 @@
 
     <div class="item bar">
       <div class="button-bar">
-        <button class="button button-icon icon ion-grid" ng-class="{active: vm.tab.grid}"
-                ng-click="vm.changeTab('grid')"></button>
-        <button class="button button-icon icon ion-drag" ng-class="{active: vm.tab.list}"
-                ng-click="vm.changeTab('list')"></button>
+        <button class="button button-icon icon ion-grid" ng-class="{active: tab.grid}"
+                ng-click="changeTab('grid')"></button>
+        <button class="button button-icon icon ion-drag" ng-class="{active: tab.list}"
+                ng-click="changeTab('list')"></button>
         <button class="button button-icon icon ion-ios-location"></button>
 
       </div>
     </div>
 
     <div class="item item-divider" translate="PHOTOGRAM.MSG.RECENT">Recent</div>
-    <photogram-loading loading="vm.loading"></photogram-loading>
-    <div class="tab" ng-if="vm.tab.list">
+    <photogram-loading loading="loading"></photogram-loading>
+    <div class="tab" ng-if="tab.list">
       <photogram-photo-list user="user.id"></photogram-photo-list>
     </div>
-    <div class="tab" ng-if="vm.tab.grid">
+    <div class="tab" ng-if="tab.grid">
       <photogram-photo-grid user="user.id"></photogram-photo-grid>
     </div>
 

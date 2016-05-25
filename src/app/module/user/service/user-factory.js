@@ -27,7 +27,7 @@
             list: list,
             find: find,
             follow: follow,
-            processImg: processImg,
+            avatar: avatar,
             getFollowers: getFollowers,
             getFollowing: getFollowing,
             isFollow: isFollow,
@@ -65,7 +65,7 @@
         function loadProfile() {
             user = Parse.User.current();
             if (user) {
-                // user = processImg(user);
+                // user = avatar(user);
                 $rootScope.currentUser = user.attributes;
                 console.log('load profile', user);
                 return user;
@@ -75,17 +75,11 @@
             }
         }
 
-        function processImg(obj) {
-            console.log(obj);
-            if (obj) {
-                if (obj.facebook) {
-                    obj.src = (obj.facebookimg) ? obj.facebookimg : 'img/user.png';
-                } else {
-                    // obj.src = (obj.img._url) ? obj.img._url : 'img/user.png';
-                }
-                return obj;
+        function avatar(obj) {
+            if (obj.facebookimg) {
+                return obj.facebookimg;
             } else {
-                return {};
+                return obj.img ? obj.img._url : 'img/user.png';
             }
         }
 
@@ -504,7 +498,7 @@
                     angular.forEach(resp, function (item) {
                         var user = item.attributes;
                         user.id  = item.id;
-                        user     = processImg(user);
+                        user     = avatar(user);
 
                         new Parse
                             .Query('UserFollow')

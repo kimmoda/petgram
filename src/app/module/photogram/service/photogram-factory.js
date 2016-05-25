@@ -38,17 +38,6 @@
             search: search
         };
 
-        function loadProfile(response) {
-
-            if (response) {
-                var user = User.processImg(response);
-                console.info(response, user);
-                return user;
-            } else {
-                User.logout();
-                return false;
-            }
-        }
 
         function deletePhoto(galleryId) {
             var defer = $q.defer();
@@ -177,7 +166,8 @@
                                 };
                                 var userComment = item.attributes.commentBy.attributes;
                                 // userComment.id = item.attributes.commentBy.id;
-                                obj.user        = User.processImg(userComment);
+                                obj.user        = userComment;
+                                obj.userAvatar  = User.avatar(userComment)
                                 comments.push(obj);
                             });
                             defer.resolve(comments);
@@ -232,13 +222,13 @@
                             var data = [];
                             angular.forEach(resp, function (item) {
                                 console.warn(item);
-                                var obj  = {
+                                var obj        = {
                                     id: item.id,
                                     text: item.attributes.text,
                                     user: item.attributes.follow.attributes,
                                     created: item.createdAt
                                 };
-                                obj.user = User.processImg(obj.user);
+                                obj.userAvatar = User.avatar(obj.user);
 
                                 data.push(obj.user);
                             });
@@ -267,12 +257,13 @@
                                 var objs = [];
                                 angular.forEach(resp, function (item) {
                                     console.warn(item);
-                                    var obj = {
+                                    var obj        = {
                                         id: item.id,
                                         text: item.attributes.text,
                                         user: item.attributes.user.attributes,
                                         created: item.createdAt
                                     };
+                                    obj.userAvatar = User.avatar(obj.user);
                                     objs.push(obj);
                                 });
                                 console.log(objs);
@@ -307,7 +298,7 @@
                             var size     = 100;
                             var obj      = value.attributes;
                             obj.id       = value.id;
-                            obj.img      = value.attributes.img.url();
+                            obj.img      = User.avatar(value.attributes);
                             obj.created  = value.createdAt;
                             obj.icon     = {
                                 size: {
@@ -460,6 +451,7 @@
                                                     comments: commentsData,
                                                     user: item.attributes.user
                                                 };
+                                                obj.userAvatar =  User.avatar(obj.user.attributes);
                                                 console.table(obj);
                                                 _result.galleries.push(obj);
                                                 cb();
@@ -552,8 +544,7 @@
                                                     text: item.attributes.text,
                                                     user: user.attributes
                                                 };
-                                                comment.user.id = user.id;
-                                                comment.user    = User.processImg(comment.user);
+                                                comment.userAvatar    = User.avatar(comment.user);
                                                 commentsData.push(comment);
                                             });
 
@@ -562,16 +553,17 @@
                                                 item: item.attributes,
                                                 created: item.createdAt,
                                                 likes: likes,
-                                                src: item.attributes.img.url(),
+                                                user: item.attributes,
                                                 comments: commentsData
                                             };
+                                            obj.userAvatar = User.avatar(obj.user);
 
                                             obj.item.liked = liked;
 
                                             if (item.attributes.user) {
                                                 obj.user = item.attributes.user.attributes,
-                                                    obj.user.id = item.attributes.user.id ? item.attributes.user.id : '',
-                                                    obj.user = User.processImg(obj.user);
+                                                    obj.user = item.attributes.user,
+                                                    obj.userAvatar = User.avatar(obj.user);
                                             } else {
                                                 // remove gallery
                                             }
@@ -633,7 +625,7 @@
                                                     text: item.attributes.text,
                                                     user: item.attributes.commentBy.attributes
                                                 };
-                                                comment.user.id = item.id;
+                                                comment.userAvatar = User.avatar(comment.user);
                                                 commentsData.push(comment);
                                             });
 
@@ -646,8 +638,7 @@
                                                 user: item.attributes.user.attributes,
                                                 comments: commentsData
                                             };
-                                            obj.user.id = item.attributes.user.id;
-                                            obj.user    = User.processImg(obj.user);
+                                            obj.userAvatar    = User.avatar(obj.user);
 
                                             defer.resolve(obj);
                                             Loading.end();
@@ -760,13 +751,10 @@
                             console.log('Qtd Like', likes);
 
                             // Increment Like
-                            gallery
-                                .set('qtdLike', likes);
+                            gallery.set('qtdLike', likes);
 
                             // Add Relation
-                            gallery
-                                .relation('likes')
-                                .add(resp);
+                            gallery.relation('likes').add(resp);
 
                             console.log('Save Gallery', gallery);
 
@@ -810,13 +798,10 @@
 
 
                             // Gallery Decrement Like
-                            gallery
-                                .set('qtdLike', likes);
+                            gallery.set('qtdLike', likes);
 
                             // Remove Relation
-                            gallery
-                                .relation('likes')
-                                .remove(like);
+                            gallery.relation('likes').remove(like);
 
                             like
                                 .destroy(function (resp) {
@@ -895,6 +880,7 @@
                 });
             return defer.promise;
         }
+
         function getUserGalleryQtd(userId) {
             var defer = $q.defer();
             if (userId === undefined) {
@@ -971,8 +957,7 @@
                                                         .limit(limitComment)
                                                         .find()
                                                         .then(function (comments) {
-                                                            console.log(comments);
-
+                                                            // console.log(comments);
                                                             var commentsData = [];
 
                                                             angular.forEach(comments, function (item) {
@@ -981,7 +966,7 @@
                                                                     text: item.attributes.text,
                                                                     user: item.attributes.commentBy.attributes
                                                                 };
-                                                                comment.user.id = item.id;
+                                                                comment.userAvatar = User.avatar(comment.user);
                                                                 commentsData.push(comment);
                                                             });
 
@@ -996,7 +981,7 @@
                                                                 user: item.attributes.user.attributes
                                                             };
                                                             // obj.user.id = item.attributes.user.id;
-                                                            obj.user = User.processImg(obj.user);
+                                                            obj.userAvatar = User.avatar(obj.user);
 
                                                             data.push(obj);
                                                             cb();
@@ -1047,6 +1032,7 @@
                                 action: item.attributes.action,
                                 created: item.attributes.createdAt
                             };
+                            obj.userAvatar = User.avatar(obj.user)
                             data.push(obj);
                         });
                         defer.resolve(data);
@@ -1098,7 +1084,6 @@
                     });
             }
         }
-
 
 
     }

@@ -33,6 +33,10 @@
         var defer = $q.defer();
         scope.loadingPhotogram = true;
 
+        // console.log(scope.user);
+        
+        scope.avatar = User.avatar(scope.user.attributes);
+
         Photogram
           .getUserGallery(scope.user.id)
           .then(function (resp) {
@@ -94,7 +98,7 @@
 
       function openModal() {
 
-        console.log(scope.user);
+        // console.log(scope.user);
         
         $ionicModal
           .fromTemplateUrl('app/module/photogram/directive/profile-modal/profile-modal.html', {

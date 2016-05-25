@@ -9,11 +9,11 @@
 <div class="list card animated fadeIn" ng-repeat="gallery in data.galleries ">
 
   <div class="item item-avatar" ion-affix data-affix-within-parent-with-class="card" profile-modal user="gallery.user">
-    <img ng-if="profile" profile="{{ ::gallery.user.id }}" ng-src="{{ ::gallery.user.img._url}}">
-    <img ng-src="{{ ::gallery.user.img._url}}">
-    <h2>{{ ::gallery.user.name}}</h2>
+    <img ng-if="profile" profile="{{ ::gallery.user.id }}" ng-src="{{ ::gallery.user.attributes.img._url}}">
+    <img ng-src="{{ ::gallery.userAvatar}}">
+    <h2>{{ ::gallery.user.attributes.name}}</h2>
 
-    <p>{{ :: gallery.user.status }}</p>
+    <p>{{ :: gallery.user.attributes.status }}</p>
     <span>{{ ::gallery.created | amTimeAgo}}</span>
   </div>
 
@@ -43,11 +43,11 @@
 
     <div class="list-comments">
       <div class="comment-item" profile-modal user="gallery.user">
-        <span class="username">{{ :: gallery.user.name }}</span>
+        <span class="username">{{ :: gallery.user.attributes.name }}</span>
         <span class="comment">{{ :: gallery.item.title }}</span>
       </div>
       <div class="comment-item" profile-modal user="item.user" ng-repeat="item in gallery.comments">
-        <span class="username">{{ :: item.user.name }}</span> <span class="comment">{{ :: item.text }}</span>
+        <span class="username">{{ :: item.user.attributes.name }}</span> <span class="comment">{{ :: item.text }}</span>
       </div>
     </div>
 
