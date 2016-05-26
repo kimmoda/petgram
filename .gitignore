@@ -8,5 +8,5 @@ resources/android/
 resources/ios/
 releases/
 .tmp/
-.vscode
-.idea
+.vscode/
+.idea/
