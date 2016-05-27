@@ -7,9 +7,15 @@
         .run(startParse)
         .run(runIonic)
         .run(runFacebook)
+        .config(configCompile)
         .config(configLanguage)
         .config(configFacebook)
         .config(configIonic);
+
+
+    function configCompile ($compileProvider) {
+      $compileProvider.debugInfoEnabled(false);
+    }
 
     function startParse(AppConfig) {
         window.Parse.initialize(AppConfig.parse.appId);
@@ -70,7 +76,7 @@
         console.log(language);
         $translateProvider.preferredLanguage(language);
         moment.locale(language);
-        
+
         console.log(searchLang, language);
     }
 
