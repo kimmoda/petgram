@@ -1,5 +1,5 @@
-$size: 35px;
 .view-intro {
+  $size: 35px;
   ion-footer-bar {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 0 10px;
@@ -11,10 +11,18 @@ $size: 35px;
     }
     color: #fff;
     text-align: center;
+    $color1: #007969;
+    $color2: #ad1638;
+    $color3: #eb7149;
+    $color4: #ef9e3b;
+    $color5: #aec41f;
+    $color6: #5ebb27;
+    $color7: #23abd1;
+    $color8: #007969;
 
     // background gradient
     $time-animate: 40s;
-    background: linear-gradient(298deg, #007969, #e9214e, #eb7149, #ef9e3b, #dcf24f, #82e449, #48c8ec, #007969);
+    background: linear-gradient(298deg, $color1, $color2, $color3, $color4, $color5, $color6, $color7, $color8);
     background-size: 1400% 1400%;
     -webkit-animation: AnimationName $time-animate ease infinite;
     -moz-animation: AnimationName $time-animate ease infinite;
