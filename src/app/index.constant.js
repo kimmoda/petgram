@@ -14,7 +14,7 @@
             },
             routes: {
                 home: 'photogram.home',
-                login: 'user.login'
+                login: 'user.intro'
             },
             color: '#00796B',
             facebook: '1024016557617380',
