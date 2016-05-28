@@ -112,12 +112,5 @@
             "NEW": "Novo",
             "CREATE": "Cadastrar"
         }
-    },
-    "LANG": {
-        "ENGLISH": "Englisch",
-        "PORTUGUES": "Portugiesisch",
-        "PERSIAN": "Persisch",
-        "GERMAN": "Deutsch",
-        "TURKISH": "Türkisch"
     }
 }

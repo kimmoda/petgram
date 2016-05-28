@@ -117,12 +117,5 @@
             "CREATE": "Cadastrar",
             "TERM_PRIVACY": "Termo de Uso"
         }
-    },
-    "LANG": {
-        "ENGLISH": "Inglês",
-        "PORTUGUES": "Português",
-        "PERSIAN": "Persa",
-        "GERMAN": "Alemão",
-        "TURKISH": "Turco"
     }
 }

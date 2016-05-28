@@ -1,8 +1,10 @@
-<ion-view id="user-layout">
+<ion-view id="user-layout" class="bg-animate" cache-view="false">
+  <div class="bar bar-header">
+    <ion-language></ion-language>
+  </div>
 
-  <ion-content class="padding">
+  <ion-content class="padding" scroll="false">
 
-    <button class="button button-block button-clear button-light button-language" modal-language ng-model="vm.language">{{vm.language.translation | translate}} <i class="icon ion-chevron-down"></i></button>
     <div class="step1">
       <div class="logo">
         <span class="icon2-logo"></span>

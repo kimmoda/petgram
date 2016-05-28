@@ -1,5 +1,6 @@
 {
     "USER": {
+        "OR": "Ou",
         "DESC1":"Cadastre-se para ver fotos e",
         "DESC2":"vídeos dos seus amigos",
         "AVATAR": {
@@ -30,7 +31,7 @@
             "NEXT": "Próximo",
             "LOGIN_SOCIAL": "Conecte como ",
             "MERGE": "Associar contas",
-            "SIGNUP": "Cadastre-se com o seu e-mail ou telefone",
+            "SIGNUP": "Cadastre-se com o seu e-mail",
             "SIGNUP2": "Não tem conta? <b>Cadastre-se</b>",
             "SIGNIN": "Já tem uma conta? <b>Faça login.</b>",
             "FORGOT": "Esqueceu a sua senha? <b>Obtenha ajuda</b>",

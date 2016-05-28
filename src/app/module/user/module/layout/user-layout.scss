@@ -1,52 +1,18 @@
 #user-layout {
+  .bar-header {
+    background-color: transparent;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
   .scroll-content {
+
     .scroll {
       height: 100%;
     }
     color: #fff;
     text-align: center;
-
-    // background gradient
-    $time-animate: 40s;
-    background: linear-gradient(298deg, #007969, #e9214e, #eb7149, #ef9e3b, #dcf24f, #82e449, #48c8ec, #007969);
-    background-size: 1400% 1400%;
-    -webkit-animation: AnimationName $time-animate ease infinite;
-    -moz-animation: AnimationName $time-animate ease infinite;
-    animation: AnimationName $time-animate ease infinite;
-
-    @-webkit-keyframes AnimationName {
-      0% {
-        background-position: 0% 20%
-      }
-      50% {
-        background-position: 100% 81%
-      }
-      100% {
-        background-position: 0% 20%
-      }
-    }
-    @-moz-keyframes AnimationName {
-      0% {
-        background-position: 0% 20%
-      }
-      50% {
-        background-position: 100% 81%
-      }
-      100% {
-        background-position: 0% 20%
-      }
-    }
-    @keyframes AnimationName {
-      0% {
-        background-position: 0% 20%
-      }
-      50% {
-        background-position: 100% 81%
-      }
-      100% {
-        background-position: 0% 20%
-      }
-    }
 
     // Form
 
@@ -122,8 +88,8 @@
     }
 
     .logo {
-      margin-top: 30px;
-      margin-bottom: 20px;
+      margin-top: 40px;
+      margin-bottom: 10px;
     }
 
     .or {
@@ -150,7 +116,7 @@
         position: absolute;
         background-color: rgba(255, 255, 255, 0.2);
         border-top: 1px solid rgba(255, 255, 255, 0.3);
-        bottom: -10px;
+        bottom: -0px;
         left: -10px;
         right: -10px;
         width: 106%;
@@ -179,8 +145,8 @@
     }
 
     .logo {
-      font-size: 55pt;
-      line-height: 60pt;
+      font-size: 50pt;
+      line-height: 50pt;
       color: #fff;
       display: block;
       width: 100%;

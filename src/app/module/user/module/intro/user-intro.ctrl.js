@@ -15,8 +15,6 @@
 
     function UserIntroCtrl(AppConfig) {
         var vm       = this;
-        vm.languages = AppConfig.locales;
-        vm.language  = vm.languages[0];
     }
 
 })();
