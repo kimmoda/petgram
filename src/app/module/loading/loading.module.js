@@ -8,7 +8,7 @@
         $stateProvider
             .state('router', {
                 url: '/',
-                template: '',
+                templateUrl: 'app/module/loading/loading.html',
                 controller: 'LoadingCtrl',
                 controllerAs: 'vm'
             });
