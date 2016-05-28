@@ -20,12 +20,20 @@
   <ion-content>
 
     <div class="layout" >
-      <div class="tab step1" ng-show="vm.tab.list">
+      <div class="tab" ng-show="vm.tab.list">
         <photogram-photo-grid profile="true"></photogram-photo-grid>
       </div>
 
-      <div class="map step1" ng-show="vm.tab.map">
-        mapa
+      <div class="map" ng-show="vm.tab.map">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+
+          <ui-gmap-marker idKey='0' coords='GallerySearchMap.user'>
+          </ui-gmap-marker>
+
+          <ui-gmap-marker click="GallerySearchMapCtrl.openModal(item)" idKey='item.id' coords='item.coords' icon="item.icon" ng-repeat="item in GallerySearchMap.data">
+          </ui-gmap-marker>
+
+        </ui-gmap-google-map>
       </div>
 
     </div>

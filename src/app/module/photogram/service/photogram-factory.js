@@ -294,7 +294,7 @@
                     if (resp.length) {
                         resp.map(function (value) {
                             var size     = 100;
-                            var obj      = value.attributes;
+                            var obj      = angular.copy(value.attributes);
                             obj.id       = value.id;
                             obj.img      = User.avatar(value.attributes);
                             obj.created  = value.createdAt;
