@@ -4,6 +4,7 @@
     .module('ionic.components', [
       'ionic',
       'ionic-loading',
+      'ion-language',
       // 'ion-affix',
       'ion-href',
       'ion-photo',
