@@ -1,4 +1,3 @@
-/*
 'use strict';
 // ADD YOUR YANDEX API KEY HERE
 // User gulp translate --from en --to pt
@@ -52,7 +51,7 @@ gulp.task('translate', function () {
   if (argv.from !== undefined && argv.to !== undefined) {
 
     return gulp.src([
-                 paths.src + '/app/!**!/i18n/' + argv.from + '.json',
+                 paths.src + '/app/**/i18n/' + argv.from + '.json',
                ])
                .pipe(translateFile)
                .pipe(jsonFormat(4))
@@ -65,4 +64,3 @@ gulp.task('translate', function () {
     gutil.log(gutil.colors.red('Need to specify 2 lanuages e.g. translate --from en --to fr <-- translate en json files to French'));
   }
 });
-*/
