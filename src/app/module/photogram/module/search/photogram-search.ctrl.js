@@ -15,7 +15,23 @@
 
     function PhotogramSearchCtrl($scope, $rootScope, $stateParams, Photogram) {
         var vm     = this;
-       
+        vm.changeTab = changeTab;
+
+        changeTab('list');
+
+        function changeTab(tab) {
+            if (tab === 'list') {
+                vm.tab = {
+                    list: true,
+                    map: false
+                };
+            } else {
+                vm.tab = {
+                    list: false,
+                    map: true
+                };
+            }
+        }
 
 
     }

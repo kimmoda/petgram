@@ -1,16 +1,35 @@
-<ion-view class="view-home">
+<ion-view class="view-search">
   <ion-nav-title>
     <ion-search></ion-search>
   </ion-nav-title>
 
   <ion-nav-buttons side="right">
     <button class="button button-icon ion-person-add" buy></button>
-    <!--<button class="button button-icon ion-ios-filing" ui-sref="photogram.direct"></button>-->
   </ion-nav-buttons>
+
+  <div class="bar bar-header bar-light" >
+    <div class="button-bar">
+      <button class="button button-icon icon ion-drag" ng-class="{active: vm.tab.list}"
+              ng-click="vm.changeTab('list')"></button>
+      <button class="button button-icon icon ion-map" ng-class="{active: vm.tab.map}"
+              ng-click="vm.changeTab('map')"></button>
+
+    </div>
+  </div>
 
   <ion-content>
 
-    <photogram-photo-grid profile="true"  ></photogram-photo-grid>
+    <div class="layout" >
+      <div class="tab step1" ng-show="vm.tab.list">
+        <photogram-photo-grid profile="true"></photogram-photo-grid>
+      </div>
+
+      <div class="map step1" ng-show="vm.tab.map">
+        mapa
+      </div>
+
+    </div>
+
 
   </ion-content>
 </ion-view>
