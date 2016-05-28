@@ -1,7 +1,17 @@
 {
   "name": "Photogram",
   "version": "1.5.1",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-jsbeautifier": "^2.0.3",
+    "gulp-json-format": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
+    "map-stream": "0.0.6",
+    "traverse": "^0.6.6",
+    "vinyl-transform": "^1.0.0",
+    "yandex-translate": "^2.1.0",
+    "yargs": "^4.7.1"
+  },
   "scripts": {
     "postinstall": "bower install && gulp serve",
     "test": "gulp test"
