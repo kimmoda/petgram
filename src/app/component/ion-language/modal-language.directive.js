@@ -11,27 +11,29 @@
      * @restrict A
      * */
 
-    var path = 'app/module/photogram/directive/modal-language';
+    var path = 'app/component/ion-language';
 
     angular
-        .module('app.photogram')
-        .directive('modalLanguage', modalLanguageDirective);
+        .module('ion-language')
+        .directive('ionLanguage', ionLanguageDirective);
 
-    function modalLanguageDirective(AppConfig, $translate, $timeout, Loading, $ionicModal) {
+    function ionLanguageDirective(AppConfig, $translate, $timeout, Loading, $ionicModal) {
         return {
-            restrict: 'A',
+            restrict: 'E',
             link: modalLanguageLink,
-            scope: {
-                ngModel: '='
-            },
-            template: ''
+            templateUrl: path + '/ion-language.html'
         };
 
         function modalLanguageLink(scope, elem, attr) {
 
+
             scope.languages = AppConfig.locales;
-            scope.ngModel   = scope.languages[0];
-            
+            scope.language  = scope.languages.filter(function (item) {
+                return item.code === $translate.use()
+            })[0];
+
+            console.log(scope.language);
+
             elem.bind('click', openModal);
 
             function openModal() {
@@ -48,7 +50,7 @@
                     console.log(language);
                     $translate.use(language.code);
                     moment.locale(language.code);
-                    scope.ngModel = language;
+                    scope.language = language;
                     Loading.start();
                     scope.closeModal();
                     $timeout(function () {
