@@ -43,9 +43,6 @@
 
         function init() {
             // Parse Start
-
-            console.log('device', cordova, device);
-
             if (Parse.User.current()) {
                 user = Parse.User.current();
                 loadProfile();

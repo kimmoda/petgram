@@ -27,8 +27,7 @@
             var facebook = window.cordova ? $cordovaFacebook : $facebook;
 
             console.log('Facebook login', facebook);
-
-
+            
             facebook
                 .getLoginStatus()
                 .then(function (resp) {
