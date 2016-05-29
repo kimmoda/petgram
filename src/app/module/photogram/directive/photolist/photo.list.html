@@ -6,7 +6,7 @@
 <ion-refresher ng-if="!loading" on-refresh="loadMore(true)"></ion-refresher>
 <photogram-loading loading="loading"></photogram-loading>
 
-<div class="list card animated fadeIn" ng-repeat="gallery in data.galleries ">
+<div class="list card animated fadeIn" ng-repeat="gallery in data.galleries track by gallery.id">
 
   <div class="item item-avatar" ion-affix data-affix-within-parent-with-class="card" profile-modal user="gallery.user">
     <img ng-if="profile" profile="{{ ::gallery.user.id }}" ng-src="{{ ::gallery.user.attributes.img._url}}">
@@ -46,7 +46,7 @@
         <span class="username">{{ :: gallery.user.attributes.name }}</span>
         <span class="comment">{{ :: gallery.item.title }}</span>
       </div>
-      <div class="comment-item" profile-modal user="item.user" ng-repeat="item in gallery.comments| limitTo:3">
+      <div class="comment-item" profile-modal user="item.user" ng-repeat="item in gallery.comments| limitTo:3 track by item.id">
         <span class="username">{{ :: item.user.attributes.name }}</span> <span class="comment">{{ :: item.text }}</span>
       </div>
       <a class="comment-item" photogram-comment ng-model="gallery" ng-if="gallery.comments.length>3">Ver todos os comentários</a>

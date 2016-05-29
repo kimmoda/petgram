@@ -10,7 +10,7 @@
 
     <div class="list">
 
-      <div class="item item-avatar item-animate1" ng-repeat="item in vm.data">
+      <div class="item item-avatar item-animate1" ng-repeat="item in vm.data track by item.id">
         <img ng-src="{{ item.userAvatar }}">
 
         <h2>{{ ::item.user.name }}</h2>
