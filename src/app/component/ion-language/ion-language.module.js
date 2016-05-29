@@ -9,17 +9,11 @@
             'pascalprecht.translate', // angular-translate
             'tmh.dynamicLocale' // angular-dynamic-locale
         ])
-        .config(configTranslate)
         .config(configLanguage);
 
 
-    function configTranslate($translatePartialLoaderProvider) {
-        // Translation
-        $translatePartialLoaderProvider.addPart(path);
-    }
 
-
-    function configLanguage($translateProvider, AppConfig, tmhDynamicLocaleProvider) {
+    function configLanguage($translatePartialLoaderProvider, $translateProvider, AppConfig, tmhDynamicLocaleProvider) {
 
         // angular-translate configuration
         $translateProvider.useLoader('$translatePartialLoader', {
@@ -38,14 +32,17 @@
         var searchLang  = _.some(AppConfig.locales, {
             code: userlangvar
         });
+
         if (searchLang) {
-            language = _.filter(AppConfig.locales, {code: searchLang})[0];
+            language = AppConfig.locales.filter(function  (item) {
+                return language == item.code
+            })[0].code;
         }
-        console.log(language);
         $translateProvider.preferredLanguage(language);
         moment.locale(language);
 
-        console.log(searchLang, language);
+        // Translation
+        $translatePartialLoaderProvider.addPart(path);
     }
 
 
