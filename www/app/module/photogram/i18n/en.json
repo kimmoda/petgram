@@ -114,12 +114,5 @@
       "CREATE": "Create",
       "TERM_PRIVACY": "Term of use"
     }
-  },
-  "LANG": {
-    "ENGLISH": "English",
-    "PORTUGUES": "Portuguese",
-    "PERSIAN": "Persian",
-    "GERMAN": "German",
-    "TURKISH": "Turkish"
   }
 }
