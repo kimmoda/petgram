@@ -12,8 +12,8 @@
         .config(configIonic);
 
 
-    function configCompile ($compileProvider) {
-      $compileProvider.debugInfoEnabled(false);
+    function configCompile($compileProvider) {
+        $compileProvider.debugInfoEnabled(false);
     }
 
     function startParse(AppConfig) {
@@ -71,8 +71,8 @@
     }
 
     function runFacebook() {
-        var ionic = window.ionic;
-        if (!(ionic.Platform.isIOS() || ionic.Platform.isAndroid())) {
+
+        if (!window.cordova) {
             var LangVar     = window.navigator.language || window.navigator.userLanguage;
             var userLangVar = LangVar.substring(0, 2) + '_' + LangVar.substring(3, 5).toUpperCase();
 
