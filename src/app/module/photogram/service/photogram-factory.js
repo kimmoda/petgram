@@ -7,12 +7,12 @@
 
     function PhotogramFactory($q, Parse, User, Loading) {
 
-        var limitComment = 5;
+        var limitComment = 3;
 
         return {
             // Feed
-            all: all,
             feed: feed,
+            feedGrid: feedGrid,
             post: post,
             get: get,
             deletePhoto: deletePhoto,
@@ -159,13 +159,13 @@
                             var comments = [];
                             resp.map(function (item) {
                                 console.warn(item);
-                                var obj         = {
+                                var obj        = {
                                     id: item.id,
                                     text: item.attributes.text,
                                     created: item.createdAt,
                                     user: item.attributes.commentBy
                                 };
-                                obj.userAvatar  = User.avatar(obj.user.attributes)
+                                obj.userAvatar = User.avatar(obj.user.attributes)
                                 comments.push(obj);
                             });
                             defer.resolve(comments);
@@ -281,14 +281,14 @@
             var data  = [];
 
             var point       = new Parse.GeoPoint(position);
-            var maxDistance = 1;
+            var maxDistance = 10;
 
             new Parse
                 .Query('Gallery')
-            //.near('location', point)
-                .include('user')
+                .near('location', point)
                 .withinRadians('location', point, maxDistance)
-                .limit(50)
+                .include('user')
+                // .limit(10)
                 .find()
                 .then(function (resp) {
                     if (resp.length) {
@@ -430,7 +430,7 @@
                                                 comments.map(function (item) {
                                                     var user = item.attributes.commentBy;
 
-                                                    var comment = {
+                                                    var comment        = {
                                                         id: item.id,
                                                         text: item.attributes.text,
                                                         user: user,
@@ -440,7 +440,7 @@
                                                     commentsData.push(comment);
                                                 });
 
-                                                var obj = {
+                                                var obj        = {
                                                     id: item.id,
                                                     item: angular.copy(item.attributes),
                                                     created: item.createdAt,
@@ -450,7 +450,7 @@
                                                     comments: commentsData,
                                                     user: item.attributes.user
                                                 };
-                                                obj.userAvatar =  User.avatar(obj.user.attributes);
+                                                obj.userAvatar = User.avatar(obj.user.attributes);
                                                 console.table(obj);
                                                 _result.galleries.push(obj);
                                                 cb();
@@ -463,124 +463,67 @@
             return defer.promise;
         }
 
-        /*
-         * 1) Gallery, Limit
-         * 2) GalleryComment, Limi
-         * 3) Like, count, liked
-         * */
-        function all(page, userId) {
-            var defer = $q.defer();
-            var limit = 18;
-            var data  = [];
+        function feedGrid(page, user, options) {
+            var defer   = $q.defer();
+            var _limit  = 30;
+            var _result = {
+                total: 0,
+                galleries: []
+            };
 
-            var query;
+            function _query() {
+                if (user) {
+                    return new Parse
+                        .Query('Gallery')
+                        .descending('createdAt')
+                        .equalTo('user', user);
+                } else {
+                    return new Parse
+                        .Query('Gallery')
+                        .descending('createdAt');
+                }
+            };
 
-            if (userId) {
-                console.log(userId);
-                var loadUser = new Parse
-                    .Query('User')
-                    .equalTo('objectId', userId)
-                    .first(userId, function (resp) {
-                        return resp;
-                    });
+            _query()
+                .count()
+                .then(function (totalGallery) {
+                    console.log('results', totalGallery);
+                    _result.total = totalGallery;
+                    _query()
+                        .include('user')
+                        .limit(_limit)
+                        .skip(page * _limit)
+                        .find()
+                        .then(function (resp) {
 
+                            var qtd = resp.length;
 
-                query = new Parse
-                    .Query('Gallery')
-                    .descending('createdAt')
-                    .include('user')
-                    .limit(limit)
-                    .equalTo('user', loadUser)
-                    .skip(page * limit)
-                    .find();
-            } else {
+                            if (!qtd) {
+                                defer.reject(true);
+                            }
 
-                query = new Parse
-                    .Query('Gallery')
-                    .descending('createdAt')
-                    //.notEqualTo('user', Parse.User.current())
-                    .include('user')
-                    .limit(limit)
-                    .skip(page * limit)
-                    .find();
-            }
-            query
-                .then(function (resp) {
-                    if (resp.length) {
+                            var cb = _.after(resp.length, function () {
+                                defer.resolve(_result);
+                            });
 
-                        var cb = _.after(resp.length, function () {
-                            defer.resolve(data);
+                            _.each(resp, function (item) {
+                                var obj        = {
+                                    id: item.id,
+                                    item: angular.copy(item.attributes),
+                                    created: item.createdAt,
+                                    likes: item.attributes.qtdLike || 0,
+                                    src: item.attributes.img.url(),
+                                    user: item.attributes.user
+                                };
+                                obj.userAvatar = User.avatar(obj.user.attributes);
+                                _result.galleries.push(obj);
+                                cb();
+                            });
                         });
-
-                        _.each(resp, function (item) {
-                            //grab relations
-
-                            var likes    = item.relation('likes');
-                            var comments = item.relation('comments');
-
-                            likes
-                                .query()
-                                .equalTo('gallery', item)
-                                .equalTo('user', Parse.User.current())
-                                .count()
-                                .then(function (liked) {
-
-                                    comments
-                                        .query()
-                                        .include('commentBy')
-                                        .ascending('createdAt')
-                                        .limit(limitComment)
-                                        .find()
-                                        .then(function (comments) {
-                                            console.log(comments);
-
-                                            var commentsData = [];
-
-                                            angular.forEach(comments, function (item) {
-                                                var user        = item.attributes.commentBy;
-                                                var comment     = {
-                                                    id: item.id,
-                                                    text: item.attributes.text,
-                                                    user: user.attributes
-                                                };
-                                                comment.userAvatar    = User.avatar(comment.user);
-                                                commentsData.push(comment);
-                                            });
-
-                                            var obj = {
-                                                id: item.id,
-                                                item: item.attributes,
-                                                created: item.createdAt,
-                                                likes: likes,
-                                                user: item.attributes,
-                                                comments: commentsData
-                                            };
-                                            obj.userAvatar = User.avatar(obj.user);
-
-                                            obj.item.liked = liked;
-
-                                            if (item.attributes.user) {
-                                                obj.user = item.attributes.user.attributes,
-                                                    obj.user = item.attributes.user,
-                                                    obj.userAvatar = User.avatar(obj.user);
-                                            } else {
-                                                // remove gallery
-                                            }
-
-                                            data.push(obj);
-                                            cb();
-                                        });
-                                });
-
-                        });
-                    } else {
-                        defer.reject(true);
-                    }
-
                 });
-
             return defer.promise;
         }
+
 
         function get(item) {
             var defer = $q.defer();
@@ -619,7 +562,7 @@
                                             var commentsData = [];
 
                                             angular.forEach(comments, function (item) {
-                                                var comment     = {
+                                                var comment        = {
                                                     id: item.id,
                                                     text: item.attributes.text,
                                                     user: item.attributes.commentBy.attributes
@@ -628,7 +571,7 @@
                                                 commentsData.push(comment);
                                             });
 
-                                            var obj     = {
+                                            var obj        = {
                                                 id: item.id,
                                                 item: item.attributes,
                                                 created: item.createdAt,
@@ -637,7 +580,7 @@
                                                 user: item.attributes.user.attributes,
                                                 comments: commentsData
                                             };
-                                            obj.userAvatar    = User.avatar(obj.user);
+                                            obj.userAvatar = User.avatar(obj.user);
 
                                             defer.resolve(obj);
                                             Loading.end();
@@ -960,7 +903,7 @@
                                                             var commentsData = [];
 
                                                             angular.forEach(comments, function (item) {
-                                                                var comment     = {
+                                                                var comment        = {
                                                                     id: item.id,
                                                                     text: item.attributes.text,
                                                                     user: item.attributes.commentBy.attributes
@@ -969,7 +912,7 @@
                                                                 commentsData.push(comment);
                                                             });
 
-                                                            var obj  = {
+                                                            var obj        = {
                                                                 id: item.id,
                                                                 item: item.attributes,
                                                                 src: item.attributes.img.url(),
@@ -1019,7 +962,7 @@
                     if (resp.length) {
                         var data = [];
                         resp.map(function (item) {
-                            var obj = {
+                            var obj        = {
                                 id: item.id,
                                 user: item.attributes.user ? item.attributes.user.attributes : {
                                     name: 'Nulled',

@@ -29,9 +29,6 @@
         src: ''
       };
 
-      console.log('user',$scope.user);
-
-
       init();
 
       $scope.$on('PhotogramHome:reload', function () {
@@ -63,7 +60,7 @@
         }
 
         Photogram
-            .feed($scope.page, $scope.user)
+            .feedGrid($scope.page, $scope.user)
             .then(function (resp) {
 
               console.log(resp);
