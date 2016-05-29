@@ -1,12 +1,12 @@
 <ion-modal-view class="modal-profile">
-  <ion-header-bar class="bar-dark">
+  <ion-header-bar class="bar-light">
     <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
     <div class="title" translate="PHOTOGRAM.SETTING.TITLE"></div>
   </ion-header-bar>
   <ion-content class="animated fadeIn">
 
     <div class="list">
-        <button class="button button-block button-clear button-light button-language" modal-language ng-model="vm.language">{{vm.language.translation | translate}} <i class="icon ion-chevron-down"></i></button>
+        <ion-language></ion-language>
 
       <ion-toggle class="toggle-positive" ng-model="form.push">
         <h3>
