@@ -12,17 +12,22 @@
     height: 100%;
     display: block;
     position: relative;
-  }
 
-  ui-gmap-google-map {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+    ui-gmap-google-map {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
 
-  .angular-google-map-container {
-    height: 100% !important;
-    min-height: 430px;
+    .angular-google-map-container {
+      height: 100% !important;
+      min-height: 430px;
+    }
+
+    .angular-google-map {
+      height: 97%;
+    }
   }
 
 }
+

@@ -1,11 +1,6 @@
 <ion-view class="view-search">
-  <ion-nav-title>
-    <ion-search></ion-search>
-  </ion-nav-title>
 
-  <ion-nav-buttons side="right">
-    <button class="button button-icon ion-person-add" buy></button>
-  </ion-nav-buttons>
+  <ion-nav-title>Search</ion-nav-title>
 
   <div class="bar bar-header bar-light" >
     <div class="button-bar">
@@ -17,27 +12,7 @@
     </div>
   </div>
 
-  <ion-content>
-
-    <div class="layout" >
-      <div class="tab" ng-show="vm.tab.list">
-        <photogram-photo-grid profile="true"></photogram-photo-grid>
-      </div>
-
-      <div class="map" ng-show="vm.tab.map">
-        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-
-          <ui-gmap-marker idKey='0' coords='GallerySearchMap.user'>
-          </ui-gmap-marker>
-
-          <ui-gmap-marker click="GallerySearchMapCtrl.openModal(item)" idKey='item.id' coords='item.coords' icon="item.icon" ng-repeat="item in GallerySearchMap.data">
-          </ui-gmap-marker>
-
-        </ui-gmap-google-map>
-      </div>
-
-    </div>
-
-
+  <ion-content scroll="false">
+    <ion-nav-view></ion-nav-view>
   </ion-content>
 </ion-view>

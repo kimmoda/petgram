@@ -17,7 +17,20 @@
                         templateUrl: path + '/search.html'
                     }
                 }
-            });
+            })
+            .state('photogram.search.map', {
+                url: '/map',
+                templateUrl: 'app/module/photogram/module/search-map/search-map.html',
+                controller: 'SearchMapCtrl',
+                controllerAs: 'vm'
+            })
+            .state('photogram.search.list', {
+                url: '/list',
+                templateUrl: 'app/module/photogram/module/search-list/search-list.html',
+                controller: 'SearchListCtrl',
+                controllerAs: 'vm'
+            })
+        ;
 
     }
 })();

@@ -35,7 +35,7 @@
         function openModal() {
 
           init();
-          $ionicModal.fromTemplateUrl(path + '/directive/settings/photogram.settings.modal.html', {
+          $ionicModal.fromTemplateUrl(path + '/directive/settings-modal/settings-modal.html', {
             scope: scope
           }).then(function (modal) {
             scope.modal = modal;
