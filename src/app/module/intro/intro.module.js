@@ -7,6 +7,10 @@
     var path = 'app/module/intro';
 
     function configRoutes($stateProvider, $translatePartialLoaderProvider) {
+
+        // Translation
+        $translatePartialLoaderProvider.addPart(path);
+
         $stateProvider
             .state('intro', {
                 url: '/intro',
@@ -14,8 +18,5 @@
                 controller: 'IntroCtrl',
                 controllerAs: 'vm'
             });
-
-        // Translation
-        $translatePartialLoaderProvider.addPart(path);
     }
 })();

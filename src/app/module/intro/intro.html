@@ -4,13 +4,13 @@
     <div class="intro-slider">
       <ion-slide-box active-slide="slideIndex" show-pager="true" on-slide-changed="vm.slideChanged($index)">
 
-        <ion-slide ng-repeat="item in vm.slides">
+        <ion-slide ng-repeat="item in vm.slides track by $index">
 
           <div class="content" ng-if="$index == vm.slideIndex">
-            <span class="top"><h2>{{ ::item.top }}</h2></span>
+            <span class="top"><h2>{{ item.top }}</h2></span>
 
-            <div class="phone {{ ::vm.device }}">
-              <img ng-src="{{ ::item.img }}">
+            <div class="phone {{ vm.device }}">
+              <img ng-src="{{ item.img }}">
             </div>
           </div>
 
