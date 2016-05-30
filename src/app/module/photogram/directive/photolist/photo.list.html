@@ -9,17 +9,17 @@
 <div class="list card animated fadeIn" ng-repeat="gallery in data.galleries track by gallery.id">
 
   <div class="item item-avatar" ion-affix data-affix-within-parent-with-class="card" profile-modal user="gallery.user">
-    <img ng-if="profile" profile="{{ ::gallery.user.id }}" ng-src="{{ ::gallery.user.attributes.img._url}}">
+    <img ng-if="profile" profile="{{ ::gallery.user_id }}" ng-src="{{ ::gallery.userAvatar}}">
     <img ng-src="{{ ::gallery.userAvatar}}">
-    <h2>{{ ::gallery.user.attributes.name}}</h2>
+    <h2>{{ ::gallery.userName}}</h2>
 
-    <p>{{ :: gallery.user.attributes.status }}</p>
-    <span>{{ ::gallery.created | amTimeAgo}}</span>
+    <p>{{ :: gallery.userStatus }}</p>
+    <span>{{ ::gallery.createdAt | amTimeAgo}}</span>
   </div>
 
   <div class="item item-body" on-double-tap="like(gallery)" ng-model="gallery">
     <div class="icon ion-ios-heart heart" ng-class="gallery.liked ? 'happy' : 'broken' "></div>
-    <i class="icon" ng-if="like"></i> <img cache-src="{{ ::gallery.src}}" id="{{ ::gallery.id}}">
+    <i class="icon" ng-if="like"></i> <img cache-src="{{ ::gallery.img}}" id="{{ ::gallery.id}}">
   </div>
   <div class="item item-buttons">
     <div class="row">
@@ -38,16 +38,16 @@
   <div class="padding">
 
     <span class="likes" photogram-like photogram="{{ :: gallery }}"><i class="icon ion-ios-heart"></i>
-            <span ng-if="!gallery.progress">{{ :: gallery.likes  }}</span> <span translate="PHOTOGRAM.LIKES"></span></span>
+      <span ng-if="!gallery.progress">{{ :: gallery.likes  }}</span> <span translate="PHOTOGRAM.LIKES"></span></span>
 
 
     <div class="list-comments">
       <div class="comment-item" profile-modal user="gallery.user">
-        <span class="username">{{ :: gallery.user.attributes.name }}</span>
-        <span class="comment">{{ :: gallery.item.title }}</span>
+        <span class="username">{{ :: gallery.userName }}</span>
+        <span class="comment">{{ :: gallery.title }}</span>
       </div>
       <div class="comment-item" profile-modal user="item.user" ng-repeat="item in gallery.comments| limitTo:3 track by item.id">
-        <span class="username">{{ :: item.user.attributes.name }}</span> <span class="comment">{{ :: item.text }}</span>
+        <span class="username">{{ :: item.userName }}</span> <span class="comment">{{ :: item.text }}</span>
       </div>
       <a class="comment-item" photogram-comment ng-model="gallery" ng-if="gallery.comments.length>3">Ver todos os comentários</a>
     </div>

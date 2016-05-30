@@ -6,7 +6,7 @@
         .module('app.user')
         .factory('User', UserFactory);
 
-    function UserFactory($q, $window, AppConfig, Parse, $rootScope, $ionicHistory, $cordovaDevice, $facebook, $cordovaFacebook, Loading, $location, $state) {
+    function UserFactory($q, $window, AppConfig, Parse, $rootScope, $ionicHistory, $cordovaDevice, $facebook, $cordovaFacebook, Loading, DAO, $state) {
 
         var cordova  = $window.cordova;
         var device   = cordova ? true : false;
@@ -15,9 +15,11 @@
 
         return {
             init: init,
+            initFollows: initFollows,
             addFollows: addFollows,
             currentUser: currentUser,
             register: register,
+            cacheUser: cacheUser,
             login: login,
             profile: profile,
             logout: logout,
@@ -42,15 +44,68 @@
 
 
         function init() {
+            var defer = $q.defer();
             // Parse Start
             if (Parse.User.current()) {
                 user = Parse.User.current();
                 loadProfile();
+                defer.resolve(user);
             } else {
                 console.log('Not logged user, go intro');
                 // logout();
                 // $location.path(AppConfig.routes.login);
+                defer.reject('Not user');
             }
+            return defer.promise;
+        }
+
+        function initFollows() {
+            var defer = $q.defer();
+            console.log('Init Follows', Parse.User.current().id);
+            DAO.query("SELECT * FROM UserFollow WHERE userId = '" + Parse.User.current().id + "'")
+               .then(function (data) {
+                   console.log(data);
+
+                   if (data.rows.length) {
+                       defer.resolve(data.rows);
+                   } else {
+                       new Parse
+                           .Query('UserFollow')
+                           .include('follow')
+                           .equalTo('user', Parse.User.current())
+                           .find()
+                           .then(function (follows) {
+                               var _promises = [];
+                               console.warn(follows);
+                               follows.map(function (item) {
+
+                                   var _query            = {
+                                       table: 'UserFollow',
+                                       columns: {
+                                           id: item.id,
+                                           userId: item.attributes.user.id,
+                                           followId: item.attributes.follow.id
+                                       }
+                                   };
+
+                                   _promises.push(cacheUser(item.attributes.follow));
+                                   _promises.push(DAO.insert(_query));
+                               });
+
+                               $q.all(_promises).then(function (result) {
+                                   defer.resolve(result);
+                               }).catch(defer.reject);
+
+                           }, function (err) {
+                               console.log('nenhum follow', err);
+                               defer.resolve([]);
+                           });
+                   }
+               })
+               .catch(function (erro) {
+                   console.error(erro);
+               });
+            return defer.promise;
         }
 
 
@@ -145,10 +200,10 @@
                                             });
                                     } else {
                                         console.log('Se ainda não está completo, manda completar o perfil', dados,
-                                            response,user);
+                                            response, user);
 
 
-                                        $rootScope.tempUser     = dados;
+                                        $rootScope.tempUser             = dados;
                                         $rootScope.tempUser.facebookimg = 'https://graph.facebook.com/' + dados.id +
                                             '/picture?width=250&height=250';
 
@@ -254,7 +309,8 @@
                                     defer.reject(JSON.stringify(response));
 
                                 });
-                    };
+                    }
+                    ;
                 });
 
 
@@ -515,17 +571,58 @@
             return defer.promise;
         }
 
+        function cacheUser(user) {
+            var defer = $q.defer();
+            console.warn('_queryInsert', user);
+            var _queryInsert = {
+                table: 'User',
+                columns: {
+                    id: user.id,
+                    name: user.attributes.name,
+                    username: user.attributes.username,
+                    email: user.attributes.email,
+                    language: user.attributes.language,
+                    facebookimg: user.attributes.facebookimg,
+                    gender: user.attributes.gender,
+                    img: avatar(user.attributes),
+                    facebook: user.attributes.facebook,
+                    qtdFollow: user.attributes.qtdFollow,
+                    status: user.attributes.status,
+                    createdAt: user.attributes.createdAt ? new Date(user.attributes.createdAt).getTime() : 0,
+                    attributes: JSON.stringify(user.attributes)
+                }
+            }
+
+            console.info(_queryInsert);
+
+            DAO
+                .insert(_queryInsert)
+                .then(function () {
+                    defer.resolve(_queryInsert.columns);
+                })
+                .catch(defer.reject);
+            return defer.promise;
+        }
+
         function find(userId) {
             var defer = $q.defer();
 
-            new Parse
-                .Query('User')
-                .equalTo('objectId', userId)
-                .first()
-                .then(function (resp) {
-                    // console.log(resp);
-                    defer.resolve(resp);
-                });
+            DAO.query("SELECT * FROM User WHERE id='" + userId + "'").then(function (data) {
+                if (data.rows.length) {
+                    defer.resolve(data.rows[0]);
+                } else {
+                    new Parse
+                        .Query('User')
+                        .equalTo('objectId', userId)
+                        .first()
+                        .then(function (resp) {
+                            // console.log(resp);
+                            cacheUser(resp).then(function (user) {
+                                defer.resolve(user);
+                            })
+                        });
+                }
+            })
 
             return defer.promise;
         }

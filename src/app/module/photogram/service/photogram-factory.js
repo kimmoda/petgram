@@ -5,7 +5,7 @@
         .module('app.photogram')
         .factory('Photogram', PhotogramFactory);
 
-    function PhotogramFactory($q, Parse, User, Loading) {
+    function PhotogramFactory($q, Parse, DAO, $rootScope, User, Loading) {
 
         var limitComment = 3;
 
@@ -226,7 +226,7 @@
                                     user: item.attributes.follow.attributes,
                                     created: item.createdAt
                                 };
-                                obj.userAvatar = User.avatar(obj.user);
+                                obj.userAvatar = User.avatar(obj.user.attributes);
 
                                 data.push(obj.user);
                             });
@@ -261,7 +261,7 @@
                                         user: item.attributes.user.attributes,
                                         created: item.createdAt
                                     };
-                                    obj.userAvatar = User.avatar(obj.user);
+                                    obj.userAvatar = User.avatar(obj.user.attributes);
                                     objs.push(obj);
                                 });
                                 console.log(objs);
@@ -358,12 +358,29 @@
             return defer.promise;
         }
 
-        function feed(page, user) {
+
+        function _getOfflineFeed(page, user, _limit) {
+            var defer = $q.defer();
+
+            DAO.paginate('Gallery',
+                'User.name as userName, User.status as userStatus, User.img as userAvatar, Gallery.*',
+                '',
+                'INNER JOIN User ON Gallery.user_id = User.id',
+                'ORDER BY Gallery.createdAt DESC',
+                _limit,
+                page).then(function (data) {
+                console.log(data);
+                defer.resolve(data);
+            });
+
+            return defer.promise;
+        }
+
+        function _getOnlineFeed(page, user, _limit) {
             var defer   = $q.defer();
-            var _limit  = 15;
             var _result = {
                 total: 0,
-                galleries: []
+                rows: []
             };
 
             function _query() {
@@ -381,6 +398,7 @@
                     //.containsAll('ref', following)
                 }
             };
+
 
             _query()
                 .count()
@@ -417,7 +435,7 @@
                                     .equalTo('user', Parse.User.current())
                                     .count()
                                     .then(function (liked) {
-
+                                        (liked > 0) ? liked = true : liked = false;
                                         _comments
                                             .query()
                                             .include('commentBy')
@@ -434,25 +452,57 @@
                                                         id: item.id,
                                                         text: item.attributes.text,
                                                         user: user,
-                                                        created: item.attributes.createdAt
+                                                        created: item.attributes.createdAt,
+                                                        userAvatar: User.avatar(user.attributes),
+                                                        userName: user.attributes.name
                                                     };
-                                                    comment.userAvatar = User.avatar(comment.user.attributes);
+                                                    User.cacheUser(comment.user);
+
+                                                    var _queryInsertComment = {
+                                                        table: 'GalleryComment',
+                                                        columns: {
+                                                            id: comment.id,
+                                                            name: comment.text,
+                                                            user_id: comment.user.id,
+                                                            userName: comment.user.attributes.name,
+                                                            gallery_id: item.id,
+                                                            createdAt: comment.createdAt ? new Date(comment.createdAt).getTime() : new Date().getTime()
+                                                        }
+                                                    };
+                                                    DAO.insert(_queryInsertComment);
+
                                                     commentsData.push(comment);
                                                 });
 
-                                                var obj        = {
+                                                var obj                 = {
                                                     id: item.id,
                                                     item: angular.copy(item.attributes),
                                                     created: item.createdAt,
                                                     likes: item.attributes.qtdLike || 0,
                                                     liked: liked,
-                                                    src: item.attributes.img.url(),
+                                                    img: item.attributes.img._url,
                                                     comments: commentsData,
-                                                    user: item.attributes.user
+                                                    userName: item.attributes.user.attributes.name,
+                                                    userAvatar: User.avatar(item.attributes.user.attributes),
+                                                    userStatus: item.attributes.user.attributes.status
                                                 };
-                                                obj.userAvatar = User.avatar(obj.user.attributes);
-                                                console.table(obj);
-                                                _result.galleries.push(obj);
+                                                var _queryInsertGallery = {
+                                                    table: 'Gallery',
+                                                    columns: {
+                                                        id: item.id,
+                                                        title: item.attributes.title,
+                                                        img: item.attributes.img._url,
+                                                        user_id: item.attributes.user.id,
+                                                        location: JSON.stringify(item.attributes.location),
+                                                        qtdLike: item.attributes.qtdLike || 0,
+                                                        liked: liked,
+                                                        likes: item.attributes.qtdLike || 0,
+                                                        createdAt: new Date(item.createdAt).getTime()
+                                                    }
+                                                };
+                                                DAO.insert(_queryInsertGallery);
+                                                // console.table(obj);
+                                                _result.rows.push(obj);
                                                 cb();
                                             });
                                     });
@@ -463,12 +513,22 @@
             return defer.promise;
         }
 
+        function feed(page, user) {
+            var _limit = 15;
+            // Offline Feed
+            if ($rootScope.onLine) {
+                return _getOnlineFeed(page, user, _limit);
+            } else {
+                return _getOfflineFeed(page, user, _limit);
+            }
+        }
+
         function feedGrid(page, user, options) {
             var defer   = $q.defer();
             var _limit  = 30;
             var _result = {
                 total: 0,
-                galleries: []
+                rows: []
             };
 
             function _query() {
@@ -516,7 +576,7 @@
                                     user: item.attributes.user
                                 };
                                 obj.userAvatar = User.avatar(obj.user.attributes);
-                                _result.galleries.push(obj);
+                                _result.rows.push(obj);
                                 cb();
                             });
                         });
@@ -944,44 +1004,53 @@
         }
 
         function listActivity(page) {
-            var defer = $q.defer();
-            var limit = 20;
+            var defer  = $q.defer();
+            var limit  = 20;
+            var _table = 'GalleryActivity';
 
             console.info(page, limit);
 
 
-            new Parse
-                .Query('GalleryActivity')
-                .include('user')
-                .include('gallery')
-                .descending('createdAt')
-                .limit(limit)
-                .skip(page * limit)
-                .find()
-                .then(function (resp) {
-                    if (resp.length) {
-                        var data = [];
-                        resp.map(function (item) {
-                            var obj        = {
-                                id: item.id,
-                                user: item.attributes.user ? item.attributes.user.attributes : {
-                                    name: 'Nulled',
-                                    img: {
-                                        _url: 'img/user.png'
+            DAO.query("SELECT * FROM " + _table).then(function (data) {
+                if (data.rows.length) {
+                    defer.resolve(data.rows);
+                } else {
+                    new Parse
+                        .Query('GalleryActivity')
+                        .include('user')
+                        .include('gallery')
+                        .descending('createdAt')
+                        .limit(limit)
+                        .skip(page * limit)
+                        .find()
+                        .then(function (resp) {
+                            if (resp.length) {
+                                var data = [];
+                                resp.map(function (item) {
+                                    var _insert = {
+                                        table: _table,
+                                        columns: {
+                                            id: item.id,
+                                            action: item.attributes.action,
+                                            user_id: item.attributes.user.id,
+                                            userName: item.attributes.user.attributes.name,
+                                            userAvatar: User.avatar(item.attributes.user.attributes),
+                                            gallery_id: item.attributes.gallery ? item.attributes.gallery.id : null,
+                                            img: item.attributes.gallery ? item.attributes.gallery.attributes.img._url : null,
+                                            createdAt: new Date(item.attributes.createdAt).getTime()
+                                        }
                                     }
-                                },
-                                img: item.attributes.gallery ? item.attributes.gallery.attributes.img : null,
-                                action: item.attributes.action,
-                                created: item.attributes.createdAt
-                            };
-                            obj.userAvatar = User.avatar(obj.user)
-                            data.push(obj);
+                                    DAO.insert(_insert).then(console.log(data));
+                                    data.push(_insert.columns);
+                                });
+                                defer.resolve(data);
+                            } else {
+                                defer.reject(true);
+                            }
                         });
-                        defer.resolve(data);
-                    } else {
-                        defer.reject(true);
-                    }
-                });
+                }
+            })
+
 
             return defer.promise;
         }

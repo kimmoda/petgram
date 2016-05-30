@@ -67,7 +67,7 @@
                     .then(function (resp) {
 
                         console.log(resp);
-                        resp.galleries.map(function (item) {
+                        resp.rows.map(function (item) {
                             item.progress     = false;
                             // console.table(item);
                             $scope.data.total = resp.total;
