@@ -8,6 +8,11 @@
   </ion-nav-buttons>
 
   <ion-content>
+
+    <div class="connect" ng-hide="onLine" ng-cloak>
+      <span>Offline</span>
+    </div>
+
     <photogram-photo-list profile="true" user=""></photogram-photo-list>
   </ion-content>
 </ion-view>
