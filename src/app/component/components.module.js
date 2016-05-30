@@ -5,6 +5,7 @@
             'ionic',
             'ionic-loading',
             'ion-language',
+            'onesignal',
             'ion-dao',
             // 'ion-affix',
             'ion-href',

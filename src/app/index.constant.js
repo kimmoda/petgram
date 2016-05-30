@@ -22,6 +22,10 @@
                 appId: 'myAppId',
                 server: 'https://photogramserver.herokuapp.com/parse/'
             },
+            onesignal: {
+                id: 'd13d00d0-013f-406f-9811-66ce0737d7bc',
+                google: 'AIzaSyCEBeAMSs4nrAC-2cvG6N6Q_KqJpnUrnh0'
+            },
             locales: [
                 {
                     translation: 'LANG.PORTUGUES',
@@ -115,7 +119,7 @@
                     {
                         name: 'GallerySetting',
                         columns: {
-                            key : 'TEXT',
+                            key: 'TEXT',
                             value: 'TEXT'
                         }
                     }

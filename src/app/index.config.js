@@ -6,6 +6,7 @@
         .module('starter')
         .run(startParse)
         .run(runIonic)
+        .run(runOneSignal)
         .run(runFacebook)
         .run(detectConnection)
         .config(configCompile)
@@ -19,6 +20,10 @@
 
     function configCompile($compileProvider) {
         $compileProvider.debugInfoEnabled(false);
+    }
+
+    function runOneSignal (OneSignal, AppConfig) {
+        OneSignal.init(AppConfig.onesignal.id, AppConfig.onesignal.google)
     }
 
     function startParse(AppConfig) {
