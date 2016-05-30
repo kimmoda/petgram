@@ -27,7 +27,23 @@
                 abstract: true,
                 controller: 'PhotogramTabsCtrl',
                 controllerAs: 'vm',
-                templateUrl: path + '/module/tabs/photogram-tabs.html'
+                templateUrl: path + '/module/tabs/photogram-tabs.html',
+                resolve: {
+                    init: function  (DAO, $q, User, PhotogramSetting, AppConfig) {
+                        var defer = $q.defer();
+
+                        DAO.init(AppConfig.DAO).then(function  (start) {
+                            var promises = [
+                                PhotogramSetting.init(),
+                            ];
+                            $q.all(promises).then(function  (data) {
+                                console.log(data);
+                                defer.resolve(data);
+                            });
+                        })
+                        return defer.promise;
+                    }
+                }
             });
 
 
