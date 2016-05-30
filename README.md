@@ -20,7 +20,7 @@ Lets you quickly set up a project with:
 ## Require  ##
 1) Install nodejs:
     
-    [Nodejs](http://nodejs.org/)
+[Nodejs](http://nodejs.org/)
 
 2) Install Ionic, Bower, Cordova and Gulp
     
@@ -36,18 +36,5 @@ Lets you quickly set up a project with:
    
     $ gulp serve
 
-3) Build Project
-    
-    $ gulp build
-
-## Facebook Configuration ##
-
- * Create Account in Facebook Developers
- * Follow  [documentation](http://movibe.github.io/photogram-docs/#facebook)
- *Edit File with your Keys www/js/config.facebook.js
-
-##Build and run app on iOS (only Mac OS) ##
-    
-    $ sudo npm install -g ios-sim
-
-    $ ionic run ios
+## Build Tutorial
+[WIKI TUTORIAL](https://github.com/photogram/ionic-app-parse/wiki/Build-Application)
