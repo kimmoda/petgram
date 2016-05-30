@@ -10,4 +10,4 @@ releases/
 .tmp/
 .vscode/
 .idea/
-plugins/
+plugins
