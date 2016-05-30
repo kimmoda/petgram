@@ -14,12 +14,10 @@
         ])
         .config(configRoutes);
 
-    var path = 'app/module/photogram';
-
     function configRoutes($stateProvider, $translatePartialLoaderProvider) {
 
         // Translation
-        $translatePartialLoaderProvider.addPart(path);
+        $translatePartialLoaderProvider.addPart('app/module/photogram');
 
         $stateProvider
             .state('photogram', {
@@ -27,7 +25,7 @@
                 abstract: true,
                 controller: 'PhotogramTabsCtrl',
                 controllerAs: 'vm',
-                templateUrl: path + '/module/tabs/photogram-tabs.html',
+                templateUrl: 'app/module/photogram/module/tabs/photogram-tabs.html',
                 resolve: {
                     init: function  (DAO, $q, User, PhotogramSetting, AppConfig) {
                         var defer = $q.defer();
