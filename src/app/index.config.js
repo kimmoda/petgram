@@ -7,10 +7,15 @@
         .run(startParse)
         .run(runIonic)
         .run(runFacebook)
+        .run(detectConnection)
         .config(configCompile)
         .config(configFacebook)
         .config(configIonic);
 
+
+    function detectConnection(ConnectMonitor) {
+        ConnectMonitor.watch();
+    }
 
     function configCompile($compileProvider) {
         $compileProvider.debugInfoEnabled(false);
@@ -22,16 +27,14 @@
     }
 
     function runIonic($ionicPlatform, $cacheSrc, AppConfig, $cordovaStatusbar, $timeout,
-                      $cordovaSplashscreen, PhotogramSetting, User) {
+                      $cordovaSplashscreen, User) {
 
         $cacheSrc.color   = AppConfig.color;
         $cacheSrc.bgcolor = '#ddd';
         $cacheSrc.rounded = true;
         $cacheSrc.radius  = 50;
         //$cacheSrc.interval = 5000;
-
         User.init();
-        PhotogramSetting.init();
 
         $ionicPlatform.ready(function () {
 
