@@ -13,10 +13,12 @@
         };
         function modal(gallery) {
             var $scope            = $rootScope.$new();
+            $scope.formFields = PhotogramFeedbackForm.form;
             $scope.submitFeedback = submitFeedback;
             $scope.closeModal     = closeModal;
             $scope.form           = {
-                photogramId: gallery.id
+                photogramId: gallery.id,
+                subject: 'complaint'
             };
 
             function submitFeedback() {
@@ -35,10 +37,8 @@
                 delete $scope.modal;
             }
 
-            $scope.formFields = PhotogramFeedbackForm.form;
-
             $ionicModal
-                .fromTemplateUrl(path + '/module/feedback/view/feedback.modal.html', {
+                .fromTemplateUrl(path + '/directive/feedback/feedback-modal.html', {
                     scope: $scope,
                     focusFirstInput: true
                 })
