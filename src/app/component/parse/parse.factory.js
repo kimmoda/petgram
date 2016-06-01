@@ -3,10 +3,10 @@
 
     angular
         .module('ngParse')
-        .factory('Parse', Parse);
+        .factory('Parse', ParseFactory);
 
 
-    function Parse($window) {
+    function ParseFactory($window) {
         var parse       = $window.Parse;
         parse.transform = transform;
         parse.count = count;

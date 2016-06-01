@@ -2,9 +2,9 @@
   'use strict';
   angular
     .module('app.photogram')
-    .directive('settingsModal', settingsModal);
+    .directive('settingsModal', settingsModalDirective);
 
-  function settingsModal($ionicModal, $translate, AppConfig, $cordovaInAppBrowser, $rootScope, PhotogramShare,
+  function settingsModalDirective($ionicModal, $translate, AppConfig, $cordovaInAppBrowser, $rootScope, PhotogramShare,
     User,
     UserForm, $state) {
 

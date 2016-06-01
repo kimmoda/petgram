@@ -3,9 +3,9 @@
 
   angular
     .module('ion-photo')
-    .factory('PhotoFilter', PhotoFilter);
+    .factory('PhotoFilter', PhotoFilterFactory);
 
-  function PhotoFilter($rootScope, $q, $ionicModal) {
+  function PhotoFilterFactory($rootScope, $q, $ionicModal) {
 
     return {
       load: modalFilter

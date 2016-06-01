@@ -4,9 +4,9 @@
 
     angular
         .module('ion-location')
-        .factory('GeoService', GeoService);
+        .factory('GeoService', GeoServiceFactory);
 
-    function GeoService($http, $window, $cordovaGeolocation, $ionicPopup,  $timeout, $q) {
+    function GeoServiceFactory($http, $window, $cordovaGeolocation, $ionicPopup,  $timeout, $q) {
 
         /**
          'street_address', //indicates a precise street address.

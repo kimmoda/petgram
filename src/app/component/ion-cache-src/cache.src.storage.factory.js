@@ -3,9 +3,9 @@
 
   angular
     .module('ionic-cache-src')
-    .factory('cacheSrcStorage', cacheSrcStorage);
+    .factory('cacheSrcStorage', cacheSrcStorageFactory);
 
-  function cacheSrcStorage($localStorage) {
+  function cacheSrcStorageFactory($localStorage) {
     var c = {};
     c._cache = $localStorage.cache_src;
     c.get = function (url) {

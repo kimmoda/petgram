@@ -83,6 +83,7 @@
         },
         "LIKES": "دوست دارد",
         "BUTTON": {
+            "SEND": "Send",
             "PULL": "به روز کردن...",
             "CHANGE_LANGUAGE": "تغییر زبان",
             "SAVE_PROFILE": "ذخیره مشخصات",

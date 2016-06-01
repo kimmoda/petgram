@@ -1,22 +1,24 @@
 (function () {
-    'use strict';
-    angular
-        .module('app.intro', [])
-        .config(configRoutes);
+  'use strict';
+  angular
+    .module('app.intro', [])
+    .config(configRoutes);
+
+
+  function configRoutes($stateProvider, $translatePartialLoaderProvider) {
 
     var path = 'app/module/intro';
+    
+    $stateProvider
+      .state('intro', {
+        url: '/intro',
+        templateUrl: path + '/intro.html',
+        controller: 'IntroCtrl',
+        controllerAs: 'vm'
+      });
 
-    function configRoutes($stateProvider, $translatePartialLoaderProvider) {
+    // Translation
+    $translatePartialLoaderProvider.addPart(path);
 
-        // Translation
-        $translatePartialLoaderProvider.addPart(path);
-
-        $stateProvider
-            .state('intro', {
-                url: '/intro',
-                templateUrl: path + '/intro.html',
-                controller: 'IntroCtrl',
-                controllerAs: 'vm'
-            });
-    }
+  }
 })();

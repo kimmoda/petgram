@@ -2,9 +2,9 @@
   'use strict';
   angular
     .module('app.photogram')
-    .directive('photogramPhotoCapture', photogramPhotoCapture);
+    .directive('photogramPhotoCapture', photogramPhotoCaptureDirective);
 
-  function photogramPhotoCapture($ionicModal, $cordovaGeolocation, AppConfig, Loading, $state, PhotoService,
+  function photogramPhotoCaptureDirective($ionicModal, $cordovaGeolocation, AppConfig, Loading, $state, PhotoService,
     Photogram) {
 
     var path = AppConfig.path;

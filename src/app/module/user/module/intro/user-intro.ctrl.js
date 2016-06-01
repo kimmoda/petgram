@@ -11,9 +11,9 @@
      * */
     angular
         .module('app.intro')
-        .controller('UserIntroCtrl', UserIntroCtrl);
+        .controller('UserIntroCtrl', UserIntroController);
 
-    function UserIntroCtrl(AppConfig) {
+    function UserIntroController(AppConfig) {
         var vm       = this;
     }
 

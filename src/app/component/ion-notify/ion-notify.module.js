@@ -3,9 +3,9 @@
 
   angular
     .module('ion-notify', ['ionic'])
-    .factory('Notify', Notify);
+    .factory('Notify', NotifyFactory);
 
-  function Notify($ionicPopup) {
+  function NotifyFactory($ionicPopup) {
 
     return {
       alert: alert,

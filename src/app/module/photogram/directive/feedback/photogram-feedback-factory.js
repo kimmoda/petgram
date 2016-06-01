@@ -2,9 +2,9 @@
 
     angular
         .module('app.photogram')
-        .factory('PhotogramFeedback', PhotogramFeedback);
+        .factory('PhotogramFeedback', PhotogramFeedbackFactory);
 
-    function PhotogramFeedback($q, AppConfig, Photogram, $rootScope, PhotogramFeedbackForm, $ionicModal, Notify) {
+    function PhotogramFeedbackFactory($q, AppConfig, Photogram, $rootScope, PhotogramFeedbackForm, $ionicModal, Notify) {
         var path = AppConfig.path;
 
         return {

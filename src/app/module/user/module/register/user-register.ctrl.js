@@ -11,11 +11,11 @@
    * */
   angular
     .module('app.user')
-    .controller('UserRegisterCtrl', UserRegisterCtrl);
+    .controller('UserRegisterCtrl', UserRegisterController);
 
-  function UserRegisterCtrl($state, UserForm, Notify, Loading, Photogram, User) {
-    var vm = this;
-    vm.formFields = UserForm.register;
+  function UserRegisterController($state, UserForm, Notify, Loading, Photogram, User) {
+    var vm            = this;
+    vm.formFields     = UserForm.register;
     vm.submitRegister = submitRegister;
 
     init();

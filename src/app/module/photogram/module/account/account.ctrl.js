@@ -11,9 +11,9 @@
      * */
     angular
         .module('app.photogram')
-        .controller('PhotogramAccountCtrl', PhotogramAccountCtrl);
+        .controller('PhotogramAccountCtrl',PhotogramAccountController);
 
-    function PhotogramAccountCtrl(Parse, Photogram, User) {
+    function PhotogramAccountController(Parse, Photogram, User) {
         var vm       = this;
         vm.changeTab = changeTab;
         vm.user      = Parse.User.current();

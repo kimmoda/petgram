@@ -16,9 +16,6 @@
 
     function configRoutes($stateProvider, $translatePartialLoaderProvider) {
 
-        // Translation
-        $translatePartialLoaderProvider.addPart('app/module/photogram');
-
         $stateProvider
             .state('photogram', {
                 url: '/photogram',
@@ -29,7 +26,6 @@
                 resolve: {
                     init: function  (DAO, $q, User, PhotogramSetting, AppConfig) {
                         var defer = $q.defer();
-
                         DAO.init(AppConfig.DAO).then(function  (start) {
                             var promises = [
                                 PhotogramSetting.init(),
@@ -38,12 +34,14 @@
                                 console.log(data);
                                 defer.resolve(data);
                             });
-                        })
+                        });
                         return defer.promise;
                     }
                 }
             });
 
+        // Translation
+        $translatePartialLoaderProvider.addPart('app/module/photogram');
 
     }
 })();

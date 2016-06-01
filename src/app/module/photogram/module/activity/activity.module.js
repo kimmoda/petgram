@@ -4,10 +4,10 @@
         .module('app.activity', [])
         .config(configRoutes);
 
-    var path = 'app/module/photogram/module/activity';
 
     function configRoutes($stateProvider, $translatePartialLoaderProvider) {
 
+    var path = 'app/module/photogram/module/activity';
         //$translatePartialLoaderProvider.addPart(path);
 
         $stateProvider

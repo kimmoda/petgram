@@ -3,9 +3,9 @@
 
   angular
     .module('ion-photo')
-    .directive('ionCrop', ionCrop);
+    .directive('ionCrop', ionCropDirective);
 
-  function ionCrop($jrCrop, $translate, $ionicActionSheet) {
+  function ionCropDirective($jrCrop, $translate, $ionicActionSheet) {
 
     return {
       restrict: 'A',

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular
-        .module('ion-dao', ['ionic'])
+        .module('ion-dao', [])
         .factory('DAO', function ($interval, $q) {
             var _db;
             var _tables = [];

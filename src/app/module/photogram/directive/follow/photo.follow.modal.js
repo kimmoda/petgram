@@ -2,9 +2,9 @@
   'use strict';
   angular
     .module('app.photogram')
-    .directive('photogramFollow', photogramFollow);
+    .directive('photogramFollow', photogramFollowDirective);
 
-  function photogramFollow($ionicModal, AppConfig, Photogram) {
+  function photogramFollowDirective($ionicModal, AppConfig, Photogram) {
 
     var path = AppConfig.path;
 

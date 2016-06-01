@@ -4,8 +4,6 @@
         .module('app.account', [])
         .config(configRoutes);
 
-    var path = 'app/module/photogram/module/account';
-
     function configRoutes($stateProvider) {
         $stateProvider
 

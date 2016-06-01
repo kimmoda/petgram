@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('app.photogram')
-        .directive('photogramPhotoList', photogramPhotoList);
+        .directive('photogramPhotoList', photogramPhotoListDirective);
 
-    function photogramPhotoList(AppConfig, Photogram, $ionicPopup, PhotogramShare, PhotogramFeedback, $ionicActionSheet) {
+    function photogramPhotoListDirective(AppConfig, Photogram, $ionicPopup, PhotogramShare, PhotogramFeedback, $ionicActionSheet) {
         var path = AppConfig.path;
 
         return {

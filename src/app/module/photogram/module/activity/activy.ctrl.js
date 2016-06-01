@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('app.activity')
-        .controller('PhotogramActivityCtrl', PhotogramActivityCtrl);
+        .controller('PhotogramActivityCtrl', PhotogramActivityController);
 
-    function PhotogramActivityCtrl($scope, Photogram, PhotogramShare, User) {
+    function PhotogramActivityController($scope, Photogram, PhotogramShare, User) {
         var vm     = this;
         vm.loading = true;
 

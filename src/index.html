@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="starter">
 <head>
+    <base href="/">
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http:"> -->
@@ -14,19 +15,18 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <script src="http://maps.googleapis.com/maps/api/js?libraries=visualization,places&language=en&key=AIzaSyCEBeAMSs4nrAC-2cvG6N6Q_KqJpnUrnh0"></script>
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
 
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=visualization,places&language=en&key=AIzaSyCEBeAMSs4nrAC-2cvG6N6Q_KqJpnUrnh0"></script>
+    <script src="cordova.js"></script>
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->
     <!-- endbower -->
-    <!-- endbuild -->
-
-    <script src="cordova.js"></script>
-    <!-- build:css({.tmp/serve,src}) styles/app.css -->
-    <!-- inject:css -->		
-    <!-- css files will be automatically insert here -->		
-    <!-- endinject -->		
     <!-- endbuild -->
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->

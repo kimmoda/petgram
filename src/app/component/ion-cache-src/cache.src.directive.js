@@ -3,9 +3,9 @@
 
   angular
     .module('ionic-cache-src')
-    .directive('cacheSrc', cacheSrc);
+    .directive('cacheSrc', cacheSrcDirective);
 
-  function cacheSrc($ionicPlatform, $interval, $compile, $cacheSrc, $cordovaFileTransfer, $localStorage) {
+  function cacheSrcDirective($ionicPlatform, $interval, $compile, $cacheSrc, $cordovaFileTransfer, $localStorage) {
     return {
       restrict: 'A',
       scope: {
@@ -24,9 +24,7 @@
         };
 
         function makeProgressCircle($scope, $compile) {
-          return angular.element($compile(
-            '<div style="text-align:{{textAlign}}"><div round-progress  max="max"  current="progress"  color="{{color}}" bgcolor="{{bgcolor}}"  radius="{{radius}}"  stroke="{{stroke}}"  rounded="rounded" clockwise="clockwise" iterations="{{iterations}}"  animation="{{animation}}"></div></div>'
-          )($scope));
+          return angular.element($compile('<div style="text-align:{{textAlign}}"><div round-progress  max="max"  current="progress"  color="{{color}}" bgcolor="{{bgcolor}}"  radius="{{radius}}"  stroke="{{stroke}}"  rounded="rounded" clockwise="clockwise" iterations="{{iterations}}"  animation="{{animation}}"></div></div>')($scope));
         };
 
         function startsWith(str, arr) {
@@ -98,14 +96,14 @@
 
           attrs.$observe('cacheSrc',
             function () {
-              if (attrs.cacheSrc) {
-                if (needDownload(attrs.cacheSrc)) {
+              if (attrs.cacheSrcDirective) {
+                if (needDownload(attrs.cacheSrcDirective)) {
                   //if cached
-                  if (cache[attrs.cacheSrc]) {
+                  if (cache[attrs.cacheSrcDirective]) {
                     $ionicPlatform
                       .ready()
                       .then(function () {
-                        addSrc(getCacheDir() + cache[attrs.cacheSrc]);
+                        addSrc(getCacheDir() + cache[attrs.cacheSrcDirective]);
                       });
                   } else {
                     // not cache
@@ -118,12 +116,12 @@
                     $ionicPlatform
                       .ready()
                       .then(function () {
-                        var ext = '.' + attrs.cacheSrc.split('.').pop();
+                        var ext = '.' + attrs.cacheSrcDirective.split('.').pop();
                         var fileName = id() + ext;
                         $cordovaFileTransfer
-                          .download(attrs.cacheSrc, getCacheDir() + fileName, {}, true)
+                          .download(attrs.cacheSrcDirective, getCacheDir() + fileName, {}, true)
                           .then(function (result) {
-                            cache[attrs.cacheSrc] = fileName;
+                            cache[attrs.cacheSrcDirective] = fileName;
                             finish(getCacheDir() + fileName);
                           }, scope.onError, function (progress) {
                             scope.progress = (progress.loaded / progress.total) * 100;
@@ -132,7 +130,7 @@
                       });
                   }
                 } else {
-                  addSrc(attrs.cacheSrc);
+                  addSrc(attrs.cacheSrcDirective);
                 }
               }
             });
@@ -146,8 +144,8 @@
           scope.onProgress = scope.onProgress || function () {};
           scope.onFinish = scope.onFinish || function () {};
           attrs.$observe('cacheSrc', function () {
-            if (attrs.cacheSrc) {
-              if (needDownload(attrs.cacheSrc)) {
+            if (attrs.cacheSrcDirective) {
+              if (needDownload(attrs.cacheSrcDirective)) {
                 if (config.showProgressCircleInBrowser) {
                   var display = element.css('display');
                   element.css('display', 'none');
@@ -163,13 +161,13 @@
                       element.css('display', display);
                       progress_circle.remove();
                     }
-                    element[0][config.srcIs || 'src'] = attrs.cacheSrc;
-                    scope.onFinish(attrs.cacheSrc);
+                    element[0][config.srcIs || 'src'] = attrs.cacheSrcDirective;
+                    scope.onFinish(attrs.cacheSrcDirective);
                   }
                 }, config.interval);
               } else {
-                element[0][config.srcIs || 'src'] = attrs.cacheSrc;
-                scope.onFinish(attrs.cacheSrc);
+                element[0][config.srcIs || 'src'] = attrs.cacheSrcDirective;
+                scope.onFinish(attrs.cacheSrcDirective);
               }
             }
           });

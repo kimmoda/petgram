@@ -11,9 +11,9 @@
    * */
   angular
     .module('app.user')
-    .controller('UserLoginCtrl', UserLoginCtrl);
+    .controller('UserLoginCtrl', UserLoginController);
 
-  function UserLoginCtrl(AppConfig, UserForm, Parse, Loading, $state, Notify, User) {
+  function UserLoginController(AppConfig, UserForm, Parse, Loading, $state, Notify, User) {
     var vm = this;
     vm.formFields = UserForm.login;
     vm.routeLogged = AppConfig.routes.home;

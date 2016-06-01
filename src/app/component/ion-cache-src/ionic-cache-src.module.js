@@ -25,9 +25,9 @@
       'ngCordova',
       'ngStorage'
     ])
-    .provider('$cacheSrc', $cacheSrc);
+    .provider('$cacheSrc', $cacheSrcProvider);
 
-  function $cacheSrc() {
+  function $cacheSrcProvider() {
     this.config = default_config;
     this.set = function (obj, val) {
       var t = typeof obj;

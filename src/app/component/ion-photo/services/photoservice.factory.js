@@ -3,9 +3,9 @@
 
     angular
         .module('ion-photo')
-        .factory('PhotoService', PhotoService);
+        .factory('PhotoService', PhotoServiceFactory);
 
-    function PhotoService($ionicActionSheet, $translate, AppConfig, PhotogramShare, $jrCrop, $rootScope, $ionicModal,
+    function PhotoServiceFactory($ionicActionSheet, $translate, AppConfig, PhotogramShare, $jrCrop, $rootScope, $ionicModal,
                           $cordovaCamera, $cordovaCapture, $q) {
 
         // Default Setting

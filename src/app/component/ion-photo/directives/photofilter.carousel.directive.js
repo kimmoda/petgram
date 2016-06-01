@@ -3,9 +3,9 @@
 
   angular
     .module('ion-photo')
-    .directive('photoFilterCarousel', photoFilterCarousel);
+    .directive('photoFilterCarousel', photoFilterCarouselDirective);
 
-  function photoFilterCarousel(CamanJs, config) {
+  function photoFilterCarouselDirective(CamanJs, config) {
     return {
       restrict: 'E',
       scope: {

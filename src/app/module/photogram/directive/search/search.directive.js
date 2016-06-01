@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('app.photogram')
-        .directive('ionSearch', ionSearch);
+        .directive('ionSearch', ionSearchDirective);
 
-    function ionSearch($timeout) {
+    function ionSearchDirective($timeout) {
 
         return {
             restrict: 'E',

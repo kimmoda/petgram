@@ -10,7 +10,7 @@
       </div>
 
       <div class="item item-body">
-        <img ng-src="{{vm.data.img._url}}" style="width: 100%">
+        <img ng-src="{{vm.data.img._url}}">
       </div>
       <div class="padding">
         <p>{{ vm.data.title }}</p>
@@ -33,12 +33,9 @@
 
     <div class="step2">
       <formly-form model="vm.form" fields="vm.formFields" form="rForm">
-
         <div class="padding">
-          <button class="button button-block button-positive" type="button" ng-click="vm.submitComment(rForm, vm.form)" translate>Comment
-                    </button>
+          <button class="button button-block button-positive" type="button" ng-click="vm.submitComment(rForm, vm.form)" translate>Comment</button>
         </div>
-
       </formly-form>
     </div>
   </ion-content>

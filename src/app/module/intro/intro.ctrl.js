@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('app.intro')
-        .controller('IntroCtrl', IntroCtrl);
+        .controller('IntroCtrl', IntroController);
 
-    function IntroCtrl($ionicSlideBoxDelegate, $translate) {
+    function IntroController($ionicSlideBoxDelegate, $translate) {
         var vm              = this;
         var currentPlatform = window.ionic.Platform.platform();
         vm.slideIndex       = 0;

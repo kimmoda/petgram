@@ -3,9 +3,9 @@
 
   angular
     .module('ion-photo')
-    .factory('Video', Video);
+    .factory('Video', VideoFactory);
 
-  function Video($window, $q) {
+  function VideoFactory($window, $q) {
     var deferred = $q.defer();
     //https://devdactic.com/capture-and-store-videos-ionic/
     // Resolve the URL to the local file

@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('app.photogram')
-        .factory('PhotogramFeedbackForm', PhotogramFeedbackForm);
+        .factory('PhotogramFeedbackForm', PhotogramFeedbackFormFactory);
 
-    function PhotogramFeedbackForm($translate) {
+    function PhotogramFeedbackFormFactory($translate) {
 
         var form = [{
             key: 'title',

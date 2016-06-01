@@ -3,9 +3,9 @@
 
   angular
     .module('ion-location')
-    .directive('ionLocation', ionLocation);
+    .directive('ionLocation', ionLocationDirective);
 
-  function ionLocation($ionicModal, GeoService) {
+  function ionLocationDirective($ionicModal, GeoService) {
     return {
       restrict: 'A',
       scope: {
