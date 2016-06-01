@@ -573,7 +573,7 @@
 
         function cacheUser(user) {
             var defer = $q.defer();
-            console.warn('_queryInsert', user);
+            // console.warn('_queryInsert', user);
             var _queryInsert = {
                 table: 'User',
                 columns: {
@@ -593,8 +593,7 @@
                 }
             }
 
-            console.info(_queryInsert);
-
+            // console.info(_queryInsert);
             DAO
                 .insert(_queryInsert)
                 .then(function () {

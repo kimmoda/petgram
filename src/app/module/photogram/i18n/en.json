@@ -84,6 +84,7 @@
     },
     "LIKES": "Likes",
     "BUTTON": {
+      "SEND": "Send",
       "PULL": "Pull to refresh...",
       "CHANGE_LANGUAGE": "Change language",
       "SAVE_PROFILE": "Save Profile",

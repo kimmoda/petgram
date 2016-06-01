@@ -83,6 +83,7 @@
         },
         "LIKES": "Mag",
         "BUTTON": {
+            "SEND": "Send",
             "PULL": "Ziehen zum aktualisieren...",
             "CHANGE_LANGUAGE": "Sprache ändern",
             "SAVE_PROFILE": "Profil Speichern",

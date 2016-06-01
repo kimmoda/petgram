@@ -13,6 +13,6 @@
             'ion-location',
             'ion-notify',
             'ngCache',
-            'ngParse',
+            'ngParse'
         ]);
 })();
