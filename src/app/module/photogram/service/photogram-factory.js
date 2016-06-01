@@ -12,6 +12,7 @@
         return {
             // Feed
             feed: feed,
+            getOfflineFeed: _getOfflineFeed,
             feedGrid: feedGrid,
             post: post,
             get: get,
@@ -448,7 +449,7 @@
                                                 comments.map(function (item) {
                                                     var user = item.attributes.commentBy;
 
-                                                    var comment        = {
+                                                    var comment = {
                                                         id: item.id,
                                                         text: item.attributes.text,
                                                         user: user,
@@ -516,6 +517,9 @@
         function feed(page, user) {
             var _limit = 15;
             // Offline Feed
+
+            return _getOfflineFeed(page, user, _limit);
+
             if ($rootScope.onLine) {
                 return _getOnlineFeed(page, user, _limit);
             } else {
@@ -567,15 +571,15 @@
                             });
 
                             _.each(resp, function (item) {
-                                var obj        = {
+                                var obj = {
                                     id: item.id,
                                     item: angular.copy(item.attributes),
                                     created: item.createdAt,
                                     likes: item.attributes.qtdLike || 0,
-                                    src: item.attributes.img.url(),
-                                    user: item.attributes.user
+                                    img: item.attributes.img.url(),
+                                    user: item.attributes.user,
+                                    userAvatar: User.avatar(item.attributes.user.attributes)
                                 };
-                                obj.userAvatar = User.avatar(obj.user.attributes);
                                 _result.rows.push(obj);
                                 cb();
                             });
