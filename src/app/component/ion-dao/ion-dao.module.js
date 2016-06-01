@@ -10,10 +10,11 @@
                 init: init,
                 insert: insert,
                 query: query,
+                getLastSync: getLastSync,
                 paginate: paginate,
                 fetch: fetch,
                 fetchAll: fetchAll
-            }
+            };
 
             function init(database) {
 
@@ -47,24 +48,32 @@
                 return $q.all(_promises);
             }
 
+            function getLastSync(table, column) {
+                var defer = $q.defer();
+                query("SELECT MAX(" + column + ") as lastSync FROM " + table)
+                    .then(function (data) {
+                        var lastSync = data.rows.item[0].lastSync;
+                        defer.resolve(lastSync);
+                    });
+                return defer.promise;
+            }
+
             function insert(obj) {
                 var defer    = $q.defer();
                 var _columns = [];
                 var _values  = [];
-                var table    = _tables.filter(function (table) {
-                    return table.name == obj.table;
-                })[0];
 
                 angular.forEach(obj.columns, function (value, key) {
                     _columns.push(key);
-                    if (key === 'createdAt') {
+                    if (typeof  value === 'number') {
                         _values.push(value);
                     } else {
                         _values.push("'" + value + "'");
                     }
-                })
-                var _query = "INSERT INTO " + obj.table + " (" + _columns.join(',') + ") VALUES (" + _values.join(',') + ")"
-                console.info(_query);
+                });
+
+                var _query = "INSERT OR REPLACE INTO " + obj.table + " (" + _columns.join(',') + ") VALUES (" + _values.join(',') + ")"
+                // console.info(_query);
                 query(_query).then(defer.resolve).catch(defer.reject);
                 return defer.promise;
 
@@ -96,13 +105,13 @@
                 return defer.promise;
             }
 
-            function paginate(_table, columns, _where,_join, _order, limit, page) {
+            function paginate(_table, columns, _where, _join, _order, limit, page) {
                 var defer = $q.defer();
                 if (page === undefined) page = -1;
                 var _columns = columns;
                 var _limit   = limit ? limit : 10;
                 var _query1  = "SELECT SUM(id) as TOTAL FROM " + _table + "  " + _where;
-                var _query   = "SELECT " + _columns + " FROM " + _table + "  " + _where + " " + _join+ " " + _order + " LIMIT " + _limit + " OFFSET " + page;
+                var _query   = "SELECT " + _columns + " FROM " + _table + "  " + _where + " " + _join + " " + _order + " LIMIT " + _limit + " OFFSET " + page;
 
                 console.log('query', _query1);
                 console.log('query', _query);
