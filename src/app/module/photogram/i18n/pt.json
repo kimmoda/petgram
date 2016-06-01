@@ -87,6 +87,7 @@
         },
         "LIKES": "Curtidas",
         "BUTTON": {
+            "SEND": "Enviar",
             "PULL": "Puxe para atualizar...",
             "CHANGE_LANGUAGE": "Alterar idioma",
             "SAVE_PROFILE": "Salvar Perfil",

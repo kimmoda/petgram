@@ -83,6 +83,7 @@
         },
         "LIKES": "Seviyor",
         "BUTTON": {
+            "SEND": "Send",
             "PULL": "Yenilemek için çekin.",
             "CHANGE_LANGUAGE": "Dili değiştir",
             "SAVE_PROFILE": "Profili Kaydet",
