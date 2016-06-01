@@ -6,6 +6,9 @@
 
     function PhotogramSettingFactory(DAO, $q) {
 
+        var _data = {
+            rows:[]
+        };
 
         return {
             init: init,
@@ -17,10 +20,10 @@
             var _tableName = 'GallerySetting';
 
             DAO.query("SELECT * FROM " + _tableName).then(function  (data) {
-                    
                     console.log(data);
                     if(data.rows.length) {
-                        defer.resolve(data.rows);
+                        _data.rows = data.rows;
+                        defer.resolve(_data);
                     } else {
 
                         new Parse
@@ -55,7 +58,7 @@
         }
 
         function get(key) {
-            return CacheSetting.get(key);
+            return _.filter(_data.rows,{key: key})[0];
         }
 
     }
