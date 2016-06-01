@@ -3,7 +3,7 @@
   <h1 translate="HOME.TITLE.NO_PHOTO"></h1>
 </div>
 
-<ion-refresher ng-if="!loading" on-refresh="loadMore(true)"></ion-refresher>
+<ion-refresher ng-if="!loading" on-refresh="feed(true)"></ion-refresher>
 <photogram-loading loading="loading"></photogram-loading>
 
 <div class="list card animated fadeIn" ng-repeat="gallery in data.galleries track by gallery.id">
@@ -58,4 +58,4 @@
   </div>
 </div>
 
-<ion-infinite-scroll ng-if="data.galleries.length<data.total" on-infinite="loadMore()"></ion-infinite-scroll>
+<ion-infinite-scroll ng-if="data.galleries.length<data.total" on-infinite="feed()"></ion-infinite-scroll>

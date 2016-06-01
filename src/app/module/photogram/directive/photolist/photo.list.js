@@ -21,21 +21,16 @@
 
             $scope.action  = action;
             $scope.like    = likePhoto;
+            $scope.feed    = feed;
             $scope.loading = true;
-            $scope.load    = feed;
-            $scope.load();
-            $scope.loadMore = loadMore;
             $scope.gallery = {
                 src: ''
             };
-
-            console.log('user',$scope.user);
-
-
+            console.log('user', $scope.user);
             init();
 
             $scope.$on('PhotogramHome:reload', function () {
-                loadMore(true);
+                feed(true);
             });
 
             function init() {
@@ -46,26 +41,24 @@
                 $scope.page  = 0;
                 $scope.empty = false;
                 $scope.more  = false;
+                feed(false, true);
             }
 
 
-            function loadMore(force) {
-                console.log('Load More', $scope.more);
-                $scope.load(force);
-            }
-
-
-            function feed(force) {
+            function feed(force, cache) {
                 // console.log('Load ');
 
                 if (force) {
                     init();
                 }
+                var service = Photogram.getOfflineFeed($scope.page, $scope.user);
 
-                Photogram
-                    .feed($scope.page, $scope.user)
+                if (!cache) {
+                    service = Photogram.feed($scope.page, $scope.user)
+                }
+
+                service
                     .then(function (resp) {
-
                         console.log(resp);
                         resp.rows.map(function (item) {
                             item.progress     = false;
@@ -122,17 +115,18 @@
                     text: '<i class="icon ion-alert-circled"></i>' + ('Report')
                 }];
 
-                var user = Parse.User.current();
 
-                if (user.id === gallery.user.id) {
+                console.log(gallery);
+
+                if (Parse.User.current().id === gallery.user_id) {
                     var buttonDelete = {
                         text: '<i class="icon ion-trash-b"></i>' + ('Delete your photo')
                     };
                     buttons.push(buttonDelete);
                 }
                 var message     = {
-                    image: gallery.src,
-                    text: gallery.item.title
+                    text: gallery.title,
+                    image: gallery.img
                 }
                 var actionSheet = {
                     buttons: buttons,
