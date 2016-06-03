@@ -129,7 +129,7 @@
                         result.rows = data.rows;
                         defer.resolve(result);
                     });
-                })
+                });
                 return defer.promise;
             }
 
