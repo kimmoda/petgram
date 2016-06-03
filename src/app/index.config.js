@@ -23,7 +23,7 @@
     }
 
     function runOneSignal (OneSignal, AppConfig) {
-        OneSignal.init(AppConfig.onesignal.id, AppConfig.onesignal.google)
+        OneSignal.init(AppConfig.onesignal.id, AppConfig.onesignal.google);
     }
 
     function startParse(AppConfig) {
@@ -31,14 +31,9 @@
         window.Parse.serverURL = AppConfig.parse.server;
     }
 
-    function runIonic($ionicPlatform, $cacheSrc, AppConfig, $cordovaStatusbar, $timeout,
+    function runIonic($ionicPlatform, AppConfig, $cordovaStatusbar, $timeout,
                       $cordovaSplashscreen, User) {
 
-        $cacheSrc.color   = AppConfig.color;
-        $cacheSrc.bgcolor = '#ddd';
-        $cacheSrc.rounded = true;
-        $cacheSrc.radius  = 50;
-        //$cacheSrc.interval = 5000;
         User.init();
 
         $ionicPlatform.ready(function () {

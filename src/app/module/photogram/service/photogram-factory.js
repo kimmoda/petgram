@@ -517,9 +517,6 @@
         function feed(page, user) {
             var _limit = 15;
             // Offline Feed
-
-            return _getOfflineFeed(page, user, _limit);
-
             if ($rootScope.onLine) {
                 return _getOnlineFeed(page, user, _limit);
             } else {
