@@ -25,11 +25,11 @@
     "ng-facebook": "~0.1.6",
     "ngCordova": "~0.1.26-alpha",
     "ngmap": "~1.17.3",
-    "parse": "~1.6.14",
+    "parse": "~1.8.2",
     "simple-line-icons": "~2.3.1",
     "caman": "~4.1.2",
     "jr-crop": "~1.1.2",
-    "angular-svg-round-progressbar": "~0.4.2",
+    "angular-svg-round-progressbar": "^0.4.4",
     "ngstorage": "~0.3.10",
     "color-thief": "~2.0.1",
     "Autolinker.js": "~0.26.0",
@@ -52,5 +52,17 @@
     "lodash": ">=4.11.2",
     "angular-svg-round-progressbar": ">=0.4.2",
     "ionic": ">=1.3.0"
+  },
+  "overrides": {
+    "angular-svg-round-progressbar": {
+      "main": [
+        "build/roundProgress.js"
+      ]
+    },
+    "caman": {
+      "main": [
+        "dist/caman.full.js"
+      ]
+    }
   }
 }
