@@ -8,7 +8,7 @@
 
 <div class="list card animated fadeIn" ng-repeat="gallery in data.galleries">
 
-  <div class="item item-avatar" ion-affix data-affix-within-parent-with-class="card" profile-modal user="gallery.user">
+  <div class="item item-avatar" profile-modal user="gallery.user_id">
     <img ng-if="profile" profile="{{ ::gallery.user_id }}" ng-src="{{ ::gallery.userAvatar}}">
     <img ng-src="{{ ::gallery.userAvatar}}">
     <h2>{{ ::gallery.userName}}</h2>
@@ -42,11 +42,11 @@
 
 
     <div class="list-comments">
-      <div class="comment-item" profile-modal user="gallery.user">
+      <div class="comment-item" profile-modal user="gallery.user_id">
         <span class="username">{{ :: gallery.userName }}</span>
         <span class="comment">{{ :: gallery.title }}</span>
       </div>
-      <div class="comment-item" profile-modal user="item.user" ng-repeat="item in gallery.comments| limitTo:3 track by item.id">
+      <div class="comment-item" profile-modal user="item.user_id" ng-repeat="item in gallery.comments| limitTo:3 track by item.id">
         <span class="username">{{ :: item.userName }}</span> <span class="comment">{{ :: item.text }}</span>
       </div>
       <a class="comment-item" photogram-comment ng-model="gallery" ng-if="gallery.comments.length>3">Ver todos os comentários</a>

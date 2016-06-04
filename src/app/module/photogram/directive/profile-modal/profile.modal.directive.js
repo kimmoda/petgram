@@ -20,99 +20,37 @@
     return {
       restrict: 'A',
       scope: {
-        user: '='
+        user_id: '=user'
       },
       link: profileModalLink
     };
 
     function profileModalLink(scope, elem) {
-
-      elem.bind('click', openModal);
-
-      function init() {
-        var defer = $q.defer();
-        scope.loadingPhotogram = true;
-
-        // console.log(scope.user);
-        
-        scope.avatar = User.avatar(scope.user.attributes);
-
-        Photogram
-          .getUserGallery(scope.user.id)
-          .then(function (resp) {
-            scope.data = resp;
-            console.log(resp);
-            scope.$broadcast('scroll.refreshComplete');
-            scope.$broadcast('scroll.infiniteScrollComplete');
-            scope.loadingPhotogram = false;
-            defer.resolve(scope.data);
+      elem.bind('click', function () {
+        User
+          .get(scope.user_id)
+          .then(function (data) {
+            scope.user = data;
+            openModal();
           });
-
-        return defer.promise;
-      }
-
-      function changeTab(tab) {
-        if (tab === 'list') {
-          scope.tab = {
-            list: true,
-            grid: false
-          };
-        } else {
-          scope.tab = {
-            list: false,
-            grid: true
-          };
-        }
-      }
-
-      function getFollower(userId) {
-        console.log('getFollowers', userId);
-        scope.loadingFollowers = true;
-        scope.loadingFollowing = true;
-        scope.loadingPhotos = true;
-
-        Photogram
-            .getUserGalleryQtd(userId)
-            .then(function (qtdPhotos) {
-              console.log(qtdPhotos);
-              scope.user.qtdPhotos = qtdPhotos;
-              scope.loadingPhotos  = false;
-            });
-
-        User
-            .getFollowers(userId)
-            .then(function (qtdFollowers) {
-              console.log('qtdFollower: seguindo', qtdFollowers);
-              scope.user.qtdFollowers = qtdFollowers;
-              scope.loadingFollowers  = false;
-            });
-
-        User
-            .getFollowing(userId)
-            .then(function (qtdFollowing) {
-              console.log('qtdFollowing: seguidores', qtdFollowing);
-              scope.user.qtdFollowing = qtdFollowing;
-              scope.loadingFollowing  = false;
-            });
-      }
+      });
 
       function openModal() {
 
-        // console.log(scope.user);
-        
+        console.log(scope.user_id);
+
         $ionicModal
           .fromTemplateUrl('app/module/photogram/directive/profile-modal/profile-modal.html', {
             scope: scope
           })
           .then(function (modal) {
-            scope.modalProfile = modal;
+            scope.modalProfile  = modal;
             scope.loadingFollow = true;
-            scope.changeTab = changeTab;
-            scope.follow = follow;
-            scope.closeModal = closeModal;
+            scope.changeTab     = changeTab;
+            scope.follow        = follow;
+            scope.closeModal    = closeModal;
             scope.modalProfile.show();
-
-            init();
+            
             getFollower(scope.user.id);
             changeTab('list');
             isFollow();
@@ -125,7 +63,7 @@
 
             function isFollowResp(resp) {
               console.info('follow user?', resp);
-              scope.user.follow = resp;
+              scope.user.follow   = resp;
               scope.loadingFollow = false;
             }
 
@@ -147,9 +85,9 @@
               function followResp(resp) {
 
                 console.log('Follow result', resp);
-                scope.user.follow = status;
+                scope.user.follow   = status;
                 scope.loadingFollow = false;
-                getFollower(scope.user.id);
+                getFollower(scope.user);
               }
             }
 
@@ -160,6 +98,53 @@
             }
           });
       }
+
+      function changeTab(tab) {
+        if (tab === 'list') {
+          scope.tab = {
+            list: true,
+            grid: false
+          };
+        } else {
+          scope.tab = {
+            list: false,
+            grid: true
+          };
+        }
+      }
+
+      function getFollower(userId) {
+        console.log('getFollowers', userId);
+        scope.loadingFollowers = true;
+        scope.loadingFollowing = true;
+        scope.loadingPhotos    = true;
+
+        Photogram
+          .getUserGalleryQtd(userId)
+          .then(function (qtdPhotos) {
+            console.log(qtdPhotos);
+            scope.user.qtdPhotos = qtdPhotos;
+            scope.loadingPhotos  = false;
+          });
+
+        User
+          .getFollowers(userId)
+          .then(function (qtdFollowers) {
+            console.log('qtdFollower: seguindo', qtdFollowers);
+            scope.user.qtdFollowers = qtdFollowers;
+            scope.loadingFollowers  = false;
+          });
+
+        User
+          .getFollowing(userId)
+          .then(function (qtdFollowing) {
+            console.log('qtdFollowing: seguidores', qtdFollowing);
+            scope.user.qtdFollowing = qtdFollowing;
+            scope.loadingFollowing  = false;
+          });
+      }
+
+
     }
   }
 

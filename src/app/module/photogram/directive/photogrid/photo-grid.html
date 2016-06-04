@@ -8,15 +8,15 @@
 
 <div class="row " ng-if="$index % 3 === 0" ng-repeat="image in data.galleries">
   <div class="col col-33 item-animate1" ng-if="$index < data.galleries.length">
-    <img ng-if="profile" profile-modal user="data.galleries[$index].user" ng-src="{{ ::data.galleries[$index].img}}" width="100%" />
+    <img ng-if="profile" profile-modal user="data.galleries[$index].user_id" ng-src="{{ ::data.galleries[$index].img}}" width="100%" />
     <img ng-if="!profile" ng-src="{{ ::data.galleries[$index].img}}" width="100%" />
   </div>
   <div class="col col-33 item-animate1" ng-if="$index + 1 < data.galleries.length">
-    <img ng-if="profile" profile-modal user="data.galleries[$index + 1].user" ng-src="{{ ::data.galleries[$index + 1].img}}" width="100%" />
+    <img ng-if="profile" profile-modal user="data.galleries[$index + 1].user_id" ng-src="{{ ::data.galleries[$index + 1].img}}" width="100%" />
     <img ng-if="!profile" ng-src="{{ ::data.galleries[$index + 1].img}}" width="100%" />
   </div>
   <div class="col col-33 item-animate1" ng-if="$index + 2 < data.galleries.length">
-    <img ng-if="profile" profile-modal user="data.galleries[$index + 2].user" ng-src="{{ ::data.galleries[$index + 2].img}}" width="100%" />
+    <img ng-if="profile" profile-modal user="data.galleries[$index + 2].user_id" ng-src="{{ ::data.galleries[$index + 2].img}}" width="100%" />
     <img ng-if="!profile" ng-src="{{ ::data.galleries[$index + 2].img}}" width="100%" />
   </div>
 

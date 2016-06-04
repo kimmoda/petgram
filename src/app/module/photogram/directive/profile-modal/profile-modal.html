@@ -1,14 +1,14 @@
 <ion-modal-view id="account-view">
   <ion-header-bar class="bar-light">
     <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
-    <div class="title">{{ user.attributes.name }}</div>
+    <div class="title">{{ user.name }}</div>
   </ion-header-bar>
   <ion-content overflow-scroll="true">
 
     <div class="profile-top">
       <div class="row">
         <div class="col-25">
-          <img class="avatar" ng-src="{{ avatar}}" />
+          <img class="avatar" ng-src="{{ user.img}}"/>
         </div>
         <div class="col col-statics">
           <div class="row">
@@ -34,19 +34,20 @@
           <div class="row col-edit">
             <div class="col">
               <photogram-loading loading="loadingFollow"></photogram-loading>
-              <button ng-if="!loadingFollow" ng-class="{'button-unfollow': user.follow, 'button-follow': !user.follow}" ng-click="follow()"
-                class="button">
-                                <span ng-show="!user.follow" translate>Follow</span>
-                                <span ng-show="user.follow" translate>Following</span>
-                            </button>
+              <button ng-if="!loadingFollow" ng-class="{'button-unfollow': user.follow, 'button-follow': !user.follow}"
+                      ng-click="follow()"
+                      class="button">
+                <span ng-show="!user.follow" translate>Follow</span>
+                <span ng-show="user.follow" translate>Following</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
       <div class="padding">
-        <span class="user-username">{{ user.attributes.name }}</span>
+        <span class="user-username">{{ user.name }}</span>
 
-        <p class="user-status">{{ user.attributes.status }}</p>
+        <p class="user-status">{{ user.status }}</p>
       </div>
 
     </div>
@@ -63,7 +64,7 @@
     </div>
 
     <div class="item item-divider" translate="PHOTOGRAM.MSG.RECENT">Recent</div>
-    <photogram-loading loading="loading"></photogram-loading>
+
     <div class="tab" ng-if="tab.list">
       <photogram-photo-list user="user.id"></photogram-photo-list>
     </div>
