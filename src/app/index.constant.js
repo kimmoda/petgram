@@ -16,9 +16,7 @@
             },
             statusBarColor : '#00796B',
             gaTrackingId   : 'UA-69485876-2',
-            unit           : 'mi',
-            mapType        : 'normal',
-            facebook       : '1024016557617380',
+            facebookAppId  : '1024016557617380',
             parse          : {
                 appId : 'myAppId',
                 server: 'http://localhost:1337/parse/',
@@ -26,6 +24,10 @@
             onesignal      : {
                 id    : 'd13d00d0-013f-406f-9811-66ce0737d7bc',
                 google: 'AIzaSyCEBeAMSs4nrAC-2cvG6N6Q_KqJpnUrnh0'
+            },
+            map            : {
+                unit   : 'mi',
+                mapType: 'normal',
             },
             locales        : [
                 {

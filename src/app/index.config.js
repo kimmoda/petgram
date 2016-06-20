@@ -11,11 +11,9 @@
         .config(configFacebook)
         .config(configIonic);
 
-
     function configCompile($compileProvider) {
         $compileProvider.debugInfoEnabled(false);
     }
-
 
     function startParse(AppConfig, $location, $rootScope) {
         Parse.initialize(AppConfig.parse.appId);
@@ -77,7 +75,7 @@
     // Facebook
     function configFacebook($facebookProvider, AppConfig) {
         if (!window.cordova) {
-            $facebookProvider.setAppId(AppConfig.facebook);
+            $facebookProvider.setAppId(AppConfig.facebookAppId);
             $facebookProvider.setPermissions('id,name,email,user_likes,bio');
         }
     }
