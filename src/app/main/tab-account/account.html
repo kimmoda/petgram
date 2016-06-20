@@ -1,0 +1,73 @@
+<ion-view cache-view="false" id="account-view">
+    <ion-nav-title>
+        <span>{{ vm.user.attributes.name }}</span>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+        <button settings-modal class="button button-icon icon ion-gear-a"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="animated fadeIn">
+
+        <div class="profile-top">
+            <div class="row">
+                <div class="col-25">
+                    <img class="avatar"
+                         user-avatar
+                         ng-model="vm.user"
+                         ng-src="{{ vm.user.attributes.photo._url || 'img/user.png' }}"/>
+                </div>
+                <div class="col col-statics">
+                    <div class="row">
+                        <div class="col">
+                            <span class="text-center">{{ vm.user.attributes.galleriesTotal || 0}}</span>
+
+                            <h3 translate="postsText"></h3>
+                        </div>
+                        <div class="col">
+                            <span class="text-center">{{ vm.user.attributes.followersTotal || 0}}</span>
+
+                            <h3 translate="followersText"></h3>
+                        </div>
+                        <div class="col">
+                            <span class="text-center">{{ vm.user.attributes.followingsTotal  || 0}}</span>
+                            <h3 translate="followingText"></h3>
+                        </div>
+                    </div>
+                    <div class="row col-edit">
+                        <div class="col">
+                            <button profile-modal-edit user="vm.user" class="button ">
+                                <div translate="editProfile"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="padding">
+                <span class="user-username">{{ vm.user.attributes.name }}</span>
+                <p class="user-status">{{ vm.user.attributes.status }}</p>
+            </div>
+
+        </div>
+
+        <div class="item bar">
+            <div class="button-bar">
+                <button class="button button-icon icon ion-grid" ng-class="{active: vm.tab.grid}"
+                        ng-click="vm.changeTab('grid')"></button>
+                <button class="button button-icon icon ion-drag" ng-class="{active: vm.tab.list}"
+                        ng-click="vm.changeTab('list')"></button>
+                <button class="button button-icon icon ion-ios-location"></button>
+
+            </div>
+        </div>
+
+        <div class="item item-divider" translate="recentText">Recent</div>
+        <div class="tab" ng-if="vm.tab.list">
+            <photo-list user="currentUser.id" profile="false"></photo-list>
+        </div>
+        <div class="tab" ng-if="vm.tab.grid">
+            <photo-grid user="currentUser.id" profile="false"></photo-grid>
+        </div>
+
+    </ion-content>
+</ion-view>

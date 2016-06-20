@@ -1,0 +1,45 @@
+{
+    "USER": {
+        "OR": "Ou",
+        "DESC1":"Cadastre-se para ver fotos e",
+        "DESC2":"vídeos dos seus amigos",
+        "AVATAR": {
+            "TITLE": "Avatar",
+            "BUTTON": {
+                "SUBMIT": "Salvar perfil"
+            }
+        },
+        "INTRO": "Compartilhar mais momentos incríveis",
+        "OR": "ou",
+        "TERM": "Ao se cadastrar você concorda com os",
+        "AND": "Ao se cadastrar você concorda com os",
+        "TERM1": "Termos",
+        "TERM2": "Política de Privacidade",
+        "MERGE": "Seu e-mail já está associado a outra conta, por favor complete o perfil",
+        "FORM": {
+            "NAME": "Nome",
+            "PASSWORD": "Senha",
+            "EMAIL": "E-mail",
+            "STATUS": "Estado",
+            "GENDER": "Sexo",
+            "MAN": "Homem",
+            "WOMAN": "Mulher"
+        },
+        "BUTTON": {
+            "LOGOUT": "Sair",
+            "ENTER": "Entrar",
+            "NEXT": "Próximo",
+            "LOGIN_SOCIAL": "Conecte como ",
+            "MERGE": "Associar contas",
+            "SIGNUP": "Cadastre-se com o seu e-mail",
+            "SIGNUP2": "Não tem conta? <b>Cadastre-se</b>",
+            "SIGNIN": "Já tem uma conta? <b>Faça login.</b>",
+            "FORGOT": "Esqueceu a sua senha? <b>Obtenha ajuda</b>",
+            "RESET_PASS": "Gerar nova senha",
+            "UPDATE": "Atualizar",
+            "SAVE": "SALVAR",
+            "NEW": "NOVO",
+            "CREATE": "ENVIAR"
+        }
+    }
+}

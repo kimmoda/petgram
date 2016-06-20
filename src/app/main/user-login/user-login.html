@@ -1,0 +1,39 @@
+<ion-view id="user-layout" class="bg-animate" cache-view="false">
+  <div class="bar bar-header">
+    <ion-language></ion-language>
+  </div>
+
+    <ion-content class="padding" scroll="false">
+
+        <div class="step1">
+            <div class="logo">
+                <span class="icon2-logo"></span>
+            </div>
+
+            <formly-form model="vm.form" fields="vm.formFields" form="vm.rForm">
+
+                <button class="button button-block button-outline button-light " type="button"
+                        ng-disabled="vm.rForm.$invalid" ng-click="vm.submitLogin(vm.rForm, vm.form)"
+                        translate="signin">
+                </button>
+
+            </formly-form>
+
+        </div>
+
+        <div class="step2">
+            <div class="or">
+                <div class="line"></div>
+                <span translate="or"></span>
+                <div class="line"></div>
+            </div>
+            <facebook-login></facebook-login>
+
+            <span class="term">{{::'termAccept' | translate}} <a href="http://photogramapp.com">{{::'terms' | translate}}</a> </span>
+        </div>
+
+        <button class="button button-block button-light button-clear button-footer" ui-sref="user.register"
+                translate="register"></button>
+    </ion-content>
+
+</ion-view>

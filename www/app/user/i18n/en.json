@@ -1,0 +1,45 @@
+{
+    "USER": {
+        "OR": "Or",
+        "DESC1": "Register to view photos and",
+        "DESC2": "videos of your friends",
+        "AVATAR": {
+            "TITLE": "Avatar",
+            "BUTTON": {
+                "SUBMIT": "Save profile"
+            }
+        },
+        "INTRO": "Share more incredible moments",
+        "OR": "ou",
+        "TERM": "When registering you agree with the",
+        "AND": "When registering you agree with the",
+        "TERM1": "Termos",
+        "TERM2": "This Privacy policy",
+        "MERGE": "Your e-mail address is already associated with another account, please complete the profile",
+        "FORM": {
+            "NAME": "Name",
+            "PASSWORD": "Password",
+            "EMAIL": "E-mail",
+            "STATUS": "Status",
+            "GENDER": "Gender",
+            "MAN": "Man",
+            "WOMAN": "Woman"
+        },
+        "BUTTON": {
+            "LOGOUT": "Logout",
+            "ENTER": "Enter",
+            "NEXT": "Next",
+            "LOGIN_SOCIAL": "Conect with ",
+            "MERGE": "Associate accounts",
+            "SIGNUP": "Sign up with your e-mail or phone",
+            "SIGNUP2": "Not have account? <b>Register</b>",
+            "SIGNIN": "Already have an account? <b>sign.</b>",
+            "FORGOT": "Forgot your password? <b>Get help</b>",
+            "RESET_PASS": "Generate new password",
+            "UPDATE": "Update",
+            "SAVE": "Save",
+            "NEW": "New",
+            "CREATE": "Create"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<ion-view>
+
+    <ion-nav-title>
+        <span>{{ 'searchText' | translate }}</span>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-ios-location" ui-sref="tab.map"></button>
+    </ion-nav-buttons>
+
+
+    <ion-header-bar class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" ng-model="params.search"
+                   ng-change="onSearch()"
+                   ng-model-options="{debounce:1000}"
+                   style="text-transform:lowercase"
+                   placeholder="{{ 'searchText' | translate }}">
+        </label>
+        <button class="button button-clear" ng-if="search.length"
+                ng-click="clearSearch()">
+            {{ "cancelText" | translate }}
+        </button>
+    </ion-header-bar>
+    <ion-content class="has-subheader">
+        <photo-grid profile="true" user=""></photo-grid>
+    </ion-content>
+</ion-view>

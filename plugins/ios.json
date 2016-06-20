@@ -7,13 +7,15 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "1024016557617380",
+            "APP_NAME": "Photogram",
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-file": {
@@ -22,13 +24,13 @@
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
         "cordova-plugin-imagepicker": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-splashscreen": {
@@ -37,29 +39,43 @@
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "cordova-plugin-themeablebrowser": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
-        "cordova-plugin-x-socialsharing": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "phonegap-facebook-plugin": {
-            "APP_ID": "1024016557617380",
-            "APP_NAME": "Photogram",
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "cordova-plugin-network-information": {
+        "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "onesignal-cordova-plugin": {
+        "com.raananw.imageResizer": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-google-analytics": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        }
+    }
 }

@@ -1,8 +1,11 @@
 #!/bin/bash
-# Usage: prod.sh 'platform'
-# 
-echo "Compilation Application"
+# Usage: ./bin/build.sh 'platform'
+#
+
+echo "#### Cordova Clean Cache ####"
+cordova clean
+echo "#### Compilation Application ####"
 gulp build
-echo "Build Release " $*
+echo "#### Build Release " $* " ####"
 cordova build $* --release
 

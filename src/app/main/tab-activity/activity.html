@@ -1,0 +1,54 @@
+<ion-view cache-view="false" class="list-activity">
+
+    <ion-nav-title>
+        <span translate="activity"></span>
+    </ion-nav-title>
+
+    <ion-content>
+
+        <div class="center padding" ng-if="vm.showErrorView()">
+            <div class="error ">
+                <i class="icon icon-large ion-ios-cloud-download-outline"></i>
+                <p>{{ "errorText" | translate }}</p>
+                <button class="button button-{{theme}}" ng-click="vm.onReload()">
+                    {{ "tryAgainText" | translate }}
+                </button>
+            </div>
+
+        </div>
+        <div class="center padding" ng-if="vm.showEmptyView()">
+            <div class="error ">
+                <i class="icon icon-large ion-android-alert"></i>
+                <p>{{ "activityNotFoundText" | translate }}</p>
+            </div>
+
+        </div>
+
+        <ion-refresher pulling-text="{{'loadingText'| translate}}" on-refresh="onReload()"></ion-refresher>
+
+        <div class="list">
+
+            <div class="item item-avatar item-animate1" ng-repeat="item in vm.data">
+                <img ng-src="{{ item.user.photo._url  || './img/user.png'}}">
+
+                <h2>{{ item.user.name}}</h2>
+
+                <div class="text">{{ item.action | translate }}</div>
+                <p>{{ item.createdAt | amTimeAgo }}</p>
+
+                <div class="img-right" ng-if="item.item.gallery">
+                    <img ng-src="{{ item.item.gallery.attributes.imageThumb._url}}">
+                </div>
+            </div>
+
+        </div>
+
+        <ion-infinite-scroll
+                on-infinite="onLoadMore()"
+                ng-if="vm.moreDataCanBeLoaded()"
+                spinner
+                distance="1%">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

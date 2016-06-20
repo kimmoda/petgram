@@ -1,7 +1,11 @@
 {
-  "name": "fuse",
-  "version": "1.4.0",
-  "dependencies": {},
+  "name": "Photogram",
+  "version": "3.0.0",
+  "dependencies": {
+    "elementtree": "^0.1.6",
+    "lodash": "^3.10.1",
+    "plist": "^1.2.0"
+  },
   "scripts": {
     "postinstall": "bower install && gulp serve",
     "test": "gulp test"
@@ -64,8 +68,21 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "cordovaPlugins": [],
-  "cordovaPlatforms": [
-    "ios"
-  ]
+  "cordovaPlugins": [
+    "cordova-plugin-console",
+    "cordova-plugin-device",
+    "cordova-plugin-file",
+    "cordova-plugin-file-transfer",
+    "cordova-plugin-geolocation",
+    "cordova-plugin-imagepicker",
+    "cordova-plugin-media-capture",
+    "cordova-plugin-network-information",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-themeablebrowser",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-x-socialsharing",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": []
 }

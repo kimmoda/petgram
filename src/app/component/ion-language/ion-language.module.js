@@ -2,7 +2,7 @@
     'use strict';
 
     var path = 'app/component/ion-language';
-    
+
     angular
         .module('ion-language', [
             'ngCookies',
@@ -22,7 +22,7 @@
         $translateProvider.useSanitizeValueStrategy(null);
 
         // Translate Config
-        $translateProvider.useMissingTranslationHandlerLog();
+        //$translateProvider.useMissingTranslationHandlerLog();
         $translateProvider.useLocalStorage(); // saves selected language to localStorage
         tmhDynamicLocaleProvider.localeLocationPattern('../bower_components/angular-i18n/angular-locale_{{locale}}.js');
 
@@ -40,9 +40,6 @@
         }
         $translateProvider.preferredLanguage(language);
         moment.locale(language);
-
-        // Translation
-        $translatePartialLoaderProvider.addPart(path);
     }
 
 

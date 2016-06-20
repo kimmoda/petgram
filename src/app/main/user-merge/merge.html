@@ -1,0 +1,29 @@
+<ion-view id="user-layout" class="bg-animate" cache-view="false">
+    <ion-content class="view-avatar padding">
+
+        <h1>Merge Account</h1>
+        <div class="step1 padding">
+            <h5 translate>USER.MERGE</h5>
+        </div>
+
+        <div class="row step1">
+            <div class="col">
+                <img class="avatar" user-avatar ng-src="{{ vm.form.photo._url || './img/user.png' }}"/>
+            </div>
+        </div>
+
+        <div class="step2">
+            <formly-form model="vm.form" fields="vm.formFields" form="rForm">
+                <input type="hidden" ng-model="vm.form.facebookimg">
+            </formly-form>
+        </div>
+
+        <div class="padding step3">
+            <button ng-click="vm.submit(rForm, vm.form)" class="button button-block button-facebook"><i class="icon ion-social-facebook"></i>
+                <span translate>USER.BUTTON.MERGE</span>
+            </button>
+        </div>
+
+
+    </ion-content>
+</ion-view>

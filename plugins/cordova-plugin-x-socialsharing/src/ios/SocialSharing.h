@@ -4,13 +4,14 @@
 @interface SocialSharing : CDVPlugin <UIPopoverControllerDelegate, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate>
 
 @property (nonatomic, strong) MFMailComposeViewController *globalMailComposer;
-@property (retain) UIDocumentInteractionController * documentInteractionController;
+@property (nonatomic, strong) UIDocumentInteractionController * documentInteractionController;
 @property (retain) NSString * tempStoredFile;
 @property (retain) CDVInvokedUrlCommand * command;
 
 - (void)available:(CDVInvokedUrlCommand*)command;
 - (void)setIPadPopupCoordinates:(CDVInvokedUrlCommand*)command;
 - (void)share:(CDVInvokedUrlCommand*)command;
+- (void)shareWithOptions:(CDVInvokedUrlCommand*)command;
 - (void)canShareVia:(CDVInvokedUrlCommand*)command;
 - (void)canShareViaEmail:(CDVInvokedUrlCommand*)command;
 - (void)shareVia:(CDVInvokedUrlCommand*)command;

@@ -1,32 +1,19 @@
 (function () {
     'use strict';
 
-    /**
-     * @ngdoc directive
-     * @name photoShare
-     *
-     * @description
-     * _Please update the description and restriction._
-     *
-     * @restrict A
-     * */
+    angular.module('ion-photo').directive('photoShare', photoShareDirective);
 
-    angular
-        .module('ion-photo')
-        .directive('photoShare', photoShareDirective);
-
-    function photoShareDirective($state, AppConfig, $rootScope, Photogram, $ionicModal, Loading,
-                                 PhotogramSetting, PhotoService) {
+    function photoShareDirective($state, AppConfig, $rootScope, $ionicModal, Loading, PhotogramSetting, PhotoService) {
         return {
             restrict: 'A',
             link: photoShareLink,
             template: ''
         };
 
-        function photoShareLink(scope, elem, attr) {
+        function photoShareLink($scope, elem, attr) {
             var path = AppConfig.path;
 
-            elem.bind('click', open)
+            elem.bind('click', open);
 
             function open() {
                 console.log('Open share');
