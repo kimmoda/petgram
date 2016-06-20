@@ -8,8 +8,8 @@
         return {
             restrict   : 'E',
             scope      : {
-                user   : '=',
-                profile: '='
+                username: '=',
+                profile : '='
             },
             templateUrl: 'app/directive/photoListDirective.html',
             link       : photoListController
@@ -20,8 +20,8 @@
             $scope.params.page = 0;
             $scope.data        = [];
 
-            if ($scope.user) {
-                $scope.params.userId = $scope.user;
+            if ($scope.username) {
+                $scope.params.username = $scope.username;
             }
 
             console.log($scope.params);

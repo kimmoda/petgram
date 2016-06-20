@@ -63,10 +63,10 @@
 
         <div class="item item-divider" translate="recentText">Recent</div>
         <div class="tab" ng-if="vm.tab.list">
-            <photo-list user="currentUser.id" profile="false"></photo-list>
+            <photo-list username="currentUser.username"></photo-list>
         </div>
         <div class="tab" ng-if="vm.tab.grid">
-            <photo-grid user="currentUser.id" profile="false"></photo-grid>
+            <photo-grid username="currentUser.username"></photo-grid>
         </div>
 
     </ion-content>
