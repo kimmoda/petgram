@@ -10,7 +10,6 @@
             'tmh.dynamicLocale', // angular-dynamic-locale
             'angularMoment',
             'ngFacebook',
-            'uiGmapgoogle-maps',
             'angular-cache',
             'ngCordova',
             'ionic.components',

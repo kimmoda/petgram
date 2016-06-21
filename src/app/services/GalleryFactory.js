@@ -4,7 +4,7 @@
 
     function GalleryFactory($q, ParseCloud, moment) {
 
-        const ParseObject = Parse.Object.extend('Gallery', {
+        var ParseObject = Parse.Object.extend('Gallery', {
                 getStatus: function () {
                     if (this.isApproved) {
                         return 'Approved';

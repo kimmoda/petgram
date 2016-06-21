@@ -4,10 +4,24 @@
 @import "platform";
 @import "spinner";
 
-
-
 .scroll-content {
   background-color: #f7f7f7;
+}
+
+.modal-auth {
+  ion-header-bar {
+    h1, a {
+      color: #fff;
+    }
+  }
+  ion-content {
+    top: 1px;
+    padding-top: 60px;
+  }
+}
+
+ion-footer-bar {
+
 }
 
 .photogram {

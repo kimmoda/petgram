@@ -1,7 +1,6 @@
 (function () {
     'use strict';
-
-    var cordova = window.cordova;
+    
     angular
         .module('starter')
         .run(startParse)
@@ -31,10 +30,9 @@
 
         $ionicPlatform.ready(function () {
 
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.disableScroll(true);
-            }
-
+            //if (window.cordova && window.cordova.plugins.Keyboard) {
+            //    cordova.plugins.Keyboard.disableScroll(true);
+            //}
 
             // Remove back button android
             $ionicPlatform.registerBackButtonAction(function (event) {
@@ -53,8 +51,8 @@
 
 
             StatusBar.init(AppConfig.statusBarColor);
-            OneSignal.init(AppConfig.onesignal.id, AppConfig.onesignal.google);
-            ConnectMonitor.watch();
+            //OneSignal.init(AppConfig.onesignal.id, AppConfig.onesignal.google);
+            //ConnectMonitor.watch();
         });
 
 

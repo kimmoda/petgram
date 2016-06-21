@@ -10,3 +10,5 @@ releases/
 .tmp/
 .vscode/
 .idea/
+plugins/
+!plugins/fetch.json

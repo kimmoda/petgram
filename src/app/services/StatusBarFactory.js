@@ -1,52 +1,52 @@
 (function () {
-  'use strict';
-  angular
-    .module('starter')
-    .service('StatusBar', StatusBarFactory);
+    'use strict';
 
-  function StatusBarFactory($cordovaStatusbar) {
+    angular.module('starter').service('StatusBar', StatusBarFactory);
 
-    var TAG = 'StatusBarService';
+    function StatusBarFactory($cordovaStatusbar) {
 
-    return {
-      init: init
-    };
+        var TAG = 'StatusBarService';
 
-    function init(color) {
+        return {
+            init: init
+        };
 
-      if (window.StatusBar) {
-        $cordovaStatusbar.overlaysWebView(true);
+        function init(color) {
 
-        if (window.ionic.Platform.isAndroid()) {
-          color = luminance(color, -0.4);
+            if (window.StatusBar) {
+                $cordovaStatusbar.overlaysWebView(true);
+
+                if (window.ionic.Platform.isAndroid()) {
+                    color = luminance(color, -0.4);
+                }
+                $cordovaStatusbar.styleHex(color);
+                $cordovaStatusbar.style(1);
+            } else {
+                console.warn('[' + TAG + ']: Unsupported platform');
+            }
         }
-        $cordovaStatusbar.styleHex(color);
-      } else {
-        console.warn('[' + TAG + ']: Unsupported platform');
-      }
+
+        function luminance(hex, lum) {
+
+            // validate hex string
+            hex = String(hex).replace(/[^0-9a-f]/gi, '');
+
+            if (hex.length < 6) {
+                hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+            }
+
+            lum = lum || 0;
+
+            // convert to decimal and change luminosity
+            var rgb = '#', c, i;
+
+            for (i = 0; i < 3; i++) {
+                c = parseInt(hex.substr(i * 2, 2), 16);
+                c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                rgb += ('00' + c).substr(c.length);
+            }
+            return rgb;
+        }
     }
-
-    function luminance(hex, lum) {
-
-      // validate hex string
-      hex = String(hex).replace(/[^0-9a-f]/gi, '');
-
-      if (hex.length < 6) {
-        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-      }
-
-      lum = lum || 0;
-
-      // convert to decimal and change luminosity
-      var rgb = '#', c, i;
-
-      for (i = 0; i < 3; i++) {
-        c = parseInt(hex.substr(i * 2, 2), 16);
-        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-        rgb += ('00' + c).substr(c.length);
-      }
-      return rgb;
-    }
-  }
 
 })();

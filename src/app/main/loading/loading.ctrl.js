@@ -1,20 +1,10 @@
 (function () {
     'use strict';
-    /**
-     * @ngdoc controller
-     * @name LoadingCtrl
-     *
-     * @description
-     * _Please update the description and dependencies._
-     *
-     * @requires $scope
-     * */
-    angular
-        .module('app.main')
-        .controller('LoadingCtrl', LoadingController);
 
-    function LoadingController($rootScope, AppConfig, $state) {
-        var user = $rootScope.currentUser;
+    angular.module('app.main').controller('LoadingCtrl', LoadingController);
+
+    function LoadingController($scope, $rootScope, $ionicPlatform, $cordovaSplashscreen, AppConfig, $state) {
+        var user  = $rootScope.currentUser;
         var intro = window.localStorage['walkthrough'];
 
         if (intro !== 'true') {
@@ -37,6 +27,14 @@
                 });
             }
         }
+
+        $scope.$on('$ionicView.loaded', function () {
+            $ionicPlatform.ready(function () {
+                if (navigator && navigator.splashscreen) {
+                    $cordovaSplashscreen.hide();
+                }
+            });
+        });
 
 
     }

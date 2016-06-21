@@ -17,6 +17,11 @@
                 scope.link           = link;
                 scope.share          = Share.share;
 
+                scope.logout = function  () {
+                    $state.go(AppConfig.routes.login);
+                    scope.closeModal();
+                };
+
                 function init() {
                     scope.form       = Auth.getLoggedUser();
                     scope.formFields = UserForm.profile;

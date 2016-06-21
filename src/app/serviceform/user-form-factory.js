@@ -19,7 +19,7 @@
                 templateOptions: {
                     type           : 'text',
                     placeholder    : $translate.instant('username'),
-                    icon           : 'icon-account',
+                    icon           : 'icon-user',
                     required       : true,
                     iconPlaceholder: true
                 }
@@ -44,7 +44,7 @@
                     templateOptions: {
                         type           : 'text',
                         placeholder    : $translate.instant('username'),
-                        icon           : 'icon-account',
+                        icon           : 'icon-user',
                         required       : true,
                         iconPlaceholder: true
                     }

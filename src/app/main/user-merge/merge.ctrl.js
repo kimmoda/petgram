@@ -1,17 +1,7 @@
 (function () {
     'use strict';
-    /**
-     * @ngdoc controller
-     * @name UserMergeCtrl
-     *
-     * @description
-     * _Please update the description and dependencies._
-     *
-     * @requires $scope
-     * */
-    angular
-        .module('app.main')
-        .controller('UserMergeCtrl', UserMergeController);
+
+    angular.module('app.main').controller('UserMergeCtrl', UserMergeController);
 
     function UserMergeController(Auth, $rootScope, AppConfig, Facebook, $state, Toast, UserForm) {
         var vm        = this;
@@ -21,7 +11,8 @@
         function init() {
             if ($rootScope.tempUser) {
                 vm.form = {
-                    username: $rootScope.tempUser.attributes.email,
+                    email   : $rootScope.tempUser.attributes.email,
+                    username: $rootScope.tempUser.attributes.username,
                     password: ''
                 };
             } else {

@@ -1,0 +1,32 @@
+<ion-view id="user-layout" class="bg-animate" cache-view="false">
+    <div class="bar bar-header">
+        <ion-language></ion-language>
+    </div>
+
+    <ion-content class="padding" scroll="false">
+
+        <div class="center">
+            <div class="step1">
+                <div class="logo">
+                    <span class="icon2-logo"></span>
+                </div>
+
+                <p>{{::'userIntroText' | translate}} </p>
+                <facebook-login></facebook-login>
+
+            </div>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar >
+    <div class="row">
+        <div class="col">
+            <button class="button button-block button-light button-outline" translate="signin" signin-modal></button>
+        </div>
+        <div class="col">
+            <button class="button button-block button-light button-outline " translate="register" signup-modal></button>
+        </div>
+    </div>
+    </ion-footer-bar>
+
+</ion-view>

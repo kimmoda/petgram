@@ -36,18 +36,9 @@
                 controllerAs: 'vm'
             })
 
-            .state('user.register', {
-                url         : '/register',
-                templateUrl : 'app/main/user-register/user-register.html',
-                controller  : 'UserRegisterCtrl',
-                controllerAs: 'vm'
-            })
-
-            .state('user.login', {
-                url         : '/login',
-                templateUrl : 'app/main/user-login/user-login.html',
-                controller  : 'UserLoginCtrl',
-                controllerAs: 'vm'
+            .state('user.intro', {
+                url         : '/intro',
+                templateUrl : 'app/main/user-intro/user-intro.html'
             })
 
             .state('user.merge', {

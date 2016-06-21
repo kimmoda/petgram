@@ -12,14 +12,14 @@
             },
             routes         : {
                 home : 'tab.home',
-                login: 'user.login'
+                login: 'user.intro'
             },
             statusBarColor : '#00796B',
             gaTrackingId   : 'UA-69485876-2',
             facebookAppId  : '1024016557617380',
             parse          : {
                 appId : 'myAppId',
-                server: 'http://localhost:1337/parse/',
+                server: 'https://photogramapp.com/parse/',
             },
             onesignal      : {
                 id    : 'd13d00d0-013f-406f-9811-66ce0737d7bc',

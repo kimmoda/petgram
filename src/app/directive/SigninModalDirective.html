@@ -1,0 +1,24 @@
+<ion-modal-view id="user-layout" class="modal-auth bg-animate" cache-view="false">
+    <ion-header-bar>
+        <h1 class="title" translate="signin"></h1>
+        <a ng-click="closeModal()" class="button button-icon icon ion-ios-close-empty"></a>
+    </ion-header-bar>
+
+    <ion-content class="padding" scroll="false">
+
+        <div class="step2">
+            <formly-form model="form" fields="formFields" form="rForm">
+
+                <button class="button button-block button-outline button-light " type="button"
+                        ng-disabled="rForm.$invalid" ng-click="submitLogin(rForm, form)"
+                        translate="signin">
+                </button>
+
+            </formly-form>
+
+            <span class="term">{{::'termAccept' | translate}} <a href="http://photogramapp.com">{{::'terms' | translate}}</a> </span>
+        </div>
+        
+    </ion-content>
+
+</ion-modal-view>

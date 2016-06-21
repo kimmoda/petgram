@@ -9,7 +9,7 @@
         return {
             restrict: 'E',
             link    : facebookLoginLink,
-            template: '<button class="button button-block button-facebook"><i class="icon ion-social-facebook"></i> <span>{{ \'loginWith\'| translate}} {{name || \'Facebook\'}}</span> </button>',
+            template: '<button class="button button-block button-facebook"><i class="icon ion-social-facebook"></i> <span>{{ name || \'loginWithFacebook\'| translate}}</span> </button>',
         };
 
         function facebookLoginLink(scope, elem, attr) {

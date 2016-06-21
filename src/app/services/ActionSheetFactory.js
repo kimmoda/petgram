@@ -38,7 +38,7 @@
 
                 var options = {
                     title                    : params.title,
-                    buttonLabels             : params.options,
+                    buttonLabels             : _.map(params.options, function (item) {return item.text}),
                     addCancelButtonWithLabel : params.cancelText,
                     androidEnableCancelButton: true,
                     androidTheme             : window.plugins.actionsheet.ANDROID_THEMES.THEME_HOLO_LIGHT

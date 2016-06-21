@@ -1,8 +1,6 @@
 (function () {
 
-    angular
-        .module('starter')
-        .factory('FeedbackModal', FeedbackModalFactory);
+    angular.module('app.main').factory('FeedbackModal', FeedbackModalFactory);
 
     function FeedbackModalFactory($q, AppConfig, GalleryFeedback, $rootScope, GalleryFeedbackForm, $ionicModal, Toast) {
         var path = AppConfig.path;

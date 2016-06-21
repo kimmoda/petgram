@@ -7,7 +7,7 @@
         <ion-slide ng-repeat="item in vm.slides track by $index">
 
           <div class="content" ng-if="$index == vm.slideIndex">
-            <span class="top"><h2>{{ item.top }}</h2></span>
+            <span class="top"><h2>{{ item.text | translate }}</h2></span>
 
             <div class="phone {{ vm.device }}">
               <img ng-src="{{ item.img }}">
@@ -25,7 +25,7 @@
                 <span class="icon2-logo"></span>
               </div>
 
-              <button class="button button-block button-clear step2" ui-sref="user.login" translate="INTRO.BUTTON.ENTER"></button>
+              <button class="button button-block button-clear step2" ui-sref="user.intro" translate="signin"></button>
             </div>
 
           </div>

@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('starter').controller('SearchMapCtrl', SearchMapController);
+    angular.module('app.main').controller('SearchMapCtrl', SearchMapController);
 
     function SearchMapController($scope, $rootScope, $ionicLoading, $ionicModal,
                                  $state, $stateParams, $translate, $timeout, $localStorage, Toast, Gallery, Geolocation, Dialog) {
