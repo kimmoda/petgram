@@ -154,33 +154,10 @@
                 return ParseCloud.run('createUser', data);
             },
             validateUsername      : function (input) {
-                var defer = $q.defer();
-                defer.resolve(true);
-
-                //ParseCloud.run('validateUsername', input).then(function (data) {
-                //    console.log(data);
-                //    if (data == true) {
-                //        defer.resolve();
-                //    } else {
-                //        defer.reject();
-                //    }
-                //});
-                return defer.promise;
+               return ParseCloud.run('validateUsername', {username: input});
             },
             validateEmail         : function (input) {
-                var defer = $q.defer();
-                defer.resolve(true);
-                //ParseCloud
-                //    .run('validateEmail', input)
-                //    .then(function (data) {
-                //        console.log(data);
-                //        if (data == true) {
-                //            defer.resolve();
-                //        } else {
-                //            defer.reject();
-                //        }
-                //    });
-                return defer.promise;
+                return ParseCloud.run('validateEmail', {email: input});
             },
             findUsername          : function (username) {
                 var defer = $q.defer();

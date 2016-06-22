@@ -120,8 +120,8 @@
                         }],
                         valueProp      : 'id',
                         labelProp      : 'label',
-                        icon           : 'icon-list',
-                        iconPlaceholder: true
+                        //icon           : 'ion-ios-body-outline',
+                        //iconPlaceholder: true
                     }
                 }];
         }

@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    
+
     angular
         .module('starter')
         .run(startParse)
@@ -25,14 +25,13 @@
         }
     }
 
-    function runIonic($ionicPlatform, $localStorage, $translate, $cordovaGlobalization, ConnectMonitor, OneSignal, AppConfig, StatusBar, User) {
-        //User.init();
+    function runIonic($ionicPlatform, $localStorage, $translate, $cordovaGlobalization, ConnectMonitor, AppConfig, User) {
 
         $ionicPlatform.ready(function () {
 
-            //if (window.cordova && window.cordova.plugins.Keyboard) {
-            //    cordova.plugins.Keyboard.disableScroll(true);
-            //}
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.disableScroll(true);
+            }
 
             // Remove back button android
             $ionicPlatform.registerBackButtonAction(function (event) {
@@ -50,8 +49,26 @@
             }
 
 
-            StatusBar.init(AppConfig.statusBarColor);
+            window.StatusBar.styleLightContent();
             //OneSignal.init(AppConfig.onesignal.id, AppConfig.onesignal.google);
+
+            // Enable to debug issues.
+            //if (window.plugins.OneSignal) {
+            //    window.plugins.OneSignal.setLogLevel({
+            //        logLevel   : 4,
+            //        visualLevel: 4
+            //    });
+            //
+            //    // Update with your OneSignal AppId and googleProjectNumber before running.
+            //    window.plugins.OneSignal.init(AppConfig.onesignal.id, {googleProjectNumber: AppConfig.onesignal.google}, function (jsonData) {
+            //        //alert("Notification received:\n" + JSON.stringify(jsonData));
+            //        console.log(jsonData);
+            //
+            //    });
+            //
+            //    window.plugins.OneSignal.enableInAppAlertNotification(true);
+            //
+            //}
             //ConnectMonitor.watch();
         });
 

@@ -27,19 +27,13 @@
         function logIn() {
             var defer = $q.defer();
             if (window.cordova) {
-                $cordovaFacebook
-                    .login(['public_profile', 'email'])
-                    .then(defer.resolve, defer.reject);
+                $cordovaFacebook.login(['public_profile', 'email']).then(defer.resolve, defer.reject);
 
             } else {
-                facebook
-                    .login(['public_profile', 'email'])
-                    .then(defer.resolve, defer.reject);
-                //
-                //Parse.FacebookUtils.logIn(null, {
-                //  success: defer.resolve,
-                //  error  : defer.reject
-                //});
+                Parse.FacebookUtils.logIn(null, {
+                    success: defer.resolve,
+                    error  : defer.reject
+                });
             }
             return defer.promise;
         }

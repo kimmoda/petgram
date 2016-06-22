@@ -1,6 +1,5 @@
 @import "actionsheet";
 @import "font";
-@import "form";
 @import "platform";
 @import "spinner";
 
@@ -15,13 +14,19 @@
     }
   }
   ion-content {
-    top: 1px;
+    top: 1px !important;
     padding-top: 60px;
   }
 }
 
-ion-footer-bar {
+.has-error {
+  border-left: 3px solid #cc2511 !important;
+  border-right: 3px solid #cc2511 !important;
+}
 
+.has-success {
+  border-left: 3px solid #3d8b3d;
+  border-right: 3px solid #3d8b3d;
 }
 
 .photogram {

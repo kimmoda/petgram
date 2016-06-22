@@ -5,7 +5,7 @@
         .module('starter')
         .directive('facebookLogin', facebookLoginDirective);
 
-    function facebookLoginDirective(Loading, $state, $q, $translate, Facebook, Dialog, User, $rootScope, AppConfig, Toast) {
+    function facebookLoginDirective(Loading, $state, $q, $translate, Facebook, Dialog, User, $rootScope, Toast) {
         return {
             restrict: 'E',
             link    : facebookLoginLink,

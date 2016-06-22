@@ -1,9 +1,6 @@
-<ion-view id="user-layout" class="bg-animate" cache-view="false">
+<ion-view id="user-layout" class="bg-animate" >
 
-    <ion-nav-bar class="bar bar-positive bar-mop" align-title="left">
-    </ion-nav-bar>
-
-    <ion-content class="view-avatar">
+    <ion-content class="padding view-avatar">
 
         <div class="row step1">
             <div class="col">
@@ -12,16 +9,23 @@
             </div>
         </div>
         <div class="step2">
-            <label class="item item-input">
-                <i class="icon icon-envelope placeholder-icon"></i>
-                <input type="text" ng-model="vm.form.email" disabled>
-            </label>
+            <form>
+                <label class="item item-input">
+                    <i class="icon icon-envelope placeholder-icon"></i>
+                    <input
+                            type="email"
+                            name="email"
+                            ng-model="vm.form.email"
+                            disabled
+                    />
+                </label>
+            </form>
             <formly-form model="vm.form" fields="vm.formFields" form="vm.rForm"></formly-form>
         </div>
 
-        <div class="padding step3">
+        <div class="step3">
             <button ng-click="vm.submitAvatar()" class="button button-block button-positive "
-                    translate="USER.BUTTON.NEXT">
+                    translate="submit">
             </button>
         </div>
     </ion-content>

@@ -70,6 +70,12 @@
   "editProfile": "Edit Profile",
   "addComment": "Add comment",
   "likesText": "Likes",
+  "usernameRequired": "Username required",
+  "usernameInUse": "Username already in use",
+  "checkingUsername": "Checking username availability...",
+  "emailRequired": "Email required",
+  "emailInUse": "Email already in use",
+  "checkingEmail": "Checking email availability...",
   "emailFacebookTakenText": "The email address is already in use on another account",
-  "loggedInAsText           ": "Logged in as"
+  "loggedInAsText": "Logged in as"
 }

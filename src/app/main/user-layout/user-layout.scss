@@ -14,7 +14,7 @@
   }
 
   ion-footer-bar {
-    height:50px;
+    height: 50px;
     .row {
       padding: 0;
     }
@@ -43,6 +43,11 @@
         &.icon.error {
           color: #ef4e3a;
         }
+      }
+
+      input, select, .input-label {
+        background-color: transparent;
+        color: #fff;
       }
       input + i.icon.error {
         display: none;

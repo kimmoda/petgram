@@ -21,6 +21,8 @@
     "activityNotFoundText": "Not found activies",
     "galleriesNotFoundText": "Not found galleries",
     "createAccount": "Create an account",
+    "userIntroText": "We need to know more about you. Log In or register.",
+    "mergeAccount": "Merge Account",
     "signin": "Login",
     "edit": "Edit",
     "remove": "Remove",
@@ -35,7 +37,7 @@
     "gender": "Gender",
     "man": "Man",
     "woman": "Woman",
-    "loginWith": "Login with",
+    "loginWithFacebook": "Login with Facebook",
     "register": "Create a account",
     "or": "Or",
     "searchText": "Search",
@@ -68,6 +70,12 @@
     "editProfile": "Edit Profile",
     "addComment": "Add comment",
     "likesText": "Likes",
+    "usernameRequired": "Username required",
+    "usernameInUse": "Username already in use",
+    "checkingUsername": "Checking username availability...",
+    "emailRequired": "Email required",
+    "emailInUse": "Email already in use",
+    "checkingEmail": "Checking email availability...",
     "emailFacebookTakenText": "The email address is already in use on another account",
-    "loggedInAsText           ": "Logged in as"
+    "loggedInAsText": "Logged in as"
 }

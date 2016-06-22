@@ -7,14 +7,68 @@
     <ion-content class="padding" scroll="false">
 
         <div class="step2">
-            <formly-form model="form" fields="formFields" form="rForm">
+            <form name="myForm" novalidate="novalidate" ng-submit="submitRegister(myForm, form)">
 
-                <button class="button button-block button-outline button-light " type="button"
-                        ng-disabled="rForm.$invalid" ng-click="submitRegister(rForm, form)"
+                <label class="item item-input">
+                    <i class="icon icon-envelope placeholder-icon"></i>
+                    <input required="required"
+                           type="email"
+                           name="email"
+                           ng-model="form.email"
+                           email-validator
+                           ng-model-options="{debounce: 1000}"
+                           placeholder="user@example.com"/>
+                </label>
+
+                <div ng-if="myForm.email.$dirty">
+                    <div ng-messages="myForm.email.$error" class="validation-error">
+                        <div ng-message="required" translate="emailRequired"></div>
+                        <div ng-message="email" translate="emailInUse"></div>
+                    </div>
+                    <div ng-messages="myForm.email.$pending" class="validation-pending">
+                        <div ng-message="email" translate="checkingEmail"></div>
+                    </div>
+                </div>
+
+                <label class="item item-input">
+                    <i class="icon icon-user placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="username"
+                           ng-model="form.username"
+                           username-validator
+                           ng-minlength="4"
+                           ng-maxlength="12"
+                           ng-model-options="{debounce: 1000}"
+                           ng-pattern="/^[a-zA-Z'. -]+$/"
+                           placeholder="Your login"/>
+                </label>
+
+                <div ng-if="myForm.username.$dirty">
+                    <div ng-messages="myForm.email.$error" class="validation-error">
+                        <div ng-message="required" translate="usernameRequired"></div>
+                        <div ng-message="email" translate="usernameInUse"></div>
+                    </div>
+                    <div ng-messages="myForm.email.$pending" class="validation-pending">
+                        <div ng-message="email" translate="checkingUsername"></div>
+                    </div>
+                </div>
+
+                <label class="item item-input">
+                    <i class="icon icon-lock placeholder-icon"></i>
+                    <input required
+                           type="password"
+                           name="password"
+                           ng-model="form.password"
+                           placeholder="Password"/>
+                </label>
+
+                <button class="button button-block button-outline button-light "
+                        type="submit"
                         translate="submit">
                 </button>
 
-            </formly-form>
+            </form>
 
             <span class="term">{{::'termAccept' | translate}} <a href="http://photogramapp.com">{{::'terms' | translate}}</a> </span>
         </div>

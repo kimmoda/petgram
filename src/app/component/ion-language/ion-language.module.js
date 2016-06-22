@@ -1,8 +1,6 @@
 (function () {
     'use strict';
 
-    var path = 'app/component/ion-language';
-
     angular
         .module('ion-language', [
             'ngCookies',
@@ -10,8 +8,6 @@
             'tmh.dynamicLocale' // angular-dynamic-locale
         ])
         .config(configLanguage);
-
-
 
     function configLanguage($translatePartialLoaderProvider, $translateProvider, AppConfig, tmhDynamicLocaleProvider) {
 
@@ -34,7 +30,7 @@
         });
 
         if (searchLang) {
-            language = AppConfig.locales.filter(function  (item) {
+            language = AppConfig.locales.filter(function (item) {
                 return language == item.code
             })[0].code;
         }

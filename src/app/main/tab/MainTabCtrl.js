@@ -6,6 +6,9 @@
     function MainTabController($scope, ActionSheet, $q, Gallery, PhotoFilter, ParseFile, $ionicModal, Loading) {
         var vm       = this;
         var tempImage;
+
+        window.StatusBar.styleDefault();
+
         vm.postPhoto = function () {
             ActionSheet
                 .image()

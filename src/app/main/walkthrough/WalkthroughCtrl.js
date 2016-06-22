@@ -1,10 +1,9 @@
 (function () {
     'use strict';
-    angular
-        .module('app.main')
-        .controller('WalkthroughCtrl', WalkthroughController);
 
-    function WalkthroughController($ionicSlideBoxDelegate, $translate, $scope, $ionicPlatform, $cordovaSplashscreen) {
+    angular.module('app.main').controller('WalkthroughCtrl', WalkthroughController);
+
+    function WalkthroughController($ionicSlideBoxDelegate, $scope, $ionicPlatform, $cordovaSplashscreen) {
         var vm              = this;
         var currentPlatform = window.ionic.Platform.platform();
         vm.slideIndex       = 0;
@@ -48,6 +47,7 @@
             $ionicPlatform.ready(function () {
                 if (navigator && navigator.splashscreen) {
                     $cordovaSplashscreen.hide();
+                    window.StatusBar.styleDefault();
                 }
             });
         });

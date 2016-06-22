@@ -4,6 +4,7 @@
         .module('starter', [
             'ionic',
             'formlyIonic',
+            'ngMessages',
             'ngCookies',
             'ngStorage',
             'pascalprecht.translate', // angular-translate
