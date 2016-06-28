@@ -3,6 +3,14 @@
 @import "platform";
 @import "spinner";
 
+ion-nav-bar {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  background-image: none !important;
+}
+
 .scroll-content {
   background-color: #f7f7f7;
 }
@@ -289,13 +297,18 @@
   }
 
   .item-divider {
+    margin-top: 10px;
     background: none;
     border: none;
-    font-weight: bold;
-    font-size: 16px;
-    border-bottom: 2px solid #ddd;
-    color: $dark;
-    text-transform: uppercase;
+    font-size: 14px;
+    color: lighten($dark, 30);
+  }
+
+  label {
+    input {
+      border-bottom: 1px solid #f8f8f8;
+      background: none;
+    }
   }
 
 }

@@ -21,31 +21,20 @@
                 };
 
                 $scope.submitLogin = function (rForm, data) {
-
                     var form = angular.copy(data);
                     if (!rForm.$invalid) {
                         Loading.start();
-
-                        console.log(form);
                         Auth.logIn(form).then(function (data) {
-                            console.log(data, data.attributes);
                             $rootScope.currentUser = data;
-                            console.log(Auth.getLoggedUser().name);
-                            if (Auth.getLoggedUser()) {
-                                $state.go($scope.routeLogged, {
-                                    clear: true
-                                });
-                            } else {
-                                $state.go('useravatar', {
-                                    clear: true
-                                });
-                            }
+                            $state.go($scope.routeLogged, {
+                                clear: true
+                            });
                             $scope.closeModal();
                             Loading.end();
                         }).catch(function (resp) {
                             Toast.alert({
-                                title: 'Ops',
-                                text : resp.message
+                                title: 'Error',
+                                text : 'Incorrect username or password'
                             });
                             Loading.end();
                         });
@@ -55,8 +44,8 @@
                 };
 
                 $ionicModal.fromTemplateUrl('app/directive/SigninModalDirective.html', {
-                    scope    : $scope,
-                    animation: 'slide-in-up',
+                    scope          : $scope,
+                    animation      : 'slide-in-up',
                     focusFirstInput: true,
                 }).then(function (modal) {
                     $scope.modal = modal;

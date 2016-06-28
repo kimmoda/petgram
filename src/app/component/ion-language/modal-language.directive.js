@@ -38,9 +38,12 @@
 
             function openModal() {
 
+                window.StatusBar.styleDefault();
+
                 scope.closeModal = function () {
                     scope.modal.hide();
                     // scope.modal.remove();
+                    window.StatusBar.styleLightContent();
                 };
 
 

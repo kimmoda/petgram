@@ -14,10 +14,18 @@
         $compileProvider.debugInfoEnabled(false);
     }
 
-    function startParse(AppConfig, $location, $rootScope) {
+    function startParse(AppConfig, $localStorage, $location, $rootScope) {
         Parse.initialize(AppConfig.parse.appId);
         Parse.serverURL        = AppConfig.parse.server;
         $rootScope.currentUser = Parse.User.current();
+
+        if (!$localStorage.unit) {
+            $localStorage.unit = AppConfig.map.unit;
+        }
+
+        if (!$localStorage.mapType) {
+            $localStorage.mapType = AppConfig.map.type;
+        }
 
         console.log($rootScope.currentUser);
         if (!$rootScope.currentUser) {
@@ -31,6 +39,7 @@
 
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.disableScroll(true);
+                window.StatusBar.styleLightContent();
             }
 
             // Remove back button android
@@ -48,8 +57,6 @@
                 }
             }
 
-
-            window.StatusBar.styleLightContent();
             //OneSignal.init(AppConfig.onesignal.id, AppConfig.onesignal.google);
 
             // Enable to debug issues.
@@ -90,26 +97,37 @@
     // Facebook
     function configFacebook($facebookProvider, AppConfig) {
         if (!window.cordova) {
+            console.log('Facebook Browser');
             $facebookProvider.setAppId(AppConfig.facebookAppId);
             $facebookProvider.setPermissions('id,name,email,user_likes,bio');
         }
     }
 
-    function runFacebook() {
+    function runFacebook(AppConfig) {
+
         if (!window.cordova) {
+            console.log('Facebook Browser');
             var LangVar     = window.navigator.language || window.navigator.userLanguage;
             var userLangVar = LangVar.substring(0, 2) + '_' + LangVar.substring(3, 5).toUpperCase();
 
-            // Load the SDK asynchronously
+            window.fbAsyncInit = function () {
+                Parse.FacebookUtils.init({
+                    appId  : AppConfig.facebookAppId,
+                    version: 'v2.3',
+                    xfbml  : true
+                });
+            };
+
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
+                if (d.getElementById(id)) {return;}
                 js     = d.createElement(s);
                 js.id  = id;
                 js.src = 'http://connect.facebook.net/' + userLangVar + '/sdk.js';
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         }
+
     }
 
 })();

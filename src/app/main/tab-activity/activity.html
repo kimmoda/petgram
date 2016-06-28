@@ -1,10 +1,14 @@
 <ion-view cache-view="false" class="list-activity">
 
     <ion-nav-title>
-        <span translate="activity"></span>
+        <span translate="activities"></span>
     </ion-nav-title>
 
-    <ion-content>
+    <ion-content scroll-sista="">
+
+        <div class="center padding" ng-if="loading">
+            <ion-spinner ></ion-spinner>
+        </div>
 
         <div class="center padding" ng-if="vm.showErrorView()">
             <div class="error ">

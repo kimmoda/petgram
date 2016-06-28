@@ -8,6 +8,8 @@
         vm.params.page = 1;
         vm.data        = [];
 
+        $scope.loading = true;
+
         loadFeed();
 
         var isLoadingViewShown   = false;
@@ -78,6 +80,7 @@
 
                 $scope.$broadcast('scroll.infiniteScrollComplete');
                 $scope.$broadcast('scroll.refreshComplete');
+                $scope.loading = false;
 
             }).catch(function () {
                 if (vm.data.length === 0) {

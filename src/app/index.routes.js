@@ -38,7 +38,8 @@
 
             .state('user.intro', {
                 url         : '/intro',
-                templateUrl : 'app/main/user-intro/user-intro.html'
+                templateUrl : 'app/main/user-intro/user-intro.html',
+                controller: 'UserIntroCtrl'
             })
 
             .state('user.merge', {

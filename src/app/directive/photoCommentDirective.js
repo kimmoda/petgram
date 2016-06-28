@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('photoComment', photoCommentDirective);
 
-    function photoCommentDirective($ionicModal, Loading, $ionicPopup, Auth, Dialog, Gallery, GalleryComment, GalleryForm) {
+    function photoCommentDirective($ionicModal, $ionicScrollDelegate, Loading, $ionicPopup, Auth, Dialog, $timeout, Gallery, GalleryComment, GalleryForm) {
 
         return {
             restrict: 'A',
@@ -30,6 +30,7 @@
 
                     init();
 
+                    scope.loading = true;
                     scope.formFields    = GalleryForm.formComment;
                     scope.submitComment = submitComment;
                     scope.deleteComment = deleteComment;
@@ -120,6 +121,11 @@
                         scope.comments         = resp;
                         scope.ngModel.comments = resp;
                         scope.loading          = false;
+
+                        $timeout(function  () {
+                            // Scroll to bottom
+                            $ionicScrollDelegate.scrollBottom();
+                        }, 1);
                     });
                 }
 

@@ -2,35 +2,31 @@
     'use strict';
     angular.module('app.main').controller('SearchMapCtrl', SearchMapController);
 
-    function SearchMapController($scope, $rootScope, $ionicLoading, $ionicModal,
-                                 $state, $stateParams, $translate, $timeout, $localStorage, Toast, Gallery, Geolocation, Dialog) {
-
+    function SearchMapController($scope, $rootScope, $ionicLoading, $state, $stateParams, $timeout, $localStorage, Toast, Gallery, Geolocation, Dialog) {
 
         $scope.maxRating = 5;
         $scope.storage   = $localStorage;
+        $scope.galleries = [];
         $scope.params    = {
             location  : null,
             categoryId: $stateParams.categoryId,
             distance  : 100.00,
             page      : 0,
         };
-        $scope.places    = [];
-
-        var markers = [];
-
-        function setPosition(lat, lng) {
-            return new window.plugin.google.maps.LatLng(lat, lng);
-        }
-
-        var sideMenu           = document.getElementById('side-menu');
-        var div                = document.getElementById('map_canvas');
-        var map;
-        var isLoadingViewShown = false;
-        var isMapViewShown     = false;
-        var isErrorViewShown   = false;
 
         if (window.cordova) {
-            map = window.plugin.google.maps.Map.getMap(div);
+
+            var div                = document.getElementById('map_canvas');
+            var map                = window.plugin.google.maps.Map.getMap(div);
+            var isLoadingViewShown = false;
+            var isMapViewShown     = false;
+            var isErrorViewShown   = false;
+            var markers            = [];
+
+            var setPosition = function (lat, lng) {
+                return new window.plugin.google.maps.LatLng(lat, lng);
+            }
+
             // Capturing event when Map load are ready.
             map.addEventListener(plugin.google.maps.event.MAP_READY, function () {
                 map.setMyLocationEnabled(true);
@@ -55,15 +51,13 @@
 
                     loadGallerys();
                 }, function (error) {
-
                     $scope.params.location = null;
 
                     var errorMessage;
-
                     if (error.code === 1 || error.code === 3) {
-                        errorMessage = trans.errorGpsDisabledText;
+                        errorMessage = 'errorGpsDisabledText';
                     } else {
-                        errorMessage = trans.errorLocationMissingText;
+                        errorMessage = 'errorLocationMissingText';
                     }
                     Dialog.alert(errorMessage);
 
@@ -104,9 +98,9 @@
 
         function setMapZoomToFit() {
             var points = [];
-            for (var i = 0; i < $scope.places.length; i++) {
-                var place    = $scope.places[i];
-                var position = setPosition(place.latitude, place.longitude);
+            for (var i = 0; i < $scope.galleries.length; i++) {
+                var item     = $scope.galleries[i];
+                var position = setPosition(item.latitude, item.longitude);
                 points.push(position);
             }
             points.push(setPosition(
@@ -116,18 +110,18 @@
             animateCameraWithBounds(points);
         }
 
-        function setGallerys(places) {
-            $scope.places = places;
+        function setGallerys(galleries) {
+            $scope.galleries = galleries;
 
-            for (var i = 0; i < places.length; i++) {
+            for (var i = 0; i < galleries.length; i++) {
 
-                var place = places[i];
+                var item = galleries[i];
 
                 var icon = '#E84545';
 
-                if (place.category.get('icon')) {
+                if (item.category.get('icon')) {
                     icon = {
-                        url : place.category.get('icon').url(),
+                        url : item.category.get('icon').url(),
                         size: {
                             width : 32,
                             height: 32,
@@ -136,21 +130,21 @@
                 }
 
                 map.addMarker({
-                    place      : place,
-                    position   : setPosition(place.latitude, place.longitude),
-                    title      : place.title,
+                    item       : item,
+                    position   : setPosition(item.latitude, item.longitude),
+                    title      : item.title,
                     icon       : icon,
                     animation  : plugin.google.maps.Animation.DROP,
                     styles     : {
                         maxWidth: '80%'
                     },
-                    snippet    : place.description,
-                    placeId    : place.id,
+                    snippet    : item.description,
+                    itemId     : item.id,
                     markerClick: function (marker) {
                         marker.showInfoWindow();
                     },
                     infoClick  : function (marker) {
-                        $state.go('app.place', {placeId: marker.get('placeId')});
+                        $state.go('app.item', {itemId: marker.get('itemId')});
                     }
                 }, function (marker) {
                     markers.push(marker);
@@ -160,23 +154,23 @@
 
         function loadGallerys() {
 
-            Gallery.all($scope.params).then(function (places) {
-                setGallerys(places);
+            Gallery.all($scope.params).then(function (galleries) {
+                setGallerys(galleries);
                 showMap();
 
-                if (places.length === 0) {
-                    Dialog.alert(trans.placesNotFoundText);
+                if (galleries.length === 0) {
+                    Dialog.alert('galleriesNotFoundText');
                 } else {
                     setMapZoomToFit();
                 }
 
             }, function () {
-                Toast.show(trans.errorText);
+                Toast.show('errorText');
             });
         }
 
         function removeGallerys() {
-            $scope.places = [];
+            $scope.galleries = [];
         }
 
         function removeMarkers() {
@@ -185,7 +179,7 @@
             }
         };
 
-        $scope.onSearchGallerys = function () {
+        $scope.onSearchHere = function () {
 
             map.getCameraPosition(function (camera) {
 
@@ -211,16 +205,12 @@
             return isErrorViewShown;
         };
 
-        $scope.onReload = function () {
-            //showLoading();
-            //loadGallerys();
-        };
 
-        $scope.onGalleryClicked = function (place) {
+        $scope.onGalleryClicked = function (item) {
             $scope.closeGallerysModal();
 
             for (var i = 0; i < markers.length; i++) {
-                if (markers[i].get('place') === place) {
+                if (markers[i].get('item') === item) {
                     var marker = markers[i];
                     marker.showInfoWindow();
                     marker.getPosition(function (position) {

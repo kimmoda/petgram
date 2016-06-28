@@ -1,33 +1,89 @@
-<ion-modal-view class="modal-profile">
-  <ion-header-bar class="bar-light">
-    <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
-    <div class="title">{{ ::'editProfile' | translate }}</div>
-  </ion-header-bar>
-  <ion-content class="view-avatar">
+<ion-modal-view class="profile-edit">
+    <ion-header-bar class="bar-light">
+        <button class="button button-clear" ng-click="closeModal()" translate="cancel"></button>
+        <div class="title">{{ ::'editProfile' | translate }}</div>
+        <button class="button button-clear" ng-click="submitUpdateProfile(rForm, form)" translate="submit"></button>
+    </ion-header-bar>
+    <ion-content class="view-avatar">
 
-    <div class="row step1">
-      <div class="col">
-        <img class="avatar" user-avatar ng-src="{{ form.photo._url || 'img/user.png' }}" />
-      </div>
-    </div>
+        <div class="step2">
+            <form name="rForm" novalidate>
 
-    <div class="step2">
-      <label class="item item-input">
-                <i class="icon icon-envelope placeholder-icon"></i>
-                <input type="text" ng-model="form.email" disabled>
-            </label>
-      <formly-form model="form" fields="formFields" form="rForm">
-      </formly-form>
-    </div>
-    <div class="padding step3">
-      <button ng-click="linkFacebook()" ng-disabled="form.facebook" class="button button-block button-facebook"><i
+                <img class="avatar" user-avatar ng-src="{{ form.photo._url || 'img/user.png' }}"/>
+
+                <label class="item item-input">
+                    <i class="icon ion-clipboard placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="name"
+                           ng-model="form.name"
+                           placeholder="{{'name' | translate}}"/>
+                </label>
+
+                <label class="item item-input">
+                    <i class="icon ion-pound placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="username"
+                           ng-model="form.username"
+                           ng-minlength="4"
+                           ng-maxlength="12"
+                           ng-pattern="/^[a-zA-Z'. -]+$/"
+                           placeholder="{{'username' | translate}}"/>
+                </label>
+
+
+
+                <label class="item item-input">
+                    <i class="icon ion-earth placeholder-icon"></i>
+                    <input
+                           type="url"
+                           name="website"
+                           ng-model="form.website"
+                           placeholder="{{'site' | translate}}"/>
+                </label>
+
+                <label class="item item-input">
+                    <i class="icon ion-information-circled placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="status"
+                           ng-model="form.status"
+                           placeholder="{{'status' | translate}}"/>
+                </label>
+
+                <ion-item class="item-divider" translate="privateInformation"></ion-item>
+
+
+                <label class="item item-input">
+                    <i class="icon icon-envelope placeholder-icon"></i>
+                    <input type="email"
+                           name="email"
+                           ng-model="form.email"
+                           disabled
+                           ng-model-options="{debounce: 1000}"
+                           placeholder="user@example.com"/>
+                </label>
+
+
+                <label class="item item-input">
+                    <i class="icon ion-iphone placeholder-icon"></i>
+                    <input required="required"
+                           type="tel"
+                           name="phone"
+                           ng-model="form.phone"
+                           placeholder="{{'phone' | translate }}"/>
+                </label>
+
+
+
+            </form>
+        </div>
+        <div class="padding step3">
+            <button ng-click="linkFacebook()" ng-disabled="form.facebook" class="button button-block button-facebook"><i
                     class="icon ion-social-facebook"></i>
                 <span translate="facebookLink"></span>
             </button>
-
-      <button class="button button-block button-positive" ng-click="submitUpdateProfile()" translate="submit">
-
-            </button>
-    </div>
-  </ion-content>
+        </div>
+    </ion-content>
 </ion-modal-view>

@@ -6,35 +6,54 @@
   }
 
   .scroll-content {
-    margin-bottom: 50px;
+    background-color: #fff;
   }
 
-  .form {
-    border: 1px solid #ccc;
-    padding: 1px;
-    display: block;
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 50px;
+  // List
+  .item {
+    border-bottom: 1px solid #f7f7f7 !important;
+    margin-bottom: 1px;
+    .item-content {
+      padding-top: 0;
+    }
+  }
 
-    label.item.item-input {
-      display: block;
-      float: left;
-      width: 88%;
+  .text {
+    white-space: normal;
+  }
+
+  ion-footer-bar {
+    border-top: 1px solid #ddd;
+    background: transparent !important;
+
+    label {
       border: none;
+      background: transparent !important;
+      padding: 0;
+
+      .placeholder-icon {
+        font-size: 22px;
+      }
+
+      textarea {
+        border: none !important;
+        padding: 0;
+        margin-right: 60px;
+      }
     }
-    button {
-      padding: 7px;
-      height: 50px;
-      top: -1px;
+    /* add this to keep your footer buttons down
+  at the bottom as the textarea resizes */
+    .footer-btn-wrap {
       position: absolute;
-      right: -1px;
-      border: none;
+      height: 100%;
+      width: 55px;
+      top: 8px;
+      right: 10px;
     }
-    form .item, .formly .item {
-      border-bottom: none;
+
+    .footer-btn {
+      position: absolute !important;
+      bottom: 0;
     }
   }
 

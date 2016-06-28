@@ -1,9 +1,7 @@
 (function () {
     'use strict';
 
-    angular
-        .module('starter')
-        .directive('facebookLogin', facebookLoginDirective);
+    angular.module('starter').directive('facebookLogin', facebookLoginDirective);
 
     function facebookLoginDirective(Loading, $state, $q, $translate, Facebook, Dialog, User, $rootScope, Toast) {
         return {

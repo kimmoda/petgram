@@ -12,15 +12,16 @@
       </div>
     </div>
 
-    <ul class="list">
-      <li class="item item-input">
-        <input type="text" placeholder="{{ 'locationText' | translate }}" ion-location
-               location="form.geo" ng-model="form.geo.resume">
-      </li>
-      <div class="item nopadding" ng-show="form.geo.image">
-        <img ng-src="{{ form.geo.image }}">
-      </div>
-    </ul>
+    <div class="list">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="{{ 'search' | translate }}"
+               ng-model="form.address"
+               ng-model-options="{ debounce: 1500 }"
+               ng-change="onSearchAddress()">
+      </label>
+    </div>
+    <div id="map_canvas2"></div>
 
     <div class="padding">
       <button class="button button-block button-positive" type="button"

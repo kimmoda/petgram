@@ -15,11 +15,15 @@
     </div>
 </div>
 
+<div class="center padding" ng-if="loading">
+    <ion-spinner ></ion-spinner>
+</div>
+
 <ion-refresher pulling-text="{{'loadingText'| translate}}" on-refresh="onReload()"></ion-refresher>
 
-<div class="list card animated fadeIn" ng-repeat="gallery in data" ng-if="showGalleries()">
+<div class="list card " ng-repeat="gallery in data | orderBy:createdAt:true" ng-if="showGalleries()">
 
-    <div class="item item-avatar" profile-modal user="gallery.user.obj">
+    <div class="item item-avatar" profile-modal user="gallery.user.obj" ion-affix data-affix-within-parent-with-class="card">
         <img ng-if="profile" profile="{{ ::gallery.user}}" ng-src="{{ ::gallery.user.photo._url}}">
         <img ng-src="{{ ::gallery.user.photo._url || 'img/user.png'}}">
         <h2>{{ ::gallery.user.name}}</h2>
@@ -59,12 +63,12 @@
 
         <div class="list-comments">
             <div class="comment-item" profile-modal user="gallery.user.obj">
-                <span class="username">{{ :: gallery.user.attributes.name }}</span>
+                <span class="username">{{ :: gallery.user.name }}</span>
                 <span class="comment">{{ :: gallery.title }}</span>
             </div>
             <div class="comment-item" profile-modal user="gallery.user.id"
-                 ng-repeat="item in gallery.comments | limitTo:3 track by item.id">
-                <span class="username">{{ :: item.user.attributes.name }}</span> <span class="comment">{{ :: item.text }}</span>
+                 ng-repeat="item in gallery.comments | orderBy:createdAt:true">
+                <span class="username">{{ :: item.user.name }}</span> <span class="comment">{{ :: item.text }}</span>
             </div>
             <a class="comment-item" photo-comment ng-model="gallery" ng-if="gallery.comments.length>3" translate="seeAllCommentText"></a>
         </div>

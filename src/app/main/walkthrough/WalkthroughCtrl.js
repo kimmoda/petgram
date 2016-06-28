@@ -47,7 +47,7 @@
             $ionicPlatform.ready(function () {
                 if (navigator && navigator.splashscreen) {
                     $cordovaSplashscreen.hide();
-                    window.StatusBar.styleDefault();
+                    window.StatusBar.styleLightContent()
                 }
             });
         });

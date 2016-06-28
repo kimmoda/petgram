@@ -7,7 +7,7 @@
         <button settings-modal class="button button-icon icon ion-gear-a"></button>
     </ion-nav-buttons>
 
-    <ion-content class="animated fadeIn">
+    <ion-content scroll-sista="header-tabs" class="animated fadeIn">
 
         <div class="profile-top">
             <div class="row">
@@ -20,17 +20,20 @@
                 <div class="col col-statics">
                     <div class="row">
                         <div class="col">
-                            <span class="text-center">{{ vm.user.attributes.galleriesTotal || 0}}</span>
+                            <span ng-if="!vm.loading" class="text-center">{{ vm.user.attributes.galleriesTotal || 0}}</span>
+                            <ion-spinner ng-if="vm.loading"></ion-spinner>
 
                             <h3 translate="postsText"></h3>
                         </div>
                         <div class="col">
-                            <span class="text-center">{{ vm.user.attributes.followersTotal || 0}}</span>
+                            <span ng-if="!vm.loading" class="text-center">{{ vm.user.attributes.followersTotal || 0}}</span>
+                            <ion-spinner ng-if="vm.loading"></ion-spinner>
 
                             <h3 translate="followersText"></h3>
                         </div>
                         <div class="col">
-                            <span class="text-center">{{ vm.user.attributes.followingsTotal  || 0}}</span>
+                            <span ng-if="!vm.loading" class="text-center">{{ vm.user.attributes.followingsTotal  || 0}}</span>
+                            <ion-spinner ng-if="vm.loading"></ion-spinner>
                             <h3 translate="followingText"></h3>
                         </div>
                     </div>

@@ -24,7 +24,7 @@
                 $scope.params.username = $scope.username;
             }
 
-            console.log($scope.params);
+            $scope.loading = true;
 
             $rootScope.$on('photoInclude', function (elem, item) {
                 if (item.objectId) {
@@ -40,8 +40,7 @@
             var isGalleriesViewShown = false;
             var isErrorViewShown     = false;
             var isEmptyViewShown     = false;
-
-            var isMoreData = false;
+            var isMoreData           = false;
 
             function showLoading() {
                 isLoadingViewShown   = true;
@@ -90,7 +89,6 @@
             }
 
             function loadFeed() {
-
                 Gallery.feed($scope.params).then(function (data) {
                     ensureMoreData(data.length);
                     setCurrentPage($scope.params.page + 1);
@@ -102,6 +100,7 @@
                         showGalleries();
                     }
 
+                    $scope.loading = false;
                     $scope.$broadcast('scroll.infiniteScrollComplete');
                     $scope.$broadcast('scroll.refreshComplete');
 

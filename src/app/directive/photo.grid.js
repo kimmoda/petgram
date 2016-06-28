@@ -20,6 +20,8 @@
             $scope.params.page = 1;
             $scope.data        = [];
 
+            $scope.loading = true;
+
             $rootScope.$on('photoInclude', function (elem, item) {
                 if (item.objectId) {
                     item.id = item.objectId;
@@ -98,6 +100,7 @@
 
                     $scope.$broadcast('scroll.infiniteScrollComplete');
                     $scope.$broadcast('scroll.refreshComplete');
+                    $scope.loading = false;
 
                 }).catch(function () {
                     if ($scope.data.length === 0) {

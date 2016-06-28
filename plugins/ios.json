@@ -13,15 +13,18 @@
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "cordova-plugin-crosswalk-webview": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-facebook4": {
-            "APP_ID": "YOUR_FB_APP_ID",
-            "APP_NAME": "YOUR_FB_APP_NAME",
+            "APP_ID": "1024016557617380",
+            "APP_NAME": "Photogram",
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-geolocation": {
@@ -31,10 +34,6 @@
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-google-analytics": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
-        "cordova-plugin-googlemaps": {
-            "API_KEY_FOR_IOS": "YOUR_API_KEY_FOR_IOS",
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-inappbrowser": {
@@ -58,15 +57,23 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
         "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_IOS": "AIzaSyA3Xkj2mgHXmabySSiEBfDvYEcDuR51MaM",
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        }
+    }
 }

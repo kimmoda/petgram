@@ -15,6 +15,10 @@
   </div>
 </div>
 
+<div class="center padding" ng-if="loading">
+  <ion-spinner ></ion-spinner>
+</div>
+
 <ion-refresher pulling-text="{{'loadingText'| translate}}" on-refresh="onReload()"></ion-refresher>
 
 <div class="row animated fadeIn " ng-if="$index % 3 === 0" ng-repeat="image in data">

@@ -19,16 +19,16 @@
             facebookAppId  : '1024016557617380',
             parse          : {
                 appId : 'myAppId',
-                //server: 'http://localhost:1337/parse/',
                 server: 'https://photogramapp.com/parse/',
+                //server: 'http://localhost:1337/parse/',
             },
             onesignal      : {
                 id    : '7b08c66d-d5a3-47b9-b091-b7f4a5bb7624',
                 google: 'AIzaSyCEBeAMSs4nrAC-2cvG6N6Q_KqJpnUrnh0'
             },
             map            : {
-                unit   : 'mi',
-                mapType: 'normal',
+                unit: 'mi',
+                type: 'normal',
             },
             locales        : [
                 {

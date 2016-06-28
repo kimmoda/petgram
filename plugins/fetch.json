@@ -1,12 +1,4 @@
 {
-    "cordova-plugin-crosswalk-webview": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-crosswalk-webview@~1.7.0"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-inappbrowser": {
         "source": {
             "type": "registry",
@@ -116,7 +108,7 @@
             "type": "registry",
             "id": "cordova-plugin-extension"
         },
-        "is_top_level": false,
+        "is_top_level": true,
         "variables": {}
     },
     "cordova-plugin-facebook4": {
@@ -128,18 +120,6 @@
         "variables": {
             "APP_ID": "1024016557617380",
             "APP_NAME": "Photogram"
-        }
-    },
-    "cordova-plugin-googlemaps": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/phonegap-googlemaps-plugin/cordova-plugin-googlemaps",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {
-            "API_KEY_FOR_ANDROID": "AIzaSyDS-EHC-tr_2McS_9bZAFtG_tJNMVOnrV8",
-            "API_KEY_FOR_IOS": "AIzaSyD6IlFnnFviuzfjDDgJ9Jp978Hz_ohvLhY"
         }
     },
     "com.googlemaps.ios": {
@@ -175,5 +155,25 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-compat": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-compat"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-googlemaps": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phonegap-googlemaps-plugin/cordova-plugin-googlemaps",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "API_KEY_FOR_ANDROID": "AIzaSyCJjsc1ylHvOiiUznX89BEuR8-ZcdE94lM",
+            "API_KEY_FOR_IOS": "AIzaSyA3Xkj2mgHXmabySSiEBfDvYEcDuR51MaM"
+        }
     }
 }
