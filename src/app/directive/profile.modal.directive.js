@@ -7,7 +7,7 @@
         return {
             restrict: 'A',
             scope   : {
-                userObj: '=user'
+                username: '='
             },
             link    : profileModalLink
         };
@@ -15,7 +15,7 @@
         function profileModalLink(scope, elem) {
             elem.bind('click', function () {
 
-                User.getPublicData(scope.userObj).then(function (data) {
+                User.profile(scope.username).then(function (data) {
                     console.log(data);
                     scope.user = data;
                     openModal();
@@ -27,46 +27,49 @@
 
                 console.log(scope.user.attributes);
 
-                $ionicModal
-                    .fromTemplateUrl('app/directive/profile-modal.html', {
-                        scope: scope
-                    })
-                    .then(function (modal) {
-                        scope.modalProfile  = modal;
+                $ionicModal.fromTemplateUrl('app/directive/profile-modal.html', {
+                    scope: scope
+                }).then(function (modal) {
+                    scope.modalProfile  = modal;
+                    scope.loadingFollow = true;
+                    scope.changeTab     = changeTab;
+                    scope.follow        = follow;
+                    scope.closeModal    = closeModal;
+                    scope.modalProfile.show();
+
+                    changeTab('list');
+
+                    function follow() {
+
                         scope.loadingFollow = true;
-                        scope.changeTab     = changeTab;
-                        scope.follow        = follow;
-                        scope.closeModal    = closeModal;
-                        scope.modalProfile.show();
+                        var status;
 
-                        changeTab('list');
-
-                        function follow() {
-
-                            scope.loadingFollow = true;
-                            var status;
-
-                            if (scope.user.follow) {
-                                status = false;
-                            } else {
-                                status = true;
-                            }
-
-                            User.follow(status, scope.user).then(followResp);
-
-                            function followResp(resp) {
-
-                                console.log('Follow result', resp);
-                                scope.user.follow   = status;
-                                scope.loadingFollow = false;
-                            }
+                        if (scope.user.follow) {
+                            status = false;
+                        } else {
+                            status = true;
                         }
 
-                        function closeModal() {
-                            delete scope.data;
-                            scope.modalProfile.hide();
-                        }
-                    });
+                        User.follow(scope.user.userObj.id).then(function (resp) {
+                            console.log('Follow result', resp);
+                            scope.user.isFollow = (resp === 'follow') ? true : false;
+                            if (resp == 'follow') {
+                                scope.user.followersTotal += 1;
+                            }
+                            if (resp == 'unfollow') {
+                                scope.user.followersTotal -= 1;
+                            }
+                            scope.loadingFollow = false;
+                        });
+
+
+                    }
+
+                    function closeModal() {
+                        delete scope.data;
+                        scope.modalProfile.hide();
+                    }
+                });
 
                 // Cleanup the modal when we're done with it!
                 scope.$on('$destroy', function () {

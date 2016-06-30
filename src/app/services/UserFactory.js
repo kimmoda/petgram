@@ -5,50 +5,63 @@
     function UserFactory($q, $cordovaDevice, ParseCloud) {
 
         var User = Parse.User.extend({}, {
-            signIn                : function (data) {
+            profile               : function (username) {
+                return ParseCloud.run('profile', {username: username})
+            },
+            list                  : function (username) {
+                return ParseCloud.run('listUsers')
+            },
+            signIn                : function (obj) {
                 var defer = $q.defer();
-                Parse.User.logIn(data.email, data.password, {
+
+                Parse.User.logIn(obj.username, obj.password, {
                     success: function (currentUser) {
-                        // Update device after login
+
+                        // device
+                        var device;
                         if (window.cordova) {
-                            var cordovaDevice = {
+                            device = {
                                 device  : $cordovaDevice.getDevice(),
                                 cordova : $cordovaDevice.getCordova(),
                                 model   : $cordovaDevice.getModel(),
                                 platform: $cordovaDevice.getPlatform(),
                                 uuid    : $cordovaDevice.getUUID(),
                                 version : $cordovaDevice.getVersion()
-                            }.forEach(function (value, index) {
-                                currentUser.set(index, value);
-                            });
-                            console.log('updateUser', cordovaDevice);
-                            currentUser.save();
+                            };
+                        } else {
+                            device = {
+                                device  : window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[0],
+                                cordova : '',
+                                model   : window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[0],
+                                platform: window.navigator.platform,
+                                uuid    : '',
+                                version : window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[1]
+                            };
                         }
-                        defer.resolve(currentUser);
+
+                        console.log(currentUser);
+                        console.log(device);
+
+                        User.update(device).then(function () {
+                            defer.resolve(currentUser);
+                        }).catch(defer.reject)
+
+                        console.log('updateUser', device);
+                        //user.save(defer.resolve, defer.reject);
                     },
                     error  : defer.reject
                 });
 
                 return defer.promise;
             },
-            profile               : function (userId) {
-                var defer = $q.defer();
-                var User  = new Parse.User();
-                User.get(userId);
-                new Parse.Query('UserData')
-                    .equalTo('user', userId)
-                    .first()
-                    .then(defer.resolve, defer.reject);
-                return defer.promise;
-            },
             signUp                : function (data) {
                 var defer = $q.defer();
-                var user  = new Parse.User();
-                user.set({'name': data.name});
-                user.set({'username': data.username});
-                user.set({'email': data.email});
-                user.set({'password': data.password});
-                user.set({'roleName': 'User'});
+                var user  = new Parse.User()
+                    .set({'name': data.name})
+                    .set({'username': data.username})
+                    .set({'email': data.email})
+                    .set({'password': data.password})
+                    .set({'roleName': 'User'});
 
                 var acl = new Parse.ACL();
                 acl.setPublicReadAccess(false);
@@ -76,6 +89,11 @@
                     success: defer.resolve,
                     error  : defer.reject
                 });
+                return defer.promise;
+            },
+            logOut                : function () {
+                var defer = $q.defer();
+                Parse.User.logOut().then(defer.resolve, defer.reject);
                 return defer.promise;
             },
             findByEmail           : function (email) {
@@ -139,27 +157,19 @@
                 });
                 return defer.promise;
             },
-            follow                : function (otherUser) {
-                // create an entry in the Follow table
-                var follow = new Parse.Object('UserFolow');
-                follow.set('from', Parse.User.current());
-                follow.set('to', otherUser);
-                follow.set('date', Date());
-                follow.save();
+            follow                : function (userId) {
+                return ParseCloud.run('followUser', {userId: userId});
             },
             all                   : function (params) {
                 return ParseCloud.run('getUsers', params);
             },
-            create                : function (data) {
-                return ParseCloud.run('createUser', data);
+            validateUsername: function (input) {
+                return ParseCloud.run('validateUsername', {username: input});
             },
-            validateUsername      : function (input) {
-               return ParseCloud.run('validateUsername', {username: input});
-            },
-            validateEmail         : function (input) {
+            validateEmail   : function (input) {
                 return ParseCloud.run('validateEmail', {email: input});
             },
-            findUsername          : function (username) {
+            findUsername    : function (username) {
                 var defer = $q.defer();
                 new Parse.Query(this).equalTo('username', username).first({
                     success: defer.resolve,
@@ -167,7 +177,7 @@
                 });
                 return defer.promise;
             },
-            update                : function (params) {
+            update          : function (params) {
                 var defer = $q.defer();
                 var user  = Parse.User.current();
                 angular.forEach(params, function (value, key) {
@@ -179,10 +189,10 @@
                 });
                 return defer.promise;
             },
-            delete                : function (data) {
+            delete          : function (data) {
                 return ParseCloud.run('destroyUser', data);
             },
-            fetch                 : function () {
+            fetch           : function () {
                 var defer = $q.defer();
                 if (Parse.User.current()) {
                     Parse.User.current().fetch().then(defer.resolve, defer.reject);

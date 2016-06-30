@@ -37,9 +37,9 @@
             })
 
             .state('user.intro', {
-                url         : '/intro',
-                templateUrl : 'app/main/user-intro/user-intro.html',
-                controller: 'UserIntroCtrl'
+                url        : '/intro',
+                templateUrl: 'app/main/user-intro/user-intro.html',
+                controller : 'UserIntroCtrl'
             })
 
             .state('user.merge', {
@@ -52,8 +52,8 @@
             .state('logout', {
                 url         : '/logout',
                 template    : '<ion-view view-title="Logout" cache-view="false"><ion-content></ion-content></ion-view>',
-                controller  : function (Auth, $state) {
-                    Auth.logOut();
+                controller  : function (User, $state) {
+                    User.logOut();
                     $state.go('user.login', {clear: true});
                 },
                 controllerAs: 'vm'
@@ -74,6 +74,28 @@
                         controller  : 'HomeCtrl',
                         controllerAs: 'vm',
                         templateUrl : 'app/main/tab-home/home.html'
+                    }
+                }
+            })
+
+            .state('tab.homeProfile', {
+                url  : '/home/:username',
+                views: {
+                    tabHome: {
+                        controller  : 'ProfileCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/profile/profile.html'
+                    }
+                }
+            })
+
+            .state('tab.homeUserlist', {
+                url  : '/home/userlist',
+                views: {
+                    tabHome: {
+                        controller  : 'UserListCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-list/user-list.html'
                     }
                 }
             })

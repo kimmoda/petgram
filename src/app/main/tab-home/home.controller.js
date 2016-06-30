@@ -3,9 +3,12 @@
 
     angular.module('app.main').controller('HomeCtrl', HomeController);
 
-    function HomeController() {
-        var vm = this;
+    function HomeController($state) {
+        var vm         = this;
 
+        vm.openProfile = function (username) {
+            $state.go('tab.homeProfile',{username: username})
+        }
     }
 
 

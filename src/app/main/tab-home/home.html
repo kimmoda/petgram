@@ -1,7 +1,7 @@
 <ion-view class="view-home">
 
     <ion-nav-buttons side="left">
-        <button class="button button-icon icon ion-ios-personadd-outline"></button>
+        <button class="button button-icon icon ion-ios-personadd-outline" ui-sref="tab.homeUserlist"></button>
     </ion-nav-buttons>
 
     <ion-nav-title>
@@ -9,6 +9,6 @@
     </ion-nav-title>
 
     <ion-content scroll-sista="header-tabs">
-        <photo-list profile="true" user=""></photo-list>
+        <photo-list profile="true" load="vm.openProfile"></photo-list>
     </ion-content>
 </ion-view>

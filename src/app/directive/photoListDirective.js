@@ -3,13 +3,14 @@
 
     angular.module('starter').directive('photoList', photoListDirective);
 
-    function photoListDirective(Gallery, $rootScope, $ionicPopup, $translate, Share, FeedbackModal, $ionicActionSheet) {
+    function photoListDirective(Gallery, $rootScope, $ionicPopup, $translate, Share, Toast, FeedbackModal, $ionicActionSheet) {
 
         return {
             restrict   : 'E',
             scope      : {
                 username: '=',
-                profile : '='
+                profile : '=',
+                load    : '=',
             },
             templateUrl: 'app/directive/photoListDirective.html',
             link       : photoListController
@@ -154,7 +155,7 @@
 
                 console.log(gallery);
 
-                if (Parse.User.current().id === gallery.user_id) {
+                if (Parse.User.current().id === gallery.user.obj.id) {
                     var buttonDelete = {
                         text: '<i class="icon ion-trash-b"></i>' + $translate.instant('deleteGalleryConfirmText')
                     };
@@ -175,23 +176,24 @@
                 function actionButtons(index) {
                     switch (index) {
                         case 0:
-                            Share.share(message);
+                            FeedbackModal.modal(gallery.galleryObj);
                             break;
                         case 1:
-                            FeedbackModal.modal(gallery);
-                            break;
-                        case 2:
 
                             $ionicPopup
                                 .confirm({
                                     title   : $translate.instant('deleteGalleryConfirmText'),
-                                    template: $translate.instante('areSure')
+                                    template: $translate.instant('areSure')
                                 })
                                 .then(function (res) {
                                     if (res) {
-                                        Gallery.destroy(gallery).then(function () {
+                                        Gallery.destroy(gallery.galleryObj).then(function () {
                                             console.log('Photo deleted');
-                                            $scope.$emit('PhotogramHome:reload');
+                                            Toast.alert({
+                                                title: 'Photo',
+                                                text : 'Photo deleted'
+                                            })
+                                            $scope.onReload();
                                         });
                                     }
                                 });

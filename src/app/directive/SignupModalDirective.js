@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('signupModal', signupModalDirective);
 
-    function signupModalDirective(UserForm, AppConfig, Loading, User, Auth, $state, Toast, $ionicModal, $rootScope) {
+    function signupModalDirective(UserForm, AppConfig, Loading, User, $state, Toast, $ionicModal, $rootScope) {
         return {
             restrict: 'A',
             link    : signupModalLink,
@@ -29,7 +29,7 @@
                             console.log(resp);
 
                             // After register, login
-                            Auth.logIn({
+                            User.signIn({
                                 username: form.username,
                                 password: form.password
                             }).then(function (data) {

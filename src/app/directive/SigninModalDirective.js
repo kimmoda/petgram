@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('signinModal', signinModalDirective);
 
-    function signinModalDirective($ionicModal, Loading, Auth, $state, Toast, UserForm, AppConfig, $rootScope) {
+    function signinModalDirective($ionicModal, Loading, User, $state, Toast, UserForm, AppConfig, $rootScope) {
         return {
             restrict: 'A',
             link    : signinModalLink,
@@ -24,7 +24,8 @@
                     var form = angular.copy(data);
                     if (!rForm.$invalid) {
                         Loading.start();
-                        Auth.logIn(form).then(function (data) {
+                        User.signIn(form).then(function (data) {
+                            console.log(data);
                             $rootScope.currentUser = data;
                             $state.go($scope.routeLogged, {
                                 clear: true
