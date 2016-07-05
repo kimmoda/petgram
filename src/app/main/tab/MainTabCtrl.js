@@ -21,8 +21,8 @@
         vm.postPhoto = function () {
             ActionSheet.image().then(function (image) {
                 tempImage = image;
-                return PhotoFilter.load(image);
-                //return image;
+                //return PhotoFilter.load(image);
+                return image;
             }).then(modalPost).then(function (form) {
                 //console.log('Cadastra na Galeria', form);
                 Loading.start();
