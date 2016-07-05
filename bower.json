@@ -1,6 +1,6 @@
 {
   "name": "Photogram",
-  "version": "1.5.1",
+  "version": "3.0.1",
   "private": true,
   "authors": [
     {
@@ -20,7 +20,7 @@
     "api-check": "~7.5.5",
     "ion-affix": "~1.0.1",
     "ionic-cache-src": "~0.7.3",
-    "moment": "~2.13.0",
+    "moment": "~2.14.1",
     "ng-facebook": "~0.1.6",
     "ngCordova": "~0.1.26-alpha",
     "ngmap": "~1.17.3",
@@ -28,7 +28,7 @@
     "simple-line-icons": "~2.3.2",
     "caman": "~4.1.2",
     "jr-crop": "~1.1.2",
-    "angular-svg-round-progressbar": "^0.4.4",
+    "angular-svg-round-progressbar": "^0.4.5",
     "ngstorage": "^0.3.10",
     "color-thief": "~2.0.1",
     "angular-i18n": "~1.5.7",
@@ -38,7 +38,9 @@
     "angular-translate-loader-static-files": "~2.11.0",
     "angular-translate-storage-local": "~2.11.0",
     "angular-messages": "^1.5.7",
-    "ionic-scroll-sista": "^1.0.7"
+    "ionic-scroll-sista": "^1.0.7",
+    "ment.io": "^0.9.24",
+    "angular-sanitize": "^1.5.7"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.7",

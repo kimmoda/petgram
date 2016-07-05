@@ -12,6 +12,8 @@
             'angularMoment',
             'ngFacebook',
             'angular-cache',
+            'ngSanitize',
+            'mentio',
             'ion-affix',
             'jett.ionic.scroll.sista',
             'ngCordova',

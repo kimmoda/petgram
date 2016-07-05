@@ -14,8 +14,8 @@
                 <div class="col-25">
                     <img class="avatar"
                          user-avatar
-                         ng-model="vm.user"
-                         ng-src="{{ vm.user.attributes.photo._url || 'img/user.png' }}"/>
+                         ng-model="vm.photo"
+                         ng-src="{{ vm.photo._url || 'img/user.png' }}"/>
                 </div>
                 <div class="col col-statics">
                     <div class="row">
@@ -25,13 +25,13 @@
 
                             <h3 translate="postsText"></h3>
                         </div>
-                        <div class="col">
+                        <div class="col" ng-click="vm.openFollowers()">
                             <span ng-if="!vm.loading" class="text-center">{{ vm.user.attributes.followersTotal || 0}}</span>
                             <ion-spinner ng-if="vm.loading"></ion-spinner>
 
                             <h3 translate="followersText"></h3>
                         </div>
-                        <div class="col">
+                        <div class="col" ng-click="vm.openFollowing()">
                             <span ng-if="!vm.loading" class="text-center">{{ vm.user.attributes.followingsTotal  || 0}}</span>
                             <ion-spinner ng-if="vm.loading"></ion-spinner>
                             <h3 translate="followingText"></h3>

@@ -3,11 +3,12 @@
 
     angular.module('app.main').controller('AccountCtrl', AccountController);
 
-    function AccountController(User, $rootScope) {
+    function AccountController(User, $state, $rootScope) {
         var vm       = this;
         vm.changeTab = changeTab;
 
-        vm.user = $rootScope.currentUser;
+        vm.user  = $rootScope.currentUser;
+        vm.photo = $rootScope.currentUser.attributes.photo;
 
         vm.loading = true;
         User.getPublicData(Parse.User.current()).then(function (user) {
@@ -15,6 +16,14 @@
             vm.user    = user;
             vm.loading = false;
         });
+
+        vm.openFollowers = function () {
+            $state.go('tab.accountFollowers', {username: $rootScope.currentUser.attributes.username});
+        };
+
+        vm.openFollowing = function () {
+            $state.go('tab.accountFollowing', {username: $rootScope.currentUser.attributes.username});
+        };
 
         init();
         changeTab('grid');

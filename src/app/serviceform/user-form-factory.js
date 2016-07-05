@@ -81,7 +81,7 @@
                     templateOptions: {
                         type           : 'text',
                         placeholder    : $translate.instant('username'),
-                        icon           : 'icon-user',
+                        icon           : 'icon-ios-at',
                         required       : true,
                         iconPlaceholder: true
                     }

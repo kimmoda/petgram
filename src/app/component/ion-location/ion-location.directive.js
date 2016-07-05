@@ -1,128 +1,100 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('ion-location')
-    .directive('ionLocation', ionLocationDirective);
+    angular.module('ion-location').directive('ionLocation', ionLocationDirective);
 
-  function ionLocationDirective($ionicModal, GeoService) {
-    return {
-      restrict: 'A',
-      scope: {
-        location: '='
-      },
-      link: ionLocationLink
-    };
-
-    function ionLocationLink($scope, element) {
-
-      function init() {
-        $scope.search = {};
-        $scope.search.suggestions = [];
-        $scope.search.query = '';
-      }
-
-
-      function selectPlace(place_id) {
-        GeoService
-          .getDetails(place_id)
-          .then(function (location) {
-
-            console.info(location);
-
-            var address = GeoService
-              .parseAddress(location);
-
-            $scope.location = {
-              number: address.number,
-              street: address.street,
-              district: address.district,
-              city: address.city,
-              state: address.state,
-              country: address.country,
-              zipcode: address.zipcode,
-              coords: address.geo,
-              image: address.image,
-              resume: address.resume
-            };
-
-            console.log($scope.location);
-            $scope.closeModalLocation();
-          });
-      }
-
-      element.bind('focus', function () {
-        init();
-        console.log('Start');
-
-        $scope.findMe = findMe;
-        $scope.choosePlace = choosePlace;
-
-
-        $scope.modalLocation = $ionicModal.fromTemplate('<ion-modal-view>' +
-          '<ion-header-bar class="bar bar-positive item-input-inset">' +
-          '<button class="button button-clear button-icon ion-pinpoint" ng-click="findMe()"></button>' +
-          '<label class="item-input-wrapper">' +
-          '<input type="search" ng-model="search.query" placeholder="{{ \'Search\' | translate }}"></label>' +
-          '<button class="button button-clear button-icon ion-ios-close-empty" ng-click="closeModalLocation()"></button>' +
-          '</ion-header-bar>' +
-          '<ion-content padding="false">' +
-          '<ion-list>' +
-          '<ion-item ng-repeat="suggestion in search.suggestions" ng-click="choosePlace(suggestion)" ng-bind="suggestion.description"></ion-item>' +
-          '<ion-item class="item-divider"><img src="https://developers.google.com/maps/documentation/places/images/powered-by-google-on-white.png"alt=""/></ion-item>' +
-          '</ion-list>' +
-          '</ion-content>' +
-          '</ion-modal-view>', {
-            scope: $scope,
-            focusFirstInput: true
-          }
-        );
-
-        $scope.modalLocation.show();
-
-        $scope.closeModalLocation = function () {
-          $scope.modalLocation.hide();
-          $scope.modalLocation.remove();
+    function ionLocationDirective($ionicModal, GeoService) {
+        return {
+            restrict: 'A',
+            scope   : {
+                location: '=ngModel'
+            },
+            link    : ionLocationLink
         };
 
-        GeoService
-          .searchAddress('São Paulo')
-          .then(function (result) {
-            console.log(result);
-            $scope.search.suggestions = result;
-          });
+        function ionLocationLink($scope, element) {
 
 
-        $scope.$watch('search.query', function (newValue) {
-          if (newValue) {
-            GeoService
-              .searchAddress(newValue)
-              .then(function (result) {
-                console.log(result);
-                $scope.search.suggestions = result;
-              });
-          }
-        });
+            element.bind('click', function () {
+                function init() {
+                    $scope.search             = {};
+                    $scope.search.suggestions = [];
+                    $scope.search.query       = '';
+                }
 
 
-        function findMe() {
-          GeoService
-            .findMe()
-            .then(function (location) {
-              console.log(location);
+                function selectPlace(place_id) {
+                    GeoService.getDetails(place_id).then(function (location) {
+                        GeoService.parseAddress(location).then(function (address) {
+                            console.log(address);
+                            $scope.location = address;
+                            $scope.closeModalLocation();
+                        })
+                    });
+                }
 
-              selectPlace(location.results[0].place_id);
+                init();
+
+                $scope.findMe = function () {
+                    $scope.loading = true;
+                    GeoService.findMe().then(function (location) {
+                        GeoService.searchAddress(location.address_normal).then(function (result) {
+                            console.log(result);
+                            $scope.search.suggestions = result;
+                            $scope.loading            = false;
+                        });
+                    });
+                };
+
+                $scope.findMe();
+
+                $scope.choosePlace = function (place) {
+                    selectPlace(place.place_id);
+                }
+
+                $scope.modalLocation = $ionicModal.fromTemplate('<ion-modal-view>' +
+                    '<ion-header-bar class="bar bar-light item-input-inset">' +
+                    '<ion-spinner ng-if="loading"></ion-spinner>' +
+                    '<button class="button button-clear button-icon ion-navigate" ng-click="findMe()" ng-hide="loading"></button>' +
+                    '<label class="item-input-wrapper">' +
+                    '<input type="search" ng-model="search.query" ng-model-options="{ debounce: 1500 }" placeholder="{{ \'searchText\' | translate }}"></label>' +
+                    '<button class="button button-clear" ng-click="closeModalLocation()" translate="cancel"></button>' +
+                    '</ion-header-bar>' +
+                    '<ion-content padding="false">' +
+                    '<ion-list>' +
+                    '<div class="center padding" ng-if="loading1"><ion-spinner ></ion-spinner></div>' +
+                    '<ion-item ng-repeat="suggestion in search.suggestions" ng-click="choosePlace(suggestion)" ng-bind="suggestion.description"></ion-item>' +
+                    '<ion-item class="item-divider"><img src="https://developers.google.com/maps/documentation/places/images/powered-by-google-on-white.png"alt=""/></ion-item>' +
+                    '</ion-list>' +
+                    '</ion-content>' +
+                    '</ion-modal-view>', {
+                        scope          : $scope,
+                        focusFirstInput: true
+                    }
+                );
+
+                $scope.modalLocation.show();
+
+                $scope.closeModalLocation = function () {
+                    $scope.modalLocation.hide();
+                    $scope.modalLocation.remove();
+                };
+
+                $scope.$watch('search.query', function (newValue) {
+                    if (newValue) {
+                        $scope.loading1           = true;
+                        $scope.search.suggestions = [];
+                        GeoService.searchAddress(newValue).then(function (result) {
+                            console.log(result);
+                            $scope.search.suggestions = result;
+                            $scope.loading1           = false;
+                        });
+                    }
+                });
+
 
             });
-        }
-
-        function choosePlace(place) {
-          selectPlace(place.place_id);
 
         }
-
-      });
-
     }
-  }
 })();

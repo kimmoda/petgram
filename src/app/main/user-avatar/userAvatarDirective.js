@@ -16,22 +16,21 @@
                 function openModal() {
                     var tempImage;
 
-                    ActionSheet
-                        .image()
-                        .then(function (image) {
-                            tempImage = image;
-                            //return PhotoFilter.load(image);
-                            return image;
-                        })
-                        .then(function (form) {
-                            Loading.start();
-                            ParseFile.upload({base64: form}).then(function (imageUploaded) {
-                                User.setPhoto(imageUploaded).then(function (user) {
-                                    $scope.ngModel = user;
-                                    Loading.end();
-                                });
+                    ActionSheet.image().then(function (image) {
+                        tempImage = image;
+                        //return PhotoFilter.load(image);
+                        return image;
+                    }).then(function (form) {
+                        $scope.loading = true;
+                        ParseFile.upload({base64: form}).then(function (imageUploaded) {
+                            User.setPhoto(imageUploaded).then(function (user) {
+                                console.log(user);
+                                $scope.ngModel = user.attributes.photo;
+                                console.log(user.attributes.photo);
+                                $scope.loading = false;
                             });
                         });
+                    });
                 }
 
             }

@@ -1,4 +1,4 @@
-<ion-view cache-view="false" class="list-activity">
+<ion-view class="list-activity">
 
     <ion-nav-title>
         <span translate="activities"></span>
@@ -14,7 +14,7 @@
             <div class="error ">
                 <i class="icon icon-large ion-ios-cloud-download-outline"></i>
                 <p>{{ "errorText" | translate }}</p>
-                <button class="button button-{{theme}}" ng-click="vm.onReload()">
+                <button class="button button-positive" ng-click="vm.onReload()">
                     {{ "tryAgainText" | translate }}
                 </button>
             </div>
@@ -35,7 +35,7 @@
             <div class="item item-avatar item-animate1" ng-repeat="item in vm.data">
                 <img ng-src="{{ item.user.photo._url  || './img/user.png'}}">
 
-                <h2>{{ item.user.name}}</h2>
+                <h2 ng-click="vm.openProfile(item.user.username)">{{ item.user.name}}</h2>
 
                 <div class="text">{{ item.action | translate }}</div>
                 <p>{{ item.createdAt | amTimeAgo }}</p>
@@ -43,6 +43,14 @@
                 <div class="img-right" ng-if="item.item.gallery">
                     <img ng-src="{{ item.item.gallery.attributes.imageThumb._url}}">
                 </div>
+
+                <div class="item-button-right" ng-if="!item.item.gallery">
+                    <button class="button button-positive button-outline icon"
+                            ng-class="{'ion-ios-person-outline': item.user.isFollow, 'ion-ios-personadd-outline': !item.user.isFollow}"
+                            ng-click="vm.follow(user)" >
+                    </button>
+                </div>
+
             </div>
 
         </div>

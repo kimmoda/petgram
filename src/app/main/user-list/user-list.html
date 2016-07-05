@@ -1,22 +1,64 @@
-<ion-view cache-view="false">
+<ion-view id="user-list" cache-view="false">
     <ion-nav-title>
         <span translate="findPeople"></span>
     </ion-nav-title>
     <ion-content>
-        <div class="list">
 
-            <a class="item item-avatar item-button-right" ng-repeat="user in vm.users">
-                <img ng-src="{{ ::user.photo._url || 'img/user.png'}}">
-                <h2>{{user.username}}</H2>
-                <p>{{user.status}}</p>
-
-                <button class="button button-outline" ng-class="{'button-unfollow': user.isFollow, 'button-follow': !user.isFollow}"
-                        ng-click="vm.follow(user)" class="button">
-                    <span ng-show="!user.isFollow" translate>Follow</span>
-                    <span ng-show="user.isFollow" translate>Unfollow</span>
+        <div class="center padding" ng-if="showErrorView()">
+            <div class="error ">
+                <i class="icon icon-large ion-ios-cloud-download-outline"></i>
+                <p>{{ "errorText" | translate }}</p>
+                <button class="button button-primary" ng-click="onReload()">
+                    {{ "tryAgainText" | translate }}
                 </button>
-            </a>
+            </div>
 
         </div>
+        <div class="center padding" ng-if="showEmptyView()">
+            <div class="error">
+                <i class="icon icon-large ion-android-alert"></i>
+                <p>{{ "galleriesNotFoundText" | translate }}</p>
+            </div>
+        </div>
+
+        <div class="center padding" ng-if="vm.loading">
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <ion-refresher pulling-text="{{'loadingText'| translate}}" on-refresh="vm.onReload()"></ion-refresher>
+
+        <div class="list">
+
+            <div ng-repeat="user in vm.users">
+                <a class="item item-avatar item-button-right">
+                    <img ng-src="{{ user.photo._url || 'img/user.png'}}"
+                         ng-click="vm.openProfile(user)">
+                    <h2 ng-click="vm.openProfile(user)">{{user.username}}</H2>
+                    <p>{{user.status}}</p>
+
+                    <button class="button button-positive "
+                            ng-class="{'button-unfollow': user.isFollow, 'button-outline': !user.isFollow}"
+                            ng-click="vm.follow(user)" >
+                        <div ng-show="!user.isFollow" translate>Follow</div>
+                        <div ng-show="user.isFollow" translate>Unfollow</div>
+                    </button>
+
+                </a>
+                <span class="row">
+                    <span class="col" ng-repeat="gallery in user.galleries">
+                        <img ng-src="{{ gallery.imageThumb._url}}" id="{{ ::gallery.id}}">
+                    </span>
+                </span>
+            </div>
+
+        </div>
+
+        <ion-infinite-scroll
+                on-infinite="vm.onLoadMore()"
+                ng-if="vm.moreDataCanBeLoaded()"
+                spinner
+                distance="1%">
+        </ion-infinite-scroll>
+
     </ion-content>
 </ion-view>

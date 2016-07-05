@@ -18,6 +18,8 @@
         vm.submitAvatar = submitAvatar;
         init();
 
+        vm.photo = Parse.User.current().attributes.photo;
+
         function init() {
             var user      = Auth.getLoggedUser();
             vm.form       = {

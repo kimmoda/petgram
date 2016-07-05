@@ -3,14 +3,15 @@
 
     angular.module('starter').directive('photoList', photoListDirective);
 
-    function photoListDirective(Gallery, $rootScope, $ionicPopup, $translate, Share, Toast, FeedbackModal, $ionicActionSheet) {
+    function photoListDirective(Gallery, $rootScope, $ionicPopup, $translate, $state, Share, Toast, FeedbackModal, $ionicActionSheet) {
 
         return {
             restrict   : 'E',
             scope      : {
-                username: '=',
-                profile : '=',
-                load    : '=',
+                username  : '=',
+                profile   : '=',
+                load      : '=',
+                openLikers: '=',
             },
             templateUrl: 'app/directive/photoListDirective.html',
             link       : photoListController
@@ -33,6 +34,12 @@
                 }
                 $scope.data.unshift(item);
             });
+
+            $scope.openComment = function (galleryId) {
+                $state.go('galleryComments', {galleryId: galleryId})
+            };
+
+            $scope.share = Share.open;
 
 
             loadFeed();
@@ -157,7 +164,7 @@
 
                 if (Parse.User.current().id === gallery.user.obj.id) {
                     var buttonDelete = {
-                        text: '<i class="icon ion-trash-b"></i>' + $translate.instant('deleteGalleryConfirmText')
+                        text: '<i class="icon ion-trash-b"></i>' + $translate.instant('deleteGallery')
                     };
                     buttons.push(buttonDelete);
                 }

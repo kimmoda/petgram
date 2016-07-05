@@ -2,12 +2,20 @@
     'use strict';
     angular.module('starter').controller('UserListCtrl', UserListController);
 
-    function UserListController(User) {
-        var vm = this;
+    function UserListController(User, $stateParams, $state) {
+        var vm     = this;
+        vm.loading = true;
         User.list().then(function (data) {
             console.log(data);
-            vm.users = data;
+            vm.users   = data;
+            vm.loading = false;
         });
+
+        vm.openProfile = function (user) {
+            console.log('user', user);
+            $state.go('tab.homeProfile', {username: user.username})
+        };
+
 
         vm.follow = function (user) {
 

@@ -3,6 +3,119 @@
 @import "platform";
 @import "spinner";
 
+// mention
+
+.product-search, .user-search {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  background-clip: padding-box;
+  outline: 0;
+  background: #fff;
+  bottom: 35px;
+  position: relative;
+  max-width: 500px;
+
+  .user-photo {
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 15px;
+  }
+
+  .list-group-item {
+    position: relative;
+    display: block;
+    height: 40px;
+    min-width: 200px;
+    &.active {
+      color: #fff;
+      background-color: $positive;
+      border-color: $positive;
+    }
+
+    img {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      display: block;
+      width: 50px;
+    }
+
+    .description {
+      display: block;
+      float: left;
+      left: 37px;
+      position: relative;
+      top: -5px;
+
+      .text-primary {
+        font-weight: bold;
+        .menu-highlighted {
+          color: #000;
+        }
+      }
+
+      em {
+        display: block;
+        min-width: 200px;
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+  }
+
+}
+
+.product-search:hover, .user-search:hover {
+  cursor: pointer;
+}
+
+.product-search .product-photo-container {
+  float: left;
+  width: 100px;
+}
+
+.product-search .product-photo {
+  max-width: 80px;
+  max-height: 50px;
+  border-radius: 3px;
+  margin: auto;
+}
+
+.product-search .list-group-item-heading, .product-search .list-group-item-text {
+  margin-left: 10px;
+}
+
+.user-search .list-group-item {
+  padding: 5px;
+}
+
+.documentation-attr {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.documentation-element {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.section-heading {
+  margin-top: 30px;
+}
+
+.demo-scrollable-menu {
+  height: auto;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+///
+
 ion-nav-bar {
   background-color: transparent !important;
   border: none !important;

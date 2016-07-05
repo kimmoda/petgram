@@ -59,6 +59,14 @@
                 controllerAs: 'vm'
             })
 
+
+            .state('profile', {
+                url         : '/profile/:username',
+                templateUrl : 'app/main/profile/profile.html',
+                controllerAs: 'vm',
+            })
+
+
             .state('tab', {
                 url         : '/tab',
                 abstract    : true,
@@ -85,6 +93,46 @@
                         controller  : 'ProfileCtrl',
                         controllerAs: 'vm',
                         templateUrl : 'app/main/profile/profile.html'
+                    }
+                }
+            })
+
+            .state('galleryComments', {
+                url         : '/home/:galleryId/comments',
+                controller  : 'GalleryComment',
+                controllerAs: 'vm',
+                templateUrl : 'app/main/gallery-comment/gallery-comment.html'
+            })
+
+            .state('tab.homeGalleryLikers', {
+                url  : '/home/:galleryId/likers',
+                views: {
+                    tabHome: {
+                        controller  : 'UserLikersCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-likers/user-likers.html'
+                    }
+                }
+            })
+
+            .state('tab.homeProfileFollowers', {
+                url  : '/home/:username/followers',
+                views: {
+                    tabHome: {
+                        controller  : 'UserFollowerCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-followers/user-followers.html'
+                    }
+                }
+            })
+
+            .state('tab.homeProfileFollowing', {
+                url  : '/home/:username/follwing',
+                views: {
+                    tabHome: {
+                        controller  : 'UserFollowingCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-following/user-following.html'
                     }
                 }
             })
@@ -133,6 +181,28 @@
                 }
             })
 
+            .state('tab.accountFollowers', {
+                url  : '/account/:username/followers',
+                views: {
+                    tabProfile: {
+                        controller  : 'UserFollowerCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-followers/user-followers.html'
+                    }
+                }
+            })
+
+            .state('tab.accountFollowing', {
+                url  : '/account/:username/follwing',
+                views: {
+                    tabProfile: {
+                        controller  : 'UserFollowingCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-following/user-following.html'
+                    }
+                }
+            })
+
             .state('tab.activity', {
                 url  : '/activity',
                 views: {
@@ -140,6 +210,39 @@
                         controller  : 'ActivityCtrl',
                         controllerAs: 'vm',
                         templateUrl : 'app/main/tab-activity/activity.html'
+                    }
+                }
+            })
+
+            .state('tab.activityProfile', {
+                url  : '/activity/:username',
+                views: {
+                    tabActivity: {
+                        controller  : 'ProfileCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/profile/profile.html'
+                    }
+                }
+            })
+
+            .state('tab.activityProfileFollowers', {
+                url  : '/activity/:username/followers',
+                views: {
+                    tabActivity: {
+                        controller  : 'UserFollowerCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-followers/user-followers.html'
+                    }
+                }
+            })
+
+            .state('tab.activityProfileFollowing', {
+                url  : '/activity/:username/follwing',
+                views: {
+                    tabActivity: {
+                        controller  : 'UserFollowingCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-following/user-following.html'
                     }
                 }
             })

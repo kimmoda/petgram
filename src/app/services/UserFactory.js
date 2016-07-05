@@ -11,6 +11,15 @@
             list                  : function (username) {
                 return ParseCloud.run('listUsers')
             },
+            getFollowers          : function (username) {
+                return ParseCloud.run('getFollowers', {username: username})
+            },
+            getLikers             : function (galleryId) {
+                return ParseCloud.run('getLikers', {galleryId: galleryId})
+            },
+            getFollowing          : function (username) {
+                return ParseCloud.run('getFollowing', {username: username})
+            },
             signIn                : function (obj) {
                 var defer = $q.defer();
 
@@ -30,7 +39,7 @@
                             };
                         } else {
                             device = {
-                                device  : window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[0],
+                                device  : {device: window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[0]},
                                 cordova : '',
                                 model   : window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[0],
                                 platform: window.navigator.platform,
@@ -163,13 +172,13 @@
             all                   : function (params) {
                 return ParseCloud.run('getUsers', params);
             },
-            validateUsername: function (input) {
+            validateUsername      : function (input) {
                 return ParseCloud.run('validateUsername', {username: input});
             },
-            validateEmail   : function (input) {
+            validateEmail         : function (input) {
                 return ParseCloud.run('validateEmail', {email: input});
             },
-            findUsername    : function (username) {
+            findUsername          : function (username) {
                 var defer = $q.defer();
                 new Parse.Query(this).equalTo('username', username).first({
                     success: defer.resolve,
@@ -177,7 +186,7 @@
                 });
                 return defer.promise;
             },
-            update          : function (params) {
+            update                : function (params) {
                 var defer = $q.defer();
                 var user  = Parse.User.current();
                 angular.forEach(params, function (value, key) {
@@ -189,10 +198,10 @@
                 });
                 return defer.promise;
             },
-            delete          : function (data) {
+            delete                : function (data) {
                 return ParseCloud.run('destroyUser', data);
             },
-            fetch           : function () {
+            fetch                 : function () {
                 var defer = $q.defer();
                 if (Parse.User.current()) {
                     Parse.User.current().fetch().then(defer.resolve, defer.reject);

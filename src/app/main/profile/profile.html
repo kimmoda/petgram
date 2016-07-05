@@ -1,4 +1,9 @@
 <ion-view cache-view="false" id="account-view">
+
+    <ion-nav-bar class="bar bar-light">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
     <ion-nav-title>
         <span>{{ vm.user.name }}</span>
     </ion-nav-title>
@@ -16,22 +21,26 @@
                 <div class="col col-statics">
                     <div class="row">
                         <div class="col">
-                            <span class="text-center">{{ ::m.user.galleriesTotal || 0}}</span>
+                            <span class="text-center">{{ vm.user.galleriesTotal || 0}}</span>
                             <h3 translate="postsText"></h3>
                         </div>
-                        <div class="col">
+                        <div class="col" ng-click="vm.openFollowers()">
                             <span class="text-center">{{ vm.user.followersTotal || 0}}</span>
 
                             <h3 translate="followersText"></h3>
                         </div>
-                        <div class="col">
-                            <span class="text-center">{{ ::vm.user.followingsTotal  || 0}}</span>
+                        <div class="col" ng-click="vm.openFollowing()">
+                            <span class="text-center">{{ vm.user.followingsTotal  || 0}}</span>
                             <h3 translate="followingText"></h3>
                         </div>
                     </div>
                     <div class="row col-edit">
-                        <div class="col">
-                            <photogram-loading loading="loadingFollow"></photogram-loading>
+                        <div class="col" ng-if="vm.isMe">
+                            <button profile-modal-edit user="vm.user" class="button ">
+                                <div translate="editProfile"></div>
+                            </button>
+                        </div>
+                        <div class="col" ng-if="!vm.isMe">
                             <button ng-class="{'button-unfollow': vm.user.isFollow, 'button-follow': !vm.user.isFollow}"
                                     ng-click="vm.follow()" class="button">
                                 <span ng-show="!vm.user.isFollow" translate>Follow</span>

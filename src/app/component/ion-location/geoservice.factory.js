@@ -6,7 +6,7 @@
         .module('ion-location')
         .factory('GeoService', GeoServiceFactory);
 
-    function GeoServiceFactory($http, $window, $cordovaGeolocation, $ionicPopup,  $timeout, $q) {
+    function GeoServiceFactory($http, $window, $cordovaGeolocation, $ionicPopup, $timeout, $q) {
 
         /**
          'street_address', //indicates a precise street address.
@@ -43,52 +43,52 @@
         var detailsService      = new $window.google.maps.places.PlacesService($window.document.createElement('input'),
             options);
         var componentForm       = {
-            street_number: 'long_name',
+            street_number              : 'long_name',
             //number
-            route: 'long_name',
+            route                      : 'long_name',
             //street
-            locality: 'long_name',
+            locality                   : 'long_name',
             // district
-            sublocality: 'long_name',
+            sublocality                : 'long_name',
             // district
-            neighborhood: 'long_name',
+            neighborhood               : 'long_name',
             //state
-            political: 'long_name',
+            political                  : 'long_name',
             //state
             administrative_area_level_1: 'long_name',
             //state
-            country: 'long_name',
+            country                    : 'long_name',
             //country
-            postal_code: 'long_name' //zipcode
+            postal_code                : 'long_name' //zipcode
         };
         var componentFormName   = {
-            street_number: 'number',
+            street_number              : 'number',
             //number
-            route: 'street',
+            route                      : 'street',
             //street
-            locality: 'city',
+            locality                   : 'city',
             // district
             administrative_area_level_1: 'state',
             //state
-            country: 'country',
+            country                    : 'country',
             //country
-            postal_code: 'zipcode',
+            postal_code                : 'zipcode',
             //zipcode
-            neighborhood: 'district' //zipcode
+            neighborhood               : 'district' //zipcode
         };
 
         var data = {
             coords: {},
-            src: ''
+            src   : ''
         };
 
 
         return {
-            src: src,
-            getDetails: getDetails,
+            src          : src,
+            getDetails   : getDetails,
             searchAddress: searchAddress,
-            parseAddress: parseAddress,
-            findMe: findMe
+            parseAddress : parseAddress,
+            findMe       : findMe
         };
 
         function getLocation() {
@@ -101,27 +101,25 @@
                 }, 1000);
             } else {
                 var posOptions = {
-                    timeout: 10000,
+                    timeout           : 10000,
                     enableHighAccuracy: false
                 };
-                $cordovaGeolocation
-                    .getCurrentPosition(posOptions)
-                    .then(function (position) {
-                        // console.log('Fez a requisição', position);
-                        data.location = {
-                            latitude: position.coords.latitude,
-                            longitude: position.coords.longitude
-                        };
-                        defer.resolve(data.location);
-                    }, function (err) {
-                        // error
-                        // console.log('Error na geolocalização', err);
-                        $ionicPopup.alert({
-                            title: 'Geo Error',
-                            template: err.message
-                        });
-                        defer.reject(err);
+                $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+                    // console.log('Fez a requisição', position);
+                    data.location = {
+                        latitude : position.coords.latitude,
+                        longitude: position.coords.longitude
+                    };
+                    defer.resolve(data.location);
+                }, function (err) {
+                    // error
+                    // console.log('Error na geolocalização', err);
+                    $ionicPopup.alert({
+                        title   : 'Geo Error',
+                        template: err.message
                     });
+                    defer.reject(err);
+                });
             }
 
 
@@ -132,17 +130,14 @@
         function findMe() {
             var defer = $q.defer();
 
-            getLocation()
-                .then(function (pos) {
-                    console.log(pos);
-                    getGoogleAddress(pos.latitude, pos.longitude)
-                        .success(function (resp) {
-                            resp.geolocation = pos;
-                            console.log(resp);
-                            defer.resolve(resp);
-                        })
-                        .error(logErr);
-                });
+            getLocation().then(function (pos) {
+                console.log(pos);
+                getGoogleAddress(pos.latitude, pos.longitude).success(function (resp) {
+                    resp.geolocation = pos;
+                    console.log(resp);
+                    defer.resolve(resp);
+                }).error(logErr);
+            });
             return defer.promise;
         }
 
@@ -165,15 +160,15 @@
                 return false;
             } else {
                 return {
-                    numero: data[0].short_name,
-                    rua: data[1].long_name,
-                    bairro: data[2].short_name,
-                    cidade: data[3].short_name,
-                    estado: data[5].long_name,
-                    uf: data[5].short_name,
-                    pais: data[6].long_name,
+                    numero  : data[0].short_name,
+                    rua     : data[1].long_name,
+                    bairro  : data[2].short_name,
+                    cidade  : data[3].short_name,
+                    estado  : data[5].long_name,
+                    uf      : data[5].short_name,
+                    pais    : data[6].long_name,
                     paisCode: data[6].short_name,
-                    cep: data[7].short_name
+                    cep     : data[7].short_name
                 };
             }
 
@@ -185,12 +180,16 @@
         }
 
         function parseAddress(place) {
+            var defer = $q.defer();
             console.log('parseAddress', place);
+            if(!place) {
+                defer.reject('not place')
+            }
             var address = {
                 resume: '',
-                geo: {
-                    latitude: place.geometry.location.H,
-                    longitude: place.geometry.location.L
+                geo   : {
+                    latitude : place.geometry.location.lat(),
+                    longitude: place.geometry.location.lng()
                 }
             };
             var image   = src(address.geo.latitude, address.geo.longitude, 16, 900, 200);
@@ -202,10 +201,13 @@
                     address[componentFormName[addressType]] = val;
                 }
             }
+            address.name   = place.name;
             address.street = address.street + ', ' + address.number;
             address.image  = image;
             address.resume = address.street + ' - ' + address.city + ', ' + address.state + ', ' + address.country;
-            return address;
+            defer.resolve(address);
+
+            return defer.promise;
         }
 
         function searchAddress(input) {

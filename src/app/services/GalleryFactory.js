@@ -20,12 +20,10 @@
                     var defer    = $q.defer();
                     var objPlace = new ParseObject();
 
-                    if (item.location) {
-                        item.location = new Parse.GeoPoint({
-                            latitude : item.location.lat,
-                            longitude: item.location.lng
-                        });
+                    if (item.address.geo) {
+                        item.location = new Parse.GeoPoint(item.address.geo);
                     }
+
                     objPlace.save(item, {
                         success: defer.resolve,
                         error  : defer.reject
@@ -49,7 +47,7 @@
                     });
                     return defer.promise;
                 },
-                comments       : function (params) {
+                comments   : function (params) {
                     return ParseCloud.run('commentGallery', params);
                 },
                 feed       : function (params) {
@@ -62,6 +60,17 @@
                 likeGallery: function (params) {
                     console.log(params);
                     return ParseCloud.run('likeGallery', {galleryId: params.galleryId});
+                },
+                get        : function (galleryId) {
+                    var defer = $q.defer();
+                    new Parse.Query(this)
+
+                        .get(galleryId, {
+                            success: defer.resolve,
+                            error  : defer.reject
+                        });
+
+                    return defer.promise;
                 },
                 all        : function (params) {
                     var defer = $q.defer();

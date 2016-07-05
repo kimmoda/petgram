@@ -7,7 +7,7 @@
     <ion-content>
 
         <div class="padding center" ng-if="loading">
-            <ion-spinner ></ion-spinner>
+            <ion-spinner></ion-spinner>
         </div>
 
         <ion-list class="list" ng-show="comments.length" can-swipe="true">
@@ -45,8 +45,22 @@
         <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
             <label class="item-input-wrapper">
                 <i class="icon ion-ios-compose-outline placeholder-icon"></i>
-                <textarea ng-model="form.text" autofocus placeholder="Send a comment..." required minlength="1"
-                          maxlength="1500" >
+                <textarea
+                        mentio
+
+                        mentio-trigger-char="'@'"
+                        mentio-items="people"
+                        mentio-template-url="app/mentio/people-mentions.html"
+                        mentio-search="searchPeople(term)"
+                        mentio-select="getPeopleTextRaw(item)"
+                        mentio-id="'theTextArea'"
+                        ng-trim="false"
+                        ng-model="form.text"
+
+                        placeholder="Send a comment..."
+                        required
+                        minlength="1"
+                        maxlength="1500">
                 </textarea>
             </label>
             <div class="footer-btn-wrap">

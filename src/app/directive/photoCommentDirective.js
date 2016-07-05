@@ -3,60 +3,85 @@
 
     angular.module('starter').directive('photoComment', photoCommentDirective);
 
-    function photoCommentDirective($ionicModal, $ionicScrollDelegate, Loading, $ionicPopup, Auth, Dialog, $timeout, Gallery, GalleryComment, GalleryForm) {
+    function photoCommentDirective($ionicModal, $http, $q, $ionicScrollDelegate, Loading, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment, GalleryForm) {
 
         return {
             restrict: 'A',
             scope   : {
                 ngModel: '='
             },
-            link    : function (scope, elem) {
+            link    : function ($scope, elem) {
 
 
                 elem.bind('click', openModalComment);
 
                 function init() {
-                    scope.currentUser = Auth.getLoggedUser();
-                    scope.nocomments  = false;
-                    scope.loading     = false;
-                    scope.form        = {
-                        gallery: scope.ngModel.galleryObj,
+                    $scope.currentUser = Parse.User.current();
+                    $scope.nocomments  = false;
+                    $scope.loading     = false;
+                    $scope.form        = {
+                        gallery: $scope.ngModel.galleryObj,
                         text   : ''
                     };
                 }
 
                 function openModalComment() {
-                    console.log(scope.ngModel);
+                    console.log($scope.ngModel);
 
                     init();
 
-                    scope.loading = true;
-                    scope.formFields    = GalleryForm.formComment;
-                    scope.submitComment = submitComment;
-                    scope.deleteComment = deleteComment;
-                    scope.editComment   = editComment;
-                    scope.closeModal    = function () {
-                        scope.modal.hide();
-                        scope.modal.remove();
+                    $scope.loading       = true;
+                    $scope.formFields    = GalleryForm.formComment;
+                    $scope.submitComment = submitComment;
+                    $scope.deleteComment = deleteComment;
+                    $scope.editComment   = editComment;
+                    $scope.closeModal    = function () {
+                        $scope.modal.hide();
+                        $scope.modal.remove();
                     };
 
                     getComments();
 
+                    //Mentios
+                    // shows the use of dynamic values in mentio-id and mentio-for to link elements
+                    $scope.myIndexValue = "5";
 
-                    //scope.comments = scope.ngModel.comments || [];
+
+                    $scope.searchPeople = function (term) {
+                        var peopleList = [];
+                        return User.getFollowing().then(function (response) {
+                            _.each(response, function (item) {
+                                item.imageUrl = item.photo ? item.photo._url : 'img/user.png';
+                                item.bio      = item.status;
+                                if (item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
+                                    peopleList.push(item);
+                                }
+                            });
+                            $scope.people = peopleList;
+                            console.log(peopleList);
+                            return $q.when(peopleList);
+                        });
+                    };
+
+                    $scope.getPeopleTextRaw = function (item) {
+                        return '@' + item.username;
+                    };
+
+
+                    //$scope.comments = $scope.ngModel.comments || [];
                     //$timeout(function () {
-                    //    if (scope.comments.length === 0) {
-                    //        scope.nocomments = true;
+                    //    if ($scope.comments.length === 0) {
+                    //        $scope.nocomments = true;
                     //    }
                     //}, 500);
 
 
                     $ionicModal.fromTemplateUrl('app/directive/photoCommentDirective.html', {
-                        scope          : scope,
+                        scope          : $scope,
                         focusFirstInput: true
                     }).then(function (modal) {
-                        scope.modal = modal;
-                        scope.modal.show();
+                        $scope.modal = modal;
+                        $scope.modal.show();
 
                     });
                 }
@@ -66,11 +91,10 @@
                     Dialog.confirm(('Delete comment'), ('You are sure?')).then(function (resp) {
                         console.log(resp);
                         if (resp) {
-                            GalleryComment.destroy(obj)
-                                          .then(function (resp) {
-                                              console.log(resp);
-                                              getComments();
-                                          });
+                            GalleryComment.destroy(obj).then(function (resp) {
+                                console.log(resp);
+                                getComments();
+                            });
                         }
                     });
                 }
@@ -78,7 +102,7 @@
                 function editComment(obj) {
                     console.log(obj);
                     // An elaborate, custom popup
-                    scope.data = angular.copy(obj);
+                    $scope.data = angular.copy(obj);
                     $ionicPopup
                         .show({
                             template: '<input type="text" ng-model="data.text">',
@@ -91,12 +115,12 @@
                                 text : '<b>OK</b>',
                                 type : 'button-positive',
                                 onTap: function (e) {
-                                    console.log(scope.data);
-                                    if (!scope.data.text) {
+                                    console.log($scope.data);
+                                    if (!$scope.data.text) {
                                         //don't allow the user to close unless he enters wifi password
                                         e.preventDefault();
                                     } else {
-                                        return scope.data;
+                                        return $scope.data;
                                     }
                                 }
                             }]
@@ -114,18 +138,18 @@
                 }
 
                 function getComments() {
-                    scope.loading = true;
+                    $scope.loading = true;
 
 
-                    Gallery.comments({galleryId: scope.ngModel.id}).then(function (resp) {
-                        scope.comments         = resp;
-                        scope.ngModel.comments = resp;
-                        scope.loading          = false;
+                    Gallery.comments({galleryId: $scope.ngModel.id}).then(function (resp) {
+                        $scope.comments         = resp;
+                        $scope.ngModel.comments = resp;
+                        $scope.loading          = false;
 
-                        $timeout(function  () {
-                            // Scroll to bottom
-                            $ionicScrollDelegate.scrollBottom();
-                        }, 1);
+                        //$timeout(function () {
+                        //    // Scroll to bottom
+                        //    $ionicScrollDelegate.scrollBottom();
+                        //}, 1);
                     });
                 }
 
@@ -138,7 +162,7 @@
                             console.log(resp);
                             getComments();
                             Loading.end();
-                            scope.closeModal();
+                            $scope.closeModal();
                         });
                     }
                 }

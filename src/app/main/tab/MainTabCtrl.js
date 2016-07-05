@@ -3,7 +3,7 @@
 
     angular.module('app.main').controller('MainTabCtrl', MainTabController);
 
-    function MainTabController($localStorage, $scope, $timeout, $cordovaSplashscreen, $ionicPlatform, ActionSheet, $q, Gallery, PhotoFilter, ParseFile, $ionicModal, Loading, Toast) {
+    function MainTabController($localStorage, $scope, $timeout, User, $cordovaSplashscreen, $ionicPlatform, ActionSheet, $q, Gallery, PhotoFilter, ParseFile, $ionicModal, Loading, Toast) {
         var vm = this;
         var tempImage;
 
@@ -19,25 +19,21 @@
         });
 
         vm.postPhoto = function () {
-            ActionSheet
-                .image()
-                .then(function (image) {
-                    tempImage = image;
-                    //return PhotoFilter.load(image);
-                    return image;
-                })
-                .then(modalPost)
-                .then(function (form) {
-                    //console.log('Cadastra na Galeria', form);
-                    Loading.start();
-                    ParseFile.upload({base64: form.image}).then(function (imageUploaded) {
-                        form.image = imageUploaded;
-                        Gallery.create(form).then(function (item) {
-                            $scope.$emit('photoInclude', item);
-                            Loading.end();
-                        });
+            ActionSheet.image().then(function (image) {
+                tempImage = image;
+                return PhotoFilter.load(image);
+                //return image;
+            }).then(modalPost).then(function (form) {
+                //console.log('Cadastra na Galeria', form);
+                Loading.start();
+                ParseFile.upload({base64: form.image}).then(function (imageUploaded) {
+                    form.image = imageUploaded;
+                    Gallery.create(form).then(function (item) {
+                        $scope.$emit('photoInclude', item);
+                        Loading.end();
                     });
                 });
+            });
 
 
             function modalPost(image) {
@@ -47,109 +43,32 @@
                     title: ''
                 };
 
-                if (window.cordova) {
-                    var div = document.getElementById('map_canvas2');
-                    var map = plugin.google.maps.Map.getMap(div);
-                    var marker;
-
-                    $scope.onScroll = function () {
-                        if (map) {
-                            map.refreshLayout();
-                        }
-                    }
-
-                    $scope.onSearchAddress = function () {
-
-                        var req = {address: $scope.form.address};
-
-                        if (req.address) {
-
-                            plugin.google.maps.Geocoder.geocode(req, function (results) {
-
-                                if (results.length) {
-                                    var result   = results[0];
-                                    var position = result.position;
-
-                                    $scope.form.location = position;
-
-                                    if (!marker) {
-                                        map.addMarker({
-                                            position: position
-                                        }, function (marker1) {
-                                            marker = marker1;
-                                            map.moveCamera({
-                                                target: position,
-                                                zoom  : 16
-                                            });
-                                        });
-                                    } else {
-                                        marker.setPosition(position);
-                                        map.moveCamera({
-                                            target: position,
-                                            zoom  : 16
-                                        });
-                                    }
-                                } else {
-                                    Toast.show('Not result');
-                                }
-                            });
-                        }
-                    }
-
-                    // Capturing event when Map load are ready.
-                    map.addEventListener(plugin.google.maps.event.MAP_READY, function () {
-                        map.setMyLocationEnabled(true);
-                        $timeout(function () {
-                            map.refreshLayout();
-                        }, 1000);
-
-                        var mapType = plugin.google.maps.MapTypeId.ROADMAP
-                        if ($scope.storage.mapType === 'satellite') {
-                            mapType = plugin.google.maps.MapTypeId.SATELLITE;
-                        }
-                        map.setMapTypeId(mapType);
-                    });
-
-                    var toLatLng = function (lat, lng) {
-                        return new plugin.google.maps.LatLng(lat, lng);
-                    };
-
-                    var onCameraChange = function (position) {
-                        if (marker) {
-                            var latLng = toLatLng(position.target.lat, position.target.lng);
-                            marker.setPosition(latLng);
-                            $scope.form.location = position.target;
-                        }
-                    }
-
-                    $scope.$on('$ionicView.leave', function () {
-
-                        if (map) {
-                            map.setMyLocationEnabled(false);
-                            map.setClickable(false);
-                            map.off();
-                            map.clear();
-                            map.moveCamera({
-                                target: toLatLng(0.0, 0.0),
-                                zoom  : 1
-                            });
-                        }
-                    });
-
-                    $scope.$on('$ionicView.beforeEnter', function () {
-
-                        if (map) {
-                            map.setMyLocationEnabled(true);
-                            map.setClickable(true);
-                            map.on(plugin.google.maps.event.CAMERA_CHANGE, onCameraChange);
-                        }
-                    });
-                }
-
                 $scope.editFilter = function () {
                     PhotoFilter.load(tempImage).then(function (image) {
                         $scope.image = image;
                     });
+                };
+
+                //Mentios
+                // shows the use of dynamic values in mentio-id and mentio-for to link elements
+                $scope.searchPeople = function (term) {
+                    var peopleList = [];
+                    return User.getFollowers().then(function (response) {
+                        _.each(response, function (item) {
+                            item.imageUrl = item.photo ? item.photo._url : 'img/user.png';
+                            item.bio      = item.status;
+                            if (item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
+                                peopleList.push(item);
+                            }
+                        });
+                        $scope.people = peopleList;
+                        //console.log(peopleList);
+                        return $q.when(peopleList);
+                    });
+                };
+
+                $scope.getPeopleTextRaw = function (item) {
+                    return '@' + item.username;
                 };
 
                 $ionicModal.fromTemplateUrl('app/main/share/share-modal.html', {
@@ -160,6 +79,11 @@
                     $scope.modalFilter.show();
                 });
 
+
+                $scope.form.address = {};
+                $scope.closeAddress = function () {
+                    $scope.form.address = {};
+                };
 
                 $scope.close = function () {
                     $scope.modalFilter.hide();

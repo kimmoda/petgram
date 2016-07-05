@@ -1,46 +1,65 @@
 <ion-modal-view class="modal-share">
-  <ion-header-bar class="bar-light">
-    <button class="button button-clear button-icon ion-ios-close-empty" ng-click="close()"></button>
-    <div class="title" translate="shareGalleryText"></div>
-    <!--<button class="button button-clear button-icon ion-ios-arrow-thin-right" ng-click="submit(form)"></button>-->
-  </ion-header-bar>
-  <ion-content>
-    <div class="list">
-      <div class="item item-thumbnail-left" >
-        <img ng-src="{{image}}" ng-click="editFilter()" />
-        <textarea type="text" ng-model="form.title" placeholder="{{ 'description'|translate }}"></textarea>
-      </div>
-    </div>
+    <ion-header-bar class="bar-light">
+        <button class="button button-clear button-icon ion-ios-close-empty" ng-click="close()"></button>
+        <div class="title" translate="shareGalleryText"></div>
+        <!--<button class="button button-clear button-icon ion-ios-arrow-thin-right" ng-click="submit(form)"></button>-->
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item item-thumbnail-left">
+                <img ng-src="{{image}}" ng-click="editFilter()"/>
+                <textarea
+                        mentio
 
-    <div class="list">
-      <label class="item item-input">
-        <i class="icon ion-search placeholder-icon"></i>
-        <input type="text" placeholder="{{ 'search' | translate }}"
-               ng-model="form.address"
-               ng-model-options="{ debounce: 1500 }"
-               ng-change="onSearchAddress()">
-      </label>
-    </div>
-    <div id="map_canvas2"></div>
+                        mentio-trigger-char="'@'"
+                        mentio-items="people"
+                        mentio-template-url="app/mentio/people-mentions.html"
+                        mentio-search="searchPeople(term)"
+                        mentio-select="getPeopleTextRaw(item)"
 
-    <div class="padding">
-      <button class="button button-block button-positive" type="button"
-              ng-click="submit(form)"
-              translate="submit">
-      </button>
-    </div>
+                        mentio-id="'theTextArea'"
+                        ng-trim="false"
 
-    <!--<ul class="list">-->
-      <!--<li class="item item-divider" translate="shareIn"></li>-->
-      <!--<li class="item item-icon-left item-toggle" ng-repeat="social in socials">-->
+                        type="text"
+                        ng-model="form.title"
+                        placeholder="{{ 'description'|translate }}"></textarea>
+            </div>
+        </div>
+
+        <div class="list">
+            <a class="item item-icon-left" ion-location ng-model="form.address" ng-if="!form.address.resume">
+                <i class="icon ion-ios-location"></i>
+                <span translate="addLocale"></span>
+            </a>
+
+            <a class="item item-icon-left item-button-right" ng-if="form.address.resume">
+                <i class="icon ion-ios-location"></i>
+                <h2>{{form.address.name || form.address.resume}}</h2>
+                <p>{{form.address.resume}}</p>
+                <button class="button button-icon" ng-click="closeAddress()">
+                    <i class="icon ion-ios-close"></i>
+                </button>
+            </a>
+        </div>
+
+        <div class="padding">
+            <button class="button button-block button-positive" type="button"
+                    ng-click="submit(form)"
+                    translate="submit">
+            </button>
+        </div>
+
+        <!--<ul class="list">-->
+        <!--<li class="item item-divider" translate="shareIn"></li>-->
+        <!--<li class="item item-icon-left item-toggle" ng-repeat="social in socials">-->
         <!--<i class="icon ion-social-{{ social.title | lowercase }}"></i> {{ social.title }}-->
         <!--<label class="toggle toggle-positive">-->
-          <!--<input type="checkbox" ng-model="social.checked">-->
-          <!--<div class="track">-->
-            <!--<div class="handle"></div>-->
-          <!--</div>-->
+        <!--<input type="checkbox" ng-model="social.checked">-->
+        <!--<div class="track">-->
+        <!--<div class="handle"></div>-->
+        <!--</div>-->
         <!--</label>-->
-      <!--</li>-->
-    <!--</ul>-->
-  </ion-content>
+        <!--</li>-->
+        <!--</ul>-->
+    </ion-content>
 </ion-modal-view>

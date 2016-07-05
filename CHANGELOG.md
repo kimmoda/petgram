@@ -4,6 +4,93 @@
   layout: docs.hbs
 ---
 
+# Version 3.0 in Development
+
+Server:
+
+In test:
+- Integration with Parse Dashboard
+- Configuration via PM2
+- Integration with S3 for storage files (optional)
+- Sending e-mail using Mailgun (optional)
+- Admin User Creation
+- Feed only photos of people you follow
+- Feed photos with 3 comments and status if the photo has been tanned by the user
+- Feed according to the user
+- User Search by username
+- User search by email
+- User profile with many photos, comments and followers
+- Followers List
+- List of people following
+- Login to Facebook
+- Save Location Facebook image
+- Send photo, resize and generate thumb
+- After sending the photo added amount in the user profile
+- After sending the photo acrecenta in the activity list
+- After commenting photo added amount in the user profile
+- After commenting photo acrecenta in the activity list
+- Notifies the user that his photo was commented
+- After following increase or decrease amount in the user profile
+- After commenting photo acrecenta in the activity list
+- Comment on photos
+- Support the hashtags #
+- Terms Support @
+
+Under development:
+- Send Push the user when the photo was commented
+- Send Push the user when the photo was leathery
+- Send Push the user when someone started following you
+
+Ionic 1 Application:
+In test:
+- Introduction
+- Animated Fund
+- User registration
+- Validation if there is already someone with email
+- Validation if there is already someone with the username
+- Login via Facebook
+- Post a photo with description and user name @
+- Post photo filter using CamanJS
+- Comment on photo
+- Share photo
+- See who has already commented on the photo
+- User profile
+- List of users that you can enjoy with photos
+- Edit profile
+- Change profile image
+- Delete photo
+- Share photo
+- Send feedback Photo
+- Changing settings
+
+Under development:
+- Post a picture with geolocation
+- Post photo by choosing a location
+- Receive notifications Push with OneSignal
+- Improved Facebook Login
+- Google native maps with photos around
+- Text by Photo Search
+- Photo Search by hashtags
+- Click the user name and go to the Profile
+
+CMS Beta Site and Admin:
+http://photogramapp.com
+
+In test:
+- Admin user creation with setup system
+- User Login
+- Register with email validation and usarname
+- Feed according to the user
+
+Under development:
+- List of registered users to follow
+- List of users who are being followed
+- Post a photo via website
+- Admin Dashboard with many photos, users and graphics
+- Admin images, edit, delete, suspend
+- Admin users, open full access to history
+- Admin, System Configuration
+
 # Version 1.5.0 in Development (dev branch)
 > Release Date : 25th January 2016
 

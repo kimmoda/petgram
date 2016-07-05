@@ -15,6 +15,8 @@
         function profileModalLink(scope, elem) {
             elem.bind('click', function () {
 
+                console.log(scope.username);
+
                 User.profile(scope.username).then(function (data) {
                     console.log(data);
                     scope.user = data;

@@ -122,16 +122,6 @@
             "APP_NAME": "Photogram"
         }
     },
-    "com.googlemaps.ios": {
-        "source": {
-            "type": "git",
-            "url": "https://bitbucket.org/nightstomp/cordova-plugin-googlemaps-sdk.git",
-            "subdir": ".",
-            "ref": "master"
-        },
-        "is_top_level": false,
-        "variables": {}
-    },
     "cordova-plugin-device": {
         "source": {
             "type": "registry",
@@ -175,5 +165,15 @@
             "API_KEY_FOR_ANDROID": "AIzaSyCJjsc1ylHvOiiUznX89BEuR8-ZcdE94lM",
             "API_KEY_FOR_IOS": "AIzaSyA3Xkj2mgHXmabySSiEBfDvYEcDuR51MaM"
         }
+    },
+    "com.googlemaps.ios": {
+        "source": {
+            "type": "git",
+            "url": "https://bitbucket.org/nightstomp/cordova-plugin-googlemaps-sdk.git",
+            "subdir": ".",
+            "ref": "master"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }

@@ -19,7 +19,6 @@
                     success: defer.resolve,
                     error  : defer.reject
                 });
-
                 return defer.promise;
             },
             update : function (item) {
