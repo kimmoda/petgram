@@ -2,7 +2,7 @@
   // Capture View
 
   .scroll {
-    height:100%;
+    height: 100%;
     min-width: 100%;
   }
 
@@ -75,6 +75,9 @@
     padding-left: 10px;
     border-top: 1px solid #ccc;
     padding-top: 10px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: inherit;
 
     ion-spinner {
       position: absolute;

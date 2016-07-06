@@ -62,17 +62,10 @@
         },
         "cordova-plugin-extension": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
-        "cordova-plugin-googlemaps": {
-            "API_KEY_FOR_IOS": "AIzaSyA3Xkj2mgHXmabySSiEBfDvYEcDuR51MaM",
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
-        "com.googlemaps.ios": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         }
     }

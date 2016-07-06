@@ -76,9 +76,9 @@
                     var defer = $q.defer();
                     var query = new Parse.Query(this);
 
-                    if (params.filter != '') {
-                        query.contains('words', params.filter);
-                    }
+                    //if (params.filter != '') {
+                    //    query.contains('words', params.filter);
+                    //}
 
                     // Order Table
                     if (params.order) {
@@ -222,6 +222,15 @@
             },
             set: function (value) {
                 this.set('image', value);
+            }
+        });
+
+        Object.defineProperty(ParseObject.prototype, 'icon', {
+            get: function () {
+                return this.get('icon');
+            },
+            set: function (value) {
+                this.set('icon', value);
             }
         });
 

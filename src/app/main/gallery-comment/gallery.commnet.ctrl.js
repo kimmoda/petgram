@@ -5,10 +5,11 @@
 
     function GalleryCommentController($scope, $stateParams, $q, $ionicScrollDelegate, $ionicHistory, Loading, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment, GalleryForm) {
 
+        $scope.currentUser = Parse.User.current();
+
         function init() {
-            $scope.currentUser = Parse.User.current();
-            $scope.nocomments  = false;
-            $scope.loading     = false;
+            $scope.nocomments = false;
+            $scope.loading    = false;
             Gallery.get($stateParams.galleryId).then(function (gallery) {
                 $scope.form = {
                     gallery: gallery,
@@ -16,7 +17,6 @@
                 };
             });
         }
-
 
         $scope.backButton = function () {
             $ionicHistory.goBack();
@@ -43,7 +43,12 @@
                 _.each(response, function (item) {
                     item.imageUrl = item.photo ? item.photo._url : 'img/user.png';
                     item.bio      = item.status;
-                    if (item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
+                    if(item.name) {
+                        if (item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
+                            peopleList.push(item);
+                        }
+                    } else {
+                        item.name = 'Not name';
                         peopleList.push(item);
                     }
                 });
@@ -126,8 +131,7 @@
                 console.log(dataForm);
                 Loading.start();
                 GalleryComment.create(dataForm).then(function (resp) {
-                    console.log(resp);
-                    getComments();
+                    init();
                     Loading.end();
                 });
             }

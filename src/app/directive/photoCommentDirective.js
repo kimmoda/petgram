@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('photoComment', photoCommentDirective);
 
-    function photoCommentDirective($ionicModal, $http, $q, $ionicScrollDelegate, Loading, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment, GalleryForm) {
+    function photoCommentDirective($ionicModal, $http, $q, $ionicScrollDelegate, Loading, $ionicPopup, User, Dialog, $rootScope, Gallery, GalleryComment, GalleryForm) {
 
         return {
             restrict: 'A',
@@ -161,6 +161,7 @@
                         GalleryComment.create(dataForm).then(function (resp) {
                             console.log(resp);
                             getComments();
+                            $rootScope.$emit('openKeyboard');
                             Loading.end();
                             $scope.closeModal();
                         });

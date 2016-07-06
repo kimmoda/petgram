@@ -2,167 +2,167 @@
     'use strict';
     angular.module('app.main').controller('SearchMapCtrl', SearchMapController);
 
-    function SearchMapController($scope, $rootScope, $ionicLoading, $state, $stateParams, $timeout, $localStorage, Toast, Gallery, Geolocation, Dialog) {
+    function SearchMapController($scope, $state, $localStorage, Toast, Gallery, Geolocation, Dialog) {
 
+        var markers      = [];
+        var latlngbounds = new google.maps.LatLngBounds();
         $scope.maxRating = 5;
         $scope.storage   = $localStorage;
         $scope.galleries = [];
         $scope.params    = {
-            location  : null,
-            categoryId: $stateParams.categoryId,
-            distance  : 100.00,
-            page      : 0,
+            location: null,
+            distance: 100.00,
+            page    : 1,
+            limit   : 10
         };
+        $scope.loading   = true;
+        $scope.map
 
-        if (window.cordova) {
+        function init() {
+            $scope.galleries = [];
+            removeGallerys();
+            removeMarkers();
 
-            var div                = document.getElementById('map_canvas');
-            var map                = window.plugin.google.maps.Map.getMap(div);
-            var isLoadingViewShown = false;
-            var isMapViewShown     = false;
-            var isErrorViewShown   = false;
-            var markers            = [];
+            var position   = {
+                latitude : -18.8800397,
+                longitude: -47.05878999999999
+            };
+            var mapOptions = {
+                center   : setPosition(position),
+                zoom     : 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
 
-            var setPosition = function (lat, lng) {
-                return new window.plugin.google.maps.LatLng(lat, lng);
+            $scope.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        }
+
+        $scope.$on('$ionicView.enter', function (scopes, states) {
+            if(!$scope.map) {
+                init();
+                myPosition();
             }
+        });
 
-            // Capturing event when Map load are ready.
-            map.addEventListener(plugin.google.maps.event.MAP_READY, function () {
-                map.setMyLocationEnabled(true);
-                $timeout(function () {
-                    map.refreshLayout();
-                }, 1000)
 
-                var mapType = plugin.google.maps.MapTypeId.ROADMAP
-                if ($scope.storage.mapType === 'satellite') {
-                    mapType = plugin.google.maps.MapTypeId.SATELLITE;
+        function myPosition() {
+            Geolocation.getCurrentPosition().then(function (position) {
+
+                console.log(position);
+
+                $scope.params.location = {
+                    latitude : position.coords.latitude,
+                    longitude: position.coords.longitude
+                };
+
+                var marker = {
+                    position: setPosition($scope.params.location),
+                    title   : 'I am here',
+                    id      : 0
                 }
-                map.setMapTypeId(mapType);
 
-                showLoading();
+                addMarker(marker);
 
-                Geolocation.getCurrentPosition().then(function (position) {
+                // Set center locale
+                $scope.map.setCenter(setPosition($scope.params.location));
 
-                    $scope.params.location = {
-                        latitude : position.coords.latitude,
-                        longitude: position.coords.longitude
-                    }
+                loadGallerys();
+            }, function (error) {
+                $scope.params.location = null;
 
-                    loadGallerys();
-                }, function (error) {
-                    $scope.params.location = null;
+                var errorMessage;
+                if (error.code === 1 || error.code === 3) {
+                    errorMessage = 'errorGpsDisabledText';
+                } else {
+                    errorMessage = 'errorLocationMissingText';
+                }
+                Dialog.alert(errorMessage);
 
-                    var errorMessage;
-                    if (error.code === 1 || error.code === 3) {
-                        errorMessage = 'errorGpsDisabledText';
-                    } else {
-                        errorMessage = 'errorLocationMissingText';
-                    }
-                    Dialog.alert(errorMessage);
-
-                });
             });
         }
 
-        function showLoading() {
-            isLoadingViewShown = true;
-            isMapViewShown     = true;
-            isErrorViewShown   = false;
+        function setPosition(location) {
+            if (location) {
+                return new google.maps.LatLng(location.latitude, location.longitude);
+            }
         }
 
-        function showMap() {
-            isMapViewShown     = true;
-            isLoadingViewShown = false;
-            isErrorViewShown   = false;
-            $ionicLoading.hide();
-        }
+        function addMarker(item) {
 
-        function setMapPosition(position) {
-            map.moveCamera({
-                target: setPosition(position.lat, position.lng),
-                zoom  : 16,
+
+            var markerOption = {
+                id       : item.id,
+                map      : $scope.map,
+                position : item.position,
+                title    : item.title,
+                animation: google.maps.Animation.DROP
+            };
+
+            if (item.icon) {
+                var size          = 40;
+                markerOption.icon = {
+                    url       : item.icon,
+                    size      : new google.maps.Size(size, size),
+                    scaledSize: new google.maps.Size(size, size),
+                    origin    : new google.maps.Point(0, 0),
+                    anchor    : new google.maps.Point(size / 4, size / 4),
+                };
+            }
+
+            // VariÃ¡vel que define as opÃ§Ãµes do marcador
+            var marker = new google.maps.Marker(markerOption);
+
+            // Procedimento que mostra a Info Window atravÃ©s de um click no marcador
+            google.maps.event.addListener(marker, 'click', function () {
+                // Open Profile
+                if(item.username) {
+                    $state.go('tab.mapProfile', {username: item.username})
+                }
+
             });
-        }
 
-        function animateCameraWithBounds(points) {
+            markers.push(marker);
 
-            if (points.length > 0) {
-                var latLngBounds = new plugin.google.maps.LatLngBounds(points);
+            new MarkerClusterer($scope.map, markers, {
+                imagePath: '../img/m'
+            });
 
-                map.moveCamera({
-                    target: latLngBounds
-                });
-            }
-        }
-
-        function setMapZoomToFit() {
-            var points = [];
-            for (var i = 0; i < $scope.galleries.length; i++) {
-                var item     = $scope.galleries[i];
-                var position = setPosition(item.latitude, item.longitude);
-                points.push(position);
-            }
-            points.push(setPosition(
-                $scope.params.location.latitude,
-                $scope.params.location.longitude));
-
-            animateCameraWithBounds(points);
+            latlngbounds.extend(item.position);
+            $scope.map.fitBounds(latlngbounds);
         }
 
         function setGallerys(galleries) {
             $scope.galleries = galleries;
+            galleries.map(function (item) {
 
-            for (var i = 0; i < galleries.length; i++) {
+                if (item.location) {
+                    var marker = {
+                        map     : $scope.map,
+                        id      : item.id,
+                        position: setPosition(item.location),
+                        title   : item.title,
+                        image   : item.image.url(),
+                        icon    : item.imageThumb.url(),
+                        username: item.attributes.user.attributes.username
+                    };
 
-                var item = galleries[i];
-
-                var icon = '#E84545';
-
-                if (item.category.get('icon')) {
-                    icon = {
-                        url : item.category.get('icon').url(),
-                        size: {
-                            width : 32,
-                            height: 32,
-                        }
-                    }
+                    addMarker(marker)
                 }
+            });
 
-                map.addMarker({
-                    item       : item,
-                    position   : setPosition(item.latitude, item.longitude),
-                    title      : item.title,
-                    icon       : icon,
-                    animation  : plugin.google.maps.Animation.DROP,
-                    styles     : {
-                        maxWidth: '80%'
-                    },
-                    snippet    : item.description,
-                    itemId     : item.id,
-                    markerClick: function (marker) {
-                        marker.showInfoWindow();
-                    },
-                    infoClick  : function (marker) {
-                        $state.go('app.item', {itemId: marker.get('itemId')});
-                    }
-                }, function (marker) {
-                    markers.push(marker);
-                });
-            }
+
         }
 
         function loadGallerys() {
-
+            $scope.loading = true;
             Gallery.all($scope.params).then(function (galleries) {
-                setGallerys(galleries);
-                showMap();
 
-                if (galleries.length === 0) {
-                    Dialog.alert('galleriesNotFoundText');
+                if (galleries.length > 0) {
+                    setGallerys(galleries);
                 } else {
-                    setMapZoomToFit();
+                    Dialog.alert('galleriesNotFoundText');
                 }
+
+                $scope.loading = false;
 
             }, function () {
                 Toast.show('errorText');
@@ -174,89 +174,23 @@
         }
 
         function removeMarkers() {
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].remove();
-            }
+            markers.map(function (item) {
+                item.setMap(null);
+            });
+            markers = [];
         };
 
         $scope.onSearchHere = function () {
-
-            map.getCameraPosition(function (camera) {
-
-                $scope.params.location.latitude  = camera.target.lat;
-                $scope.params.location.longitude = camera.target.lng;
-
-                showLoading();
-                removeMarkers();
-                removeGallerys();
-                loadGallerys();
-            });
+            $scope.params.location.latitude  = $scope.map.getCenter().lat();
+            $scope.params.location.longitude = $scope.map.getCenter().lng();
+            removeGallerys();
+            removeMarkers();
+            loadGallerys();
         }
 
-        $scope.showLoadingView = function () {
-            return isLoadingViewShown;
-        };
-
-        $scope.showMap = function () {
-            return isMapViewShown;
-        };
-
-        $scope.showErrorView = function () {
-            return isErrorViewShown;
-        };
-
-
         $scope.onGalleryClicked = function (item) {
-            $scope.closeGallerysModal();
-
-            for (var i = 0; i < markers.length; i++) {
-                if (markers[i].get('item') === item) {
-                    var marker = markers[i];
-                    marker.showInfoWindow();
-                    marker.getPosition(function (position) {
-                        setMapPosition(position);
-                    });
-                }
-            }
+            console.log(item);
         };
-
-        $scope.openGallerysModal = function () {
-            map.setClickable(false);
-            // Open profile
-        };
-
-        $scope.closeGallerysModal = function () {
-            map.setClickable(true);
-        };
-
-
-        $scope.$on('$ionicView.leave', function () {
-            if (window.cordova) {
-                map.setMyLocationEnabled(false);
-                map.setClickable(false);
-                map.off();
-            }
-        });
-
-        $scope.$on('$ionicView.beforeEnter', function () {
-            if (window.cordova) {
-                // Fix issue with side menu + google maps
-                map.setMyLocationEnabled(true);
-                map.setClickable(true);
-            }
-        });
-
-        $rootScope.$on('$stateChangeStart', function (event, toState) {
-            if (toState.name !== 'tab.map') {
-                if (window.cordova) {
-                    map.clear();
-                    map.moveCamera({
-                        target: setPosition(0.0, 0.0),
-                        zoom  : 1
-                    });
-                }
-            }
-        });
     }
 
 })();

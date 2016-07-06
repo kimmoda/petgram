@@ -65,10 +65,10 @@
         </div>
 
         <div class="item item-divider" translate="recentText">Recent</div>
-        <div class="tab" ng-if="vm.tab.list">
-            <photo-list username="currentUser.username"></photo-list>
+        <div class="tab" ng-if="vm.tab.list && !vm.loading" >
+            <photo-list username="vm.user.attributes.username"></photo-list>
         </div>
-        <div class="tab" ng-if="vm.tab.grid">
+        <div class="tab" ng-if="vm.tab.grid && !vm.loading">
             <photo-grid username="currentUser.username"></photo-grid>
         </div>
 

@@ -3,7 +3,7 @@
 
     angular.module('app.main').controller('MainTabCtrl', MainTabController);
 
-    function MainTabController($localStorage, $scope, $timeout, User, $cordovaSplashscreen, $ionicPlatform, ActionSheet, $q, Gallery, PhotoFilter, ParseFile, $ionicModal, Loading, Toast) {
+    function MainTabController($localStorage, $scope, PhotoService, User, $cordovaSplashscreen, $ionicPlatform, ActionSheet, $q, Gallery, PhotoFilter, ParseFile, $ionicModal, Loading, Toast) {
         var vm = this;
         var tempImage;
 
@@ -19,11 +19,13 @@
         });
 
         vm.postPhoto = function () {
-            ActionSheet.image().then(function (image) {
-                tempImage = image;
-                //return PhotoFilter.load(image);
-                return image;
-            }).then(modalPost).then(function (form) {
+            //ActionSheet.image().then(function (image) {
+            //    tempImage = image;
+            //    //return PhotoFilter.load(image);
+            //    return PhotoService.crop(image);
+            //    //return image;
+            //})
+            PhotoService.open().then(modalPost).then(function (form) {
                 //console.log('Cadastra na Galeria', form);
                 Loading.start();
                 ParseFile.upload({base64: form.image}).then(function (imageUploaded) {

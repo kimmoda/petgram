@@ -8,8 +8,8 @@
             profile               : function (username) {
                 return ParseCloud.run('profile', {username: username})
             },
-            list                  : function (username) {
-                return ParseCloud.run('listUsers')
+            list                  : function (params) {
+                return ParseCloud.run('listUsers',params)
             },
             getFollowers          : function (username) {
                 return ParseCloud.run('getFollowers', {username: username})

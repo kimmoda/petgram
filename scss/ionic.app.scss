@@ -13,6 +13,11 @@ For example, you might change some of the default colors:
 @import "colors";
 @import "background-animate";
 
+//  iOS bar gray
+.bar.bar-light {
+  background-color: #fafafa !important;
+}
+
 .connect {
   display: block;
   position: fixed;

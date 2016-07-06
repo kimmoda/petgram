@@ -149,7 +149,7 @@
             })
 
             .state('tab.search', {
-                url  : '/search',
+                url  : '/search/:text',
                 views: {
                     tabSearch: {
                         controller  : 'SearchCtrl',
@@ -166,6 +166,39 @@
                         controller  : 'SearchMapCtrl',
                         controllerAs: 'vm',
                         templateUrl : 'app/main/tab-search-map/searchMap.html',
+                    }
+                }
+            })
+
+            .state('tab.mapProfile', {
+                url  : '/map/:username',
+                views: {
+                    tabSearch: {
+                        controller  : 'ProfileCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/profile/profile.html'
+                    }
+                }
+            })
+
+            .state('tab.mapProfileFollowers', {
+                url  : '/map/:username/followers',
+                views: {
+                    tabSearch: {
+                        controller  : 'UserFollowerCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-followers/user-followers.html'
+                    }
+                }
+            })
+
+            .state('tab.mapProfileFollowing', {
+                url  : '/map/:username/follwing',
+                views: {
+                    tabActivity: {
+                        controller  : 'UserFollowingCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-following/user-following.html'
                     }
                 }
             })

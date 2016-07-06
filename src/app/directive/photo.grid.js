@@ -8,8 +8,9 @@
         return {
             restrict   : 'E',
             scope      : {
-                user   : '=',
-                profile: '='
+                username: '=',
+                user    : '=',
+                profile : '='
             },
             templateUrl: 'app/directive/photoGridDirective.html',
             link       : photoGridCtrl
@@ -19,6 +20,10 @@
             $scope.params      = {};
             $scope.params.page = 1;
             $scope.data        = [];
+
+            if ($scope.username) {
+                $scope.params.username = $scope.username;
+            }
 
             $scope.loading = true;
 

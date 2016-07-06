@@ -16,7 +16,7 @@
 
             // replace #hashtags and send them to twitter
             var replacePattern1 = /(^|\s)#(\w*[a-zA-Z_]+\w*)/gim;
-            replacedText        = text.replace(replacePattern1, '$1<a href="https://photogramapp.com/search?q=%23$2"' + targetAttr + '>#$2</a>');
+            replacedText        = text.replace(replacePattern1, '$1<a href="#/tab/search/%23$2"' + targetAttr + '>#$2</a>');
 
             // replace @mentions but keep them to our site
             var replacePattern2 = /(^|\s)\@(\w*[a-zA-Z_]+\w*)/gim;
