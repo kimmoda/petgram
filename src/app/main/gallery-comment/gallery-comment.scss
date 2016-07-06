@@ -1,0 +1,10 @@
+.message-footer {
+  &.ng-show, &.ng-enter {
+    @include animate(fadeInUp, 1s, 0);
+  }
+
+  &.ng-hide {
+    @include animate(fadeInDown, 1s, 0);
+  }
+
+}

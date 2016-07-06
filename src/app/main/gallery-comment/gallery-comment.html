@@ -16,7 +16,7 @@
         </div>
 
         <ion-list class="list" ng-show="comments.length" can-swipe="true">
-            <ion-item ng-repeat="item in comments | orderBy:createdAt" class="item item-avatar">
+            <ion-item ng-repeat="item in comments " class="item item-avatar">
                 <img ng-src="{{ ::item.user.photo._url || './img/user.png'}}">
 
                 <div class="row">
@@ -29,7 +29,7 @@
                     <p>{{ ::item.createdAt | amTimeAgo }}</p>
                 </div>
 
-                <div ng-if="item.user.id === currentUser.id">
+                <div ng-if="item.canEdit">
                     <ion-option-button class="button-info" ng-click="editComment(item)"
                                        translate="edit">Edit
                     </ion-option-button>
@@ -47,7 +47,7 @@
         </div>
     </ion-content>
     <form name="rForm" ng-submit="submitComment(rForm, form)" novalidate>
-        <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+        <ion-footer-bar ng-hide="loading" class="bar-stable item-input-inset message-footer " keyboard-attach>
             <label class="item-input-wrapper">
                 <i class="icon ion-ios-compose-outline placeholder-icon"></i>
                 <textarea
@@ -71,7 +71,8 @@
                 </textarea>
             </label>
             <div class="footer-btn-wrap">
-                <button class="button button-positive button-outline" type="submit"
+                <button class="button button-positive button-outline"
+                        type="submit"
                         ng-disabled="!form.text || form.text === ''">Publish
                 </button>
             </div>

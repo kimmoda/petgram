@@ -6,6 +6,8 @@
     function GalleryCommentController($scope, $stateParams, $q, $ionicScrollDelegate, $ionicHistory, Loading, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment, GalleryForm) {
 
         $scope.currentUser = Parse.User.current();
+        $scope.loading     = true;
+        $scope.formFields  = GalleryForm.formComment;
 
         function init() {
             $scope.nocomments = false;
@@ -22,20 +24,12 @@
             $ionicHistory.goBack();
         };
 
-        init();
-
-        $scope.loading       = true;
-        $scope.formFields    = GalleryForm.formComment;
-        $scope.submitComment = submitComment;
-        $scope.deleteComment = deleteComment;
-        $scope.editComment   = editComment;
-
         getComments();
+        init();
 
         //Mentios
         // shows the use of dynamic values in mentio-id and mentio-for to link elements
         $scope.myIndexValue = "5";
-
 
         $scope.searchPeople = function (term) {
             var peopleList = [];
@@ -43,7 +37,8 @@
                 _.each(response, function (item) {
                     item.imageUrl = item.photo ? item.photo._url : 'img/user.png';
                     item.bio      = item.status;
-                    if(item.name) {
+
+                    if (item.name) {
                         if (item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
                             peopleList.push(item);
                         }
@@ -63,7 +58,7 @@
         };
 
 
-        function deleteComment(obj) {
+        $scope.deleteComment = function (obj) {
             console.log(obj);
             Dialog.confirm(('Delete comment'), ('You are sure?')).then(function (resp) {
                 console.log(resp);
@@ -76,7 +71,7 @@
             });
         }
 
-        function editComment(obj) {
+        $scope.editComment = function (obj) {
             console.log(obj);
             // An elaborate, custom popup
             $scope.data = angular.copy(obj);
@@ -116,23 +111,27 @@
 
         function getComments() {
             $scope.loading = true;
-
-
             Gallery.comments({galleryId: $stateParams.galleryId}).then(function (resp) {
-                $scope.comments = resp;
-                $scope.loading  = false;
+                $scope.comments = [];
+
+                resp.map(function (comment) {
+                    console.log(comment);
+                    comment.canEdit = (comment.user.obj.id === $scope.currentUser.id) ? true : false;
+                    $scope.comments.push(comment);
+                });
+
+                $scope.loading = false;
                 $ionicScrollDelegate.scrollBottom();
             });
         }
 
-        function submitComment(rForm, form) {
+        $scope.submitComment = function (rForm, form) {
             if (rForm.$valid) {
-                var dataForm = angular.copy(form);
-                console.log(dataForm);
-                Loading.start();
+                var dataForm   = angular.copy(form);
+                $scope.loading = true;
                 GalleryComment.create(dataForm).then(function (resp) {
-                    init();
-                    Loading.end();
+                    getComments();
+                    $scope.form.text = '';
                 });
             }
         }
