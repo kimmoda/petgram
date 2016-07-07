@@ -27,9 +27,6 @@
             "APP_NAME": "Photogram",
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
         "cordova-plugin-globalization": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
@@ -61,6 +58,12 @@
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         }
     },
