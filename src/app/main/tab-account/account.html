@@ -14,8 +14,8 @@
                 <div class="col-25">
                     <img class="avatar"
                          user-avatar
-                         ng-model="vm.photo"
-                         ng-src="{{ vm.photo._url || 'img/user.png' }}"/>
+                         ng-model="currentUser"
+                         ng-src="{{ currentUser.photo.url() || 'img/user.png' }}"/>
                 </div>
                 <div class="col col-statics">
                     <div class="row">

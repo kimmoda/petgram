@@ -11,7 +11,6 @@
 
         function init() {
             $scope.nocomments = false;
-            $scope.loading    = false;
             Gallery.get($stateParams.galleryId).then(function (gallery) {
                 $scope.form = {
                     gallery: gallery,
@@ -58,41 +57,45 @@
         };
 
 
-        $scope.deleteComment = function (obj) {
-            console.log(obj);
+        $scope.deleteComment = function (item, index) {
+            console.log(item);
             Dialog.confirm(('Delete comment'), ('You are sure?')).then(function (resp) {
-                console.log(resp);
                 if (resp) {
-                    GalleryComment.destroy(obj).then(function (resp) {
-                        console.log(resp);
-                        getComments();
-                    });
+                    GalleryComment.get(item.id).then(function (comment) {
+                        GalleryComment.destroy(comment).then(function (resp) {
+                            $scope.comments.splice(index, 1);
+                        });
+                    })
                 }
             });
         }
 
-        $scope.editComment = function (obj) {
+        $scope.editComment = function (obj, index) {
             console.log(obj);
             // An elaborate, custom popup
-            $scope.data = angular.copy(obj);
+            $scope.formEdit = {
+                id  : obj.id,
+                text: obj.text
+            };
+
             $ionicPopup
                 .show({
-                    template: '<input type="text" ng-model="data.text">',
+                    template: '<input type="text" ng-model="formEdit.text">',
                     title   : ('Edit comment'),
                     //subTitle: 'Please use normal things',
-                    scope   : scope,
+                    scope   : $scope,
                     buttons : [{
                         text: ('Cancel')
                     }, {
                         text : '<b>OK</b>',
                         type : 'button-positive',
                         onTap: function (e) {
-                            console.log($scope.data);
-                            if (!$scope.data.text) {
+                            console.log($scope.formEdit);
+                            if (!$scope.formEdit.text) {
                                 //don't allow the user to close unless he enters wifi password
                                 e.preventDefault();
                             } else {
-                                return $scope.data;
+                                return $scope.formEdit;
                             }
                         }
                     }]
@@ -100,11 +103,11 @@
                 .then(function (resp) {
                     console.log(resp);
                     if (resp) {
-                        GalleryComment.update(resp)
-                                      .then(function (resp) {
-                                          console.log(resp);
-                                          getComments();
-                                      });
+                        GalleryComment.get(obj.id).then(function (comment) {
+                            comment.text                = resp.text;
+                            $scope.comments[index].text = resp.text;
+                            comment.save();
+                        });
                     }
                 });
         }

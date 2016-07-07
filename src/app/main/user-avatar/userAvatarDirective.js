@@ -3,7 +3,7 @@
 
     angular.module('app.main').directive('userAvatar', userAvatarDirective);
 
-    function userAvatarDirective(ActionSheet, Loading, ParseFile, User) {
+    function userAvatarDirective(ActionSheet, $rootScope, ParseFile, User) {
         return {
             restrict: 'A',
             scope   : {
@@ -15,6 +15,15 @@
 
                 function openModal() {
                     var tempImage;
+                    var user        = $scope.ngModel;
+                    var currentUser = $rootScope.currentUser;
+
+                    console.log(user);
+                    console.log(currentUser);
+
+                    if (user.id != currentUser.id) {
+                        return false;
+                    }
 
                     ActionSheet.image().then(function (image) {
                         tempImage = image;

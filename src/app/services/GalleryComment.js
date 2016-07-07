@@ -13,6 +13,16 @@
                 }
             }
         }, {
+            get        : function (itemId) {
+                var defer = $q.defer();
+                new Parse.Query(this)
+                    .get(itemId, {
+                        success: defer.resolve,
+                        error  : defer.reject
+                    });
+
+                return defer.promise;
+            },
             create : function (item) {
                 var defer = $q.defer();
                 new ParseObject().save(item, {

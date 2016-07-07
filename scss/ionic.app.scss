@@ -14,8 +14,14 @@ For example, you might change some of the default colors:
 @import "background-animate";
 
 //  iOS bar gray
-.bar.bar-light {
-  background-color: #fafafa !important;
+.platform-ios {
+  .bar.bar-light {
+    background-color: #fafafa !important;
+    border-bottom: 1px solid #ddd;
+  }
+  .tab-nav.tabs {
+    border-top: 1px solid #ddd !important;
+  }
 }
 
 .connect {

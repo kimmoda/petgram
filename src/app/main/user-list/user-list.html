@@ -49,7 +49,8 @@
                     <h2 ng-click="vm.openProfile(user)">{{user.username}}</H2>
                     <p>{{user.status}}</p>
 
-                    <button class="button button-positive "
+                    <button class="button button-positive"
+                            ng-disabled="user.loading"
                             ng-class="{'button-unfollow': user.isFollow, 'button-outline': !user.isFollow}"
                             ng-click="vm.follow(user)">
                         <div ng-show="!user.isFollow" translate>Follow</div>

@@ -132,7 +132,7 @@
 
         vm.follow = function (user) {
 
-            vm.loadingFollow = true;
+            user.loading = true;
             User.follow(user.userObj.id).then(function (resp) {
                 console.log('Follow result', resp);
                 user.isFollow = (resp === 'follow') ? true : false;
@@ -142,7 +142,7 @@
                 if (resp == 'unfollow') {
                     user.followersTotal -= 1;
                 }
-                vm.loadingFollow = false;
+                user.loading = false;
             });
 
 
