@@ -19,8 +19,8 @@
             facebookAppId  : '1024016557617380',
             parse          : {
                 appId : 'myAppId',
-                server: 'https://photogramapp.com/parse/',
-                //server: 'http://localhost:1337/parse/',
+                //server: 'https://photogramapp.com/parse/',
+                server: 'http://localhost:1337/parse/',
             },
             onesignal      : {
                 id    : '7b08c66d-d5a3-47b9-b091-b7f4a5bb7624',

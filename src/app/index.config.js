@@ -85,7 +85,7 @@
     function configIonic($ionicConfigProvider) {
         $ionicConfigProvider.platform.ios.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
         $ionicConfigProvider.platform.android.backButton.previousTitleText(' ').icon('ion-ios-arrow-left');
-        //$ionicConfigProvider.views.swipeBackEnabled (true);
+        $ionicConfigProvider.views.swipeBackEnabled (false);
         $ionicConfigProvider.backButton.text(' ').icon('ion-ios-arrow-left');
         //$ionicConfigProvider.backButton.previousTitleText (false).text ('Voltar').icon ('ion-ios-arrow-left');
         //$ionicConfigProvider.views.transition ('platform');
@@ -96,27 +96,18 @@
 
     // Facebook
     function configFacebook($facebookProvider, AppConfig) {
-        if (!window.cordova) {
-            console.log('Facebook Browser');
+        //if (!window.cordova) {
             $facebookProvider.setAppId(AppConfig.facebookAppId);
             $facebookProvider.setPermissions('id,name,email,user_likes,bio');
-        }
+        //}
     }
 
     function runFacebook(AppConfig) {
 
-        if (!window.cordova) {
+        //if (!window.cordova) {
             console.log('Facebook Browser');
             var LangVar     = window.navigator.language || window.navigator.userLanguage;
             var userLangVar = LangVar.substring(0, 2) + '_' + LangVar.substring(3, 5).toUpperCase();
-
-            window.fbAsyncInit = function () {
-                Parse.FacebookUtils.init({
-                    appId  : AppConfig.facebookAppId,
-                    version: 'v2.3',
-                    xfbml  : true
-                });
-            };
 
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -126,7 +117,7 @@
                 js.src = 'http://connect.facebook.net/' + userLangVar + '/sdk.js';
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-        }
+        //}
 
     }
 

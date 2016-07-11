@@ -153,6 +153,8 @@
                 $scope.$broadcast('scroll.refreshComplete');
             };
 
+            $rootScope.$on('onUserLogged', $scope.onReload);
+
             $scope.action = function (gallery) {
 
                 var buttons = [{

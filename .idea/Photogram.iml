@@ -9,7 +9,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
       <excludeFolder url="file://$MODULE_DIR$/e2e" />
-      <excludeFolder url="file://$MODULE_DIR$/gulp" />
       <excludeFolder url="file://$MODULE_DIR$/key" />
       <excludeFolder url="file://$MODULE_DIR$/minds" />
       <excludeFolder url="file://$MODULE_DIR$/node_modules" />

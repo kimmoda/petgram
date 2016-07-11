@@ -2,6 +2,7 @@
 # Usage: prod.sh 'platform'
 # 
 echo "Minify Application"
+gulp clean
 gulp build
 echo "Build Release "
 cordova build  --release --buildConfig build.json

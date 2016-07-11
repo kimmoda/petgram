@@ -9,7 +9,7 @@ var browserSync = require('browser-sync');
 var $ = require('gulp-load-plugins')();
 
 var wiredep = require('wiredep').stream;
-var _ = require('lodash');
+var _       = require('lodash');
 
 gulp.task('styles-reload', ['styles'], function () {
     return buildStyles()
@@ -31,24 +31,24 @@ var buildStyles = function () {
     ], {read: false});
 
     var injectOptions = {
-        transform: function (filePath) {
+        transform   : function (filePath) {
             filePath = filePath.replace(conf.paths.src + '/app/', 'src/app/');
             return '@import "' + filePath + '";';
         },
-        starttag: '// injector',
-        endtag: '// endinjector',
+        starttag    : '// injector',
+        endtag      : '// endinjector',
         addRootSlash: false
     };
 
 
     return gulp.src([
-            'scss/ionic.app.scss'
-        ])
-        .pipe($.inject(injectFiles, injectOptions))
-        .pipe(wiredep(_.extend({}, conf.wiredep)))
-        .pipe($.sourcemaps.init())
-        .pipe($.sass(sassOptions)).on('error', conf.errorHandler('Sass'))
-        .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
-        .pipe($.sourcemaps.write())
-        .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app/')));
+        'scss/ionic.app.scss'
+    ])
+               .pipe($.inject(injectFiles, injectOptions))
+               .pipe(wiredep(_.extend({}, conf.wiredep)))
+               .pipe($.sourcemaps.init())
+               .pipe($.sass(sassOptions)).on('error', conf.errorHandler('Sass'))
+               .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
+               .pipe($.sourcemaps.write())
+               .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app/')));
 };
