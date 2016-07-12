@@ -6,12 +6,13 @@
     function FacebookFactory($q, $facebook, $cordovaFacebook) {
 
         var facebook = window.cordova ? $cordovaFacebook : $facebook;
+        var me;
 
         return {
             getCurrentUser: getCurrentUser,
             logIn         : logIn,
             logOut        : logOut,
-            me            : me,
+            me            : getMe,
             invite        : invite,
             friends       : friends,
             api           : api,
@@ -23,6 +24,7 @@
         }
 
         function logIn() {
+            console.log('facebook login', facebook);
             return facebook.login(['public_profile', 'email']);
         }
 
@@ -32,9 +34,13 @@
             return defer.promise;
         }
 
-        function me() {
+        function getMe() {
 
             var defer = $q.defer();
+
+            if (me) {
+                defer.resolve(me);
+            }
 
             if (window.cordova) {
 

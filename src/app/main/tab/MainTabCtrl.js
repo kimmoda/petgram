@@ -12,21 +12,14 @@
         $scope.$on('$ionicView.loaded', function () {
             $ionicPlatform.ready(function () {
                 if (navigator && navigator.splashscreen) {
-                    $cordovaSplashscreen.hide();
                     window.StatusBar.styleDefault();
                 }
             });
         });
 
         vm.postPhoto = function () {
-            //ActionSheet.image().then(function (image) {
-            //    tempImage = image;
-            //    //return PhotoFilter.load(image);
-            //    return PhotoService.crop(image);
-            //    //return image;
-            //})
+
             PhotoService.open().then(modalPost).then(function (form) {
-                //console.log('Cadastra na Galeria', form);
                 Loading.start();
                 ParseFile.upload({base64: form.image}).then(function (imageUploaded) {
                     form.image = imageUploaded;

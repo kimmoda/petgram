@@ -6,7 +6,7 @@
 # Use this script as following :
 #
 # $ ./bin/apk [company] [appname] [version]
-# $ ./bin/release agenciafoccus Photogram 3.0.2
+# $ ./bin/apk agenciafoccus Photogram 3.0.2
 #
 #
 # Original at https://gist.github.com/th3m4ri0/acc2003adc7dffdbbad6
@@ -39,8 +39,8 @@ echo "       $2      Version: $3 "
  echo ""
  echo ""
  echo "---> Gulp Production"
-gulp clean
-gulp build
+#gulp clean
+#gulp build
 
 echo "---> Starting build v$version"
 cordova build android --release

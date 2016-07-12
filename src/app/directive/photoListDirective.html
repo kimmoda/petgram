@@ -21,7 +21,7 @@
 
 <ion-refresher pulling-text="{{'loadingText'| translate}}" on-refresh="onReload()"></ion-refresher>
 
-<div class="list card " ng-repeat="gallery in data | orderBy:createdAt:true" ng-if="showGalleries()">
+<div class="list card " ng-repeat="gallery in data | orderBy:'createdAt':true" ng-if="showGalleries()">
 
     <div class="item item-avatar" ng-click="load(gallery.user.username)" ion-affix
          data-affix-within-parent-with-class="card">
@@ -71,7 +71,7 @@
                 <span class="comment" ng-bind-html="gallery.title | hashtag "></span>
             </div>
             <div class="comment-item"
-                 ng-repeat="item in gallery.comments |limitTo:3 | orderBy:createdAt:true ">
+                 ng-repeat="item in gallery.comments |limitTo:3 | orderBy:'createdAt':true">
                 <span class="username" profile-modal username="gallery.user.username">{{ :: item.user.name }}</span>
                 <span class="comment" ng-bind-html="item.text | hashtag"></span>
             </div>

@@ -32,7 +32,7 @@
 
         <div class="list">
 
-            <div class="item item-avatar item-animate1" ng-repeat="item in vm.data">
+            <div class="item item-avatar item-animate1" ng-repeat="item in vm.data | orderBy:'createdAt':true">
                 <img ng-src="{{ item.user.photo._url  || './img/user.png'}}">
 
                 <h2 ng-click="vm.openProfile(item.user.username)">{{ item.user.name}}</h2>

@@ -9,7 +9,7 @@
                 return ParseCloud.run('profile', {username: username})
             },
             list                  : function (params) {
-                return ParseCloud.run('listUsers',params)
+                return ParseCloud.run('listUsers', params)
             },
             getFollowers          : function (username) {
                 return ParseCloud.run('getFollowers', {username: username})
@@ -112,8 +112,12 @@
                 var defer = $q.defer();
                 ParseCloud.run('saveFacebookPicture', {}).then(function () {
                     var user = Parse.User.current();
+
+                    if (user.attributes.username === '') {
+                        user.set({'username': data.email});
+                    }
+
                     user.set({'email': data.email});
-                    user.set({'username': data.email});
                     user.set({'name': data.name});
                     user.setACL(new Parse.ACL(user));
                     user.save(null, {

@@ -3,10 +3,10 @@
 
     angular.module('ion-photo').directive('photoShare', photoShareDirective);
 
-    function photoShareDirective($state, AppConfig, $rootScope, $ionicModal, Loading, PhotogramSetting, PhotoService) {
+    function photoShareDirective($state, AppConfig, $rootScope, $ionicModal, Loading, PhotoService) {
         return {
             restrict: 'A',
-            link: photoShareLink,
+            link    : photoShareLink,
             template: ''
         };
 
@@ -15,19 +15,19 @@
 
             elem.bind('click', open);
 
-            function open() {
+            function open(options) {
                 console.log('Open share');
                 var option = {
-                    crop: PhotogramSetting.get('imageCrop'),
-                    allowEdit: PhotogramSetting.get('imageEdit'),
-                    filter: true,
-                    //filter: PhotogramSetting.get('imageFilter'),
-                    allowRotation: PhotogramSetting.get('imageRotation'),
-                    quality: PhotogramSetting.get('imageQuality'),
-                    correctOrientation: PhotogramSetting.get('imageEdit'),
-                    targetWidth: PhotogramSetting.get('imageWidth'),
-                    targetHeight: PhotogramSetting.get('imageHeight'),
-                    saveToPhotoAlbum: PhotogramSetting.get('imageSaveAlbum')
+                    crop              : options.imageCrop,
+                    allowEdit         : options.imageEdit,
+                    filter            : true,
+                    //filter: options.imageFilter,
+                    allowRotation     : options.imageRotation,
+                    quality           : options.imageQuality,
+                    correctOrientation: options.imageEdit,
+                    targetWidth       : options.imageWidth,
+                    targetHeight      : options.imageHeight,
+                    saveToPhotoAlbum  : options.imageSaveAlbum,
                 };
                 console.log(option);
 
@@ -47,15 +47,15 @@
                 $scope.closePost  = closeModalPost;
                 $scope.submitPost = submitPost;
                 $scope.form       = {
-                    title: '',
+                    title   : '',
                     location: '',
-                    photo: image,
-                    geo: false
+                    photo   : image,
+                    geo     : false
                 };
 
                 $ionicModal
                     .fromTemplateUrl(path + '/module/share/photogram.post.modal.html', {
-                        scope: $scope,
+                        scope          : $scope,
                         focusFirstInput: true
                     })
                     .then(function (modal) {
@@ -74,13 +74,11 @@
                     var form = angular.copy(resp);
                     console.log(form);
                     Loading.start();
-                    Photogram
-                        .post(form)
-                        .then(function () {
-                            closeModalPost();
-                            $rootScope.$emit('filterModal:close');
-                            $rootScope.$emit('PhotogramHome:reload');
-                        });
+                    Photogram.post(form).then(function () {
+                        closeModalPost();
+                        $rootScope.$emit('filterModal:close');
+                        $rootScope.$emit('PhotogramHome:reload');
+                    });
                 }
             }
         }

@@ -3,7 +3,9 @@
 
     angular.module('ion-photo').factory('PhotoService', PhotoServiceFactory);
 
-    function PhotoServiceFactory($ionicActionSheet, $translate, AppConfig, Share,$cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, $cordovaCamera, $cordovaCapture, $q) {
+    function PhotoServiceFactory($ionicActionSheet, $timeout, PhotoFilter, $translate, AppConfig, Share, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, $cordovaCamera, $cordovaCapture, $q) {
+
+        var deviceInformation = ionic.Platform.device();
 
         // Default Setting
         var tempImage;
@@ -14,8 +16,8 @@
             allowEdit         : false,
             filter            : true,
             correctOrientation: true,
-            targetWidth       : 300,
-            targetHeight      : 300,
+            targetWidth       : 320,
+            targetHeight      : 320,
             saveToPhotoAlbum  : false,
             allowRotation     : false,
             aspectRatio       : 0
@@ -28,27 +30,125 @@
             share : shareModal,
         };
 
-        function openModal(option) {
-            var defer       = $q.defer();
+        function filterModal(image) {
+            var defer = $q.defer();
+
+            function openFilter(image64) {
+                var scope  = $rootScope.$new(true);
+                tempImage  = image64;
+                scope.form = {
+                    photo: image64
+                };
+
+                $ionicModal.fromTemplateUrl('app/component/ion-photo/view/filter.modal.html', {
+                    scope          : scope,
+                    focusFirstInput: true
+                }).then(function (modal) {
+                    scope.modalFilter = modal;
+                    scope.modalFilter.show();
+                    $timeout(function () {
+                        PhotoFilter.init('image', image64);
+                    }, 500)
+                });
+
+
+                scope.closeModalFilter = function () {
+                    scope.modalFilter.hide();
+                };
+
+
+                scope.cropImage = function () {
+                    scope.modalFilter.remove();
+                    cropModal(tempImage)
+                        .then(openFilter);
+                };
+
+                // Filter
+                scope.filters      = PhotoFilter.filters.Adjust;
+                scope.imageFilters = PhotoFilter.imageFilters;
+                scope.reset        = PhotoFilter.reset;
+
+                scope.applyFilter = function (filter) {
+                    PhotoFilter.apply(filter.filter);
+                };
+
+                scope.showFilter  = false;
+                scope.showFilters = true;
+
+                scope.selectFilter = function (filter) {
+                    console.log('filter', filter);
+                    scope.filter      = filter;
+                    scope.showFilters = false;
+                };
+
+                scope.doneFilter = function () {
+                    scope.showFilters = true;
+                };
+
+                scope.cancelFilter = function (filter) {
+                    filter.slider.value = 0;
+                    filter.setSlider(filter.slider);
+                    scope.showFilters = true;
+                };
+
+                scope.$watch('scope.filterSelected', function (item) {
+                    if (item) {
+                        var filter    = _.find(scope.filters, {func: item});
+                        scope.filter  = filter;
+                        scope.sliders = filter.sliders;
+                        console.log(filter);
+                    }
+                });
+
+                scope.closeFilter = function () {
+                    defer.reject();
+                    scope.modalFilter.hide();
+                };
+
+                scope.submitFilter = function () {
+                    var dataUrl = PhotoFilter.getImage();
+                    //console.log(dataUrl);
+                    scope.modalFilter.remove();
+                    defer.resolve(dataUrl);
+                };
+
+
+                // Cleanup the modal when we're done with it!
+                scope.$on('$destroy', function () {
+                    scope.modal.remove();
+                });
+
+
+            }
+
+            openFilter(image);
+
+            return defer.promise;
+        }
+
+        function openModal(options) {
+            var defer = $q.defer();
+            console.log(deviceInformation);
             var options     = {
-                quality           : 80,
-                aspectRatio       : 0,
-                allowRotation     : false,
-                allowEdit         : true,
-                correctOrientation: true,
-                targetWidth       : 640,
-                targetHeight      : 640,
-                saveToPhotoAlbum  : true,
+                quality           : setting.quality,
+                aspectRatio       : setting.aspectRatio,
+                allowRotation     : setting.allowRotation,
+                allowEdit         : setting.allowEdit,
+                correctOrientation: setting.correctOrientation,
+                targetWidth       : setting.targetWidth,
+                targetHeight      : setting.targetHeight,
+                saveToPhotoAlbum  : setting.saveToPhotoAlbum,
                 destinationType   : window.cordova ? Camera.DestinationType.DATA_URL : null,
                 encodingType      : window.cordova ? Camera.EncodingType.JPEG : null,
                 popoverOptions    : window.cordova ? CameraPopoverOptions : null,
             };
-            var buttons     = [{
-                text: '<i class="icon ion-ios-camera"></i>' + $translate.instant('captureLibrary')
-            }, {
-                text: '<i class="icon ion-images"></i>' + $translate.instant('capturePhoto')
-            },
-                // {text: '<i class="icon ion-ios-videocam"></i>' + $translate.instant('ION-PHOTO.VIDEO')}
+            var buttons     = [
+                {
+                    text: '<i class="icon ion-images"></i>' + $translate.instant('capturePhoto')
+                },
+                {
+                    text: '<i class="icon ion-ios-camera"></i>' + $translate.instant('captureLibrary')
+                }
             ];
             var actionSheet = $ionicActionSheet.show({
                 buttons      : buttons,
@@ -62,6 +162,7 @@
                 console.log(index);
                 actionSheet();
                 capture(index, options)
+                    .then(cropModal)
                     .then(filterModal)
                     .then(function (resp) {
                         console.log('Final rest');
@@ -81,16 +182,21 @@
         function cropModal(image) {
             var defer = $q.defer();
 
+            if (window.cordova) {
+                image = 'data:image/jpeg;base64,' + image;
+            }
+
             $jrCrop.crop({
                 url          : image,
-                aspectRatio  : setting.aspectRatio ? setting.aspectRatio : false,
-                allowRotation: setting.allowRotation ? setting.allowRotation : false,
-                width        : setting.width ? setting.width : setting.targetWidth,
-                height       : setting.height ? setting.height : setting.targetHeight,
+                aspectRatio  : 1,
+                allowRotation: setting.allowRotation,
+                width        : setting.targetWidth,
+                height       : setting.targetHeight,
                 cancelText   : $translate.instant('cancel'),
                 chooseText   : $translate.instant('submit')
             }).then(function (canvas) {
                 defer.resolve(canvas.toDataURL());
+                //rotateBase64Image(canvas.toDataURL()).then(defer.resolve);
             }).catch(defer.reject);
 
             return defer.promise;
@@ -133,50 +239,6 @@
             }
 
 
-        }
-
-        function filterModal(image) {
-            var defer = $q.defer();
-
-            function openFilter(image) {
-                var templateFilter = '<ion-modal-view class="modal-capture"><ion-header-bar class="bar-light"><button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="cropImage()"></button><div class="title">{{ \'ION-PHOTO.FILTERS\' | translate }}</div><button class="button button-icon " ng-click="submitFilter()"><i class="icon ion-ios-arrow-thin-right"></i></button></ion-header-bar><ion-content><photo-filter image="form.photo"></photo-filter></ion-content></ion-modal-view>';
-                var scope          = $rootScope.$new(true);
-                scope.closeFilter  = closeFilter;
-                scope.submitFilter = submitFilter;
-                tempImage          = image;
-                scope.form         = {
-                    photo: image
-                };
-
-                scope.modalFilter = $ionicModal.fromTemplate(templateFilter, {
-                    scope: scope
-                });
-
-                scope.cropImage = function () {
-                    scope.modalFilter.remove();
-                    cropModal(tempImage)
-                        .then(openFilter);
-                };
-
-                scope.modalFilter.show();
-
-                function closeFilter() {
-                    defer.reject();
-                    scope.modalFilter.hide();
-                }
-
-                function submitFilter() {
-                    var canvas  = window.document.getElementById('image');
-                    var dataUrl = canvas.toDataURL();
-                    scope.modalFilter.remove();
-                    defer.resolve(dataUrl);
-                }
-
-            }
-
-            openFilter(image);
-
-            return defer.promise;
         }
 
 
@@ -273,7 +335,6 @@
             }
             return defer.promise;
         }
-
 
 
     }
