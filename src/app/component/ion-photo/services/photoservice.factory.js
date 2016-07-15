@@ -3,15 +3,19 @@
 
     angular.module('ion-photo').factory('PhotoService', PhotoServiceFactory);
 
-    function PhotoServiceFactory($ionicActionSheet, $timeout, PhotoFilter, $translate, AppConfig, Share, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, $cordovaCamera, $cordovaCapture, $q) {
+    function PhotoServiceFactory($ionicActionSheet, $cordovaCapture, $cordovaCamera, $timeout, PhotoFilter, $translate, AppConfig, Share, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, ActionSheet, $q) {
 
         var deviceInformation = ionic.Platform.device();
+        var isIOS             = ionic.Platform.isIOS();
+
+        console.log('isIOS', isIOS);
 
         // Default Setting
         var tempImage;
         var cordova = window.cordova;
         var setting = {
             jrCrop            : true,
+            filterImage       : true,
             quality           : 90,
             allowEdit         : false,
             filter            : true,
@@ -23,15 +27,21 @@
             aspectRatio       : 0
         };
 
+
         return {
             open  : openModal,
             crop  : cropModal,
-            filter: filterModal,
-            share : shareModal,
+            filter: filterModal
         };
 
         function filterModal(image) {
             var defer = $q.defer();
+
+            if (setting.filterImage) {
+                openFilter(image);
+            } else {
+                defer.resolve(image);
+            }
 
             function openFilter(image64) {
                 var scope  = $rootScope.$new(true);
@@ -46,16 +56,21 @@
                 }).then(function (modal) {
                     scope.modalFilter = modal;
                     scope.modalFilter.show();
+                    scope.loading = true;
                     $timeout(function () {
-                        PhotoFilter.init('image', image64);
+                        PhotoFilter.init('image', image64).then(function () {
+                            scope.loading = false;
+                        });
                     }, 500)
                 });
 
+                scope.actionShowFilter = function (option) {
+                    scope.showFilter = option;
+                };
 
                 scope.closeModalFilter = function () {
                     scope.modalFilter.hide();
                 };
-
 
                 scope.cropImage = function () {
                     scope.modalFilter.remove();
@@ -72,23 +87,23 @@
                     PhotoFilter.apply(filter.filter);
                 };
 
-                scope.showFilter  = false;
-                scope.showFilters = true;
+                scope.filterEdit = false;
+                scope.showFilter = true;
 
                 scope.selectFilter = function (filter) {
                     console.log('filter', filter);
-                    scope.filter      = filter;
-                    scope.showFilters = false;
+                    scope.filter     = filter;
+                    scope.filterEdit = true;
                 };
 
                 scope.doneFilter = function () {
-                    scope.showFilters = true;
+                    scope.filterEdit = false;
                 };
 
                 scope.cancelFilter = function (filter) {
                     filter.slider.value = 0;
                     filter.setSlider(filter.slider);
-                    scope.showFilters = true;
+                    scope.filterEdit = false;
                 };
 
                 scope.$watch('scope.filterSelected', function (item) {
@@ -100,6 +115,13 @@
                     }
                 });
 
+                scope.$watch('filter.slider.value', function (value) {
+                    if (value) {
+                        scope.filter.slider.value = parseInt(value);
+                        scope.filter.setSlider(scope.filter.slider);
+                    }
+                });
+
                 scope.closeFilter = function () {
                     defer.reject();
                     scope.modalFilter.hide();
@@ -107,7 +129,6 @@
 
                 scope.submitFilter = function () {
                     var dataUrl = PhotoFilter.getImage();
-                    //console.log(dataUrl);
                     scope.modalFilter.remove();
                     defer.resolve(dataUrl);
                 };
@@ -117,18 +138,22 @@
                 scope.$on('$destroy', function () {
                     scope.modal.remove();
                 });
-
-
             }
-
-            openFilter(image);
 
             return defer.promise;
         }
 
-        function openModal(options) {
+        function openModal(setOptions) {
             var defer = $q.defer();
             console.log(deviceInformation);
+
+            // Change Settings
+            if (setOptions) {
+                setOptions.each(function (value, key) {
+                    setting[key] = value;
+                });
+            }
+
             var options     = {
                 quality           : setting.quality,
                 aspectRatio       : setting.aspectRatio,
@@ -164,10 +189,7 @@
                 capture(index, options)
                     .then(cropModal)
                     .then(filterModal)
-                    .then(function (resp) {
-                        console.log('Final rest');
-                        defer.resolve(resp);
-                    })
+                    .then(defer.resolve)
                     .catch(buttonCancel);
             }
 
@@ -181,66 +203,70 @@
 
         function cropModal(image) {
             var defer = $q.defer();
-
             if (window.cordova) {
                 image = 'data:image/jpeg;base64,' + image;
             }
 
-            $jrCrop.crop({
-                url          : image,
-                aspectRatio  : 1,
-                allowRotation: setting.allowRotation,
-                width        : setting.targetWidth,
-                height       : setting.targetHeight,
-                cancelText   : $translate.instant('cancel'),
-                chooseText   : $translate.instant('submit')
-            }).then(function (canvas) {
-                defer.resolve(canvas.toDataURL());
-                //rotateBase64Image(canvas.toDataURL()).then(defer.resolve);
-            }).catch(defer.reject);
+            if (setting.jrCrop) {
+                $jrCrop.crop({
+                    url          : image,
+                    aspectRatio  : 1,
+                    allowRotation: setting.allowRotation,
+                    width        : setting.targetWidth,
+                    height       : setting.targetHeight,
+                    cancelText   : $translate.instant('cancel'),
+                    chooseText   : $translate.instant('submit')
+                }).then(function (canvas) {
+                    defer.resolve(canvas.toDataURL());
+                }).catch(defer.reject);
+            } else {
+                defer.resolve(image);
+            }
 
             return defer.promise;
         }
 
-        function shareModal(image) {
-            var template =
-                    '<ion-modal-view class="modal-share"> <ion-header-bar class="bar-dark"> <div class="title">{{ \'submit\' | translate }}</div> <button class="button button-positive" ng-click="modal.hide()"> <i class="icon ion-arrow-right-b"></i> </button> </ion-header-bar> <ion-content ng-cloak> <div id="image"> <img ng-src="{{form.photo}}"> <div class="title">{{ form.title }}</div></div> <ul class="list"> <li class="padding"> <button ng-repeat="social in sociais" ng-click="share(form, social)"class="button button-block button-{{ social }}"><i class="icon ion-social-{{ social }}"></i>{{ social | uppercase }} </button> </li> </ul> </ion-content> </ion-modal-view>';
+        function show(params) {
 
-            if (image === undefined) return false;
-            var scope   = $rootScope.$new(true);
-            var socials = [
-                'facebook',
-                'instagram',
-                'whatsapp',
-                'twitter'
-            ];
-            //image = image.attributes;
+            var defer = $q.defer();
 
-            scope.sociais = socials;
-            scope.share   = shareSocial;
-            scope.form    = {
-                title: '',
-                photo: image
-            };
+            if (window.cordova) {
 
-            scope.modal = $ionicModal.fromTemplate(template, {
-                scope: scope
-            });
-            scope.modal.show();
+                var options = {
+                    title                    : params.title,
+                    buttonLabels             : _.map(params.options, function (item) {return item.text}),
+                    addCancelButtonWithLabel : params.cancelText,
+                    androidEnableCancelButton: true,
+                    androidTheme             : window.plugins.actionsheet.ANDROID_THEMES.THEME_HOLO_LIGHT
+                };
 
-
-            function shareSocial(social, form) {
-                console.log('share', social, form);
-                Share.share(social, {
-                    text : form.title,
-                    image: form.photo,
-                    link : AppConfig.app.url
+                $cordovaActionSheet.show(options).then(function (btnIndex) {
+                    if (btnIndex !== 3) {
+                        defer.resolve(btnIndex);
+                    }
+                    defer.reject('cancel');
                 });
+
+            } else {
+                var actionSheet = $ionicActionSheet.show({
+                    buttons      : params.options,
+                    titleText    : params.title,
+                    cancelText   : params.cancelText,
+                    cancel       : function () {
+                        actionSheet();
+                    },
+                    buttonClicked: function (btnIndex) {
+                        actionSheet();
+                        if (btnIndex !== 3) {
+                            defer.resolve(btnIndex);
+                        }
+                        defer.reject('cancel');
+                    }
+                });
+
             }
-
-
+            return defer.promise;
         }
-
 
         function capture(type, options) {
             var defer = $q.defer();
@@ -291,48 +317,6 @@
             }
 
 
-            return defer.promise;
-        }
-
-        function show(params) {
-
-            var defer = $q.defer();
-
-            if (window.cordova) {
-
-                var options = {
-                    title                    : params.title,
-                    buttonLabels             : _.map(params.options, function (item) {return item.text}),
-                    addCancelButtonWithLabel : params.cancelText,
-                    androidEnableCancelButton: true,
-                    androidTheme             : window.plugins.actionsheet.ANDROID_THEMES.THEME_HOLO_LIGHT
-                };
-
-                $cordovaActionSheet.show(options).then(function (btnIndex) {
-                    if (btnIndex !== 3) {
-                        defer.resolve(btnIndex);
-                    }
-                    defer.reject('cancel');
-                });
-
-            } else {
-                var actionSheet = $ionicActionSheet.show({
-                    buttons      : params.options,
-                    titleText    : params.title,
-                    cancelText   : params.cancelText,
-                    cancel       : function () {
-                        actionSheet();
-                    },
-                    buttonClicked: function (btnIndex) {
-                        actionSheet();
-                        if (btnIndex !== 3) {
-                            defer.resolve(btnIndex);
-                        }
-                        defer.reject('cancel');
-                    }
-                });
-
-            }
             return defer.promise;
         }
 

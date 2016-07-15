@@ -8,6 +8,8 @@
 
 var gulp = require('gulp');
 var wrench = require('wrench');
+// pass along gulp reference to have tasks imported
+require('gulp-release-tasks')(gulp);
 
 /**
  *  This will load all js or coffee files in the gulp directory

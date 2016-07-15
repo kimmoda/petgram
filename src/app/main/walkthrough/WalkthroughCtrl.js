@@ -24,22 +24,29 @@
             vm.device = 'android';
         }
 
-        vm.slides                          = [{
-            text: 'STEP1',
-            img : 'img/intro1.jpg'
-        }, {
-            text: 'STEP2',
-            img : 'img/intro2.jpg'
-        }, {
-            text: 'STEP3',
-            img : 'img/intro3.jpg'
-        }, {
-            text: 'STEP4',
-            img : 'img/intro4.jpg'
-        }, {
-            text: 'STEP5',
-            img : 'img/intro5.jpg'
-        }
+        vm.slides                          = [
+            {
+                text: 'STEP1',
+                img : 'img/intro1.png'
+            }, {
+                text: 'STEP2',
+                img : 'img/intro2.png'
+            }, {
+                text: 'STEP3',
+                img : 'img/intro3.png'
+            }, {
+                text: 'STEP4',
+                img : 'img/intro4.png'
+            }, {
+                text: 'STEP5',
+                img : 'img/intro5.png'
+            }, {
+                text: 'STEP6',
+                img : 'img/intro6.png'
+            }, {
+                text: 'STEP7',
+                img : 'img/intro7.png'
+            }
         ];
         window.localStorage['walkthrough'] = true;
 

@@ -5,12 +5,14 @@
 
     function sliderFilterDirective() {
         return {
-            restrict   : 'E',
-            link       : sliderFilterLink,
-            scope      : {
+            restrict: 'E',
+            link    : sliderFilterLink,
+            scope   : {
                 filter: '='
             },
-            templateUrl: 'app/component/ion-photo/view/slider-filter.html'
+            template: '<div class="item range range-positive"> ' +
+            '<input type="range" name="filter.slider.name" min="-100" max="100" step="1" ng-model="filter.slider.value"  > ' +
+            '</div>'
         };
 
         function sliderFilterLink(scope, elem, attr) {

@@ -22,7 +22,7 @@
 
                 $scope.submitLogin = function (rForm, data) {
                     var form = angular.copy(data);
-                    if (!rForm.$invalid) {
+                    if (rForm.$valid) {
                         Loading.start();
                         User.signIn(form).then(function (data) {
                             console.log(data);

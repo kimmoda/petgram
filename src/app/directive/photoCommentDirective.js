@@ -146,10 +146,10 @@
                         $scope.ngModel.comments = resp;
                         $scope.loading          = false;
 
-                        //$timeout(function () {
-                        //    // Scroll to bottom
-                        //    $ionicScrollDelegate.scrollBottom();
-                        //}, 1);
+                        $timeout(function () {
+                            // Scroll to bottom
+                            $ionicScrollDelegate.scrollBottom();
+                        }, 1);
                     });
                 }
 

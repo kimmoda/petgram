@@ -15,7 +15,7 @@
         </div>
 
         <ion-list class="list" ng-if="!loading" can-swipe="true">
-            <ion-item ng-repeat="item in comments | orderBy:'createdAt':true" class="item item-avatar">
+            <ion-item ng-repeat="item in comments | orderBy:'createdAt':false" class="item item-avatar">
                 <img ng-src="{{ ::item.user.photo._url || './img/user.png'}}">
 
                 <div class="row">

@@ -3,7 +3,7 @@
 
     angular.module('app.main').controller('MainTabCtrl', MainTabController);
 
-    function MainTabController($localStorage, $scope, PhotoService, User, $cordovaSplashscreen, $ionicPlatform, ActionSheet, $q, Gallery, PhotoFilter, ParseFile, $ionicModal, Loading, Toast) {
+    function MainTabController($localStorage, $scope, PhotoService, User, $ionicPlatform, $q, Gallery, PhotoFilter, ParseFile, $ionicModal, Loading, Toast) {
         var vm = this;
         var tempImage;
 
@@ -48,7 +48,7 @@
                 // shows the use of dynamic values in mentio-id and mentio-for to link elements
                 $scope.searchPeople = function (term) {
                     var peopleList = [];
-                    return User.getFollowers().then(function (response) {
+                    return User.getFollowing().then(function (response) {
                         _.each(response, function (item) {
                             item.imageUrl = item.photo ? item.photo._url : 'img/user.png';
                             item.bio      = item.status;

@@ -4,7 +4,7 @@
 // go here for more info
 // npm install -S gulp-util yargs map-stream gulp-rename traverse yandex-translate vinyl-transform gulp-json-format gulp-jsbeautifier
 // https://tech.yandex.com/translate/
-var YANDEX_API_KEY = 'trnsl.1.1.20151231T023309Z.303cfcb0d309b4d4.c701d72bbd3edb7916cc6759995de6191b63993b';
+var YANDEX_API_KEY = 'trnsl.1.1.20160715T075017Z.b422ec183ca0e849.4c1f6f5ec1569ea7c9394c7cdb41c07ffe24bead';
 
 var gulp       = require('gulp');
 var gutil      = require('gulp-util');
@@ -34,12 +34,14 @@ gulp.task('translate', function () {
                     }, function (err, res) {
                         if (err) console.log(err);
 
-                        self.update(res.text.toString());
-                        translateCount--;
-                        if (translateCount === 0) {
-                            var finishedJSON = JSON.stringify(appTranslated);
-                            gutil.log(gutil.colors.green('Translated ' + filename));
-                            done(null, finishedJSON);
+                        if (res && res.text) {
+                            self.update(res.text.toString());
+                            translateCount--;
+                            if (translateCount === 0) {
+                                var finishedJSON = JSON.stringify(appTranslated);
+                                gutil.log(gutil.colors.green('Translated ' + filename));
+                                done(null, finishedJSON);
+                            }
                         }
                     });
                 }

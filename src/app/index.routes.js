@@ -5,7 +5,7 @@
     function routes($stateProvider, $urlRouterProvider, $translatePartialLoaderProvider) {
 
         // Translation
-        $translatePartialLoaderProvider.addPart('app/');
+        $translatePartialLoaderProvider.addPart('app');
 
         $stateProvider
 

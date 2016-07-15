@@ -1,21 +1,27 @@
+.platform-ios {
+  #photo-filter {
+    #image {
+      transform: rotateX(180deg);
+    }
+
+  }
+}
+
 #photo-filter {
   .bold {
     font-weight: bold;
   }
 
-  .platform-ios {
-    img {
-      transform: rotateX(180deg);
-    }
-
-    .slider-filters {
-      img {
-        transform: rotateX(0deg);
-      }
-    }
+  #box-image {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    position: relative;
+    overflow: hidden;
   }
+
   img {
-    max-width: 100%;
+    width: 100%;
   }
 
   .slider-filters {

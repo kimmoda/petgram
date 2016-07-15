@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('profileModalEdit', profileModalEditDirective);
 
-    function profileModalEditDirective($ionicModal, User, Loading, UserForm, $state) {
+    function profileModalEditDirective($ionicModal, $rootScope, User, Loading, UserForm, $state) {
 
         return {
             restrict: 'A',
@@ -13,15 +13,12 @@
             template: '',
             link    : function (scope, elem) {
 
-                scope.linkFacebook        = linkFacebook;
-                scope.logout              = logout;
-                scope.submitUpdateProfile = submitUpdateProfile;
-                scope.closeModal          = closeModal;
 
                 elem.bind('click', openModal);
+
                 function init() {
-                    var user   = Parse.User.current().attributes;
-                    scope.form = {
+                    var user         = Parse.User.current().attributes;
+                    scope.form       = {
                         name    : user.name,
                         email   : user.email,
                         status  : user.status,
@@ -30,14 +27,21 @@
                         gender  : user.gender,
                         facebook: user.facebook
                     };
-                    console.log(scope.form);
                     scope.formFields = UserForm.profile;
                 }
 
 
                 function openModal() {
 
+                    scope.linkFacebook        = linkFacebook;
+                    scope.logout              = logout;
+                    scope.submitUpdateProfile = submitUpdateProfile;
+                    scope.closeModal          = closeModal;
+
+                    scope.currentUser = $rootScope.currentUser;
+
                     init();
+
                     $ionicModal.fromTemplateUrl('app/directive/profile-edit-modal.html', {
                         scope: scope
                     }).then(function (modal) {
@@ -67,8 +71,8 @@
                     var dataForm = angular.copy(scope.form);
                     Loading.start();
                     User.update(dataForm).then(function (resp) {
-                        console.log(resp);
-                        scope.user = resp;
+                        scope.user             = resp;
+                        $rootScope.currentUser = resp;
                         Loading.end();
                         scope.closeModal();
                     });

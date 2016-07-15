@@ -41,7 +41,7 @@
                            ng-maxlength="12"
                            ng-model-options="{debounce: 1000}"
                            ng-pattern="/^[a-zA-Z'. -]+$/"
-                           placeholder="Your login"/>
+                           placeholder="{{'yourLogin' | translate}}"/>
                 </label>
 
                 <div ng-if="myForm.username.$dirty">
@@ -60,17 +60,18 @@
                            type="password"
                            name="password"
                            ng-model="form.password"
-                           placeholder="Password"/>
+                           placeholder="{{'password'|translate}}"/>
                 </label>
 
                 <button class="button button-block button-outline button-light "
                         type="submit"
-                        translate="submit">
+                        translate="{{'submit' | translate}}">
                 </button>
 
             </form>
 
-            <span class="term">{{::'termAccept' | translate}} <a href="http://photogramapp.com">{{::'terms' | translate}}</a> </span>
+            <span class="term">{{'termAccept' | translate}} <a
+                    href="https://photogramapp.com">{{'terms' | translate}}</a> </span>
         </div>
 
     </ion-content>

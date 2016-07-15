@@ -1,14 +1,15 @@
 (function () {
     'use strict';
-    angular.module('starter').factory('PhotoFilter', PhotoFilterFactory);
+    angular.module('ion-photo').factory('PhotoFilter', PhotoFilterFactory);
 
     function PhotoFilterFactory($q, $timeout) {
 
-        var image, texture;
+        var image, image3, texture, texture3;
         // Try Canvas
         try {
             var canvas  = fx.canvas();
             var canvas2 = fx.canvas();
+            var canvas3 = fx.canvas();
         } catch (err) {
             alert(err);
             return;
@@ -201,20 +202,11 @@
             // convert the image to a texture
             texture   = canvas.texture(image);
             // replace the image with the canvas
-            canvas.draw(texture)
-                  //.brightnessContrast(imageFilter.brightness, imageFilter.contrast)
-                  //.hueSaturation(imageFilter.hue, imageFilter.saturation)
-                  //.vibrance(imageFilter.vibrance)
-                  //.denoise(imageFilter.denoise * 100)
-                  //.unsharpMask(imageFilter.radius * 100, imageFilter.strength)
-                  //.noise(imageFilter.noise)
-                  //.sepia(imageFilter.sepia)
-                  //.vignette(imageFilter.size, imageFilter.amount)
-                  //.matrixWarp(null, 1)
-                  .update();
+            canvas.draw(texture).update();
             image.src = canvas.toDataURL('image/jpeg', 0.8);
 
             $timeout(function () {
+
                 // Generate Filters Thumb
                 imageFilters.map(function (imageThumb) {
                     var thumbFilter = document.getElementById(imageThumb.id);
@@ -236,7 +228,7 @@
                     }
                 });
                 defer.resolve();
-            }, 500);
+            }, 100);
 
             return defer.promise;
 
@@ -470,9 +462,8 @@
 
         function apply(resFilter) {
 
-            //console.log('apply filter', resFilter);
-            //console.log('filters Adjust', filters.Adjust);
             imageFilter = resFilter;
+
             canvas
                 .draw(texture)
                 .brightnessContrast(imageFilter.brightness, imageFilter.contrast)
@@ -525,7 +516,16 @@
         }
 
         function getImage() {
-            return canvas.toDataURL('image/jpeg', 0.8);
+            var defer = $q.defer();
+            var img3  = new Image();
+            img3.src  = image.src;
+
+            // Generate Image
+            image3   = document.getElementById('image3');
+            texture3 = canvas3.texture(img3);
+            canvas3.draw(texture3).update();
+            defer.resolve(canvas3.toDataURL('image/jpeg', 0.8));
+            return defer.promise;
         }
 
 

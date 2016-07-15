@@ -38,12 +38,16 @@
 
             function openModal() {
 
-                window.StatusBar.styleDefault();
+                if(window.cordova) {
+                    window.StatusBar.styleDefault();
+                }
 
                 scope.closeModal = function () {
                     scope.modal.hide();
                     // scope.modal.remove();
-                    window.StatusBar.styleLightContent();
+                    if(window.cordova) {
+                        window.StatusBar.styleLightContent();
+                    }
                 };
 
 
