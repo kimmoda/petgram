@@ -33,7 +33,7 @@
         }
     }
 
-    function runIonic($ionicPlatform, $localStorage, $translate, $cordovaGlobalization, $cordovaSplashscreen, ConnectMonitor, AppConfig, User) {
+    function runIonic($ionicPlatform, $localStorage, $translate, $cordovaGlobalization, $cordovaSplashscreen, OneSignal, ConnectMonitor, AppConfig, User) {
 
         $ionicPlatform.ready(function () {
 
@@ -57,30 +57,18 @@
                 }
             }
 
-//
+            // Hide Splash Screen
             if (navigator && navigator.splashscreen) {
                 $cordovaSplashscreen.hide();
             }
 
-            //OneSignal.init(AppConfig.onesignal.id, AppConfig.onesignal.google);
+            // One Signal
+            OneSignal
+                .init(AppConfig.onesignal.id, AppConfig.onesignal.google)
+                .then(function () {
+                    OneSignal.getIds();
+                });
 
-            // Enable to debug issues.
-            //if (window.plugins.OneSignal) {
-            //    window.plugins.OneSignal.setLogLevel({
-            //        logLevel   : 4,
-            //        visualLevel: 4
-            //    });
-            //
-            //    // Update with your OneSignal AppId and googleProjectNumber before running.
-            //    window.plugins.OneSignal.init(AppConfig.onesignal.id, {googleProjectNumber: AppConfig.onesignal.google}, function (jsonData) {
-            //        //alert("Notification received:\n" + JSON.stringify(jsonData));
-            //        console.log(jsonData);
-            //
-            //    });
-            //
-            //    window.plugins.OneSignal.enableInAppAlertNotification(true);
-            //
-            //}
             //ConnectMonitor.watch();
         });
 

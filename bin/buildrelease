@@ -1,9 +1,12 @@
 #!/bin/bash
-# Usage: prod.sh 'platform'
-# 
-echo "Minify Application"
+# Usage: ./bin/build.sh 'platform'
+#
+
+echo "#### Cordova Clean Cache ####"
+cordova clean
+echo "#### Compilation Application ####"
 gulp clean
 gulp build
-echo "Build Release "
-cordova build  --release --buildConfig build.json
+echo "#### Build Release " $* " ####"
+cordova build $* --release
 

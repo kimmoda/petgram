@@ -64,8 +64,7 @@
                 return defer.promise;
             },
             signUp                : function (data) {
-                var defer = $q.defer();
-                var user  = new Parse.User()
+                var user = new Parse.User()
                     .set({'name': data.name})
                     .set({'username': data.username})
                     .set({'email': data.email})
@@ -76,34 +75,36 @@
                 acl.setPublicReadAccess(false);
                 acl.setPublicWriteAccess(false);
                 user.setACL(acl);
-                user.save(null, {
-                    success: defer.resolve,
-                    error  : defer.reject
-                });
+                return user.save(null);
 
-                return defer.promise;
             },
             signInViaFacebook     : function (authData) {
-                var defer      = $q.defer();
-                var expiration = new Date();
-                expiration.setSeconds(expiration.getSeconds() + authData.authResponse.expiresIn);
-                expiration = expiration.toISOString();
+                //var expiration = new Date();
+                //expiration.setSeconds(expiration.getSeconds() + authData.authResponse.expiresIn);
+                //expiration = expiration.toISOString();
+
+                var expiration = new Date(new Date().getTime() + authData.authResponse.expiresIn * 1000);
 
                 var facebookAuthData = {
-                    'id'             : authData.authResponse.userID,
-                    'access_token'   : authData.authResponse.accessToken,
-                    'expiration_date': expiration
-                };
+                    id             : authData.authResponse.userID,
+                    access_token   : authData.authResponse.accessToken,
+                    expiration_date: expiration
+                }
+
+                var defer = $q.defer();
+
                 Parse.FacebookUtils.logIn(facebookAuthData, {
-                    success: defer.resolve,
+                    success: function (user) {
+                        console.log('User', user);
+                        defer.resolve(user);
+                    },
                     error  : defer.reject
                 });
+
                 return defer.promise;
             },
             logOut                : function () {
-                var defer = $q.defer();
-                Parse.User.logOut().then(defer.resolve, defer.reject);
-                return defer.promise;
+                return Parse.User.logOut();
             },
             findByEmail           : function (email) {
                 return ParseCloud.run('findUserByEmail', {email: email});
@@ -148,17 +149,10 @@
                 return defer.promise;
             },
             recoverPassword       : function (email) {
-                var defer = $q.defer();
-                Parse.User.requestPasswordReset(email, {
-                    success: defer.resolve,
-                    error  : defer.reject
-                });
-                return defer.promise;
+                return Parse.User.requestPasswordReset(email);
             },
             destroy               : function () {
-                var defer = $q.defer();
-                Parse.User.current().destroy().then(defer.resolve, defer.reject);
-                return defer.promise;
+                return Parse.User.current().destroy();
             },
             setPhoto              : function (parseFile) {
                 var defer = $q.defer();
@@ -182,25 +176,12 @@
             validateEmail         : function (input) {
                 return ParseCloud.run('validateEmail', {email: input});
             },
-            findUsername          : function (username) {
-                var defer = $q.defer();
-                new Parse.Query(this).equalTo('username', username).first({
-                    success: defer.resolve,
-                    error  : defer.reject
-                });
-                return defer.promise;
-            },
             update                : function (params) {
-                var defer = $q.defer();
-                var user  = Parse.User.current();
+                var user = Parse.User.current();
                 angular.forEach(params, function (value, key) {
                     user.set(key, value);
                 });
-                user.save({
-                    success: defer.resolve,
-                    error  : defer.reject
-                });
-                return defer.promise;
+                return user.save();
             },
             delete                : function (data) {
                 return ParseCloud.run('destroyUser', data);

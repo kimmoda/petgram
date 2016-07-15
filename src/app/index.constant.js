@@ -23,8 +23,8 @@
                 //server: 'http://localhost:1337/parse/',
             },
             onesignal      : {
-                id    : '7b08c66d-d5a3-47b9-b091-b7f4a5bb7624',
-                google: 'AIzaSyCEBeAMSs4nrAC-2cvG6N6Q_KqJpnUrnh0'
+                id    : 'd13d00d0-013f-406f-9811-66ce0737d7bc',
+                google: '285805785383'
             },
             map            : {
                 unit: 'mi',

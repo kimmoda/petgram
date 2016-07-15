@@ -28,6 +28,7 @@
 
             function facebookLogin() {
                 console.log('Facebook login');
+
                 scope.loading = true;
 
                 Facebook.logIn().then(function (fbAuthData) {
@@ -40,30 +41,41 @@
                         }).then(function (user) {
                             if (!user.id) {
                                 return User.signInViaFacebook(fbAuthData);
-                            } else {
+                            } else if (user.get('authData')) {
                                 if (user.get('authData').facebook.id === fbData.id) {
                                     return User.signInViaFacebook(fbAuthData);
                                 }
+                            } else {
+                                var deferred = $q.defer();
+                                deferred.reject($translate.instant('emailFacebookTakenText'));
+                                return deferred.promise;
                             }
                         }).then(function () {
                             return User.updateWithFacebookData(fbData);
                         }).then(function (user) {
-                            $rootScope.currentUser = user;
-                            $state.go(AppConfig.routes.home, {
-                                clear: true
-                            });
-                            console.log(user, user.attributes);
-                            $rootScope.$broadcast('onUserLogged');
-                            Loading.end();
-                            Toast.alert({text: $translate.instant('loggedInAsText') + ' ' + user.get('email')});
+                            if(user) {
+                                $rootScope.currentUser = user;
+                                $state.go(AppConfig.routes.home, {
+                                    clear: true
+                                });
+                                console.log(user, user.attributes);
+                                $rootScope.$broadcast('onUserLogged');
+                                Loading.end();
+                                Toast.alert({text: $translate.instant('loggedInAsText') + ' ' + user.get('email')});
+                            } else {
+                                console.log('Error ');
+                            }
                         }, function (error) {
                             Dialog.alert(error);
+                            Loading.end();
+                            scope.loading = false;
                         });
                     }
 
                 }).catch(function (err) {
-                    console.log('err');
+                    console.log('err', err);
                     Loading.end();
+                    scope.loading = false;
                 });
 
             }
