@@ -130,14 +130,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "onesignal-cordova-plugin": {
-        "source": {
-            "type": "registry",
-            "id": "onesignal-cordova-plugin"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-compat": {
         "source": {
             "type": "registry",
@@ -161,5 +153,19 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "parse-push-plugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/taivo/parse-push-plugin",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "ParseAppId": "myAppId",
+            "ParseServerUrl": "https://photogramapp.com/parse/",
+            "ParseGcmSenderId": "285805785383",
+            "ParseAutoRegistration": "true"
+        }
     }
 }

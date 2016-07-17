@@ -14,10 +14,9 @@
         $compileProvider.debugInfoEnabled(false);
     }
 
-    function startParse(AppConfig, $localStorage, $location, $rootScope) {
+    function startParse(AppConfig, $ionicPlatform, $localStorage, $location, $rootScope) {
         Parse.initialize(AppConfig.parse.appId);
-        Parse.serverURL        = AppConfig.parse.server;
-        $rootScope.currentUser = Parse.User.current();
+        Parse.serverURL = AppConfig.parse.server;
 
         if (!$localStorage.unit) {
             $localStorage.unit = AppConfig.map.unit;
@@ -27,13 +26,14 @@
             $localStorage.mapType = AppConfig.map.type;
         }
 
+        $rootScope.currentUser = Parse.User.current();
         console.log($rootScope.currentUser);
         if (!$rootScope.currentUser) {
             $location.path('/');
         }
     }
 
-    function runIonic($ionicPlatform, $localStorage, $translate, $cordovaGlobalization, $cordovaSplashscreen, OneSignal, ConnectMonitor, AppConfig, User) {
+    function runIonic($ionicPlatform, $localStorage, $translate, $cordovaGlobalization, $cordovaSplashscreen, ParsePush, ConnectMonitor, AppConfig, User) {
 
         $ionicPlatform.ready(function () {
 
@@ -62,12 +62,10 @@
                 $cordovaSplashscreen.hide();
             }
 
-            // One Signal
-            OneSignal
-                .init(AppConfig.onesignal.id, AppConfig.onesignal.google)
-                .then(function () {
-                    OneSignal.getIds();
-                });
+            // Start Parse Push
+            if (Parse.User.current()) {
+                ParsePush.init();
+            }
 
             //ConnectMonitor.watch();
         });

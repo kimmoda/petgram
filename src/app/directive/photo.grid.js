@@ -10,7 +10,8 @@
             scope      : {
                 username: '=',
                 user    : '=',
-                profile : '='
+                profile : '=',
+                onReload  : '=',
             },
             templateUrl: 'app/directive/photoGridDirective.html',
             link       : photoGridCtrl
@@ -103,9 +104,9 @@
                         showGalleries();
                     }
 
-                    $scope.$broadcast('scroll.infiniteScrollComplete');
-                    $scope.$broadcast('scroll.refreshComplete');
                     $scope.loading = false;
+                    $rootScope.$broadcast('scroll.infiniteScrollComplete');
+                    $rootScope.$broadcast('scroll.refreshComplete');
 
                 }).catch(function () {
                     if ($scope.data.length === 0) {

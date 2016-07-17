@@ -17,6 +17,15 @@
 
 .platform-android {
 
+  .has-subheader {
+    top:110px !important;
+  }
+
+  .bar.bar-header .title {
+    position: absolute !important;
+    left: 15px !important;
+  }
+
   .has-header {
     top: 56px;
   }

@@ -22,10 +22,6 @@
                 server: 'https://photogramapp.com/parse/',
                 //server: 'http://localhost:1337/parse/',
             },
-            onesignal      : {
-                id    : 'd13d00d0-013f-406f-9811-66ce0737d7bc',
-                google: '285805785383'
-            },
             map            : {
                 unit: 'mi',
                 type: 'normal',

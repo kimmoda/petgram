@@ -10,6 +10,7 @@
 
     <ion-content>
 
-        <photo-list profile="true" load="vm.openProfile" open-likers="vm.openLikers"></photo-list>
+        <ion-refresher pulling-text="Loading" on-refresh="onReload()"></ion-refresher>
+        <photo-list profile="true" load="vm.openProfile" open-likers="vm.openLikers" on-reload="onReload"></photo-list>
     </ion-content>
 </ion-view>

@@ -19,7 +19,6 @@
     <ion-spinner></ion-spinner>
 </div>
 
-<ion-refresher pulling-text="{{'loadingText'| translate}}" on-refresh="onReload()"></ion-refresher>
 
 <div class="list card " ng-repeat="gallery in data | orderBy:'createdAt':true" ng-if="showGalleries()">
 

@@ -12,6 +12,7 @@
                 profile   : '=',
                 load      : '=',
                 openLikers: '=',
+                onReload  : '=',
             },
             templateUrl: 'app/directive/photoListDirective.html',
             link       : photoListController
@@ -109,8 +110,8 @@
                     }
 
                     $scope.loading = false;
-                    $scope.$broadcast('scroll.infiniteScrollComplete');
-                    $scope.$broadcast('scroll.refreshComplete');
+                    $rootScope.$broadcast('scroll.infiniteScrollComplete');
+                    $rootScope.$broadcast('scroll.refreshComplete');
 
                 }).catch(function () {
                     if ($scope.data.length === 0) {
@@ -157,9 +158,11 @@
 
             $scope.action = function (gallery) {
 
-                var buttons = [{
-                    text: '<i class="icon ion-alert-circled"></i>' + $translate.instant('reportText')
-                }];
+                var buttons = [
+                    {
+                        text: '<i class="icon ion-alert-circled"></i>' + $translate.instant('reportText')
+                    }
+                ];
 
 
                 console.log(gallery);

@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('User', UserFactory);
 
-    function UserFactory($q, $cordovaDevice, ParseCloud) {
+    function UserFactory($q, $cordovaDevice, ParseCloud, ParsePush) {
 
         var User = Parse.User.extend({}, {
             profile               : function (username) {
@@ -54,6 +54,10 @@
                         User.update(device).then(function () {
                             defer.resolve(currentUser);
                         }).catch(defer.reject)
+
+                        ParsePush.init().then(function () {
+                            ParsePush.subscribeUser();
+                        });
 
                         console.log('updateUser', device);
                         //user.save(defer.resolve, defer.reject);

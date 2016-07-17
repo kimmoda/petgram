@@ -65,11 +65,12 @@
         </div>
 
         <div class="item item-divider" translate="recentText">Recent</div>
+        <ion-refresher pulling-text="Loading" on-refresh="onReload()"></ion-refresher>
         <div class="tab" ng-if="vm.tab.list && !vm.loading" >
-            <photo-list username="vm.user.attributes.username"></photo-list>
+            <photo-list username="vm.user.attributes.username" on-reload="onReload"></photo-list>
         </div>
         <div class="tab" ng-if="vm.tab.grid && !vm.loading">
-            <photo-grid username="currentUser.username"></photo-grid>
+            <photo-grid username="currentUser.username" on-reload="onReload"></photo-grid>
         </div>
 
     </ion-content>

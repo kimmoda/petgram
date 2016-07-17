@@ -37,25 +37,20 @@
         function getMe() {
 
             var defer = $q.defer();
-
-            if (me) {
-                defer.resolve(me);
-            }
-
             if (window.cordova) {
 
-                $cordovaFacebook.api('me?fields=name,first_name,last_name,gender,email', ['public_profile'])
-                                .then(defer.resolve, defer.reject);
+                $cordovaFacebook
+                    .api('me?fields=name,first_name,last_name,gender,email', ['public_profile'])
+                    .then(defer.resolve, defer.reject);
 
             } else {
-                facebook.api('/me', {fields: 'name, first_name, last_name, gender, email'})
-                        .then(function (response) {
-                            if (!response || response.error) {
-                                defer.reject(response.error);
-                            } else {
-                                defer.resolve(response);
-                            }
-                        });
+                facebook.api('/me', {fields: 'name, first_name, last_name, gender, email'}).then(function (response) {
+                    if (!response || response.error) {
+                        defer.reject(response.error);
+                    } else {
+                        defer.resolve(response);
+                    }
+                });
             }
 
             return defer.promise;

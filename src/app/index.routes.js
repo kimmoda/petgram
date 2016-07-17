@@ -52,9 +52,12 @@
             .state('logout', {
                 url         : '/logout',
                 template    : '<ion-view view-title="Logout" cache-view="false"><ion-content></ion-content></ion-view>',
-                controller  : function (User, $state) {
-                    User.logOut();
-                    $state.go('user.login', {clear: true});
+                controller  : function (User, $localStorage, $state) {
+                    //Parse.User.logOut();
+                    delete window.localStorage['Parse/myAppId/currentUser'];
+                    delete window.localStorage['Parse/myAppId/installationId'];
+                    $localStorage.$reset({});
+                    $state.go('user.intro', {clear: true});
                 },
                 controllerAs: 'vm'
             })

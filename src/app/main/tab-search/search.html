@@ -24,6 +24,7 @@
         </button>
     </ion-header-bar>
     <ion-content class="has-subheader">
-        <photo-grid user=""></photo-grid>
+        <ion-refresher pulling-text="Loading" on-refresh="onReload()"></ion-refresher>
+        <photo-grid user="" on-reload="onReload"></photo-grid>
     </ion-content>
 </ion-view>

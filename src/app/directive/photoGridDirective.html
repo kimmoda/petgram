@@ -19,8 +19,6 @@
   <ion-spinner ></ion-spinner>
 </div>
 
-<ion-refresher pulling-text="{{'loadingText'| translate}}" on-refresh="onReload()"></ion-refresher>
-
 <div class="row animated fadeIn " ng-if="$index % 3 === 0" ng-repeat="image in data | orderBy:'createdAt':true">
   <div class="col col-33 item-animate1" ng-if="$index < data.length">
     <img ng-if="profile" profile-modal user="data[$index].user.obj" ng-src="{{ ::data[$index].imageThumb._url}}" width="100%" />

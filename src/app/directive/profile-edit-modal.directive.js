@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('profileModalEdit', profileModalEditDirective);
 
-    function profileModalEditDirective($ionicModal, $rootScope, User, Loading, UserForm, $state) {
+    function profileModalEditDirective($ionicModal, $rootScope, $localStorage, User, Loading, UserForm, $state) {
 
         return {
             restrict: 'A',
@@ -37,8 +37,7 @@
                     scope.logout              = logout;
                     scope.submitUpdateProfile = submitUpdateProfile;
                     scope.closeModal          = closeModal;
-
-                    scope.currentUser = $rootScope.currentUser;
+                    scope.currentUser         = $rootScope.currentUser;
 
                     init();
 
@@ -57,7 +56,10 @@
                 }
 
                 function logout() {
-                    $state.go('logout');
+                    delete window.localStorage['Parse/myAppId/currentUser'];
+                    delete window.localStorage['Parse/myAppId/installationId'];
+                    $localStorage.$reset({});
+                    $state.go('user.intro', {clear: true});
                     scope.closeModal();
                 }
 
