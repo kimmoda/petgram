@@ -2,7 +2,7 @@
 
     angular.module('app.main').factory('FeedbackModal', FeedbackModalFactory);
 
-    function FeedbackModalFactory($q, AppConfig, GalleryFeedback, $rootScope, GalleryFeedbackForm, $ionicModal, Toast) {
+    function FeedbackModalFactory($q, AppConfig, GalleryFeedback, $rootScope, GalleryFeedbackForm, $ionicModal, Loading, Toast) {
         var path = AppConfig.path;
 
         return {
@@ -20,8 +20,11 @@
 
             function submitFeedback() {
                 var dataForm = angular.copy($scope.form);
+                Loading.start();
                 GalleryFeedback.create(dataForm).then(function (resp) {
+                    Loading.end();
                     closeModal();
+
                 });
             }
 

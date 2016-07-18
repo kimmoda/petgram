@@ -45,7 +45,7 @@
             vm.loadingFollow = true;
 
 
-            User.follow(vm.user.userObj.id).then(function (resp) {
+            User.follow(vm.user.obj.id).then(function (resp) {
                 console.log('Follow result', resp);
                 vm.user.isFollow = (resp === 'follow') ? true : false;
                 if (resp == 'follow') {

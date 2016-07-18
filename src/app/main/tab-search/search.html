@@ -15,7 +15,6 @@
             <input type="search" ng-model="params.search"
                    ng-change="onSearch()"
                    ng-model-options="{debounce:1000}"
-                   style="text-transform:lowercase"
                    placeholder="{{ 'searchText' | translate }}">
         </label>
         <button class="button button-clear" ng-if="search.length"
@@ -25,6 +24,53 @@
     </ion-header-bar>
     <ion-content class="has-subheader">
         <ion-refresher pulling-text="Loading" on-refresh="onReload()"></ion-refresher>
-        <photo-grid user="" on-reload="onReload"></photo-grid>
+
+        <div class="center padding" ng-if="showErrorView()">
+            <div class="error ">
+                <i class="icon icon-large ion-ios-cloud-download-outline"></i>
+                <p>{{ "errorText" | translate }}</p>
+                <button class="button button-primary" ng-click="onReload()">
+                    {{ "tryAgainText" | translate }}
+                </button>
+            </div>
+
+        </div>
+        <div class="center padding" ng-if="showEmptyView()">
+            <div class="error">
+                <i class="icon icon-large ion-android-alert"></i>
+                <p>{{ "galleriesNotFoundText" | translate }}</p>
+            </div>
+        </div>
+
+        <div class="center padding" ng-if="loading">
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <div class="row animated fadeIn " ng-if="$index % 3 === 0" ng-repeat="image in data | orderBy:'createdAt':true">
+            <div class="col col-33 item-animate1" ng-if="$index < data.length" ui-sref="tab.searchProfile({username: data[$index].user.username})">
+                <img ng-if="profile" profile-modal user="data[$index].user.obj"
+                     ng-src="{{ ::data[$index].imageThumb._url}}" width="100%"/>
+                <img ng-if="!profile" ng-src="{{ ::data[$index].imageThumb._url}}" width="100%"/>
+            </div>
+            <div class="col col-33 item-animate1" ng-if="$index + 1 < data.length" ui-sref="tab.searchProfile({username: data[$index].user.username})">
+                <img ng-if="profile" profile-modal user="data[$index + 1].user.obj"
+                     ng-src="{{ ::data[$index + 1].imageThumb._url}}" width="100%"/>
+                <img ng-if="!profile" ng-src="{{ ::data[$index + 1].imageThumb._url}}" width="100%"/>
+            </div>
+            <div class="col col-33 item-animate1" ng-if="$index + 2 < data.length" ui-sref="tab.searchProfile({username: data[$index].user.username})">
+                <img ng-if="profile" profile-modal user="data[$index + 2].user.obj"
+                     ng-src="{{ ::data[$index + 2].imageThumb._url}}" width="100%"/>
+                <img ng-if="!profile" ng-src="{{ ::data[$index + 2].imageThumb._url}}" width="100%"/>
+            </div>
+
+        </div>
+
+        <ion-infinite-scroll
+                on-infinite="onLoadMore()"
+                ng-if="moreDataCanBeLoaded()"
+                spinner
+                distance="1%">
+        </ion-infinite-scroll>
+
     </ion-content>
 </ion-view>

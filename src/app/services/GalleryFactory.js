@@ -53,6 +53,9 @@
                 feed       : function (params) {
                     return ParseCloud.run('feedGallery', params);
                 },
+                search       : function (params) {
+                    return ParseCloud.run('searchGallery', params);
+                },
                 follow     : function (params) {
                     console.log('Follow', params);
                     return ParseCloud.run('followUser', params);

@@ -162,6 +162,28 @@
                 }
             })
 
+            .state('tab.searchProfile', {
+                url  : '/search/:username',
+                views: {
+                    tabSearch: {
+                        controller  : 'ProfileCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/profile/profile.html'
+                    }
+                }
+            })
+
+            .state('tab.searchProfileFollowers', {
+                url  : '/search/:username/followers',
+                views: {
+                    tabSearch: {
+                        controller  : 'UserFollowerCtrl',
+                        controllerAs: 'vm',
+                        templateUrl : 'app/main/user-followers/user-followers.html'
+                    }
+                }
+            })
+
             .state('tab.map', {
                 url  : '/map',
                 views: {

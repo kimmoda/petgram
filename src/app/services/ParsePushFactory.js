@@ -17,6 +17,7 @@
             var installationObj = Parse.Object.extend('_Installation');
             return new installationObj()
                 .set('deviceType', 'android')
+                .set('user', Parse.User.current())
                 .set('installationId', installationId).save();
         }
 

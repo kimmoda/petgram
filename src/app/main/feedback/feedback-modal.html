@@ -1,13 +1,13 @@
 <ion-modal-view class="modal-profile">
     <ion-header-bar class="bar-light">
         <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
-        <div class="title" translate="FEEDBACK.TITLE"></div>
+        <div class="title" translate="feedbackTitle"></div>
     </ion-header-bar>
     <ion-content>
         <formly-form model="form" form="rForm" fields="formFields">
         </formly-form>
         <div class="padding">
-            <button class="button button-block button-positive" ng-click="submitFeedback()"><span translate="BUTTON.SEND"></span></button>
+            <button class="button button-block button-positive" ng-click="submitFeedback()"><span translate="submit"></span></button>
         </div>
     </ion-content>
 </ion-modal-view>

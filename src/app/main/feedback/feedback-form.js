@@ -11,22 +11,22 @@
             type: 'input',
             templateOptions: {
                 type: 'text',
-                placeholder: $translate.instant('FEEDBACK.TITLE'),
+                placeholder: $translate.instant('feedbackTitle'),
                 required: true
             }
         }, {
             key: 'subject',
             type: 'select',
             templateOptions: {
-                label: $translate.instant('FEEDBACK.SUBJECT'),
+                label: $translate.instant('subject'),
                 options: [{
-                    'label': $translate.instant('FEEDBACK.COMPLAINT'),
+                    'label': $translate.instant('complaint'),
                     'id': 'complaint',
                 }, {
-                    'label': $translate.instant('FEEDBACK.BUG'),
+                    'label': $translate.instant('bug'),
                     'id': 'bug',
                 }, {
-                    'label': $translate.instant('FEEDBACK.SUGGESTION'),
+                    'label': $translate.instant('suggestion'),
                     'id': 'suggestion',
                 }],
                 valueProp: 'id',
@@ -39,7 +39,7 @@
             type: 'textarea',
             templateOptions: {
                 type: 'text',
-                placeholder: $translate.instant('FEEDBACK.MESSAGE'),
+                placeholder: $translate.instant('message'),
                 icon: 'ion-quote',
                 required: true,
                 iconPlaceholder: true

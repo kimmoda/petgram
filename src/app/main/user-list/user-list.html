@@ -42,7 +42,7 @@
 
         <div class="list">
 
-            <div ng-repeat="user in vm.data | filter:searchValue">
+            <div ng-repeat="user in vm.data | filter:searchValue | orderBy:'createdAt':true">
                 <a class="item item-avatar item-button-right">
                     <img ng-src="{{ user.photo._url || 'img/user.png'}}"
                          ng-click="vm.openProfile(user)">

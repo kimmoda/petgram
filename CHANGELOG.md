@@ -1,9 +1,3 @@
----
-  title: Photogram Changelog
-  subtitle: Lists all changes to each version of photogram
-  layout: docs.hbs
----
-
 # Version 3.0 in Development
 
 Server:

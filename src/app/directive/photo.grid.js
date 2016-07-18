@@ -11,7 +11,7 @@
                 username: '=',
                 user    : '=',
                 profile : '=',
-                onReload  : '=',
+                onReload: '=',
             },
             templateUrl: 'app/directive/photoGridDirective.html',
             link       : photoGridCtrl
@@ -33,6 +33,13 @@
                     item.id = item.objectId;
                 }
                 $scope.data.unshift(item);
+            });
+
+
+            $rootScope.$on('gallery:search', function (elem, item) {
+                console.log(elem, item);
+                $scope.params.search = item.text;
+                $scope.onReload();
             });
 
 
@@ -144,6 +151,7 @@
             $scope.onReload = function () {
                 $scope.params.page = 0;
                 $scope.data        = [];
+                $scope.loading     = true;
                 showLoading();
                 loadFeed();
                 $scope.$broadcast('scroll.refreshComplete');
@@ -151,11 +159,13 @@
 
             $scope.action = function (gallery) {
 
-                var buttons = [{
-                    text: '<i class="icon ion-share"></i>' + ('Share')
-                }, {
-                    text: '<i class="icon ion-alert-circled"></i>' + ('Report')
-                }];
+                var buttons = [
+                    {
+                        text: '<i class="icon ion-share"></i>' + ('Share')
+                    }, {
+                        text: '<i class="icon ion-alert-circled"></i>' + ('Report')
+                    }
+                ];
 
 
                 console.log(gallery);

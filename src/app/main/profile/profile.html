@@ -10,6 +10,8 @@
 
     <ion-content scroll-sista="header-tabs" class="animated fadeIn">
 
+        <ion-refresher pulling-text="Loading" on-refresh="onReload()"></ion-refresher>
+
         <div class="profile-top">
             <div class="row">
                 <div class="col-25">
@@ -75,11 +77,8 @@
             <ion-spinner ></ion-spinner>
         </div>
 
-
-
         <div ng-if="!vm.loading">
             <div class="item item-divider" translate="recentText">Recent</div>
-            <ion-refresher pulling-text="Loading" on-refresh="onReload()"></ion-refresher>
             <div class="tab" ng-if="vm.tab.list">
                 <photo-list username="vm.user.username" on-reload="onReload"></photo-list>
             </div>

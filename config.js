@@ -1,56 +1,56 @@
 module.exports = {
     src    : {
-        index    : 'www/index.html',
-        fonts    : 'www/lib/ionic/fonts/**.*',
-        imgs     : 'www/img/**/**.*',
-        path     : 'www/',
-        lib      : 'www/lib/*',
+        index    : 'src/index.html',
+        fonts    : 'src/lib/ionic/fonts/**.*',
+        imgs     : 'src/img/**/**.*',
+        path     : 'src/',
+        lib      : 'src/lib/*',
         sass     : [
             'scss/*.scss',
             'scss/**/*.scss'
         ],
         css      : [
-            'www/css/*.css',
-            'www/css/**/*.css',
-            'www/fonts/***.css',
-            'www/module/**/*.css'
+            'src/css/*.css',
+            'src/css/**/*.css',
+            'src/fonts/***.css',
+            'src/module/**/*.css'
         ],
         js       : [
-            'www/app/*.js',
-            'www/app/**/*.js',
-            '!www/app/**/*.spec.js',
-            'www/component/**/*.js',
-            '!www/component/**/*.spec.js',
-            'www/component/*.js',
-            'www/module/*.js',
-            'www/module/**/*.js',
-            '!www/module/**/*.spec.js',
-            'www/js/*.js'
+            'src/app/*.js',
+            'src/app/**/*.js',
+            '!src/app/**/*.spec.js',
+            'src/component/**/*.js',
+            '!src/component/**/*.spec.js',
+            'src/component/*.js',
+            'src/module/*.js',
+            'src/module/**/*.js',
+            '!src/module/**/*.spec.js',
+            'src/js/*.js'
         ],
         html     : [
-            'www/module/**/*.html'
+            'src/module/**/*.html'
         ],
         translate: [
-            'www/app/**/*.js',
-            'www/app/**/**/*.js',
-            '!www/app/**/**/*.spec.js',
-            'www/app/**/view/*.html',
+            'src/app/**/*.js',
+            'src/app/**/**/*.js',
+            '!src/app/**/**/*.spec.js',
+            'src/app/**/view/*.html',
 
-            'www/component/**/*.js',
-            '!www/component/**/**/*.spec.js',
-            'www/component/**/view/*.html',
+            'src/component/**/*.js',
+            '!src/component/**/**/*.spec.js',
+            'src/component/**/view/*.html',
 
-            'www/module/**/**/*.js',
-            '!www/module/**/*.spec.js',
-            'www/module/**/view/*.html'
+            'src/module/**/**/*.js',
+            '!src/module/**/*.spec.js',
+            'src/module/**/view/*.html'
         ]
     },
     libs   : [
-        'www/lib/ionicons/fonts'
+        'src/lib/ionicons/fonts'
     ],
     sass   : 'scss/ionic.app.scss',
-    source : 'www',
-    dist   : 'dist',
+    source : 'src',
+    dist   : 'www',
     docs   : 'docs',
     bower  : [
         'bower.json',
