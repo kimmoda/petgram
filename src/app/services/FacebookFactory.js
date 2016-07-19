@@ -9,13 +9,16 @@
         var me;
 
         return {
-            getCurrentUser: getCurrentUser,
             logIn         : logIn,
             logOut        : logOut,
             me            : getMe,
             invite        : invite,
             friends       : friends,
             api           : api,
+            getCurrentUser: getCurrentUser,
+            getFriends    : getFriends,
+            postImage     : postImage,
+            postImage1    : postImage1,
             link          : link
         };
 
@@ -31,6 +34,34 @@
         function logOut() {
             var defer = $q.defer();
             $cordovaFacebook.logout().then(defer.resolve, defer.reject);
+            return defer.promise;
+        }
+
+        function postImage(image) {
+            var defer = $q.defer();
+            facebook.api('/me/feed', {
+                method     : 'feed',
+                name       : image.title,
+                link       : 'https://photogram.codevibe.io/',
+                picture    : image.image.url(),
+                caption    : image.title,
+                description: image.title
+            }, {scope: 'publish_actions'}, defer.resolve);
+            return defer.promise;
+        }
+
+        function postImage1(image) {
+            var defer = $q.defer();
+            facebook.api('/me/feed', 'post', {
+                message: image.title,
+                picture: image.image.url()
+            }, defer.resolve);
+            return defer.promise;
+        }
+
+        function getFriends() {
+            var defer = $q.defer();
+            facebook.api('/me/friends', defer.resolve)
             return defer.promise;
         }
 

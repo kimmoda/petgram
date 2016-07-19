@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('facebookLogin', facebookLoginDirective);
 
-    function facebookLoginDirective(Loading, $ionicPlatform, $state, $translate, AppConfig, Facebook, Dialog, User, $rootScope, Toast) {
+    function facebookLoginDirective(Loading, $q, $ionicPlatform, $state, $translate, AppConfig, Facebook, Dialog, User, $rootScope, Toast) {
         return {
             restrict: 'E',
             link    : facebookLoginLink,
@@ -46,14 +46,13 @@
                                     return User.signInViaFacebook(fbAuthData);
                                 }
                             } else {
-                                var deferred = $q.defer();
-                                deferred.reject($translate.instant('emailFacebookTakenText'));
-                                return deferred.promise;
+                                $rootScope.tempUser = user;
+                                $state.go('user.merge', {clear: true});
                             }
                         }).then(function () {
                             return User.updateWithFacebookData(fbData);
                         }).then(function (user) {
-                            if(user) {
+                            if (user) {
                                 $rootScope.currentUser = user;
                                 $state.go(AppConfig.routes.home, {
                                     clear: true
