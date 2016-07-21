@@ -84,16 +84,14 @@
             },
             signInViaFacebook     : function (authData) {
                 //var expiration = new Date();
-                //expiration.setSeconds(expiration.getSeconds() + authData.authResponse.expiresIn);
-                //expiration = expiration.toISOString();
-
-                var expiration = new Date(new Date().getTime() + authData.authResponse.expiresIn * 1000);
 
                 var facebookAuthData = {
                     id             : authData.authResponse.userID,
                     access_token   : authData.authResponse.accessToken,
-                    expiration_date: expiration
-                }
+                    expiration_date: (new Date().getTime() +1000).toString()
+                };
+
+                console.log(authData, facebookAuthData);
 
                 var defer = $q.defer();
 
