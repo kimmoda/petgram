@@ -3,7 +3,7 @@
 
     angular.module('app.main').controller('MainTabCtrl', MainTabController);
 
-    function MainTabController($localStorage, $scope, PhotoService, User, $ionicPlatform, $q, Gallery, PhotoFilter, ParseFile, $ionicModal, Loading, Toast) {
+    function MainTabController($localStorage, $rootScope, $scope, PhotoService, User, $ionicPlatform, $q, Gallery, PhotoFilter, ParseFile, $ionicModal, Loading, Toast) {
         var vm = this;
         var tempImage;
 
@@ -65,6 +65,8 @@
                 $scope.getPeopleTextRaw = function (item) {
                     return '@' + item.username;
                 };
+
+                $scope.theme = $rootScope.theme;
 
                 $ionicModal.fromTemplateUrl('app/main/share/share-modal.html', {
                     scope          : $scope,

@@ -33,7 +33,10 @@
         }
     }
 
-    function runIonic($ionicPlatform, $localStorage, $translate, $cordovaGlobalization, $cordovaSplashscreen, ParsePush, ConnectMonitor, AppConfig, User) {
+    function runIonic($ionicPlatform, $rootScope, $localStorage, $translate, $cordovaGlobalization, $cordovaSplashscreen, ParsePush, ConnectMonitor, AppConfig, User) {
+
+        // Set Theme Color
+        $rootScope.theme = AppConfig.theme;
 
         $ionicPlatform.ready(function () {
 

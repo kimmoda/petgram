@@ -163,7 +163,7 @@
         "is_top_level": true,
         "variables": {
             "ParseAppId": "myAppId",
-            "ParseServerUrl": "https://photogramapp.com/parse/",
+            "ParseServerUrl": "https://photogram.codevibe.com/parse/",
             "ParseGcmSenderId": "285805785383",
             "ParseAutoRegistration": "true"
         }

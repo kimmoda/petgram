@@ -16,7 +16,9 @@
 
                 elem.bind('click', openModal);
 
+
                 function init() {
+                    scope.theme      = $rootScope.theme;
                     var user         = Parse.User.current().attributes;
                     scope.form       = {
                         name    : user.name,

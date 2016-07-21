@@ -14,13 +14,12 @@
                 home : 'tab.home',
                 login: 'user.intro'
             },
-            statusBarColor : '#00796B',
+            theme : 'light',
             gaTrackingId   : 'UA-69485876-2',
             facebookAppId  : '1024016557617380',
             parse          : {
                 appId : 'myAppId',
                 server: 'https://photogram.codevibe.io/parse/',
-                //server: 'http://localhost:1337/parse/',
             },
             map            : {
                 unit: 'mi',

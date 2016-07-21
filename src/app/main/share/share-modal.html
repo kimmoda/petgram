@@ -1,5 +1,5 @@
 <ion-modal-view class="modal-share">
-    <ion-header-bar class="bar-light">
+    <ion-header-bar class="bar bar-{{theme}}">
         <button class="button button-clear button-icon ion-ios-close-empty" ng-click="close()"></button>
         <div class="title" translate="shareGalleryText"></div>
         <!--<button class="button button-clear button-icon ion-ios-arrow-thin-right" ng-click="submit(form)"></button>-->
@@ -31,6 +31,16 @@
                 <i class="icon ion-ios-location"></i>
                 <span translate="addLocale"></span>
             </a>
+
+            <li class="item item-toggle">
+                Compartilhar no Facebook?
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
 
             <a class="item item-icon-left item-button-right" ng-if="form.address.resume">
                 <i class="icon ion-ios-location"></i>

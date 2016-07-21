@@ -50,6 +50,7 @@
                     photo: image64
                 };
 
+                scope.theme = $rootScope.theme;
                 $ionicModal.fromTemplateUrl('app/component/ion-photo/view/filter.modal.html', {
                     scope          : scope,
                     focusFirstInput: true
