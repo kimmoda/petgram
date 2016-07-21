@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('ParsePush', ParsePushFactory);
 
-    function ParsePushFactory($q) {
+    function ParsePushFactory($q, $cordovaDevice) {
 
         return {
             init         : init,
@@ -14,11 +14,17 @@
 
 
         function installation(installationId) {
-            var installationObj = Parse.Object.extend('_Installation');
+            var installationObj = Parse.Object.extend('UserDevice');
             return new installationObj()
-                .set('deviceType', 'android')
+                .set('device', $cordovaDevice.getDevice())
+                .set('cordova', $cordovaDevice.getCordova())
+                .set('model', $cordovaDevice.getModel())
+                .set('platform', $cordovaDevice.getPlatform())
+                .set('uuid', $cordovaDevice.getUUID())
+                .set('version', $cordovaDevice.getVersion())
                 .set('user', Parse.User.current())
-                .set('installationId', installationId).save();
+                .set('installationId', installationId)
+                .save();
         }
 
         function init() {
