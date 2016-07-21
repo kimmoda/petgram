@@ -32,9 +32,9 @@
         <span>{{ ::gallery.createdAt | amTimeAgo}}</span>
     </div>
 
-    <div class="item item-body" on-double-tap="like(gallery.id)" ng-model="gallery">
+    <div class="item item-body" on-double-tap="like(gallery.objectId)" ng-model="gallery">
         <div class="icon ion-ios-heart heart" ng-class="gallery.isLiked ? 'happy' : 'broken' "></div>
-        <i class="icon" ng-if="like"></i> <img ng-src="{{ gallery.image._url}}" id="{{ ::gallery.id}}">
+        <i class="icon" ng-if="like"></i> <img ng-src="{{ gallery.image._url}}" id="{{ ::gallery.objectId}}">
     </div>
     <div class="item item-buttons">
         <div class="row">
@@ -43,21 +43,21 @@
                 <button photo-like ng-model="gallery" ng-if="!gallery.progress"
                         ng-class="gallery.isLiked ? 'ion-ios-heart' : 'ion-ios-heart-outline' "
                         class="button-clear button-icon button-heart"></button>
-                <button ng-click="openComment(gallery.id)"
+                <button ng-click="openComment(gallery.objectId)"
                         ng-model="gallery"
                         class="button-clear button-icon ion-ios-chatbubble-outline"></button>
-                <button ng-click="share(gallery.image._url, gallery.title)" photogram="{{ :: gallery.id }}"
+                <button ng-click="share(gallery.image._url, gallery.title)" photogram="{{ :: gallery.objectId }}"
                         class="button-clear button-icon ion-android-share"></button>
             </div>
             <div class="col text-right">
-                <button ng-click="action(gallery)" photogram="{{ :: gallery.id }}"
+                <button ng-click="action(gallery)" photogram="{{ :: gallery.objectId }}"
                         class="button-clear button-icon ion-android-more-vertical"></button>
             </div>
         </div>
     </div>
     <div class="padding">
 
-    <span class="likes" ng-click="openLikers(gallery.id)">
+    <span class="likes" ng-click="openLikers(gallery.objectId)">
         <i class="icon ion-ios-heart"></i>
         <span ng-if="!gallery.progress">{{ gallery.likesTotal  }}</span>
         <span translate="likesText"></span>
@@ -88,5 +88,5 @@
         on-infinite="onLoadMore()"
         ng-if="moreDataCanBeLoaded()"
         spinner
-        distance="1%">
+        >
 </ion-infinite-scroll>

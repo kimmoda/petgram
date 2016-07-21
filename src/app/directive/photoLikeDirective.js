@@ -14,7 +14,7 @@
                         _model.progress = true;
                         _model.liked    = !_model.liked;
 
-                        Gallery.likeGallery({galleryId: scope.ngModel.galleryObj.id}).then(function (resp) {
+                        Gallery.likeGallery({galleryId: scope.ngModel.objectId}).then(function (resp) {
                             console.log(resp);
                             _model.likes    = resp.likes;
                             _model.progress = false;

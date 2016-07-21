@@ -16,6 +16,13 @@ photo-list {
 
   }
 
+  .item-body {
+    img {
+      min-height: 340px;
+      background-color: #f7f7f7;
+    }
+  }
+
   .item-buttons {
     padding: 0;
     border-top: none;
