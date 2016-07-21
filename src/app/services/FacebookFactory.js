@@ -121,15 +121,12 @@
             if (user) {
                 facebook.login(['email']).then(function (response) {
                     console.log('facebook login', response);
-                    //Pega o Status do Login
-                    var data = new Date(new Date().getTime() + response['authResponse']['expiresIn'] * 1000);
-
                     console.log(user, response, data);
 
                     Parse.FacebookUtils.link(user, {
-                        id             : response['authResponse']['userID'],
-                        access_token   : response['authResponse']['accessToken'],
-                        expiration_date: data
+                        id             : String(response.authResponse.userID),
+                        access_token   : response.authResponse.accessToken,
+                        expiration_date: (new Date().getTime() + 1000).toString()
                     }, {
                         success: function (user) {
                             // Função caso tenha logado tanto no face quanto no Parse
