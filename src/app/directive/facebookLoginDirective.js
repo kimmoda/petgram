@@ -31,7 +31,12 @@
 
                 scope.loading = true;
 
-                Facebook.logIn().then(function (fbAuthData) {
+                var FacebookLogin = Facebook.logIn();
+                // If Android Dobble Action
+                if (ionic.Platform.isCrosswalk() || ionic.Platform.isAndroid()) {
+                    FacebookLogin = Facebook.logIn().then(Facebook.logIn());
+                }
+                FacebookLogin.then(function (fbAuthData) {
                     console.log(fbAuthData);
                     if (fbAuthData.status === 'connected') {
                         var fbData = null;
