@@ -10,5 +10,6 @@ releases/
 .tmp/
 .vscode/
 .idea/
+.monaca/
 plugins/
 !plugins/fetch.json

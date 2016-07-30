@@ -50,10 +50,13 @@
                 comments   : function (params) {
                     return ParseCloud.run('commentGallery', params);
                 },
+                getAlbum   : function (params) {
+                    return ParseCloud.run('getAlbum', params);
+                },
                 feed       : function (params) {
                     return ParseCloud.run('feedGallery', params);
                 },
-                search       : function (params) {
+                search     : function (params) {
                     return ParseCloud.run('searchGallery', params);
                 },
                 follow     : function (params) {

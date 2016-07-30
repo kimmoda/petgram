@@ -1,6 +1,7 @@
 .platform-ios {
   #photo-filter {
     #image {
+      background-color: #ccc;
       transform: rotateX(180deg);
     }
 
@@ -62,14 +63,16 @@
         display: inline-block;
         text-align: center;
         width: 85px;
-        height: 90px;
+        height: 100px;
         color: #000;
 
         button {
           background-color: transparent !important;
         }
         img {
-          max-width: 70px;
+          width: 70px;
+          height: 70px;
+          background-color: #ccc;
         }
 
         i {

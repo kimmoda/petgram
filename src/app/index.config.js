@@ -14,6 +14,7 @@
         $compileProvider.debugInfoEnabled(false);
     }
 
+
     function startParse(AppConfig, $ionicPlatform, $localStorage, $location, $rootScope) {
         Parse.initialize(AppConfig.parse.appId);
         Parse.serverURL = AppConfig.parse.server;

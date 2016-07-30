@@ -3,14 +3,15 @@
 
     angular.module('app.main').controller('AccountCtrl', AccountController);
 
-    function AccountController(User, $state, $rootScope) {
-        var vm       = this;
-        vm.changeTab = changeTab;
+    function AccountController($scope, AppConfig, User, $state, $rootScope) {
+        var vm = this;
 
         vm.user  = $rootScope.currentUser;
         vm.photo = $rootScope.currentUser.attributes.photo;
 
-        vm.loading = true;
+        vm.loading     = true;
+        $scope.buttonTheme = 'button-' + AppConfig.theme;
+
         User.getPublicData(Parse.User.current()).then(function (user) {
             console.log('Profile', user.attributes);
             vm.user    = user;
@@ -26,20 +27,22 @@
         };
 
         init();
-        changeTab('grid');
 
-        function changeTab(tab) {
-            if (tab === 'list') {
-                vm.tab = {
-                    list: true,
-                    grid: false
-                };
-            } else {
-                vm.tab = {
-                    list: false,
-                    grid: true
-                };
-            }
+        vm.tab = {
+            grid : true,
+            list : false,
+            album: false,
+            map  : false
+        };
+
+        vm.changeTab = function changeTab(tab) {
+            Object.keys(vm.tab).map(function (value) {
+                if (value == tab) {
+                    vm.tab[value] = true;
+                } else {
+                    vm.tab[value] = false;
+                }
+            });
         }
 
         function init() {

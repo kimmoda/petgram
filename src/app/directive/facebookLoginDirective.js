@@ -14,16 +14,6 @@
 
             scope.facebookStatus = null;
 
-            $ionicPlatform.ready(function () {
-                Facebook.me().then(function (resp) {
-                    console.log(resp);
-                    scope.me = resp;
-                }).catch(function () {
-                    console.log('Not logged');
-                });
-            });
-
-
             elem.bind('click', facebookLogin);
 
             function facebookLogin() {

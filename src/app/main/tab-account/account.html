@@ -7,7 +7,7 @@
         <button settings-modal class="button button-icon icon ion-gear-a"></button>
     </ion-nav-buttons>
 
-    <ion-content scroll-sista="header-tabs" class="animated fadeIn">
+    <ion-content>
 
         <div class="profile-top">
             <div class="row">
@@ -20,19 +20,22 @@
                 <div class="col col-statics">
                     <div class="row">
                         <div class="col">
-                            <span ng-if="!vm.loading" class="text-center">{{ vm.user.attributes.galleriesTotal || 0}}</span>
+                            <span ng-if="!vm.loading"
+                                  class="text-center">{{ vm.user.attributes.galleriesTotal || 0}}</span>
                             <ion-spinner ng-if="vm.loading"></ion-spinner>
 
                             <h3 translate="postsText"></h3>
                         </div>
                         <div class="col" ng-click="vm.openFollowers()">
-                            <span ng-if="!vm.loading" class="text-center">{{ vm.user.attributes.followersTotal || 0}}</span>
+                            <span ng-if="!vm.loading"
+                                  class="text-center">{{ vm.user.attributes.followersTotal || 0}}</span>
                             <ion-spinner ng-if="vm.loading"></ion-spinner>
 
                             <h3 translate="followersText"></h3>
                         </div>
                         <div class="col" ng-click="vm.openFollowing()">
-                            <span ng-if="!vm.loading" class="text-center">{{ vm.user.attributes.followingsTotal  || 0}}</span>
+                            <span ng-if="!vm.loading"
+                                  class="text-center">{{ vm.user.attributes.followingsTotal  || 0}}</span>
                             <ion-spinner ng-if="vm.loading"></ion-spinner>
                             <h3 translate="followingText"></h3>
                         </div>
@@ -55,22 +58,32 @@
 
         <div class="item bar">
             <div class="button-bar">
-                <button class="button button-icon icon ion-grid" ng-class="{active: vm.tab.grid}"
+                <button class="button button-icon icon ion-grid" ng-class="{'active': vm.tab.grid}"
                         ng-click="vm.changeTab('grid')"></button>
-                <button class="button button-icon icon ion-drag" ng-class="{active: vm.tab.list}"
+                <button class="button button-icon icon ion-ios-camera-outline" ng-class="{'active': vm.tab.album}"
+                        ng-click="vm.changeTab('album')"></button>
+                <button class="button button-icon icon ion-drag" ng-class="{'active': vm.tab.list}"
                         ng-click="vm.changeTab('list')"></button>
-                <button class="button button-icon icon ion-ios-location"></button>
-
+                <button class="button button-icon icon ion-ios-location-outline" ng-class="{'active': vm.tab.map}"
+                        ng-click="vm.changeTab('map')"></button>
             </div>
         </div>
 
-        <div class="item item-divider" translate="recentText">Recent</div>
-        <ion-refresher pulling-text="Loading" on-refresh="onReload()"></ion-refresher>
-        <div class="tab" ng-if="vm.tab.list && !vm.loading" >
-            <photo-list username="vm.user.attributes.username" on-reload="onReload"></photo-list>
-        </div>
         <div class="tab" ng-if="vm.tab.grid && !vm.loading">
-            <photo-grid username="currentUser.username" on-reload="onReload"></photo-grid>
+            <div class="item item-divider" translate="recent"></div>
+            <photo-grid username="vm.user.username" on-reload="onReload"></photo-grid>
+        </div>
+        <div class="tab" ng-if="vm.tab.album && !vm.loading">
+            <div class="item item-divider" translate="albums"></div>
+            <album-grid username="vm.user.username" on-reload="onReload"></album-grid>
+        </div>
+        <div class="tab" ng-if="vm.tab.list && !vm.loading">
+            <div class="item item-divider" translate="recent"></div>
+            <photo-list username="vm.user.username" on-reload="onReload"></photo-list>
+        </div>
+        <div class="tab" ng-if="vm.tab.map && !vm.loading">
+            <div class="item item-divider" translate="map"></div>
+            <map-photo-user username="vm.user.username" on-reload="onReload"></map-photo-user>
         </div>
 
     </ion-content>

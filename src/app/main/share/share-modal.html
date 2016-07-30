@@ -1,75 +1,85 @@
 <ion-modal-view class="modal-share">
-    <ion-header-bar class="bar bar-{{theme}}">
-        <button class="button button-clear button-icon ion-ios-close-empty" ng-click="close()"></button>
-        <div class="title" translate="shareGalleryText"></div>
-        <!--<button class="button button-clear button-icon ion-ios-arrow-thin-right" ng-click="submit(form)"></button>-->
-    </ion-header-bar>
-    <ion-content>
-        <div class="list">
-            <div class="item item-thumbnail-left">
-                <img ng-src="{{image}}" ng-click="editFilter()"/>
-                <textarea
-                        mentio
+    <form name="rForm" novalidate>
+        <ion-header-bar class="bar bar-{{theme}}">
+            <button class="button button-clear button-clear button-light" ng-click="close()"
+                    translate="cancel"></button>
+            <div class="title" translate="shareGalleryText"></div>
+            <button class="button button-clear button-light " ng-click="submit(rForm, form)"
+                    translate="submit"></button>
+        </ion-header-bar>
+        <ion-content>
+            <div class="list">
+                <div class="item item-thumbnail-left">
+                    <img ng-src="{{image}}" ng-click="editFilter()"/>
+                    <textarea
+                            mentio
 
-                        mentio-trigger-char="'@'"
-                        mentio-items="people"
-                        mentio-template-url="app/mentio/people-mentions.html"
-                        mentio-search="searchPeople(term)"
-                        mentio-select="getPeopleTextRaw(item)"
+                            mentio-trigger-char="'@'"
+                            mentio-items="people"
+                            mentio-template-url="app/mentio/people-mentions.html"
+                            mentio-search="searchPeople(term)"
+                            mentio-select="getPeopleTextRaw(item)"
 
-                        mentio-id="'theTextArea'"
-                        ng-trim="false"
+                            mentio-id="'theTextArea'"
+                            ng-trim="false"
 
-                        type="text"
-                        ng-model="form.title"
-                        placeholder="{{ 'description'|translate }}"></textarea>
+                            type="text"
+                            ng-model="form.title"
+                            placeholder="{{ 'description'|translate }}"
+                    ></textarea>
+                </div>
+
+                <div class="item item-divider" translate="shareLocation"></div>
+                <!-- Location-->
+                <div class="item item-icon-left" ion-location ng-model="form.address" ng-if="!form.address.resume">
+                    <i class="icon ion-ios-location"></i>
+                    <span translate="addLocale"></span>
+                </div>
+
+                <a class="item item-icon-left item-button-right" ng-if="form.address.resume">
+                    <i class="icon ion-ios-location"></i>
+                    <h2>{{form.address.name || form.address.resume}}</h2>
+                    <p>{{form.address.resume}}</p>
+                    <button class="button button-icon" ng-click="closeAddress()">
+                        <i class="icon ion-ios-close"></i>
+                    </button>
+                </a>
+
+                <div class="item item-divider" translate="selectAlbumText"></div>
+                <!-- Album Gallery-->
+                <div class="item item-thumbnail-left" gallery-album-modal ng-model="form.album">
+                    <img ng-src="{{form.album.imageThumb._url || 'img/albumnone.png'}}">
+                    <h2 ng-if="!form.album.title" translate="clickSelectAlbum"></h2>
+                    <h2 ng-if="form.album" ng-bind="form.album.title"></h2>
+                    <p ng-if="form.album">{{form.album.qtyPhotos}} photos</p>
+                </div>
+
+                <div class="item item-divider" translate="shareSocial"></div>
+                <!-- Share in Facebook-->
+                <li class="item item-toggle">
+                    Compartilhar no Facebook?
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+
             </div>
-        </div>
 
-        <div class="list">
-            <a class="item item-icon-left" ion-location ng-model="form.address" ng-if="!form.address.resume">
-                <i class="icon ion-ios-location"></i>
-                <span translate="addLocale"></span>
-            </a>
-
-            <li class="item item-toggle">
-                Compartilhar no Facebook?
-                <label class="toggle toggle-assertive">
-                    <input type="checkbox">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-
-            <a class="item item-icon-left item-button-right" ng-if="form.address.resume">
-                <i class="icon ion-ios-location"></i>
-                <h2>{{form.address.name || form.address.resume}}</h2>
-                <p>{{form.address.resume}}</p>
-                <button class="button button-icon" ng-click="closeAddress()">
-                    <i class="icon ion-ios-close"></i>
-                </button>
-            </a>
-        </div>
-
-        <div class="padding">
-            <button class="button button-block button-positive" type="button"
-                    ng-click="submit(form)"
-                    translate="submit">
-            </button>
-        </div>
-
-        <!--<ul class="list">-->
-        <!--<li class="item item-divider" translate="shareIn"></li>-->
-        <!--<li class="item item-icon-left item-toggle" ng-repeat="social in socials">-->
-        <!--<i class="icon ion-social-{{ social.title | lowercase }}"></i> {{ social.title }}-->
-        <!--<label class="toggle toggle-positive">-->
-        <!--<input type="checkbox" ng-model="social.checked">-->
-        <!--<div class="track">-->
-        <!--<div class="handle"></div>-->
-        <!--</div>-->
-        <!--</label>-->
-        <!--</li>-->
-        <!--</ul>-->
-    </ion-content>
+            <!--<ul class="list">-->
+            <!--<li class="item item-divider" translate="shareIn"></li>-->
+            <!--<li class="item item-icon-left item-toggle" ng-repeat="social in socials">-->
+            <!--<i class="icon ion-social-{{ social.title | lowercase }}"></i> {{ social.title }}-->
+            <!--<label class="toggle toggle-positive">-->
+            <!--<input type="checkbox" ng-model="social.checked">-->
+            <!--<div class="track">-->
+            <!--<div class="handle"></div>-->
+            <!--</div>-->
+            <!--</label>-->
+            <!--</li>-->
+            <!--</ul>-->
+        </ion-content>
+    </form>
 </ion-modal-view>

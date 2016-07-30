@@ -16,11 +16,18 @@
                 controllerAs: 'vm'
             })
 
-            .state('walkthrough', {
-                url         : '/walkthrough',
-                templateUrl : 'app/main/walkthrough/walkthrough.html',
-                controller  : 'WalkthroughCtrl',
-                controllerAs: 'vm'
+
+            .state('intro', {
+                url        : '/intro',
+                templateUrl: 'app/main/user-intro/user-intro.html',
+                controller : 'UserIntroCtrl',
+                controllerAs: 'vm',
+            })
+
+            .state('user.intro', {
+                url        : '/intro',
+                templateUrl: 'app/main/user-intro/user-intro.html',
+                controller : 'UserIntroCtrl'
             })
 
             .state('user', {
@@ -36,11 +43,6 @@
                 controllerAs: 'vm'
             })
 
-            .state('user.intro', {
-                url        : '/intro',
-                templateUrl: 'app/main/user-intro/user-intro.html',
-                controller : 'UserIntroCtrl'
-            })
 
             .state('user.merge', {
                 url         : '/merge',
@@ -52,23 +54,21 @@
             .state('logout', {
                 url         : '/logout',
                 template    : '<ion-view view-title="Logout" cache-view="false"><ion-content></ion-content></ion-view>',
-                controller  : function (User, $localStorage, $state) {
+                controller  : function (User, $localStorage, AppConfig, $state) {
                     //Parse.User.logOut();
-                    delete window.localStorage['Parse/myAppId/currentUser'];
-                    delete window.localStorage['Parse/myAppId/installationId'];
+                    delete window.localStorage['Parse/' + AppConfig.parse.appId + '/currentUser'];
+                    delete window.localStorage['Parse/' + AppConfig.parse.appId + '/installationId'];
                     $localStorage.$reset({});
                     $state.go('user.intro', {clear: true});
                 },
                 controllerAs: 'vm'
             })
 
-
             .state('profile', {
                 url         : '/profile/:username',
                 templateUrl : 'app/main/profile/profile.html',
                 controllerAs: 'vm',
             })
-
 
             .state('tab', {
                 url         : '/tab',

@@ -4,8 +4,7 @@
     angular.module('app.main').controller('ProfileCtrl', ProfileController);
 
     function ProfileController(User, $state, $stateParams) {
-        var vm       = this;
-        vm.changeTab = changeTab;
+        var vm = this;
 
         vm.loading = true;
         User.profile($stateParams.username).then(function (data) {
@@ -61,21 +60,23 @@
         }
 
         init();
-        changeTab('grid');
+        vm.tab = {
+            grid : true,
+            list : false,
+            album: false,
+            map  : false
+        };
 
-        function changeTab(tab) {
-            if (tab === 'list') {
-                vm.tab = {
-                    list: true,
-                    grid: false
-                };
-            } else {
-                vm.tab = {
-                    list: false,
-                    grid: true
-                };
-            }
+        vm.changeTab = function changeTab(tab) {
+            Object.keys(vm.tab).map(function (value) {
+                if (value == tab) {
+                    vm.tab[value] = true;
+                } else {
+                    vm.tab[value] = false;
+                }
+            });
         }
+
 
         function init() {
             vm.data  = {

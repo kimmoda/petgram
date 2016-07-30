@@ -1,0 +1,21 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-{{theme}}">
+        <a ng-click="closeModal()" class="button button-clear button-positive " translate="cancel"></a>
+        <h1 class="title" translate="selectAlbumText"></h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item item-thumbnail-left" gallery-new-album-modal ng-model="ngModel">
+                <img src="img/albumnew.png">
+                <h2>Create Album</h2>
+            </div>
+            <div class="item item-thumbnail-left"
+                 ng-repeat="item in data | filter:searchValue"
+                 ng-click="selectAlbum(item)">
+                <img ng-src="{{item.imageThumb._url || 'img/albumnone.png'}}">
+                <h2 ng-bind="item.title"></h2>
+                <p>{{item.qtyPhotos}} photos</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

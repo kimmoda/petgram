@@ -13,6 +13,7 @@
                 load      : '=',
                 openLikers: '=',
                 onReload  : '=',
+                id        : '='
             },
             templateUrl: 'app/directive/photoListDirective.html',
             link       : photoListController
@@ -23,8 +24,13 @@
             $scope.params.page = 0;
             $scope.data        = [];
 
+
             if ($scope.username) {
                 $scope.params.username = $scope.username;
+            }
+
+            if ($scope.id) {
+                $scope.params.id = $scope.id;
             }
 
             $scope.loading = true;
@@ -99,6 +105,7 @@
 
             function loadFeed() {
                 Gallery.feed($scope.params).then(function (data) {
+                    console.log(data);
                     ensureMoreData(data.length);
                     setCurrentPage($scope.params.page + 1);
                     setGalleries(data);
@@ -113,7 +120,8 @@
                     $rootScope.$broadcast('scroll.infiniteScrollComplete');
                     $rootScope.$broadcast('scroll.refreshComplete');
 
-                }).catch(function () {
+                }).catch(function (err) {
+                    console.log(err);
                     if ($scope.data.length === 0) {
                         showErrorView();
                     }

@@ -1,9 +1,8 @@
 $facebook: #3F8FDA;
 .button-facebook {
-  background-color: #fff;
-  //background: none repeat scroll 0 0 #3f569b !important;
-  border: 1px solid darken($facebook, 10);
-  color: $facebook !important;
+  background-color: $facebook;
+  border: 1px solid darken($facebook, 20) !important;
+  color: #fff !important;
   position: relative;
   width: 100%;
   display: inline-block;

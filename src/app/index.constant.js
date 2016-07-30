@@ -12,9 +12,9 @@
             },
             routes         : {
                 home : 'tab.home',
-                login: 'user.intro'
+                login: 'intro'
             },
-            theme : 'light',
+            theme : 'positive',
             gaTrackingId   : 'UA-69485876-2',
             facebookAppId  : '1024016557617380',
             parse          : {

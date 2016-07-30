@@ -33,9 +33,7 @@
                         $scope.loading = true;
                         ParseFile.upload({base64: form}).then(function (imageUploaded) {
                             User.setPhoto(imageUploaded).then(function (user) {
-                                console.log(user);
-                                $scope.ngModel = user.attributes.photo;
-                                console.log(user.attributes.photo);
+                                $rootScope.currentUser.photo = user.attributes.photo;
                                 $scope.loading = false;
                             });
                         });

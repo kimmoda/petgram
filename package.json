@@ -85,5 +85,7 @@
     "cordova-plugin-x-socialsharing",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "ios"
+  ]
 }

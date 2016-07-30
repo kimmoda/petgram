@@ -16,15 +16,24 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
         "cordova-plugin-facebook4": {
             "APP_ID": "1024016557617380",
             "APP_NAME": "Photogram",
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "cordova-plugin-globalization": {
@@ -52,15 +61,6 @@
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
-        "cordova-plugin-extension": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.agenciafoccus.photogram"
-        },
-        "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
         "parse-push-plugin": {

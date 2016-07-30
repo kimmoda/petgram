@@ -23,7 +23,8 @@
                 $scope.submitLogin = function (rForm, data) {
                     var form = angular.copy(data);
                     if (rForm.$valid) {
-                        Loading.start();
+                        //Loading.start();
+                        console.log(form);
                         User.signIn(form).then(function (data) {
                             console.log(data);
                             $rootScope.currentUser = data;

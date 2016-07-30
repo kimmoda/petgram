@@ -22,15 +22,15 @@
 <div class="row animated fadeIn " ng-if="$index % 3 === 0" ng-repeat="image in data | orderBy:'createdAt':true">
   <div class="col col-33 item-animate1" ng-if="$index < data.length">
     <img ng-if="profile" profile-modal user="data[$index].user.obj" ng-src="{{ ::data[$index].imageThumb._url}}" width="100%" />
-    <img ng-if="!profile" ng-src="{{ ::data[$index].imageThumb._url}}" width="100%" />
+    <img ng-if="!profile" ion-slideshow ng-model="data" index="$index" ng-src="{{ ::data[$index].imageThumb._url}}" width="100%" />
   </div>
   <div class="col col-33 item-animate1" ng-if="$index + 1 < data.length">
     <img ng-if="profile" profile-modal user="data[$index + 1].user.obj" ng-src="{{ ::data[$index + 1].imageThumb._url}}" width="100%" />
-    <img ng-if="!profile" ng-src="{{ ::data[$index + 1].imageThumb._url}}" width="100%" />
+    <img ng-if="!profile" ion-slideshow ng-model="data" index="$index+1"  ng-src="{{ ::data[$index + 1].imageThumb._url}}" width="100%" />
   </div>
   <div class="col col-33 item-animate1" ng-if="$index + 2 < data.length">
     <img ng-if="profile" profile-modal user="data[$index + 2].user.obj" ng-src="{{ ::data[$index + 2].imageThumb._url}}" width="100%" />
-    <img ng-if="!profile" ng-src="{{ ::data[$index + 2].imageThumb._url}}" width="100%" />
+    <img ng-if="!profile" ion-slideshow ng-model="data" index="$index+2"  ng-src="{{ ::data[$index + 2].imageThumb._url}}" width="100%" />
   </div>
 
 </div>

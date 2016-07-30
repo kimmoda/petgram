@@ -3,7 +3,7 @@
 
     angular.module('ion-photo').factory('PhotoService', PhotoServiceFactory);
 
-    function PhotoServiceFactory($ionicActionSheet, $cordovaCapture, $cordovaCamera, $timeout, PhotoFilter, $translate, AppConfig, Share, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, ActionSheet, $q) {
+    function PhotoServiceFactory($ionicActionSheet, $cordovaCapture, User, $cordovaCamera, $timeout, PhotoFilter, $translate, AppConfig, Share, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, ActionSheet, $q) {
 
         var deviceInformation = ionic.Platform.device();
         var isIOS             = ionic.Platform.isIOS();
@@ -29,9 +29,10 @@
 
 
         return {
-            open  : openModal,
-            crop  : cropModal,
-            filter: filterModal
+            open     : openModal,
+            crop     : cropModal,
+            filter   : filterModal,
+            modalPost: modalPost,
         };
 
         function filterModal(image) {
@@ -150,9 +151,11 @@
 
             // Change Settings
             if (setOptions) {
-                setOptions.each(function (value, key) {
-                    setting[key] = value;
+                Object.keys(setOptions).map(function (key, index) {
+                    setting[key] = setOptions[key];
                 });
+
+                console.log(setting);
             }
 
             var options     = {
@@ -317,10 +320,85 @@
                 }, defer.reject);
             }
 
-
             return defer.promise;
         }
 
+        function modalPost(image) {
+            var defer  = $q.defer();
+            var $scope = $rootScope.$new();
+
+            $scope.image = image;
+            $scope.form  = {
+                title: ''
+            };
+
+            $scope.editFilter = function () {
+                PhotoFilter.load(tempImage).then(function (image) {
+                    $scope.image = image;
+                });
+            };
+
+            //Mentios
+            // shows the use of dynamic values in mentio-id and mentio-for to link elements
+            $scope.searchPeople = function (term) {
+                var peopleList = [];
+                return User.getFollowing().then(function (response) {
+                    _.each(response, function (item) {
+                        item.imageUrl = item.photo ? item.photo._url : 'img/user.png';
+                        item.bio      = item.status;
+                        if (item.name.toUpperCase().indexOf(term.toUpperCase()) >= 0) {
+                            peopleList.push(item);
+                        }
+                    });
+                    $scope.people = peopleList;
+                    //console.log(peopleList);
+                    return $q.when(peopleList);
+                });
+            };
+
+            $scope.getPeopleTextRaw = function (item) {
+                return '@' + item.username;
+            };
+
+            $scope.theme = $rootScope.theme;
+
+            $ionicModal.fromTemplateUrl('app/main/share/share-modal.html', {
+                scope          : $scope,
+                focusFirstInput: true
+            }).then(function (modal) {
+                $scope.modalFilter = modal;
+                $scope.modalFilter.show();
+            });
+
+
+            $scope.form.address = {};
+            $scope.closeAddress = function () {
+                $scope.form.address = {};
+            };
+
+            $scope.close = function () {
+                $scope.modalFilter.hide();
+            };
+
+            // Cleanup the modal when we're done with it!
+            $scope.$on('$destroy', function () {
+                $scope.modal.remove();
+            });
+
+            $scope.submit = function (rForm, form) {
+                if (rForm.$valid) {
+                    var form   = angular.copy($scope.form);
+                    form.image = $scope.image;
+                    tempImage  = '';
+                    $scope.close();
+                    defer.resolve(form);
+                } else {
+                    console.log('Error', rForm);
+                }
+            };
+
+            return defer.promise;
+        }
 
     }
 })();
