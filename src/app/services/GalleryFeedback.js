@@ -145,7 +145,7 @@
       }
     });
 
-    Object.defineProperty(ParseObject.prototype, 'title', {
+    Object.defineProperty(ParseObject.prototype, 'message', {
       get: function () {
         return this.get('title');
       },

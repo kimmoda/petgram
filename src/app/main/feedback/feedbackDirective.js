@@ -1,69 +1,69 @@
 (function () {
-  'use strict';
-  
-  angular.module('app.main').directive('feedback', feedbackDirective);
+    'use strict';
 
-  function feedbackDirective($ionicModal, AppConfig, PhotogramFeedback, PhotogramFeedbackForm, $state) {
+    angular.module('app.main').directive('feedback', feedbackDirective);
 
-    var path = AppConfig.path;
+    function feedbackDirective($ionicModal, GalleryFeedback, Gallery, Loading, $state) {
 
-    return {
-      restrict: 'A',
-      scope: {
-        photogram: '@'
-      },
-      template: '',
-      link: function (scope, elem, attr) {
+        return {
+            restrict: 'A',
+            scope   : {
+                galleryId: '@'
+            },
+            template: '',
+            link    : function (scope, elem, attr) {
 
-        scope.link = link;
-        scope.submitFeedback = submitFeedback;
-        scope.closeModal = closeModal;
-        elem.bind('click', openModal);
+                scope.link           = link;
+                scope.submitFeedback = submitFeedback;
+                scope.closeModal     = closeModal;
+                elem.bind('click', openModal);
 
-        function init() {
-          scope.form = {
-            photogramId: scope.photogram
-          };
-          scope.formFields = PhotogramFeedbackForm.form;
-        }
+                function init() {
+                    scope.form = {};
+                }
 
-        function openModal() {
+                function openModal() {
 
-          init();
-          $ionicModal.fromTemplateUrl('app/main/feedback/feedback-modal.html', {
-              scope: scope,
-              focusFirstInput: true
-            })
-            .then(function (modal) {
-              scope.modal = modal;
-              scope.modal.show();
-            });
-        }
+                    init();
+                    $ionicModal.fromTemplateUrl('app/main/feedback/feedback-modal.html', {
+                        scope          : scope,
+                        focusFirstInput: true
+                    }).then(function (modal) {
+                        scope.modal = modal;
+                        scope.modal.show();
+                    });
+                }
 
-        function link(sref) {
-          $state.go(sref)
-          scope.closeModal();
-        }
+                function link(sref) {
+                    $state.go(sref)
+                    scope.closeModal();
+                }
 
-        function submitFeedback() {
-          var dataForm = angular.copy(scope.form);
-          PhotogramFeedback
-            .submit(dataForm)
-            .then(function (resp) {
-              console.log(resp);
-              init();
-              scope.closeModal();
-            });
-        }
+                scope.submitFeedback = function (rForm, form) {
+                    if (rForm.$valid) {
+                        Loading.start();
+                        var dataForm  = angular.copy(scope.form);
+                        dataForm.user = Parse.User.current();
+                        Gallery.get(scope.galleryId).then(function (gallery) {
+                            dataForm.gallery = gallery;
+                            GalleryFeedback.create(dataForm).then(function (resp) {
+                                console.log(resp);
+                                init();
+                                scope.closeModal();
+                                Loading.stop();
+                            });
+                        })
+                    }
+                }
 
 
-        function closeModal() {
-          scope.modal.hide();
-          scope.modal.remove();
-        }
+                function closeModal() {
+                    scope.modal.hide();
+                    scope.modal.remove();
+                }
 
-      }
-    };
-  }
+            }
+        };
+    }
 
 })();

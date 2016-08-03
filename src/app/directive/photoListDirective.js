@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('photoList', photoListDirective);
 
-    function photoListDirective(Gallery, $rootScope, $ionicPopup, $translate, $state, Share, Toast, FeedbackModal, $ionicActionSheet) {
+    function photoListDirective(Gallery, $rootScope, Loading, $ionicPopup, $translate, $state, Share, Toast, FeedbackModal, $ionicActionSheet) {
 
         return {
             restrict   : 'E',
@@ -48,7 +48,7 @@
                 if ($scope.loading) return;
                 $scope.loading = true;
                 Gallery.feed($scope.params).then(function (data) {
-                    
+
                     console.log(data);
                     if (data.length > 0) {
                         $scope.params.page++;
@@ -132,7 +132,7 @@
                 function actionButtons(index) {
                     switch (index) {
                         case 0:
-                            FeedbackModal.modal(gallery.galleryObj);
+                            FeedbackModal.modal(gallery.id);
                             break;
                         case 1:
 
@@ -143,14 +143,27 @@
                                 })
                                 .then(function (res) {
                                     if (res) {
-                                        Gallery.destroy(gallery.galleryObj).then(function () {
-                                            console.log('Photo deleted');
-                                            Toast.alert({
-                                                title: 'Photo',
-                                                text : 'Photo deleted'
-                                            })
+                                        Loading.start();
+                                        Gallery.get(gallery.id).then(function (gallery) {
+                                            if(gallery) {
+                                                Gallery.destroy(gallery).then(function () {
+                                                    console.log('Photo deleted');
+                                                    Toast.alert({
+                                                        title: 'Photo',
+                                                        text : 'Photo deleted'
+                                                    });
+                                                    $scope.onReload();
+                                                    Loading.end();
+                                                });
+                                            } else {
+                                                $scope.onReload();
+                                                Loading.end();
+                                            }
+                                        }).catch(function  () {
                                             $scope.onReload();
-                                        });
+                                            Loading.end();
+                                        })
+
                                     }
                                 });
 

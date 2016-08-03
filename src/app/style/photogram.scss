@@ -160,6 +160,10 @@ ion-nav-bar {
     color: #333;
   }
 
+  .tab-item-active {
+    color: darken($positive, 10) ;
+  }
+
   .backdrop {
     background-color: rgba(5, 58, 53, 0.7);
   }

@@ -3,7 +3,7 @@
 
     angular.module('app.main').controller('UserAvatarCtrl', UserAvatarController);
 
-    function UserAvatarController(User, $translate, $scope, Auth, AppConfig, $rootScope, $state, Toast) {
+    function UserAvatarController(User, $translate, $scope, Loading, Auth, AppConfig, $rootScope, $state, Toast) {
 
         init();
 
@@ -25,6 +25,7 @@
 
         $scope.submitAvatar = function (rForm, form) {
             console.log(form);
+            Loading.start();
 
             if (rForm.$valid) {
                 var dataForm = angular.copy(form);
@@ -36,12 +37,14 @@
                     $state.go(AppConfig.routes.home, {
                         clear: true
                     });
+                    Loading.end();
                 });
             } else {
                 Toast.alert({
                     title: $translate.instant('invalidForm'),
                     text : $translate.instant('fillAllFields')
                 });
+                Loading.end();
             }
 
         }
