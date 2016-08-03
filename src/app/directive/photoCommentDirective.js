@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('photoComment', photoCommentDirective);
 
-    function photoCommentDirective($ionicModal, $http, $q, $ionicScrollDelegate, Loading, $ionicPopup, User, Dialog, $rootScope, Gallery, GalleryComment, GalleryForm) {
+    function photoCommentDirective($ionicModal, $http, $q, $ionicScrollDelegate, Loading, $ionicPopup, User, Dialog, $rootScope, Gallery, GalleryComment) {
 
         return {
             restrict: 'A',
@@ -31,7 +31,6 @@
                     init();
 
                     $scope.loading       = true;
-                    $scope.formFields    = GalleryForm.formComment;
                     $scope.submitComment = submitComment;
                     $scope.deleteComment = deleteComment;
                     $scope.editComment   = editComment;

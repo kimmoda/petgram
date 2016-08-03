@@ -5,6 +5,7 @@
             'ion-language',
             'ion-location',
             'ion-slideshow',
+            'ionic-cache-src',
             // 'ion-affix',
             // 'ngCache',
             'ion-photo'

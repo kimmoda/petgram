@@ -1,6 +1,6 @@
 {
   "name": "Photogram",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "dependencies": {
     "elementtree": "^0.1.6",
     "lodash": "^3.10.1",
@@ -83,7 +83,11 @@
     "cordova-plugin-themeablebrowser",
     "cordova-plugin-whitelist",
     "cordova-plugin-x-socialsharing",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    {
+      "locator": "/Users/movibe/Sites/github/parse/parse-push-plugin",
+      "id": "cordova-plugin-facebook4"
+    }
   ],
   "cordovaPlatforms": [
     "ios"

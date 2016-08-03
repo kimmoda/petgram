@@ -1,16 +1,6 @@
 (function () {
     'use strict';
 
-    /**
-     * @ngdoc directive
-     * @name modalLanguage
-     *
-     * @description
-     * _Please update the description and restriction._
-     *
-     * @restrict A
-     * */
-
     var path = 'app/component/ion-language';
 
     angular

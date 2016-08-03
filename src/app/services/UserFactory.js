@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('User', UserFactory);
 
-    function UserFactory($q, $cordovaDevice, ParseCloud, ParsePush) {
+    function UserFactory($q, $translate, $cordovaDevice, ParseCloud, ParsePush) {
 
         var User = Parse.User.extend({}, {
             profile               : function (username) {
@@ -27,9 +27,9 @@
                     success: function (currentUser) {
 
                         // device
-                        var device;
+                        var updateUser;
                         if (window.cordova) {
-                            device = {
+                            updateUser = {
                                 device  : $cordovaDevice.getDevice(),
                                 cordova : $cordovaDevice.getCordova(),
                                 model   : $cordovaDevice.getModel(),
@@ -38,7 +38,7 @@
                                 version : $cordovaDevice.getVersion()
                             };
                         } else {
-                            device = {
+                            updateUser = {
                                 device  : {device: window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[0]},
                                 cordova : '',
                                 model   : window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[0],
@@ -48,18 +48,16 @@
                             };
                         }
 
-                        console.log(currentUser);
-                        console.log(device);
+                        // Save
+                        updateUser.lang = $translate.use();
 
-                        User.update(device).then(function () {
+                        // Parse Push
+                        ParsePush.init();
+
+                        User.update(updateUser).then(function () {
                             defer.resolve(currentUser);
-                        }).catch(defer.reject)
+                        }).catch(defer.reject);
 
-                        ParsePush.init().then(function () {
-                            ParsePush.subscribeUser();
-                        });
-
-                        console.log('updateUser', device);
                         //user.save(defer.resolve, defer.reject);
                     },
                     error  : defer.reject
@@ -88,7 +86,7 @@
                 var facebookAuthData = {
                     id             : authData.authResponse.userID,
                     access_token   : authData.authResponse.accessToken,
-                    expiration_date: (new Date().getTime() +1000).toString()
+                    expiration_date: (new Date().getTime() + 1000).toString()
                 };
 
                 console.log(authData, facebookAuthData);
@@ -98,7 +96,16 @@
                 Parse.FacebookUtils.logIn(facebookAuthData, {
                     success: function (user) {
                         console.log('User', user);
-                        defer.resolve(user);
+                        user.setACL(new Parse.ACL(user));
+                        user.set('facebook', facebookAuthData.id);
+                        user.save(null, {
+                            success: function (user) {
+                                ParsePush.init();
+                                console.log('User', user);
+                                defer.resolve(user);
+                            },
+                            error  : defer.reject
+                        });
                     },
                     error  : defer.reject
                 });
@@ -113,6 +120,7 @@
             },
             updateWithFacebookData: function (data) {
                 var defer = $q.defer();
+                console.log('updateWithFacebookData', data);
                 ParseCloud.run('saveFacebookPicture', {}).then(function () {
                     var user = Parse.User.current();
 
@@ -180,6 +188,9 @@
             },
             update                : function (params) {
                 var user = Parse.User.current();
+                // User Language
+                params.lang = $translate.use();
+                
                 angular.forEach(params, function (value, key) {
                     user.set(key, value);
                 });

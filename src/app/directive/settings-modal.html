@@ -1,6 +1,6 @@
 <ion-modal-view class="modal-profile">
     <ion-header-bar class="bar bar-{{theme}}">
-        <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
+        <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeSettingModal()"></button>
         <div class="title" translate="settingTitle"></div>
     </ion-header-bar>
     <ion-content class="animated fadeIn">
@@ -18,52 +18,9 @@
             </ion-toggle>
 
 
-            <!--<ion-item class="item-icon-right" ng-click="showSync();">-->
-            <!--<h3>-->
-            <!--<small translate>Synced Contacts</small>-->
-            <!--</h3>-->
-            <!--<p translate>On</p>-->
-            <!--<i class="icon ion-ios-arrow-right"></i>-->
-            <!--</ion-item>-->
-            <!--<ion-item class="item-icon-right" ng-click="show();">-->
-            <!--<h3>-->
-            <!--<small translate>Invite Friends</small>-->
-            <!--</h3>-->
-            <!--<i class="icon ion-ios-arrow-right"></i>-->
-            <!--</ion-item>-->
-            <!--<ion-toggle ng-modal="form.camera">-->
-            <!--<h3>-->
-            <!--<small translate>Save Photos to the Camera Roll</small>-->
-            <!--</h3>-->
-            <!--<p ng-if="!setting_camera" translate>Off</p>-->
-
-            <!--<p ng-if="setting_camera" translate>On</p>-->
-            <!--</ion-toggle>-->
-
-            <ion-item class="item-icon-right"
-                      href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FAW4JZS7KJM5S">
-                <h3>
-                    <small translate="buy"></small>
-                </h3>
-                <i class="icon ion-ios-arrow-right"></i>
-            </ion-item>
-
-            <ion-item class="item-icon-right" href="http://photogramapp.com">
-                <h3>
-                    <small translate="help"></small>
-                </h3>
-                <i class="icon ion-ios-arrow-right"></i>
-            </ion-item>
-
             <ion-item class="item-icon-right" href="http://photogramapp.com">
                 <h3>
                     <small translate="terms"></small>
-                </h3>
-                <i class="icon ion-ios-arrow-right"></i>
-            </ion-item>
-            <ion-item class="item-icon-right" ng-click="show();">
-                <h3>
-                    <small translate="report"></small>
                 </h3>
                 <i class="icon ion-ios-arrow-right"></i>
             </ion-item>

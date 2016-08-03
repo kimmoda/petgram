@@ -71,19 +71,19 @@
 
         <div class="tab" ng-if="vm.tab.grid && !vm.loading">
             <div class="item item-divider" translate="recent"></div>
-            <photo-grid username="vm.user.username" on-reload="onReload"></photo-grid>
+            <photo-grid username="vm.user.attributes.username" on-reload="onReload"></photo-grid>
         </div>
         <div class="tab" ng-if="vm.tab.album && !vm.loading">
             <div class="item item-divider" translate="albums"></div>
-            <album-grid username="vm.user.username" on-reload="onReload"></album-grid>
+            <album-grid username="vm.user.attributes.username" on-reload="onReload"></album-grid>
         </div>
         <div class="tab" ng-if="vm.tab.list && !vm.loading">
             <div class="item item-divider" translate="recent"></div>
-            <photo-list username="vm.user.username" on-reload="onReload"></photo-list>
+            <photo-list username="vm.user.attributes.username" on-reload="onReload"></photo-list>
         </div>
         <div class="tab" ng-if="vm.tab.map && !vm.loading">
             <div class="item item-divider" translate="map"></div>
-            <map-photo-user username="vm.user.username" on-reload="onReload"></map-photo-user>
+            <map-photo-user username="vm.user.attributes.username" on-reload="onReload"></map-photo-user>
         </div>
 
     </ion-content>

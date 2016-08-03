@@ -3,7 +3,6 @@
     angular
         .module('starter', [
             'ionic',
-            'formlyIonic',
             'ngMessages',
             'ngCookies',
             'ngStorage',

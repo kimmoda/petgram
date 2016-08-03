@@ -54,6 +54,7 @@
                     return ParseCloud.run('getAlbum', params);
                 },
                 feed       : function (params) {
+                    console.log('feedGallery', params);
                     return ParseCloud.run('feedGallery', params);
                 },
                 search     : function (params) {
@@ -70,7 +71,6 @@
                 get        : function (galleryId) {
                     var defer = $q.defer();
                     new Parse.Query(this)
-
                         .get(galleryId, {
                             success: defer.resolve,
                             error  : defer.reject

@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('galleryNewAlbumModal', galleryNewAlbumModalDirective);
 
-    function galleryNewAlbumModalDirective($ionicModal, $q, GalleryAlbum) {
+    function galleryNewAlbumModalDirective($ionicModal, $q, $rootScope, GalleryAlbum) {
         return {
             restrict: 'A',
             link    : galleryNewAlbumModalLink,
@@ -25,7 +25,6 @@
                 };
 
 
-
                 $ionicModal.fromTemplateUrl('app/directive/galleryNewAlbumModalDirective.html', {
                     scope          : $scope,
                     focusFirstInput: true
@@ -41,7 +40,8 @@
                             console.log('album created', album);
                             $scope.ngModel = album;
                             $scope.closeModal();
-                            $scope.$emit('selectAlbum', album);
+                            $rootScope.$emit('selectAlbum', album);
+                            $rootScope.$emit('albumGrid:reload', album);
                         });
                     } else {
 

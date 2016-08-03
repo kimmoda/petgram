@@ -1,8 +1,8 @@
 @import "actionsheet";
 @import "font";
-@import "platform";
 @import "spinner";
 @import "map";
+@import "platform";
 
 // mention
 
@@ -216,6 +216,10 @@ ion-nav-bar {
     font-weight: normal;
     font-size: 14px;
     color: #333;
+  }
+
+  .popover {
+    height: 155px;
   }
 
   .popover-backdrop.active {

@@ -14,7 +14,6 @@
         $compileProvider.debugInfoEnabled(false);
     }
 
-
     function startParse(AppConfig, $ionicPlatform, $localStorage, $location, $rootScope) {
         Parse.initialize(AppConfig.parse.appId);
         Parse.serverURL = AppConfig.parse.server;
@@ -66,12 +65,13 @@
                 $cordovaSplashscreen.hide();
             }
 
-            // Start Parse Push
-            if (Parse.User.current()) {
+            var user = Parse.User.current();
+            if (user) {
                 ParsePush.init();
             }
-
             //ConnectMonitor.watch();
+            //
+            console.log($translate.use())
         });
 
 

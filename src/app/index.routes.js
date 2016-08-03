@@ -59,7 +59,7 @@
                     delete window.localStorage['Parse/' + AppConfig.parse.appId + '/currentUser'];
                     delete window.localStorage['Parse/' + AppConfig.parse.appId + '/installationId'];
                     $localStorage.$reset({});
-                    $state.go('user.intro', {clear: true});
+                    $state.go('intro', {clear: true});
                 },
                 controllerAs: 'vm'
             })

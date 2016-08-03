@@ -19,6 +19,7 @@
             facebookAppId  : '1024016557617380',
             parse          : {
                 appId : 'myAppId',
+                // server: 'http://localhost:1337/parse/',
                 server: 'https://photogram.codevibe.io/parse/',
             },
             map            : {

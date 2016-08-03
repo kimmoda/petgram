@@ -2,131 +2,69 @@
     'use strict';
     angular.module('app.main').controller('ActivityCtrl', ActivityController);
 
-    function ActivityController($scope, $state, GalleryActivity) {
-        var vm          = this;
-        vm.params       = {};
-        vm.params.page  = 1;
-        vm.params.limit = 30;
-        vm.data         = [];
+    function ActivityController($scope, $rootScope,$state, GalleryActivity) {
+        init();
 
-        vm.openProfile = function (username) {
+        $scope.openProfile = function (username) {
             $state.go('tab.activityProfile', {username: username})
         };
 
-        $scope.loading = true;
-
         loadFeed();
 
-        var isLoadingViewShown   = false;
-        var isGalleriesViewShown = false;
-        var isErrorViewShown     = false;
-        var isEmptyViewShown     = false;
-
-        var isMoreData = false;
-
-        function showLoading() {
-            isLoadingViewShown   = true;
-            isGalleriesViewShown = false;
-            isErrorViewShown     = false;
-            isEmptyViewShown     = false;
-        }
-
-        function showGalleries() {
-            isGalleriesViewShown = true;
-            isLoadingViewShown   = false;
-            isErrorViewShown     = false;
-            isEmptyViewShown     = false;
-        }
-
-        function showErrorView() {
-            isErrorViewShown     = true;
-            isGalleriesViewShown = false;
-            isLoadingViewShown   = false;
-            isEmptyViewShown     = false;
-        }
-
-        function showEmptyView() {
-            isEmptyViewShown     = true;
-            isErrorViewShown     = false;
-            isGalleriesViewShown = false;
-            isLoadingViewShown   = false;
-        }
-
-
-        function ensureMoreData(length) {
-            isMoreData = false;
-            if (length > 0) {
-                isMoreData = true;
-            }
-        }
-
-        function setGalleries(data) {
-            for (var i = 0; i < data.length; i++) {
-                vm.data.push(data[i]);
-            }
-        }
-
-        function setCurrentPage(page) {
-            vm.params.page = page;
-        }
+        $rootScope.$emit('activity:clear', true);
 
         function loadFeed() {
-
-            GalleryActivity.feed(vm.params).then(function (data) {
-                ensureMoreData(data.length);
-                setCurrentPage(vm.params.page + 1);
-                setGalleries(data);
-
-                if (vm.data.length === 0) {
-                    showEmptyView();
+            if ($scope.loading) return;
+            $scope.loading = true;
+            GalleryActivity.feed($scope.params).then(function (data) {
+                console.log(data);
+                if (data.length > 0) {
+                    $scope.params.page++;
+                    data.map(function (item) {
+                        $scope.data.push(item);
+                    });
                 } else {
-                    showGalleries();
+                    if ($scope.data.length === 0) {
+                        $scope.showEmptyView = true;
+                    }
+                    $scope.moreDataCanBeLoaded = false;
                 }
 
-                $scope.$broadcast('scroll.infiniteScrollComplete');
-                $scope.$broadcast('scroll.refreshComplete');
                 $scope.loading = false;
+                $rootScope.$broadcast('scroll.infiniteScrollComplete');
+                $rootScope.$broadcast('scroll.refreshComplete');
 
-            }).catch(function () {
-                if (vm.data.length === 0) {
-                    showErrorView();
+            }).catch(function (err) {
+                if ($scope.data.length === 0) {
+                    $scope.showErrorView = true;
                 }
-                isMoreData = false;
                 $scope.$broadcast('scroll.refreshComplete');
             });
         }
 
-        vm.onLoadMore = function () {
+        $scope.onLoadMore = function () {
             loadFeed();
         };
 
-        vm.moreDataCanBeLoaded = function () {
-            return isMoreData;
-        };
-
-        vm.showLoadingView = function () {
-            return isLoadingViewShown;
-        };
-
-        vm.showGalleries = function () {
-            return isGalleriesViewShown;
-        };
-
-        vm.showErrorView = function () {
-            return isErrorViewShown;
-        };
-
-        vm.showEmptyView = function () {
-            return isEmptyViewShown;
-        };
-
-        vm.onReload = function () {
-            vm.params.page = 0;
-            vm.data        = [];
-            showLoading();
+        $scope.onReload = function () {
+            init()
             loadFeed();
             $scope.$broadcast('scroll.refreshComplete');
         };
+
+        function init() {
+            $scope.params              = {};
+            $scope.params.page         = 1;
+            $scope.data                = [];
+            $scope.moreDataCanBeLoaded = true;
+            $scope.loading             = false;
+
+            if ($scope.canEdit) {
+                $scope.data.push({
+                    create: true
+                });
+            }
+        }
 
     }
 

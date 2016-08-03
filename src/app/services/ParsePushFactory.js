@@ -2,71 +2,58 @@
     'use strict';
     angular.module('starter').factory('ParsePush', ParsePushFactory);
 
-    function ParsePushFactory($q, $cordovaDevice) {
+    function ParsePushFactory($q) {
 
         return {
-            init         : init,
-            on           : on,
-            subscribe    : subscribe,
-            unsubscribe  : unsubscribe,
-            subscribeUser: subscribeUser,
+            init            : init,
+            on              : on,
+            subscribe       : subscribe,
+            getSubscriptions: getSubscriptions,
+            unsubscribe     : unsubscribe,
+            subscribeUser   : subscribeUser,
         };
 
 
-        function installation(installationId) {
-            var installationObj = Parse.Object.extend('UserDevice');
-            return new installationObj()
-                .set('device', $cordovaDevice.getDevice())
-                .set('cordova', $cordovaDevice.getCordova())
-                .set('model', $cordovaDevice.getModel())
-                .set('platform', $cordovaDevice.getPlatform())
-                .set('uuid', $cordovaDevice.getUUID())
-                .set('version', $cordovaDevice.getVersion())
-                .set('user', Parse.User.current())
-                .set('installationId', installationId)
-                .save();
+        function init() {
+            var defer = $q.defer();
+            if (window.ParsePushPlugin) {
+                ParsePushPlugin.getInstallationId(function (id) {
+                    console.log("device installationId: " + id);
+                    subscribeUser();
+                    defer.resolve(id);
+                }, function (e) {
+                    console.log('error', e);
+                    defer.reject(e);
+                });
+            } else {
+                defer.reject('Not Parse Push');
+            }
+            return defer.promise;
         }
 
-        function init() {
-            if (window.ParsePushPlugin) {
-
-                ParsePushPlugin.getInstallationId(function (id) {
-                    // note that the javascript client has its own installation id,
-                    // which is different from the device installation id.
-                    console.log("device installationId: " + id);
-                    installation(id);
-                }, function (e) {
-                    console.log('error', e);
-                });
-
-                ParsePushPlugin.getSubscriptions(function (subscriptions) {
-                    console.log(subscriptions);
-                }, function (e) {
-                    console.log('error', e);
-                });
-
-
-                on('receivePN', function (pn) {
-                    console.log('yo i got this push notification:' + JSON.stringify(pn));
-                });
-
-                //
-                // When the app is off or in background, push notifications get added
-                // to the notification tray. When a user open a notification, you
-                // can catch it via openPN
-                on('openPN', function (pn) {
-                    console.log('a notification was opened:' + JSON.stringify(pn));
-                });
-            }
+        function getSubscriptions() {
+            var defer = $q.defer();
+            ParsePushPlugin.getSubscriptions(function (subscriptions) {
+                console.log(subscriptions);
+                defer.resolve(subscriptions);
+            }, function (e) {
+                console.log('error', e);
+                defer.reject(e);
+            });
+            return defer.promise;
         }
 
 
         function subscribeUser() {
-            var user = Parse.User.current();
+            var defer = $q.defer();
+            var user  = Parse.User.current();
+
             if (window.ParsePushPlugin && user) {
-                var channel = 'user_' + user.attributes.username;
-                subscribe(channel);
+                subscribe(user.username);
+            } else {
+                defer.reject('Not device');
             }
+            return defer.promise;
         }
 
         function on(event, callback) {

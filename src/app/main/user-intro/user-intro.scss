@@ -10,7 +10,7 @@
 
   ion-footer-bar {
     display: block;
-    height: 95px;
+    height: 95px !important;
     background-color: #fff !important;
     padding-top: 0px;
     bottom: -2px;
@@ -18,6 +18,8 @@
     facebook-login {
       clear: both;
       width: 100%;
+      top: 0px;
+      position: relative;
     }
 
     .row {
@@ -27,7 +29,7 @@
       top: -15px;
       button {
         &:first-child {
-          margin-right: 5px;
+          margin-right: 5px !important;
         }
       }
     }

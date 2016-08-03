@@ -20,8 +20,8 @@
             allowEdit         : false,
             filter            : true,
             correctOrientation: true,
-            targetWidth       : 320,
-            targetHeight      : 320,
+            targetWidth       : 640,
+            targetHeight      : 640,
             saveToPhotoAlbum  : false,
             allowRotation     : false,
             aspectRatio       : 0
@@ -158,7 +158,7 @@
                 console.log(setting);
             }
 
-            var options     = {
+            var options = {
                 quality           : setting.quality,
                 aspectRatio       : setting.aspectRatio,
                 allowRotation     : setting.allowRotation,
@@ -171,36 +171,17 @@
                 encodingType      : window.cordova ? Camera.EncodingType.JPEG : null,
                 popoverOptions    : window.cordova ? CameraPopoverOptions : null,
             };
-            var buttons     = [
-                {
-                    text: '<i class="icon ion-images"></i>' + $translate.instant('capturePhoto')
-                },
-                {
-                    text: '<i class="icon ion-ios-camera"></i>' + $translate.instant('captureLibrary')
-                }
-            ];
-            var actionSheet = $ionicActionSheet.show({
-                buttons      : buttons,
-                titleText    : $translate.instant('submit'),
-                cancelText   : $translate.instant('cancel'),
-                cancel       : buttonCancel,
-                buttonClicked: buttonClicked
-            });
 
-            function buttonClicked(index) {
+            image().then(function (index) {
                 console.log(index);
-                actionSheet();
-                capture(index, options)
+                capture(index - 1, options)
                     .then(cropModal)
                     .then(filterModal)
                     .then(defer.resolve)
-                    .catch(buttonCancel);
-            }
-
-
-            function buttonCancel(resp) {
-                actionSheet(resp);
-            }
+                    .catch(function (resp) {
+                        console.log(resp);
+                    });
+            })
 
             return defer.promise;
         }
@@ -230,12 +211,26 @@
             return defer.promise;
         }
 
-        function show(params) {
+        function image() {
+            var defer = $q.defer();
+            show({
+                title     : $translate.instant('choseOption'),
+                cancelText: $translate.instant('cancel'),
+                options   : [
+                    {text: $translate.instant('photo')},
+                    {text: $translate.instant('library')}
+                ]
+            }).then(function (option) {
+                defer.resolve(option);
+            }).then(defer.resolve).catch(defer.reject);
 
+            return defer.promise;
+        }
+
+        function show(params) {
             var defer = $q.defer();
 
             if (window.cordova) {
-
                 var options = {
                     title                    : params.title,
                     buttonLabels             : _.map(params.options, function (item) {return item.text}),

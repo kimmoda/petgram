@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').controller('UserIntroCtrl', UserIntroController);
 
-    function UserIntroController($scope, $ionicPlatform, $cordovaSplashscreen) {
+    function UserIntroController($scope, $ionicPlatform, $ionicSlideBoxDelegate, $cordovaSplashscreen) {
         var vm              = this;
         var currentPlatform = window.ionic.Platform.platform();
         vm.slideIndex       = 0;

@@ -23,6 +23,7 @@
 
                 Facebook.logIn().then(function (fbAuthData) {
                     console.log(fbAuthData);
+                    Loading.start();
                     if (fbAuthData.status === 'connected') {
                         var fbData = null;
                         return Facebook.me().then(function (data) {

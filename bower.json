@@ -1,6 +1,6 @@
 {
   "name": "Photogram",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "private": true,
   "authors": [
     {
@@ -17,16 +17,13 @@
     "animate.css": "3.5.2",
     "api-check": "~7.5.5",
     "ion-affix": "~1.0.1",
-    "ionic-cache-src": "~0.7.3",
     "moment": "~2.14.1",
     "ng-facebook": "~0.1.6",
     "ngCordova": "~0.1.27-alpha",
     "parse": "~1.8.5",
     "simple-line-icons": "~2.3.2",
-    "caman": "~4.1.2",
     "jr-crop": "~1.1.2",
-    "angular-svg-round-progressbar": "^0.4.6",
-    "ngstorage": "^0.3.10",
+    "ngstorage": "^0.3.11",
     "color-thief": "~2.0.1",
     "angular-i18n": "~1.5.8",
     "angular-locale": "~0.1.10",
@@ -52,19 +49,8 @@
     "angular-sanitize": ">=1.5.3",
     "moment": ">=2.13.0",
     "lodash": ">=4.11.2",
-    "angular-svg-round-progressbar": ">=0.4.2",
     "ionic": ">=1.3.0"
   },
   "overrides": {
-    "angular-svg-round-progressbar": {
-      "main": [
-        "build/roundProgress.js"
-      ]
-    },
-    "caman": {
-      "main": [
-        "dist/caman.full.js"
-      ]
-    }
   }
 }

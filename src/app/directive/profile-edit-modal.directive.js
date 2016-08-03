@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('profileModalEdit', profileModalEditDirective);
 
-    function profileModalEditDirective($ionicModal, $rootScope, $localStorage, User, Loading, UserForm, $state) {
+    function profileModalEditDirective($ionicModal, $rootScope, ParsePush, $localStorage, User, Loading, UserForm, $state) {
 
         return {
             restrict: 'A',
@@ -74,6 +74,15 @@
                 function submitUpdateProfile() {
                     var dataForm = angular.copy(scope.form);
                     Loading.start();
+
+                    var username = Parse.User.current().username;
+
+                    // Change Username Subscribe for Push
+                    if (username != dataForm.username) {
+                        ParsePush.unsubscribe(username);
+                        ParsePush.subscribe(username);
+                    }
+
                     User.update(dataForm).then(function (resp) {
                         scope.user             = resp;
                         $rootScope.currentUser = resp;

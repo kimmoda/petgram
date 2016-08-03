@@ -22,10 +22,10 @@
             return defer.promise;
         }
 
-        function confirm(message, title, buttonsText) {
+        function confirm(options) {
             var defer = $q.defer();
             if (window.cordova) {
-                $cordovaDialogs.confirm(message, title, buttonsText).then(function (result) {
+                $cordovaDialogs.confirm(options.message, options.title, options.buttonsText).then(function (result) {
                     if (result === 2) {
                         defer.resolve(true);
                     }
@@ -34,8 +34,8 @@
 
             } else {
                 $ionicPopup.confirm({
-                    title   : title,
-                    template: message
+                    title   : options.title,
+                    template: options.message
                 }).then(function (res) {
                     if (res) {
                         defer.resolve(true);

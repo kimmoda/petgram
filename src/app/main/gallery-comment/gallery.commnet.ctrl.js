@@ -3,11 +3,10 @@
 
     angular.module('starter').controller('GalleryComment', GalleryCommentController);
 
-    function GalleryCommentController($scope, $stateParams, $q, $ionicScrollDelegate, $ionicHistory, Loading, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment, GalleryForm) {
+    function GalleryCommentController($scope, $stateParams, $q, $ionicScrollDelegate, $ionicHistory, Loading, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment) {
 
         $scope.currentUser = Parse.User.current();
         $scope.loading     = true;
-        $scope.formFields  = GalleryForm.formComment;
 
         function init() {
             $scope.nocomments = false;

@@ -51,6 +51,9 @@
   "addLocale": "Add location",
   "searchInHere": "Search in here",
   "searchText": "Search",
+  "photo": "Photo",
+  "library": "Photo Library",
+  "choseOption": "Chose option",
   "photoCommented": "Commented on photo",
   "addPhoto": "Uploaded a photo",
   "activityTitle": "Activities",
@@ -77,7 +80,9 @@
   "cancelText": "Cancel",
   "areSure": "Are you sure?",
   "deleteGallery": "Delete this photo",
+  "deleteAlbum": "Delete this album",
   "deleteGalleryConfirmText": "You are sure delete this image",
+  "removedSuccess": "Removed with success",
   "reportGalleryText": "Report this Image",
   "seeAllCommentText": "See all comments",
   "facebookLink": "Link with your Facebook",
@@ -99,6 +104,7 @@
   "clickSelectAlbum": "Click for select album",
   "photos": "photos",
   "createAlbum": "Create Album",
+  "album": "Album",
   "albumName": "Album name",
   "albumDesc": "Album description"
 }

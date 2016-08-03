@@ -13,13 +13,11 @@
             link    : function (scope, elem) {
 
                 elem.bind('click', openModal);
-                scope.closeModal     = closeModal;
-                scope.link           = link;
-                scope.share          = Share.share;
+                scope.share = Share.share;
 
-                scope.logout = function  () {
+                scope.logout = function () {
                     $state.go(AppConfig.routes.login);
-                    scope.closeModal();
+                    scope.closeSettingModal();
                 };
 
                 function init() {
@@ -35,29 +33,22 @@
                     $ionicModal.fromTemplateUrl('app/directive/settings-modal.html', {
                         scope: scope
                     }).then(function (modal) {
-                        scope.modal = modal;
-                        scope.modal.show();
+                        scope.modalSetting = modal;
+                        scope.modalSetting.show();
+
                     });
-                }
 
-                function link(sref) {
-                    $state.go(sref);
-                    scope.closeModal();
-                }
+                    scope.closeSettingModal = function () {
+                        scope.modalSetting.hide();
+                        scope.modalSetting.remove();
+                    };
 
-                function submitUpdateProfile(form) {
-                    var dataForm = angular.copy(form);
-                    User.update(dataForm).then(function (resp) {
-                        console.log(resp);
-                        init();
+                    scope.link       = function (sref) {
+                        $state.go(sref);
                         scope.closeModal();
-                    });
+                    };
                 }
 
-                function closeModal() {
-                    scope.modal.hide();
-                    scope.modal.remove();
-                }
 
             }
         };

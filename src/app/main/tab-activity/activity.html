@@ -4,23 +4,23 @@
         <span translate="activities"></span>
     </ion-nav-title>
 
-    <ion-content scroll-sista="">
+    <ion-content>
 
-        <div class="center padding" ng-if="loading">
-            <ion-spinner ></ion-spinner>
+        <div class="center padding" ng-if="loading &&!data.length">
+            <ion-spinner></ion-spinner>
         </div>
 
-        <div class="center padding" ng-if="vm.showErrorView()">
+        <div class="center padding" ng-if="showErrorView">
             <div class="error ">
                 <i class="icon icon-large ion-ios-cloud-download-outline"></i>
                 <p>{{ "errorText" | translate }}</p>
-                <button class="button button-positive" ng-click="vm.onReload()">
+                <button class="button button-positive" ng-click="onReload()">
                     {{ "tryAgainText" | translate }}
                 </button>
             </div>
 
         </div>
-        <div class="center padding" ng-if="vm.showEmptyView()">
+        <div class="center padding" ng-if="showEmptyView">
             <div class="error ">
                 <i class="icon icon-large ion-android-alert"></i>
                 <p>{{ "activityNotFoundText" | translate }}</p>
@@ -32,10 +32,10 @@
 
         <div class="list">
 
-            <div class="item item-avatar item-animate1" ng-repeat="item in vm.data | orderBy:'createdAt':true">
+            <div class="item item-avatar item-animate1" ng-repeat="item in data | orderBy:'createdAt':true">
                 <img ng-src="{{ item.user.photo._url  || './img/user.png'}}">
 
-                <h2 ng-click="vm.openProfile(item.user.username)">{{ item.user.name}}</h2>
+                <h2 ng-click="openProfile(item.user.username)">{{ item.user.name}}</h2>
 
                 <div class="text">{{ item.action | translate }}</div>
                 <p>{{ item.createdAt | amTimeAgo }}</p>
@@ -47,7 +47,7 @@
                 <div class="item-button-right" ng-if="!item.item.gallery">
                     <button class="button button-positive button-outline icon"
                             ng-class="{'ion-ios-person-outline': item.user.isFollow, 'ion-ios-personadd-outline': !item.user.isFollow}"
-                            ng-click="vm.follow(user)" >
+                            ng-click="follow(user)">
                     </button>
                 </div>
 
@@ -57,7 +57,7 @@
 
         <ion-infinite-scroll
                 on-infinite="onLoadMore()"
-                ng-if="vm.moreDataCanBeLoaded()"
+                ng-if="moreDataCanBeLoaded"
                 spinner
                 distance="1%">
         </ion-infinite-scroll>
