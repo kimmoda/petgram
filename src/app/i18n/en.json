@@ -13,6 +13,8 @@
   "persian": "Persian",
   "german": "German",
   "turkish": "Turkish",
+  "invalidForm": "Invalid Form",
+  "fillAllFields": "Fill in all fields",
   "tryAgainText": "Try again",
   "errorText": "Error",
   "commentPhotoText": "Comments",

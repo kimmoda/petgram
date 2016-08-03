@@ -1,6 +1,6 @@
 {
   "name": "Photogram",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "dependencies": {
     "elementtree": "^0.1.6",
     "lodash": "^3.10.1",

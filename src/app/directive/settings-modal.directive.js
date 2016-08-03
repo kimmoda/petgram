@@ -5,7 +5,7 @@
         .module('starter')
         .directive('settingsModal', settingsModalDirective);
 
-    function settingsModalDirective($ionicModal, $translate, AppConfig, $cordovaInAppBrowser, Share, Auth, User, UserForm, $state) {
+    function settingsModalDirective($ionicModal, $translate, AppConfig, $cordovaInAppBrowser, Share, Auth, User,  $state) {
 
         return {
             restrict: 'A',
@@ -22,7 +22,6 @@
 
                 function init() {
                     scope.form       = Auth.getLoggedUser();
-                    scope.formFields = UserForm.profile;
                     scope.languages  = AppConfig.locales;
                     scope.language   = $translate.use();
                 }

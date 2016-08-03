@@ -3,14 +3,13 @@
 
     angular.module('app.main').controller('UserMergeCtrl', UserMergeController);
 
-    function UserMergeController(Auth, $rootScope, AppConfig, Facebook, $state, Toast, UserForm) {
+    function UserMergeController(Auth, $scope, $rootScope, AppConfig, Facebook, $state, Toast) {
         var vm        = this;
-        vm.formFields = UserForm.register;
 
         init();
         function init() {
             if ($rootScope.tempUser) {
-                vm.form = {
+                $scope.form = {
                     email   : $rootScope.tempUser.attributes.email,
                     username: $rootScope.tempUser.attributes.username,
                     password: ''
@@ -20,7 +19,7 @@
             }
         }
 
-        vm.submit = function (rForm, form) {
+        $scope.submitMerge = function (rForm, form) {
 
             console.log(rForm);
             console.table(form);

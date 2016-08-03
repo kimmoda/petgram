@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('signinModal', signinModalDirective);
 
-    function signinModalDirective($ionicModal, Loading, User, $state, Toast, UserForm, AppConfig, $rootScope) {
+    function signinModalDirective($ionicModal, Loading, User, $state, Toast, AppConfig, $rootScope) {
         return {
             restrict: 'A',
             link    : signinModalLink,
@@ -12,7 +12,6 @@
         function signinModalLink($scope, elem, attr) {
             elem.bind('click', function () {
 
-                $scope.formFields  = UserForm.login;
                 $scope.routeLogged = AppConfig.routes.home;
 
                 $scope.form = {

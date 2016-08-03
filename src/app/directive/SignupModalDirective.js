@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('signupModal', signupModalDirective);
 
-    function signupModalDirective(UserForm, AppConfig, Loading, User, $state, Toast, $ionicModal, $rootScope) {
+    function signupModalDirective(AppConfig, Loading, User, $state, Toast, $ionicModal, $rootScope) {
         return {
             restrict: 'A',
             link    : signupModalLink,
@@ -12,7 +12,6 @@
         function signupModalLink($scope, elem, attr) {
             elem.bind('click', function () {
 
-                $scope.formFields  = UserForm.register;
                 $scope.routeLogged = AppConfig.routes.home;
 
                 $scope.form = {

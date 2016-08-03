@@ -6,29 +6,70 @@
             <div class="col">
                 <img class="avatar"
                      user-avatar
-                     ng-model="vm.user"
-                     ng-src="{{ vm.user._url || 'img/user.png' }}"/>
+                     ng-model="user"
+                     ng-src="{{ user._url || 'img/user.png' }}"/>
             </div>
         </div>
         <div class="step2">
-            <form>
+            <form name="myForm" novalidate="novalidate" ng-submit="submitAvatar(myForm, form)">
+
                 <label class="item item-input">
                     <i class="icon icon-envelope placeholder-icon"></i>
-                    <input
-                            type="email"
-                            name="email"
-                            ng-model="vm.form.email"
-                            disabled
-                    />
+                    <input required="required"
+                           type="email"
+                           name="email"
+                           ng-model="form.email"
+                           disabled="disabled"
+                           placeholder="user@example.com"/>
                 </label>
-            </form>
-            <formly-form model="vm.form" fields="vm.formFields" form="vm.rForm"></formly-form>
-        </div>
 
-        <div class="step3">
-            <button ng-click="vm.submitAvatar()" class="button button-block button-positive "
-                    translate="submit">
-            </button>
+                <label class="item item-input">
+                    <i class="icon ion-at placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="username"
+                           ng-model="form.username"
+                           ng-minlength="4"
+                           ng-maxlength="12"
+                           ng-model-options="{debounce: 1000}"
+                           ng-pattern="/^[a-zA-Z'. -]+$/"
+                           placeholder="{{'yourLogin' | translate}}"/>
+                </label>
+
+                <div ng-if="myForm.username.$dirty">
+                    <div ng-messages="myForm.email.$error" class="validation-error">
+                        <div ng-message="required" translate="usernameRequired"></div>
+                        <div ng-message="email" translate="usernameInUse"></div>
+                    </div>
+                    <div ng-messages="myForm.email.$pending" class="validation-pending">
+                        <div ng-message="email" translate="checkingUsername"></div>
+                    </div>
+                </div>
+
+                <label class="item item-input">
+                    <i class="icon icon-user placeholder-icon"></i>
+                    <input required
+                           type="name"
+                           name="name"
+                           ng-model="form.name"
+                           placeholder="{{'name'|translate}}"/>
+                </label>
+
+                <label class="item item-input">
+                    <i class="icon ion-pound placeholder-icon"></i>
+                    <input required
+                           type="status"
+                           name="status"
+                           ng-model="form.status"
+                           placeholder="{{'status'|translate}}"/>
+                </label>
+
+                <button class="button button-block button-outline button-light "
+                        type="submit"
+                        translate="{{'submit' | translate}}">
+                </button>
+
+            </form>
         </div>
     </ion-content>
 </ion-view>

@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('profileModalEdit', profileModalEditDirective);
 
-    function profileModalEditDirective($ionicModal, $rootScope, ParsePush, $localStorage, User, Loading, UserForm, $state) {
+    function profileModalEditDirective($ionicModal, $rootScope, ParsePush, $localStorage, User, Loading, $state) {
 
         return {
             restrict: 'A',
@@ -29,7 +29,6 @@
                         gender  : user.gender,
                         facebook: user.facebook
                     };
-                    scope.formFields = UserForm.profile;
                 }
 
 

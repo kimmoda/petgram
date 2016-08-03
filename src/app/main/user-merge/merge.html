@@ -7,9 +7,57 @@
         </div>
 
         <div class="step2">
-            <formly-form model="vm.form" fields="vm.formFields" form="rForm">
-                <input type="hidden" ng-model="vm.form.facebookimg">
-            </formly-form>
+            <form name="myForm" novalidate="novalidate" ng-submit="submitMerge(myForm, form)">
+
+                <label class="item item-input">
+                    <i class="icon icon-envelope placeholder-icon"></i>
+                    <input required="required"
+                           type="email"
+                           name="email"
+                           ng-model="form.email"
+                           disabled="disabled"
+                           placeholder="user@example.com"/>
+                </label>
+
+                <label class="item item-input">
+                    <i class="icon icon-user placeholder-icon"></i>
+                    <input required="required"
+                           type="text"
+                           name="username"
+                           ng-model="form.username"
+                           username-validator
+                           ng-minlength="4"
+                           ng-maxlength="12"
+                           ng-model-options="{debounce: 1000}"
+                           ng-pattern="/^[a-zA-Z'. -]+$/"
+                           placeholder="{{'yourLogin' | translate}}"/>
+                </label>
+
+                <div ng-if="myForm.username.$dirty">
+                    <div ng-messages="myForm.email.$error" class="validation-error">
+                        <div ng-message="required" translate="usernameRequired"></div>
+                        <div ng-message="email" translate="usernameInUse"></div>
+                    </div>
+                    <div ng-messages="myForm.email.$pending" class="validation-pending">
+                        <div ng-message="email" translate="checkingUsername"></div>
+                    </div>
+                </div>
+
+                <label class="item item-input">
+                    <i class="icon icon-lock placeholder-icon"></i>
+                    <input required
+                           type="password"
+                           name="password"
+                           ng-model="form.password"
+                           placeholder="{{'password'|translate}}"/>
+                </label>
+
+                <button class="button button-block button-outline button-light "
+                        type="submit"
+                        translate="{{'submit' | translate}}">
+                </button>
+
+            </form>
         </div>
 
         <div class="padding step3">
