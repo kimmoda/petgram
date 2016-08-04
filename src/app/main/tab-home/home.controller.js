@@ -3,7 +3,7 @@
 
     angular.module('app.main').controller('HomeCtrl', HomeController);
 
-    function HomeController($state) {
+    function HomeController($state, $ionicHistory) {
         var vm = this;
 
         vm.openProfile = function (username) {

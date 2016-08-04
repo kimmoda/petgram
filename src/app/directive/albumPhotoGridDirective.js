@@ -38,13 +38,17 @@
                     $scope.modal.remove();
                 });
 
-                $scope.loading = true;
-                Gallery.getAlbum({id: $scope.album}).then(function (data) {
-                    console.log(data);
-                    $scope.title   = data.album.attributes.title;
-                    $scope.data    = data.photos;
-                    $scope.loading = false;
-                });
+                function init() {
+                    $scope.loading = true;
+                    Gallery.getAlbum({id: $scope.album}).then(function (data) {
+                        console.log(data);
+                        $scope.title   = data.album.attributes.title;
+                        $scope.data    = data.photos;
+                        $scope.loading = false;
+                    });
+                }
+
+                init();
 
 
                 // Popover
@@ -61,16 +65,14 @@
                 };
 
                 $scope.uploadPhoto = function () {
-                    var options = {
-                        jrCrop     : true,
-                        filterImage: true
-                    }
-                    PhotoService.open(options).then(PhotoService.modalPost).then(function (form) {
+                    $scope.closePopover();
+                    PhotoService.open().then(PhotoService.modalPost).then(function (form) {
                         Loading.start();
                         ParseFile.upload({base64: form.image}).then(function (imageUploaded) {
                             form.image = imageUploaded;
                             Gallery.create(form).then(function (item) {
-                                $scope.$emit('photoInclude', item);
+                                $scope.$emit('albumGrid:reload', item);
+                                init();
                                 Loading.end();
                             });
                         });
@@ -92,16 +94,17 @@
                     }).then(function (modal) {
                         $scope.modalAlbum = modal;
 
+                        Loading.start();
                         GalleryAlbum.get($scope.album).then(function (album) {
                             $scope.form = album;
                             $scope.modalAlbum.show();
-                        })
+                            Loading.end();
+                        });
                     });
-
                     $scope.createAlbum = function (rForm, form) {
                         console.log(rForm, form);
                         if (rForm.$valid) {
-                            $scope.form.save().then(function  (data) {
+                            $scope.form.save().then(function (data) {
                                 console.log(data);
                                 $scope.closeAlbumPhotoGridModal();
                                 $scope.closeModal();

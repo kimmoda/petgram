@@ -55,6 +55,15 @@
                 $scope.loading = true;
                 GalleryAlbum.list($scope.params).then(function (data) {
 
+                    // If can Edit
+                    if ($scope.canEdit) {
+                        if (!_.some($scope.data, {create: true})) {
+                            $scope.data.push({
+                                create: true
+                            });
+                        }
+                    }
+
                     if (data.length > 0) {
                         $scope.params.page++;
                         data.map(function (item) {
@@ -95,12 +104,6 @@
                 $scope.data                = [];
                 $scope.moreDataCanBeLoaded = true;
                 $scope.loading             = false;
-
-                if ($scope.canEdit) {
-                    $scope.data.push({
-                        create: true
-                    });
-                }
             }
         }
 

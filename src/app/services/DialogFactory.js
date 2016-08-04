@@ -26,7 +26,8 @@
             var defer = $q.defer();
             if (window.cordova) {
                 $cordovaDialogs.confirm(options.message, options.title, options.buttonsText).then(function (result) {
-                    if (result === 2) {
+                    console.log(result);
+                    if (result === 1) {
                         defer.resolve(true);
                     }
                     defer.reject(true);

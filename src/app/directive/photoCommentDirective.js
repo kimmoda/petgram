@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('photoComment', photoCommentDirective);
 
-    function photoCommentDirective($ionicModal, $http, $q, $ionicScrollDelegate, Loading, $ionicPopup, User, Dialog, $rootScope, Gallery, GalleryComment) {
+    function photoCommentDirective($ionicModal, $timeout, $q, $ionicScrollDelegate, Loading, $ionicPopup, User, Dialog, $rootScope, Gallery, GalleryComment) {
 
         return {
             restrict: 'A',

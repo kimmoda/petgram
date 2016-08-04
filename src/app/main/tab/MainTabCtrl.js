@@ -3,8 +3,11 @@
 
     angular.module('app.main').controller('MainTabCtrl', MainTabController);
 
-    function MainTabController($localStorage, ParsePush, $scope, $rootScope, PhotoService, $ionicPlatform, Gallery, ParseFile, Loading) {
+    function MainTabController($localStorage,$ionicHistory, ParsePush, $scope, $rootScope, PhotoService, $ionicPlatform, Gallery, ParseFile, Loading) {
         var vm = this;
+
+        // Android Clear
+        $ionicHistory.clearHistory();
 
         $scope.storage = $localStorage;
         function clearBadge() {
@@ -39,11 +42,7 @@
         });
 
         vm.postPhoto = function () {
-            var options = {
-                jrCrop     : true,
-                filterImage: true
-            }
-            PhotoService.open(options).then(PhotoService.modalPost).then(function (form) {
+            PhotoService.open().then(PhotoService.modalPost).then(function (form) {
                 Loading.start();
                 ParseFile.upload({base64: form.image}).then(function (imageUploaded) {
                     form.image = imageUploaded;

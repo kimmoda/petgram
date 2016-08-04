@@ -1,10 +1,10 @@
 <ion-modal-view>
     <form name="rForm" novalidate>
         <ion-header-bar class="bar bar-{{theme}}">
-            <a ng-click="closeModal()" class="button button-clear " translate="cancel"></a>
+            <button ng-click="closeModal()" class="button button-clear " translate="cancel"></button>
             <h1 class="title" translate="createAlbum" ng-if="!form.id"></h1>
             <h1 class="title" translate="editAlbum" ng-if="form.id"></h1>
-            <a ng-click="createAlbum(rForm, form)" class="button button-clear  " translate="submit"></a>
+            <button ng-click="createAlbum(rForm, form)" class="button button-clear  " translate="submit"></button>
         </ion-header-bar>
         <ion-content>
             <div class="list">

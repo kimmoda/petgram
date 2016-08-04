@@ -46,9 +46,9 @@
             }
 
             // Remove back button android
-            $ionicPlatform.registerBackButtonAction(function (event) {
-                event.preventDefault();
-            }, 100);
+            //$ionicPlatform.registerBackButtonAction(function (event) {
+            //    event.preventDefault();
+            //}, 100);
 
             if ($localStorage.lang) {
                 $translate.use($localStorage.lang);

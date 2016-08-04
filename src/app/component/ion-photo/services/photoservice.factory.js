@@ -14,16 +14,16 @@
         var tempImage;
         var cordova = window.cordova;
         var setting = {
-            jrCrop            : true,
+            jrCrop            : false,
             filterImage       : true,
             quality           : 90,
-            allowEdit         : false,
+            allowEdit         : true,
             filter            : true,
             correctOrientation: true,
             targetWidth       : 640,
             targetHeight      : 640,
             saveToPhotoAlbum  : false,
-            allowRotation     : false,
+            allowRotation     : true,
             aspectRatio       : 0
         };
 

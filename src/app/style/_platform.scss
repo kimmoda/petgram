@@ -1,48 +1,4 @@
 
-.platform-android {
-
-  .has-tab {
-    ion-header-bar, .bar {
-      border: none;
-      box-shadow: none;
-    }
-  }
-
-  //.nav-bar-tabs-top .scroll-content, .tabs-bottom .scroll-content {
-  //  top: 93px !important;
-  //}
-
-  .nav-bar-tabs-top, .tabs-bottom {
-    .bar.bar-header {
-      border: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-    }
-    .scroll-content {
-      bottom: 50px;
-      top: 56px;
-    }
-  }
-
-  .view-tab {
-    .scroll-content {
-      top: 93px;
-    }
-  }
-
-  .modal {
-    .bar.bar-header {
-      .button:last-child {
-        top: 0;
-        right: 0;
-        width: 56px;
-        height: 56px;
-      }
-    }
-  }
-}
-
 .bar-dark {
 
   &.bar.bar-header {
