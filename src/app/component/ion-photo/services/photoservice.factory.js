@@ -3,7 +3,7 @@
 
     angular.module('ion-photo').factory('PhotoService', PhotoServiceFactory);
 
-    function PhotoServiceFactory($ionicActionSheet, $cordovaCapture, User, Loading, $cordovaCamera, $timeout, PhotoFilter, $translate, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, ActionSheet, $q) {
+    function PhotoServiceFactory($ionicActionSheet, $cordovaCapture, User,  $cordovaCamera, $translate, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, ActionSheet, $q) {
 
         var deviceInformation = ionic.Platform.device();
         var isIOS             = ionic.Platform.isIOS();
@@ -15,7 +15,6 @@
         var cordova = window.cordova;
         var setting = {
             jrCrop            : false,
-            filterImage       : false,
             quality           : 90,
             allowEdit         : true,
             filter            : true,
@@ -31,121 +30,8 @@
         return {
             open     : openModal,
             crop     : cropModal,
-            filter   : filterModal,
             modalPost: modalPost,
         };
-
-        function filterModal(image) {
-            var defer = $q.defer();
-
-            if (setting.filterImage) {
-                openFilter(image);
-            } else {
-                defer.resolve(image);
-            }
-
-            function openFilter(image64) {
-                var scope  = $rootScope.$new(true);
-                tempImage  = image64;
-                scope.form = {
-                    photo: image64
-                };
-
-                scope.theme = $rootScope.theme;
-                $ionicModal.fromTemplateUrl('app/component/ion-photo/view/filter.modal.html', {
-                    scope          : scope,
-                    focusFirstInput: true
-                }).then(function (modal) {
-                    scope.modalFilter = modal;
-                    scope.modalFilter.show();
-                    scope.loading = true;
-                    $timeout(function () {
-                        Loading.start();
-                        PhotoFilter.init('image', image64).then(function () {
-                            scope.loading = false;
-                            Loading.end();
-                        });
-                    }, 500)
-                });
-
-                scope.actionShowFilter = function (option) {
-                    scope.showFilter = option;
-                };
-
-                scope.closeModalFilter = function () {
-                    scope.modalFilter.hide();
-                };
-
-                scope.cropImage = function () {
-                    scope.modalFilter.remove();
-                    cropModal(tempImage)
-                        .then(openFilter);
-                };
-
-                // Filter
-                scope.filters      = PhotoFilter.filters.Adjust;
-                scope.imageFilters = PhotoFilter.imageFilters;
-                scope.reset        = PhotoFilter.reset;
-
-                scope.applyFilter = function (filter) {
-                    PhotoFilter.apply(filter.filter);
-                };
-
-                scope.filterEdit = false;
-                scope.showFilter = true;
-
-                scope.selectFilter = function (filter) {
-                    console.log('filter', filter);
-                    scope.filter     = filter;
-                    scope.filterEdit = true;
-                };
-
-                scope.doneFilter = function () {
-                    scope.filterEdit = false;
-                };
-
-                scope.cancelFilter = function (filter) {
-                    filter.slider.value = 0;
-                    filter.setSlider(filter.slider);
-                    scope.filterEdit = false;
-                };
-
-                scope.$watch('scope.filterSelected', function (item) {
-                    if (item) {
-                        var filter    = _.find(scope.filters, {func: item});
-                        scope.filter  = filter;
-                        scope.sliders = filter.sliders;
-                        console.log(filter);
-                    }
-                });
-
-                scope.$watch('filter.slider.value', function (value) {
-                    if (value) {
-                        scope.filter.slider.value = parseInt(value);
-                        scope.filter.setSlider(scope.filter.slider);
-                    }
-                });
-
-                scope.closeFilter = function () {
-                    defer.reject();
-                    scope.modalFilter.hide();
-                };
-
-                scope.submitFilter = function () {
-                    var dataUrl = PhotoFilter.getImage();
-                    scope.modalFilter.remove();
-                    defer.resolve(dataUrl);
-                };
-
-
-                // Cleanup the modal when we're done with it!
-                scope.$on('$destroy', function () {
-                    scope.modal.remove();
-                });
-            }
-
-            return defer.promise;
-        }
 
         function openModal(setOptions) {
             var defer = $q.defer();
@@ -178,7 +64,6 @@
                 console.log(index);
                 capture(index - 1, options)
                     .then(cropModal)
-                    .then(filterModal)
                     .then(defer.resolve)
                     .catch(function (resp) {
                         console.log(resp);
@@ -194,7 +79,7 @@
                 image = 'data:image/jpeg;base64,' + image;
             }
 
-            if (setting.jrCrop) {
+            if (setting.jrCrop || !window.cordova) {
                 $jrCrop.crop({
                     url          : image,
                     aspectRatio  : 1,
@@ -326,14 +211,8 @@
 
             $scope.image = image;
             $scope.form  = {
-                title: '',
+                title        : '',
                 facebookShare: true
-            };
-
-            $scope.editFilter = function () {
-                PhotoFilter.load(tempImage).then(function (image) {
-                    $scope.image = image;
-                });
             };
 
             //Mentios

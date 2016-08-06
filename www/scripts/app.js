@@ -529,40 +529,6 @@
                 templateUrl : 'app/main/tab/main-tab.html'
             })
 
-            .state('chat', {
-                url        : '/chat',
-                templateUrl: 'app/main/chat/room.html',
-                controller: 'RoomCtrl'
-            })
-            //
-            //.state('room-user', {
-            //    url        : '/room/:roomId/:userId',
-            //    templateUrl: 'app/main/chat/room.html',
-            //    //controller: 'RoomCtrl'
-            //})
-            //.state('room-group', {
-            //    url        : '/room/:roomId/:groupName/:userList',
-            //    templateUrl: 'app/main/chat/room.html',
-            //    //controller : 'RoomCtrl'
-            //})
-            //
-            //.state('room-setting', {
-            //    url        : '/room-setting/:roomId',
-            //    templateUrl: 'app/main/chat/room-setting.html',
-            //    controller : 'RoomSettingCtrl'
-            //})
-
-            .state('room-setting-user', {
-                url        : '/room-setting/:roomId/:userId',
-                templateUrl: 'app/main/chat/room-setting.html',
-                controller : 'RoomSettingCtrl'
-            })
-            .state('room-setting-group', {
-                url        : '/room-setting/:roomId/:groupName/:userList',
-                templateUrl: 'app/main/chat/room-setting.html',
-                controller : 'RoomSettingCtrl'
-            })
-
             .state('tab.home', {
                 url  : '/home',
                 views: {
@@ -15407,61 +15373,6 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 })();
 
 (function () {
-    'use strict';
-    angular.module('starter').controller('RoomCtrl', RoomController);
-
-    function RoomController($scope) {
-        var vm    = this;
-        var Chat  = Parse.Object.extend('Chat');
-        let query = new Parse.Query(Chat);
-        query.equalTo('username', 'movibe');
-        query.find().then(function (data) {
-            $scope.data = data;
-            console.log(data);
-        });
-
-        let subscription = query.subscribe();
-
-        subscription.on('open', (item) => {
-            console.log('open ', item);
-        });
-
-        subscription.on('create', (item) => {
-            console.log('create', item);
-            $scope.data.push(item);
-            $scope.$digest();
-        });
-        subscription.on('update', (item) => {
-            console.log('udpate', item); // This should output 100
-        });
-        subscription.on('enter', (item) => {
-            console.log('enter', item); // This should output 100
-        });
-        subscription.on('leave', (item) => {
-            console.log('leave', item); // This should output 100
-        });
-
-        subscription.on('delete', (item) => {
-            console.log('delete', item); // This should output 100
-        });
-
-        $scope.deleteItem = function (item) {
-            item.destroy();
-        };
-
-        $scope.sendChat = function (text) {
-            console.log(text);
-            new Chat().save({
-                username: 'movibe',
-                message : text
-            });
-
-        }
-
-    }
-
-})();
-(function () {
 
     angular.module('app.main').factory('FeedbackModal', FeedbackModalFactory);
 
@@ -15787,45 +15698,6 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 (function () {
     'use strict';
 
-    angular.module('app.main').controller('LoadingCtrl', LoadingController);
-
-    function LoadingController($scope, $rootScope, $ionicPlatform, $cordovaSplashscreen, AppConfig, $state) {
-        var user  = $rootScope.currentUser;
-
-        if (user) {
-            console.log(user);
-            if (user.name) {
-                $state.go(AppConfig.routes.home, {
-                    clear: true
-                });
-            } else {
-                $state.go('user.avatar', {
-                    clear: true
-                });
-            }
-        } else {
-            $state.go(AppConfig.routes.login, {
-                clear: true
-            });
-        }
-
-        $scope.$on('$ionicView.loaded', function () {
-            $ionicPlatform.ready(function () {
-                if (navigator && navigator.splashscreen) {
-                    $cordovaSplashscreen.hide();
-                }
-            });
-        });
-
-
-    }
-
-
-})();
-
-(function () {
-    'use strict';
-
     angular.module('app.main').controller('ProfileCtrl', ProfileController);
 
     function ProfileController(User, $state, $stateParams) {
@@ -15922,6 +15794,45 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 (function () {
     'use strict';
 
+    angular.module('app.main').controller('LoadingCtrl', LoadingController);
+
+    function LoadingController($scope, $rootScope, $ionicPlatform, $cordovaSplashscreen, AppConfig, $state) {
+        var user  = $rootScope.currentUser;
+
+        if (user) {
+            console.log(user);
+            if (user.name) {
+                $state.go(AppConfig.routes.home, {
+                    clear: true
+                });
+            } else {
+                $state.go('user.avatar', {
+                    clear: true
+                });
+            }
+        } else {
+            $state.go(AppConfig.routes.login, {
+                clear: true
+            });
+        }
+
+        $scope.$on('$ionicView.loaded', function () {
+            $ionicPlatform.ready(function () {
+                if (navigator && navigator.splashscreen) {
+                    $cordovaSplashscreen.hide();
+                }
+            });
+        });
+
+
+    }
+
+
+})();
+
+(function () {
+    'use strict';
+
     angular.module('app.main').controller('ProfilePhotoCtrl', ProfileController);
 
     function ProfileController($stateParams) {
@@ -15984,8 +15895,6 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
                     form.image = imageUploaded;
                     Gallery.create(form).then(function (item) {
                         $scope.$emit('photoInclude', item);
-                        Facebook.postImage(item);
-                        Facebook.postImage1(item);
                         Loading.end();
                     });
                 });
@@ -15993,6 +15902,76 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
         };
 
     }
+})();
+
+(function () {
+    'use strict';
+
+    angular.module('app.main').controller('AccountCtrl', AccountController);
+
+    function AccountController($scope, AppConfig, User, $state, $rootScope) {
+        var vm = this;
+
+        vm.user  = $rootScope.currentUser;
+        vm.photo = $rootScope.currentUser.attributes.photo;
+
+        vm.loading     = true;
+        $scope.buttonTheme = 'button-' + AppConfig.theme;
+
+        User.getPublicData(Parse.User.current()).then(function (user) {
+            console.log('Profile', user.attributes);
+            vm.user    = user;
+            vm.loading = false;
+        });
+
+        vm.openFollowers = function () {
+            $state.go('tab.accountFollowers', {username: $rootScope.currentUser.attributes.username});
+        };
+
+        vm.openFollowing = function () {
+            $state.go('tab.accountFollowing', {username: $rootScope.currentUser.attributes.username});
+        };
+
+        init();
+
+        vm.tab = {
+            grid : true,
+            list : false,
+            album: false,
+            map  : false
+        };
+
+        vm.changeTab = function changeTab(tab) {
+            Object.keys(vm.tab).map(function (value) {
+                if (value == tab) {
+                    vm.tab[value] = true;
+                } else {
+                    vm.tab[value] = false;
+                }
+            });
+        }
+
+        function init() {
+            vm.data  = {
+                total    : false,
+                galleries: []
+            };
+            vm.page  = 0;
+            vm.empty = false;
+            vm.more  = false;
+            getFollower();
+        }
+
+        function getFollower() {
+            vm.loadingFollowers = true;
+            vm.loadingFollowing = true;
+            vm.loadingPhotos    = true;
+        }
+
+
+    }
+
+
 })();
 
 (function () {
@@ -16064,76 +16043,6 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
         }
 
     }
-
-})();
-
-(function () {
-    'use strict';
-
-    angular.module('app.main').controller('AccountCtrl', AccountController);
-
-    function AccountController($scope, AppConfig, User, $state, $rootScope) {
-        var vm = this;
-
-        vm.user  = $rootScope.currentUser;
-        vm.photo = $rootScope.currentUser.attributes.photo;
-
-        vm.loading     = true;
-        $scope.buttonTheme = 'button-' + AppConfig.theme;
-
-        User.getPublicData(Parse.User.current()).then(function (user) {
-            console.log('Profile', user.attributes);
-            vm.user    = user;
-            vm.loading = false;
-        });
-
-        vm.openFollowers = function () {
-            $state.go('tab.accountFollowers', {username: $rootScope.currentUser.attributes.username});
-        };
-
-        vm.openFollowing = function () {
-            $state.go('tab.accountFollowing', {username: $rootScope.currentUser.attributes.username});
-        };
-
-        init();
-
-        vm.tab = {
-            grid : true,
-            list : false,
-            album: false,
-            map  : false
-        };
-
-        vm.changeTab = function changeTab(tab) {
-            Object.keys(vm.tab).map(function (value) {
-                if (value == tab) {
-                    vm.tab[value] = true;
-                } else {
-                    vm.tab[value] = false;
-                }
-            });
-        }
-
-        function init() {
-            vm.data  = {
-                total    : false,
-                galleries: []
-            };
-            vm.page  = 0;
-            vm.empty = false;
-            vm.more  = false;
-            getFollower();
-        }
-
-        function getFollower() {
-            vm.loadingFollowers = true;
-            vm.loadingFollowing = true;
-            vm.loadingPhotos    = true;
-        }
-
-
-    }
-
 
 })();
 
@@ -17235,610 +17144,6 @@ angular.module("ngLocale", [], ["$provide", function ($provide) {
 })();
 (function () {
     'use strict';
-    angular.module('ion-photo').factory('PhotoFilter', PhotoFilterFactory);
-
-    function PhotoFilterFactory($q, $timeout) {
-
-        var image, image3, texture, texture3;
-        // Try Canvas
-        try {
-            var canvas  = fx.canvas();
-            var canvas2 = fx.canvas();
-            var canvas3 = fx.canvas();
-        } catch (err) {
-            alert(err);
-            return;
-        }
-
-        var imageFilter = {
-            brightness: 0,
-            contrast  : 0,
-            hue       : 0,
-            denoise   : 20,
-            saturation: 0,
-            vibrance  : 0,
-            radius    : 0,
-            strength  : 0,
-            noise     : 0,
-            sepia     : 0,
-            size      : 0,
-            amount    : 0,
-        };
-
-        var imageFilters = [
-            {
-                name  : 'Normal',
-                id    : 'normal',
-                filter: {
-                    brightness: 0,
-                    contrast  : 0,
-                    hue       : 0,
-                    denoise   : 20,
-                    saturation: 0,
-                    vibrance  : 0,
-                    radius    : 0,
-                    strength  : 0,
-                    noise     : 0,
-                    sepia     : 0,
-                    size      : 0,
-                    amount    : 0,
-                }
-            },
-            {
-                name  : 'Claredon',
-                id    : 'claredon',
-                filter: {
-                    brightness: 0.3,
-                    contrast  : 0,
-                    hue       : 0,
-                    denoise   : 20,
-                    saturation: 0,
-                    vibrance  : 0,
-                    radius    : 0,
-                    strength  : 0,
-                    noise     : 0,
-                    sepia     : 0,
-                    size      : 0,
-                    amount    : 0,
-                }
-            },
-            {
-                name  : 'Gingham',
-                id    : 'gingham',
-                filter: {
-                    brightness: 0,
-                    contrast  : 0.5,
-                    hue       : 0,
-                    denoise   : 20,
-                    saturation: 0.1,
-                    vibrance  : 0.3,
-                    radius    : 0,
-                    strength  : 0,
-                    noise     : 0,
-                    sepia     : 0,
-                    size      : 0,
-                    amount    : 0.3,
-                }
-            },
-            {
-                name  : 'Moon',
-                id    : 'moon',
-                filter: {
-                    brightness: 0,
-                    contrast  : 0,
-                    hue       : 0,
-                    denoise   : 20,
-                    saturation: -1,
-                    vibrance  : 0,
-                    radius    : 0,
-                    strength  : 0,
-                    noise     : 0,
-                    sepia     : 0,
-                    size      : 0,
-                    amount    : 0.8,
-                }
-            },
-            {
-                name  : 'Lark',
-                id    : 'lark',
-                filter: {
-                    brightness: 0,
-                    contrast  : 0,
-                    hue       : 0,
-                    denoise   : 20,
-                    saturation: 0,
-                    vibrance  : -0.3,
-                    radius    : 0.2,
-                    strength  : 0,
-                    noise     : 0,
-                    sepia     : 0,
-                    size      : 0,
-                    amount    : 0,
-                }
-            },
-            {
-                name  : 'Reyes',
-                id    : 'reyes',
-                filter: {
-                    brightness: 0,
-                    contrast  : 0,
-                    hue       : 0,
-                    denoise   : 20,
-                    saturation: -1,
-                    vibrance  : 0,
-                    radius    : 0,
-                    strength  : 0,
-                    noise     : 0,
-                    sepia     : 0,
-                    size      : 0,
-                    amount    : 0,
-                }
-            },
-            {
-                name  : 'Juno',
-                id    : 'juno',
-                filter: {
-                    brightness: 0,
-                    contrast  : 0,
-                    hue       : 0,
-                    denoise   : 20,
-                    saturation: -1,
-                    vibrance  : 0,
-                    radius    : 0,
-                    strength  : 0,
-                    noise     : 0,
-                    sepia     : 0,
-                    size      : 0,
-                    amount    : 0,
-                }
-            },
-            {
-                name  : 'Slumber',
-                id    : 'slumber',
-                filter: {
-                    brightness: 0,
-                    contrast  : 0,
-                    hue       : 0,
-                    denoise   : 20,
-                    saturation: -1,
-                    vibrance  : 0,
-                    radius    : 0,
-                    strength  : 0,
-                    noise     : 0,
-                    sepia     : 0,
-                    size      : 0,
-                    amount    : 0,
-                }
-            },
-            {
-                name  : 'Crema',
-                id    : 'crema',
-                filter: {
-                    brightness: 0,
-                    contrast  : 0,
-                    hue       : 0,
-                    denoise   : 20,
-                    saturation: -1,
-                    vibrance  : 0,
-                    radius    : 0,
-                    strength  : 0,
-                    noise     : 0,
-                    sepia     : 0,
-                    size      : 0,
-                    amount    : 0,
-                }
-            }
-        ];
-
-        function init(elementId) {
-            var defer = $q.defer();
-            // convert the image to a texture
-            image     = document.getElementById(elementId);
-            // convert the image to a texture
-            texture   = canvas.texture(image);
-            // replace the image with the canvas
-            canvas.draw(texture).update();
-            image.src = canvas.toDataURL('image/jpeg', 0.8);
-
-            $timeout(function () {
-
-                // Generate Filters Thumb
-                imageFilters.map(function (imageThumb) {
-                    var thumbFilter = document.getElementById(imageThumb.id);
-                    if (thumbFilter) {
-                        var img = new Image();
-                        img.src = image.src;
-                        canvas2
-                            .draw(canvas2.texture(img))
-                            .brightnessContrast(imageThumb.filter.brightness, imageThumb.filter.contrast)
-                            .hueSaturation(imageThumb.filter.hue, imageThumb.filter.saturation)
-                            .vibrance(imageThumb.filter.vibrance)
-                            .denoise(imageThumb.filter.denoise * 100)
-                            .unsharpMask(imageThumb.filter.radius * 100, imageThumb.filter.strength)
-                            .noise(imageThumb.filter.noise)
-                            .sepia(imageThumb.filter.sepia)
-                            .vignette(imageThumb.filter.size, imageThumb.filter.amount)
-                            .update();
-                        thumbFilter.src = canvas2.toDataURL('image/jpeg', 0.7);
-                    }
-                });
-                defer.resolve();
-            }, 100);
-
-            return defer.promise;
-
-        }
-
-        function Filter(name, icon, func, init, update, imageFile) {
-            this.name      = name;
-            this.icon      = icon;
-            this.func      = func;
-            this.update    = update;
-            this.imageFile = imageFile;
-            this.slider    = {};
-            this.nubs      = [];
-            init.call(this);
-        }
-
-        Filter.prototype.addNub = function (name, x, y) {
-            this.nubs.push({
-                name: name,
-                x   : x,
-                y   : y
-            });
-        };
-
-        Filter.prototype.addSlider = function (name, label, min, max, value, step) {
-            this.slider = {
-                name : name,
-                label: label,
-                min  : min,
-                max  : max,
-                value: value,
-                step : step
-            };
-        };
-
-        Filter.prototype.setSlider = function (slider) {
-            this[slider.name] = slider.value / 100;
-            this.update();
-        };
-
-        Filter.prototype.setCode = function (values) {
-            imageFilter[Object.keys(values)[0]] = values[Object.keys(values)[0]];
-
-            canvas
-                .draw(texture)
-                .brightnessContrast(imageFilter.brightness, imageFilter.contrast)
-                .hueSaturation(imageFilter.hue, imageFilter.saturation)
-                .vibrance(imageFilter.vibrance)
-                .denoise(imageFilter.denoise * 100)
-                .unsharpMask(imageFilter.radius * 100, imageFilter.strength)
-                .noise(imageFilter.noise)
-                .sepia(imageFilter.sepia)
-                .vignette(imageFilter.size, imageFilter.amount)
-                .update();
-
-            image.src = canvas.toDataURL('image/jpeg', 0.8);
-        };
-
-        var perspectiveNubs = [175, 156, 496, 55, 161, 279, 504, 330];
-        var filters         = {
-            'Adjust': [
-                new Filter('Brightness', 'ion-ios-sunny-outline', 'brightnessContrast', function () {
-                    this.addSlider('brightness', 'Brightness', -100, 100, 0, 0.1);
-                }, function () {
-                    this.setCode({
-                        brightness: this.brightness
-                    });
-                }),
-                new Filter('Contrast', 'ion-contrast', 'brightnessContrast', function () {
-                    this.addSlider('contrast', 'Contrast', -100, 100, 0, 0.1);
-                }, function () {
-                    this.setCode({
-                        contrast: this.contrast,
-                    });
-                }),
-                new Filter('Hue', 'ion-ios-color-filter-outline', 'hueSaturation', function () {
-                    this.addSlider('hue', 'Hue', -100, 100, 0, 0.1);
-                }, function () {
-                    this.setCode({
-                        hue: this.hue
-                    });
-                }),
-                new Filter('Saturation', 'ion-ios-partlysunny-outline', 'hueSaturation', function () {
-                    this.addSlider('saturation', 'Saturation', -100, 100, 0, 0.1);
-                }, function () {
-                    this.setCode({
-                        saturation: this.saturation,
-                    });
-                }),
-                new Filter('Vibrance', 'ion-ios-flower-outline', 'vibrance', function () {
-                    this.addSlider('amount', 'Amount', -100, 100, 0.5, 0.1);
-                }, function () {
-                    this.setCode({
-                        vibrance: this.amount
-                    });
-                }),
-                new Filter('Denoise', 'ion-ios-eye-outline', 'denoise', function () {
-                    this.addSlider('exponent', 'Exponent', 0, 50, 20, 1);
-                }, function () {
-                    this.setCode({
-                        denoise: this.exponent
-                    });
-                }),
-                //new Filter('Unsharp Mask', 'ion-ios-rose-outline', 'unsharpMask', function () {
-                //    this.addSlider('radius', 'Radius', 0, 200, 0, 0.1);
-                //    this.addSlider('strength', 'Strength', 0, 50, 0, 0.01);
-                //}, function () {
-                //    //this.setCode('canvas.draw(texture).unsharpMask(' + this.radius + ', ' + this.strength + ').update();');
-                //    this.setCode({
-                //        radius  : this.radius,
-                //        strength: this.strength,
-                //    });
-                //}),
-                new Filter('Noise', 'ion-ios-analytics-outline', 'noise', function () {
-                    this.addSlider('amount', 'Amount', 0, 100, 5, 1);
-                }, function () {
-                    this.setCode({
-                        noise: this.amount,
-                    });
-                }),
-                new Filter('Sepia', 'ion-ios-partlysunny-outline', 'sepia', function () {
-                    this.addSlider('amount', 'Amount', 0, 100, 0, 1);
-                }, function () {
-                    this.setCode({
-                        sepia: this.amount,
-                    });
-                }),
-                //new Filter('Vignette Size', 'ion-ios-glasses-outline', 'vignette', function () {
-                //    this.addSlider('size', 'Size', 0, 100, 0, 1);
-                //}, function () {
-                //    this.setCode({
-                //        amount: this.amount,
-                //    });
-                //}),
-                new Filter('Vignette', 'ion-ios-glasses-outline', 'vignette', function () {
-                    this.addSlider('amount', 'Amount', 0, 100, 0, 1);
-                }, function () {
-                    this.setCode({
-                        amount: this.amount,
-                    });
-                })
-            ],
-            //'Blur'  : [
-            //    new Filter('Zoom Blur', 'zoomBlur', function () {
-            //        this.addNub('center', 0.5, 0.5);
-            //        this.addSlider('strength', 'Strength', 0, 1, 0.3, 0.01);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).zoomBlur(' + this.center.x + ', ' + this.center.y + ', ' + this.strength + ').update();');
-            //    }),
-            //    new Filter('Triangle Blur', 'triangleBlur', function () {
-            //        this.addSlider('radius', 'Radius', 0, 200, 50, 1);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).triangleBlur(' + this.radius + ').update();');
-            //    }),
-            //    new Filter('Tilt Shift', 'tiltShift', function () {
-            //        this.addNub('start', 0.15, 0.75);
-            //        this.addNub('end', 0.75, 0.6);
-            //        this.addSlider('blurRadius', 'Blur Radius', 0, 50, 15, 1);
-            //        this.addSlider('gradientRadius', 'Gradient Radius', 0, 400, 200, 1);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).tiltShift(' + this.start.x + ', ' + this.start.y + ', ' + this.end.x + ', ' + this.end.y + ', ' + this.blurRadius + ', ' + this.gradientRadius + ').update();');
-            //    }),
-            //    new Filter('Lens Blur', 'lensBlur', function () {
-            //        this.addSlider('radius', 'Radius', 0, 50, 10, 1);
-            //        this.addSlider('brightness', 'Brightness', -1, 1, 0.75, 0.01);
-            //        this.addSlider('angle', 'Angle', -Math.PI, Math.PI, 0, 0.01);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).lensBlur(' + this.radius + ', ' + this.brightness + ', ' + this.angle + ').update();');
-            //    }, 'lighthouse.jpg')
-            //],
-            //'Warp'  : [
-            //    new Filter('Swirl', 'swirl', function () {
-            //        this.addNub('center', 0.5, 0.5);
-            //        this.addSlider('angle', 'Angle', -25, 25, 3, 0.1);
-            //        this.addSlider('radius', 'Radius', 0, 600, 200, 1);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).swirl(' + this.center.x + ', ' + this.center.y + ', ' + this.radius + ', ' + this.angle + ').update();');
-            //    }),
-            //    new Filter('Bulge / Pinch', 'bulgePinch', function () {
-            //        this.addNub('center', 0.5, 0.5);
-            //        this.addSlider('strength', 'Strength', -1, 1, 0.5, 0.01);
-            //        this.addSlider('radius', 'Radius', 0, 600, 200, 1);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).bulgePinch(' + this.center.x + ', ' + this.center.y + ', ' + this.radius + ', ' + this.strength + ').update();');
-            //    }),
-            //    new Filter('Perspective', 'perspective', function () {
-            //        var w = 640, h = 425;
-            //        this.addNub('a', perspectiveNubs[0] / w, perspectiveNubs[1] / h);
-            //        this.addNub('b', perspectiveNubs[2] / w, perspectiveNubs[3] / h);
-            //        this.addNub('c', perspectiveNubs[4] / w, perspectiveNubs[5] / h);
-            //        this.addNub('d', perspectiveNubs[6] / w, perspectiveNubs[7] / h);
-            //    }, function () {
-            //        var before = perspectiveNubs;
-            //        var after  = [this.a.x, this.a.y, this.b.x, this.b.y, this.c.x, this.c.y, this.d.x, this.d.y];
-            //        this.setCode('canvas.draw(texture).perspective([' + before + '], [' + after + ']).update();');
-            //    }, 'perspective.jpg')
-            //],
-            //'Fun'   : [
-            //    new Filter('Ink', 'ink', function () {
-            //        this.addSlider('strength', 'Strength', 0, 1, 0.25, 0.01);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).ink(' + this.strength + ').update();');
-            //    }),
-            //    new Filter('Edge Work', 'edgeWork', function () {
-            //        this.addSlider('radius', 'Radius', 0, 200, 10, 1);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).edgeWork(' + this.radius + ').update();');
-            //    }),
-            //    new Filter('Hexagonal Pixelate', 'hexagonalPixelate', function () {
-            //        this.addNub('center', 0.5, 0.5);
-            //        this.addSlider('scale', 'Scale', 10, 100, 20, 1);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).hexagonalPixelate(' + this.center.x + ', ' + this.center.y + ', ' + this.scale + ').update();');
-            //    }),
-            //    new Filter('Dot Screen', 'dotScreen', function () {
-            //        this.addNub('center', 0.5, 0.5);
-            //        this.addSlider('angle', 'Angle', 0, Math.PI / 2, 1.1, 0.01);
-            //        this.addSlider('size', 'Size', 3, 20, 3, 0.01);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).dotScreen(' + this.center.x + ', ' + this.center.y + ', ' + this.angle + ', ' + this.size + ').update();');
-            //    }),
-            //    new Filter('Color Halftone', 'colorHalftone', function () {
-            //        this.addNub('center', 0.5, 0.5);
-            //        this.addSlider('angle', 'Angle', 0, Math.PI / 2, 0.25, 0.01);
-            //        this.addSlider('size', 'Size', 3, 20, 4, 0.01);
-            //    }, function () {
-            //        this.setCode('canvas.draw(texture).colorHalftone(' + this.center.x + ', ' + this.center.y + ', ' + this.angle + ', ' + this.size + ').update();');
-            //    })
-            //]
-        };
-
-        function apply(resFilter) {
-
-            imageFilter = resFilter;
-
-            canvas
-                .draw(texture)
-                .brightnessContrast(imageFilter.brightness, imageFilter.contrast)
-                .hueSaturation(imageFilter.hue, imageFilter.saturation)
-                .vibrance(imageFilter.vibrance)
-                .denoise(imageFilter.denoise * 100)
-                .unsharpMask(imageFilter.radius * 100, imageFilter.strength)
-                .noise(imageFilter.noise)
-                .sepia(imageFilter.sepia)
-                .vignette(imageFilter.size, imageFilter.amount)
-                .update();
-
-            image.src = canvas.toDataURL('image/png');
-        }
-
-        function reset() {
-
-            _.map(filters.Adjust, function (filter) {
-                filter.slider.value = 0;
-                filter.setSlider(filter.slider);
-            });
-
-            imageFilter = {
-                brightness: 0,
-                contrast  : 0,
-                hue       : 0,
-                denoise   : 20,
-                saturation: 0,
-                vibrance  : 0,
-                radius    : 0,
-                strength  : 0,
-                noise     : 0,
-                sepia     : 0,
-                size      : 0,
-                amount    : 0,
-            };
-            canvas
-                .draw(texture)
-                .brightnessContrast(imageFilter.brightness, imageFilter.contrast)
-                .hueSaturation(imageFilter.hue, imageFilter.saturation)
-                .vibrance(imageFilter.vibrance)
-                .denoise(imageFilter.denoise * 100)
-                .unsharpMask(imageFilter.radius * 100, imageFilter.strength)
-                .noise(imageFilter.noise)
-                .sepia(imageFilter.sepia)
-                .vignette(imageFilter.size, imageFilter.amount)
-                .update();
-
-            image.src = canvas.toDataURL('image/jpeg', 0.8);
-        }
-
-        function getImage() {
-            var defer = $q.defer();
-            var img3  = new Image();
-            img3.src  = image.src;
-
-            // Generate Image
-            image3   = document.getElementById('image3');
-            texture3 = canvas3.texture(img3);
-            canvas3.draw(texture3).update();
-            defer.resolve(canvas3.toDataURL('image/jpeg', 0.8));
-            return defer.promise;
-        }
-
-
-        return {
-            filters     : filters,
-            imageFilters: imageFilters,
-            init        : init,
-            reset       : reset,
-            apply       : apply,
-            getImage    : getImage
-        };
-
-
-    }
-
-})();
-/*
- * glfx.js
- * http://evanw.github.com/glfx.js/
- *
- * Copyright 2011 Evan Wallace
- * Released under the MIT license
- */
-var fx=function(){function q(a,d,c){return Math.max(a,Math.min(d,c))}function w(b){return{_:b,loadContentsOf:function(b){a=this._.gl;this._.loadContentsOf(b)},destroy:function(){a=this._.gl;this._.destroy()}}}function A(a){return w(r.fromElement(a))}function B(b,d){var c=a.UNSIGNED_BYTE;if(a.getExtension("OES_texture_float")&&a.getExtension("OES_texture_float_linear")){var e=new r(100,100,a.RGBA,a.FLOAT);try{e.drawTo(function(){c=a.FLOAT})}catch(g){}e.destroy()}this._.texture&&this._.texture.destroy();
-this._.spareTexture&&this._.spareTexture.destroy();this.width=b;this.height=d;this._.texture=new r(b,d,a.RGBA,c);this._.spareTexture=new r(b,d,a.RGBA,c);this._.extraTexture=this._.extraTexture||new r(0,0,a.RGBA,c);this._.flippedShader=this._.flippedShader||new h(null,"uniform sampler2D texture;varying vec2 texCoord;void main(){gl_FragColor=texture2D(texture,vec2(texCoord.x,1.0-texCoord.y));}");this._.isInitialized=!0}function C(a,d,c){this._.isInitialized&&
-a._.width==this.width&&a._.height==this.height||B.call(this,d?d:a._.width,c?c:a._.height);a._.use();this._.texture.drawTo(function(){h.getDefaultShader().drawRect()});return this}function D(){this._.texture.use();this._.flippedShader.drawRect();return this}function f(a,d,c,e){(c||this._.texture).use();this._.spareTexture.drawTo(function(){a.uniforms(d).drawRect()});this._.spareTexture.swapWith(e||this._.texture)}function E(a){a.parentNode.insertBefore(this,a);a.parentNode.removeChild(a);return this}
-function F(){var b=new r(this._.texture.width,this._.texture.height,a.RGBA,a.UNSIGNED_BYTE);this._.texture.use();b.drawTo(function(){h.getDefaultShader().drawRect()});return w(b)}function G(){var b=this._.texture.width,d=this._.texture.height,c=new Uint8Array(4*b*d);this._.texture.drawTo(function(){a.readPixels(0,0,b,d,a.RGBA,a.UNSIGNED_BYTE,c)});return c}function k(b){return function(){a=this._.gl;return b.apply(this,arguments)}}function x(a,d,c,e,g,l,n,p){var m=c-g,h=e-l,f=n-g,k=p-l;g=a-c+g-n;l=
-d-e+l-p;var q=m*k-f*h,f=(g*k-f*l)/q,m=(m*l-g*h)/q;return[c-a+f*c,e-d+f*e,f,n-a+m*n,p-d+m*p,m,a,d,1]}function y(a){var d=a[0],c=a[1],e=a[2],g=a[3],l=a[4],n=a[5],p=a[6],m=a[7];a=a[8];var f=d*l*a-d*n*m-c*g*a+c*n*p+e*g*m-e*l*p;return[(l*a-n*m)/f,(e*m-c*a)/f,(c*n-e*l)/f,(n*p-g*a)/f,(d*a-e*p)/f,(e*g-d*n)/f,(g*m-l*p)/f,(c*p-d*m)/f,(d*l-c*g)/f]}function z(a){var d=a.length;this.xa=[];this.ya=[];this.u=[];this.y2=[];a.sort(function(a,b){return a[0]-b[0]});for(var c=0;c<d;c++)this.xa.push(a[c][0]),this.ya.push(a[c][1]);
-this.u[0]=0;this.y2[0]=0;for(c=1;c<d-1;++c){a=this.xa[c+1]-this.xa[c-1];var e=(this.xa[c]-this.xa[c-1])/a,g=e*this.y2[c-1]+2;this.y2[c]=(e-1)/g;this.u[c]=(6*((this.ya[c+1]-this.ya[c])/(this.xa[c+1]-this.xa[c])-(this.ya[c]-this.ya[c-1])/(this.xa[c]-this.xa[c-1]))/a-e*this.u[c-1])/g}this.y2[d-1]=0;for(c=d-2;0<=c;--c)this.y2[c]=this.y2[c]*this.y2[c+1]+this.u[c]}function u(a,d){return new h(null,a+"uniform sampler2D texture;uniform vec2 texSize;varying vec2 texCoord;void main(){vec2 coord=texCoord*texSize;"+
-d+"gl_FragColor=texture2D(texture,coord/texSize);vec2 clampedCoord=clamp(coord,vec2(0.0),texSize);if(coord!=clampedCoord){gl_FragColor.a*=max(0.0,1.0-length(coord-clampedCoord));}}")}function H(b,d){a.brightnessContrast=a.brightnessContrast||new h(null,"uniform sampler2D texture;uniform float brightness;uniform float contrast;varying vec2 texCoord;void main(){vec4 color=texture2D(texture,texCoord);color.rgb+=brightness;if(contrast>0.0){color.rgb=(color.rgb-0.5)/(1.0-contrast)+0.5;}else{color.rgb=(color.rgb-0.5)*(1.0+contrast)+0.5;}gl_FragColor=color;}");
-f.call(this,a.brightnessContrast,{brightness:q(-1,b,1),contrast:q(-1,d,1)});return this}function t(a){a=new z(a);for(var d=[],c=0;256>c;c++)d.push(q(0,Math.floor(256*a.interpolate(c/255)),255));return d}function I(b,d,c){b=t(b);1==arguments.length?d=c=b:(d=t(d),c=t(c));for(var e=[],g=0;256>g;g++)e.splice(e.length,0,b[g],d[g],c[g],255);this._.extraTexture.initFromBytes(256,1,e);this._.extraTexture.use(1);a.curves=a.curves||new h(null,"uniform sampler2D texture;uniform sampler2D map;varying vec2 texCoord;void main(){vec4 color=texture2D(texture,texCoord);color.r=texture2D(map,vec2(color.r)).r;color.g=texture2D(map,vec2(color.g)).g;color.b=texture2D(map,vec2(color.b)).b;gl_FragColor=color;}");
-a.curves.textures({map:1});f.call(this,a.curves,{});return this}function J(b){a.denoise=a.denoise||new h(null,"uniform sampler2D texture;uniform float exponent;uniform float strength;uniform vec2 texSize;varying vec2 texCoord;void main(){vec4 center=texture2D(texture,texCoord);vec4 color=vec4(0.0);float total=0.0;for(float x=-4.0;x<=4.0;x+=1.0){for(float y=-4.0;y<=4.0;y+=1.0){vec4 sample=texture2D(texture,texCoord+vec2(x,y)/texSize);float weight=1.0-abs(dot(sample.rgb-center.rgb,vec3(0.25)));weight=pow(weight,exponent);color+=sample*weight;total+=weight;}}gl_FragColor=color/total;}");
-for(var d=0;2>d;d++)f.call(this,a.denoise,{exponent:Math.max(0,b),texSize:[this.width,this.height]});return this}function K(b,d){a.hueSaturation=a.hueSaturation||new h(null,"uniform sampler2D texture;uniform float hue;uniform float saturation;varying vec2 texCoord;void main(){vec4 color=texture2D(texture,texCoord);float angle=hue*3.14159265;float s=sin(angle),c=cos(angle);vec3 weights=(vec3(2.0*c,-sqrt(3.0)*s-c,sqrt(3.0)*s-c)+1.0)/3.0;float len=length(color.rgb);color.rgb=vec3(dot(color.rgb,weights.xyz),dot(color.rgb,weights.zxy),dot(color.rgb,weights.yzx));float average=(color.r+color.g+color.b)/3.0;if(saturation>0.0){color.rgb+=(average-color.rgb)*(1.0-1.0/(1.001-saturation));}else{color.rgb+=(average-color.rgb)*(-saturation);}gl_FragColor=color;}");
-f.call(this,a.hueSaturation,{hue:q(-1,b,1),saturation:q(-1,d,1)});return this}function L(b){a.noise=a.noise||new h(null,"uniform sampler2D texture;uniform float amount;varying vec2 texCoord;float rand(vec2 co){return fract(sin(dot(co.xy,vec2(12.9898,78.233)))*43758.5453);}void main(){vec4 color=texture2D(texture,texCoord);float diff=(rand(texCoord)-0.5)*amount;color.r+=diff;color.g+=diff;color.b+=diff;gl_FragColor=color;}");
-f.call(this,a.noise,{amount:q(0,b,1)});return this}function M(b){a.sepia=a.sepia||new h(null,"uniform sampler2D texture;uniform float amount;varying vec2 texCoord;void main(){vec4 color=texture2D(texture,texCoord);float r=color.r;float g=color.g;float b=color.b;color.r=min(1.0,(r*(1.0-(0.607*amount)))+(g*(0.769*amount))+(b*(0.189*amount)));color.g=min(1.0,(r*0.349*amount)+(g*(1.0-(0.314*amount)))+(b*0.168*amount));color.b=min(1.0,(r*0.272*amount)+(g*0.534*amount)+(b*(1.0-(0.869*amount))));gl_FragColor=color;}");
-f.call(this,a.sepia,{amount:q(0,b,1)});return this}function N(b,d){a.unsharpMask=a.unsharpMask||new h(null,"uniform sampler2D blurredTexture;uniform sampler2D originalTexture;uniform float strength;uniform float threshold;varying vec2 texCoord;void main(){vec4 blurred=texture2D(blurredTexture,texCoord);vec4 original=texture2D(originalTexture,texCoord);gl_FragColor=mix(blurred,original,1.0+strength);}");
-this._.extraTexture.ensureFormat(this._.texture);this._.texture.use();this._.extraTexture.drawTo(function(){h.getDefaultShader().drawRect()});this._.extraTexture.use(1);this.triangleBlur(b);a.unsharpMask.textures({originalTexture:1});f.call(this,a.unsharpMask,{strength:d});this._.extraTexture.unuse(1);return this}function O(b){a.vibrance=a.vibrance||new h(null,"uniform sampler2D texture;uniform float amount;varying vec2 texCoord;void main(){vec4 color=texture2D(texture,texCoord);float average=(color.r+color.g+color.b)/3.0;float mx=max(color.r,max(color.g,color.b));float amt=(mx-average)*(-amount*3.0);color.rgb=mix(color.rgb,vec3(mx),amt);gl_FragColor=color;}");
-f.call(this,a.vibrance,{amount:q(-1,b,1)});return this}function P(b,d){a.vignette=a.vignette||new h(null,"uniform sampler2D texture;uniform float size;uniform float amount;varying vec2 texCoord;void main(){vec4 color=texture2D(texture,texCoord);float dist=distance(texCoord,vec2(0.5,0.5));color.rgb*=smoothstep(0.8,size*0.799,dist*(amount+size));gl_FragColor=color;}");
-f.call(this,a.vignette,{size:q(0,b,1),amount:q(0,d,1)});return this}function Q(b,d,c){a.lensBlurPrePass=a.lensBlurPrePass||new h(null,"uniform sampler2D texture;uniform float power;varying vec2 texCoord;void main(){vec4 color=texture2D(texture,texCoord);color=pow(color,vec4(power));gl_FragColor=vec4(color);}");var e="uniform sampler2D texture0;uniform sampler2D texture1;uniform vec2 delta0;uniform vec2 delta1;uniform float power;varying vec2 texCoord;"+
-s+"vec4 sample(vec2 delta){float offset=random(vec3(delta,151.7182),0.0);vec4 color=vec4(0.0);float total=0.0;for(float t=0.0;t<=30.0;t++){float percent=(t+offset)/30.0;color+=texture2D(texture0,texCoord+delta*percent);total+=1.0;}return color/total;}";
-a.lensBlur0=a.lensBlur0||new h(null,e+"void main(){gl_FragColor=sample(delta0);}");a.lensBlur1=a.lensBlur1||new h(null,e+"void main(){gl_FragColor=(sample(delta0)+sample(delta1))*0.5;}");a.lensBlur2=a.lensBlur2||(new h(null,e+"void main(){vec4 color=(sample(delta0)+2.0*texture2D(texture1,texCoord))/3.0;gl_FragColor=pow(color,vec4(power));}")).textures({texture1:1});for(var e=
-[],g=0;3>g;g++){var l=c+2*g*Math.PI/3;e.push([b*Math.sin(l)/this.width,b*Math.cos(l)/this.height])}b=Math.pow(10,q(-1,d,1));f.call(this,a.lensBlurPrePass,{power:b});this._.extraTexture.ensureFormat(this._.texture);f.call(this,a.lensBlur0,{delta0:e[0]},this._.texture,this._.extraTexture);f.call(this,a.lensBlur1,{delta0:e[1],delta1:e[2]},this._.extraTexture,this._.extraTexture);f.call(this,a.lensBlur0,{delta0:e[1]});this._.extraTexture.use(1);f.call(this,a.lensBlur2,{power:1/b,delta0:e[2]});return this}
-function R(b,d,c,e,g,l){a.tiltShift=a.tiltShift||new h(null,"uniform sampler2D texture;uniform float blurRadius;uniform float gradientRadius;uniform vec2 start;uniform vec2 end;uniform vec2 delta;uniform vec2 texSize;varying vec2 texCoord;"+s+"void main(){vec4 color=vec4(0.0);float total=0.0;float offset=random(vec3(12.9898,78.233,151.7182),0.0);vec2 normal=normalize(vec2(start.y-end.y,end.x-start.x));float radius=smoothstep(0.0,1.0,abs(dot(texCoord*texSize-start,normal))/gradientRadius)*blurRadius;for(float t=-30.0;t<=30.0;t++){float percent=(t+offset-0.5)/30.0;float weight=1.0-abs(percent);vec4 sample=texture2D(texture,texCoord+delta/texSize*percent*radius);sample.rgb*=sample.a;color+=sample*weight;total+=weight;}gl_FragColor=color/total;gl_FragColor.rgb/=gl_FragColor.a+0.00001;}");
-var n=c-b,p=e-d,m=Math.sqrt(n*n+p*p);f.call(this,a.tiltShift,{blurRadius:g,gradientRadius:l,start:[b,d],end:[c,e],delta:[n/m,p/m],texSize:[this.width,this.height]});f.call(this,a.tiltShift,{blurRadius:g,gradientRadius:l,start:[b,d],end:[c,e],delta:[-p/m,n/m],texSize:[this.width,this.height]});return this}function S(b){a.triangleBlur=a.triangleBlur||new h(null,"uniform sampler2D texture;uniform vec2 delta;varying vec2 texCoord;"+s+"void main(){vec4 color=vec4(0.0);float total=0.0;float offset=random(vec3(12.9898,78.233,151.7182),0.0);for(float t=-30.0;t<=30.0;t++){float percent=(t+offset-0.5)/30.0;float weight=1.0-abs(percent);vec4 sample=texture2D(texture,texCoord+delta*percent);sample.rgb*=sample.a;color+=sample*weight;total+=weight;}gl_FragColor=color/total;gl_FragColor.rgb/=gl_FragColor.a+0.00001;}");
-f.call(this,a.triangleBlur,{delta:[b/this.width,0]});f.call(this,a.triangleBlur,{delta:[0,b/this.height]});return this}function T(b,d,c){a.zoomBlur=a.zoomBlur||new h(null,"uniform sampler2D texture;uniform vec2 center;uniform float strength;uniform vec2 texSize;varying vec2 texCoord;"+s+"void main(){vec4 color=vec4(0.0);float total=0.0;vec2 toCenter=center-texCoord*texSize;float offset=random(vec3(12.9898,78.233,151.7182),0.0);for(float t=0.0;t<=40.0;t++){float percent=(t+offset)/40.0;float weight=4.0*(percent-percent*percent);vec4 sample=texture2D(texture,texCoord+toCenter*percent*strength/texSize);sample.rgb*=sample.a;color+=sample*weight;total+=weight;}gl_FragColor=color/total;gl_FragColor.rgb/=gl_FragColor.a+0.00001;}");
-f.call(this,a.zoomBlur,{center:[b,d],strength:c,texSize:[this.width,this.height]});return this}function U(b,d,c,e){a.colorHalftone=a.colorHalftone||new h(null,"uniform sampler2D texture;uniform vec2 center;uniform float angle;uniform float scale;uniform vec2 texSize;varying vec2 texCoord;float pattern(float angle){float s=sin(angle),c=cos(angle);vec2 tex=texCoord*texSize-center;vec2 point=vec2(c*tex.x-s*tex.y,s*tex.x+c*tex.y)*scale;return(sin(point.x)*sin(point.y))*4.0;}void main(){vec4 color=texture2D(texture,texCoord);vec3 cmy=1.0-color.rgb;float k=min(cmy.x,min(cmy.y,cmy.z));cmy=(cmy-k)/(1.0-k);cmy=clamp(cmy*10.0-3.0+vec3(pattern(angle+0.26179),pattern(angle+1.30899),pattern(angle)),0.0,1.0);k=clamp(k*10.0-5.0+pattern(angle+0.78539),0.0,1.0);gl_FragColor=vec4(1.0-cmy-k,color.a);}");
-f.call(this,a.colorHalftone,{center:[b,d],angle:c,scale:Math.PI/e,texSize:[this.width,this.height]});return this}function V(b,d,c,e){a.dotScreen=a.dotScreen||new h(null,"uniform sampler2D texture;uniform vec2 center;uniform float angle;uniform float scale;uniform vec2 texSize;varying vec2 texCoord;float pattern(){float s=sin(angle),c=cos(angle);vec2 tex=texCoord*texSize-center;vec2 point=vec2(c*tex.x-s*tex.y,s*tex.x+c*tex.y)*scale;return(sin(point.x)*sin(point.y))*4.0;}void main(){vec4 color=texture2D(texture,texCoord);float average=(color.r+color.g+color.b)/3.0;gl_FragColor=vec4(vec3(average*10.0-5.0+pattern()),color.a);}");
-f.call(this,a.dotScreen,{center:[b,d],angle:c,scale:Math.PI/e,texSize:[this.width,this.height]});return this}function W(b){a.edgeWork1=a.edgeWork1||new h(null,"uniform sampler2D texture;uniform vec2 delta;varying vec2 texCoord;"+s+"void main(){vec2 color=vec2(0.0);vec2 total=vec2(0.0);float offset=random(vec3(12.9898,78.233,151.7182),0.0);for(float t=-30.0;t<=30.0;t++){float percent=(t+offset-0.5)/30.0;float weight=1.0-abs(percent);vec3 sample=texture2D(texture,texCoord+delta*percent).rgb;float average=(sample.r+sample.g+sample.b)/3.0;color.x+=average*weight;total.x+=weight;if(abs(t)<15.0){weight=weight*2.0-1.0;color.y+=average*weight;total.y+=weight;}}gl_FragColor=vec4(color/total,0.0,1.0);}");
-a.edgeWork2=a.edgeWork2||new h(null,"uniform sampler2D texture;uniform vec2 delta;varying vec2 texCoord;"+s+"void main(){vec2 color=vec2(0.0);vec2 total=vec2(0.0);float offset=random(vec3(12.9898,78.233,151.7182),0.0);for(float t=-30.0;t<=30.0;t++){float percent=(t+offset-0.5)/30.0;float weight=1.0-abs(percent);vec2 sample=texture2D(texture,texCoord+delta*percent).xy;color.x+=sample.x*weight;total.x+=weight;if(abs(t)<15.0){weight=weight*2.0-1.0;color.y+=sample.y*weight;total.y+=weight;}}float c=clamp(10000.0*(color.y/total.y-color.x/total.x)+0.5,0.0,1.0);gl_FragColor=vec4(c,c,c,1.0);}");
-f.call(this,a.edgeWork1,{delta:[b/this.width,0]});f.call(this,a.edgeWork2,{delta:[0,b/this.height]});return this}function X(b,d,c){a.hexagonalPixelate=a.hexagonalPixelate||new h(null,"uniform sampler2D texture;uniform vec2 center;uniform float scale;uniform vec2 texSize;varying vec2 texCoord;void main(){vec2 tex=(texCoord*texSize-center)/scale;tex.y/=0.866025404;tex.x-=tex.y*0.5;vec2 a;if(tex.x+tex.y-floor(tex.x)-floor(tex.y)<1.0)a=vec2(floor(tex.x),floor(tex.y));else a=vec2(ceil(tex.x),ceil(tex.y));vec2 b=vec2(ceil(tex.x),floor(tex.y));vec2 c=vec2(floor(tex.x),ceil(tex.y));vec3 TEX=vec3(tex.x,tex.y,1.0-tex.x-tex.y);vec3 A=vec3(a.x,a.y,1.0-a.x-a.y);vec3 B=vec3(b.x,b.y,1.0-b.x-b.y);vec3 C=vec3(c.x,c.y,1.0-c.x-c.y);float alen=length(TEX-A);float blen=length(TEX-B);float clen=length(TEX-C);vec2 choice;if(alen<blen){if(alen<clen)choice=a;else choice=c;}else{if(blen<clen)choice=b;else choice=c;}choice.x+=choice.y*0.5;choice.y*=0.866025404;choice*=scale/texSize;gl_FragColor=texture2D(texture,choice+center/texSize);}");
-f.call(this,a.hexagonalPixelate,{center:[b,d],scale:c,texSize:[this.width,this.height]});return this}function Y(b){a.ink=a.ink||new h(null,"uniform sampler2D texture;uniform float strength;uniform vec2 texSize;varying vec2 texCoord;void main(){vec2 dx=vec2(1.0/texSize.x,0.0);vec2 dy=vec2(0.0,1.0/texSize.y);vec4 color=texture2D(texture,texCoord);float bigTotal=0.0;float smallTotal=0.0;vec3 bigAverage=vec3(0.0);vec3 smallAverage=vec3(0.0);for(float x=-2.0;x<=2.0;x+=1.0){for(float y=-2.0;y<=2.0;y+=1.0){vec3 sample=texture2D(texture,texCoord+dx*x+dy*y).rgb;bigAverage+=sample;bigTotal+=1.0;if(abs(x)+abs(y)<2.0){smallAverage+=sample;smallTotal+=1.0;}}}vec3 edge=max(vec3(0.0),bigAverage/bigTotal-smallAverage/smallTotal);gl_FragColor=vec4(color.rgb-dot(edge,edge)*strength*100000.0,color.a);}");
-f.call(this,a.ink,{strength:b*b*b*b*b,texSize:[this.width,this.height]});return this}function Z(b,d,c,e){a.bulgePinch=a.bulgePinch||u("uniform float radius;uniform float strength;uniform vec2 center;","coord-=center;float distance=length(coord);if(distance<radius){float percent=distance/radius;if(strength>0.0){coord*=mix(1.0,smoothstep(0.0,radius/distance,percent),strength*0.75);}else{coord*=mix(1.0,pow(percent,1.0+strength*0.75)*radius/distance,1.0-percent);}}coord+=center;");
-f.call(this,a.bulgePinch,{radius:c,strength:q(-1,e,1),center:[b,d],texSize:[this.width,this.height]});return this}function $(b,d,c){a.matrixWarp=a.matrixWarp||u("uniform mat3 matrix;uniform bool useTextureSpace;","if(useTextureSpace)coord=coord/texSize*2.0-1.0;vec3 warp=matrix*vec3(coord,1.0);coord=warp.xy/warp.z;if(useTextureSpace)coord=(coord*0.5+0.5)*texSize;");b=Array.prototype.concat.apply([],b);if(4==b.length)b=
-[b[0],b[1],0,b[2],b[3],0,0,0,1];else if(9!=b.length)throw"can only warp with 2x2 or 3x3 matrix";f.call(this,a.matrixWarp,{matrix:d?y(b):b,texSize:[this.width,this.height],useTextureSpace:c|0});return this}function aa(a,d){var c=x.apply(null,d),e=x.apply(null,a),c=y(c);return this.matrixWarp([c[0]*e[0]+c[1]*e[3]+c[2]*e[6],c[0]*e[1]+c[1]*e[4]+c[2]*e[7],c[0]*e[2]+c[1]*e[5]+c[2]*e[8],c[3]*e[0]+c[4]*e[3]+c[5]*e[6],c[3]*e[1]+c[4]*e[4]+c[5]*e[7],c[3]*e[2]+c[4]*e[5]+c[5]*e[8],c[6]*e[0]+c[7]*e[3]+c[8]*e[6],
-c[6]*e[1]+c[7]*e[4]+c[8]*e[7],c[6]*e[2]+c[7]*e[5]+c[8]*e[8]])}function ba(b,d,c,e){a.swirl=a.swirl||u("uniform float radius;uniform float angle;uniform vec2 center;","coord-=center;float distance=length(coord);if(distance<radius){float percent=(radius-distance)/radius;float theta=percent*percent*angle;float s=sin(theta);float c=cos(theta);coord=vec2(coord.x*c-coord.y*s,coord.x*s+coord.y*c);}coord+=center;");
-f.call(this,a.swirl,{radius:c,center:[b,d],angle:e,texSize:[this.width,this.height]});return this}var v={};(function(){function a(b){if(!b.getExtension("OES_texture_float"))return!1;var c=b.createFramebuffer(),e=b.createTexture();b.bindTexture(b.TEXTURE_2D,e);b.texParameteri(b.TEXTURE_2D,b.TEXTURE_MAG_FILTER,b.NEAREST);b.texParameteri(b.TEXTURE_2D,b.TEXTURE_MIN_FILTER,b.NEAREST);b.texParameteri(b.TEXTURE_2D,b.TEXTURE_WRAP_S,b.CLAMP_TO_EDGE);b.texParameteri(b.TEXTURE_2D,b.TEXTURE_WRAP_T,b.CLAMP_TO_EDGE);
-b.texImage2D(b.TEXTURE_2D,0,b.RGBA,1,1,0,b.RGBA,b.UNSIGNED_BYTE,null);b.bindFramebuffer(b.FRAMEBUFFER,c);b.framebufferTexture2D(b.FRAMEBUFFER,b.COLOR_ATTACHMENT0,b.TEXTURE_2D,e,0);c=b.createTexture();b.bindTexture(b.TEXTURE_2D,c);b.texParameteri(b.TEXTURE_2D,b.TEXTURE_MAG_FILTER,b.LINEAR);b.texParameteri(b.TEXTURE_2D,b.TEXTURE_MIN_FILTER,b.LINEAR);b.texParameteri(b.TEXTURE_2D,b.TEXTURE_WRAP_S,b.CLAMP_TO_EDGE);b.texParameteri(b.TEXTURE_2D,b.TEXTURE_WRAP_T,b.CLAMP_TO_EDGE);b.texImage2D(b.TEXTURE_2D,
-0,b.RGBA,2,2,0,b.RGBA,b.FLOAT,new Float32Array([2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]));var e=b.createProgram(),d=b.createShader(b.VERTEX_SHADER),g=b.createShader(b.FRAGMENT_SHADER);b.shaderSource(d,"attribute vec2 vertex;void main(){gl_Position=vec4(vertex,0.0,1.0);}");b.shaderSource(g,"uniform sampler2D texture;void main(){gl_FragColor=texture2D(texture,vec2(0.5));}");b.compileShader(d);b.compileShader(g);b.attachShader(e,d);b.attachShader(e,
-g);b.linkProgram(e);d=b.createBuffer();b.bindBuffer(b.ARRAY_BUFFER,d);b.bufferData(b.ARRAY_BUFFER,new Float32Array([0,0]),b.STREAM_DRAW);b.enableVertexAttribArray(0);b.vertexAttribPointer(0,2,b.FLOAT,!1,0,0);d=new Uint8Array(4);b.useProgram(e);b.viewport(0,0,1,1);b.bindTexture(b.TEXTURE_2D,c);b.drawArrays(b.POINTS,0,1);b.readPixels(0,0,1,1,b.RGBA,b.UNSIGNED_BYTE,d);return 127===d[0]||128===d[0]}function d(){}function c(a){"OES_texture_float_linear"===a?(void 0===this.$OES_texture_float_linear$&&Object.defineProperty(this,
-"$OES_texture_float_linear$",{enumerable:!1,configurable:!1,writable:!1,value:new d}),a=this.$OES_texture_float_linear$):a=n.call(this,a);return a}function e(){var a=f.call(this);-1===a.indexOf("OES_texture_float_linear")&&a.push("OES_texture_float_linear");return a}try{var g=document.createElement("canvas").getContext("experimental-webgl")}catch(l){}if(g&&-1===g.getSupportedExtensions().indexOf("OES_texture_float_linear")&&a(g)){var n=WebGLRenderingContext.prototype.getExtension,f=WebGLRenderingContext.prototype.getSupportedExtensions;
-WebGLRenderingContext.prototype.getExtension=c;WebGLRenderingContext.prototype.getSupportedExtensions=e}})();var a;v.canvas=function(){var b=document.createElement("canvas");try{a=b.getContext("experimental-webgl",{premultipliedAlpha:!1})}catch(d){a=null}if(!a)throw"This browser does not support WebGL";b._={gl:a,isInitialized:!1,texture:null,spareTexture:null,flippedShader:null};b.texture=k(A);b.draw=k(C);b.update=k(D);b.replace=k(E);b.contents=k(F);b.getPixelArray=k(G);b.brightnessContrast=k(H);
-b.hexagonalPixelate=k(X);b.hueSaturation=k(K);b.colorHalftone=k(U);b.triangleBlur=k(S);b.unsharpMask=k(N);b.perspective=k(aa);b.matrixWarp=k($);b.bulgePinch=k(Z);b.tiltShift=k(R);b.dotScreen=k(V);b.edgeWork=k(W);b.lensBlur=k(Q);b.zoomBlur=k(T);b.noise=k(L);b.denoise=k(J);b.curves=k(I);b.swirl=k(ba);b.ink=k(Y);b.vignette=k(P);b.vibrance=k(O);b.sepia=k(M);return b};v.splineInterpolate=t;var h=function(){function b(b,c){var e=a.createShader(b);a.shaderSource(e,c);a.compileShader(e);if(!a.getShaderParameter(e,
-a.COMPILE_STATUS))throw"compile error: "+a.getShaderInfoLog(e);return e}function d(d,l){this.texCoordAttribute=this.vertexAttribute=null;this.program=a.createProgram();d=d||c;l=l||e;l="precision highp float;"+l;a.attachShader(this.program,b(a.VERTEX_SHADER,d));a.attachShader(this.program,b(a.FRAGMENT_SHADER,l));a.linkProgram(this.program);if(!a.getProgramParameter(this.program,a.LINK_STATUS))throw"link error: "+a.getProgramInfoLog(this.program);}var c="attribute vec2 vertex;attribute vec2 _texCoord;varying vec2 texCoord;void main(){texCoord=_texCoord;gl_Position=vec4(vertex*2.0-1.0,0.0,1.0);}",
-e="uniform sampler2D texture;varying vec2 texCoord;void main(){gl_FragColor=texture2D(texture,texCoord);}";d.prototype.destroy=function(){a.deleteProgram(this.program);this.program=null};d.prototype.uniforms=function(b){a.useProgram(this.program);for(var e in b)if(b.hasOwnProperty(e)){var c=a.getUniformLocation(this.program,e);if(null!==c){var d=b[e];if("[object Array]"==Object.prototype.toString.call(d))switch(d.length){case 1:a.uniform1fv(c,new Float32Array(d));break;
-case 2:a.uniform2fv(c,new Float32Array(d));break;case 3:a.uniform3fv(c,new Float32Array(d));break;case 4:a.uniform4fv(c,new Float32Array(d));break;case 9:a.uniformMatrix3fv(c,!1,new Float32Array(d));break;case 16:a.uniformMatrix4fv(c,!1,new Float32Array(d));break;default:throw"dont't know how to load uniform \""+e+'" of length '+d.length;}else if("[object Number]"==Object.prototype.toString.call(d))a.uniform1f(c,d);else throw'attempted to set uniform "'+e+'" to invalid value '+(d||"undefined").toString();
-}}return this};d.prototype.textures=function(b){a.useProgram(this.program);for(var c in b)b.hasOwnProperty(c)&&a.uniform1i(a.getUniformLocation(this.program,c),b[c]);return this};d.prototype.drawRect=function(b,c,e,d){var f=a.getParameter(a.VIEWPORT);c=void 0!==c?(c-f[1])/f[3]:0;b=void 0!==b?(b-f[0])/f[2]:0;e=void 0!==e?(e-f[0])/f[2]:1;d=void 0!==d?(d-f[1])/f[3]:1;null==a.vertexBuffer&&(a.vertexBuffer=a.createBuffer());a.bindBuffer(a.ARRAY_BUFFER,a.vertexBuffer);a.bufferData(a.ARRAY_BUFFER,new Float32Array([b,
-c,b,d,e,c,e,d]),a.STATIC_DRAW);null==a.texCoordBuffer&&(a.texCoordBuffer=a.createBuffer(),a.bindBuffer(a.ARRAY_BUFFER,a.texCoordBuffer),a.bufferData(a.ARRAY_BUFFER,new Float32Array([0,0,0,1,1,0,1,1]),a.STATIC_DRAW));null==this.vertexAttribute&&(this.vertexAttribute=a.getAttribLocation(this.program,"vertex"),a.enableVertexAttribArray(this.vertexAttribute));null==this.texCoordAttribute&&(this.texCoordAttribute=a.getAttribLocation(this.program,"_texCoord"),a.enableVertexAttribArray(this.texCoordAttribute));
-a.useProgram(this.program);a.bindBuffer(a.ARRAY_BUFFER,a.vertexBuffer);a.vertexAttribPointer(this.vertexAttribute,2,a.FLOAT,!1,0,0);a.bindBuffer(a.ARRAY_BUFFER,a.texCoordBuffer);a.vertexAttribPointer(this.texCoordAttribute,2,a.FLOAT,!1,0,0);a.drawArrays(a.TRIANGLE_STRIP,0,4)};d.getDefaultShader=function(){a.defaultShader=a.defaultShader||new d;return a.defaultShader};return d}();z.prototype.interpolate=function(a){for(var d=0,c=this.ya.length-1;1<c-d;){var e=c+d>>1;this.xa[e]>a?c=e:d=e}var e=this.xa[c]-
-this.xa[d],g=(this.xa[c]-a)/e;a=(a-this.xa[d])/e;return g*this.ya[d]+a*this.ya[c]+((g*g*g-g)*this.y2[d]+(a*a*a-a)*this.y2[c])*e*e/6};var r=function(){function b(b,c,d,f){this.gl=a;this.id=a.createTexture();this.width=b;this.height=c;this.format=d;this.type=f;a.bindTexture(a.TEXTURE_2D,this.id);a.texParameteri(a.TEXTURE_2D,a.TEXTURE_MAG_FILTER,a.LINEAR);a.texParameteri(a.TEXTURE_2D,a.TEXTURE_MIN_FILTER,a.LINEAR);a.texParameteri(a.TEXTURE_2D,a.TEXTURE_WRAP_S,a.CLAMP_TO_EDGE);a.texParameteri(a.TEXTURE_2D,
-a.TEXTURE_WRAP_T,a.CLAMP_TO_EDGE);b&&c&&a.texImage2D(a.TEXTURE_2D,0,this.format,b,c,0,this.format,this.type,null)}function d(a){null==c&&(c=document.createElement("canvas"));c.width=a.width;c.height=a.height;a=c.getContext("2d");a.clearRect(0,0,c.width,c.height);return a}b.fromElement=function(c){var d=new b(0,0,a.RGBA,a.UNSIGNED_BYTE);d.loadContentsOf(c);return d};b.prototype.loadContentsOf=function(b){this.width=b.width||b.videoWidth;this.height=b.height||b.videoHeight;a.bindTexture(a.TEXTURE_2D,
-this.id);a.texImage2D(a.TEXTURE_2D,0,this.format,this.format,this.type,b)};b.prototype.initFromBytes=function(b,c,d){this.width=b;this.height=c;this.format=a.RGBA;this.type=a.UNSIGNED_BYTE;a.bindTexture(a.TEXTURE_2D,this.id);a.texImage2D(a.TEXTURE_2D,0,a.RGBA,b,c,0,a.RGBA,this.type,new Uint8Array(d))};b.prototype.destroy=function(){a.deleteTexture(this.id);this.id=null};b.prototype.use=function(b){a.activeTexture(a.TEXTURE0+(b||0));a.bindTexture(a.TEXTURE_2D,this.id)};b.prototype.unuse=function(b){a.activeTexture(a.TEXTURE0+
-(b||0));a.bindTexture(a.TEXTURE_2D,null)};b.prototype.ensureFormat=function(b,c,d,f){if(1==arguments.length){var h=arguments[0];b=h.width;c=h.height;d=h.format;f=h.type}if(b!=this.width||c!=this.height||d!=this.format||f!=this.type)this.width=b,this.height=c,this.format=d,this.type=f,a.bindTexture(a.TEXTURE_2D,this.id),a.texImage2D(a.TEXTURE_2D,0,this.format,b,c,0,this.format,this.type,null)};b.prototype.drawTo=function(b){a.framebuffer=a.framebuffer||a.createFramebuffer();a.bindFramebuffer(a.FRAMEBUFFER,
-a.framebuffer);a.framebufferTexture2D(a.FRAMEBUFFER,a.COLOR_ATTACHMENT0,a.TEXTURE_2D,this.id,0);if(a.checkFramebufferStatus(a.FRAMEBUFFER)!==a.FRAMEBUFFER_COMPLETE)throw Error("incomplete framebuffer");a.viewport(0,0,this.width,this.height);b();a.bindFramebuffer(a.FRAMEBUFFER,null)};var c=null;b.prototype.fillUsingCanvas=function(b){b(d(this));this.format=a.RGBA;this.type=a.UNSIGNED_BYTE;a.bindTexture(a.TEXTURE_2D,this.id);a.texImage2D(a.TEXTURE_2D,0,a.RGBA,a.RGBA,a.UNSIGNED_BYTE,c);return this};
-b.prototype.toImage=function(b){this.use();h.getDefaultShader().drawRect();var f=4*this.width*this.height,k=new Uint8Array(f),n=d(this),p=n.createImageData(this.width,this.height);a.readPixels(0,0,this.width,this.height,a.RGBA,a.UNSIGNED_BYTE,k);for(var m=0;m<f;m++)p.data[m]=k[m];n.putImageData(p,0,0);b.src=c.toDataURL()};b.prototype.swapWith=function(a){var b;b=a.id;a.id=this.id;this.id=b;b=a.width;a.width=this.width;this.width=b;b=a.height;a.height=this.height;this.height=b;b=a.format;a.format=
-this.format;this.format=b};return b}(),s="float random(vec3 scale,float seed){return fract(sin(dot(gl_FragCoord.xyz+seed,scale))*43758.5453+seed);}";return v}();
-
-(function () {
-    'use strict';
     /**
      * jr-crop - A simple ionic plugin to crop your images.
      * @version 1.0.0
@@ -18170,7 +17475,7 @@ this.format;this.format=b};return b}(),s="float random(vec3 scale,float seed){re
 
     angular.module('ion-photo').factory('PhotoService', PhotoServiceFactory);
 
-    function PhotoServiceFactory($ionicActionSheet, $cordovaCapture, User, Loading, $cordovaCamera, $timeout, PhotoFilter, $translate, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, ActionSheet, $q) {
+    function PhotoServiceFactory($ionicActionSheet, $cordovaCapture, User,  $cordovaCamera, $translate, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, ActionSheet, $q) {
 
         var deviceInformation = ionic.Platform.device();
         var isIOS             = ionic.Platform.isIOS();
@@ -18182,7 +17487,6 @@ this.format;this.format=b};return b}(),s="float random(vec3 scale,float seed){re
         var cordova = window.cordova;
         var setting = {
             jrCrop            : false,
-            filterImage       : false,
             quality           : 90,
             allowEdit         : true,
             filter            : true,
@@ -18198,121 +17502,8 @@ this.format;this.format=b};return b}(),s="float random(vec3 scale,float seed){re
         return {
             open     : openModal,
             crop     : cropModal,
-            filter   : filterModal,
             modalPost: modalPost,
         };
-
-        function filterModal(image) {
-            var defer = $q.defer();
-
-            if (setting.filterImage) {
-                openFilter(image);
-            } else {
-                defer.resolve(image);
-            }
-
-            function openFilter(image64) {
-                var scope  = $rootScope.$new(true);
-                tempImage  = image64;
-                scope.form = {
-                    photo: image64
-                };
-
-                scope.theme = $rootScope.theme;
-                $ionicModal.fromTemplateUrl('app/component/ion-photo/view/filter.modal.html', {
-                    scope          : scope,
-                    focusFirstInput: true
-                }).then(function (modal) {
-                    scope.modalFilter = modal;
-                    scope.modalFilter.show();
-                    scope.loading = true;
-                    $timeout(function () {
-                        Loading.start();
-                        PhotoFilter.init('image', image64).then(function () {
-                            scope.loading = false;
-                            Loading.end();
-                        });
-                    }, 500)
-                });
-
-                scope.actionShowFilter = function (option) {
-                    scope.showFilter = option;
-                };
-
-                scope.closeModalFilter = function () {
-                    scope.modalFilter.hide();
-                };
-
-                scope.cropImage = function () {
-                    scope.modalFilter.remove();
-                    cropModal(tempImage)
-                        .then(openFilter);
-                };
-
-                // Filter
-                scope.filters      = PhotoFilter.filters.Adjust;
-                scope.imageFilters = PhotoFilter.imageFilters;
-                scope.reset        = PhotoFilter.reset;
-
-                scope.applyFilter = function (filter) {
-                    PhotoFilter.apply(filter.filter);
-                };
-
-                scope.filterEdit = false;
-                scope.showFilter = true;
-
-                scope.selectFilter = function (filter) {
-                    console.log('filter', filter);
-                    scope.filter     = filter;
-                    scope.filterEdit = true;
-                };
-
-                scope.doneFilter = function () {
-                    scope.filterEdit = false;
-                };
-
-                scope.cancelFilter = function (filter) {
-                    filter.slider.value = 0;
-                    filter.setSlider(filter.slider);
-                    scope.filterEdit = false;
-                };
-
-                scope.$watch('scope.filterSelected', function (item) {
-                    if (item) {
-                        var filter    = _.find(scope.filters, {func: item});
-                        scope.filter  = filter;
-                        scope.sliders = filter.sliders;
-                        console.log(filter);
-                    }
-                });
-
-                scope.$watch('filter.slider.value', function (value) {
-                    if (value) {
-                        scope.filter.slider.value = parseInt(value);
-                        scope.filter.setSlider(scope.filter.slider);
-                    }
-                });
-
-                scope.closeFilter = function () {
-                    defer.reject();
-                    scope.modalFilter.hide();
-                };
-
-                scope.submitFilter = function () {
-                    var dataUrl = PhotoFilter.getImage();
-                    scope.modalFilter.remove();
-                    defer.resolve(dataUrl);
-                };
-
-
-                // Cleanup the modal when we're done with it!
-                scope.$on('$destroy', function () {
-                    scope.modal.remove();
-                });
-            }
-
-            return defer.promise;
-        }
 
         function openModal(setOptions) {
             var defer = $q.defer();
@@ -18345,7 +17536,6 @@ this.format;this.format=b};return b}(),s="float random(vec3 scale,float seed){re
                 console.log(index);
                 capture(index - 1, options)
                     .then(cropModal)
-                    .then(filterModal)
                     .then(defer.resolve)
                     .catch(function (resp) {
                         console.log(resp);
@@ -18361,7 +17551,7 @@ this.format;this.format=b};return b}(),s="float random(vec3 scale,float seed){re
                 image = 'data:image/jpeg;base64,' + image;
             }
 
-            if (setting.jrCrop) {
+            if (setting.jrCrop || !window.cordova) {
                 $jrCrop.crop({
                     url          : image,
                     aspectRatio  : 1,
@@ -18493,14 +17683,8 @@ this.format;this.format=b};return b}(),s="float random(vec3 scale,float seed){re
 
             $scope.image = image;
             $scope.form  = {
-                title: '',
+                title        : '',
                 facebookShare: true
-            };
-
-            $scope.editFilter = function () {
-                PhotoFilter.load(tempImage).then(function (image) {
-                    $scope.image = image;
-                });
             };
 
             //Mentios
@@ -18677,15 +17861,13 @@ $templateCache.put("app/component/ion-language/modal-language.html","<ion-modal-
 $templateCache.put("app/component/ion-slideshow/image-popover.html","<div class=\"modal image-modal transparent\" ng-click=\"closeModal()\"><ion-slide-box \non-slide-changed=\"slideChanged(index)\" show-pager=\"true\" active-slide=\"activeSlide\"><ion-slide \nng-repeat=\"item in allImages\"><img ng-src=\"{{item.image._url}}\" class=\"fullscreen-image\"></ion-slide></ion-slide-box>\n</div>");
 $templateCache.put("app/component/ion-slideshow/video-popover.html","<div class=\"modal transparent fullscreen-player\" ng-click=\"closeModal()\"><video ng-src=\"{{clipSrc}}\" class=\"centerme\" \ncontrols=\"controls\" autoplay></video></div>");
 $templateCache.put("app/main/account-friend-list/account-friend-list.html","<ion-view><ion-content></ion-content></ion-view>");
-$templateCache.put("app/main/chat/room-setting.html","<style>\n.fileUpload {\n        position: relative;\n    }\n\n    .fileUpload input.upload {\n        position: absolute;\n        top: 0;\n        left: 50%;\n        margin-left: -40px;\n        padding: 0;\n        cursor: pointer;\n        opacity: 0;\n        width: 80px;\n        height: 80px;\n    }\n\n    .item-avatar .fileUpload > img:first-child {\n        border-radius: 50%;\n    }\n</style><ion-view view-title=\"{{room.roomType == \'group\'?\'Group\':\'Contact\'}}\"><ion-nav-buttons side=\"primary\"><button \nnav-direction=\"back\" class=\"button button-clear button-icon button-positive icon ion-ios-arrow-back\" \nng-click=\"historyBack()\"></button></ion-nav-buttons><ion-content style=\"background-color: #f4f4f4\"><ion-list><ion-item \nclass=\"item-avatar item-avatar-center item-avatar-xl text-center\" style=\"background-color: #f4f4f4\"><div \nclass=\"fileUpload\"><img ng-src=\"{{room.thumbnail}}\"> <input class=\"upload\" type=\"file\" accept=\"image/*\" \ncapture=\"camera\"></div><h2><small>{{room.title}}</small></h2><p ng-if=\"room.userList.length > 2\">{{room.activeTime}}\n</p><p ng-if=\"room.userList.length == 2\">{{user.friendType}}</p></ion-item><ion-item class=\"item-icon-left\" \nng-click=\"setNotification();\"><i class=\"icon ion-ios-bell-outline positive\"></i> Notification <span class=\"item-note\">\nOn</span></ion-item><ion-item class=\"item-icon-left item-icon-right\"><i class=\"icon ion-ios-camera-outline positive\">\n</i> Shared Photos <i class=\"icon ion-ios-arrow-right\"></i></ion-item><div style=\"height: 35px\"></div><ion-item \nclass=\"item-icon-left\" ng-click=\"openAddPeople();\" ng-if=\"room.roomType == \'group\'\"><i \nclass=\"icon ion-ios-plus-empty positive\"></i> Add People</ion-item><ion-item class=\"item-icon-left\" \nng-click=\"openNewGroup();\" ng-if=\"room.roomType != \'group\'\"><i class=\"icon ion-ios-plus-empty positive\"></i>\n Create Group</ion-item><ion-item href=\"#/user-setting/{{user.id}}\" class=\"item-avatar item-icon-right\" \nng-repeat=\"user in room.user\" type=\"item-text-wrap\" ng-if=\"room.roomType == \'group\'\"><img ng-src=\"{{user.face}}\"> <span\n class=\"badge avatar-badge avatar-badge-s\" \nng-class=\"{\'badge-positive\':user.friendType==\'Messenger\', \'badge-stable\':user.friendType==\'facebook\'}\"><i \nclass=\"icon ion-ios-bolt\" ng-if=\"user.friendType==\'Messenger\'\"></i> <i class=\"icon ion-social-facebook light\" \nng-if=\"user.friendType==\'facebook\'\"></i></span><h3><small>{{user.name}}</small></h3><i \nclass=\"icon ion-ios-information-outline positive\"></i></ion-item><div style=\"height: 35px\"></div><ion-item \nclass=\"assertive\" ng-click=\"showConfirmLeave();\" ng-if=\"room.roomType == \'group\'\">Leave Group</ion-item><div \nstyle=\"height: 35px\"></div></ion-list></ion-content></ion-view>");
-$templateCache.put("app/main/chat/room.html","<ion-view><ion-nav-bar class=\"bar bar-{{theme}}\"><ion-nav-buttons side=\"left\"><button \nclass=\"button button-icon button-clear ion-ios-arrow-left\" ng-click=\"$ionicGoBack()\"></button></ion-nav-buttons>\n<ion-nav-title><a ng-href=\"{{room.settingURL}}\">{{room.title}} <i class=\"icon ion-ios-arrow-forward\"></i></a>\n</ion-nav-title></ion-nav-bar><ion-content class=\"padding\"><ion-list><ion-item ng-repeat=\"item in data\" \nng-click=\"deleteItem(item)\"><h2>{{item.get(\'message\')}}</h2></ion-item></ion-list></ion-content><ion-footer-bar \nclass=\"bar-light chat-bar\"><form class=\"row\" name=\"theform\"><input class=\"col col-75\" type=\"text\" ng-model=\"chatText\" \nplaceholder=\"Type a message\" ng-minlength=\"1\" ng-required=\"true\"> <button class=\"col button\" \nng-click=\"sendChat(chatText); chatText = null\" ng-disabled=\"theform.$invalid\">Send</button></form></ion-footer-bar>\n</ion-view>");
 $templateCache.put("app/main/feedback/feedback-modal.html","<ion-modal-view class=\"modal-profile\"><ion-header-bar class=\"bar bar-{{theme}}\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closeModal()\"></button><div class=\"title\" \ntranslate=\"feedbackTitle\"></div></ion-header-bar><ion-content><form name=\"myForm\" novalidate=\"novalidate\" \nng-submit=\"submitFeedback(myForm, form)\"><label class=\"item item-input\"><i class=\"icon icon-envelope placeholder-icon\">\n</i> <input required=\"required\" type=\"text\" name=\"title\" ng-model=\"form.title\" \nplaceholder=\"{{\'feedbackTitle\' | translate}}\"></label><label class=\"item item-input item-select\"><i \nclass=\"icon ion-ios-information-outline placeholder-icon\"></i><div class=\"input-label\" translate>subject</div><select \nng-model=\"form.subject\"><option selected=\"selected\" translate>complaint</option><option translate>bug</option><option \ntranslate>suggestion</option></select></label><label class=\"item item-input\"><i \nclass=\"icon ion-ios-compose-outline placeholder-icon\"></i><textarea ng-model=\"form.message\" \nplaceholder=\"{{\'message\' | translate}}\"></textarea></label><div class=\"padding\"><button \nclass=\"button button-block button-positive\" type=\"submit\" translate=\"{{\'submit\' | translate}}\"></button></div></form>\n</ion-content></ion-modal-view>");
 $templateCache.put("app/main/gallery-comment/gallery-comment.html","<ion-view class=\"modal-comment\" cache-view=\"false\"><ion-nav-bar class=\"bar bar-{{theme}}\"><ion-nav-buttons side=\"left\">\n<button class=\"button button-icon button-clear ion-ios-arrow-left\" ng-click=\"$ionicGoBack()\"></button>\n</ion-nav-buttons><ion-nav-title><div class=\"title\"><span translate=\"commentPhotoText\"></span>({{ comments.length }})\n</div></ion-nav-title></ion-nav-bar><ion-content><div class=\"padding center\" ng-if=\"loading\"><ion-spinner>\n</ion-spinner></div><ion-list class=\"list\" ng-if=\"!loading\" can-swipe=\"true\"><ion-item \nng-repeat=\"item in comments | orderBy:\'createdAt\':false\" class=\"item item-avatar\"><img \nng-src=\"{{ ::item.user.photo._url || \'./img/user.png\'}}\"><div class=\"row\"><h2>{{ ::item.user.name }}</h2></div><div \nclass=\"row\"><div class=\"text\">{{ ::item.text }}</div></div><div class=\"row\"><p>{{ ::item.createdAt | amTimeAgo }}</p>\n</div><div ng-if=\"item.canEdit\"><ion-option-button class=\"button-info\" ng-click=\"editComment(item, $index)\" \ntranslate=\"edit\">Edit</ion-option-button><ion-option-button class=\"button-assertive\" \nng-click=\"deleteComment(item, $index)\" translate=\"remove\">Remove</ion-option-button></div></ion-item></ion-list><div \nclass=\"center-ico\" ng-if=\"nocomments\"><i class=\"icon ion-ios-chatbubble-outline\"></i><h1 translate=\"noComments\"></h1>\n</div></ion-content><form name=\"rForm\" ng-submit=\"submitComment(rForm, form)\" novalidate><ion-footer-bar \nng-hide=\"loading\" class=\"bar-stable item-input-inset message-footer\" keyboard-attach><label class=\"item-input-wrapper\">\n<i class=\"icon ion-ios-compose-outline placeholder-icon\"></i><textarea mentio mentio-trigger-char=\"\'@\'\" \nmentio-items=\"people\" mentio-template-url=\"app/mentio/people-mentions.html\" mentio-search=\"searchPeople(term)\" \nmentio-select=\"getPeopleTextRaw(item)\" mentio-id=\"\'theTextArea\'\" ng-trim=\"false\" ng-model=\"form.text\" focus-me \nid=\"textComment\" placeholder=\"Send a comment...\" required minlength=\"1\" maxlength=\"1500\">\n                </textarea>\n</label><div class=\"footer-btn-wrap\"><button class=\"button button-positive button-outline\" type=\"submit\" \nng-disabled=\"!form.text || form.text === \'\'\">Publish</button></div></ion-footer-bar></form></ion-view>");
 $templateCache.put("app/main/loading/loading.html","<ion-view id=\"user-layout\" class=\"bg-animate\"><ion-content></ion-content></ion-view>");
 $templateCache.put("app/main/profile/profile.html","<ion-view cache-view=\"false\" id=\"account-view\"><ion-nav-bar class=\"bar bar-{{theme}}\"><ion-nav-back-button>\n</ion-nav-back-button></ion-nav-bar><ion-nav-title><span>{{ vm.user.name }}</span></ion-nav-title><ion-content \nscroll-sista=\"header-tabs\" class=\"animated fadeIn\"><ion-refresher pulling-text=\"Loading\" on-refresh=\"onReload()\">\n</ion-refresher><div class=\"profile-top\"><div class=\"row\"><div class=\"col-25\"><img class=\"avatar\" user-avatar \nng-model=\"vm.user\" ng-src=\"{{ vm.user.photo._url || \'img/user.png\' }}\"></div><div class=\"col col-statics\"><div \nclass=\"row\"><div class=\"col\"><span class=\"text-center\">{{ vm.user.galleriesTotal || 0}}</span><h3 \ntranslate=\"postsText\"></h3></div><div class=\"col\" ng-click=\"vm.openFollowers()\"><span class=\"text-center\">\n{{ vm.user.followersTotal || 0}}</span><h3 translate=\"followersText\"></h3></div><div class=\"col\" \nng-click=\"vm.openFollowing()\"><span class=\"text-center\">{{ vm.user.followingsTotal || 0}}</span><h3 \ntranslate=\"followingText\"></h3></div></div><div class=\"row col-edit\"><div class=\"col center\" ng-if=\"vm.loading\">\n<ion-spinner></ion-spinner></div><div class=\"col\" ng-if=\"vm.isMe && !vm.loading\"><button profile-modal-edit \nuser=\"vm.user\" class=\"button\"><div translate=\"editProfile\"></div></button></div><div class=\"col\" \nng-if=\"!vm.isMe && !vm.loading\"><button \nng-class=\"{\'button-unfollow\': vm.user.isFollow, \'button-follow\': !vm.user.isFollow}\" ng-click=\"vm.follow()\" \nclass=\"button\"><span ng-show=\"!vm.user.isFollow\" translate>Follow</span> <span ng-show=\"vm.user.isFollow\" translate>\nFollowing</span></button></div></div></div></div><div class=\"padding\"><span class=\"user-username\">{{ vm.user.name }}\n</span><p class=\"user-status\">{{ vm.user.status }}</p></div></div><div class=\"item bar\"><div class=\"button-bar\"><button\n class=\"button button-icon icon ion-grid\" ng-class=\"{\'active\': vm.tab.grid}\" ng-click=\"vm.changeTab(\'grid\')\"></button> \n<button class=\"button button-icon icon ion-ios-camera-outline\" ng-class=\"{\'active\': vm.tab.album}\" \nng-click=\"vm.changeTab(\'album\')\"></button> <button class=\"button button-icon icon ion-drag\" \nng-class=\"{\'active\': vm.tab.list}\" ng-click=\"vm.changeTab(\'list\')\"></button> <button \nclass=\"button button-icon icon ion-ios-location-outline\" ng-class=\"{\'active\': vm.tab.map}\" \nng-click=\"vm.changeTab(\'map\')\"></button></div></div><div ng-if=\"!vm.loading\"><div class=\"tab\" \nng-if=\"vm.tab.grid && !vm.loading\"><div class=\"item item-divider\" translate=\"recent\"></div><photo-grid \nusername=\"vm.user.username\" on-reload=\"onReload\"></photo-grid></div><div class=\"tab\" \nng-if=\"vm.tab.album && !vm.loading\"><div class=\"item item-divider\" translate=\"albums\"></div><album-grid \nusername=\"vm.user.username\" on-reload=\"onReload\"></album-grid></div><div class=\"tab\" \nng-if=\"vm.tab.list && !vm.loading\"><div class=\"item item-divider\" translate=\"recent\"></div><photo-list \nusername=\"vm.user.username\" on-reload=\"onReload\"></photo-list></div><div class=\"tab\" ng-if=\"vm.tab.map && !vm.loading\">\n<div class=\"item item-divider\" translate=\"map\"></div><map-photo-user username=\"vm.user.username\" on-reload=\"onReload\">\n</map-photo-user></div></div></ion-content></ion-view>");
 $templateCache.put("app/main/profile-photo/profile-photo.html","<ion-view cache-view=\"false\" id=\"account-view\"><ion-nav-bar class=\"bar bar-{{theme}}\"><ion-nav-back-button>\n</ion-nav-back-button></ion-nav-bar><ion-nav-title><span translate=\"photo\"></span></ion-nav-title><ion-content \nscroll-sista=\"header-tabs\" class=\"animated fadeIn\"><photo-list id=\"vm.id\" profile=\"true\" load=\"vm.openProfile\" \nopen-likers=\"vm.openLikers\" on-reload=\"onReload\"></photo-list></ion-content></ion-view>");
 $templateCache.put("app/main/share/post-modal.html","<ion-modal-view class=\"modal-post\"><ion-header-bar class=\"bar-{{theme}}\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closePost()\"></button><div class=\"title\" \ntranslate=\"SHARE.TITLE\"></div><button class=\"button button-positive\" ng-click=\"submitPost(form)\"><i \nclass=\"icon ion-arrow-right-b\"></i></button></ion-header-bar><ion-content><div id=\"image\"><img ng-src=\"{{image}}\">\n</div><ul class=\"list\"><li class=\"item\"><textarea ng-model=\"form.title\" \nplaceholder=\"{{ \'SHARE.FORM.LEGEND\' | translate }}\"></textarea></li></ul></ion-content></ion-modal-view>");
-$templateCache.put("app/main/share/share-modal.html","<ion-modal-view class=\"modal-share\"><form name=\"rForm\" novalidate><ion-header-bar class=\"bar bar-{{theme}}\"><button \nclass=\"button button-clear button-clear\" ng-click=\"close()\" translate=\"cancel\"></button><div class=\"title\" \ntranslate=\"shareGalleryText\"></div><button class=\"button button-clear\" ng-click=\"submit(rForm, form)\" \ntranslate=\"submit\"></button></ion-header-bar><ion-content><div class=\"list\"><div class=\"item item-thumbnail-left\"><img \nng-src=\"{{image}}\" ng-click=\"editFilter()\"><textarea mentio mentio-trigger-char=\"\'@\'\" mentio-items=\"people\" \nmentio-template-url=\"app/mentio/people-mentions.html\" mentio-search=\"searchPeople(term)\" \nmentio-select=\"getPeopleTextRaw(item)\" mentio-id=\"\'theTextArea\'\" ng-trim=\"false\" type=\"text\" ng-model=\"form.title\" \nplaceholder=\"{{ \'description\'|translate }}\"></textarea></div><div class=\"item item-divider\" translate=\"shareLocation\">\n</div><div class=\"item item-icon-left\" ion-location ng-model=\"form.address\" ng-if=\"!form.address.resume\"><i \nclass=\"icon ion-ios-location\"></i> <span translate=\"addLocale\"></span></div><a \nclass=\"item item-icon-left item-button-right\" ng-if=\"form.address.resume\"><i class=\"icon ion-ios-location\"></i><h2>\n{{form.address.name || form.address.resume}}</h2><p>{{form.address.resume}}</p><button class=\"button button-icon\" \nng-click=\"closeAddress()\"><i class=\"icon ion-ios-close\"></i></button></a><div class=\"item item-divider\" \ntranslate=\"selectAlbumText\"></div><div class=\"item item-thumbnail-left\" gallery-album-modal ng-model=\"form.album\"><img \nng-src=\"{{form.album.imageThumb._url || \'img/albumnone.png\'}}\"><h2 ng-if=\"!form.album.title\" \ntranslate=\"clickSelectAlbum\"></h2><h2 ng-if=\"form.album\" ng-bind=\"form.album.title\"></h2><p ng-if=\"form.album\">\n{{form.album.qtyPhotos}} photos</p></div><div class=\"item item-divider\" translate=\"shareSocial\"></div><li \nclass=\"item item-toggle\">Compartilhar no Facebook?<label class=\"toggle toggle-assertive\"><input type=\"checkbox\" \nng-model=\"form.facebookShare\"><div class=\"track\"><div class=\"handle\"></div></div></label></li></div></ion-content>\n</form></ion-modal-view>");
+$templateCache.put("app/main/share/share-modal.html","<ion-modal-view class=\"modal-share\"><form name=\"rForm\" novalidate><ion-header-bar class=\"bar bar-{{theme}}\"><button \nclass=\"button button-clear button-clear\" ng-click=\"close()\" translate=\"cancel\"></button><div class=\"title\" \ntranslate=\"shareGalleryText\"></div><button class=\"button button-clear\" ng-click=\"submit(rForm, form)\" \ntranslate=\"submit\"></button></ion-header-bar><ion-content><div class=\"list\"><div class=\"item item-thumbnail-left\"><img \nng-src=\"{{image}}\" ng-click=\"editFilter()\"><textarea mentio mentio-trigger-char=\"\'@\'\" mentio-items=\"people\" \nmentio-template-url=\"app/mentio/people-mentions.html\" mentio-search=\"searchPeople(term)\" \nmentio-select=\"getPeopleTextRaw(item)\" mentio-id=\"\'theTextArea\'\" ng-trim=\"false\" type=\"text\" ng-model=\"form.title\" \nplaceholder=\"{{ \'description\'|translate }}\"></textarea></div><div class=\"item item-divider\" translate=\"shareLocation\">\n</div><div class=\"item item-icon-left\" ion-location ng-model=\"form.address\" ng-if=\"!form.address.resume\"><i \nclass=\"icon ion-ios-location\"></i> <span translate=\"addLocale\"></span></div><a \nclass=\"item item-icon-left item-button-right\" ng-if=\"form.address.resume\"><i class=\"icon ion-ios-location\"></i><h2>\n{{form.address.name || form.address.resume}}</h2><p>{{form.address.resume}}</p><button class=\"button button-icon\" \nng-click=\"closeAddress()\"><i class=\"icon ion-ios-close\"></i></button></a><div class=\"item item-divider\" \ntranslate=\"selectAlbumText\"></div><div class=\"item item-thumbnail-left\" gallery-album-modal ng-model=\"form.album\"><img \nng-src=\"{{form.album.imageThumb._url || \'img/albumnone.png\'}}\"><h2 ng-if=\"!form.album.title\" \ntranslate=\"clickSelectAlbum\"></h2><h2 ng-if=\"form.album\" ng-bind=\"form.album.title\"></h2><p ng-if=\"form.album\">\n{{form.album.qtyPhotos}} photos</p></div><div class=\"item item-divider\" translate=\"shareSocial\"></div></div>\n</ion-content></form></ion-modal-view>");
 $templateCache.put("app/main/tab/main-tab.html","<ion-view cache-view=\"true\"><ion-nav-bar class=\"bar bar-{{theme}}\"><ion-nav-back-button></ion-nav-back-button>\n</ion-nav-bar><ion-tabs class=\"tabs-light tabs-photogram\"><ion-tab icon-on=\"ion-ios-home\" \nicon-off=\"ion-ios-home-outline\" ui-sref=\"tab.home\"><ion-nav-view name=\"tabHome\"></ion-nav-view></ion-tab><ion-tab \nicon-on=\"ion-ios-world\" icon-off=\"ion-ios-world-outline\" ui-sref=\"tab.search\"><ion-nav-view name=\"tabSearch\">\n</ion-nav-view></ion-tab><ion-tab icon-on=\"ion-ios-camera\" icon-off=\"ion-ios-camera-outline\" ng-click=\"vm.postPhoto()\">\n<ion-nav-view name=\"tabCapture\"></ion-nav-view></ion-tab><ion-tab icon-on=\"ion-ios-heart\" \nicon-off=\"ion-ios-heart-outline\" badge=\"badge\" ui-sref=\"tab.activity\"><ion-nav-view name=\"tabActivity\"></ion-nav-view>\n</ion-tab><ion-tab icon-on=\"ion-ios-person\" icon-off=\"ion-ios-person-outline\" ui-sref=\"tab.account\"><ion-nav-view \nname=\"tabProfile\"></ion-nav-view></ion-tab></ion-tabs></ion-view>");
 $templateCache.put("app/main/tab-account/account.html","<ion-view cache-view=\"false\" id=\"account-view\"><ion-nav-title><span>{{ vm.user.attributes.name }}</span>\n</ion-nav-title><ion-nav-buttons side=\"right\"><button settings-modal class=\"button button-icon icon ion-gear-a\">\n</button></ion-nav-buttons><ion-content><div class=\"profile-top\"><div class=\"row\"><div class=\"col-25\"><img \nclass=\"avatar\" user-avatar ng-model=\"currentUser\" ng-src=\"{{ currentUser.photo.url() || \'img/user.png\' }}\"></div><div \nclass=\"col col-statics\"><div class=\"row\"><div class=\"col\"><span ng-if=\"!vm.loading\" class=\"text-center\">\n{{ vm.user.attributes.galleriesTotal || 0}}</span><ion-spinner ng-if=\"vm.loading\"></ion-spinner><h3 \ntranslate=\"postsText\"></h3></div><div class=\"col\" ng-click=\"vm.openFollowers()\"><span ng-if=\"!vm.loading\" \nclass=\"text-center\">{{ vm.user.attributes.followersTotal || 0}}</span><ion-spinner ng-if=\"vm.loading\"></ion-spinner><h3\n translate=\"followersText\"></h3></div><div class=\"col\" ng-click=\"vm.openFollowing()\"><span ng-if=\"!vm.loading\" \nclass=\"text-center\">{{ vm.user.attributes.followingsTotal || 0}}</span><ion-spinner ng-if=\"vm.loading\"></ion-spinner>\n<h3 translate=\"followingText\"></h3></div></div><div class=\"row col-edit\"><div class=\"col\"><button profile-modal-edit \nuser=\"vm.user\" class=\"button\"><div translate=\"editProfile\"></div></button></div></div></div></div><div class=\"padding\">\n<span class=\"user-username\">{{ vm.user.attributes.name }}</span><p class=\"user-status\">{{ vm.user.attributes.status }}\n</p></div></div><div class=\"item bar\"><div class=\"button-bar\"><button class=\"button button-icon icon ion-grid\" \nng-class=\"{\'active\': vm.tab.grid}\" ng-click=\"vm.changeTab(\'grid\')\"></button> <button \nclass=\"button button-icon icon ion-ios-camera-outline\" ng-class=\"{\'active\': vm.tab.album}\" \nng-click=\"vm.changeTab(\'album\')\"></button> <button class=\"button button-icon icon ion-drag\" \nng-class=\"{\'active\': vm.tab.list}\" ng-click=\"vm.changeTab(\'list\')\"></button> <button \nclass=\"button button-icon icon ion-ios-location-outline\" ng-class=\"{\'active\': vm.tab.map}\" \nng-click=\"vm.changeTab(\'map\')\"></button></div></div><div class=\"tab\" ng-if=\"vm.tab.grid && !vm.loading\"><div \nclass=\"item item-divider\" translate=\"recent\"></div><photo-grid username=\"vm.user.attributes.username\" \non-reload=\"onReload\"></photo-grid></div><div class=\"tab\" ng-if=\"vm.tab.album && !vm.loading\"><div \nclass=\"item item-divider\" translate=\"albums\"></div><album-grid username=\"vm.user.attributes.username\" \non-reload=\"onReload\"></album-grid></div><div class=\"tab\" ng-if=\"vm.tab.list && !vm.loading\"><div \nclass=\"item item-divider\" translate=\"recent\"></div><photo-list username=\"vm.user.attributes.username\" \non-reload=\"onReload\"></photo-list></div><div class=\"tab\" ng-if=\"vm.tab.map && !vm.loading\"><div \nclass=\"item item-divider\" translate=\"map\"></div><map-photo-user username=\"vm.user.attributes.username\" \non-reload=\"onReload\"></map-photo-user></div></ion-content></ion-view>");
 $templateCache.put("app/main/tab-activity/activity.html","<ion-view class=\"list-activity\"><ion-nav-title><span translate=\"activities\"></span></ion-nav-title><ion-content><div \nclass=\"center padding\" ng-if=\"loading &&!data.length\"><ion-spinner></ion-spinner></div><div class=\"center padding\" \nng-if=\"showErrorView\"><div class=\"error\"><i class=\"icon icon-large ion-ios-cloud-download-outline\"></i><p>\n{{ \"errorText\" | translate }}</p><button class=\"button button-positive\" ng-click=\"onReload()\">\n{{ \"tryAgainText\" | translate }}</button></div></div><div class=\"center padding\" ng-if=\"showEmptyView\"><div \nclass=\"error\"><i class=\"icon icon-large ion-android-alert\"></i><p>{{ \"activityNotFoundText\" | translate }}</p></div>\n</div><ion-refresher pulling-text=\"{{\'loadingText\'| translate}}\" on-refresh=\"onReload()\"></ion-refresher><div \nclass=\"list\"><div class=\"item item-avatar item-animate1\" ng-repeat=\"item in data | orderBy:\'createdAt\':true\"><img \nng-src=\"{{ item.user.photo._url  || \'./img/user.png\'}}\"><h2 ng-click=\"openProfile(item.user.username)\">\n{{ item.user.name}}</h2><div class=\"text\">{{ item.action | translate }}</div><p>{{ item.createdAt | amTimeAgo }}</p>\n<div class=\"img-right\" ng-if=\"item.item.gallery\"><img ng-src=\"{{ item.item.gallery.attributes.imageThumb._url}}\"></div>\n<div class=\"item-button-right\" ng-if=\"!item.item.gallery\"><button class=\"button button-positive button-outline icon\" \nng-class=\"{\'ion-ios-person-outline\': item.user.isFollow, \'ion-ios-personadd-outline\': !item.user.isFollow}\" \nng-click=\"follow(user)\"></button></div></div></div><ion-infinite-scroll on-infinite=\"onLoadMore()\" \nng-if=\"moreDataCanBeLoaded\" spinner distance=\"1%\"></ion-infinite-scroll></ion-content></ion-view>");
@@ -18701,10 +17883,5 @@ $templateCache.put("app/main/user-likers/user-likers.html","<ion-view id=\"user-
 $templateCache.put("app/main/user-list/user-list.html","<ion-view id=\"user-list\" cache-view=\"true\"><ion-nav-title><span translate=\"findPeople\"></span></ion-nav-title>\n<ion-header-bar class=\"bar bar-{{theme}} bar-subheader item-input-inset\"><label class=\"item-input-wrapper\"><i \nclass=\"icon ion-ios-search placeholder-icon\"></i> <input type=\"text\" ng-model=\"searchValue\" \nstyle=\"text-transform:lowercase\" placeholder=\"{{ \'searchText\' | translate }}\"></label><button \nclass=\"button button-positive button-clear\" ng-if=\"searchValue.length>1\" ng-click=\"clearSearch()\" translate=\"cancel\">\n</button></ion-header-bar><ion-content class=\"has-subheader\"><div class=\"center padding\" ng-if=\"showErrorView\"><div \nclass=\"error\"><i class=\"icon icon-large ion-ios-cloud-download-outline\"></i><p>{{ \"errorText\" | translate }}</p><button\n class=\"button button-primary\" ng-click=\"onReload()\">{{ \"tryAgainText\" | translate }}</button></div></div><div \nclass=\"center padding\" ng-if=\"showEmptyView\"><div class=\"error\"><i class=\"icon icon-large ion-android-alert\"></i><p>\n{{ \"galleriesNotFoundText\" | translate }}</p></div></div><ion-refresher pulling-text=\"{{\'loadingText\'| translate}}\" \non-refresh=\"onReload()\"></ion-refresher><div class=\"center padding\" ng-if=\"loading &&!data.length\"><ion-spinner>\n</ion-spinner></div><div class=\"list\"><div ng-repeat=\"user in data | filter:searchValue \"><a \nclass=\"item item-avatar item-button-right\"><img ng-src=\"{{ user.photo._url || \'img/user.png\'}}\" \nng-click=\"openProfile(user)\"><h2 ng-click=\"openProfile(user)\">{{user.username}}</h2><p>{{user.status}}</p><button \nclass=\"button button-positive\" ng-disabled=\"user.loading\" \nng-class=\"{\'button-unfollow\': user.isFollow, \'button-outline\': !user.isFollow}\" ng-click=\"follow(user)\"><div \nng-show=\"!user.isFollow\" translate>Follow</div><div ng-show=\"user.isFollow\" translate>Unfollow</div></button> </a><span\n class=\"row\"><span class=\"col\" ng-repeat=\"gallery in user.galleries\"><img ng-src=\"{{ gallery.imageThumb._url}}\" \nid=\"{{ ::gallery.id}}\"></span></span></div></div><ion-infinite-scroll on-infinite=\"onLoadMore()\" \nng-if=\"moreDataCanBeLoaded\" spinner distance=\"1%\"></ion-infinite-scroll></ion-content></ion-view>");
 $templateCache.put("app/main/user-merge/merge.html","<ion-view id=\"user-layout\" class=\"bg-animate\" cache-view=\"false\"><ion-content class=\"view-avatar padding\"><div \nclass=\"row step1\"><div class=\"col\"><img class=\"avatar\" user-avatar \nng-src=\"{{ tempUser.attributes.photo._url || \'./img/user.png\' }}\"></div></div><div class=\"step2\"><form name=\"myForm\" \nnovalidate=\"novalidate\" ng-submit=\"submitMerge(myForm, form)\"><label class=\"item item-input\"><i \nclass=\"icon icon-envelope placeholder-icon\"></i> <input required=\"required\" type=\"email\" name=\"email\" \nng-model=\"form.email\" disabled=\"disabled\" placeholder=\"user@example.com\"></label><label class=\"item item-input\"><i \nclass=\"icon icon-user placeholder-icon\"></i> <input required=\"required\" type=\"text\" name=\"username\" \nng-model=\"form.username\" username-validator ng-minlength=\"4\" ng-maxlength=\"12\" ng-model-options=\"{debounce: 1000}\" \nng-pattern=\"/^[a-zA-Z\'. -]+$/\" placeholder=\"{{\'yourLogin\' | translate}}\"></label><div ng-if=\"myForm.username.$dirty\">\n<div ng-messages=\"myForm.email.$error\" class=\"validation-error\"><div ng-message=\"required\" \ntranslate=\"usernameRequired\"></div><div ng-message=\"email\" translate=\"usernameInUse\"></div></div><div \nng-messages=\"myForm.email.$pending\" class=\"validation-pending\"><div ng-message=\"email\" translate=\"checkingUsername\">\n</div></div></div><label class=\"item item-input\"><i class=\"icon icon-lock placeholder-icon\"></i> <input required \ntype=\"password\" name=\"password\" ng-model=\"form.password\" placeholder=\"{{\'password\'|translate}}\"></label><button \nclass=\"button button-block button-outline button-light\" type=\"submit\" translate=\"{{\'submit\' | translate}}\"></button>\n</form></div><div class=\"padding step3\"><button ng-click=\"vm.submit(rForm, vm.form)\" \nclass=\"button button-block button-facebook\"><i class=\"icon ion-social-facebook\"></i> <span translate=\"mergeAccount\">\n</span></button></div></ion-content></ion-view>");
 $templateCache.put("app/component/ion-photo/view/filter.modal.html","<ion-modal-view id=\"photo-filter\"><ion-header-bar class=\"bar bar-{{theme}}\"><button \nclass=\"button button-clear button-icon ion-ios-arrow-thin-left\" ng-click=\"closeModalFilter()\"></button><div \nclass=\"title\">{{ \'Filter\' | translate }}</div><button class=\"button button-icon\" ng-click=\"submitFilter()\"><i \nclass=\"icon ion-ios-arrow-thin-right\"></i></button></ion-header-bar><ion-content><div class=\"box-image\"><img \nid=\"image\" src=\"{{form.photo}}\" ng-hide=\"loading\"><ion-spinner ng-show=\"loading\"></ion-spinner></div><img id=\"image3\" \nsrc=\"\" style=\"display: none\"><div ng-show=\"showFilter\" class=\"slider-filters animate1\"><ion-scroll direction=\"x\" \nclass=\"image-filter\"><a ng-repeat=\"filter in imageFilters\" ng-click=\"applyFilter(filter)\"><p>{{ filter.name }}</p><img \nid=\"{{filter.id}}\" class=\"img-filter\" src=\"\"></a></ion-scroll><div class=\"row\"><div class=\"col\"><button \nclass=\"button button-block bold\">Filter</button></div><div class=\"col\"><button class=\"button button-block\" \nng-click=\"actionShowFilter(false)\">Edit</button></div></div></div><div ng-hide=\"showFilter\" class=\"slider-filters\"><div\n ng-show=\"filterEdit\" class=\"slider-filters\"><p class=\"text-center\">{{filter.name}}</p><div \nclass=\"item range range-positive\"><input type=\"range\" min=\"-100\" max=\"100\" ng-model=\"filter.slider.value\" \nng-model-options=\"{debounce:100}\" step=\"0.1\"></div><div class=\"row\"><div class=\"col\"><button \nclass=\"button button-block\" ng-click=\"cancelFilter(filter)\">Cancel</button></div><div class=\"col\"><button \nclass=\"button button-block bold\" ng-click=\"doneFilter()\">Done</button></div></div></div><div ng-show=\"!filterEdit\" \nclass=\"slider-filters\"><ion-scroll direction=\"x\"><a ng-repeat=\"filter in filters\" ng-click=\"selectFilter(filter)\"><p>\n{{ filter.name }}</p><i class=\"icon {{filter.icon}}\"></i> </a><a ng-click=\"reset()\"><p>Reset</p><i \nclass=\"icon ion-android-refresh\"></i></a></ion-scroll><div class=\"row\"><div class=\"col\"><button \nclass=\"button button-block\" ng-click=\"actionShowFilter(true)\">Filter</button></div><div class=\"col\"><button \nclass=\"button button-block bold\">Edit</button></div></div></div></div></ion-content></ion-modal-view>");
-$templateCache.put("app/component/ion-photo/view/modal.share.photo.html","<ion-modal-view class=\"modal-share\"><ion-header-bar class=\"bar-dark\"><div class=\"title\">{{ ::\'Share\' | translate }}\n</div><button class=\"button button-positive\" ng-click=\"modal.hide()\"><i class=\"icon ion-arrow-right-b\"></i></button>\n</ion-header-bar><ion-content ng-cloak><div id=\"image\"><img ng-src=\"{{ ::form.photo}}\"><div class=\"title\">\n{{ ::form.title }}</div></div><ul class=\"list\"><li class=\"padding\"><button ng-repeat=\"social in sociais\" \nng-click=\"share(form, social)\" class=\"button button-block button-{{ social }}\"><i class=\"icon ion-social-{{ social }}\">\n</i> {{ ::social | uppercase }}</button></li></ul></ion-content></ion-modal-view>");
-$templateCache.put("app/main/chat/modal/add-people.html","<ion-modal-view class=\"modal-page\"><ion-header-bar class=\"bar-stable\"><button \nclass=\"button button-clear button-positive\" ng-click=\"closeAddPeople();\">Cancel</button><h1 class=\"title\">\nAdd More People</h1><button class=\"button button-clear button-positive\" ng-click=\"closeAddPeople();\">Done</button>\n</ion-header-bar><ion-content><ion-list><ion-item class=\"item-checkbox item-checkbox-right item-avatar\" \nng-repeat=\"friend in friends\"><label class=\"checkbox\"><input type=\"checkbox\"></label><img ng-src=\"{{friend.face}}\"> \n<span class=\"badge avatar-badge avatar-badge-s\" \nng-class=\"{\'badge-positive\':friend.friendType==\'Messenger\', \'badge-stable\':friend.friendType==\'facebook\'}\"><i \nclass=\"icon ion-ios-bolt\" ng-if=\"friend.friendType==\'Messenger\'\"></i> <i class=\"icon ion-social-facebook light\" \nng-if=\"friend.friendType==\'facebook\'\"></i></span><h2><small>{{friend.name}}</small></h2></ion-item></ion-list>\n</ion-content></ion-modal-view>");
-$templateCache.put("app/main/chat/modal/change-email.html","<style>\n.bar.bar-footer {\n        border: 0px !important;\n        border-bottom-color: transparent !important;\n        background-image: none;\n        border-bottom: none;\n    }\n</style><ion-modal-view hide-nav-bar=\"true\"><ion-content class=\"padding text-center\"><div style=\"height: 25px\"></div>\n<img id=\"logo\" src=\"img/logo.svg\" style=\"width: 62px; height: auto\"><h2>Is this the email people can use to reach you?\n</h2><div style=\"height: 25px\"></div><ion-list class=\"border-none\"><ion-item class=\"item-input border-bottom\"><input \ntype=\"email\" placeholder=\"Email\"></ion-item></ion-list><div class=\"padding\"><a \nclass=\"button button-clear button-positive\" ng-click=\"closeChangeEmail();\">OK</a></div></ion-content><ion-footer-bar \nclass=\"row\"><a class=\"col button button-clear button-small\" ng-click=\"closeChangeEmail();\">Not Now</a></ion-footer-bar>\n</ion-modal-view>");
-$templateCache.put("app/main/chat/modal/new-chat.html","<ion-modal-view><ion-header-bar class=\"bar-stable\"><button class=\"button button-clear button-positive\" \nng-click=\"closeNewChat()\">Cancel</button><h1 class=\"title\">New Message</h1><button \nclass=\"button button-clear button-positive\" ng-click=\"closeNewChat(); openNewGroup()\">Group</button></ion-header-bar>\n<ion-content><ion-list><ion-item class=\"item-avatar\" ng-repeat=\"friend in friends\" type=\"item-text-wrap\" \nhref=\"#/room/{{friend.room.id}}\"><img ng-src=\"{{friend.face}}\"> <span class=\"badge avatar-badge avatar-badge-s\" \nng-class=\"{\'badge-positive\':friend.friendType==\'Messenger\', \'badge-stable\':friend.friendType==\'facebook\'}\"><i \nclass=\"icon ion-ios-bolt\" ng-if=\"friend.friendType==\'Messenger\'\"></i> <i class=\"icon ion-social-facebook light\" \nng-if=\"friend.friendType==\'facebook\'\"></i></span><h3><small>{{friend.name}}</small></h3></ion-item></ion-list>\n</ion-content></ion-modal-view>");
-$templateCache.put("app/main/chat/modal/new-group.html","<style>\n.fileUpload {\n        position: relative;\n    }\n\n    .fileUpload input.upload {\n        position: absolute;\n        top: 0;\n        right: 0;\n        margin: 0;\n        padding: 0;\n        cursor: pointer;\n        opacity: 0;\n    }\n\n    .fileUpload .icon {\n        font-size: 24px;\n        color: #cccccc;\n        border: 1px solid #cccccc;\n        border-radius: 50%;\n        padding: 8px 13px;\n\n        position: relative;\n        top: 12px;\n    }\n</style><ion-modal-view id=\"new-group\" class=\"modal-page\"><ion-header-bar class=\"bar-stable\"><button \nclass=\"button button-clear button-positive\" ng-click=\"closeNewGroup()\">Cancel</button><h1 class=\"title\">New Group</h1>\n<button class=\"button button-clear button-positive\" ng-click=\"createNewGroup($root.newGroupName)\">Create</button>\n</ion-header-bar><ion-content><div class=\"row\"><div class=\"col\"><div class=\"fileUpload\"><i class=\"icon ion-camera\"></i>\n <input class=\"upload\" type=\"file\" accept=\"image/*\" capture=\"camera\"></div></div><div class=\"col-80\"><input \ntype=\"text\" ng-model=\"$root.newGroupName\" placeholder=\"Name this group chat\" style=\"height: 57px\"></div></div>\n<ion-list><ion-item class=\"item-checkbox item-checkbox-right item-avatar\" ng-repeat=\"friend in friends\"><label \nclass=\"checkbox\"><input type=\"checkbox\" ng-model=\"friend.checked\" ng-checked=\"friend.checked\"></label><img \nng-src=\"{{friend.face}}\"> <span class=\"badge avatar-badge avatar-badge-s\" \nng-class=\"{\'badge-positive\':friend.friendType==\'Messenger\', \'badge-stable\':friend.friendType==\'facebook\'}\"><i \nclass=\"icon ion-ios-bolt\" ng-if=\"friend.friendType==\'Messenger\'\"></i> <i class=\"icon ion-social-facebook light\" \nng-if=\"friend.friendType==\'facebook\'\"></i></span><h2><small>{{friend.name}}</small></h2></ion-item></ion-list>\n</ion-content></ion-modal-view>");
-$templateCache.put("app/main/chat/modal/search.html","<style>\n.modal-backdrop-bg {\n        -webkit-transition: opacity 300ms ease-in-out;\n        transition: opacity 300ms ease-in-out;\n        background-color: #000;\n        opacity: 0.5;\n    }\n    .transparent{\n        background-color: transparent;\n    }\n</style><ion-modal-view ng-class=\"{\'transparent\':!search}\"><ion-header-bar class=\"bar-stable item-input-inset\"><label \nclass=\"item-input-wrapper\"><i class=\"icon ion-ios-search placeholder-icon\"></i> <input type=\"search\" \nplaceholder=\"Search\" ng-model=\"search\"></label><button class=\"button button-clear button-positive\" \nng-click=\"closeSearch(); search = null;\">Cancel</button></ion-header-bar><ion-content ng-show=\"search\"><ion-list>\n<ion-item class=\"item-avatar\" ng-repeat=\"friend in friends | filter:search\" type=\"item-text-wrap\" \nhref=\"#/room/{{friend.room.id}}\"><img ng-src=\"{{friend.face}}\"> <span class=\"badge avatar-badge avatar-badge-s\" \nng-class=\"{\'badge-positive\':friend.friendType==\'Messenger\', \'badge-stable\':friend.friendType==\'facebook\'}\"><i \nclass=\"icon ion-ios-bolt\" ng-if=\"friend.friendType==\'Messenger\'\"></i> <i class=\"icon ion-social-facebook light\" \nng-if=\"friend.friendType==\'facebook\'\"></i></span><h3><small>{{friend.name}}</small></h3></ion-item><ion-item \nclass=\"item-divider\">Conversations</ion-item><span ng-repeat=\"room in activities | filter:search\"><ion-item \nclass=\"item-remove-animate item-avatar\" nav-direction=\"forward\" href=\"#/room/{{room.id}}\" type=\"item-text-wrap\"><img \nng-src=\"{{room.thumbnail}}\"> <span class=\"badge avatar-badge avatar-badge-s\" \nng-class=\"{\'badge-positive\':room.roomType==\'ms_friend\', \'badge-stable\':room.roomType==\'fb_friend\'}\" \nng-if=\"room.roomType!=\'group\'\"><i class=\"icon ion-ios-bolt\" ng-if=\"room.roomType==\'ms_friend\'\"></i> <i \nclass=\"icon ion-social-facebook light\" ng-if=\"room.roomType==\'fb_friend\'\"></i></span><h3><small>{{room.title}}</small>\n</h3><p>{{room.latest_chat}}</p><span class=\"item-note\">{{room.activeTime}}</span><ion-option-button \nclass=\"button-assertive\" ng-click=\"remove(room)\">Delete</ion-option-button></ion-item></span></ion-list></ion-content>\n</ion-modal-view>");}]);
+$templateCache.put("app/component/ion-photo/view/modal.share.photo.html","<ion-modal-view class=\"modal-share\"><ion-header-bar class=\"bar-dark\"><div class=\"title\">{{ ::\'Share\' | translate }}\n</div><button class=\"button button-positive\" ng-click=\"modal.hide()\"><i class=\"icon ion-arrow-right-b\"></i></button>\n</ion-header-bar><ion-content ng-cloak><div id=\"image\"><img ng-src=\"{{ ::form.photo}}\"><div class=\"title\">\n{{ ::form.title }}</div></div><ul class=\"list\"><li class=\"padding\"><button ng-repeat=\"social in sociais\" \nng-click=\"share(form, social)\" class=\"button button-block button-{{ social }}\"><i class=\"icon ion-social-{{ social }}\">\n</i> {{ ::social | uppercase }}</button></li></ul></ion-content></ion-modal-view>");}]);
 }());
