@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9eabd7a-7d96-4ddd-9e94-d83aa3ae9f81" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/services/PhotoFilterFactory.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/services/glfx.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/ion-photo/services/photoservice.factory.js" afterPath="$PROJECT_DIR$/src/app/component/ion-photo/services/photoservice.factory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/share/share-modal.html" afterPath="$PROJECT_DIR$/src/app/main/share/share-modal.html" />
-    </list>
+    <list default="true" id="e9eabd7a-7d96-4ddd-9e94-d83aa3ae9f81" name="Default" comment="" />
     <ignored path="photogram.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -685,13 +680,13 @@
       <workItem from="1470409005793" duration="4490000" />
       <workItem from="1470420179628" duration="858000" />
       <workItem from="1470430828722" duration="2956000" />
-      <workItem from="1470506318391" duration="297000" />
+      <workItem from="1470506318391" duration="376000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="474887000" />
+    <option name="totallyTimeSpent" value="474966000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
