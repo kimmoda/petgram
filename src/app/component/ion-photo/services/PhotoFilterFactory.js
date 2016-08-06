@@ -205,7 +205,7 @@
             canvas.draw(texture).update();
             image.src = canvas.toDataURL('image/jpeg', 0.8);
 
-            $timeout(function () {
+            $timeout(function () {t
 
                 // Generate Filters Thumb
                 imageFilters.map(function (imageThumb) {

@@ -3,7 +3,7 @@
 
     angular.module('app.main').controller('MainTabCtrl', MainTabController);
 
-    function MainTabController($localStorage,$ionicHistory, ParsePush, $scope, $rootScope, PhotoService, $ionicPlatform, Gallery, ParseFile, Loading) {
+    function MainTabController($localStorage, $ionicHistory, ParsePush, Facebook, $scope, $rootScope, PhotoService, $ionicPlatform, Gallery, ParseFile, Loading) {
         var vm = this;
 
         // Android Clear
@@ -44,6 +44,7 @@
         vm.postPhoto = function () {
             PhotoService.open().then(PhotoService.modalPost).then(function (form) {
                 Loading.start();
+                console.log(form);
                 ParseFile.upload({base64: form.image}).then(function (imageUploaded) {
                     form.image = imageUploaded;
                     Gallery.create(form).then(function (item) {

@@ -15,10 +15,6 @@
     </div>
 </div>
 
-<div class="center padding" ng-if="loading &&!data.length">
-    <ion-spinner></ion-spinner>
-</div>
-
 <div class="row " ng-if="$index % 2 === 0" ng-repeat="image in data | orderBy:'createdAt':true">
 
     <div class="col col-50 newAlbum " ng-if="$index < data.length && data[$index].create"

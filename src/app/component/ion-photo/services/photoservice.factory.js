@@ -3,7 +3,7 @@
 
     angular.module('ion-photo').factory('PhotoService', PhotoServiceFactory);
 
-    function PhotoServiceFactory($ionicActionSheet, $cordovaCapture, User, $cordovaCamera, $timeout, PhotoFilter, $translate, AppConfig, Share, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, ActionSheet, $q) {
+    function PhotoServiceFactory($ionicActionSheet, $cordovaCapture, User, Loading, $cordovaCamera, $timeout, PhotoFilter, $translate, $cordovaActionSheet, $jrCrop, $rootScope, $ionicModal, ActionSheet, $q) {
 
         var deviceInformation = ionic.Platform.device();
         var isIOS             = ionic.Platform.isIOS();
@@ -15,7 +15,7 @@
         var cordova = window.cordova;
         var setting = {
             jrCrop            : false,
-            filterImage       : true,
+            filterImage       : false,
             quality           : 90,
             allowEdit         : true,
             filter            : true,
@@ -60,8 +60,10 @@
                     scope.modalFilter.show();
                     scope.loading = true;
                     $timeout(function () {
+                        Loading.start();
                         PhotoFilter.init('image', image64).then(function () {
                             scope.loading = false;
+                            Loading.end();
                         });
                     }, 500)
                 });
@@ -324,7 +326,8 @@
 
             $scope.image = image;
             $scope.form  = {
-                title: ''
+                title: '',
+                facebookShare: true
             };
 
             $scope.editFilter = function () {

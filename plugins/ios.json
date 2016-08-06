@@ -65,6 +65,9 @@
         },
         "parse-push-plugin": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
+        },
+        "org.pbernasconi.progressindicator": {
+            "PACKAGE_NAME": "com.agenciafoccus.photogram"
         }
     },
     "dependent_plugins": {

@@ -18,9 +18,9 @@
 
 
             .state('intro', {
-                url        : '/intro',
-                templateUrl: 'app/main/user-intro/user-intro.html',
-                controller : 'UserIntroCtrl',
+                url         : '/intro',
+                templateUrl : 'app/main/user-intro/user-intro.html',
+                controller  : 'UserIntroCtrl',
                 controllerAs: 'vm',
             })
 

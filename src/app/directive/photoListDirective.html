@@ -15,9 +15,6 @@
     </div>
 </div>
 
-<div class="center padding" ng-if="loading &&!data.length">
-    <ion-spinner></ion-spinner>
-</div>
 
 <div class="list card " ng-repeat="gallery in data | orderBy:'createdAt':true">
 
@@ -45,7 +42,7 @@
                 <button ng-click="openComment(gallery.id)"
                         ng-model="gallery"
                         class="button-clear button-icon ion-ios-chatbubble-outline"></button>
-                <button ng-click="share(gallery.image._url, gallery.title)" photogram="{{ :: gallery.id }}"
+                <button ng-click="share(gallery)" photogram="{{ :: gallery.id }}"
                         class="button-clear button-icon ion-android-share"></button>
             </div>
             <div class="col album-name text-center" album-photo-grid album="gallery.album.id">

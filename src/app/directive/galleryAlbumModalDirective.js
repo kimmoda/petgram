@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('galleryAlbumModal', galleryAlbumModalDirective);
 
-    function galleryAlbumModalDirective($ionicModal, $q, GalleryAlbum) {
+    function galleryAlbumModalDirective($ionicModal, $q, GalleryAlbum, $rootScope) {
         return {
             restrict: 'A',
             link    : galleryAlbumModalLink,
@@ -21,12 +21,62 @@
 
                 $scope.loading = true;
 
-                $scope.params      = {};
-                $scope.params.page = 0;
-                GalleryAlbum.list($scope.params).then(function (data) {
-                    $scope.data    = data;
-                    $scope.loading = false;
-                })
+
+                init();
+                loadFeed();
+
+                function loadFeed() {
+                    if ($scope.loading) return;
+                    $scope.loading = true;
+                    GalleryAlbum.list($scope.params).then(function (data) {
+                        console.log(data);
+                        if (data.length > 0) {
+                            $scope.params.page++;
+                            data.map(function (item) {
+                                $scope.data.push(item);
+                            });
+                        } else {
+                            if ($scope.data.length === 0) {
+                                $scope.showEmptyView = true;
+                            }
+                            $scope.moreDataCanBeLoaded = false;
+                        }
+
+                        $scope.loading = false;
+                        $rootScope.$broadcast('scroll.infiniteScrollComplete');
+                        $rootScope.$broadcast('scroll.refreshComplete');
+
+                    }).catch(function (err) {
+                        if ($scope.data.length === 0) {
+                            $scope.showErrorView = true;
+                        }
+                        $scope.$broadcast('scroll.refreshComplete');
+                    });
+                }
+
+                $scope.onLoadMore = function () {
+                    loadFeed();
+                };
+
+                $scope.onReload = function () {
+                    init()
+                    loadFeed();
+                    $scope.$broadcast('scroll.refreshComplete');
+                };
+
+                function init() {
+                    $scope.params              = {};
+                    $scope.params.page         = 1;
+                    $scope.data                = [];
+                    $scope.moreDataCanBeLoaded = true;
+                    $scope.loading             = false;
+
+                    if ($scope.canEdit) {
+                        $scope.data.push({
+                            create: true
+                        });
+                    }
+                }
 
                 $ionicModal.fromTemplateUrl('app/directive/galleryAlbumModalDirective.html', {
                     scope          : $scope,
@@ -36,7 +86,7 @@
                     $scope.modal.show();
                 });
 
-                $scope.$on('selectAlbum', function (event, album) {
+                $rootScope.$on('selectAlbum', function (event, album) {
                     console.log('selectAlbum', event);
                     console.log('selectAlbum', album);
                     $scope.ngModel = album;

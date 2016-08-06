@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('photoList', photoListDirective);
 
-    function photoListDirective(Gallery, $rootScope, Loading, $ionicPopup, $translate, $state, Share, Toast, FeedbackModal, $ionicActionSheet) {
+    function photoListDirective(Gallery, $rootScope, Loading, $ionicPopup, $translate, $state, Facebook, Toast, FeedbackModal, $ionicActionSheet) {
 
         return {
             restrict   : 'E',
@@ -41,7 +41,12 @@
                 $state.go('galleryComments', {galleryId: galleryId})
             };
 
-            $scope.share = Share.open;
+            $scope.share = function  (item) {
+                console.log(item);
+                Facebook.postImage(item);
+            };
+
+
             loadFeed();
 
             function loadFeed() {

@@ -39,22 +39,28 @@
 
         function postImage(image) {
             var defer = $q.defer();
-            facebook.api('/me/feed', {
+            var item  = {
                 method     : 'feed',
                 name       : image.title,
                 link       : 'https://photogram.codevibe.io/',
-                picture    : image.image.url(),
+                picture    : image.image._url,
                 caption    : image.title,
-                description: image.title
-            }, {scope: 'publish_actions'}, defer.resolve);
+                description: image.title,
+                message    : ''
+            };
+
+            console.log(item);
+            facebook.ui(item, defer.resolve);
             return defer.promise;
         }
 
         function postImage1(image) {
             var defer = $q.defer();
             facebook.api('/me/feed', 'post', {
-                message: image.title,
-                picture: image.image.url()
+                message  : image.title,
+                link     : image.image._url,
+                picture  : image.image._url,
+                published: true
             }, defer.resolve);
             return defer.promise;
         }

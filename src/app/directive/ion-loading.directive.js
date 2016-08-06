@@ -29,22 +29,30 @@
         });
     }
 
-    function Loading($rootScope, $timeout) {
+    function Loading($rootScope, $cordovaProgress, $timeout) {
         var seconds = 0;
 
         return {
             start: showLoading,
-            end: hideLoading,
+            end  : hideLoading,
         };
 
 
         function showLoading(text) {
-            $rootScope.$broadcast('ionicLoading:true', text);
+            if (window.cordova) {
+                $cordovaProgress.showSimple();
+            } else {
+                $rootScope.$broadcast('ionicLoading:true', text);
+            }
         }
 
         function hideLoading() {
             $timeout(function () {
-                $rootScope.$broadcast('ionicLoading:false');
+                if (window.cordova) {
+                    $cordovaProgress.hide();
+                } else {
+                    $rootScope.$broadcast('ionicLoading:false');
+                }
             }, parseInt(seconds + '000'));
         }
     }
