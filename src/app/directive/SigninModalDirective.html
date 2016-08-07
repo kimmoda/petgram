@@ -23,11 +23,11 @@
                 </label>
 
                 <div ng-if="myForm.username.$dirty">
-                    <div ng-messages="myForm.email.$error" class="validation-error">
+                    <div ng-messages="myForm.username.$error" class="validation-error">
                         <div ng-message="required" translate="usernameRequired"></div>
                         <div ng-message="email" translate="usernameInUse"></div>
                     </div>
-                    <div ng-messages="myForm.email.$pending" class="validation-pending">
+                    <div ng-messages="myForm.username.$pending" class="validation-pending">
                         <div ng-message="email" translate="checkingUsername"></div>
                     </div>
                 </div>
@@ -47,6 +47,11 @@
                 </button>
 
             </form>
+
+            <button class="button button-block button-clear button-light "
+                    ng-click="forgotPass()"
+                    translate="{{'forgotPass' | translate}}">
+            </button>
 
 
             <span class="term">{{'termAccept' | translate}} <a

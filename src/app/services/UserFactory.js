@@ -159,7 +159,12 @@
                 return defer.promise;
             },
             recoverPassword       : function (email) {
-                return Parse.User.requestPasswordReset(email);
+                var defer = $q.defer();
+                Parse.User.requestPasswordReset(email, {
+                    success: defer.resolve,
+                    error  : defer.reject
+                });
+                return defer.promise;
             },
             destroy               : function () {
                 return Parse.User.current().destroy();
@@ -187,10 +192,10 @@
                 return ParseCloud.run('validateEmail', {email: input});
             },
             update                : function (params) {
-                var user = Parse.User.current();
+                var user    = Parse.User.current();
                 // User Language
                 params.lang = $translate.use();
-                
+
                 angular.forEach(params, function (value, key) {
                     user.set(key, value);
                 });

@@ -8,10 +8,12 @@
             <i class="icon ion-ios-search placeholder-icon"></i>
             <input type="text"
                    ng-model="searchValue"
+                   ng-change="onSearch()"
+                   ng-model-options="{debounce:1000}"
                    style="text-transform:lowercase"
                    placeholder="{{ 'searchText' | translate }}">
         </label>
-        <button class="button button-positive button-clear" ng-if="searchValue.length>1"
+        <button class="button button-clear" ng-if="searchValue.length>1"
                 ng-click="clearSearch()" translate="cancel">
         </button>
     </ion-header-bar>
@@ -42,7 +44,7 @@
 
         <div class="list">
 
-            <div ng-repeat="user in data | filter:searchValue ">
+            <div ng-repeat="user in data ">
                 <a class="item item-avatar item-button-right">
                     <img ng-src="{{ user.photo._url || 'img/user.png'}}"
                          ng-click="openProfile(user)">

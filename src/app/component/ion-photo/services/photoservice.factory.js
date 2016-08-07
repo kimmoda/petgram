@@ -79,7 +79,7 @@
                 image = 'data:image/jpeg;base64,' + image;
             }
 
-            if (setting.jrCrop || !window.cordova) {
+            if (setting.jrCrop ) {
                 $jrCrop.crop({
                     url          : image,
                     aspectRatio  : 1,

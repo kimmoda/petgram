@@ -85,8 +85,10 @@
                 $scope.params              = {};
                 $scope.params.page         = 1;
                 $scope.data                = [];
-                $scope.moreDataCanBeLoaded = true;
                 $scope.loading             = false;
+                $scope.moreDataCanBeLoaded = true;
+                $scope.showEmptyView       = false;
+                $scope.showErrorView       = false;
 
                 if ($scope.canEdit) {
                     $scope.data.push({

@@ -3,12 +3,24 @@
     angular.module('starter').controller('UserListCtrl', UserListController);
 
     function UserListController(User, $scope, $rootScope, $state) {
+        $scope.params = {};
         init();
         loadFeed();
-        function loadFeed() {
 
+        function loadFeed() {
             if ($scope.loading) return;
             $scope.loading = true;
+
+            $scope.onSearch = function () {
+                $scope.params.search = $scope.searchValue;
+                $scope.onReload();
+            };
+
+            $scope.clearSearch = function () {
+                $scope.params      = {};
+                $scope.searchValue = '';
+                $scope.onReload();
+            };
 
             User.list($scope.params).then(function (data) {
                 console.log(data);
@@ -47,15 +59,15 @@
         $scope.onReload = function () {
             init()
             loadFeed();
-            $scope.$broadcast('scroll.refreshComplete');
         };
 
         function init() {
-            $scope.params              = {};
             $scope.params.page         = 1;
             $scope.data                = [];
-            $scope.moreDataCanBeLoaded = true;
             $scope.loading             = false;
+            $scope.moreDataCanBeLoaded = true;
+            $scope.showEmptyView       = false;
+            $scope.showErrorView       = false;
 
             if ($scope.canEdit) {
                 $scope.data.push({
@@ -84,9 +96,8 @@
                 }
                 user.loading = false;
             });
+        };
 
-
-        }
     }
 
 })();

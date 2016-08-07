@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('galleryAlbumModal', galleryAlbumModalDirective);
 
-    function galleryAlbumModalDirective($ionicModal, $q, GalleryAlbum, $rootScope) {
+    function galleryAlbumModalDirective($ionicModal, AppConfig, $q, GalleryAlbum, $rootScope) {
         return {
             restrict: 'A',
             link    : galleryAlbumModalLink,
@@ -20,6 +20,7 @@
                 var defer = $q.defer();
 
                 $scope.loading = true;
+                $scope.theme = AppConfig.theme;
 
 
                 init();

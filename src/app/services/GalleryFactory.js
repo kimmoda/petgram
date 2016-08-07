@@ -58,6 +58,7 @@
                     return ParseCloud.run('feedGallery', params);
                 },
                 search     : function (params) {
+                    console.log(params);
                     return ParseCloud.run('searchGallery', params);
                 },
                 follow     : function (params) {

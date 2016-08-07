@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('signinModal', signinModalDirective);
 
-    function signinModalDirective($ionicModal, Loading, User, $state, Toast, AppConfig, $rootScope) {
+    function signinModalDirective($ionicModal, Loading, User, $translate, $state, Toast, $ionicPopup, AppConfig, $rootScope) {
         return {
             restrict: 'A',
             link    : signinModalLink,
@@ -23,7 +23,6 @@
                     var form = angular.copy(data);
                     if (rForm.$valid) {
                         Loading.start();
-                        console.log(form);
                         User.signIn(form).then(function (data) {
                             console.log(data);
                             $rootScope.currentUser = data;
@@ -35,13 +34,49 @@
                         }).catch(function (resp) {
                             Toast.alert({
                                 title: 'Error',
-                                text : 'Incorrect username or password'
+                                text : $translate.instant('incorrectEmail')
                             });
                             Loading.end();
                         });
                     } else {
                         return false;
                     }
+                };
+
+
+                $scope.forgotPass = function () {
+
+                    // An elaborate, custom popup
+                    $scope.data = {};
+                    $ionicPopup.show({
+                        template: '<input type="email" ng-model="data.email">',
+                        title   : $translate.instant('recoveryPass'),
+                        subTitle: $translate.instant('fillEmail'),
+                        scope   : $scope,
+                        buttons : [
+                            {text: $translate.instant('cancel')},
+                            {
+                                text : '<b >' + $translate.instant('submit') + '</b>',
+                                type : 'button-positive',
+                                onTap: function (e) {
+                                    if (!$scope.data.email) {
+                                        //don't allow the user to close unless he enters wifi password
+                                        e.preventDefault();
+                                    } else {
+                                        Loading.start();
+                                        User.recoverPassword($scope.data.email).then(function (resp) {
+                                            Toast.alert({
+                                                title: 'Alert',
+                                                text : $translate.instant('recoverySuccess')
+                                            });
+                                            Loading.end();
+                                        });
+                                    }
+                                }
+                            }
+                        ]
+                    });
+
                 };
 
                 $ionicModal.fromTemplateUrl('app/directive/SigninModalDirective.html', {

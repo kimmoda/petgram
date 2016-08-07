@@ -20,7 +20,10 @@
         };
 
         function photoListController($scope, elem, attr) {
+            $scope.params = {};
             init();
+
+            var currentUser = Parse.User.current();
 
             if ($scope.username) {
                 $scope.params.username = $scope.username;
@@ -41,7 +44,7 @@
                 $state.go('galleryComments', {galleryId: galleryId})
             };
 
-            $scope.share = function  (item) {
+            $scope.share = function (item) {
                 console.log(item);
                 Facebook.postImage(item);
             };
@@ -53,11 +56,14 @@
                 if ($scope.loading) return;
                 $scope.loading = true;
                 Gallery.feed($scope.params).then(function (data) {
-
-                    console.log(data);
                     if (data.length > 0) {
                         $scope.params.page++;
                         data.map(function (item) {
+                            if (item.album) {
+                                item.canEdit = (currentUser.id === item.album.attributes.user.id) ? true : false;
+                            } else {
+                                item.canEdit = false;
+                            }
                             $scope.data.push(item);
                         });
                     } else {
@@ -90,11 +96,12 @@
             };
 
             function init() {
-                $scope.params              = {};
                 $scope.params.page         = 1;
                 $scope.data                = [];
-                $scope.moreDataCanBeLoaded = true;
                 $scope.loading             = false;
+                $scope.moreDataCanBeLoaded = true;
+                $scope.showEmptyView       = false;
+                $scope.showErrorView       = false;
 
                 if ($scope.canEdit) {
                     $scope.data.push({
@@ -150,7 +157,7 @@
                                     if (res) {
                                         Loading.start();
                                         Gallery.get(gallery.id).then(function (gallery) {
-                                            if(gallery) {
+                                            if (gallery) {
                                                 Gallery.destroy(gallery).then(function () {
                                                     console.log('Photo deleted');
                                                     Toast.alert({
@@ -164,7 +171,7 @@
                                                 $scope.onReload();
                                                 Loading.end();
                                             }
-                                        }).catch(function  () {
+                                        }).catch(function () {
                                             $scope.onReload();
                                             Loading.end();
                                         })

@@ -35,7 +35,7 @@
             <div class="item item-avatar item-animate1" ng-repeat="item in data | orderBy:'createdAt':true">
                 <img ng-src="{{ item.user.photo._url  || './img/user.png'}}">
 
-                <h2 ng-click="openProfile(item.user.username)">{{ item.user.name}}</h2>
+                <h2 ng-click="openProfile(item.user.username)">{{ item.user.username}}</h2>
 
                 <div class="text">{{ item.action | translate }}</div>
                 <p>{{ item.createdAt | amTimeAgo }}</p>
@@ -45,9 +45,12 @@
                 </div>
 
                 <div class="item-button-right" ng-if="!item.item.gallery">
-                    <button class="button button-positive button-outline icon"
-                            ng-class="{'ion-ios-person-outline': item.user.isFollow, 'ion-ios-personadd-outline': !item.user.isFollow}"
-                            ng-click="follow(user)">
+                    <button class="button button-positive"
+                            ng-disabled="item.user.loading"
+                            ng-class="{'button-unfollow': item.user.isFollow, 'button-outline': !item.user.isFollow}"
+                            ng-click="follow(item.user)">
+                        <div ng-show="!item.user.isFollow" translate>Follow</div>
+                        <div ng-show="item.user.isFollow" translate>Unfollow</div>
                     </button>
                 </div>
 

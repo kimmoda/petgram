@@ -16,32 +16,45 @@
             limit   : 10
         };
         $scope.loading   = true;
-        $scope.map
+        $scope.map;
+        $scope.myLocation = {};
+
+        var position   = {
+            latitude : -18.8800397,
+            longitude: -47.05878999999999
+        };
+        var mapOptions = {
+            center   : setPosition(position),
+            zoom     : 13,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
 
         function init() {
             $scope.galleries = [];
             removeGallerys();
             removeMarkers();
 
-            var position   = {
-                latitude : -18.8800397,
-                longitude: -47.05878999999999
-            };
-            var mapOptions = {
-                center   : setPosition(position),
-                zoom     : 15,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-
             $scope.map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+            //Wait until the map is loaded
+            google.maps.event.addListener($scope.map, 'idle', function () {
+                $scope.onSearchHere();
+            });
         }
 
         $scope.$on('$ionicView.enter', function (scopes, states) {
-            if(!$scope.map) {
+            if (!$scope.map) {
                 init();
                 myPosition();
             }
         });
+
+        $scope.loadMyLocation = function () {
+            $scope.params.location = $scope.myLocation;
+            // Set center locale
+            $scope.map.setCenter($scope.params.location);
+            console.log($scope.map, $scope.params.location);
+        };
 
 
         function myPosition() {
@@ -49,13 +62,15 @@
 
                 console.log(position);
 
-                $scope.params.location = {
+                $scope.myLocation = setPosition({
                     latitude : position.coords.latitude,
                     longitude: position.coords.longitude
-                };
+                });
+
+                $scope.params.location = $scope.myLocation;
 
                 var marker = {
-                    position: setPosition($scope.params.location),
+                    position: $scope.myLocation,
                     title   : 'I am here',
                     id      : 0
                 }
@@ -63,8 +78,7 @@
                 addMarker(marker);
 
                 // Set center locale
-                $scope.map.setCenter(setPosition($scope.params.location));
-
+                $scope.map.setCenter($scope.params.location);
                 loadGallerys();
             }, function (error) {
                 $scope.params.location = null;
@@ -114,7 +128,7 @@
             // Procedimento que mostra a Info Window atravÃ©s de um click no marcador
             google.maps.event.addListener(marker, 'click', function () {
                 // Open Profile
-                if(item.username) {
+                if (item.username) {
                     $state.go('tab.mapProfile', {username: item.username})
                 }
 
@@ -122,12 +136,13 @@
 
             markers.push(marker);
 
-            new MarkerClusterer($scope.map, markers, {
-                imagePath: '../img/m'
-            });
 
-            latlngbounds.extend(item.position);
-            $scope.map.fitBounds(latlngbounds);
+            //new MarkerClusterer($scope.map, markers, {
+            //    imagePath: '../img/m'
+            //});
+            //
+            //latlngbounds.extend(item.position);
+            //$scope.map.fitBounds(latlngbounds);
         }
 
         function setGallerys(galleries) {
@@ -145,7 +160,9 @@
                         username: item.attributes.user.attributes.username
                     };
 
-                    addMarker(marker)
+                    if (!_.some(markers, {id: marker.id})) {
+                        addMarker(marker);
+                    }
                 }
             });
 
@@ -174,17 +191,19 @@
         }
 
         function removeMarkers() {
-            markers.map(function (item) {
-                item.setMap(null);
-            });
+            _.each(markers, function (item, index) {
+                if (index > 0) {
+                    item.setMap(null);
+                }
+            })
             markers = [];
         };
 
         $scope.onSearchHere = function () {
+            if ($scope.loading) return;
             $scope.params.location.latitude  = $scope.map.getCenter().lat();
             $scope.params.location.longitude = $scope.map.getCenter().lng();
-            removeGallerys();
-            removeMarkers();
+
             loadGallerys();
         }
 
