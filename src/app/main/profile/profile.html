@@ -48,8 +48,8 @@
                         <div class="col" ng-if="!vm.isMe && !vm.loading">
                             <button ng-class="{'button-unfollow': vm.user.isFollow, 'button-follow': !vm.user.isFollow}"
                                     ng-click="vm.follow()" class="button">
-                                <span ng-show="!vm.user.isFollow" translate>Follow</span>
-                                <span ng-show="vm.user.isFollow" translate>Following</span>
+                                <span ng-show="!vm.user.isFollow" translate>follow</span>
+                                <span ng-show="vm.user.isFollow" translate>unfollow</span>
                             </button>
                         </div>
                     </div>

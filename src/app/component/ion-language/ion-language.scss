@@ -2,3 +2,12 @@ ion-language {
   display: block;
   width: 100%;
 }
+
+.platform-ios {
+  ion-language {
+    margin-top: 0;
+    .has-subheader {
+      top: 130px;
+    }
+  }
+}

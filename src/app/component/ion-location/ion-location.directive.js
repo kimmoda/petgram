@@ -53,7 +53,7 @@
                 }
 
                 $scope.modalLocation = $ionicModal.fromTemplate('<ion-modal-view>' +
-                    '<ion-header-bar class="bar bar-light item-input-inset">' +
+                    '<ion-header-bar class="bar bar-positive item-input-inset">' +
                     '<ion-spinner ng-if="loading"></ion-spinner>' +
                     '<button class="button button-clear button-icon ion-navigate" ng-click="findMe()" ng-hide="loading"></button>' +
                     '<label class="item-input-wrapper">' +

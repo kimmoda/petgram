@@ -1,13 +1,28 @@
 .platform-ios {
   .modal {
     .bar {
-      height: 64px !important;
-      a {
-        margin-top: 20px !important;
+      height: 64px;
+      & > * {
+        margin-top: 0px;
+        top: 20px;
       }
+
       .title {
+        margin-top: 0px !important;
         top: 20px !important;
       }
+
+      &.bar-subheader.item-input-inset.bar-positive {
+        top: 63px;
+        button {
+          top: 0;
+        }
+      }
     }
+
+    .has-subheader {
+      top: 130px;
+    }
+
   }
 }
