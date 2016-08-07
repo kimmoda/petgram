@@ -38,20 +38,22 @@
                                 version : $cordovaDevice.getVersion()
                             };
                         } else {
+                            var userAgent = window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./);
+
                             updateUser = {
-                                device  : {device: window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[0]},
+                                device  : {device: (userAgent) ? userAgent[0] : 'emulator'},
                                 cordova : '',
-                                model   : window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[0],
+                                model   : (userAgent) ? userAgent[0] : 'emulator',
                                 platform: window.navigator.platform,
                                 uuid    : '',
-                                version : window.navigator.userAgent.match(/(?:Chrom(?:e|ium)|Firefox)\/([0-9]+)\./)[1]
+                                version : (userAgent) ? userAgent[0] : 'emulator'
                             };
                         }
 
                         // Save
                         updateUser.lang = $translate.use();
 
-                        if(window.cordova) {
+                        if (window.cordova) {
                             // Parse Push
                             ParsePush.init();
                         }
