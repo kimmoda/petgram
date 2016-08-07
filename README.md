@@ -1,38 +1,107 @@
-# Getting Started with Photogram 
+# Getting Starter
+[Ebook Tutorial](https://photogram.gitbooks.io/manual/content/)
 
-## Requirements
 
- 1. Install Node Version Manager (NVM) and NodeJS v5.11.1
-	 2. Windows: https://github.com/coreybutler/nvm-windows
-	 3. Ubuntu: wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
-	 4. Mac: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash
-	 5. after install run this command 
+Before you begin following the tutorial, I recommend using the bitbucket to use as a private repository of your project.
 
-		**nvm install v5.11.1**
-		**nvm alias default v5.11.1**
-		exit terminal and access again
- 2. Create your Parse Server local 
-	 2. clone this repository https://github.com/photogram/server 
-	 3. enter in repository and run **npm install**
-	 4. install pm2 with **npm install -g pm2**
-	 5. edit **ecosystem.json** file in your server folder with your credentials
-	 6. run server with **pm2 start ecosystem.json**
-	 7. Enter in http://localhost:1337/#/auth/install and create admin User
- 3.  Ionic Application
-	 4. Clone https://github.com/photogram/ionic-app-parse
-	 5. Enter in folder and type **npm install**
-	 6. Install Ionic Requeriments **npm install -g ionic cordova**
-	 7. MacOS type **npm install -g ios-sim**
-	 8. Change **src/app/index.constant.js** file with your credentials
-	 9. For development Edit files in **src/ folder**
-	 10. Type **gulp serve** for start browsersync for your development files in src folder
-	 11. Type **gulp clean** for clean www folder and after type **gulp build** for create new build in www folder
-	 12. For add platform you type **ionic platform add android** , you can change android for other platform, sample iOS
+Let's start!
 
-More information in [Photogram Wiki](https://github.com/photogram/server/wiki) 
+# Bitbucket Account
 
-Some features are in the testing phase as the images of the filter case is commenting the code, search for strings, hashtags and geolocation and the part of followers, I'm working every day to finalize these new features and soon will be posting various tutorials the Photogram.
+Bitbucket has a free plan with free private repositories, just create a free account.
 
-If you have any questions send me via whatsapp 55 11 949146353 or by email at photogram.ionic@gmail.com
+![enter image description here](https://lh3.googleusercontent.com/-FVGrunqml6k/V5zLfo4CV4I/AAAAAAABzUI/_2I9wmuT29QBx1DD4Oqagqq4jNRc13-yACLcB/s0/b1.png "b1.png")
 
-Thank you
+> If you already have an account, log in go ahead
+
+![enter image description here](https://lh3.googleusercontent.com/-Abgg0SyP7-4/V5zNuo5oofI/AAAAAAABzU8/TmPz5pdjUNkEPXpPq7BMvXuvecf2I-BzQCLcB/s0/b2.png "b2.png")
+
+## Create Team
+
+I recommend creating a team for people who have access to this project, for example, employees or members.
+
+![enter image description here](https://lh3.googleusercontent.com/-IRPfdlpBl4U/V5zN6hUyrSI/AAAAAAABzVE/pqKageAwgTMOHHt4DtlkweLaNmPmwhsfwCLcB/s0/b3.jpg "b3.jpg")
+
+![enter image description here](https://lh3.googleusercontent.com/-I-jsdDq_PHo/V5zOLYYo7eI/AAAAAAABzVU/mlGjCP4cG7w-wy3wC0WCWQuklCmXw10wgCLcB/s0/b4.jpg "b4.jpg")
+
+## Create Project
+
+You can have multiple projects for the same team
+
+> but remember that all participating team has access to all projects.
+
+## Create Private Repository
+
+Now you need to create 3 private repositories for this project
+
+### App Repository
+
+[https://github.com/photogram/ionic-app-parse](https://github.com/photogram/ionic-app-parse)
+
+Clone the repository to your machine and follow the next steps
+
+ $ git clone git@github.com:photogram/ionic-app-parse.git yourproject-app
+
+> replace ***youproject*** for you project name
+
+Then rename the remote origin to github
+
+ $ git remote rename origin github
+
+Now go to the Bitbucket and create a new private repository
+
+![enter image description here](https://lh3.googleusercontent.com/-xPiNJnnPJJo/V5zOnexuhII/AAAAAAABzV0/Dh6rUe0h-k81IrBtwhtqMolxaSb7dHaPACLcB/s0/b5.jpg "b5.jpg")
+
+![enter image description here](https://lh3.googleusercontent.com/-UFEJ0HKWQjQ/V5zOt8qF5HI/AAAAAAABzWA/c0R6HDqXgt4VYSozGGCSGS0sbnIKLKkPQCLcB/s0/b6.jpg "b6.jpg")
+
+![enter image description here](https://lh3.googleusercontent.com/-N8IGkGEyMCA/V5zO8JdHIOI/AAAAAAABzWU/ZdxZPmQqqWMLz92927ozekCg_dq7m1HCACLcB/s0/b7.jpg "b7.jpg")
+
+After creating the repository, copy the commands as in the picture
+
+### Parse Server Repository
+
+[https://github.com/photogram/server](https://github.com/photogram/server)
+
+Clone the repository to your machine and follow the next steps
+
+ $ git clone git@github.com:photogram/server.git yourproject-server
+
+> replace ***youproject*** for you project name
+
+Then rename the remote origin to github
+
+ $ git remote rename origin github
+
+Now go to the Bitbucket and create a new private repository
+
+![enter image description here](https://lh3.googleusercontent.com/-xPiNJnnPJJo/V5zOnexuhII/AAAAAAABzV0/Dh6rUe0h-k81IrBtwhtqMolxaSb7dHaPACLcB/s0/b5.jpg "b5.jpg")
+
+![enter image description here](https://lh3.googleusercontent.com/-UFEJ0HKWQjQ/V5zOt8qF5HI/AAAAAAABzWA/c0R6HDqXgt4VYSozGGCSGS0sbnIKLKkPQCLcB/s0/b6.jpg "b6.jpg")
+
+![enter image description here](https://lh3.googleusercontent.com/-N8IGkGEyMCA/V5zO8JdHIOI/AAAAAAABzWU/ZdxZPmQqqWMLz92927ozekCg_dq7m1HCACLcB/s0/b7.jpg "b7.jpg")
+
+After creating the repository, copy the commands as in the picture
+
+### CMS Repository
+
+[https://github.com/photogram/cms](https://github.com/photogram/cms)
+
+Clone the repository to your machine and follow the next steps
+
+ $ git clone git@github.com:photogram/cms.git yourproject-cms
+
+> replace ***youproject*** for you project name
+
+Then rename the remote origin to github
+
+ $ git remote rename origin github
+
+Now go to the Bitbucket and create a new private repository
+
+![enter image description here](https://lh3.googleusercontent.com/-xPiNJnnPJJo/V5zOnexuhII/AAAAAAABzV0/Dh6rUe0h-k81IrBtwhtqMolxaSb7dHaPACLcB/s0/b5.jpg "b5.jpg")
+
+![enter image description here](https://lh3.googleusercontent.com/-UFEJ0HKWQjQ/V5zOt8qF5HI/AAAAAAABzWA/c0R6HDqXgt4VYSozGGCSGS0sbnIKLKkPQCLcB/s0/b6.jpg "b6.jpg")
+
+![enter image description here](https://lh3.googleusercontent.com/-N8IGkGEyMCA/V5zO8JdHIOI/AAAAAAABzWU/ZdxZPmQqqWMLz92927ozekCg_dq7m1HCACLcB/s0/b7.jpg "b7.jpg")
+
+After creating the repository, copy the commands as in the picture
