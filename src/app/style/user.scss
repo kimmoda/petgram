@@ -167,10 +167,3 @@ $time: 0.5s;
   text-align: right;
 }
 
-.platform-ios.platform-cordova:not(.fullscreen) {
-  .form-login {
-    .tabs-top > .tabs {
-      top: 0px !important;
-    }
-  }
-}

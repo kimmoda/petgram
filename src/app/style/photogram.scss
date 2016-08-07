@@ -1,8 +1,8 @@
 @import "actionsheet";
 @import "font";
 @import "spinner";
-@import "map";
 @import "platform";
+@import "map";
 
 // mention
 
@@ -381,10 +381,6 @@ ion-nav-bar {
 
   .tabs-light {
     background: #fff;
-  }
-
-  .bar-positive {
-    border-bottom: 0px;
   }
 
   .tabs-striped.tabs-light {

@@ -51,14 +51,14 @@
                         // Save
                         updateUser.lang = $translate.use();
 
-                        // Parse Push
-                        ParsePush.init();
+                        if(window.cordova) {
+                            // Parse Push
+                            ParsePush.init();
+                        }
 
                         User.update(updateUser).then(function () {
                             defer.resolve(currentUser);
                         }).catch(defer.reject);
-
-                        //user.save(defer.resolve, defer.reject);
                     },
                     error  : defer.reject
                 });
@@ -66,18 +66,20 @@
                 return defer.promise;
             },
             signUp                : function (data) {
-                var user = new Parse.User()
+                var defer = $q.defer();
+                var user  = new Parse.User()
                     .set({'name': data.name})
                     .set({'username': data.username})
                     .set({'email': data.email})
                     .set({'password': data.password})
                     .set({'roleName': 'User'});
 
-                var acl = new Parse.ACL();
-                acl.setPublicReadAccess(false);
-                acl.setPublicWriteAccess(false);
-                user.setACL(acl);
-                return user.save(null);
+                user.signUp(null, {
+                    success: defer.resolve,
+                    error  : defer.reject
+                });
+
+                return defer.promise;
 
             },
             signInViaFacebook     : function (authData) {

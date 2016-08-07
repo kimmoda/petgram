@@ -77,6 +77,8 @@
   "followersText": "Followers",
   "followingText": "Following",
   "followUser": "follow",
+  "follow": "follow",
+  "unfollow": "unfollow",
   "report": "Report",
   "reportText": "Report this photo",
   "sharePhoto": "Share photo",

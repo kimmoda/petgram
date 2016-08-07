@@ -49,8 +49,8 @@
                             ng-disabled="item.user.loading"
                             ng-class="{'button-unfollow': item.user.isFollow, 'button-outline': !item.user.isFollow}"
                             ng-click="follow(item.user)">
-                        <div ng-show="!item.user.isFollow" translate>Follow</div>
-                        <div ng-show="item.user.isFollow" translate>Unfollow</div>
+                        <div ng-show="!item.user.isFollow" translate>follow</div>
+                        <div ng-show="item.user.isFollow" translate>unfollow</div>
                     </button>
                 </div>
 
