@@ -9,8 +9,8 @@
 
     function ionLanguageDirective(AppConfig, $translate, $timeout, Loading, $ionicModal) {
         return {
-            restrict: 'E',
-            link: modalLanguageLink,
+            restrict   : 'E',
+            link       : modalLanguageLink,
             templateUrl: path + '/ion-language.html'
         };
 
@@ -28,19 +28,10 @@
 
             function openModal() {
 
-                if(window.cordova) {
-                    window.StatusBar.styleDefault();
-                }
-
                 scope.closeModal = function () {
                     scope.modal.hide();
-                    // scope.modal.remove();
-                    if(window.cordova) {
-                        window.StatusBar.styleLightContent();
-                    }
                 };
-
-
+                
                 scope.searchValue = '';
 
                 scope.selectLanguage = function (language) {
@@ -57,7 +48,7 @@
 
                 $ionicModal
                     .fromTemplateUrl(path + '/modal-language.html', {
-                        scope: scope,
+                        scope          : scope,
                         focusFirstInput: true
                     })
                     .then(function (modal) {

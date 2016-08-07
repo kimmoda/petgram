@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9eabd7a-7d96-4ddd-9e94-d83aa3ae9f81" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-fbfdb69b28.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/styles/app-0aba905ba0.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-fbfdb69b28.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/styles/app-0aba905ba0.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-d3938459c5.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-d3938459c5.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/ion-language/ion-language.scss" afterPath="$PROJECT_DIR$/src/app/component/ion-language/ion-language.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/ion-language/modal-language.html" afterPath="$PROJECT_DIR$/src/app/component/ion-language/modal-language.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/ion-location/ion-location.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-location/ion-location.directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/i18n/pt.json" afterPath="$PROJECT_DIR$/src/app/i18n/pt.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/profile/profile.html" afterPath="$PROJECT_DIR$/src/app/main/profile/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/user-followers/user-followers.html" afterPath="$PROJECT_DIR$/src/app/main/user-followers/user-followers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/user-following/user-following.html" afterPath="$PROJECT_DIR$/src/app/main/user-following/user-following.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/user-intro/user-intro.scss" afterPath="$PROJECT_DIR$/src/app/main/user-intro/user-intro.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/user-layout/user-layout.scss" afterPath="$PROJECT_DIR$/src/app/main/user-layout/user-layout.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/style/_platform.scss" afterPath="$PROJECT_DIR$/src/app/style/_platform.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/i18n/pt.json" afterPath="$PROJECT_DIR$/www/app/i18n/pt.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/component/ion-language/modal-language.directive.js" afterPath="$PROJECT_DIR$/src/app/component/ion-language/modal-language.directive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
     </list>
     <ignored path="photogram.iws" />
@@ -41,11 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user-intro.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/main/user-intro/user-intro.scss">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
+            <state relative-caret-position="38">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bower.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bower.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -71,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/main/chat/roomCtrl.js" />
         <option value="$PROJECT_DIR$/src/app/index.routes.js" />
         <option value="$PROJECT_DIR$/src/app/directive/ForgotPassModalDirective.js" />
         <option value="$PROJECT_DIR$/src/app/directive/SigninModalDirective.js" />
@@ -86,9 +83,6 @@
         <option value="$PROJECT_DIR$/src/app/services/GalleryFactory.js" />
         <option value="$PROJECT_DIR$/src/app/main/user-list/UserListController.js" />
         <option value="$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js" />
-        <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/config.xml" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/app/main/user-intro/UserIntroCtrl.js" />
         <option value="$PROJECT_DIR$/src/app/main/user-intro/user-intro.html" />
         <option value="$PROJECT_DIR$/src/app/directive/albumPhotoGridPopover.html" />
@@ -122,6 +116,10 @@
         <option value="$PROJECT_DIR$/src/app/component/ion-language/modal-language.html" />
         <option value="$PROJECT_DIR$/src/app/component/ion-language/ion-language.scss" />
         <option value="$PROJECT_DIR$/src/app/main/user-intro/user-intro.scss" />
+        <option value="$PROJECT_DIR$/src/app/component/ion-language/modal-language.directive.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/bower.json" />
       </list>
     </option>
   </component>
@@ -143,10 +141,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="12" />
-    <option name="width" value="1276" />
-    <option name="height" value="777" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -847,13 +843,13 @@
       <workItem from="1470545681727" duration="1006000" />
       <workItem from="1470546770227" duration="95000" />
       <workItem from="1470584622414" duration="2783000" />
-      <workItem from="1470599792182" duration="2922000" />
+      <workItem from="1470599792182" duration="3129000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="492802000" />
+    <option name="totallyTimeSpent" value="493009000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -865,7 +861,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="12" width="1276" height="777" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -875,7 +871,7 @@
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31676137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17747164" sideWeight="0.4883081" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17689823" sideWeight="0.4883081" order="0" side_tool="false" content_ui="combo" />
       <window_info id="ReST Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Get Gist" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -939,27 +935,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/main/tab/MainTabCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="44" column="49" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/directive/distanceModal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/directive/follow.modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/directive/mapPhotoUserDirective.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1180,14 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/component/ion-language/modal-language.directive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/style/photogram.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -1324,10 +1291,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="56" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/component/ion-language/modal-language.directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/main/user-intro/user-intro.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
+        <state relative-caret-position="199">
           <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
           <folding />
         </state>
       </provider>
