@@ -31,14 +31,14 @@
                 scope.closeModal = function () {
                     scope.modal.hide();
                 };
-                
+
                 scope.searchValue = '';
 
                 scope.selectLanguage = function (language) {
                     console.log(language);
                     $translate.use(language.code);
-                    moment.locale(language.code);
                     scope.language = language;
+                    scope.$emit('changeLanguage', language);
                     Loading.start();
                     scope.closeModal();
                     $timeout(function () {

@@ -1,7 +1,7 @@
 <ion-modal-view class="modal-profile">
     <ion-header-bar class="bar bar-{{theme}}">
         <button class="button button-clear button-icon ion-ios-arrow-thin-left" ng-click="closeModal()"></button>
-        <div class="title" translate="feedbackTitle"></div>
+        <div class="title" translate="feedback"></div>
     </ion-header-bar>
     <ion-content>
         <form name="myForm" novalidate="novalidate" ng-submit="submitFeedback(myForm, form)">
@@ -12,7 +12,7 @@
                        type="text"
                        name="title"
                        ng-model="form.title"
-                       placeholder="{{'feedbackTitle' | translate}}"/>
+                       placeholder="{{'feedback' | translate}}"/>
             </label>
 
             <label class="item item-input item-select">

@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('photoList', photoListDirective);
 
-    function photoListDirective(Gallery, $rootScope, Loading, $ionicPopup, $translate, $state, Facebook, Toast, FeedbackModal, $ionicActionSheet) {
+    function photoListDirective(Gallery, $rootScope, Loading, $ionicPopup, $translate, $state, Share, Toast, FeedbackModal, $ionicActionSheet) {
 
         return {
             restrict   : 'E',
@@ -45,8 +45,14 @@
             };
 
             $scope.share = function (item) {
-                console.log(item);
-                Facebook.postImage(item);
+                var itemShare = {
+                    title   : item.title,
+                    image   : item.image.url(),
+                    userName: item.user.name,
+                    url     : 'http://market.ionic.io/starters/photogram-ionic-instagram-clone',
+                };
+                console.log(item, itemShare);
+                Share.open();
             };
 
 

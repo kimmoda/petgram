@@ -14,7 +14,7 @@
         $compileProvider.debugInfoEnabled(false);
     }
 
-    function startParse(AppConfig, $ionicPlatform, $localStorage, $location, $rootScope) {
+    function startParse(AppConfig, $localStorage, $location, $rootScope) {
         Parse.initialize(AppConfig.parse.appId);
         Parse.serverURL = AppConfig.parse.server;
 
@@ -33,7 +33,7 @@
         }
     }
 
-    function runIonic($ionicPlatform, $rootScope, $localStorage, $translate, $cordovaGlobalization, $cordovaSplashscreen, ParsePush, ConnectMonitor, AppConfig, User) {
+    function runIonic($ionicPlatform, $rootScope, amMoment, $translate, $cordovaGlobalization, $cordovaSplashscreen, ParsePush, ConnectMonitor, AppConfig, User) {
 
         // Set Theme Color
         $rootScope.theme = AppConfig.theme;
@@ -50,15 +50,6 @@
             //    event.preventDefault();
             //}, 100);
 
-            if ($localStorage.lang) {
-                $translate.use($localStorage.lang);
-            } else {
-                if (typeof navigator.globalization !== 'undefined') {
-                    $cordovaGlobalization.getPreferredLanguage().then(function (language) {
-                        $translate.use((language.value).split('-')[0]);
-                    }, null);
-                }
-            }
 
             // Hide Splash Screen
             if (navigator && navigator.splashscreen) {
@@ -68,10 +59,25 @@
             var user = Parse.User.current();
             if (user) {
                 ParsePush.init();
+
+                var lang = $translate.use();
+                if (lang) {
+                    $translate.use(lang);
+                    amMoment.changeLocale(lang);
+                    
+                    console.log(lang);
+                } else {
+                    if (typeof navigator.globalization !== 'undefined') {
+                        $cordovaGlobalization.getPreferredLanguage().then(function (language) {
+                            $translate.use((language.value).split('-')[0]);
+                            amMoment.changeLocale(language.value);
+                        }, null);
+                    }
+                }
+
             }
             //ConnectMonitor.watch();
             //
-            console.log($translate.use())
         });
 
 

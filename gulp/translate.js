@@ -4,7 +4,7 @@
 // go here for more info
 // npm install -S gulp-util yargs map-stream gulp-rename traverse yandex-translate vinyl-transform gulp-json-format gulp-jsbeautifier
 // https://tech.yandex.com/translate/
-var YANDEX_API_KEY = 'trnsl.1.1.20160715T075017Z.b422ec183ca0e849.4c1f6f5ec1569ea7c9394c7cdb41c07ffe24bead';
+var YANDEX_API_KEY = 'trnsl.1.1.20160808T001211Z.708429c4de541ff9.8582751baeb58326330b4eb37714a5b7e73bf73e';
 
 var gulp       = require('gulp');
 var gutil      = require('gulp-util');

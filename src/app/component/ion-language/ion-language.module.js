@@ -5,9 +5,31 @@
         .module('ion-language', [
             'ngCookies',
             'pascalprecht.translate', // angular-translate
-            'tmh.dynamicLocale' // angular-dynamic-locale
+            'tmh.dynamicLocale', // angular-dynamic-locale,
+            'angularMoment' // https://github.com/urish/angular-moment
         ])
-        .config(configLanguage);
+        .config(configLanguage)
+        .run(runMoment);
+
+
+
+    function runMoment(amMoment, AppConfig) {
+        var langvar     = navigator.language || navigator.userlanguage;
+        var userlangvar = langvar.split('-')[0];
+        var language    = AppConfig.preferredLocale;
+        var searchLang  = _.some(AppConfig.locales, {
+            code: userlangvar
+        });
+
+        if (searchLang) {
+            language = AppConfig.locales.filter(function (item) {
+                return language == item.code
+            })[0].code;
+        }
+        
+        console.log(language);
+        amMoment.changeLocale(language);
+    }
 
     function configLanguage($translatePartialLoaderProvider, $translateProvider, AppConfig, tmhDynamicLocaleProvider) {
 
@@ -18,7 +40,7 @@
         $translateProvider.useSanitizeValueStrategy(null);
 
         // Translate Config
-        //$translateProvider.useMissingTranslationHandlerLog();
+        $translateProvider.useMissingTranslationHandlerLog();
         $translateProvider.useLocalStorage(); // saves selected language to localStorage
         tmhDynamicLocaleProvider.localeLocationPattern('../bower_components/angular-i18n/angular-locale_{{locale}}.js');
 
@@ -35,7 +57,6 @@
             })[0].code;
         }
         $translateProvider.preferredLanguage(language);
-        moment.locale(language);
     }
 
 

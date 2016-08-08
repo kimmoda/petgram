@@ -1,35 +1,26 @@
 (function () {
     'use strict';
-    angular.module('starter').factory('Share', PhotogramShareFactory);
+    angular.module('starter').factory('Share', ShareFactory);
 
-    function PhotogramShareFactory(AppConfig, $q, $translate, $window) {
+    function ShareFactory($cordovaSocialSharing) {
 
-        var options = {
-            title  : $translate.instant('Join me from ') + AppConfig.app.name + '!',
-            subject: $translate.instant("I'm at ") + AppConfig.app.name + '!. ' + (
-                'Install the application and follow me!') + ' ' + AppConfig.app.url,
-            image  : AppConfig.app.image,
-            link   : AppConfig.app.url
-        };
+        var TAG = 'ShareService';
 
         return {
             open: open
         };
 
-        function open(image, title) {
-            var defer = $q.defer();
-
-            if (image) {
-                options.image = image;
+        function open(item) {
+            if (window.cordova && item) {
+                //.share(message, subject, file, link)
+                $cordovaSocialSharing.share(item.title, item.userName, item.image, item.url).then(function (result) {
+                    console.log(result);
+                }, function (err) {
+                    console.warn(err);
+                });
+            } else {
+                console.warn('[' + TAG + '] Unsupported platform');
             }
-
-            if (title) {
-                options.title = title;
-            }
-
-            $window.plugins.socialsharing.shareWithOptions(options, defer.success, defer.reject);
-
-            return defer.promise;
         }
 
     }

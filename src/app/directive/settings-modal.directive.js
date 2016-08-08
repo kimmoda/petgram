@@ -5,7 +5,7 @@
         .module('starter')
         .directive('settingsModal', settingsModalDirective);
 
-    function settingsModalDirective($ionicModal, $translate, AppConfig, $cordovaInAppBrowser, Share, Auth, User,  $state) {
+    function settingsModalDirective($ionicModal, $translate, AppConfig, amMoment, $cordovaInAppBrowser, Share, Auth, User, $state) {
 
         return {
             restrict: 'A',
@@ -21,9 +21,9 @@
                 };
 
                 function init() {
-                    scope.form       = Auth.getLoggedUser();
-                    scope.languages  = AppConfig.locales;
-                    scope.language   = $translate.use();
+                    scope.form      = Auth.getLoggedUser();
+                    scope.languages = AppConfig.locales;
+                    scope.language  = $translate.use();
                 }
 
                 function openModal() {
@@ -37,12 +37,19 @@
 
                     });
 
+                    scope.$on('changeLanguage', function (ev, value) {
+                        User.update({lang: value});
+                        console.log(value);
+                        amMoment.changeLocale(value.code);
+                        $translate.use(value.code);
+                    });
+
                     scope.closeSettingModal = function () {
                         scope.modalSetting.hide();
                         scope.modalSetting.remove();
                     };
 
-                    scope.link       = function (sref) {
+                    scope.link = function (sref) {
                         $state.go(sref);
                         scope.closeModal();
                     };

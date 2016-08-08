@@ -6,13 +6,16 @@
         return {
             restrict: 'A',
             scope   : {
-                ngModel: '='
+                ngModel: '=',
+                loading: '='
             },
             link    : function (scope, elem) {
                 elem.bind('click', function () {
+                        if (scope.loading) return;
                         var _model      = scope.ngModel;
                         _model.progress = true;
                         _model.liked    = !_model.liked;
+                        scope.loading   = true;
 
                         Gallery.likeGallery({galleryId: scope.ngModel.id}).then(function (resp) {
                             console.log(resp);
@@ -28,6 +31,8 @@
                                 scope.ngModel.isLiked = false;
                                 scope.ngModel.likesTotal -= 1;
                             }
+
+                            scope.loading = false;
                         });
                     }
                 );
