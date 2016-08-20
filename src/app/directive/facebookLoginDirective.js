@@ -44,8 +44,8 @@
                             return User.updateWithFacebookData(fbData);
                         }).then(function (user) {
                             if (user) {
-                                $rootScope.currentUser = user;
-                                $state.go(AppConfig.routes.home, {
+                                $rootScope.currentUser = Parse.User.current();
+                                $state.go('user.avatar', {
                                     clear: true
                                 });
                                 console.log(user, user.attributes);
