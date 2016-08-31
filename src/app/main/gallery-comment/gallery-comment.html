@@ -47,9 +47,10 @@
     </ion-content>
     <form name="rForm" ng-submit="submitComment(rForm, form)" novalidate>
         <ion-footer-bar ng-hide="loading" class="bar-stable item-input-inset message-footer " keyboard-attach>
-            <label class="item-input-wrapper">
+            <label class="item-input-wrapper" ng-class="{'item-invalid': rForm.message.$invalid && !rForm.message.$pristine}">
                 <i class="icon ion-ios-compose-outline placeholder-icon"></i>
                 <textarea
+                        name="message"
                         mentio
 
                         mentio-trigger-char="'@'"
@@ -63,7 +64,7 @@
 
                         focus-me
                         id="textComment"
-                        placeholder="Send a comment..."
+                        placeholder="Comente aqui..."
                         required
                         minlength="1"
                         maxlength="1500">
@@ -72,7 +73,7 @@
             <div class="footer-btn-wrap">
                 <button class="button button-positive button-outline"
                         type="submit"
-                        ng-disabled="!form.text || form.text === ''">Publish
+                        ng-disabled="!form.text || form.text === ''">Enviar
                 </button>
             </div>
         </ion-footer-bar>

@@ -85,7 +85,6 @@
 
             },
             signInViaFacebook     : function (authData) {
-                //var expiration = new Date();
 
                 var facebookAuthData = {
                     id             : authData.authResponse.userID,
@@ -93,27 +92,36 @@
                     expiration_date: (new Date().getTime() + 1000).toString()
                 };
 
-                console.log(authData, facebookAuthData);
-
                 var defer = $q.defer();
-
                 Parse.FacebookUtils.logIn(facebookAuthData, {
-                    success: function (user) {
-                        console.log('User', user);
-                        user.setACL(new Parse.ACL(user));
-                        user.set('facebook', facebookAuthData.id);
-                        user.save(null, {
-                            success: function (user) {
-                                ParsePush.init();
-                                console.log('User', user);
-                                defer.resolve(user);
-                            },
-                            error  : defer.reject
-                        });
-                    },
+                    success: defer.resolve,
                     error  : defer.reject
                 });
 
+                return defer.promise;
+            },
+            updateWithFacebookData: function (data) {
+                var defer = $q.defer();
+                ParseCloud.run('saveFacebookPicture', {}).then(function () {
+                    var user = Parse.User.current();
+
+                    if (!data.username && data.email) {
+                        user.set({'username': data.email.split('@')[0]});
+                    }
+
+                    if (!user.get('name') && data.name) {
+                        user.set({'name': data.name});
+                    }
+
+                    if (!user.get('email') && data.email) {
+                        user.set({'email': data.email});
+                    }
+                    user.save(null, {
+                        success: function () {
+                            user.fetch().then(defer.resolve, defer.reject);
+                        }
+                    });
+                }).catch(defer.reject);
                 return defer.promise;
             },
             logOut                : function () {
@@ -121,31 +129,6 @@
             },
             findByEmail           : function (email) {
                 return ParseCloud.run('findUserByEmail', {email: email});
-            },
-            updateWithFacebookData: function (data) {
-                var defer = $q.defer();
-                console.log('updateWithFacebookData', data);
-                ParseCloud.run('saveFacebookPicture', {}).then(function () {
-                    var user = Parse.User.current();
-
-                    if (user.attributes.username === '') {
-                        user.set({'username': data.email});
-                    }
-
-                    user.set({'email': data.email});
-                    user.set({'name': data.name});
-                    user.setACL(new Parse.ACL(user));
-                    user.save(null, {
-                        success: function () {
-                            user.fetch().then(function (userFetched) {
-                                defer.resolve(userFetched);
-                            }, function (error) {
-                                defer.reject(error);
-                            });
-                        }
-                    });
-                }).catch(defer.reject);
-                return defer.promise;
             },
             getPublicData         : function (user) {
                 console.log(user);
