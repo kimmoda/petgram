@@ -116,7 +116,7 @@
                 }
             }
 
-            $rootScope.$on('onUserLogged', $scope.onReload);
+            $rootScope.$on('photolist:reload', $scope.onReload);
 
             $scope.action = function (gallery) {
 

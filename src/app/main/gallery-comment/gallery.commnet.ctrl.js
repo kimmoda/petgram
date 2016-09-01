@@ -3,7 +3,7 @@
 
     angular.module('starter').controller('GalleryComment', GalleryCommentController);
 
-    function GalleryCommentController($scope, $stateParams, $q, $ionicScrollDelegate, $ionicHistory, Loading, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment) {
+    function GalleryCommentController($scope, $stateParams, $q, $ionicScrollDelegate, $ionicHistory, $rootScope, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment) {
 
         $scope.currentUser = Parse.User.current();
         $scope.loading     = true;
@@ -11,7 +11,10 @@
         function init() {
             $scope.nocomments = false;
             Gallery.get($stateParams.galleryId).then(function (gallery) {
-                $scope.form = {
+                console.log(gallery);
+                getComments();
+                $scope.gallery = gallery;
+                $scope.form    = {
                     gallery: gallery,
                     text   : ''
                 };
@@ -21,8 +24,6 @@
         $scope.backButton = function () {
             $ionicHistory.goBack();
         };
-
-        getComments();
         init();
 
         //Mentios
@@ -58,11 +59,15 @@
 
         $scope.deleteComment = function (item, index) {
             console.log(item);
-            Dialog.confirm(('Delete comment'), ('You are sure?')).then(function (resp) {
+            Dialog.confirm({
+                title: ('Deletar comentário'),
+                text : ('Tem certeza?')
+            }).then(function (resp) {
                 if (resp) {
                     GalleryComment.get(item.id).then(function (comment) {
                         GalleryComment.destroy(comment).then(function (resp) {
-                            $scope.comments.splice(index, 1);
+                            $rootScope.$emit('photolist:comment:remove', comment);
+                            getComments();
                         });
                     })
                 }
@@ -80,32 +85,37 @@
             $ionicPopup
                 .show({
                     template: '<input type="text" ng-model="formEdit.text">',
-                    title   : ('Edit comment'),
+                    title   : ('Editar Comentário'),
                     //subTitle: 'Please use normal things',
                     scope   : $scope,
-                    buttons : [{
-                        text: ('Cancel')
-                    }, {
-                        text : '<b>OK</b>',
-                        type : 'button-positive',
-                        onTap: function (e) {
-                            console.log($scope.formEdit);
-                            if (!$scope.formEdit.text) {
-                                //don't allow the user to close unless he enters wifi password
-                                e.preventDefault();
-                            } else {
-                                return $scope.formEdit;
+                    buttons : [
+                        {
+                            text: ('Cancelar')
+                        }, {
+                            text : '<b>OK</b>',
+                            type : 'button-positive',
+                            onTap: function (e) {
+                                console.log($scope.formEdit);
+                                if (!$scope.formEdit.text) {
+                                    //don't allow the user to close unless he enters wifi password
+                                    e.preventDefault();
+                                } else {
+                                    return $scope.formEdit;
+                                }
                             }
                         }
-                    }]
+                    ]
                 })
                 .then(function (resp) {
                     console.log(resp);
                     if (resp) {
                         GalleryComment.get(obj.id).then(function (comment) {
-                            comment.text                = resp.text;
-                            $scope.comments[index].text = resp.text;
+                            comment.text = resp.text;
                             comment.save();
+                            $scope.loading = true;
+                            $timeout(function () {
+                                getComments();
+                            }, 1000);
                         });
                     }
                 });
@@ -132,6 +142,7 @@
                 var dataForm   = angular.copy(form);
                 $scope.loading = true;
                 GalleryComment.create(dataForm).then(function (resp) {
+                    $rootScope.$emit('photolist:comment:add', resp);
                     getComments();
                     $scope.form.text = '';
                 });

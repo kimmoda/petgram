@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('galleryNewAlbumModal', galleryNewAlbumModalDirective);
 
-    function galleryNewAlbumModalDirective($ionicModal, AppConfig, $q, $rootScope, GalleryAlbum) {
+    function galleryNewAlbumModalDirective($ionicModal, $q, $rootScope, GalleryAlbum) {
         return {
             restrict: 'A',
             link    : galleryNewAlbumModalLink,
@@ -18,7 +18,6 @@
 
             function openModal() {
                 var defer = $q.defer();
-                $scope.theme = AppConfig.theme;
 
                 $scope.form = {
                     title      : '',

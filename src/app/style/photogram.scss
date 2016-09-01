@@ -201,10 +201,6 @@ ion-nav-bar {
     padding: 0;
   }
 
-  .item {
-    border: none;
-  }
-
   // View Map
   .map-container {
     min-height: 200px;
@@ -330,9 +326,14 @@ ion-nav-bar {
     border-radius: 0;
   }
 
+  .card {
+    .item {
+      border:none;
+    }
+  }
+
   .item.item-avatar {
     background-color: rgba(255, 255, 255, 0.99);
-    border: none;
 
     img {
       position: absolute;

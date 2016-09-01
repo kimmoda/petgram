@@ -1,8 +1,6 @@
 .list-activity {
 
   .item {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 1px;
 
     &.item-button-right {
       button.button {
@@ -21,7 +19,8 @@
 
       h2 {
         line-height: 11px;
-        font-size: 14px;
+        font-size: 27px;
+        max-width: 53%;
       }
 
       .text {

@@ -1,11 +1,11 @@
-<ion-view class="modal-comment" cache-view="false">
+<ion-view id="view-comment" cache-view="false">
 
     <ion-nav-bar class="bar bar-{{theme}}">
         <ion-nav-buttons side="left">
             <button class="button button-icon button-clear ion-ios-arrow-left" ng-click="$ionicGoBack()"></button>
         </ion-nav-buttons>
         <ion-nav-title>
-            <div class="title"><span translate="commentPhotoText"></span>({{ comments.length }})</div>
+            <div class="title"><span translate="commentPhotoText"></span></div>
         </ion-nav-title>
     </ion-nav-bar>
 
@@ -15,15 +15,22 @@
         </div>
 
         <ion-list class="list" ng-if="!loading" can-swipe="true">
+            <div  class="item item-avatar">
+                <img ng-src="{{ ::gallery.profile.get('photo').url()|| './img/user.png'}}">
+
+                <p>
+                    <h2>{{ ::gallery.profile.get('username') }}</h2><div class="text">{{ ::gallery.title }}</div>
+                </p>
+                <div class="row">
+                    <p>{{ ::gallery.createdAt | amTimeAgo }}</p>
+                </div>
+
+            </div>
             <ion-item ng-repeat="item in comments | orderBy:'createdAt':false" class="item item-avatar">
                 <img ng-src="{{ ::item.user.photo._url || './img/user.png'}}">
-
-                <div class="row">
-                    <h2>{{ ::item.user.name }}</h2>
-                </div>
-                <div class="row">
-                    <div class="text">{{ ::item.text }}</div>
-                </div>
+                <p>
+                    <h2>{{ ::item.user.username }}</h2><div class="text">{{ ::item.text }}</div>
+                </p>
                 <div class="row">
                     <p>{{ ::item.createdAt | amTimeAgo }}</p>
                 </div>
@@ -48,7 +55,6 @@
     <form name="rForm" ng-submit="submitComment(rForm, form)" novalidate>
         <ion-footer-bar ng-hide="loading" class="bar-stable item-input-inset message-footer " keyboard-attach>
             <label class="item-input-wrapper" ng-class="{'item-invalid': rForm.message.$invalid && !rForm.message.$pristine}">
-                <i class="icon ion-ios-compose-outline placeholder-icon"></i>
                 <textarea
                         name="message"
                         mentio

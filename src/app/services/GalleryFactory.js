@@ -72,6 +72,7 @@
                 get        : function (galleryId) {
                     var defer = $q.defer();
                     new Parse.Query(this)
+                        .include('profile')
                         .get(galleryId, {
                             success: defer.resolve,
                             error  : defer.reject
@@ -166,12 +167,22 @@
                 this.set('likesTotal', value);
             }
         });
+
         Object.defineProperty(ParseObject.prototype, 'user', {
             get: function () {
                 return this.get('user');
             },
             set: function (value) {
                 this.set('user', value);
+            }
+        });
+
+        Object.defineProperty(ParseObject.prototype, 'profile', {
+            get: function () {
+                return this.get('profile');
+            },
+            set: function (value) {
+                this.set('profile', value);
             }
         });
 

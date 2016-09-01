@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('facebookLogin', facebookLoginDirective);
 
-    function facebookLoginDirective(Loading, $q, $state, AppConfig, Facebook, Dialog, User, $rootScope) {
+    function facebookLoginDirective(Loading, $state, $translate, AppConfig, Facebook, Dialog, User, $rootScope) {
         return {
             restrict: 'E',
             link    : facebookLoginLink,
@@ -42,33 +42,32 @@
                 }).then(function (user) {
                     console.log(user);
 
-                    console.log(1);
                     if (!user.id) {
-                        console.log(2);
+                        newUser = true;
                         return User.signInViaFacebook(fbAuthData);
-                    } else if (user.get('authData')) {
-                        console.log(3);
-                        if (user.get('authData').facebook.id === fbData.id) {
+                    }
+
+                    var authData = user.get('authData');
+                    console.log(authData.facebook.id, fbData.id);
+
+                    if (authData) {
+                        if (authData.facebook.id === fbData.id) {
                             return User.signInViaFacebook(fbAuthData);
                         }
                     } else {
-                        console.log(4);
                         var deferred = $q.defer();
-                        deferred.reject('Esse email está sendo usado por outra conta');
+                        deferred.reject('Facebook error');
                         return deferred.promise;
                     }
                 }).then(function () {
-                    console.log(5);
-                    console.log(fbData);
                     return User.updateWithFacebookData(fbData);
                 }).then(function (user) {
-                    console.log(6);
                     console.log(user, user.attributes);
                     $rootScope.currentUser = user;
                     $rootScope.$broadcast('onUserLogged');
                     Loading.end();
-                    if (newUser || !user.get('email')) {
-                        $state.go('tab.profile', {clear: true})
+                    if (newUser) {
+                        $state.go('app.profile', {clear: true})
                     } else {
                         $state.go(AppConfig.routes.home, {clear: true});
                     }

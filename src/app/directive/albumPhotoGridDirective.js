@@ -38,6 +38,8 @@
                     $scope.modal.remove();
                 });
 
+                $rootScope.$on('photogrid:modal:reload', init);
+
                 function init() {
                     $scope.loading = true;
                     Gallery.getAlbum({id: $scope.album}).then(function (data) {

@@ -1,7 +1,19 @@
-<div class="modal image-modal transparent" ng-click="closeModal()">
-    <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true" active-slide="activeSlide">
-        <ion-slide ng-repeat="item in allImages">
-            <img ng-src="{{item.image._url}}" class="fullscreen-image"/>
-        </ion-slide>
-    </ion-slide-box>
-</div>
+<ion-modal-view id="ion-slideshow">
+    <ion-header-bar class="bar bar-dark">
+        <a ng-click="closeModal()" class="button button-icon icon ion-ios-close-empty"></a>
+        <div class="title"></div>
+        <a class="button button-icon icon ion-android-more-vertical"
+           ng-if="canEdit"
+           ng-click="openPopover($event)"></a>
+    </ion-header-bar>
+
+    <ion-content>
+        <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true" active-slide="activeSlide">
+            <ion-slide ng-repeat="item in allImages">
+                <img ng-src="{{item.image._url}}" class="fullscreen-image"/>
+                <h1 ng-if="item.title">{{item.title}}</h1>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+
+</ion-modal-view>

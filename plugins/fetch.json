@@ -154,18 +154,19 @@
         "is_top_level": true,
         "variables": {}
     },
-    "parse-push-plugin": {
-        "source": {
-            "type": "local",
-            "path": "/Users/movibe/Sites/github/parse/parse-push-plugin"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "org.pbernasconi.progressindicator": {
         "source": {
             "type": "git",
             "url": "https://github.com/pbernasconi/cordova-progressIndicator.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "parse-push-plugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/taivo/parse-push-plugin",
             "subdir": "."
         },
         "is_top_level": true,

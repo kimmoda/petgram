@@ -30,6 +30,7 @@
                                 clear: true
                             });
                             $scope.closeModal();
+                            $rootScope.$emit('photolist:reload', true);
                             Loading.end();
                         }).catch(function (resp) {
                             Toast.alert({

@@ -1,4 +1,4 @@
-<ion-modal-view id="user-layout" class="modal-auth" cache-view="false">
+<ion-modal-view id="user-layout" class="modal-auth bg-animate" cache-view="false">
     <ion-header-bar>
         <h1 class="title" translate="register"></h1>
         <a ng-click="closeModal()" class="button button-icon icon ion-ios-close-empty"></a>
@@ -9,8 +9,7 @@
         <div class="step2">
             <form name="myForm" novalidate="novalidate" ng-submit="submitRegister(myForm, form)">
 
-                <label class="item item-input"
-                       ng-class="{'item-invalid': rForm.email.$invalid && !rForm.email.$pristine}">
+                <label class="item item-input">
                     <i class="icon icon-envelope placeholder-icon"></i>
                     <input required="required"
                            type="email"
@@ -31,8 +30,7 @@
                     </div>
                 </div>
 
-                <label class="item item-input"
-                       ng-class="{'item-invalid': rForm.username.$invalid && !rForm.username.$pristine}">
+                <label class="item item-input">
                     <i class="icon icon-user placeholder-icon"></i>
                     <input required="required"
                            type="text"
@@ -56,8 +54,7 @@
                     </div>
                 </div>
 
-                <label class="item item-input"
-                       ng-class="{'item-invalid': rForm.password.$invalid && !rForm.password.$pristine}">
+                <label class="item item-input">
                     <i class="icon icon-lock placeholder-icon"></i>
                     <input required
                            type="password"
@@ -74,7 +71,7 @@
             </form>
 
             <span class="term">{{'termAccept' | translate}} <a
-                    href="http://groomer.boon.pet/beta">{{'terms' | translate}}</a> </span>
+                    href="https://photogramapp.com">{{'terms' | translate}}</a> </span>
         </div>
 
     </ion-content>
