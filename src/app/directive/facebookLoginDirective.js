@@ -67,7 +67,7 @@
                     $rootScope.$broadcast('onUserLogged');
                     Loading.end();
                     if (newUser) {
-                        $state.go('app.profile', {clear: true})
+                        $state.go('user.avatar', {clear: true})
                     } else {
                         $state.go(AppConfig.routes.home, {clear: true});
                     }

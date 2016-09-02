@@ -70,7 +70,7 @@
 
                         focus-me
                         id="textComment"
-                        placeholder="Comente aqui..."
+                        placeholder="{{'commentInHere' | translate}}"
                         required
                         minlength="1"
                         maxlength="1500">
@@ -79,7 +79,7 @@
             <div class="footer-btn-wrap">
                 <button class="button button-positive button-outline"
                         type="submit"
-                        ng-disabled="!form.text || form.text === ''">Enviar
+                        ng-disabled="!form.text || form.text === ''" translate="submit">
                 </button>
             </div>
         </ion-footer-bar>
