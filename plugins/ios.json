@@ -63,10 +63,10 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "parse-push-plugin": {
+        "org.pbernasconi.progressindicator": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         },
-        "org.pbernasconi.progressindicator": {
+        "parse-push-plugin": {
             "PACKAGE_NAME": "com.agenciafoccus.photogram"
         }
     },

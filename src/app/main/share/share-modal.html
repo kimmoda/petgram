@@ -29,8 +29,19 @@
                     ></textarea>
                 </div>
 
-                <div class="item item-divider" translate="shareLocation"></div>
+
+                <label class="item item-input item-select">
+                    <div class="input-label" translate="privacity"></div>
+                    <select>
+                        <option value="public" translate="public"></option>
+                        <option value="follow" translate="followers"></option>
+                        <option value="me" translate="me"></option>
+                    </select>
+                </label>
+
+
                 <!-- Location-->
+                <div class="item item-divider" translate="shareLocation"></div>
                 <div class="item item-icon-left" ion-location ng-model="form.address" ng-if="!form.address.resume">
                     <i class="icon ion-ios-location"></i>
                     <span translate="addLocale"></span>

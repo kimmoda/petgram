@@ -13,7 +13,8 @@
                 load      : '=',
                 openLikers: '=',
                 onReload  : '=',
-                id        : '='
+                id        : '=',
+                type      : '='
             },
             templateUrl: 'app/directive/photoListDirective.html',
             link       : photoListController
@@ -21,6 +22,17 @@
 
         function photoListController($scope, elem, attr) {
             $scope.params = {};
+
+            $rootScope.$on('photolist:reload', function (ev, value) {
+                console.log('Reload photolist', value);
+                $scope.params.privacity = value;
+                $scope.onReload();
+            });
+
+            if ($scope.type) {
+                $scope.params.privacity = $scope.type;
+            }
+
             init();
 
             var currentUser = Parse.User.current();
@@ -65,8 +77,8 @@
                     if (data.length > 0) {
                         $scope.params.page++;
                         data.map(function (item) {
-                            if (item.album) {
-                                item.canEdit = (currentUser.id === item.album.attributes.user.id) ? true : false;
+                            if (item.pet) {
+                                item.canEdit = (currentUser.id === item.pet.attributes.user.id) ? true : false;
                             } else {
                                 item.canEdit = false;
                             }
@@ -116,7 +128,7 @@
                 }
             }
 
-            $rootScope.$on('photolist:reload', $scope.onReload);
+            $rootScope.$on('onUserLogged', $scope.onReload);
 
             $scope.action = function (gallery) {
 
@@ -129,7 +141,7 @@
 
                 console.log(gallery);
 
-                if (Parse.User.current().id === gallery.user.obj.id) {
+                if (Parse.User.current().id === gallery.user.id) {
                     var buttonDelete = {
                         text: '<i class="icon ion-trash-b"></i>' + $translate.instant('deleteGallery')
                     };

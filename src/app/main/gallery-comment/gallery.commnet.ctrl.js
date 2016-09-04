@@ -3,7 +3,7 @@
 
     angular.module('starter').controller('GalleryComment', GalleryCommentController);
 
-    function GalleryCommentController($scope, $stateParams, $q, $ionicScrollDelegate, $ionicHistory, $rootScope, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment) {
+    function GalleryCommentController($scope, $stateParams, $document, $q, $ionicScrollDelegate, $ionicHistory, $rootScope, $ionicPopup, User, Dialog, $timeout, Gallery, GalleryComment) {
 
         $scope.currentUser = Parse.User.current();
         $scope.loading     = true;
@@ -25,6 +25,16 @@
             $ionicHistory.goBack();
         };
         init();
+
+        function commentFoccus() {
+            var elem = document.getElementById('textComment');
+            console.log(elem);
+            elem.click();
+            elem.focus();
+            if (window.cordova) {
+                cordova.plugins.Keyboard.show();
+            }
+        }
 
         //Mentios
         // shows the use of dynamic values in mentio-id and mentio-for to link elements
@@ -134,6 +144,7 @@
 
                 $scope.loading = false;
                 $ionicScrollDelegate.scrollBottom();
+                commentFoccus();
             });
         }
 

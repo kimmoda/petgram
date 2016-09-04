@@ -159,59 +159,35 @@
                 }
             });
 
-        Object.defineProperty(ParseObject.prototype, 'likesTotal', {
-            get: function () {
-                return this.get('likesTotal');
-            },
-            set: function (value) {
-                this.set('likesTotal', value);
-            }
+        var fields = [
+            'title',
+            'commentsTotal',
+            'likesTotal',
+            'user',
+            'profile',
+            'hashtags',
+            'words',
+            'privacity',
+            'address',
+            'image',
+            'imageThumb',
+            'isApproved',
+            'expiresAt',
+            'icon',
+        ];
+
+
+        fields.map(function  (item) {
+            Object.defineProperty(ParseObject.prototype, item, {
+                get: function () {
+                    return this.get(item);
+                },
+                set: function (value) {
+                    this.set(item, value);
+                }
+            });
         });
 
-        Object.defineProperty(ParseObject.prototype, 'user', {
-            get: function () {
-                return this.get('user');
-            },
-            set: function (value) {
-                this.set('user', value);
-            }
-        });
-
-        Object.defineProperty(ParseObject.prototype, 'profile', {
-            get: function () {
-                return this.get('profile');
-            },
-            set: function (value) {
-                this.set('profile', value);
-            }
-        });
-
-        Object.defineProperty(ParseObject.prototype, 'title', {
-            get: function () {
-                return this.get('title');
-            },
-            set: function (value) {
-                this.set('title', value);
-            }
-        });
-
-        Object.defineProperty(ParseObject.prototype, 'hashtags', {
-            get: function () {
-                return this.get('hashtags');
-            },
-            set: function (value) {
-                this.set('hashtags', value);
-            }
-        });
-
-        Object.defineProperty(ParseObject.prototype, 'words', {
-            get: function () {
-                return this.get('words');
-            },
-            set: function (value) {
-                this.set('words', value);
-            }
-        });
 
         Object.defineProperty(ParseObject.prototype, 'location', {
             get: function () {
@@ -225,60 +201,6 @@
             }
         });
 
-        Object.defineProperty(ParseObject.prototype, 'address', {
-            get: function () {
-                return this.get('address');
-            },
-            set: function (value) {
-                this.set('address', value);
-            }
-        });
-
-        Object.defineProperty(ParseObject.prototype, 'image', {
-            get: function () {
-                return this.get('image');
-            },
-            set: function (value) {
-                this.set('image', value);
-            }
-        });
-
-        Object.defineProperty(ParseObject.prototype, 'icon', {
-            get: function () {
-                return this.get('icon');
-            },
-            set: function (value) {
-                this.set('icon', value);
-            }
-        });
-
-        Object.defineProperty(ParseObject.prototype, 'imageThumb', {
-            get: function () {
-                return this.get('imageThumb');
-            },
-            set: function (value) {
-                this.set('imageThumb', value);
-            }
-        });
-
-
-        Object.defineProperty(ParseObject.prototype, 'isApproved', {
-            get: function () {
-                return this.get('isApproved');
-            },
-            set: function (value) {
-                this.set('isApproved', value);
-            }
-        });
-
-        Object.defineProperty(ParseObject.prototype, 'expiresAt', {
-            get: function () {
-                return this.get('expiresAt');
-            },
-            set: function (value) {
-                this.set('expiresAt', value);
-            }
-        });
 
         return ParseObject;
 

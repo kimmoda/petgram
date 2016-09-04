@@ -1,3 +1,9 @@
+# Version 3.0.18 in Development
+
+- Privacity in your share and feed Photo
+- Fix Facebook Login
+
+
 # Version 3.0 in Development
 
 Server:

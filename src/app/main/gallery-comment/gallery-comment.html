@@ -16,7 +16,7 @@
 
         <ion-list class="list" ng-if="!loading" can-swipe="true">
             <div  class="item item-avatar">
-                <img ng-src="{{ ::gallery.profile.get('photo').url()|| './img/user.png'}}">
+                <img ng-src="{{ ::gallery.imageThumb.url()|| './img/user.png'}}">
 
                 <p>
                     <h2>{{ ::gallery.profile.get('username') }}</h2><div class="text">{{ ::gallery.title }}</div>
@@ -68,7 +68,6 @@
                         ng-trim="false"
                         ng-model="form.text"
 
-                        focus-me
                         id="textComment"
                         placeholder="{{'commentInHere' | translate}}"
                         required
