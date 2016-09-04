@@ -14,9 +14,20 @@
         $compileProvider.debugInfoEnabled(false);
     }
 
-    function startParse(AppConfig, $localStorage, $location, $rootScope) {
-        Parse.initialize(AppConfig.parse.appId);
-        Parse.serverURL = AppConfig.parse.server;
+    function startParse(AppConfig, Parse, $ionicPlatform, ParsePush, $localStorage, $location, $rootScope) {
+
+        Parse.init({
+            appId : AppConfig.parse.appId,
+            server: AppConfig.parse.server,
+        });
+
+        $ionicPlatform.ready(function () {
+            var user = Parse.User.current();
+            if (user) {
+                ParsePush.init();
+
+            }
+        })
 
         if (!$localStorage.unit) {
             $localStorage.unit = AppConfig.map.unit;
@@ -26,14 +37,13 @@
             $localStorage.mapType = AppConfig.map.type;
         }
 
-        $rootScope.currentUser = Parse.User.current();
         console.log($rootScope.currentUser);
         if (!$rootScope.currentUser) {
             $location.path('/');
         }
     }
 
-    function runIonic($ionicPlatform, $rootScope, amMoment, $translate, $cordovaGlobalization, $cordovaSplashscreen, ParsePush, ConnectMonitor, AppConfig, User) {
+    function runIonic($ionicPlatform, $rootScope, amMoment, $translate, $cordovaGlobalization, $cordovaSplashscreen, AppConfig) {
 
         // Set Theme Color
         $rootScope.theme = AppConfig.theme;
@@ -45,6 +55,21 @@
                 window.StatusBar.styleLightContent();
             }
 
+
+            var lang = $translate.use();
+            if (lang) {
+                $translate.use(lang);
+                amMoment.changeLocale(lang);
+
+                console.log(lang);
+            } else {
+                if (typeof navigator.globalization !== 'undefined') {
+                    $cordovaGlobalization.getPreferredLanguage().then(function (language) {
+                        $translate.use((language.value).split('-')[0]);
+                        amMoment.changeLocale(language.value);
+                    }, null);
+                }
+            }
             // Remove back button android
             //$ionicPlatform.registerBackButtonAction(function (event) {
             //    event.preventDefault();
@@ -56,26 +81,7 @@
                 $cordovaSplashscreen.hide();
             }
 
-            var user = Parse.User.current();
-            if (user) {
-                ParsePush.init();
 
-                var lang = $translate.use();
-                if (lang) {
-                    $translate.use(lang);
-                    amMoment.changeLocale(lang);
-                    
-                    console.log(lang);
-                } else {
-                    if (typeof navigator.globalization !== 'undefined') {
-                        $cordovaGlobalization.getPreferredLanguage().then(function (language) {
-                            $translate.use((language.value).split('-')[0]);
-                            amMoment.changeLocale(language.value);
-                        }, null);
-                    }
-                }
-
-            }
             //ConnectMonitor.watch();
             //
         });

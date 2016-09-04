@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('Gallery', GalleryFactory);
 
-    function GalleryFactory($q, ParseCloud, moment) {
+    function GalleryFactory($q, Parse, moment) {
 
         var ParseObject = Parse.Object.extend('Gallery', {
                 getStatus: function () {
@@ -48,26 +48,26 @@
                     return defer.promise;
                 },
                 comments   : function (params) {
-                    return ParseCloud.run('commentGallery', params);
+                    return Parse.Cloud.run('commentGallery', params);
                 },
                 getAlbum   : function (params) {
-                    return ParseCloud.run('getAlbum', params);
+                    return Parse.Cloud.run('getAlbum', params);
                 },
                 feed       : function (params) {
                     console.log('feedGallery', params);
-                    return ParseCloud.run('feedGallery', params);
+                    return Parse.Cloud.run('feedGallery', params);
                 },
                 search     : function (params) {
                     console.log(params);
-                    return ParseCloud.run('searchGallery', params);
+                    return Parse.Cloud.run('searchGallery', params);
                 },
                 follow     : function (params) {
                     console.log('Follow', params);
-                    return ParseCloud.run('followUser', params);
+                    return Parse.Cloud.run('followUser', params);
                 },
                 likeGallery: function (params) {
                     console.log(params);
-                    return ParseCloud.run('likeGallery', {galleryId: params.galleryId});
+                    return Parse.Cloud.run('likeGallery', {galleryId: params.galleryId});
                 },
                 get        : function (galleryId) {
                     var defer = $q.defer();

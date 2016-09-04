@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  angular.module('starter').factory('ParseFile', function ($q) {
+  angular.module('starter').factory('ParseFile', function (Parse, $q) {
     return {
       upload: upload
     };

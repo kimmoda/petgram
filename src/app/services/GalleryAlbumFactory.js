@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('GalleryAlbum', GalleryFactory);
 
-    function GalleryFactory($q, ParseCloud, moment) {
+    function GalleryFactory($q, Parse, moment) {
 
         var ParseObject = Parse.Object.extend('GalleryAlbum', {
                 getStatus: function () {
@@ -42,10 +42,10 @@
                     return defer.promise;
                 },
                 photos : function (params) {
-                    return ParseCloud.run('photoAlbum', params);
+                    return Parse.Cloud.run('photoAlbum', params);
                 },
                 list   : function (params) {
-                    return ParseCloud.run('listAlbum', params);
+                    return Parse.Cloud.run('listAlbum', params);
                 },
                 get    : function (objectId) {
                     var defer = $q.defer();

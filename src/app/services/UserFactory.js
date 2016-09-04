@@ -2,23 +2,23 @@
     'use strict';
     angular.module('starter').factory('User', UserFactory);
 
-    function UserFactory($q, $translate, $cordovaDevice, ParseCloud, ParsePush) {
+    function UserFactory($q, $translate, $cordovaDevice, Parse, ParsePush) {
 
         var User = Parse.User.extend({}, {
             profile               : function (username) {
-                return ParseCloud.run('profile', {username: username})
+                return Parse.Cloud.run('profile', {username: username})
             },
             list                  : function (params) {
-                return ParseCloud.run('listUsers', params)
+                return Parse.Cloud.run('listUsers', params)
             },
             getFollowers          : function (username) {
-                return ParseCloud.run('getFollowers', {username: username})
+                return Parse.Cloud.run('getFollowers', {username: username})
             },
             getLikers             : function (galleryId) {
-                return ParseCloud.run('getLikers', {galleryId: galleryId})
+                return Parse.Cloud.run('getLikers', {galleryId: galleryId})
             },
             getFollowing          : function (username) {
-                return ParseCloud.run('getFollowing', {username: username})
+                return Parse.Cloud.run('getFollowing', {username: username})
             },
             signIn                : function (obj) {
                 var defer = $q.defer();
@@ -102,7 +102,7 @@
             },
             updateWithFacebookData: function (data) {
                 var defer = $q.defer();
-                ParseCloud.run('saveFacebookPicture', {}).then(function () {
+                Parse.Cloud.run('saveFacebookPicture', {}).then(function () {
                     var user = Parse.User.current();
 
                     if (!data.username && data.email) {
@@ -128,7 +128,7 @@
                 return Parse.User.logOut();
             },
             findByEmail           : function (email) {
-                return ParseCloud.run('findUserByEmail', {email: email});
+                return Parse.Cloud.run('findUserByEmail', {email: email});
             },
             getPublicData         : function (user) {
                 console.log(user);
@@ -167,16 +167,16 @@
                 return defer.promise;
             },
             follow                : function (userId) {
-                return ParseCloud.run('followUser', {userId: userId});
+                return Parse.Cloud.run('followUser', {userId: userId});
             },
             all                   : function (params) {
-                return ParseCloud.run('getUsers', params);
+                return Parse.Cloud.run('getUsers', params);
             },
             validateUsername      : function (input) {
-                return ParseCloud.run('validateUsername', {username: input});
+                return Parse.Cloud.run('validateUsername', {username: input});
             },
             validateEmail         : function (input) {
-                return ParseCloud.run('validateEmail', {email: input});
+                return Parse.Cloud.run('validateEmail', {email: input});
             },
             update                : function (params) {
                 var user    = Parse.User.current();
@@ -189,7 +189,7 @@
                 return user.save();
             },
             delete                : function (data) {
-                return ParseCloud.run('destroyUser', data);
+                return Parse.Cloud.run('destroyUser', data);
             },
             fetch                 : function () {
                 var defer = $q.defer();

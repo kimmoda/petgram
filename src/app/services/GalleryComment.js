@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('starter').factory('GalleryComment', function ($q, moment) {
+    angular.module('starter').factory('GalleryComment', function ($q, Parse,  moment) {
 
         var ParseObject = Parse.Object.extend('GalleryComment', {
             getStatus: function () {

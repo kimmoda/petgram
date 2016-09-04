@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('ParsePush', ParsePushFactory);
 
-    function ParsePushFactory($q) {
+    function ParsePushFactory(Parse, $q) {
 
         return {
             init            : init,

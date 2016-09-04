@@ -7,13 +7,13 @@
     function DataUtilFactory() {
 
         return {
-            parseData: parseData,
-            parseString: parseString,
-            getDate: getDate,
-            formatDate: formatDate,
+            parseData   : parseData,
+            parseString : parseString,
+            getDate     : getDate,
+            formatDate  : formatDate,
             getMonthName: getMonthName,
-            getFirstDay: getFirstDay,
-            getLastDay: getLastDay
+            getFirstDay : getFirstDay,
+            getLastDay  : getLastDay
         };
 
         function parseData(string) {
@@ -45,7 +45,20 @@
         }
 
         function getMonthName(data) {
-            var meses = ['Janeiro', 'Feveiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+            var meses = [
+                'Janeiro',
+                'Feveiro',
+                'Março',
+                'Abril',
+                'Maio',
+                'Junho',
+                'Julho',
+                'Agosto',
+                'Setembro',
+                'Outubro',
+                'Novembro',
+                'Dezembro'
+            ];
             return meses[data.getMonth()];
         }
 

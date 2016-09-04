@@ -14,12 +14,10 @@
                 home : 'tab.home',
                 login: 'intro'
             },
-            theme : 'positive',
-            gaTrackingId   : 'UA-69485876-2',
+            theme          : 'positive',
             facebookAppId  : '1024016557617380',
             parse          : {
                 appId : 'myAppId',
-                // server: 'http://localhost:1337/parse/',
                 server: 'https://photogram.codevibe.io/parse/',
             },
             map            : {
@@ -48,82 +46,7 @@
                     code       : 'de'
                 }
             ],
-            preferredLocale: 'en',
-            DAO            : {
-                name  : 'photogram_db',
-                tables: [
-                    {
-                        name   : 'User',
-                        columns: {
-                            id         : 'TEXT PRIMARY KEY',
-                            name       : 'TEXT',
-                            username   : 'TEXT',
-                            email      : 'TEXT',
-                            language   : 'TEXT',
-                            facebookimg: 'TEXT',
-                            gender     : 'TEXT',
-                            img        : 'TEXT',
-                            facebook   : 'INTEGER',
-                            qtdFollow  : 'INTEGER',
-                            status     : 'TEXT',
-                            createdAt  : 'INTEGER',
-                            attributes : 'TEXT'
-                        }
-                    },
-                    {
-                        name   : 'UserFollow',
-                        columns: {
-                            id      : 'TEXT PRIMARY KEY',
-                            user_id : 'TEXT',
-                            followId: 'TEXT'
-                        },
-                    },
-                    {
-                        name   : 'Gallery',
-                        columns: {
-                            id       : 'TEXT PRIMARY KEY',
-                            img      : 'TEXT',
-                            title    : 'TEXT',
-                            user_id  : 'TEXT',
-                            location : 'TEXT',
-                            isLiked  : 'BOOLEAN',
-                            likes    : 'INTEGER',
-                            createdAt: 'INTEGER'
-                        }
-                    },
-                    {
-                        name   : 'GalleryActivity',
-                        columns: {
-                            id        : 'TEXT PRIMARY KEY',
-                            action    : 'TEXT',
-                            img       : 'TEXT',
-                            userAvatar: 'TEXT',
-                            userName  : 'TEXT',
-                            user_id   : 'TEXT',
-                            gallery_id: 'TEXT',
-                            createdAt : 'INTEGER'
-                        }
-                    },
-                    {
-                        name   : 'GalleryComment',
-                        columns: {
-                            id        : 'TEXT PRIMARY KEY',
-                            name      : 'TEXT',
-                            user_id   : 'TEXT',
-                            userName  : 'TEXT',
-                            gallery_id: 'TEXT',
-                            createdAt : 'INTEGER'
-                        }
-                    },
-                    {
-                        name   : 'GallerySetting',
-                        columns: {
-                            key  : 'TEXT',
-                            value: 'TEXT'
-                        }
-                    }
-                ]
-            }
+            preferredLocale: 'en'
         };
     }
 })();

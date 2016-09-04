@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('starter').factory('GalleryActivity', function ($q, ParseCloud, moment) {
+    angular.module('starter').factory('GalleryActivity', function ($q, Parse, moment) {
 
         var ParseObject = Parse.Object.extend('GalleryActivity', {
             getStatus: function () {
@@ -30,7 +30,7 @@
                 return defer.promise;
             },
             feed   : function (params) {
-                return ParseCloud.run('feedActivity', params);
+                return Parse.Cloud.run('feedActivity', params);
             },
             all    : function (params) {
                 var defer = $q.defer();

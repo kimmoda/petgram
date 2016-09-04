@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('starter').factory('Auth', function ($q) {
+    angular.module('starter').factory('Auth', function (Parse, $q) {
 
         var mSessionToken = null;
         return {

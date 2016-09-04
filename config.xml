@@ -92,4 +92,7 @@
         <variable name="APP_ID" value="1024016557617380" />
         <variable name="APP_NAME" value="Photogram" />
     </plugin>
+    <preference name="xwalkVersion" value="19+" />
+    <preference name="xwalkMode" value="embedded" />
+    <preference name="xwalkMultipleApk" value="true" />
 </widget>
