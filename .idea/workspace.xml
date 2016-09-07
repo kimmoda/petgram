@@ -2,41 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9eabd7a-7d96-4ddd-9e94-d83aa3ae9f81" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/google.analytics.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/services/ParseServiceFactory.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/lib/socket.io.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/services/DAOFactory.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/services/GoogleAnalytics.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/services/InstallFactory.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/services/ParseCloudFactory.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-3d385651c9.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/vendor-a02fb2dbe6.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/styles/app-e7d84cedd0.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-3d385651c9.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/vendor-a02fb2dbe6.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/styles/app-e7d84cedd0.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-afd3f03f23.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-afd3f03f23.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.config.js" afterPath="$PROJECT_DIR$/src/app/index.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.constant.js" afterPath="$PROJECT_DIR$/src/app/index.constant.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.module.js" afterPath="$PROJECT_DIR$/src/app/index.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/AuthFactory.js" afterPath="$PROJECT_DIR$/src/app/services/AuthFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/DataUtilFactory.js" afterPath="$PROJECT_DIR$/src/app/services/DataUtilFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryActivity.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryActivity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryAlbumFactory.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryAlbumFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryComment.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryComment.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.html" afterPath="$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.js" afterPath="$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/gallery-comment/gallery.commnet.ctrl.js" afterPath="$PROJECT_DIR$/src/app/main/gallery-comment/gallery.commnet.ctrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryFactory.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryFeedback.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryFeedback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GallerySettingFactory.js" afterPath="$PROJECT_DIR$/src/app/services/GallerySettingFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/ParseFileFactory.js" afterPath="$PROJECT_DIR$/src/app/services/ParseFileFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/ParsePushFactory.js" afterPath="$PROJECT_DIR$/src/app/services/ParsePushFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/UserFactory.js" afterPath="$PROJECT_DIR$/src/app/services/UserFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/i18n/de.json" afterPath="$PROJECT_DIR$/www/app/i18n/de.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/i18n/en.json" afterPath="$PROJECT_DIR$/www/app/i18n/en.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/i18n/fa.json" afterPath="$PROJECT_DIR$/www/app/i18n/fa.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/i18n/pt.json" afterPath="$PROJECT_DIR$/www/app/i18n/pt.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/i18n/tr.json" afterPath="$PROJECT_DIR$/www/app/i18n/tr.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
     </list>
     <ignored path="photogram.iws" />
@@ -57,81 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="account.ctrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/main/tab-account/account.ctrl.js">
+      <file leaf-file-name="GalleryFactory.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/services/GalleryFactory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataUtilFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/DataUtilFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.module.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/index.module.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/index.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1102">
-              <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity.ctrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.ctrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/main/tab-search/search.ctrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchMapController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/main/tab-search-map/SearchMapController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserAvatarCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/main/user-avatar/UserAvatarCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -157,8 +60,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/directive/galleryNewAlbumModalDirective.html" />
-        <option value="$PROJECT_DIR$/src/app/directive/SignupModalDirective.html" />
         <option value="$PROJECT_DIR$/plugins/fetch.json" />
         <option value="$PROJECT_DIR$/src/app/style/_platform.scss" />
         <option value="$PROJECT_DIR$/src/app/main/gallery-comment/gallery-comment.scss" />
@@ -174,11 +75,9 @@
         <option value="$PROJECT_DIR$/src/app/i18n/tr.json" />
         <option value="$PROJECT_DIR$/src/app/main/tab-home/home.html" />
         <option value="$PROJECT_DIR$/src/app/directive/galleryNewAlbumModalDirective.js" />
-        <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/src/app/directive/photoListDirective.js" />
-        <option value="$PROJECT_DIR$/src/app/main/gallery-comment/gallery.commnet.ctrl.js" />
         <option value="$PROJECT_DIR$/src/app/main/gallery-comment/gallery-comment.html" />
         <option value="$PROJECT_DIR$/src/app/services/AuthFactory.js" />
         <option value="$PROJECT_DIR$/src/app/services/GalleryActivity.js" />
@@ -201,13 +100,17 @@
         <option value="$PROJECT_DIR$/src/app/main/tab-search/search.ctrl.js" />
         <option value="$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js" />
         <option value="$PROJECT_DIR$/src/app/main/tab-account/account.ctrl.js" />
-        <option value="$PROJECT_DIR$/src/app/services/GalleryFactory.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/src/app/index.config.js" />
         <option value="$PROJECT_DIR$/src/app/google.analytics.js" />
         <option value="$PROJECT_DIR$/src/app/index.constant.js" />
         <option value="$PROJECT_DIR$/src/app/services/DataUtilFactory.js" />
         <option value="$PROJECT_DIR$/src/app/index.module.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/src/app/services/GalleryFactory.js" />
+        <option value="$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.html" />
+        <option value="$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.js" />
+        <option value="$PROJECT_DIR$/src/app/main/gallery-comment/gallery.commnet.ctrl.js" />
       </list>
     </option>
   </component>
@@ -278,52 +181,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ionic-app-parse">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ionic-app-parse">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ionic-app-parse">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="NBKnowledgePane" />
       <pane id="ColorIdeProjectViewPane">
         <subPane>
@@ -355,6 +212,20 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="gulp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ionic-app-parse">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -709,7 +580,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17394757" sideWeight="0.4883081" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17394757" sideWeight="0.4883081" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Get Gist" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -780,34 +651,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/i18n/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/i18n/pt.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="21" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/tab/main-tab.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/share/share-modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="36" column="67" lean-forward="false" selection-start-line="36" selection-start-column="67" selection-end-line="36" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/style/photogram.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -820,7 +663,6 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="228">
             <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -833,14 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="56" lean-forward="false" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,24 +706,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/gallery-comment/gallery-comment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/directive/photoListDirective.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="44" column="39" lean-forward="false" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/gallery-comment/gallery.commnet.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -972,13 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/GalleryComment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1699">
-          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/GalleryFeedback.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1029,45 +842,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/GoogleAnalytics.js" />
-    <entry file="file://$PROJECT_DIR$/src/app/main/user-avatar/UserAvatarCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/tab-search-map/SearchMapController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/tab-search/search.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/GalleryFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/angulartics/dist/angulartics.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -1078,9 +852,8 @@
     <entry file="file://$PROJECT_DIR$/src/app/lib/socket.io.js" />
     <entry file="file://$PROJECT_DIR$/src/app/index.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
+        <state relative-caret-position="638">
           <caret line="58" column="32" lean-forward="false" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1105,11 +878,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/tab-account/account.ctrl.js">
+    <entry file="file://$PROJECT_DIR$/src/app/index.module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="171">
+          <caret line="9" column="54" lean-forward="false" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -1117,14 +889,109 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/tab-account/account.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/tab-search/search.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/tab-search-map/SearchMapController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/user-avatar/UserAvatarCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/galleryAlbumModalDirective.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="71" column="35" lean-forward="false" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/gallery-comment/gallery-comment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/albumPhotoGridPopover.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="58" lean-forward="false" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index.module.js">
+    <entry file="file://$PROJECT_DIR$/src/app/main/gallery-comment/gallery.commnet.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        <state relative-caret-position="528">
+          <caret line="148" column="32" lean-forward="true" selection-start-line="148" selection-start-column="16" selection-end-line="148" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/GalleryComment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="49" column="24" lean-forward="false" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/GalleryFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('Gallery', GalleryFactory);
 
-    function GalleryFactory($q, Parse, moment) {
+    function GalleryFactory($q, Parse, $translate, moment) {
 
         var ParseObject = Parse.Object.extend('Gallery', {
                 getStatus: function () {
@@ -20,9 +20,11 @@
                     var defer    = $q.defer();
                     var objPlace = new ParseObject();
 
-                    if (item.address.geo) {
+                    if (item.address && item.address.geo) {
                         item.location = new Parse.GeoPoint(item.address.geo);
                     }
+
+                    item.lang = $translate.use();
 
                     objPlace.save(item, {
                         success: defer.resolve,
@@ -169,6 +171,7 @@
             'words',
             'privacity',
             'address',
+            'lang',
             'image',
             'imageThumb',
             'isApproved',
@@ -177,7 +180,7 @@
         ];
 
 
-        fields.map(function  (item) {
+        fields.map(function (item) {
             Object.defineProperty(ParseObject.prototype, item, {
                 get: function () {
                     return this.get(item);

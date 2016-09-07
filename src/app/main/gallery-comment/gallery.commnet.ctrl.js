@@ -28,7 +28,6 @@
 
         function commentFoccus() {
             var elem = document.getElementById('textComment');
-            console.log(elem);
             elem.click();
             elem.focus();
             if (window.cordova) {
@@ -134,6 +133,7 @@
         function getComments() {
             $scope.loading = true;
             Gallery.comments({galleryId: $stateParams.galleryId}).then(function (resp) {
+
                 $scope.comments = [];
 
                 resp.map(function (comment) {
@@ -144,6 +144,8 @@
 
                 $scope.loading = false;
                 $ionicScrollDelegate.scrollBottom();
+
+                $scope.$digest();
                 commentFoccus();
             });
         }

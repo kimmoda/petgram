@@ -13,7 +13,9 @@
             <ion-spinner></ion-spinner>
         </div>
 
-        <div class="row " ng-if="$index % 3 === 0" ng-repeat="image in data | orderBy:'createdAt':true">
+        <div class="row "
+             ng-repeat="image in data | orderBy:'createdAt':true"
+             ng-if="!loading && $index % 3 === 0">
             <div class="col col-33 " ng-if="$index < data.length">
                 <img ng-if="profile" profile-modal user="data[$index].user.obj"
                      ng-src="{{ ::data[$index].imageThumb._url}}" width="100%"/>
