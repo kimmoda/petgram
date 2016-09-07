@@ -25,8 +25,11 @@
 
             $rootScope.$on('photolist:reload', function (ev, value) {
                 console.log('Reload photolist', value);
-                $scope.params.privacity = value;
-                $scope.onReload();
+                if (value) {
+                    $scope.params.privacity = value;
+                }
+                init()
+                loadFeed();
             });
 
             if ($scope.type) {

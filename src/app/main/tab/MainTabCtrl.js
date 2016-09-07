@@ -48,7 +48,7 @@
                 ParseFile.upload({base64: form.image}).then(function (imageUploaded) {
                     form.image = imageUploaded;
                     Gallery.create(form).then(function (item) {
-                        $rootScope.$emit('photolist:reload', item);
+                        $rootScope.$emit('photolist:reload');
                         Loading.end();
                     });
                 });

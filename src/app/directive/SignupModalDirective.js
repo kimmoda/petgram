@@ -38,7 +38,7 @@
                                     clear: true
                                 });
                                 Loading.end();
-                                $rootScope.$emit('photolist:reload', true);
+                                $rootScope.$emit('photolist:reload');
                                 $scope.closeModal();
                             }).catch(function (resp) {
                                 console.log(resp);
