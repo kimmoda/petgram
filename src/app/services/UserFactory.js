@@ -2,9 +2,9 @@
     'use strict';
     angular.module('starter').factory('User', UserFactory);
 
-    function UserFactory($q, $translate, $cordovaDevice, Parse, ParsePush) {
+    function UserFactory($q, $translate, $window, $cordovaDevice, Parse, ParsePush) {
 
-        var User = Parse.User.extend({}, {
+        var ParseObject = Parse.User.extend({}, {
             profile               : function (username) {
                 return Parse.Cloud.run('profile', {username: username})
             },
@@ -125,7 +125,10 @@
                 return defer.promise;
             },
             logOut                : function () {
-                return Parse.User.logOut();
+                //return Parse.User.logOut();
+                console.log(Parse.applicationId);
+                delete $window.localStorage['Parse/' + Parse.applicationId + '/currentUser'];
+                delete $window.localStorage['Parse/' + Parse.applicationId + '/installationId'];
             },
             findByEmail           : function (email) {
                 return Parse.Cloud.run('findUserByEmail', {email: email});
@@ -203,79 +206,30 @@
 
         });
 
-        Object.defineProperty(User.prototype, 'name', {
-            get: function () {
-                return this.get('name');
-            },
-            set: function (val) {
-                this.set('name', val);
-            }
+        var fields = [
+            'name',
+            'username',
+            'status',
+            'gender',
+            'email',
+            'photo',
+            'photoThumb',
+            'roleName',
+        ];
+
+        fields.map(function (field) {
+            Object.defineProperty(ParseObject.prototype, field, {
+                get: function () {
+                    return this.get(field);
+                },
+                set: function (val) {
+                    this.set(field, val);
+                }
+            });
         });
 
-        Object.defineProperty(User.prototype, 'username', {
-            get: function () {
-                return this.get('username');
-            },
-            set: function (val) {
-                this.set('username', val);
-            }
-        });
 
-        Object.defineProperty(User.prototype, 'status', {
-            get: function () {
-                return this.get('status');
-            },
-            set: function (val) {
-                this.set('status', val);
-            }
-        });
-
-        Object.defineProperty(User.prototype, 'gender', {
-            get: function () {
-                return this.get('gender');
-            },
-            set: function (val) {
-                this.set('gender', val);
-            }
-        });
-
-        Object.defineProperty(User.prototype, 'email', {
-            get: function () {
-                return this.get('email');
-            },
-            set: function (val) {
-                this.set('email', val);
-            }
-        });
-
-        Object.defineProperty(User.prototype, 'photo', {
-            get: function () {
-                return this.get('photo');
-            },
-            set: function (val) {
-                this.set('photo', val);
-            }
-        });
-
-        Object.defineProperty(User.prototype, 'photoThumb', {
-            get: function () {
-                return this.get('photoThumb');
-            },
-            set: function (val) {
-                this.set('photoThumb', val);
-            }
-        });
-
-        Object.defineProperty(User.prototype, 'roleName', {
-            get: function () {
-                return this.get('roleName');
-            },
-            set: function (val) {
-                this.set('roleName', val);
-            }
-        });
-
-        return User;
+        return ParseObject;
 
     }
 
