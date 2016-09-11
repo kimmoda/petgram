@@ -3,12 +3,11 @@
 
     angular.module('app.main').controller('LoadingCtrl', LoadingController);
 
-    function LoadingController($scope, $rootScope, $ionicPlatform, $cordovaSplashscreen, AppConfig, $state) {
-        var user  = $rootScope.currentUser;
+    function LoadingController($scope, Parse, $ionicPlatform, $cordovaSplashscreen, AppConfig, $state) {
+        var user = Parse.User.current();
 
         if (user) {
-            console.log(user);
-            if (user.name) {
+            if (user) {
                 $state.go(AppConfig.routes.home, {
                     clear: true
                 });
@@ -31,8 +30,6 @@
             });
         });
 
-
     }
-
 
 })();

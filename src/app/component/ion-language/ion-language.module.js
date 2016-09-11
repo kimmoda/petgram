@@ -12,7 +12,6 @@
         .run(runMoment);
 
 
-
     function runMoment(amMoment, AppConfig) {
         var langvar     = navigator.language || navigator.userlanguage;
         var userlangvar = langvar.split('-')[0];
@@ -26,8 +25,7 @@
                 return language == item.code
             })[0].code;
         }
-        
-        console.log(language);
+
         amMoment.changeLocale(language);
     }
 

@@ -40,7 +40,6 @@
                     fbData = data;
                     return User.findByEmail(data.email);
                 }).then(function (user) {
-                    console.log(user);
 
                     if (!user.id) {
                         newUser = true;
@@ -48,8 +47,6 @@
                     }
 
                     var authData = user.get('authData');
-                    console.log(authData.facebook.id, fbData.id);
-
                     if (authData) {
                         if (authData.facebook.id === fbData.id) {
                             return User.signInViaFacebook(fbAuthData);
@@ -62,7 +59,6 @@
                 }).then(function () {
                     return User.updateWithFacebookData(fbData);
                 }).then(function (user) {
-                    console.log(user, user.attributes);
                     $rootScope.currentUser = user;
                     $rootScope.$broadcast('onUserLogged');
                     Loading.end();
@@ -73,7 +69,6 @@
                     }
                     Loading.end();
                 }, function (error) {
-                    console.info(error);
                     Loading.end();
                     Dialog.alert(error);
                 })

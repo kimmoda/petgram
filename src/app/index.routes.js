@@ -56,8 +56,7 @@
                 template    : '<ion-view view-title="Logout" cache-view="false"><ion-content></ion-content></ion-view>',
                 controller  : function (User, $localStorage, AppConfig, $state) {
                     //Parse.User.logOut();
-                    delete window.localStorage['Parse/' + AppConfig.parse.appId + '/currentUser'];
-                    delete window.localStorage['Parse/' + AppConfig.parse.appId + '/installationId'];
+                    User.logOut();
                     $localStorage.$reset({});
                     $state.go('intro', {clear: true});
                 },

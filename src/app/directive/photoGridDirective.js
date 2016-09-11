@@ -44,8 +44,6 @@
                 if ($scope.loading) return;
                 $scope.loading = true;
                 Gallery.feed($scope.params).then(function (data) {
-                    console.log(data);
-
                     if (data.length > 0) {
                         $scope.params.page++;
                         data.map(function (item) {

@@ -56,19 +56,15 @@
                     return Parse.Cloud.run('getAlbum', params);
                 },
                 feed       : function (params) {
-                    console.log('feedGallery', params);
                     return Parse.Cloud.run('feedGallery', params);
                 },
                 search     : function (params) {
-                    console.log(params);
                     return Parse.Cloud.run('searchGallery', params);
                 },
                 follow     : function (params) {
-                    console.log('Follow', params);
                     return Parse.Cloud.run('followUser', params);
                 },
                 likeGallery: function (params) {
-                    console.log(params);
                     return Parse.Cloud.run('likeGallery', {galleryId: params.galleryId});
                 },
                 get        : function (galleryId) {
@@ -180,18 +176,18 @@
         ];
 
 
-        fields.map(function (item) {
-            Object.defineProperty(ParseObject.prototype, item, {
+        fields.map(function (field) {
+            Object.defineProperty(ParseObject.prototype, field, {
                 get: function () {
-                    return this.get(item);
+                    return this.get(field);
                 },
                 set: function (value) {
-                    this.set(item, value);
+                    this.set(field, value);
                 }
             });
         });
 
-
+        // This is a GeoPoint Object
         Object.defineProperty(ParseObject.prototype, 'location', {
             get: function () {
                 return this.get('location');

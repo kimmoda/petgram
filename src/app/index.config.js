@@ -16,11 +16,18 @@
 
     function startParse(AppConfig, Parse, $ionicPlatform, ParsePush, $localStorage, $location, $rootScope) {
 
+        // Parse Start
         Parse.init({
             appId : AppConfig.parse.appId,
             server: AppConfig.parse.server,
         });
 
+        // Parse User is Null
+        if (!$rootScope.currentUser) {
+            $location.path('/');
+        }
+
+        // Parse Push Notification
         $ionicPlatform.ready(function () {
             var user = Parse.User.current();
             if (user) {
@@ -35,11 +42,6 @@
 
         if (!$localStorage.mapType) {
             $localStorage.mapType = AppConfig.map.type;
-        }
-
-        console.log($rootScope.currentUser);
-        if (!$rootScope.currentUser) {
-            $location.path('/');
         }
     }
 
@@ -61,7 +63,6 @@
                 $translate.use(lang);
                 amMoment.changeLocale(lang);
 
-                console.log(lang);
             } else {
                 if (typeof navigator.globalization !== 'undefined') {
                     $cordovaGlobalization.getPreferredLanguage().then(function (language) {
@@ -112,7 +113,6 @@
     function runFacebook() {
 
         if (!window.cordova) {
-            console.log('Facebook Browser');
             var LangVar     = window.navigator.language || window.navigator.userLanguage;
             var userLangVar = LangVar.substring(0, 2) + '_' + LangVar.substring(3, 5).toUpperCase();
 

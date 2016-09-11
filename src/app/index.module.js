@@ -16,9 +16,9 @@
         'angulartics',
         'angulartics.google.analytics',
         'jett.ionic.scroll.sista',
+        'ion-affix',
         'ngCordova',
         'ionic.components',
-        'ion-affix',
         'angulartics.google.analytics.cordova',
         'app.main',
     ]);

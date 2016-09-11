@@ -23,7 +23,6 @@
             };
 
             User.list($scope.params).then(function (data) {
-                console.log(data);
                 if (data.length > 0) {
                     $scope.params.page++;
                     data.map(function (item) {

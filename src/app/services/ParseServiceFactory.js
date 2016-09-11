@@ -12,9 +12,8 @@
             Parse.initialize(options.appId);
             Parse.serverURL        = options.server;
             $rootScope.currentUser = Parse.User.current();
-
-            console.log($rootScope.currentUser);
         }
+
     }
 
 })();

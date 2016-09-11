@@ -16,7 +16,7 @@
                 scope.share = Share.share;
 
                 scope.logout = function () {
-                    $state.go(AppConfig.routes.login);
+                    $state.go('logout');
                     scope.closeSettingModal();
                 };
 

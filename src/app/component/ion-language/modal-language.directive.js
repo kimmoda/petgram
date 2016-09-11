@@ -22,8 +22,6 @@
                 return item.code === $translate.use()
             })[0];
 
-            console.log(scope.language);
-
             elem.bind('click', openModal);
 
             function openModal() {
