@@ -56,7 +56,6 @@ mkdir -p releases/
 
 echo ""
 echo ""
-echo "---> App released ! Look for releases/com.$company.$appname.v$version-x86.apk"
-echo "---> App released ! Look for releases/com.$company.$appname.v$version-arm7.apk"
+echo "---> App released ! Look for releases/com.$company.$appname.v$version.apk"
 
 open releases/
