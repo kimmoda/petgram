@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').directive('photoLike', photoLikeDirective);
 
-    function photoLikeDirective(Gallery) {
+    function photoLikeDirective(Gallery, $timeout) {
         return {
             restrict: 'A',
             scope   : {
@@ -18,10 +18,8 @@
                         scope.loading   = true;
 
                         Gallery.likeGallery({galleryId: scope.ngModel.id}).then(function (resp) {
-                            console.log(resp);
                             _model.likes    = resp.likes;
                             _model.progress = false;
-                            console.log(_model, resp);
                             if (resp.action === 'like') {
                                 scope.ngModel.isLiked = true;
                                 scope.ngModel.likesTotal += 1;
@@ -33,6 +31,7 @@
                             }
 
                             scope.loading = false;
+                            scope.$digest();
                         });
                     }
                 );

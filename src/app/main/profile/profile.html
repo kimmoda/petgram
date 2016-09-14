@@ -18,7 +18,9 @@
                     <img class="avatar"
                          user-avatar
                          ng-model="vm.user"
-                         ng-src="{{ vm.user.photo._url || 'img/user.png' }}"/>
+                         img-cache
+                         ic-default="img/user.png"
+                         ic-src="{{ vm.user.photo._url || 'img/user.png' }}"/>
                 </div>
                 <div class="col col-statics">
                     <div class="row">

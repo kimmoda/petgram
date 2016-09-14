@@ -3,20 +3,18 @@
 
     angular.module('app.main').controller('UserAvatarCtrl', UserAvatarController);
 
-    function UserAvatarController(User, $translate, $scope, Loading, Auth, AppConfig, $rootScope, $state, Toast) {
+    function UserAvatarController(User, Parse, $translate, $scope, Loading, Auth, AppConfig, $rootScope, $state, Toast) {
 
         init();
 
-        $scope.photo = Parse.User.current().attributes.photo;
 
         function init() {
-            var user    = Auth.getLoggedUser();
+            var user    = Parse.User.current();
             $scope.form = {
                 name    : user.name,
                 email   : user.email,
                 status  : user.status,
                 gender  : user.gender,
-                img     : user.img,
                 username: user.username
             };
             console.log($scope.form);

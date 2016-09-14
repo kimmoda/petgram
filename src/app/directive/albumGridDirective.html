@@ -33,7 +33,10 @@
          ng-if="$index < data.length && !data[$index].create"
          album-photo-grid
          album="data[$index].id" edit="canEdit">
-        <img ng-src="{{ ::data[$index].imageThumb._url || 'img/albumnone.png'}}" width="100%"/>
+        <img img-cache
+             ic-src="{{ ::data[$index ].imageThumb._url || 'img/albumnone.png'}}"
+             ic-default="img/user.png"
+             width="100%"/>
         <div class="desc">
             <h2>{{::data[$index].title}}</h2>
             <p>{{::data[$index].qtyPhotos}} photos</p>
@@ -42,7 +45,10 @@
     <div class="col col-50 "
          ng-if="$index + 1 < data.length"
          album-photo-grid album="data[$index+1].id" edit="canEdit">
-        <img ng-src="{{ ::data[$index + 1].imageThumb._url || 'img/albumnone.png'}}" width="100%"/>
+        <img img-cache
+             ic-src="{{ ::data[$index + 1].imageThumb._url || 'img/albumnone.png'}}"
+             ic-default="img/user.png"
+             width="100%"/>
         <div class="desc">
             <h2>{{::data[$index+1].title}}</h2>
             <p>{{::data[$index+1].qtyPhotos}} photos</p>

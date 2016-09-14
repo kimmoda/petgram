@@ -46,7 +46,9 @@
 
             <div ng-repeat="user in data ">
                 <a class="item item-avatar item-button-right">
-                    <img ng-src="{{ user.photo._url || 'img/user.png'}}"
+                    <img img-cache
+                         ic-default="img/user.png"
+                         ic-src="{{ user.photo._url || 'img/user.png'}}"
                          ng-click="openProfile(user)">
                     <h2 ng-click="openProfile(user)">{{user.username}}</H2>
                     <p>{{user.status}}</p>
@@ -62,7 +64,9 @@
                 </a>
                 <span class="row">
                     <span class="col" ng-repeat="gallery in user.galleries">
-                        <img ng-src="{{ gallery.imageThumb._url}}" id="{{ ::gallery.id}}">
+                        <img img-cache
+                             ic-default="img/user.png"
+                             ic-src="{{ gallery.imageThumb._url}}" id="{{ ::gallery.id}}">
                     </span>
                 </span>
             </div>

@@ -11,8 +11,8 @@
 
         function emailValidatorLink(scope, elem, attr,ngModel) {
             ngModel.$asyncValidators.email = function  (modelValue, viewValue) {
-                console.log(viewValue);
                 if(viewValue) {
+                console.log(elem, viewValue);
                     return User.validateEmail(viewValue);
                 }
             }

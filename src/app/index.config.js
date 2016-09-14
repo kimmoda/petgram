@@ -4,11 +4,44 @@
     angular
         .module('starter')
         .run(startParse)
+        // Ionic Configuration
+        .config(configIonic)
         .run(runIonic)
+        // Facebook
         .run(runFacebook)
-        .config(configCompile)
         .config(configFacebook)
-        .config(configIonic);
+        // ImgCache
+        .run(runImgCache)
+        .config(configImgCache)
+        // AngularJS Perfomance
+        .config(configCompile)
+    ;
+
+
+    function configImgCache(ImgCacheProvider) {
+        // set single options
+        ImgCacheProvider.setOption('debug', true);
+        ImgCacheProvider.setOption('usePersistentCache', true);
+
+        // or more options at once
+        ImgCacheProvider.setOptions({
+            debug             : true,
+            usePersistentCache: true
+        });
+
+        // ImgCache library is initialized automatically,
+        // but set this option if you are using platform like Ionic -
+        // in this case we need init imgcache.js manually after device is ready
+        ImgCacheProvider.manualInit = true;
+    }
+
+    function runImgCache($ionicPlatform, ImgCache) {
+        $ionicPlatform.ready(function () {
+
+            // IMG Cache
+            ImgCache.$init();
+        });
+    }
 
     function configCompile($compileProvider) {
         $compileProvider.debugInfoEnabled(false);
@@ -102,7 +135,7 @@
         $ionicConfigProvider.views.maxCache(1);
     }
 
-    // Facebook
+// Facebook
     function configFacebook($facebookProvider, AppConfig) {
         if (!window.cordova) {
             $facebookProvider.setAppId(AppConfig.facebookAppId);
@@ -128,4 +161,5 @@
 
     }
 
-})();
+})
+();

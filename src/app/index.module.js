@@ -18,6 +18,7 @@
         'jett.ionic.scroll.sista',
         'ion-affix',
         'ngCordova',
+        'ImgCache',
         'ionic.components',
         'angulartics.google.analytics.cordova',
         'app.main',

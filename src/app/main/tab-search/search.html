@@ -52,17 +52,23 @@
             <div class="col col-33 "
                  ui-sref="tab.searchProfile({username: data[$index].user.username})">
                 <img profile-modal user="data[$index].user.obj"
-                     ng-src="{{ data[$index].imageThumb._url}}" width="100%"/>
+                     img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ data[$index].imageThumb._url}}" width="100%"/>
             </div>
             <div class="col col-33 " ng-if="$index + 1"
                  ui-sref="tab.searchProfile({username: data[$index].user.username})">
                 <img profile-modal user="data[$index + 1].user.obj"
-                     ng-src="{{ data[$index + 1].imageThumb._url}}" width="100%"/>
+                     img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ data[$index + 1].imageThumb._url}}" width="100%"/>
             </div>
             <div class="col col-33 " ng-if="$index + 2"
                  ui-sref="tab.searchProfile({username: data[$index].user.username})">
                 <img profile-modal user="data[$index + 2].user.obj"
-                     ng-src="{{ data[$index + 2].imageThumb._url}}" width="100%"/>
+                     img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{ data[$index + 2].imageThumb._url}}" width="100%"/>
             </div>
 
         </div>

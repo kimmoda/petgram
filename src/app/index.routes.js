@@ -36,7 +36,7 @@
                 templateUrl: 'app/main/user-layout/user-layout.html'
             })
 
-            .state('user.avatar', {
+            .state('avatar', {
                 url         : '/avatar',
                 templateUrl : 'app/main/user-avatar/user-avatar.html',
                 controller  : 'UserAvatarCtrl',

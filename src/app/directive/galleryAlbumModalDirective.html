@@ -12,7 +12,9 @@
             <div class="item item-thumbnail-left"
                  ng-repeat="item in data | filter:searchValue"
                  ng-click="selectAlbum(item)">
-                <img ng-src="{{item.imageThumb._url || 'img/albumnone.png'}}">
+                <img img-cache
+                     ic-default="img/user.png"
+                     ic-src="{{item.imageThumb._url || 'img/albumnone.png'}}">
                 <h2 ng-bind="item.title"></h2>
                 <p>{{item.qtyPhotos}} photos</p>
             </div>

@@ -24,17 +24,22 @@
 
     <div class="item item-avatar" ng-click="load(gallery.user.username)" ion-affix
          data-affix-within-parent-with-class="card">
-        <img ng-if="profile" ng-src="{{ ::gallery.user.photo._url}}">
-        <img ng-src="{{ ::gallery.user.photo._url || 'img/user.png'}}">
-        <h2>{{ ::gallery.user.name}}</h2>
+        <img img-cache
+             ic-src="{{::gallery.user.get('photo').url() || 'img/user.png'}}"
+             ic-default="img/user.png">
 
-        <p>{{ ::gallery.user.status}}</p>
+        <h2>{{ ::gallery.user.get('name')}}</h2>
+
+        <p>{{ ::gallery.user.get('status')}}</p>
         <span>{{ gallery.createdAt | amTimeAgo}}</span>
     </div>
 
     <div class="item item-body" on-double-tap="like(gallery.id)" ng-model="gallery">
         <div class="icon ion-ios-heart heart" ng-class="gallery.isLiked ? 'happy' : 'broken' "></div>
-        <i class="icon" ng-if="like"></i> <img ng-src="{{ gallery.image._url}}" id="{{ ::gallery.id}}">
+        <i class="icon" ng-if="like"></i>
+        <img id="{{ ::gallery.id}}"
+             img-cache ic-src="{{gallery.image.url()}}"
+             ic-default="img/user.png">
     </div>
     <div class="item item-buttons">
         <div class="row">
@@ -42,21 +47,20 @@
                 <ion-spinner ng-show="gallery.progress"></ion-spinner>
                 <button photo-like
                         loading="gallery.progress"
-                        ng-model="gallery" ng-if="!gallery.progress"
-                        ng-class="gallery.isLiked ? 'ion-ios-heart' : 'ion-ios-heart-outline' "
+                        ng-model="gallery"
+                        ng-if="!gallery.progress"
+                        ng-class="gallery.isLiked ? 'boon-vet_mark-on' : 'boon-vet_mark-off' "
                         class="button-clear button-icon button-heart"></button>
                 <button ng-click="openComment(gallery.id)"
                         ng-model="gallery"
-                        class="button-clear button-icon ion-ios-chatbubble-outline"></button>
-                <button ng-click="share(gallery)" photogram="{{ :: gallery.id }}"
-                        class="button-clear button-icon ion-android-share"></button>
+                        class="button-clear button-icon boon-comment"></button>
             </div>
-            <div class="col album-name text-center" album-photo-grid album="gallery.album.id" edit="gallery.canEdit" >
+            <div class="col album-name text-center" album-photo-grid album="gallery.album.id" edit="gallery.canEdit">
                 <div ng-bind="gallery.album.attributes.title"></div>
             </div>
             <div class="col text-right">
                 <button ng-click="action(gallery)" photogram="{{ :: gallery.id }}"
-                        class="button-clear button-icon ion-android-more-vertical"></button>
+                        class="button-clear button-icon boon-vet_hamb"></button>
             </div>
         </div>
     </div>
@@ -71,12 +75,12 @@
 
         <div class="list-comments">
             <div class="comment-item">
-                <span profile-modal username="gallery.user.username" class="username">{{ :: gallery.user.name }}</span>
+                <span profile-modal username="gallery.user.get('username')" class="username">{{ :: gallery.user.get('name') }}</span>
                 <span class="comment" ng-bind-html="gallery.title | hashtag "></span>
             </div>
             <div class="comment-item"
                  ng-repeat="item in gallery.comments |limitTo:3 | orderBy:'createdAt':true">
-                <span class="username" profile-modal username="gallery.user.username">{{ :: item.user.name }}</span>
+                <span class="username" profile-modal username="gallery.user.get('username')">{{ :: item.user.name }}</span>
                 <span class="comment" ng-bind-html="item.text | hashtag"></span>
             </div>
             <a class="comment-item" ng-click="openComment(gallery.id)" ng-if="gallery.commentsTotal>3"

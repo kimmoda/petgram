@@ -1,15 +1,15 @@
-<ion-modal-view id="user-layout" class="modal-auth bg-animate" cache-view="false">
-    <ion-header-bar>
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
         <h1 class="title" translate="signin"></h1>
         <a ng-click="closeModal()" class="button button-icon icon ion-ios-close-empty"></a>
     </ion-header-bar>
 
-    <ion-content class="padding" scroll="false">
+    <ion-content scroll="false">
 
         <div class="step2">
-            <form name="myForm" novalidate="novalidate" ng-submit="submitLogin(myForm, form)">
+            <form name="myForm" novalidate="novalidate" on-submit="submitLogin(myForm, form)">
 
-                <label class="item item-input">
+                <label class="item item-input validated">
                     <i class="icon icon-user placeholder-icon"></i>
                     <input required="required"
                            type="text"
@@ -18,11 +18,10 @@
                            ng-minlength="4"
                            ng-maxlength="12"
                            ng-model-options="{debounce: 1000}"
-                           ng-pattern="/^[a-zA-Z'. -]+$/"
                            placeholder="{{'yourLogin' | translate}}"/>
                 </label>
 
-                <div ng-if="myForm.username.$dirty">
+                <div class="errors" ng-if="myForm.username.$dirty">
                     <div ng-messages="myForm.username.$error" class="validation-error">
                         <div ng-message="required" translate="usernameRequired"></div>
                         <div ng-message="email" translate="usernameInUse"></div>
@@ -32,7 +31,7 @@
                     </div>
                 </div>
 
-                <label class="item item-input">
+                <label class="item item-input validated">
                     <i class="icon icon-lock placeholder-icon"></i>
                     <input required
                            type="password"
@@ -41,21 +40,30 @@
                            placeholder="{{'password'|translate}}"/>
                 </label>
 
-                <button class="button button-block button-outline button-light "
-                        type="submit"
-                        translate="{{'submit' | translate}}">
-                </button>
+                <div class="errors" ng-if="myForm.username.$dirty">
+                    <div ng-messages="myForm.username.$error" class="validation-error">
+                        <div ng-message="required" translate="required"></div>
+                    </div>
+                </div>
+
+                <div class="padding">
+                    <button class="button button-block button-positive"
+                            type="submit"
+                            translate="{{'submit' | translate}}">
+                    </button>
+
+
+                    <a class="button button-block button-clear button-positive"
+                       ng-click="forgotPass()"
+                       translate="{{'forgotPass' | translate}}">
+                    </a>
+
+
+                    <span class="term">{{'termAccept' | translate}} <a
+                            href="https://photogramapp.com">{{'terms' | translate}}</a> </span>
+                </div>
 
             </form>
-
-            <button class="button button-block button-clear button-light "
-                    ng-click="forgotPass()"
-                    translate="{{'forgotPass' | translate}}">
-            </button>
-
-
-            <span class="term">{{'termAccept' | translate}} <a
-                    href="https://photogramapp.com">{{'terms' | translate}}</a> </span>
         </div>
 
     </ion-content>

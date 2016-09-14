@@ -2,7 +2,7 @@
 @import "font";
 @import "spinner";
 @import "map";
-
+@import "form";
 
 .item-invalid {
   border-bottom: 1px solid red !important;
@@ -151,16 +151,6 @@ ion-nav-bar {
     top: 1px !important;
     padding-top: 60px;
   }
-}
-
-.has-error {
-  border-left: 3px solid #cc2511 !important;
-  border-right: 3px solid #cc2511 !important;
-}
-
-.has-success {
-  border-left: 3px solid #3d8b3d;
-  border-right: 3px solid #3d8b3d;
 }
 
 .photogram {
@@ -327,7 +317,7 @@ ion-nav-bar {
 
   .card {
     .item {
-      border:none;
+      border: none;
     }
   }
 

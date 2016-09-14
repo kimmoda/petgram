@@ -8,6 +8,13 @@ $time: 0.5s;
   transition: all $time ease;
 }
 
+img.avatar {
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  width: 130px;
+  height: 130px;
+}
 
 .view-avatar {
   .row {
