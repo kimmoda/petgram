@@ -2,156 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9eabd7a-7d96-4ddd-9e94-d83aa3ae9f81" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/docs/TROUBLESHOOTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/docs/android/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/docs/browser/LOCALHOST_GUIDE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/docs/browser/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/docs/browser/app_domain_setup.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/docs/ios/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/plugin.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/android/ConnectPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/android/facebookconnect.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Bolts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFAppLink.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFAppLinkNavigation.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFAppLinkResolving.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFAppLinkTarget.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFCancellationToken.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFCancellationTokenRegistration.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFCancellationTokenSource.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFDefines.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFExecutor.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFMeasurementEvent.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFTask.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFTaskCompletionSource.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFURL.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BFWebViewAppLinkResolver.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/Bolts.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Headers/BoltsVersion.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/Bolts.framework/Modules/module.modulemap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/FBSDKCoreKit" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKButton.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKConstants.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKCopying.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKMacros.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKProfile.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKSettings.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Headers/FBSDKUtility.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKCoreKit.framework/Modules/module.modulemap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/FBSDKLoginKit" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/Headers/FBSDKLoginConstants.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/Headers/FBSDKLoginManagerLoginResult.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/Headers/FBSDKLoginTooltipView.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/Headers/FBSDKTooltipView.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKLoginKit.framework/Modules/module.modulemap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/FBSDKMessengerShareKit" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerBroadcastContext.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerButton.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerContext.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerShareKit.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerShareOptions.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerSharer.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerURLHandler.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerURLHandlerCancelContext.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerURLHandlerOpenFromComposerContext.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Headers/FBSDKMessengerURLHandlerReplyContext.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKMessengerShareKit.framework/Modules/module.modulemap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/FBSDKShareKit" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKAppGroupAddDialog.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKAppGroupContent.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKAppGroupJoinDialog.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKAppInviteContent.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKAppInviteDialog.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKGameRequestContent.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKGameRequestDialog.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKLikeButton.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKLikeControl.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKLikeObjectType.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKLiking.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKMessageDialog.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKSendButton.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareAPI.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareButton.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareConstants.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareDialog.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareDialogMode.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareKit.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareLinkContent.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareOpenGraphAction.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareOpenGraphContent.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareOpenGraphObject.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareOpenGraphValueContainer.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKSharePhoto.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKSharePhotoContent.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareVideo.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKShareVideoContent.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKSharing.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKSharingButton.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Headers/FBSDKSharingContent.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FBSDKShareKit.framework/Modules/module.modulemap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FacebookConnectPlugin.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/src/ios/FacebookConnectPlugin.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/tests/plugin.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/tests/tests.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/www/facebook-browser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-facebook4/www/facebook-native.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/android/UniversalAnalyticsPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAI.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAIDictionaryBuilder.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAIEcommerceFields.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAIEcommerceProduct.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAIEcommerceProductAction.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAIEcommercePromotion.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAIFields.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAILogger.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAITrackedViewController.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/GAITracker.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/UniversalAnalyticsPlugin.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/UniversalAnalyticsPlugin.m" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/ios/libGoogleAnalyticsServices.a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/lavaca/AnalyticsService.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/plugin.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/www/analytics.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/ios.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/README.md" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/package.json" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/plugin.xml" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/src/android/nl/xservices/plugins/SocialSharing.java" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/src/android/nl/xservices/plugins/SocialSharing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/src/ios/SocialSharing.m" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/src/ios/SocialSharing.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js" afterPath="$PROJECT_DIR$/plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/directive/facebookLoginDirective.js" afterPath="$PROJECT_DIR$/src/app/directive/facebookLoginDirective.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/fetch.json" afterPath="$PROJECT_DIR$/plugins/fetch.json" />
     </list>
     <ignored path="photogram.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -170,7 +22,7 @@
     <favorites_list name="photogram" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -263,10 +115,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="12" />
-    <option name="width" value="1276" />
-    <option name="height" value="777" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -314,6 +164,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -342,6 +193,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="NBKnowledgePane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -370,8 +222,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="NBKnowledgePane" />
       <pane id="ColorIdeProjectViewPane">
         <subPane>
           <PATH>
@@ -738,12 +588,13 @@
       <workItem from="1473801254425" duration="7139000" />
       <workItem from="1473830682602" duration="31000" />
       <workItem from="1473851011622" duration="116000" />
+      <workItem from="1473974989095" duration="18000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="507932000" />
+    <option name="totallyTimeSpent" value="507950000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,12 +606,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="12" width="1276" height="777" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17370518" sideWeight="0.4883081" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.4883081" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Get Gist" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -773,7 +625,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Get Gist" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1114,7 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,7 +972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,7 +979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,7 +986,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,7 +993,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,7 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,7 +1007,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,7 +1014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,7 +1021,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,7 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-988">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,7 +1035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-893">
           <caret line="24" column="49" lean-forward="false" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -110,8 +110,8 @@
         },
         "is_top_level": true,
         "variables": {
-            "APP_ID": "1024016557617380",
-            "APP_NAME": "Photogram"
+            "APP_ID": "1605113369788199",
+            "APP_NAME": "VetBoonPet"
         }
     },
     "cordova-plugin-device": {
