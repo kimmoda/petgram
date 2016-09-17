@@ -12,7 +12,7 @@
                     clear: true
                 });
             } else {
-                $state.go('user.avatar', {
+                $state.go('avatar', {
                     clear: true
                 });
             }

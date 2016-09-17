@@ -34,7 +34,7 @@
                             }).then(function (data) {
                                 console.log(data);
                                 $rootScope.currentUser = Parse.User.current();
-                                $state.go('user.avatar', {
+                                $state.go('avatar', {
                                     clear: true
                                 });
                                 Loading.end();

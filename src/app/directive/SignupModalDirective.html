@@ -15,6 +15,7 @@
                            type="email"
                            name="email"
                            ng-model="form.email"
+                           autocomplete="false"
                            email-validator
                            ng-model-options="{debounce: 1000}"
                            placeholder="user@example.com"/>
@@ -40,6 +41,7 @@
                            username-validator
                            ng-minlength="4"
                            ng-maxlength="12"
+                           autocomplete="false"
                            ng-model-options="{debounce: 1000}"
                            placeholder="{{'yourLogin' | translate}}"/>
                     <i class="icon ion-alert-circled error"></i>

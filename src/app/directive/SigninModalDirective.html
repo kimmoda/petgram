@@ -17,6 +17,7 @@
                            ng-model="form.username"
                            ng-minlength="4"
                            ng-maxlength="12"
+                           autocomplete="false"
                            ng-model-options="{debounce: 1000}"
                            placeholder="{{'yourLogin' | translate}}"/>
                 </label>
@@ -36,6 +37,7 @@
                     <input required
                            type="password"
                            name="password"
+                           autocomplete="false"
                            ng-model="form.password"
                            placeholder="{{'password'|translate}}"/>
                 </label>

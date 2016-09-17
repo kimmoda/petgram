@@ -38,7 +38,8 @@
         <div class="icon ion-ios-heart heart" ng-class="gallery.isLiked ? 'happy' : 'broken' "></div>
         <i class="icon" ng-if="like"></i>
         <img id="{{ ::gallery.id}}"
-             img-cache ic-src="{{gallery.image.url()}}"
+             img-cache
+             ic-src="{{gallery.image.url()}}"
              ic-default="img/user.png">
     </div>
     <div class="item item-buttons">

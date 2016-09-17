@@ -58,7 +58,7 @@
                             ParsePush.init();
                         }
 
-                        User.update(updateUser).then(function () {
+                        Parse.User.update(updateUser).then(function () {
                             defer.resolve(currentUser);
                         }).catch(defer.reject);
                     },
