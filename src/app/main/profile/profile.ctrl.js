@@ -3,7 +3,7 @@
 
     angular.module('app.main').controller('ProfileCtrl', ProfileController);
 
-    function ProfileController(User, $state, $stateParams) {
+    function ProfileController($scope, User, $state, $stateParams) {
         var vm = this;
 
         vm.loading = true;
@@ -13,6 +13,7 @@
             vm.isMe    = Parse.User.current().id === data.id ? true : false;
             vm.user    = data;
             vm.loading = false;
+            $scope.$digest();
         });
 
         vm.openFollowers = function () {
