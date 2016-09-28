@@ -4,17 +4,25 @@
 
     function GalleryFactory($q, Parse, $translate, moment) {
 
-        var ParseObject = Parse.Object.extend('Gallery', {
-                getStatus: function () {
-                    if (this.isApproved) {
-                        return 'Approved';
-                    } else if (this.isApproved === false) {
-                        return 'Rejected';
-                    } else {
-                        return 'Pending';
-                    }
-                }
-            },
+        var fields = [
+            'title',
+            'commentsTotal',
+            'likesTotal',
+            'user',
+            'profile',
+            'hashtags',
+            'words',
+            'privacity',
+            'address',
+            'lang',
+            'image',
+            'imageThumb',
+            'isApproved',
+            'expiresAt',
+            'icon',
+        ];
+
+        var ParseObject = Parse.Object.extend('Gallery', {},
             {
                 create     : function (item) {
                     var defer    = $q.defer();
@@ -156,24 +164,6 @@
                     return defer.promise;
                 }
             });
-
-        var fields = [
-            'title',
-            'commentsTotal',
-            'likesTotal',
-            'user',
-            'profile',
-            'hashtags',
-            'words',
-            'privacity',
-            'address',
-            'lang',
-            'image',
-            'imageThumb',
-            'isApproved',
-            'expiresAt',
-            'icon',
-        ];
 
 
         fields.map(function (field) {

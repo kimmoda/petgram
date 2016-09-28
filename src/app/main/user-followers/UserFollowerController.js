@@ -9,6 +9,7 @@
             console.log(data);
             vm.users   = data;
             vm.loading = false;
+            $scope.$digest();
         });
 
         $scope.clearSearch = function () {

@@ -3,7 +3,7 @@
 
     angular.module('starter').directive('facebookLogin', facebookLoginDirective);
 
-    function facebookLoginDirective(Loading, $state, $translate, AppConfig, Facebook, Dialog, User, $rootScope) {
+    function facebookLoginDirective(Loading, $state, $q, $translate, AppConfig, Facebook, Dialog, User, $rootScope) {
         return {
             restrict: 'E',
             link    : facebookLoginLink,

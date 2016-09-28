@@ -2,7 +2,7 @@
     'use strict';
     angular.module('app.main').controller('ActivityCtrl', ActivityController);
 
-    function ActivityController($scope, User, $rootScope,$state, GalleryActivity) {
+    function ActivityController($scope, User, $rootScope, $state, GalleryActivity) {
         init();
 
         $scope.openProfile = function (username) {
@@ -11,7 +11,7 @@
 
         $scope.follow = function (user) {
 
-            console.log( user.id, user.obj.id);
+            console.log(user.id, user.obj.id);
             user.loading = true;
 
             User.follow(user.obj.id).then(function (resp) {
@@ -72,6 +72,7 @@
 
         function init() {
             $scope.params              = {};
+            $scope.params.limit        = 50;
             $scope.params.page         = 1;
             $scope.data                = [];
             $scope.moreDataCanBeLoaded = true;

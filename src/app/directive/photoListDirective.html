@@ -22,7 +22,7 @@
 
 <div class="list card " ng-repeat="gallery in data | orderBy:'createdAt':true">
 
-    <div class="item item-avatar" ng-click="load(gallery.user.username)" ion-affix
+    <div class="item item-avatar" ng-click="load(gallery.user.get('username'))" ion-affix
          data-affix-within-parent-with-class="card">
         <img img-cache
              ic-src="{{::gallery.user.get('photo').url() || 'img/user.png'}}"

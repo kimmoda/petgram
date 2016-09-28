@@ -19,13 +19,9 @@
 
 
     function configImgCache(ImgCacheProvider) {
-        // set single options
-        ImgCacheProvider.setOption('debug', true);
-        ImgCacheProvider.setOption('usePersistentCache', true);
-
         // or more options at once
         ImgCacheProvider.setOptions({
-            debug             : true,
+            debug             : false,
             usePersistentCache: true
         });
 
@@ -132,7 +128,7 @@
         //$ionicConfigProvider.views.transition ('platform');
         $ionicConfigProvider.tabs.position('bottom');
         $ionicConfigProvider.navBar.alignTitle('center');
-        $ionicConfigProvider.views.maxCache(1);
+        //$ionicConfigProvider.views.maxCache(1);
     }
 
 // Facebook
