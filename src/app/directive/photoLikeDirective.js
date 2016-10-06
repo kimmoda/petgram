@@ -31,7 +31,7 @@
                             }
 
                             scope.loading = false;
-                            scope.$digest();
+                            scope.$apply();
                         });
                     }
                 );

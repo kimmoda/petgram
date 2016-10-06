@@ -80,8 +80,8 @@
                     if (data.length > 0) {
                         $scope.params.page++;
                         data.map(function (item) {
-                            if (item.pet) {
-                                item.canEdit = (currentUser.id === item.pet.attributes.user.id) ? true : false;
+                            if (item.album) {
+                                item.canEdit = (currentUser.id === item.album.attributes.user.id) ? true : false;
                             } else {
                                 item.canEdit = false;
                             }

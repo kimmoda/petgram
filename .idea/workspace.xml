@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9eabd7a-7d96-4ddd-9e94-d83aa3ae9f81" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/android.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-ca01cb3529.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-e133778403.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-f2ab241b14.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/vendor-bfd9233249.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/styles/app-4257cd27cc.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/styles/app-8a3a439f21.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-ca01cb3529.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-e133778403.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-f2ab241b14.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/vendor-bfd9233249.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/styles/app-4257cd27cc.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/styles/app-8a3a439f21.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-feef702559.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/styles/app-f6760a62af.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-feef702559.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/styles/app-f6760a62af.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/directive/photoLikeDirective.js" afterPath="$PROJECT_DIR$/src/app/directive/photoLikeDirective.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/directive/photoListDirective.html" afterPath="$PROJECT_DIR$/src/app/directive/photoListDirective.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/directive/photoListDirective.js" afterPath="$PROJECT_DIR$/src/app/directive/photoListDirective.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js" afterPath="$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryFactory.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
     </list>
     <ignored path="photogram.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,51 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GalleryFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/GalleryFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="photoListDirective.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="photoListDirective.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/directive/photoListDirective.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="photoLikeDirective.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/directive/photoLikeDirective.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="heart.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/directive/heart.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/UserFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3504">
-              <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+            <state relative-caret-position="380">
+              <caret line="57" column="82" lean-forward="false" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -105,6 +61,9 @@
       <find>params</find>
       <find>.get</find>
       <find>heart</find>
+      <find>translate</find>
+      <find>::</find>
+      <find>pet</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,8 +76,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/directive/SigninModalDirective.js" />
-        <option value="$PROJECT_DIR$/src/app/main/user-list/UserListController.js" />
         <option value="$PROJECT_DIR$/src/app/main/loading/loading.ctrl.js" />
         <option value="$PROJECT_DIR$/src/app/component/ion-language/modal-language.directive.js" />
         <option value="$PROJECT_DIR$/src/app/directive/photoGridDirective.js" />
@@ -126,7 +83,6 @@
         <option value="$PROJECT_DIR$/src/app/services/ParseServiceFactory.js" />
         <option value="$PROJECT_DIR$/src/app/component/ion-language/ion-language.module.js" />
         <option value="$PROJECT_DIR$/src/app/directive/heart.scss" />
-        <option value="$PROJECT_DIR$/src/app/directive/photoLikeDirective.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/src/app/index.module.js" />
         <option value="$PROJECT_DIR$/src/app/directive/photoGridDirective.html" />
@@ -164,8 +120,11 @@
         <option value="$PROJECT_DIR$/src/app/main/user-following/UserFollowingController.js" />
         <option value="$PROJECT_DIR$/src/app/index.config.js" />
         <option value="$PROJECT_DIR$/src/app/main/user-list/user-list.html" />
-        <option value="$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js" />
         <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/src/app/directive/photoLikeDirective.js" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js" />
+        <option value="$PROJECT_DIR$/src/app/directive/photoListDirective.js" />
         <option value="$PROJECT_DIR$/src/app/services/GalleryFactory.js" />
         <option value="$PROJECT_DIR$/src/app/directive/photoListDirective.html" />
       </list>
@@ -238,6 +197,35 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ionic-app-parse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ionic-app-parse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ionic-app-parse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ionic-app-parse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="NBKnowledgePane" />
       <pane id="Scope">
         <subPane subId="Project Files">
@@ -283,37 +271,30 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ionic-app-parse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ionic-app-parse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="ionic-app-parse">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ionic-app-parse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ionic-app-parse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="directive">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ColorIdeProjectViewPane">
         <subPane>
           <PATH>
@@ -362,6 +343,7 @@
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="FullScreen" value="true" />
+    <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -693,12 +675,14 @@
       <workItem from="1475028631898" duration="668000" />
       <workItem from="1475675210608" duration="265000" />
       <workItem from="1475759414327" duration="1799000" />
+      <workItem from="1475763479699" duration="1664000" />
+      <workItem from="1475767917138" duration="1411000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="513809000" />
+    <option name="totallyTimeSpent" value="516884000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -713,11 +697,12 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17474186" sideWeight="0.4883081" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17474186" sideWeight="0.5113636" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17474186" sideWeight="0.48863637" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Get Gist" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -737,7 +722,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Pomodoro CD" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="ReST Console" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -793,27 +777,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/directive/albumGridDirective.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="36" column="58" lean-forward="false" selection-start-line="36" selection-start-column="58" selection-end-line="36" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/directive/galleryAlbumModalDirective.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/directive/galleryNewAlbumModalDirective.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -975,13 +938,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/directive/SignupModalDirective.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -1049,14 +1005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="66" column="37" lean-forward="false" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1074,13 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/directive/photoListDirective.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/main/user-following/UserFollowingController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1092,7 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,22 +1054,69 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/photoLikeDirective.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/tab-activity/activity.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="36" column="70" lean-forward="false" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/GalleryFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="339">
+          <caret line="73" column="45" lean-forward="true" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/UserFactory.js">
+    <entry file="file://$PROJECT_DIR$/src/app/directive/photoListDirective.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3504">
-          <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+        <state relative-caret-position="281">
+          <caret line="85" column="28" lean-forward="false" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/albumPhotoGridDirective.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/tab/MainTabCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/albumPhotoGridPopover.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1142,18 +1129,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/directive/photoListDirective.html">
+    <entry file="file://$PROJECT_DIR$/src/app/services/UserFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+        <state relative-caret-position="418">
+          <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/directive/photoLikeDirective.js">
+    <entry file="file://$PROJECT_DIR$/src/app/directive/photoListDirective.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+        <state relative-caret-position="380">
+          <caret line="57" column="82" lean-forward="false" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="82" />
           <folding />
         </state>
       </provider>
