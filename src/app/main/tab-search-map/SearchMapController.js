@@ -180,7 +180,7 @@
                 }
 
                 $scope.loading = false;
-
+                $scope.$apply();
             }, function () {
                 Toast.show('errorText');
             });

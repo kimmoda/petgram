@@ -47,7 +47,7 @@
                         $scope.title   = data.album.attributes.title;
                         $scope.data    = data.photos;
                         $scope.loading = false;
-                        $scope.$digest();
+                        $scope.$apply();
                     });
                 }
 

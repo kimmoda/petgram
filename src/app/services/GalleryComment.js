@@ -1,130 +1,86 @@
 (function () {
     'use strict';
-    angular.module('starter').factory('GalleryComment', function ($q, Parse,  moment) {
+    angular.module('starter').factory('GalleryComment', GalleryComment);
 
-        var ParseObject = Parse.Object.extend('GalleryComment', {
-            getStatus: function () {
-                if (this.isApproved) {
-                    return 'Approved';
-                } else if (this.isApproved === false) {
-                    return 'Rejected';
-                } else {
-                    return 'Pending';
-                }
-            }
-        }, {
-            get        : function (itemId) {
-                var defer = $q.defer();
-                new Parse.Query(this)
-                    .get(itemId, {
-                        success: defer.resolve,
-                        error  : defer.reject
-                    });
+    function GalleryComment(Parse) {
 
-                return defer.promise;
-            },
-            create : function (item) {
-                var defer = $q.defer();
-                new ParseObject().save(item, {
-                    success: defer.resolve,
-                    error  : defer.reject
-                });
-                return defer.promise;
-            },
-            update : function (item) {
-                var defer = $q.defer();
-                item.save(null, {
-                    success: defer.resolve,
-                    error  : defer.reject
-                });
-                return defer.promise;
-            },
-            destroy: function (item) {
-                var defer = $q.defer();
-                item.destroy({
-                    success: defer.resolve,
-                    error  : defer.reject
-                });
-                return defer.promise;
-            },
-            all    : function (params) {
-                var defer = $q.defer();
-                var query = new Parse.Query(this);
+        var fields = [
+            'text',
+            'user',
+        ];
 
-                // Order Table
-
-                query.include('user');
-                query.ascending('createdAt');
-                query.equalTo('gallery', params.gallery);
-                query.limit(params.limit);
-                query.skip((params.page * params.limit) - params.limit);
-                query.find({
-                    success: defer.resolve,
-                    error  : defer.reject
-                });
-
-                return defer.promise;
-            },
-            count  : function (params) {
-                var defer = $q.defer();
-                var query = new Parse.Query(this);
-
-                if (params.filter != '') {
-                    query.contains('words', params.filter);
-                }
-
-
-                if (params.date && params.date !== null) {
-                    var start = moment(params.date).startOf('day');
-                    var end   = moment(params.date).endOf('day');
-                    query.greaterThanOrEqualTo('createdAt', start.toDate());
-                    query.lessThanOrEqualTo('createdAt', end.toDate());
-                }
-
-                if (params.status && params.status !== null) {
-
-                    if (params.status === 'pending') {
-                        query.doesNotExist('isApproved');
-                    } else if (params.status === 'rejected') {
-                        query.equalTo('isApproved', false);
-                    } else if (params.status === 'approved') {
-                        query.equalTo('isApproved', true);
-                    }
-                }
-
-                query.count({
-                    success: function (count) {
-                        defer.resolve(count);
-                    },
-                    error  : function (error) {
-                        defer.reject(error);
-                    }
-                });
-
-                return defer.promise;
-            }
+        var ParseObject = Parse.Object.extend('GalleryComment', {}, {
+            get    : get,
+            create : put,
+            update : put,
+            destroy: destroy,
+            all    : all,
         });
 
-        Object.defineProperty(ParseObject.prototype, 'user', {
-            get: function () {
-                return this.get('user');
-            },
-            set: function (value) {
-                this.set('user', value);
+
+        function all(params) {
+            var query = new Parse.Query(this);
+            // Order Table
+            query.include('user');
+            query.ascending('createdAt');
+            query.equalTo('gallery', params.gallery);
+            query.limit(params.limit);
+            query.skip((params.page * params.limit) - params.limit);
+            return query.find();
+        }
+
+        // Parse Crud
+        function get(galleryId) {
+            return new Parse.Query(this).include('profile').get(galleryId);
+        }
+
+        function put(item) {
+
+            if (item.address && item.address.geo) {
+                item.location = new Parse.GeoPoint(item.address.geo);
             }
+
+            item.lang = $translate.use();
+
+            if (!item.id) {
+                var objPlace = new ParseObject();
+                return objPlace.save(item);
+            } else {
+                return item.save();
+            }
+
+        }
+
+        function destroy(item) {
+            return item.destroy();
+        }
+
+        fields.map(function (field) {
+            Object.defineProperty(ParseObject.prototype, field, {
+                get: function () {
+                    return this.get(field);
+                },
+                set: function (value) {
+                    this.set(field, value);
+                }
+            });
         });
 
-        Object.defineProperty(ParseObject.prototype, 'text', {
+        // This is a GeoPoint Object
+        Object.defineProperty(ParseObject.prototype, 'location', {
             get: function () {
-                return this.get('text');
+                return this.get('location');
             },
-            set: function (value) {
-                this.set('text', value);
+            set: function (val) {
+                this.set('location', new Parse.GeoPoint({
+                    latitude : val.latitude,
+                    longitude: val.longitude
+                }));
             }
         });
 
         return ParseObject;
 
-    });
+    }
 
 })();
