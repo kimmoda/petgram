@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('GalleryAlbum', GalleryFactory);
 
-    function GalleryFactory(Parse) {
+    function GalleryFactory(Parse, $translate) {
 
         var fields = [
             'title',

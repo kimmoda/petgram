@@ -39,10 +39,11 @@ echo "       $2      Version: $3 "
 echo ""
 echo ""
 # echo "---> Gulp Production"
-#gulp clean
-#gulp build
+gulp clean
+gulp build
 
 echo "---> Starting build  $appname v$version"
+cordova clean
 cordova build android --release
 
 echo ""

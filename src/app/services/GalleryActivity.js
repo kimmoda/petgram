@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('starter').factory('GalleryActivity', function (Parse) {
+    angular.module('starter').factory('GalleryActivity', function (Parse, $translate) {
 
         var fields = [
             'title',

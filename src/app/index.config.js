@@ -150,7 +150,7 @@
                 if (d.getElementById(id)) {return;}
                 js     = d.createElement(s);
                 js.id  = id;
-                js.src = 'https://connect.facebook.net/' + userLangVar + '/sdk.js';
+                js.src = 'https://connect.facebook.net/' + userLangVar + '/all.js';
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         }

@@ -2,7 +2,7 @@
     'use strict';
     angular.module('starter').factory('GalleryFeedback', GalleryFeedback);
 
-    function GalleryFeedback(Parse) {
+    function GalleryFeedback(Parse,$translate) {
 
         var fields      = [
             'subject',
