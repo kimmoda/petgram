@@ -1,3 +1,13 @@
+# Version 3.0.34 its now called ParseGram
+
+- New Name
+- Fix Push Notification
+- Fix Follow user
+- Fix profile
+- New credits in settings modal
+- Fix name by user comment in feed
+- New intro images
+
 # Version 3.0.18 in Development
 
 - Privacity in your share and feed Photo

@@ -33,7 +33,8 @@
             }, {
                 text: 'STEP3',
                 img : 'img/intro3.png'
-            }, {
+            },
+            {
                 text: 'STEP4',
                 img : 'img/intro4.png'
             }, {
@@ -42,9 +43,6 @@
             }, {
                 text: 'STEP6',
                 img : 'img/intro6.png'
-            }, {
-                text: 'STEP7',
-                img : 'img/intro7.png'
             }
         ];
         window.localStorage['walkthrough'] = true;

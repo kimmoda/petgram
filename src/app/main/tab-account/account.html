@@ -60,17 +60,21 @@
 
         <div class="item bar">
             <div class="button-bar">
+                <button class="button button-icon icon ion-drag" ng-class="{'active': vm.tab.list}"
+                        ng-click="vm.changeTab('list')"></button>
                 <button class="button button-icon icon ion-grid" ng-class="{'active': vm.tab.grid}"
                         ng-click="vm.changeTab('grid')"></button>
                 <button class="button button-icon icon ion-ios-camera-outline" ng-class="{'active': vm.tab.album}"
                         ng-click="vm.changeTab('album')"></button>
-                <button class="button button-icon icon ion-drag" ng-class="{'active': vm.tab.list}"
-                        ng-click="vm.changeTab('list')"></button>
                 <button class="button button-icon icon ion-ios-location-outline" ng-class="{'active': vm.tab.map}"
                         ng-click="vm.changeTab('map')"></button>
             </div>
         </div>
 
+        <div class="tab" ng-if="vm.tab.list && !vm.loading">
+            <div class="item item-divider" translate="recent"></div>
+            <photo-list username="vm.user.attributes.username" on-reload="onReload"></photo-list>
+        </div>
         <div class="tab" ng-if="vm.tab.grid && !vm.loading">
             <div class="item item-divider" translate="recent"></div>
             <photo-grid username="vm.user.attributes.username" on-reload="onReload"></photo-grid>
@@ -78,10 +82,6 @@
         <div class="tab" ng-if="vm.tab.album && !vm.loading">
             <div class="item item-divider" translate="albums"></div>
             <album-grid username="vm.user.attributes.username" on-reload="onReload"></album-grid>
-        </div>
-        <div class="tab" ng-if="vm.tab.list && !vm.loading">
-            <div class="item item-divider" translate="recent"></div>
-            <photo-list username="vm.user.attributes.username" on-reload="onReload"></photo-list>
         </div>
         <div class="tab" ng-if="vm.tab.map && !vm.loading">
             <div class="item item-divider" translate="map"></div>

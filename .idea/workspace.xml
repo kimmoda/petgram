@@ -2,30 +2,124 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9eabd7a-7d96-4ddd-9e94-d83aa3ae9f81" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/.eslintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/.jsbeautifyrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/build-dev.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/build.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/inject.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/scripts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/styles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/translate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/watch.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/img/intro7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/i18n/de.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/i18n/en.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/i18n/fa.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/i18n/pt.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/app/i18n/tr.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/Simple-Line-Icons.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/billabong.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/billabong.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icomoon.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icomoon.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icomoon.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/icomoon.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/ionicons.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/ionicons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/ionicons.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/fonts/ionicons.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/albumnew.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/albumnone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/devices/android.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/devices/iphone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/intro7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/m1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/m2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/m3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/m4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/m5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/user.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/app-4105d16438.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/scripts/vendor-8920f29360.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/styles/app-622a3bfc5f.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/maps/styles/vendor-4cfd564e58.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/app-4105d16438.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/scripts/vendor-8920f29360.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/styles/app-622a3bfc5f.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/styles/vendor-4cfd564e58.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-736h.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/splash.png" afterPath="$PROJECT_DIR$/resources/splash.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fonts/icomoon.eot" afterPath="$PROJECT_DIR$/src/fonts/icomoon.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fonts/icomoon.ttf" afterPath="$PROJECT_DIR$/src/fonts/icomoon.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fonts/icomoon.woff" afterPath="$PROJECT_DIR$/src/fonts/icomoon.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/intro1.png" afterPath="$PROJECT_DIR$/src/img/intro1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/intro2.png" afterPath="$PROJECT_DIR$/src/img/intro2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/intro3.png" afterPath="$PROJECT_DIR$/src/img/intro3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/intro4.png" afterPath="$PROJECT_DIR$/src/img/intro4.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/intro5.png" afterPath="$PROJECT_DIR$/src/img/intro5.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/img/intro6.png" afterPath="$PROJECT_DIR$/src/img/intro6.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CHANGELOG.md" afterPath="$PROJECT_DIR$/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/apk" afterPath="$PROJECT_DIR$/bin/apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/apkcross" afterPath="$PROJECT_DIR$/bin/apkcross" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.config.js" afterPath="$PROJECT_DIR$/src/app/index.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryActivity.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryActivity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryAlbumFactory.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryAlbumFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryComment.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryComment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryFactory.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryFactory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/GalleryFeedback.js" afterPath="$PROJECT_DIR$/src/app/services/GalleryFeedback.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/scripts/app.js" afterPath="$PROJECT_DIR$/www/scripts/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/fetch.json" afterPath="$PROJECT_DIR$/plugins/fetch.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/directive/profileEdit.scss" afterPath="$PROJECT_DIR$/src/app/directive/profileEdit.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/directive/settings-modal.html" afterPath="$PROJECT_DIR$/src/app/directive/settings-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/i18n/de.json" afterPath="$PROJECT_DIR$/src/app/i18n/de.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/i18n/en.json" afterPath="$PROJECT_DIR$/src/app/i18n/en.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/i18n/fa.json" afterPath="$PROJECT_DIR$/src/app/i18n/fa.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/i18n/pt.json" afterPath="$PROJECT_DIR$/src/app/i18n/pt.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/i18n/tr.json" afterPath="$PROJECT_DIR$/src/app/i18n/tr.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.module.js" afterPath="$PROJECT_DIR$/src/app/index.module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/profile/profile.ctrl.js" afterPath="$PROJECT_DIR$/src/app/main/profile/profile.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/profile/profile.html" afterPath="$PROJECT_DIR$/src/app/main/profile/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/tab-account/account.ctrl.js" afterPath="$PROJECT_DIR$/src/app/main/tab-account/account.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/tab-account/account.html" afterPath="$PROJECT_DIR$/src/app/main/tab-account/account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/tab-home/home.html" afterPath="$PROJECT_DIR$/src/app/main/tab-home/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/tab-home/home.scss" afterPath="$PROJECT_DIR$/src/app/main/tab-home/home.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/user-intro/UserIntroCtrl.js" afterPath="$PROJECT_DIR$/src/app/main/user-intro/UserIntroCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/user-list/UserListController.js" afterPath="$PROJECT_DIR$/src/app/main/user-list/UserListController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/style/_font.scss" afterPath="$PROJECT_DIR$/src/app/style/_font.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fonts/icomoon.svg" afterPath="$PROJECT_DIR$/src/fonts/icomoon.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
     </list>
     <ignored path="photogram.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,98 +138,7 @@
     <favorites_list name="photogram" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GalleryActivity.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/GalleryActivity.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="84" lean-forward="false" selection-start-line="2" selection-start-column="84" selection-end-line="2" selection-end-column="84" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FacebookFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/FacebookFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1178">
-              <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DialogFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/DialogFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParseFileFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/ParseFileFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParsePushFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/ParsePushFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserFactory.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/services/UserFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="167" column="17" lean-forward="false" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParseServiceFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/ParseServiceFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShareFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/ShareFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ToastFactory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/ToastFactory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -160,10 +163,13 @@
       <find>_url</find>
       <find>all</find>
       <find>loading</find>
-      <find>push</find>
       <find>like</find>
       <find>min</find>
       <find>translate</find>
+      <find>buy</find>
+      <find>push</find>
+      <find>form</find>
+      <find>filter</find>
     </findStrings>
     <replaceStrings>
       <replace>url()</replace>
@@ -179,19 +185,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/directive/validated.submit.js" />
-        <option value="$PROJECT_DIR$/src/app/index.routes.js" />
-        <option value="$PROJECT_DIR$/src/app/style/user.scss" />
-        <option value="$PROJECT_DIR$/src/app/main/user-avatar/UserAvatarCtrl.js" />
-        <option value="$PROJECT_DIR$/src/app/i18n/en.json" />
-        <option value="$PROJECT_DIR$/src/app/main/user-avatar/user-avatar.html" />
-        <option value="$PROJECT_DIR$/src/app/i18n/pt.json" />
-        <option value="$PROJECT_DIR$/src/app/style/_form.scss" />
-        <option value="$PROJECT_DIR$/src/app/directive/albumGridDirective.html" />
-        <option value="$PROJECT_DIR$/src/app/directive/galleryAlbumModalDirective.html" />
         <option value="$PROJECT_DIR$/src/app/main/gallery-comment/gallery-comment.html" />
-        <option value="$PROJECT_DIR$/src/app/main/profile/profile.html" />
-        <option value="$PROJECT_DIR$/src/app/main/tab-account/account.html" />
         <option value="$PROJECT_DIR$/src/app/main/user-followers/user-followers.html" />
         <option value="$PROJECT_DIR$/src/app/main/user-following/user-following.html" />
         <option value="$PROJECT_DIR$/src/app/main/user-likers/user-likers.html" />
@@ -230,6 +224,18 @@
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/bin/apkcross" />
         <option value="$PROJECT_DIR$/src/app/services/GalleryActivity.js" />
+        <option value="$PROJECT_DIR$/src/app/main/tab-account/account.html" />
+        <option value="$PROJECT_DIR$/src/app/main/profile/profile.html" />
+        <option value="$PROJECT_DIR$/src/app/index.module.js" />
+        <option value="$PROJECT_DIR$/src/app/directive/settings-modal.html" />
+        <option value="$PROJECT_DIR$/src/app/i18n/pt.json" />
+        <option value="$PROJECT_DIR$/src/app/i18n/tr.json" />
+        <option value="$PROJECT_DIR$/src/app/i18n/de.json" />
+        <option value="$PROJECT_DIR$/src/app/i18n/fa.json" />
+        <option value="$PROJECT_DIR$/src/app/i18n/en.json" />
+        <option value="$PROJECT_DIR$/src/app/main/user-intro/UserIntroCtrl.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/CHANGELOG.md" />
       </list>
     </option>
   </component>
@@ -308,60 +314,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="ionic-app-parse">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ionic-app-parse">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ionic-app-parse">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="ionic-app-parse">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="services">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -793,12 +745,13 @@
       <workItem from="1476781943301" duration="690000" />
       <workItem from="1476782645344" duration="85000" />
       <workItem from="1476784080810" duration="6000" />
+      <workItem from="1476930652487" duration="2318000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="520955000" />
+    <option name="totallyTimeSpent" value="523273000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -811,10 +764,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17474186" sideWeight="0.5113636" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17109375" sideWeight="0.48863637" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17077045" sideWeight="0.48863637" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Get Gist" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32737276" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1078,41 +1031,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/directive/photoListDirective.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="37" column="51" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/GalleryActivity.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="84" lean-forward="false" selection-start-line="2" selection-start-column="84" selection-end-line="2" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/FacebookFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/DialogFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/ParseFileFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1127,16 +1049,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/UserFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="167" column="17" lean-forward="false" selection-start-line="167" selection-start-column="17" selection-end-line="167" selection-end-column="17" />
+        <state relative-caret-position="190">
+          <caret line="176" column="37" lean-forward="true" selection-start-line="176" selection-start-column="37" selection-end-line="177" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/ParseFileFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/DialogFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/FacebookFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="62" column="29" lean-forward="false" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/services/ParseServiceFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="190">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1153,6 +1099,126 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/i18n/pt.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="72" column="46" lean-forward="false" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/index.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/profile/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/tab-account/account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="63" column="65" lean-forward="false" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/i18n/de.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="71" column="50" lean-forward="false" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/i18n/fa.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="71" column="43" lean-forward="false" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/i18n/tr.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="98" lean-forward="false" selection-start-line="14" selection-start-column="98" selection-end-line="14" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/photoListDirective.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="95" column="6" lean-forward="true" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/main/user-intro/UserIntroCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/AuthFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/settings-modal.directive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/i18n/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/directive/settings-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="35" />
           <folding />
         </state>
       </provider>

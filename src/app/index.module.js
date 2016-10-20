@@ -16,7 +16,7 @@
         'angulartics',
         'angulartics.google.analytics',
         'jett.ionic.scroll.sista',
-        'ion-affix',
+        //'ion-affix',
         'ngCordova',
         'ImgCache',
         'ionic.components',

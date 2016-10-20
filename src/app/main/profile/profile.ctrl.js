@@ -55,6 +55,7 @@
                     vm.user.followersTotal -= 1;
                 }
                 vm.loadingFollow = false;
+                $scope.$apply();
             });
 
 
@@ -62,8 +63,8 @@
 
         init();
         vm.tab = {
-            grid : true,
-            list : false,
+            list : true,
+            grid : false,
             album: false,
             map  : false
         };

@@ -29,8 +29,8 @@
         init();
 
         vm.tab = {
-            grid : true,
-            list : false,
+            list : true,
+            grid : false,
             album: false,
             map  : false
         };

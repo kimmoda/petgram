@@ -94,6 +94,7 @@
                     user.followersTotal -= 1;
                 }
                 user.loading = false;
+                $scope.$apply();
             });
         };
 
