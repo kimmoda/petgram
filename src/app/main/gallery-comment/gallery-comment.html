@@ -17,7 +17,7 @@
         <ion-list class="list" ng-if="!loading" can-swipe="true">
             <div  class="item item-avatar">
                 <img img-cache
-                     ic-default="img/user.png"
+
                      ic-src="{{ ::gallery.imageThumb.url()|| './img/user.png'}}">
 
                 <p>
@@ -30,7 +30,7 @@
             </div>
             <ion-item ng-repeat="item in comments | orderBy:'createdAt':false" class="item item-avatar">
                 <img img-cache
-                     ic-default="img/user.png"
+
                      ic-src="{{ ::item.user.photo._url || './img/user.png'}}">
                 <p>
                     <h2>{{ ::item.user.username }}</h2><div class="text">{{ ::item.text }}</div>

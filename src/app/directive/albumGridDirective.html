@@ -35,7 +35,7 @@
          album="data[$index].id" edit="canEdit">
         <img img-cache
              ic-src="{{ ::data[$index ].imageThumb._url || 'img/albumnone.png'}}"
-             ic-default="img/user.png"
+
              width="100%"/>
         <div class="desc">
             <h2>{{::data[$index].title}}</h2>
@@ -47,7 +47,7 @@
          album-photo-grid album="data[$index+1].id" edit="canEdit">
         <img img-cache
              ic-src="{{ ::data[$index + 1].imageThumb._url || 'img/albumnone.png'}}"
-             ic-default="img/user.png"
+
              width="100%"/>
         <div class="desc">
             <h2>{{::data[$index+1].title}}</h2>

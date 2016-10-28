@@ -34,7 +34,6 @@
 
             <div class="item item-avatar item-animate1" ng-repeat="item in data | orderBy:'createdAt':true">
                 <img img-cache
-                     ic-default="img/user.png"
                      ic-src="{{ item.user.photo._url  || './img/user.png'}}">
 
                 <h2 ng-click="openProfile(item.user.username)">{{ item.user.username}}</h2>
@@ -44,7 +43,7 @@
 
                 <div class="img-right" ng-if="item.item.gallery">
                     <img img-cache
-                         ic-default="img/user.png"
+
                          ic-src="{{ item.item.gallery.attributes.imageThumb._url}}">
                 </div>
 

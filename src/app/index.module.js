@@ -15,7 +15,7 @@
         'mentio',
         'angulartics',
         'angulartics.google.analytics',
-        'jett.ionic.scroll.sista',
+        //'jett.ionic.scroll.sista',
         //'ion-affix',
         'ngCordova',
         'ImgCache',
